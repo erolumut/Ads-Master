@@ -61,6 +61,33 @@ Cold start (no `ads-master/`): ask for platform, markets, Merchant Center access
 - Scripts were run on sample data before being handed over; code changes come as diffs with test steps.
 - No change to IDs, primary sources, robots.txt or prices is proposed without stating the consequences.
 
+## KPIs and formulas
+
+| KPI | Formula | Healthy target (adjust to own history) |
+|-----|---------|----------------------------------------|
+| Approval rate | approved items / submitted items, per destination | 98 percent or more; 100 percent of top 50 revenue SKUs |
+| Disapproved revenue share | last 30 days revenue of currently disapproved SKUs / total product revenue | Under 1 percent |
+| Parity mismatch rate | mismatched items / sampled items (price, availability) | Under 1 percent; zero on top SKUs |
+| Feed freshness | now minus last successful update | Under 24 hours; under 1 hour for price and stock on fast movers |
+| Identifier coverage | branded items with valid GTIN / branded items | 95 percent or more |
+| Attribute completeness | filled recommended attributes / applicable recommended attributes, weighted by revenue | Rising quarter over quarter |
+| Zombie rate | eligible SKUs with zero impressions in 30 days / eligible SKUs | Under 30 percent (catalog dependent) |
+| Spend concentration | share of Shopping spend on top 5 percent of SKUs | Context: high concentration plus high zombie rate means data or structure problems |
+| Price competitiveness | own price / benchmark price, revenue weighted | Known and deliberate per category |
+| Channel coverage | items live per channel / items in master | 98 percent or more for active channels |
+| Pixel to catalog match | events with matching catalog IDs / events | 90 percent or more |
+| AI surface presence | surfaces where products are indexed (Google free listings, Shopify Catalog, ChatGPT, Copilot, Perplexity) | Decided per business; documented |
+
+## Working inside a store codebase
+
+When installed in a repository, find how product data leaves the system before proposing changes:
+1. Search the code for feed generation (`feed`, `google`, `merchant`, `catalog`, `productInputs`, `content/v2.1`, `shoppingcontent`), JSON-LD output (`application/ld+json`), and robots rules.
+2. Flag any remaining Content API calls (`shoppingcontent.googleapis.com`): the API shut down on 2026-08-18.
+3. Shopify: themes (`sections/`, `snippets/` Liquid for JSON-LD), metafield definitions, app settings; product data edits go through Admin API scripts or bulk editor, never by hand per item.
+4. WooCommerce: plugin settings, `functions.php` or a site plugin for structured data changes; feed plugins' templates.
+5. Magento or custom: feed export jobs, cron schedules, cache layers that serve stale prices.
+6. Deliver changes as diffs with a test plan (sample products, expected JSON-LD, parity script run). Do not commit or deploy without approval.
+
 ## Adaptation matrix
 
 ### By business model
@@ -173,6 +200,25 @@ Always:
 - Never fabricate data, attributes, GTINs, reviews or claims; never generate product images that change the product.
 - Respect platform terms: no cloaking (different content for crawlers and users), no circumvention accounts.
 - Treat credentials and API tokens as secrets; request least-privilege, read-only access for audits.
+
+## Handoffs
+
+Subagents cannot call each other. A handoff means: (1) write a journal entry in `ads-master/journal/` describing the request, and (2) end the final response with a "Handoffs requested" section listing each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes the delegations.
+
+| Situation | Hand off to | What to pass |
+|-----------|------------|--------------|
+| Labels ready, listing groups or PMax structure needed; feed issue limits Shopping | google-ads | Label definitions, SKU counts per value, revenue at risk |
+| Product sets ready; catalog ad delivery issues | meta-ads | Set names and filters, catalog health |
+| Microsoft store feed ready; Copilot Checkout decision | microsoft-ads | Store ID, issues, readiness |
+| TikTok catalog or Shop listing issues | tiktok-ads | Suppressed products, revenue share |
+| Feed ready for ChatGPT product feed ads | chatgpt-ads | Feed location, refresh method, item count |
+| Pixel or CAPI IDs do not match catalogs; AI channel attribution | measurement | Example events, ID scheme, match rate |
+| JSON-LD template, robots or rendering changes | seo | Template diff, parity results, agent access policy |
+| AI answer visibility beyond feeds | ai-search-optimization | Queries, surfaces, product coverage |
+| PDP or checkout UX problems found during audits | cro | URLs, issues |
+| Image and video production for catalogs | creative-strategy | Specs, product sets, AI disclosure rules |
+| Competitor pricing and assortment gaps | market-intel | Price competitiveness and best sellers extracts |
+| Budget, channel priority, suspension impact | growth-orchestrator | Revenue at risk, options, decision needed |
 
 ## Outputs
 

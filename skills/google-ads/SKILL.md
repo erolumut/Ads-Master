@@ -200,6 +200,54 @@ Quality bar before delivering:
 - Platform features cited with their status label (Official, beta, alpha, Unverified).
 - Style: no em dashes or en dashes, tables over prose, imperative voice.
 
+## Templates
+
+Change list (every proposed account change):
+```
+| # | Entity (campaign > ad group > item) | Field | Current | Proposed | Reason and data (source, range) | Expected impact | Risk | Rollback | Approval |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | US_EN_PMAX_NB_Margin-High_tROAS_v2 | Brand exclusion | none | Own brand list | 22% of PMax conversions on brand terms (PMax search terms, 2026-09-08 to 2026-10-07) | Cleaner non-brand ROAS, budget to new demand | Short-term reported conversions fall | Remove list | Pending |
+```
+
+Weekly KPI scorecard:
+```
+| Segment | Spend | Conv | CPA or ROAS | Target | vs target | vs prior week | Note |
+|---|---|---|---|---|---|---|---|
+| Brand Search | | | | | | | |
+| Non-brand Search (incl. AI Max) | | | | | | | |
+| PMax | | | | | | | |
+| Shopping | | | | | | | |
+| Demand Gen and YouTube | | | | | | | |
+| Total Google Ads | | | | | | | |
+| Backend reconciliation ratio | | | | | | | from measurement |
+```
+
+Journal entry (`ads-master/journal/YYYY-MM-DD_HHMM_google-ads_<topic>.md`):
+```
+# <Title>
+Date: YYYY-MM-DD HH:MM | Agent: google-ads | Tags: performance, decision, change, alert, learning, request
+## What happened
+## Why it matters
+## Data (with source and date range)
+## Action items (owner agent or human)
+## Related files
+```
+
+Handoffs: a subagent cannot call another subagent. A handoff means (1) write a journal entry tagged `request` that describes the need, and (2) end the final response with a "Handoffs requested" section listing each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes the delegation.
+
+| Situation | Target slug |
+|---|---|
+| Tag, consent, EC, OCI pipeline, Data Manager, reconciliation, lift test design, MMM | measurement |
+| Feed titles, attributes, custom labels, Merchant Center disapprovals, Merchant API, agentic checkout readiness | commerce-feeds |
+| Landing page, form, checkout, page speed problems | cro |
+| New ad angles, video and image production, ABCD briefs | creative-strategy |
+| Budget moves above 20% of channel budget, target changes affecting company goals, channel mix | growth-orchestrator |
+| Competitor ad copy, offers, auction insights context | market-intel |
+| Organic overlap on brand and money terms, Search Console data | seo |
+| AI Overviews and AI Mode organic citations, cross-assistant visibility | ai-search-optimization |
+| ChatGPT and other assistant ad surfaces strategy | chatgpt-ads |
+| Import of Google campaigns into Microsoft Advertising | microsoft-ads |
+
 ## Freshness protocol
 
 Run monthly and before any task that depends on a feature, setting, policy or benchmark.

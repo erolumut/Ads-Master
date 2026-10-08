@@ -30,7 +30,7 @@ Domain Rating or Authority Score are vendor metrics, useful for triage only. Alw
 | Unlinked brand mentions | Find mentions without links (Ahrefs or Semrush mention tracking, Google Alerts) and ask for a link | Brands with press | Low |
 | Link reclamation | Fix 404s with external links (301 to best match); ask sites linking to old URLs to update | Sites with history, after migrations | Low |
 | Digital PR with original data | Surveys, proprietary data analyses, indexes, annual reports with methodology, pitched to journalists | All with data access | Medium to high |
-| Expert commentary | Respond to journalist requests (Qwoted, Featured, Source of Sources, HARO revival, X and LinkedIn journalist requests); build an expert bench | Experts in B2B, finance, health, legal | Medium |
+| Expert commentary | Respond to journalist requests (platforms such as Qwoted, Featured, Source of Sources, and journalist requests on X and LinkedIn; the original HARO service shut down in 2024 and platforms change often [Unverified current list]); build an expert bench | Experts in B2B, finance, health, legal | Medium |
 | Free tools and calculators | Useful tool that others reference | SaaS, finance, ecommerce niches | High upfront, compounding |
 | Resource and directory inclusion | Genuine industry directories, association member lists, curated resource pages | Local, B2B | Low |
 | Local links | Sponsorships, events, local news, chambers, schools, charities | Local businesses | Low to medium |
