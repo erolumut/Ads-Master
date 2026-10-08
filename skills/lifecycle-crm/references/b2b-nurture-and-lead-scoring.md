@@ -107,7 +107,7 @@ Tools: Customer.io, Braze, Iterable, Intercom, HubSpot, Userpilot or Appcues for
 
 - Corporate recipients sit behind Microsoft 365 and Google Workspace filters plus secure email gateways that prefetch links; expect inflated clicks from scanners.
 - Keep marketing nurture on a marketing subdomain, separate from sales one to one mail and transactional product mail.
-- Cold outbound prospect lists (purchased contact data) are not lifecycle: they carry consent risk (GDPR, PECR, CASL) and deliverability risk; route any cold outreach question to `compliance` and keep it off the marketing domain.
+- Cold outbound contact lists (purchased contact data) are not lifecycle: they carry consent risk (GDPR, PECR, CASL) and deliverability risk; route any cold outreach question to `compliance` and keep it off the marketing domain.
 
 ## 9. Tools and AI (2026)
 

@@ -73,7 +73,7 @@ SMS message ROI          = incremental revenue x margin / (ESP fee + carrier fee
 LTV to CAC               = 12m contribution LTV / acquisition investment per new customer (METRICS.md)
 ```
 
-Worked example: 6,000 first time buyers per month, 60 day repeat rate 14%, contribution per repeat order 24 USD. A post purchase rebuild plus replenishment reminders lift it to 16.5% in a 80/20 flow holdout. Monthly incremental value = 6,000 x 0.025 x 24 = 3,600 USD from the first repeat order, before downstream LTV. Report it with the experiment ID, the interval and the holdout split, not as "flows made 40,000 USD" (attributed revenue).
+Worked example: 6,000 first time buyers per month, 60 day repeat rate 14%, contribution per repeat order 24 USD. A post purchase rebuild plus replenishment reminders lift it to 16.5% in an 80/20 flow holdout. Monthly incremental value = 6,000 x 0.025 x 24 = 3,600 USD from the first repeat order, before downstream LTV. Report it with the experiment ID, the interval and the holdout split, not as "flows made 40,000 USD" (attributed revenue).
 
 ## Adaptation matrix
 

@@ -89,7 +89,7 @@ No discounts. Benchmark: browse abandonment RPR about $1.07 average, top 10% abo
 | Flow | Trigger | Timing | Content | Notes |
 |------|---------|--------|---------|------|
 | Back in stock | Subscribed to Back in Stock (Klaviyo) or equivalent | When inventory crosses a threshold; batch to avoid selling out before later subscribers get the message | Item back, direct link, size or variant | Highest conversion automation in Omnisend 2025 data: 6.46% [Study, vendor, 2026]; Klaviyo third party average RPR about $9.14 [Unverified] |
-| Price drop | Catalog price decreased for a viewed or carted item (Klaviyo Price Drop trigger) | Within 24 hours of drop | Old vs new price, item link | Price reduction claims must follow prior price rules (EU Omnibus: lowest price in prior 30 days); check with `compliance` |
+| Price drop | Catalog price decreased for a viewed or carted item (Klaviyo Price Drop trigger) | Within 24 hours of drop | Old vs new price, item link | Price reduction claims must follow prior price rules (EU Omnibus: lowest price in the prior 30 days; Turkey has its own prior price rule); check with `compliance` and `offer-strategy` |
 | Low inventory | Inventory below threshold for viewed or carted items | Once | Real stock signal only | Never fake scarcity (consumer law) |
 
 ## 6. Post purchase (first time buyer vs repeat buyer)
