@@ -224,7 +224,7 @@ Create one page per angle in Online Store > Pages, assign the template. Use an a
 Notes:
 - Liquid does not reliably read arbitrary query parameters, and full-page caching serves the same HTML to everyone. Use one page per angle rather than parameter-driven copy.
 - Review stars: render from product metafields server side instead of a blocking widget above the fold.
-- Theme A/B test: duplicate the theme, apply the change, and run it in Shopify Rollouts (server-side split, RPV primary metric, no confidence intervals: compute significance yourself with [Experimentation statistics](experimentation-statistics.md)). Or use a theme testing app or platform with targeting and stats.
+- Theme A/B test: duplicate the theme, apply the change, and run it in Shopify Rollouts (server-side split, experiments plan-gated, reported metrics vary by test type and no confidence intervals: compute significance yourself with [Experimentation statistics](experimentation-statistics.md)). Or use a theme testing app or platform with targeting and stats.
 - Never publish a theme or change the live theme without human approval. Provide the diff and a preview link from the theme editor or CLI (`shopify theme dev` locally, or `shopify theme push --unpublished` only with approval).
 
 ### 4.3 Sticky add to cart (PDP) snippet logic

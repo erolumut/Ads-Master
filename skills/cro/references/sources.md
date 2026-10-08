@@ -61,6 +61,7 @@
 | 38 | Copilot Overview | Microsoft Learn | https://learn.microsoft.com/en-us/clarity/copilot/overview | 2025 | Copilot features, caveats (search verified) |
 | 39 | Understanding Your Influence in AI Answers | Microsoft Clarity | https://clarity.microsoft.com/blog/understanding-your-influence-ai-citations/ | 2026 | AI Visibility citations (search verified) |
 | 40 | Microsoft Clarity MCP Server | FlowHunt directory | https://www.flowhunt.io/mcp-servers/microsoft-clarity/ | 2025 to 2026 | Package name, tool, parameters (search verified, secondary) |
+| 40a | Microsoft Clarity Data Export MCP Server README (v1.0.5) | unpkg mirror of npm | https://unpkg.com/@microsoft/clarity-mcp-server@1.0.5/README.md | 2025 | Official package, token flag, legacy tool (verification pass 2026-10-08) |
 
 ## Speed and Core Web Vitals
 
@@ -112,11 +113,29 @@
 | 69 | Regulation (EU) 2022/2065 (Digital Services Act) | EUR-Lex | https://eur-lex.europa.eu/eli/reg/2022/2065/oj | 2022 | Article 25 dark patterns (canonical, not re-fetched) |
 | 70 | Web Content Accessibility Guidelines (WCAG) 2.2 | W3C | https://www.w3.org/TR/WCAG22/ | 2023-10 | Target size and other criteria (canonical, not re-fetched) |
 
+## Verification pass (2026-10-08)
+
+| # | Title | Publisher | URL | Date | Supports |
+|---|-------|-----------|-----|------|----------|
+| 71 | checkout.liquid (script tag sunset dates) | Shopify Dev Docs | https://shopify.dev/docs/storefronts/themes/architecture/layouts/checkout-liquid | 2026 | Plus 2025-08-28, non-Plus 2026-08-26 |
+| 72 | Shopify Rollouts: How to Safely A/B Test Themes, Checkout, and Customer Accounts | Thoughtbulb | https://thoughtbulb.dev/blog/shopify-rollouts-theme-checkout-ab-testing-2026/ | 2026 | Rollouts scope after June 2026 |
+| 73 | Shopify A/B Testing: Native Rollouts vs Apps (2026) | Ecomhint | https://ecomhint.com/blog/shopify-ab-testing | 2026 | Plan gating (Grow or higher per docs) |
+| 74 | AB Tasty and VWO Unite Under Wingify | Newswire (press release) | https://www.newswire.ca/news-releases/ab-tasty-and-vwo-unite-under-wingify-launching-a-unified-platform-new-brand-identity-and-a-website-827260962.html | 2026-09-16 | Rebrand, positioning, Wingz |
+| 75 | Use experiments over PostHog MCP | PostHog | https://posthog.com/docs/experiments/surfaces/mcp | 2026 | Official hosted MCP, experiment tools |
+| 76 | GrowthBook MCP Server | mcp.so directory | https://mcp.so/servers/growthbook-mcp | 2025 to 2026 | @growthbook/mcp package and tools (secondary) |
+| 77 | FTC Approves Final Order Requiring accessiBe to pay $1 Million | FTC | https://www.ftc.gov/news-events/news/press-releases/ftc-non-compete-ban-update?page=10 | 2025-04 | Final overlay order |
+| 78 | EU proposal on Digital Fairness Act expected by the end of 2026 | Privacy Laws and Business | https://www.privacylaws.com/news/eu-proposal-on-digital-fairness-act-expected-by-the-end-of-2026/ | 2026-05 | Commissioner timing statement |
+| 79 | Digital Fairness Act (legislative train) | European Parliament | https://www.europarl.europa.eu/legislative-train/theme-protecting-our-democracy-upholding-our-values/file-digital-fairness-act | 2026 | Q4 2026 planned proposal |
+| 80 | FTC Issues New Advance Notice of Proposed Rulemaking on Negative Option Marketing | Cooley | https://www.cooley.com/news/insight/2026/2026-03-19-ftc-issues-new-advance-notice-of-proposed-rulemaking-on-negative-option-marketing | 2026-03 | Click to cancel rulemaking restart |
+| 81 | Datadog acquires Eppo, a feature flagging and experimentation platform | Seeking Alpha | https://seekingalpha.com/news/4440981-datadog-acquires-experiment-platform-provider-eppo | 2025-05-05 | Eppo acquisition date |
+| 82 | Give your AI eyes: Introducing Chrome DevTools MCP | Addy Osmani (Google) | https://addyosmani.com/blog/devtools-mcp/ | 2025-09 | Chrome DevTools MCP launch |
+| 83 | Shopify Dev MCP server | Shopify | https://shopify.dev/apps/build/devmcp | 2026 | @shopify/dev-mcp tools |
+
 ## Items still needing primary-source confirmation
 - FTC consumer reviews and testimonials rule details (final rule August 2024, effective 21 October 2024).
 - UK DMCC Act consumer enforcement start date (April 2025) and drip pricing provisions.
-- FTC action against an accessibility overlay vendor (2025).
-- EU Digital Fairness Act proposal timing.
-- Exact Clarity Data Export API limits and endpoint.
-- Shopify Rollouts plan availability and naming of editions.
-- GrowthBook, PostHog, Statsig current statistical defaults and MCP server status.
+- Exact Clarity Data Export API endpoint (limit reported as about 10 requests per project per day).
+- Shopify Rollouts plan availability (Grow vs Advanced), reported metrics, and the 2026-10-02 discount testing entry.
+- Shopify behavior after the 2026-08-26 non-Plus deadline (auto-upgrade reports conflict).
+- GrowthBook, PostHog, Statsig current statistical defaults; GrowthBook MCP environment variable names.
+- EU Digital Fairness Act: proposal date (planned Q4 2026) and scope.

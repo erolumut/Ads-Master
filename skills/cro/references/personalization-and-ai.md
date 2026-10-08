@@ -59,10 +59,10 @@ Rules:
 | Vendor | AI features | Date and status |
 |--------|-------------|-----------------|
 | Optimizely | Opal renamed Optimizely Agent Platform (1 Sept 2026); Idea builder for Web (April 2026) and Feature Experimentation (22 June 2026); Build agent turns an idea into a draft A/B test with variation, metric and audience (Sept 2026); CRO Manager virtual teammate stages experiments (25 Aug 2026); contextual multi-armed bandits (28 April 2026) | [Official, Optimizely release notes 2026; exact dates vary by note] |
-| Wingify (VWO and AB Tasty) | Combined in January 2026, rebranded Wingify on 16 Sept 2026; embedded AI engine "Wingz" across experimentation and personalization; rollout to features still in progress | [Official/press, 2026] |
+| Wingify (VWO and AB Tasty) | Combined in January 2026, rebranded Wingify on 16 Sept 2026 as an "Agentic Experience Optimization Platform"; embedded AI engine "Wingz" across experimentation and personalization; VWO and AB Tasty still separate suites during integration | [Official press release, 2026-09] |
 | Microsoft Clarity | Copilot chat, session insights, heatmap insights, Ad Campaign Insights; AI Visibility (citations, topic insights, bot activity) | [Official, 2025 to 2026] |
 | Contentsquare (Hotjar) | Sense Chat, replay and zoning summaries (Growth and above), Sense Analyst agent (introduced March 2026), connectors to ChatGPT, Claude, Copilot and IDEs with tool call limits | [Official support pages, 2026] |
-| Shopify | Rollouts native theme testing; Sidekick assistant in admin | [Unverified details, 2026] |
+| Shopify | Rollouts native theme, checkout and account configuration testing (discount and offer tests reported 2026-10-02); Sidekick assistant in admin | [Secondary, 2026; discount tests Unverified] |
 | Kameleoon, Convert, GrowthBook, PostHog | AI-assisted test ideation, variant generation or analysis features vary | [Unverified, check vendor docs] |
 | AI landing page and variant tools (for example Coframe, Unbounce Smart Traffic, Webflow Optimize) | Generate or allocate variants automatically | [Unverified, check vendor docs] |
 
