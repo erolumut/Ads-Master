@@ -35,6 +35,30 @@
 | Google search market share | Around 90% globally, dipping below 90% in late 2024 for the first time in about a decade per StatCounter | [Unverified this pass] |
 | Regulation | US remedies ruling 2025-09-02 (no Chrome divestiture, data sharing and exclusivity limits); UK CMA strategic market status designation (October 2025) and first conduct requirement on publisher controls (2026-06-03, obligations in force 2026-12-03) | [Unverified details this pass; monitor] |
 
+### Search Console and Bing Webmaster Tools features added 2025 to 2026
+| Date | Feature | What it enables | Limits | Label |
+|------|---------|-----------------|--------|-------|
+| 2025-04 | Hourly data in Search Console API | Near real time monitoring of launches and incidents | Recent days only | [Official; exact date Unverified] |
+| 2025-06 | AI Mode counted in Performance (web) | AI Mode clicks and impressions included in totals | No filter to isolate | [Official, 2025-06] |
+| 2025-10-27 | Query groups (Insights) | AI clusters of similar queries with group clicks, trending up and down | Large query volume properties only | [Official] |
+| 2025-11 | Custom annotations | Mark releases and updates on charts (reported limits: 200 per property, 120 characters) | Delete, not edit | [Official, details secondary] |
+| 2025-11-20 | Branded queries filter | AI classification of branded vs non-branded queries, including misspellings and brand products | Top level properties; eligibility; can misclassify | [Official] |
+| 2025-12-04 | AI powered configuration (experimental) | Natural language to report filters and comparisons | Limited sites | [Official] |
+| 2025-12-10 | Weekly and monthly views | Smoother trends; exports per view | Position averaged over period | [Official] |
+| 2025-12 | Social channels (experimental) | Performance of linked social profiles in Search | Limited | [Official] |
+| 2026-03-11 | Branded filter expanded to all eligible sites | Wider brand split | Same eligibility rules | [Official, secondary coverage] |
+| 2026-06-03 | Generative AI performance reports (beta) | AI feature impressions for Search and Discover by page, country, device, date | Impressions only; no queries or clicks at launch | [Official] |
+| 2026-06 | "Search generative AI" setting | Exclude site from AI Overviews, AI Mode, Discover AI features | Property level; rollout by country [Contested] | [Official] |
+| 2026-02-10 | Bing Webmaster Tools AI Performance (preview) | Citations, cited pages, grounding queries in Copilot and Bing AI answers | Citations only; sampled data; no API at launch | [Official] |
+
+### Spam policies in force (October 2026)
+Cloaking; doorway abuse; expired domain abuse; hacked content; hidden text and links; keyword stuffing; link spam; machine-generated traffic; malware and malicious practices; misleading functionality; scaled content abuse; scraping; sneaky redirects; site reputation abuse; thin affiliation; user-generated spam; plus demotions for legal removals, personal information removals, policy circumvention, and scam and fraud [Official, spam policies]. No new policies were announced with the 2026 spam updates [Official coverage, 2026].
+
+### Structured data support changes
+- Removed or restricted before 2025: HowTo rich results (2023), FAQ rich results limited to authoritative government and health sites (2023-08), sitelinks search box (2024-11).
+- Phased out 2025-06: book actions, course info, claim review, estimated salary, learning video, special announcement, vehicle listing [Official, 2025-06].
+- Added or extended: product variants (ProductGroup, 2024), organization level return policies, loyalty program (member pricing) markup in 2025 [Official; exact dates Unverified].
+
 Implications:
 - Informational content economics changed permanently. Commercial, transactional, local and branded intents carry a growing share of SEO value.
 - Measurement must move to clicks and revenue by query class; impressions and position need context.
@@ -107,6 +131,16 @@ Implications:
 10. Migrations need full redirect maps, staging QA and monitoring [Official site move docs; Practitioner consensus].
 11. Local: primary GBP category, reviews and proximity dominate; fake reviews are illegal in major markets (US FTC rule effective 2024-10-21, UK DMCC Act from 2025-04-06) [Official].
 12. Bing Webmaster Tools, sitemaps with accurate lastmod and IndexNow are cheap and increasingly relevant for AI answers [Official Bing guidance; Practitioner consensus].
+
+### Implementation consensus for codebases
+| Stack | Consensus practice | Most common failure found in audits |
+|-------|-------------------|-------------------------------------|
+| Next.js App Router | Server components for indexable content; `generateMetadata` per route; `app/sitemap.ts` and `app/robots.ts`; ISR for large catalogs; JSON-LD rendered server side with `<` escaped | Canonical set in root layout inherited by every page; content fetched client side; streaming responses returning 200 for not found states |
+| React or Vue SPA without SSR | Migrate indexable routes to SSR or SSG; prerender as a bridge; dynamic rendering only as a temporary workaround | Hash routes, buttons instead of links, 200 status for unknown routes |
+| Shopify | Accept forced URL prefixes; link canonical product URLs in collection grids; control tag and filter URLs; `seo.hidden` metafield to exclude pages | Duplicate collection product paths, app script bloat hurting INP, duplicate Product JSON-LD from apps |
+| WordPress | One SEO plugin; noindex thin archives; page caching; core or plugin sitemap, not both | "Discourage search engines" left checked after launch; duplicate schema from theme and plugin |
+| Webflow | CMS bound SEO fields; site level redirects; JSON-LD in head custom code with CMS fields | Unescaped CMS values breaking JSON-LD; staging subdomain indexed |
+| Any CDN or WAF | Verify and allow Googlebot and Bingbot; serve cacheable HTML | Bot protection challenging crawlers (403, 429) after security changes |
 
 ## 5. Contested topics
 | Topic | Side A | Side B | Working position |
