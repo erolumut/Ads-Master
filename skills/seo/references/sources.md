@@ -138,6 +138,8 @@
 | 103 | Semrush MCP | Semrush Developer | https://developer.semrush.com/api/basics/semrush-mcp/ | 2026 | Official remote MCP endpoint and auth |
 | 104 | Ahrefs remote MCP server listing | mcpservers.org | https://mcpservers.org/remote-mcp-servers/ahrefs | 2026 | Official Ahrefs endpoint (confirm on ahrefs.com/mcp) |
 | 105 | Google Search Console MCP: no official server exists | Carly | https://www.usecarly.com/blog/google-search-console-mcp/ | 2026 | No official GSC MCP (vendor claim, consistent with registry checks) |
+| 106 | Cloudflare's AI Crawler Rules Can Block Googlebot | Search Engine Journal | https://www.searchenginejournal.com/cloudflares-ai-crawler-rules-can-block-googlebot/581385/ | 2026 | Multi-purpose crawler blocking risk |
+| 107 | Your site, your rules: new AI traffic options for all customers | Cloudflare | https://blog.cloudflare.com/content-independence-day-ai-options/ | 2026-07-01 | Search, Agent, Training classes and 2026-09-15 defaults |
 
 ## Source reliability tiers (how to weigh conflicting claims)
 | Tier | Examples | How to use |

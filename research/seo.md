@@ -199,6 +199,7 @@ Implications:
 | Indexing all facet combinations | Crawl waste, duplicate clusters | Facet matrix and gates |
 | Keyword stuffed GBP names and fake reviews | Suspensions, legal exposure | Guidelines compliance |
 | Opting out of AI features or adding nosnippet sitewide without analysis | Lost visibility and clicks | Data review and approval |
+| Blocking the AI Training class at Cloudflare (or leaving the legacy Block AI bots setting on) | Cloudflare applies the strictest rule to multi-purpose crawlers, so Googlebot and Bingbot can receive 403s; ad page defaults from 2026-09-15 are reported inconsistently [Contested] | Keep Training unblocked at the edge, use Google-Extended for Gemini training, monitor Crawl Stats |
 | Chasing top of funnel volume outside the ICP | Traffic without revenue, AI Overview exposure | Opportunity scoring by value |
 
 ## 8. Benchmarks
@@ -274,8 +275,9 @@ All benchmarks vary by vertical, geo, season, device and query mix.
 8. Bing AI Performance API and click data (promised for 2026, not shipped as of 2026-10).
 9. Official MCP servers for Search Console and Bing Webmaster Tools (none as of 2026-10).
 10. AI Mode becoming more prominent or default in some markets (I/O 2026 described AI Overviews and AI Mode as one integrated experience); measure your own AI Mode share.
-11. Rank tracking economics after num=100: depth, pricing, data accuracy.
+11. Rank tracking economics after num=100: depth, pricing, data accuracy; parsers updated for google.com/goto links.
 12. Preferred sources and Discover follow features expansion and measurable impact.
+13. Cloudflare 2026-09-15 AI crawler defaults: confirm whether ad-page Training blocks catch Googlebot and Bingbot on default zones (reports conflict).
 
 ## 12. Sources
 1. Search Status Dashboard: Ranking history. Google. https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history. Ongoing.
@@ -373,3 +375,5 @@ All benchmarks vary by vertical, geo, season, device and query mix.
 93. Semrush MCP. Semrush Developer. https://developer.semrush.com/api/basics/semrush-mcp/. 2026.
 94. Ahrefs remote MCP server listing. mcpservers.org. https://mcpservers.org/remote-mcp-servers/ahrefs. 2026.
 95. Google Search Console MCP: no official server exists. Carly. https://www.usecarly.com/blog/google-search-console-mcp/. 2026.
+96. Cloudflare's AI Crawler Rules Can Block Googlebot. Search Engine Journal. https://www.searchenginejournal.com/cloudflares-ai-crawler-rules-can-block-googlebot/581385/. 2026.
+97. Your site, your rules: new AI traffic options for all customers. Cloudflare. https://blog.cloudflare.com/content-independence-day-ai-options/. 2026-07-01.

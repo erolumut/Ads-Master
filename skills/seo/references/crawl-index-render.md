@@ -72,6 +72,8 @@ Pull the Page indexing report per sitemap (filter by sitemap) and per URL patter
 
 WAF and bot management: Cloudflare, Akamai, Fastly and others can challenge or block crawlers. Verify Googlebot by reverse DNS (`googlebot.com`, `google.com`, `googleusercontent.com` for some fetchers) or Google's published IP range files, and allow it. Check the Crawl Stats report for 403 and 429 spikes after any security change.
 
+Cloudflare AI crawler classes (from 2026-09-15): Cloudflare now splits AI traffic into Search, Agent and Training and applies the most restrictive matching rule to multi-purpose crawlers, so a zone that blocks Training (including the legacy "Block AI bots" setting) can also return 403 to Googlebot, Bingbot and Applebot [Official, 2026-07] (Cloudflare). Whether the new default (Training and Agent blocked on pages with ads, for new zones and untouched free plan zones) catches Googlebot on ad pages is reported inconsistently [Contested] (Search Engine Journal and several practitioner tests report Googlebot 403s; others say Search stays allowed by default). Action for every Cloudflare site: open Security > Bots > AI crawl settings, confirm Training is not blocked at the edge if Google and Bing visibility matter, manage Gemini training with the Google-Extended robots.txt token instead, then check Crawl Stats and URL Inspection for 403s on ad-bearing templates. Coordinate the AI crawler policy with ai-search-optimization.
+
 ## 5. Canonicalization
 Google picks one canonical per duplicate cluster using signals, strongest first [Official, consolidate duplicate URLs doc; ordering Practitioner consensus]:
 1. Redirects (301, 308)
