@@ -2,7 +2,7 @@
 
 > Compiled 2026-10-08 for the `microsoft-ads` agent. Covers January 2025 to October 2026.
 >
-> Method and limits: 17 web searches (extended mode for 2025 to 2026 items) returned extracts of Microsoft Advertising blog roundups, Microsoft Learn documentation and trade press. Direct page fetching was blocked by the research environment's egress policy and the shared web search budget ran out before the target of 35 searches, so several items rely on search extracts and are labeled accordingly. GitHub repository search (2026-10-08) was used for tools and MCP servers. Items that need live verification are in the watch list. A verification pass on 2026-10-08 ran additional live searches on Copilot opt-out and reporting, Dynamic Search Ads, Max CPC, offline upload rules and AI Max defaults (sources 71 to 79).
+> Method and limits: 17 web searches (extended mode for 2025 to 2026 items) returned extracts of Microsoft Advertising blog roundups, Microsoft Learn documentation and trade press. Direct page fetching was blocked by the research environment's egress policy and the shared web search budget ran out before the target of 35 searches, so several items rely on search extracts and are labeled accordingly. GitHub repository search (2026-10-08) was used for tools and MCP servers. Items that need live verification are in the watch list. A verification pass on 2026-10-08 ran additional live searches on Copilot opt-out and reporting, Dynamic Search Ads, Max CPC, offline upload rules, AI Max defaults and the HubSpot integration (sources 71 to 81).
 
 ## 1. Executive summary
 
@@ -148,7 +148,7 @@
 | Modeled conversions under consent mode | Microsoft (2025-08, 2026-02) describes modeling to fill gaps | Usercentrics says no modeling for denied users; MB Adv says ACM opt-in needed | Treat modeled data as estimates; verify which goals show modeling |
 | ad_user_data parameter | One guide says both ad_storage and ad_user_data are needed | Microsoft docs describe ad_storage only | Follow Microsoft FAQ |
 | CPC advantage vs Google | Many practitioners report 20% to 40% lower CPCs | Competitive verticals sometimes show parity | Measure with the parity report |
-| HubSpot integration status | Microsoft roundup (2026-09) describes it as available | HubSpot docs (2026-09-07) describe an opt-in beta | Check in HubSpot and Microsoft before planning |
+| HubSpot integration status | Microsoft roundup (2026-09-30) describes it as live | HubSpot docs (updated 2026-09-01) and HubSpot's July 2026 update describe a public beta for all hubs and tiers, opted into by a Super Admin | Plan as beta; check the portal; connect per customer account |
 | PMax incrementality | Microsoft claims about 8% more incremental conversions | No independent method published | Run PMax uplift experiments |
 
 ## 6. What top operators do differently
@@ -313,3 +313,5 @@ No independent, method disclosed, cross account Microsoft Advertising benchmark 
 77. Providing more transparency for your Performance Max campaigns. Microsoft Advertising blog. https://about.ads.microsoft.com/en/blog/post/may-2026/providing-more-transparency-for-your-performance-max-campaigns. 2026-05.
 78. Tracking offline conversions. Microsoft Learn. https://learn.microsoft.com/en-us/advertising/msa-help/hlp_ba_conc_uetv2offlineconversion. Checked 2026-10.
 79. OfflineConversion data object. Microsoft Learn. https://learn.microsoft.com/en-us/advertising/campaign-management-service/offlineconversion?view=bingads-13. Rolling.
+80. Connect your Microsoft Advertising account to HubSpot. HubSpot Knowledge Base. https://knowledge.hubspot.com/connect-your-microsoft-ads-account-to-hubspot. 2026-09.
+81. Create and sync ad conversion events for your Microsoft Advertising account. HubSpot Knowledge Base. https://knowledge.hubspot.com/create-and-sync-ad-conversion-events-for-your-microsoft-advertising-account. 2026.

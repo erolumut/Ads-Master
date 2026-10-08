@@ -146,7 +146,7 @@ Key mechanics as documented:
 Run CAPI alongside UET, never instead of it while in beta. Keep offline import as the fallback for CRM stages.
 
 ## 7. CRM integrations
-- HubSpot: a Microsoft Advertising integration announced in the 2026-09 roundup supports CRM audiences, automated lead follow-up and pipeline and revenue reporting, with lifecycle events feeding bidding; HubSpot documentation in 2026-09 still described an opt-in beta [Contested] on availability.
+- HubSpot: Microsoft's 2026-09-30 roundup calls the integration live (CRM audiences, automated lead follow-up, pipeline and revenue reporting), while HubSpot's knowledge base (updated 2026-09-01) still labels it a public beta for all hubs and tiers that a Super Admin opts into [Contested on status]. Setup facts from HubSpot docs: connect each Microsoft customer account separately (manager accounts cannot connect); the connecting user needs Publish access to HubSpot ads and Super Admin on the Microsoft account; HubSpot sets an account-level Final URL suffix and turns on MSCLKID auto-tagging; lifecycle stage changes become conversion events synced to a selected Microsoft UET tag; no ad creation yet [Official, HubSpot Knowledge Base 2026-09]. Check the account-level suffix against existing tracking templates before connecting.
 - Salesforce and others: use offline conversion import (MSCLKID) or a connector.
 - Always keep MSCLKID as a dedicated CRM field even with an integration.
 

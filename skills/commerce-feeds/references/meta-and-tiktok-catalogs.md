@@ -104,8 +104,8 @@ Do not assume a fix in one fixes the other. Shop listings follow Shop category r
 - File upload using TikTok's template.
 - Catalog API through the TikTok Business API.
 
-### B3. Ads catalog fields [Unverified: confirm the template in Catalog Manager]
-Required core: `sku_id`, `title`, `description`, `availability`, `condition`, `price`, `link` (landing page), `image_link`, `brand`.
+### B3. Ads catalog fields [Official, TikTok Ads Help "Catalog Product Parameters" (updated 2025-02); confirm per market]
+Required (9; a missing one is an error): `sku_id` (unique; reusing an ID replaces the product; no control characters), `title` (no emoji or promotional text such as "free shipping"), `description`, `availability` (in stock, available for order, preorder, out of stock, discontinued), `condition` (new, refurbished, used), `price` (number plus ISO 4217 code, for example `9.99 EUR`), `link` (landing page), `image_link`, `brand`. The parameters page applies to accounts in markets where Video Shopping Ads (Catalog) is launched. Feed formats: CSV or XML (RSS or Atom), optionally zipped, by scheduled URL fetch, one-time upload, or Shopify or Google Merchant Center sync [Official, TikTok Ads Help 2026-01].
 Recommended: `item_group_id`, `sale_price`, `additional_image_link`, `video_link`, `google_product_category`, `product_type`, `gtin`/`mpn`, custom labels for product sets.
 Rule: the TikTok pixel and Events API `content_id` must match `sku_id` for retargeting and catalog optimization (same principle as Meta A4).
 

@@ -127,6 +127,8 @@ Annotated sources behind this skill. Status: **S** = surfaced through live web s
 | 84 | Similarweb MCP Server | Similarweb Developers | https://developers.similarweb.com/docs/similarweb-mcp | Endpoint, plan and credit rules | S |
 | 85 | Google opens alpha testing for new Trends API | PPC Land | https://ppc.land/google-opens-alpha-testing-for-new-trends-api-targeting-developers-and-journalists/ | Trends API alpha (2025-07) | S |
 | 86 | Public Availability of Auction Insights Metrics via Google Ads API | Google Ads API Forum | https://groups.google.com/g/adwords-api/c/30s21wGZkOU | Auction insights allowlist only (2025) | S |
+| 87 | About the Ad Library | Microsoft Advertising Help | https://help.ads.microsoft.com/apex/index/3/en/60180 | Microsoft Ad Library coverage and fields | S |
+| 88 | Ad Library API | Microsoft Learn | https://learn.microsoft.com/en-us/advertising/guides/ad-library-api?view=bingads-13 | Public API, targeting categories | S |
 
 ## How evidence labels map to these sources
 | Label | Typical source type here |

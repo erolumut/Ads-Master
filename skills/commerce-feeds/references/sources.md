@@ -109,9 +109,11 @@
 | 81 | Feed: How to submit my GoDataFeed feed to ChatGPT Ads? | GoDataFeed Help | https://help.godatafeed.com/hc/en-us/articles/51837706971675-Feed-How-to-submit-my-GoDataFeed-feed-to-ChatGPT-Ads | 2026 | 1,000 minimum and 2 million maximum claim |
 | 82 | OpenAI makes it easier to run shopping ads in ChatGPT | Digiday | https://digiday.com/marketing/openai-makes-it-easier-to-run-shopping-ads-in-chatgpt/ | 2026-06 | 100-product sample and 1 million SKU claim |
 | 83 | Amazon.com Services, LLC v. Perplexity AI, Inc. (No. 26-1444) | US Court of Appeals for the Ninth Circuit | https://cdn.ca9.uscourts.gov/datastore/opinions/2026/08/04/26-1444.pdf | 2026-08-04 | Comet injunction vacated |
+| 84 | Catalog Product Parameters | TikTok Ads Help | https://ads.tiktok.com/help/article/catalog-product-parameters | Updated 2025-02 | Nine required catalog fields |
+| 85 | How to create a Catalog | TikTok Ads Help | https://ads.tiktok.com/help/article/create-manage-catalogs | Updated 2026-01 | Feed formats and sync options |
 
 ## Recheck list (sources read only via search)
-Items 8, 9, 10, 22, 23, 24, 25, 26, 34, 36, 43, 44, 45, 59, 65 and 71 to 83: open the live page before quoting in a client deliverable.
+Items 8, 9, 10, 22, 23, 24, 25, 26, 34, 36, 43, 44, 45, 59, 65 and 71 to 85: open the live page before quoting in a client deliverable.
 
 ## Monitoring list (what to check, how often)
 

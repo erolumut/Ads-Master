@@ -70,7 +70,7 @@ Review the set quarterly. A brand that appears in two lists is a priority compet
 | TikTok Creative Center (Top Ads) | High performing ads by region, industry, objective | Same | Inspiration tool, curated; not a full library |
 | TikTok Ad Library (Commercial Content Library) | Limited | Ads shown in the EU (plus UK and Switzerland) with targeting and reach information | Commercial Content API on application; eligibility reported as researcher focused [Contested] |
 | LinkedIn Ad Library | Ads run after 2023-06-01, kept one year after last impression; search by company, payer, keyword, country, date | EU served ads add impression ranges, impressions by country and targeting categories used (not the values chosen); no spend or results [Official, LinkedIn Help] | No public API |
-| Microsoft Ad Library | Limited | Ads served in the EU | Check coverage |
+| Microsoft Ad Library | None | Ads served on Bing in the EU and EEA (any advertiser location), searchable by ad content or advertiser, filter by date and country; advertiser name and location, payer [Official, Microsoft Advertising Help] | Public Ad Library API, no sign-up; targeting categories gender, age, location, Microsoft audiences, advertiser audiences |
 Details, fields and API calls: [Competitor ad intelligence](references/competitor-ad-intelligence.md).
 
 ## Coding frames (quick reference)

@@ -100,6 +100,8 @@
 | 72 | Providing more transparency for your Performance Max campaigns | Microsoft Advertising blog | https://about.ads.microsoft.com/en/blog/post/may-2026/providing-more-transparency-for-your-performance-max-campaigns | 2026-05 | Website URL report with conversions, clicks, spend |
 | 73 | Tracking offline conversions | Microsoft Learn | https://learn.microsoft.com/en-us/advertising/msa-help/hlp_ba_conc_uetv2offlineconversion | Checked 2026-10 | Daily upload recommendation, 6 hour reporting lag |
 | 74 | OfflineConversion data object | Microsoft Learn | https://learn.microsoft.com/en-us/advertising/campaign-management-service/offlineconversion?view=bingads-13 | Rolling | 90 day limit, timestamp rules |
+| 75 | Connect your Microsoft Advertising account to HubSpot | HubSpot Knowledge Base | https://knowledge.hubspot.com/connect-your-microsoft-ads-account-to-hubspot | 2026-09 | Beta label, per account connection, URL suffix |
+| 76 | Create and sync ad conversion events for your Microsoft Advertising account | HubSpot Knowledge Base | https://knowledge.hubspot.com/create-and-sync-ad-conversion-events-for-your-microsoft-advertising-account | 2026 | Lifecycle stage conversion events |
 
 ## Sources by module
 
