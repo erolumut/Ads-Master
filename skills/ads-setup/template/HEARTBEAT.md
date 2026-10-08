@@ -19,9 +19,15 @@
 | cro | | | |
 | creative-strategy | | | |
 | market-intel | | | |
+| video-studio | | | |
+| compliance | yes | on every publish | Pre-publish gate for ads, pages, emails, feeds, videos |
+| site-engineer | | | Release QA before any site change goes live |
+| lifecycle-crm | | | |
+| offer-strategy | | | |
+| mobile-app-growth | | | |
 
-## Daily (5 minutes, paid channels only)
-- Spend pacing vs plan, tracking sanity (conversions not zero, no spikes), disapprovals, budget caps hit.
+## Daily (5 minutes)
+- Daily report (`/ads-review daily`): spend vs plan, platform reported vs backend observed, acquisition investment, tracking sanity, disapprovals, stock cover of advertised items, incidents. FACTS, INTERPRETATION, RECOMMENDATION. Decide on 3 and 7 day windows, not on one day.
 
 ## Weekly (the learning loop)
 1. Each active agent scores its KPIs vs targets and writes a journal entry.

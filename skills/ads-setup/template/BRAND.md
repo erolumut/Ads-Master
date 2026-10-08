@@ -16,8 +16,7 @@
 - Founder or expert credentials (E-E-A-T):
 
 ## Claims
-- Approved claims (with substantiation):
-- Forbidden claims:
+Claims live in `brand/CLAIMS.md` (approved, needs review, blocked) and every fact behind them in `brand/PRODUCT_FACTS.md`. The compliance agent checks all customer facing copy against both.
 
 ## Visual identity
 - Colors, fonts, logo usage:

@@ -10,6 +10,7 @@ YYYY-MM-DD
 - Website(s):
 - One sentence: what we sell, to whom, why they buy:
 - Business model: ecommerce | lead gen | B2B SaaS | local services | app | marketplace | content or publisher | other:
+- Sales channels beyond the site (retail partners, marketplaces) and their price points:
 - Markets (countries, regions):
 - Languages:
 - Currency:
@@ -59,6 +60,8 @@ YYYY-MM-DD
 | AI search visibility | | n/a | | | |
 | Email / CRM | | | | | |
 | Marketplaces | | | | | |
+| App stores (iOS, Android) | | | | | |
+| Apple Ads | | | | | |
 
 ## 7. Stack and access
 - Website platform (Shopify, WooCommerce, Next.js, Webflow, WordPress, custom):
@@ -71,13 +74,18 @@ YYYY-MM-DD
 - Connectors or MCP servers available to Claude (Google Ads, GA4, Search Console, Meta, other):
 - Where exports are dropped: `ads-master/data/imports/`
 
-## 8. Constraints and compliance
+## 8. Guardrails
+- Automation stage (1 read only to 5 limited automation): see `GUARDRAILS.md`
+- Daily budget cap per campaign and account:
+- Who approves spend, prices, publishing, customer messages:
+
+## 9. Constraints and compliance
 - Regulated category? (health, finance, gambling, alcohol, politics, housing, employment, credit):
 - Privacy regimes (GDPR, KVKK, CCPA, other):
-- Claims we must never make:
+- Claims we must never make (details in `brand/CLAIMS.md`):
 - Approvals needed before launch (who):
 
-## 9. History
+## 10. History
 - What has been tried and how it went:
 - Best performing campaign / content ever and why we think it worked:
 - Known problems:

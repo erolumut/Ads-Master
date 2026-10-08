@@ -4,11 +4,12 @@
 # ads-master/ workspace. Safe to re-run: the workspace is never overwritten.
 #
 # Usage:
-#   scripts/install.sh <project-dir> [--only slug1,slug2] [--update] [--no-workspace] [--dry-run]
+#   scripts/install.sh <project-dir> [--only slug1,slug2] [--update] [--no-workspace] [--no-hooks] [--dry-run]
 #
 #   --only          Install a subset of agents (utility skills and the orchestrator are always included).
 #   --update        Overwrite existing agent and skill files with this version (workspace untouched).
 #   --no-workspace  Do not create ads-master/ (use when you will run the ads-setup skill later).
+#   --no-hooks      Do not install the guardrail hooks into .claude/settings.json (not recommended).
 #   --dry-run       Print what would happen.
 
 set -euo pipefail
@@ -18,6 +19,7 @@ TARGET=""
 ONLY=""
 UPDATE=0
 WORKSPACE=1
+HOOKS=1
 DRY=0
 
 while [[ $# -gt 0 ]]; do
@@ -25,8 +27,9 @@ while [[ $# -gt 0 ]]; do
     --only) ONLY="$2"; shift 2 ;;
     --update) UPDATE=1; shift ;;
     --no-workspace) WORKSPACE=0; shift ;;
+    --no-hooks) HOOKS=0; shift ;;
     --dry-run) DRY=1; shift ;;
-    -h|--help) sed -n '2,15p' "$0"; exit 0 ;;
+    -h|--help) sed -n '2,16p' "$0"; exit 0 ;;
     *) TARGET="$1"; shift ;;
   esac
 done
@@ -94,6 +97,45 @@ if [[ $WORKSPACE -eq 1 ]]; then
     run "cp -Rn '$TEMPLATE/.' '$TARGET/ads-master/' 2>/dev/null || true"
   fi
   echo "workspace ready: ads-master/ (existing files kept)"
+fi
+
+if [[ $HOOKS -eq 1 ]]; then
+  run "mkdir -p '$TARGET/.claude/hooks'"
+  run "cp '$SRC/scripts/guard.py' '$TARGET/.claude/hooks/ads-master-guard.py'"
+  if [[ $DRY -eq 1 ]]; then
+    echo "[dry-run] merge Ads Master hooks into .claude/settings.json"
+  else
+    python3 - "$TARGET/.claude/settings.json" <<'PY'
+import json, os, sys
+path = sys.argv[1]
+try:
+    with open(path, encoding="utf-8") as fh:
+        settings = json.load(fh)
+except FileNotFoundError:
+    settings = {}
+guard = 'python3 "${CLAUDE_PROJECT_DIR}/.claude/hooks/ads-master-guard.py"'
+wanted = {
+    "SessionStart": ("startup|resume|clear|compact", "session-start"),
+    "PreToolUse": ("^(Bash|Write|Edit|MultiEdit|NotebookEdit)$|^mcp__.*", "pre"),
+    "PostToolUse": ("^Bash$|^mcp__.*", "post"),
+    "Stop": (None, "stop"),
+}
+hooks = settings.setdefault("hooks", {})
+for event, (matcher, sub) in wanted.items():
+    groups = hooks.setdefault(event, [])
+    if any("ads-master-guard.py" in h.get("command", "") for g in groups for h in g.get("hooks", [])):
+        continue
+    group = {"hooks": [{"type": "command", "command": f"{guard} {sub}", "timeout": 10}]}
+    if matcher:
+        group = {"matcher": matcher, **group}
+    groups.append(group)
+os.makedirs(os.path.dirname(path), exist_ok=True)
+with open(path, "w", encoding="utf-8") as fh:
+    json.dump(settings, fh, indent=2)
+    fh.write("\n")
+print("hooks: Ads Master guard registered in .claude/settings.json")
+PY
+  fi
 fi
 
 echo

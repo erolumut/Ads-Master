@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "automation_stage": 1,
+  "currency": "EUR",
+  "caps": {
+    "daily_budget_per_campaign": null,
+    "daily_spend_per_account": null,
+    "max_budget_increase_pct": 0
+  },
+  "gates": {
+    "G2_prepare": "ask",
+    "G3_commit": "ask",
+    "G4_forbidden": "deny",
+    "unknown_write": "ask"
+  },
+  "required_create_status": "PAUSED",
+  "auto_actions": [],
+  "protect_paths": [
+    "ads-master/guardrails.json",
+    "ads-master/GUARDRAILS.md"
+  ],
+  "extra_blocked_bash_patterns": [],
+  "extra_ask_bash_patterns": [],
+  "log_actions": true,
+  "log_path": "ads-master/logs/actions.jsonl"
+}
