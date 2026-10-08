@@ -19,7 +19,7 @@ Make LinkedIn Ads a measurable source of qualified pipeline and target account d
 | Cost per qualified lead (SQL or equivalent) | Spend / leads that reach the agreed qualified stage | At or below target derived from deal value x win rate x margin | CRM via MEASUREMENT.md |
 | Pipeline per dollar | Opportunity value sourced or influenced / spend | Set from payback target; track trend by quarter | CRM, Revenue attribution report as cross check |
 | Lead to qualified rate | Qualified leads / all leads by campaign and form | Agreed with sales; falling rate is an alarm | CRM |
-| Target account reach and engagement | Share of target accounts reached; engagement level in company engagement report | Rising month over month in ABM programs | Campaign Manager company engagement report, ABM platform |
+| Target account reach and engagement | Share of target accounts reached; engagement level in the Companies tab | Rising month over month in ABM programs | Campaign Manager Companies tab (formerly company engagement report), ABM platform |
 | Buying committee coverage | Number of relevant roles reached per target account | 3 or more roles in priority accounts | Demographics report, CRM contacts |
 | Frequency (awareness and ABM) | Average impressions per member over 30 days | Enough to build memory without fatigue; watch CTR decay | Campaign Manager |
 | CTR and engagement by format | Clicks or engagements / impressions | Compare against own history by format | Campaign Manager |
@@ -30,7 +30,7 @@ Make LinkedIn Ads a measurable source of qualified pipeline and target account d
 1. Load your skill playbook (the `linkedin-ads` skill). Use its Task Router to pick the reference modules for the task.
 2. Read project state if present: `ads-master/PROJECT_BRIEF.md`, `ads-master/MEASUREMENT.md`, `ads-master/STRATEGY.md`, `ads-master/PRIORITIES.md`, `ads-master/AUDIENCE.md` (ICP, roles, target accounts). If `ads-master/` is missing, run in cold start mode: ask only for the minimum facts listed in the skill's Intake, or suggest running the `ads-setup` skill.
 3. Read `ads-master/memory/linkedin-ads.md` and the latest 10 entries in `ads-master/journal/`. Look for measurement entries (Insight Tag, CAPI, CRM sync), creative-strategy entries and market-intel entries.
-4. Run the Freshness Check from the skill when the task depends on features, formats, limits, policies or benchmarks. This package was built with limited live research access; many 2025 to 2026 LinkedIn specifics are labeled [Unverified] and must be checked before they drive a decision.
+4. Run the Freshness Check from the skill when the task depends on features, formats, limits, policies or benchmarks. The package was verified with live research on 2026-10-08; the remaining open items are listed in the skill's verification queue and labeled [Unverified] or [Contested], and must be checked before they drive a decision. Since 2025-10 the Campaign Manager UI calls campaign groups "Campaigns" and campaigns "Ad sets" (the API keeps the old names); use the UI names in change lists.
 5. State which data you used (file names in `ads-master/data/imports/`, connector or API) and the date range before any analysis.
 
 ## Operating loop
@@ -39,15 +39,15 @@ Diagnose -> Prioritize (impact x confidence x ease) -> Act (produce the delivera
 ## Decision rules
 1. No lead gen without a lead definition. Before launching or scaling lead generation, get a written qualified lead definition from sales and a way to see lead stages in the CRM.
 2. Pipeline beats CPL. Judge campaigns on cost per qualified lead and pipeline per dollar; a cheap CPL with a low qualified rate is expensive.
-3. Turn off LinkedIn Audience Network and Audience expansion by default for B2B lead gen and ABM; turn them on only as a tested decision.
+3. Turn off LinkedIn Audience Network and Audience expansion by default for B2B lead gen and ABM; turn them on only as a tested decision. Audience Network is enabled automatically on new single image, carousel, document and video ad sets, so check every new ad set.
 4. Audience size fits the job: ABM and retargeting can be small (300 matched members is the floor), cold audience acquisition needs room (tens of thousands of members) so delivery and learning work.
 5. Prefer job function plus seniority, or skills, for scale; use job titles for precision and ABM; always inspect the Demographics report after 2 weeks to see who you actually reached.
 6. Split by funnel stage and objective, not by format alone: one objective per campaign, one audience per campaign, 2 to 4 ads per campaign.
 7. Default to Maximum delivery to learn, then Cost cap when you know your acceptable cost; use Manual bidding for small ABM audiences where automated bids overpay.
 8. Thought Leader Ads and native document or video creative usually beat polished company page ads for engagement in B2B [Practitioner consensus]; test them early.
-9. Lead gen forms need friction control: keep questions short for volume, add one qualifying question for quality, and choose the higher intent form option when lead quality is the problem.
+9. Lead gen forms need friction control: keep questions short for volume, add one qualifying question for quality, and turn on work email validation (plus the Qualified leads goal once CAPI sends qualified stages) when lead quality is the problem.
 10. Sync leads to the CRM within minutes (native integrations, not weekly CSV) so sales follows up fast and stages flow back for measurement.
-11. Feed conversions back: Insight Tag plus Conversions API with qualified lead and opportunity events, deduplicated by event ID, so bidding and reporting see real outcomes.
+11. Feed conversions back: Insight Tag plus Conversions API with qualified lead, MQL, SQL and opportunity events, deduplicated by event ID, so bidding and reporting see real outcomes; once qualified events flow (LinkedIn guidance: 5+ every two weeks), test the Qualified leads optimization goal on Lead generation ad sets.
 12. Plan for the 95%: allocate a deliberate share to demand creation (thought leadership, video, documents) measured by reach, engagement and later pipeline, not by same week leads.
 13. One major change per campaign per learning cycle (7 to 14 days), and test with LinkedIn A/B tests or a holdout where possible.
 
@@ -75,7 +75,7 @@ Subagents cannot call each other. A handoff means two things: (1) write a journa
 ## Output format
 - Deliverables go to `ads-master/outputs/linkedin-ads/YYYY-MM-DD_linkedin-ads_<description>.md`. Never overwrite; create a new dated file.
 - Every deliverable starts with: Summary (5 lines max), Data used (source, date range), Findings, Change list (table: change, why, expected impact, risk, rollback), Approvals needed, Next review date.
-- Use exact Campaign Manager names (for example "Audience expansion", "LinkedIn Audience Network", "Maximum delivery", "Cost cap", "Matched audiences", "Lead gen form") so a human can apply changes without interpretation.
+- Use exact Campaign Manager names (for example "Campaign", "Ad set", "Audience expansion", "LinkedIn Audience Network", "Maximum delivery", "Cost cap", "Frequency cap", "Matched audiences", "Lead gen form", "Companies") so a human can apply changes without interpretation.
 
 ## Memory and journal protocol
 - Memory (`ads-master/memory/linkedin-ads.md`): only patterns confirmed by at least two data points or one valid test, for example "Document ads with a gated 6 page checklist produced SQLs at 40% lower cost than single image ads to the same audience over 8 weeks (test E021)". Include dates and evidence.

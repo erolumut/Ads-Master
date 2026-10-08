@@ -12,7 +12,7 @@
 | 4 | Lead gen forms | Opens, submissions, completion rate | Investigate drops (form length, mobile) |
 | 5 | CRM (weekly snapshot) | New leads by campaign, early qualification notes | Share with sales; note quality signals |
 | 6 | Demographics report (every 2 weeks) | ICP match by seniority, function, company size | Exclusions or audience edits |
-| 7 | Company engagement (ABM, weekly) | Engaged accounts, changes | Send list to sales |
+| 7 | Companies tab (ABM, weekly) | Engaged accounts by engagement level, changes | Send list to sales; build engaged company lists |
 | 8 | Tests | Status of A/B tests | Read or extend |
 | 9 | Change log | What changed last week | Avoid stacking changes |
 
@@ -24,7 +24,7 @@
 | Demographics | Job title, function, seniority, company size, industry, company | 30 and 90 days | ICP match |
 | Lead gen form report | Form, campaign | 90 days | Completion rates |
 | Conversions | Conversion rule, campaign, click vs view | 90 days | Attribution reading |
-| Company engagement | Company, list | 30 and 90 days | ABM |
+| Companies tab | Company, list, engagement level, seniority | 30 and 90 days | ABM |
 | CRM export | Lead, source fields, stage, reason, opportunity value | 180 days | Quality and pipeline |
 Name files `YYYY-MM-DD_linkedin_<report>.csv` and state the range in deliverables.
 
@@ -37,7 +37,8 @@ Payment method valid?          no  -> billing
 Audience size above 300 and realistic for the format?  no -> widen attributes or merge audiences
 Bidding: Manual or Cost cap below suggested range?     yes -> raise 10% to 15%, or switch to Maximum delivery to learn
 Budget too low for the bid (daily budget under a few clicks)? yes -> consolidate budgets
-Start and end dates, campaign group status active?     no -> fix schedule
+Start and end dates, campaign (old campaign group) status active?     no -> fix schedule
+Dynamic Group Budget on with very different audience sizes? yes -> largest audience takes the budget; split into separate campaigns
 Creative CTR far below baseline (relevance)?           yes -> new creative
 ```
 
@@ -104,7 +105,8 @@ High value test backlog:
 1. Thought Leader Ads vs company page ads with the same message.
 2. Gated document (lead form) vs ungated document plus retargeting to a lead form.
 3. Lead gen form with qualifying question vs without.
-4. Higher intent form option vs standard.
+4. Work email validation on vs off (or a higher intent form option if the account shows one).
+4b. Qualified leads goal vs Leads goal on the same Lead generation offer (needs CAPI qualified events).
 5. Job titles vs function plus seniority audience.
 6. Maximum delivery vs Cost cap at the same budget.
 7. Accelerate campaign vs best classic campaign.

@@ -7,6 +7,7 @@
 - Logic: if a business buys a solution about every 5 years, roughly 20% of buyers are in market in a year and about 5% in a quarter; about 95% are out of market at any time.
 - Implication: ads that only harvest in market buyers address a small pool; advertising also has to build memory among the 95% so the brand is considered when they enter the market.
 - Practical use in budgets: protect a demand creation share (see [Bidding](bidding-and-budgets.md) section 5), measured on reach in the ICP, engagement, branded search and later pipeline, not same week leads.
+- The B2B Institute adds that ads do not move buyers into market; buyers move themselves, so the job is to be remembered when they do [Study, 2021]. Its research also found 96% of B2B marketers expected the main effect of a campaign within 2 weeks, which is why demand creation gets cut too early [Study].
 
 Estimate your in market share:
 ```
@@ -16,10 +17,12 @@ example: 4 year replacement cycle -> 1 / 16 ≈ 6% of ICP accounts in market per
 Use the number to set expectations: a lead capture campaign to the full ICP can only harvest that share.
 
 ## 2. Brand and activation balance
-Les Binet and Peter Field's B2B analysis for the LinkedIn B2B Institute ("The 5 Principles of Growth in B2B Marketing") argued that B2B brands need substantial brand building alongside activation, with an indicative split near half brand [Study, 2019]. Treat as a starting hypothesis for mature categories; early stage companies with tiny ICPs often run more activation and ABM.
+Les Binet and Peter Field's B2B analysis for the LinkedIn B2B Institute ("The 5 Principles of Growth in B2B Marketing") argued that B2B brands need substantial brand building alongside activation, with an indicative split near half brand, and that share of voice above share of market tends to grow share [Study, 2019]. Treat as a starting hypothesis for mature categories; early stage companies with tiny ICPs often run more activation and ABM.
+
+Newer B2B Institute work, "Easy to Find: Being Where B2B Buying Happens" (with Ehrenberg-Bass, published in parts in 2025-12), frames physical availability as presence, prominence and portfolio, and argues for building owned prominence (thought leadership, community, distinctive assets) rather than renting it through paid placements alone; it cites Dreamdata data showing branded search returning $12.99 per $1 vs 68% ROAS for non branded search [Study, 2025-12]. Practical use: Thought Leader Ads and organic executive content are owned prominence; report branded search trend alongside LinkedIn reach.
 
 ## 3. Buying committee
-- B2B purchases involve several stakeholders; widely cited research puts buying groups at 6 to 10 people [Study, Gartner, as widely cited].
+- B2B purchases involve several stakeholders: Forrester reported 13 people on average with 89% of purchases spanning 2+ departments (State of Business Buying 2024) [Study, 2024-12]; Gartner figures run 5 to 11 [Study, 2024].
 - Implication: reaching one contact per account is not enough. Map roles (economic buyer, champion, users, technical evaluator, procurement) and plan coverage (see [Targeting and ABM](targeting-and-abm.md) section 3).
 - KPI: roles reached per priority account; contacts engaged per opportunity in the CRM.
 
@@ -35,7 +38,7 @@ LinkedIn is unusually strong at creation because of professional targeting; sear
 
 ## 5. Lead quality vs volume
 - Gated content at low CPL often yields low SQL rates. Volume without quality wastes sales time.
-- Decide with sales which outcome matters this quarter. If sales capacity is the constraint, choose quality levers (qualifying questions, higher intent forms, stricter audiences).
+- Decide with sales which outcome matters this quarter. If sales capacity is the constraint, choose quality levers (qualifying questions, work email validation, the Qualified leads goal, stricter audiences).
 - Report both: leads and cost per qualified lead; never celebrate CPL alone.
 
 ## 6. Sales and marketing alignment (operating agreement)
@@ -82,7 +85,8 @@ Entry: sales reports poor leads or SQL rate fell 30%+.
 1. Pull CRM stages and disqualification reasons by campaign, audience and offer (see [Lead gen forms](lead-gen-forms-and-crm.md) section 6).
 2. Turn off Audience expansion and Audience Network if on.
 3. Check Demographics report for off ICP impressions; add exclusions.
-4. Add a qualifying question or switch to the higher intent form option.
+4. Add a qualifying question and turn on work email validation; check whether the account still offers a higher intent form option [Unverified].
+4b. If CAPI sends qualified stages, test the Qualified leads goal against the current goal [Official, 2025-04].
 5. Replace low intent offers to cold audiences with ungated content; keep gated offers for retargeting.
 6. Fix follow up speed and routing with sales.
 7. Re-measure after 30 days.
@@ -91,9 +95,10 @@ Entry: sales reports poor leads or SQL rate fell 30%+.
 Entry: cost per SQL at or below target for 6+ weeks.
 1. Raise budget 15% to 20% per week on capped campaigns.
 2. Add adjacent roles and regions as separate campaigns.
-3. Test predictive audiences seeded from SQLs or closed won contacts [Unverified] for seed rules.
-4. Test Accelerate campaigns against the best classic campaign.
-5. Expand demand creation (video, BrandLink or CTV where available) with a lift test.
+3. Test predictive audiences seeded from SQLs or closed won contacts (one source type per audience, 300+ members) [Official, 2024-02].
+4. Test Accelerate ad sets against the best Classic ad set, judged on cost per SQL.
+5. Move Lead generation ad sets to the Qualified leads goal where qualified events flow [Official, 2026-08].
+6. Expand demand creation (video, Reserved Ads, BrandLink, CTV via Campaign Manager or Amazon DSP) with a lift test [Official, 2026-05].
 Stop rule: if cost per SQL rises 20% above target for 2 weeks after a step, revert the step.
 
 ### Play 6. Recover (performance collapse)
@@ -106,7 +111,7 @@ Stop rule: if cost per SQL rises 20% above target for 2 weeks after a step, reve
 ### Play 7. Webinar or event promotion
 | When | Action |
 |------|--------|
-| 4 to 6 weeks before | LinkedIn Event page; event ads to ICP; Thought Leader posts from speakers |
+| 4 to 6 weeks before | LinkedIn Event page, or off-platform event details for webinars hosted elsewhere (since 2026-04); event ads to ICP with Lead generation objective and a lead gen form where registration happens off LinkedIn [Official, 2026-05]; Thought Leader posts from speakers |
 | 2 to 4 weeks before | Retarget engagers; conversation ads to tier 1 accounts |
 | Final week | Reminder ads to registrants' companies; message ads to warm lists where allowed |
 | After | Retarget attendees and registrants with replay and next step offer; sync attendance to CRM |

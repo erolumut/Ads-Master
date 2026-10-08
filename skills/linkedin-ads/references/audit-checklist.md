@@ -38,7 +38,7 @@
 | C4 | Company list match rate 60%+ | ABM reach | List details | Medium | Clean list, add domains and URLs |
 | C5 | Retargeting ladder exists (visitors, video viewers, document readers, form openers) | Cheapest high intent pool | Matched audiences | High | Build |
 | C6 | Buying committee roles covered for priority accounts | Committee selling | Audience plan, Demographics | Medium | Add role campaigns |
-| C7 | Company engagement report reviewed and shared with sales (ABM) | Sales activation | Journal, sales notes | Medium | Weekly routine |
+| C7 | Companies tab (formerly company engagement report) reviewed and shared with sales (ABM) | Sales activation | Journal, sales notes | Medium | Weekly routine |
 | C8 | Lists refreshed in last 30 days | Accuracy | Upload dates | Low | Refresh |
 
 ## D. Creative and offers
@@ -58,7 +58,7 @@
 |---|-------|-----|---------------|----------|-----|
 | E1 | Form fields limited to what sales uses | Completion | Form review | Medium | Remove fields |
 | E2 | Qualifying question on high value offers | Quality | Form review | High | Add |
-| E3 | Higher intent option considered when quality is poor | Quality | Form settings | Medium | Test |
+| E3 | Work email validation (or a higher intent option where offered) considered when quality is poor | Quality | Form settings | Medium | Test |
 | E4 | Privacy policy and consent text correct | Compliance | Form | Critical | Legal review |
 | E5 | Thank you screen offers next step | Speed to meeting | Form | Low | Add calendar link |
 | E6 | Completion rate tracked by form | Friction | Form report | Medium | Track |

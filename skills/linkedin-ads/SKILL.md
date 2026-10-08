@@ -1,11 +1,13 @@
 ---
 name: linkedin-ads
-description: LinkedIn Ads playbook for B2B paid social in Campaign Manager. Use to audit, plan, launch, optimize, scale or troubleshoot LinkedIn campaigns, covering objectives, campaign groups, Accelerate campaigns, targeting by job title, function, seniority, skills and company, matched audiences, company lists and ABM, predictive audiences, audience expansion and LinkedIn Audience Network settings, single image, carousel, video, document, event, conversation, message and Thought Leader Ads, BrandLink and CTV video, lead gen forms and CRM sync with HubSpot or Salesforce, bidding (Maximum delivery, Cost cap, Manual), budgets and frequency, Insight Tag, Conversions API, revenue attribution report, company engagement report, lift tests, the LinkedIn Marketing API and LinkedIn Ads MCP servers. Triggers include LinkedIn Ads, Campaign Manager, Sponsored Content, ABM, B2B lead gen, cost per lead, buying committee, 95 5 rule.
+description: LinkedIn Ads playbook for B2B paid social in Campaign Manager. Use to audit, plan, launch, optimize, scale or troubleshoot LinkedIn campaigns, covering objectives, campaign groups, Accelerate campaigns, targeting by job title, function, seniority, skills and company, matched audiences, company lists and ABM, predictive audiences, audience expansion and LinkedIn Audience Network settings, single image, carousel, video, document, event, conversation, message and Thought Leader Ads, BrandLink and CTV video, lead gen forms and CRM sync with HubSpot or Salesforce, bidding (Maximum delivery, Cost cap, Manual), qualified leads optimization, budgets and frequency caps, Reserved Ads, Insight Tag, Conversions API, revenue attribution report, Companies tab, lift tests, the LinkedIn Marketing API and LinkedIn Ads MCP servers. Triggers include LinkedIn Ads, Campaign Manager, Sponsored Content, ABM, B2B lead gen, cost per lead, buying committee, 95 5 rule.
 ---
 
 # LinkedIn Ads
 
-> Knowledge as of 2026-10. Platforms change monthly. Run the Freshness Protocol before acting on any feature, setting, policy or benchmark. This package was built with limited live research access: long standing platform mechanics carry [Official] labels with the date they were established; many 2025 to 2026 specifics carry [Unverified] and sit in the verification queue below. Verify them in Campaign Manager or the LinkedIn Help Center before they drive spend.
+> Knowledge as of 2026-10-08. Platforms change monthly. Run the Freshness Protocol before acting on any feature, setting, policy or benchmark. A live verification pass on 2026-10-08 (57 searches across LinkedIn Help Center pages, Marketing API changelogs, trade press and dated benchmark studies) confirmed or corrected most 2025 to 2026 specifics; what remains open sits in the verification queue below. LinkedIn Help Center and Microsoft Learn pages could not be fetched directly, so official facts were confirmed through search extracts of those pages and dated trade coverage.
+
+> Naming (since 2025-10): Campaign Manager now labels the old **campaign group** as **Campaign** and the old **campaign** as **Ad set**. The Marketing API still uses `campaignGroup` and `campaign`, and dynamic UTM tokens were renamed (for example CAMPAIGN_GROUP_ID became CAMPAIGN_ID) [Official, 2025-10]. This skill writes "campaign group (UI: Campaign)" and "campaign (UI: Ad set)" where the difference matters; use the new UI names in change lists.
 
 ## Mission and scope
 Run LinkedIn Ads as the B2B channel that reaches defined buying committees, creates demand among the 95% of buyers who are not in market, captures the 5% who are, and proves pipeline in the CRM.
@@ -17,40 +19,58 @@ Out of scope (hand off): CAPI and CRM engineering (measurement), creative produc
 ### Platform model in one table
 | Area | What to know | Label |
 |------|-------------|-------|
-| Hierarchy | Ad account > Campaign group > Campaign > Ad; Business Manager centralizes ad accounts, pages and people | [Official, 2023] |
-| Objectives | Awareness (Brand awareness), Consideration (Website visits, Engagement, Video views), Conversions (Lead generation, Website conversions, Talent leads, Job applicants) | [Official, 2024] verify list |
-| AI campaigns | Accelerate campaigns build targeting, creative and bidding automatically for supported objectives | [Official, 2023-10 launch] [Unverified] for 2026 objective coverage |
-| Audience floor | 300 members minimum to run | [Official, 2023] |
-| Lookalikes | Retired 2024-02; predictive audiences are the replacement | [Official, 2024] |
-| Bidding | Maximum delivery, Cost cap, Manual bidding; charge by CPM, CPC, CPV or per send depending on format | [Official, 2024] |
-| Budgets | Campaign minimums historically $10 daily and $100 lifetime (USD) | [Unverified] for 2026 values |
-| Measurement | Insight Tag, Conversions API (since 2023), CRM integrations, revenue attribution report, company engagement report, Demographics report, brand and conversion lift tests | [Official, 2023 to 2024] |
-| Thought Leader Ads | Promote posts from employees and, with permission, other members | [Official, 2024] |
-| Video expansion | BrandLink (ads with publisher and creator video), CTV | [Unverified] for 2026 availability and markets |
-| API | LinkedIn Marketing API, versioned monthly with a LinkedIn-Version header | [Official, 2023] |
+| Hierarchy | Ad account > Campaign (was campaign group) > Ad set (was campaign) > Ad; Business Manager centralizes ad accounts, pages, people and CRM connections | [Official, 2025-10] |
+| Objectives | Brand awareness; Website visits, Engagement, Video views; Lead generation, Website conversions, Job applicants. Objective cannot be changed after launch | [Official, 2026-09] (API objective list); Talent leads [Unverified] |
+| Qualified leads optimization | Lead generation ad sets can optimize to qualified leads sent via Conversions API or CRM data shared in Business Manager; MQL and SQL conversion types added in API 202608 | [Official, 2025-04] [Official, 2026-08] |
+| AI ad sets | Accelerate (AI built audience, creative, bidding) next to Classic; launched for Lead generation and Website visits, expanded to all objectives plus video and document formats | [Official, 2024-10] [Contested] on current limits |
+| AI creative | Brand Kit, Draft with AI, AI ad variants, Ad personalization, Flexible Ad Creation (up to 64 asset combinations) | [Official, 2026-07] |
+| Audience floor | 300 members minimum to serve | [Official, 2026-10] |
+| Lookalikes | Discontinued 2024-02-29; predictive audiences and Audience expansion are the replacements | [Official, 2024-02] |
+| Bidding | Maximum delivery, Cost cap, Manual bidding; no new bid strategy found in 2025 to 2026; charge by CPM, CPC, CPV or per send depending on format | [Official, 2026-10] |
+| Budgets | $10 daily minimum; $100 lifetime minimum for new ad sets, then $10 x scheduled days; daily spend can run up to 50% over the daily budget on a given day; Dynamic Group Budget shares one budget across up to 50 ad sets | [Official, 2026-10] |
+| Frequency cap | Classic Brand awareness ad sets: Default or Customize, 3 to 30 impressions per member per 7 days, across feed, Audience Network and CTV | [Official, 2025-07] |
+| Premium placements | Reserved Ads (first sponsored slot in feed), First Impression Ads (full screen vertical video, first ad of the day) | [Official, 2025-06] |
+| Measurement | Insight Tag, Conversions API, CRM integrations, revenue attribution report (Salesforce, Dynamics 365, HubSpot via Business Manager), Companies tab (replaced the company engagement report), Demographics report, lift tests | [Official, 2026-10] |
+| Thought Leader Ads | Promote public posts from employees, creators and other members with approval; Brand awareness and Engagement confirmed | [Official, 2024-03] [Contested] for lead generation |
+| Video expansion | BrandLink pre-roll on publisher and creator video (self serve for select accounts since 2026-03); CTV Ads in Campaign Manager (US, Canada), via The Trade Desk (2026-03) and Amazon DSP (US, 2026-05) | [Official, 2026-05] |
+| API | LinkedIn Marketing API, monthly versions in the LinkedIn-Version header, each sunset about one year after release (202510 sunsets 2026-10-15) | [Official, 2026-09] |
 
-### Verification queue (check before relying on these)
-1. Accelerate campaigns: supported objectives, required conversion volume, controls in 2026.
-2. BrandLink and CTV: availability by market, buying minimums, measurement.
-3. Thought Leader Ads: formats and objectives supported (video, document, lead gen forms) in 2026.
-4. Predictive audiences: seed minimums and supported objectives.
-5. Revenue attribution report: supported CRMs (Salesforce, Microsoft Dynamics, HubSpot), lookback and model.
-6. Budget minimums, daily budget overspend behavior, frequency cap availability.
-7. Conversions API: identifiers accepted, event lookback, partner integrations (GTM server template, Adobe event forwarding added 2026-06 per LinkedIn's GitHub).
-8. Any new objectives, pricing or bidding options launched June to October 2026.
-9. EU targeting restrictions (Digital Services Act related changes) and any data sharing changes with Microsoft.
-10. Message and Conversation ads delivery restrictions by region.
+### Verification queue (still open after the 2026-10-08 pass)
+1. Accelerate: whether the getting started limits (14 day minimum, lifetime floors of $700 for Website visits and $3,000 for Lead generation, single image English copy) still apply; sources conflict.
+2. Thought Leader Ads with Lead generation objective and lead gen forms: LinkedIn's product page lists only Brand awareness and Engagement; benchmark vendors report lead gen form data on Thought Leader Ads.
+3. Predictive audiences: account cap (30 per two agency guides) and the reported 1,000 DMP segment cap per account from API 202608; the 300 member source floor is confirmed.
+4. Revenue attribution report default lookback (180 days per LinkedIn's getting started guide, 90 days per one agency, up to 365 days per another).
+5. Website retargeting maximum lookback (180 or 365 days) and lead download retention (reported 90 days).
+6. Whether a lead gen form "higher intent" option still exists; work email validation is the documented quality lever.
+7. In-Stream Ads (reported alpha, US, 2026-09), Creator Marketplace availability outside North America, and CTV markets beyond US and Canada.
+8. Talent leads objective status and the current Ads Guide specs for single image, video and document ads.
+9. Anything LinkedIn ships after 2026-10-08; recheck the Marketing API recent changes page monthly.
 
 ### Evidence and data rules
 | Label | Meaning in this skill |
 |-------|----------------------|
-| [Official, YYYY] or [Official, YYYY-MM] | LinkedIn documentation or announcement; date is when the mechanic was established or announced |
-| [Study, YYYY] | Published research with a method (B2B Institute, Ehrenberg-Bass, Gartner) |
+| [Official, YYYY] or [Official, YYYY-MM] | LinkedIn documentation, Help Center, API changelog or announcement (including dated trade coverage of an announcement); date is when the mechanic was announced, or 2026-10 for a standing Help Center rule confirmed in the 2026-10-08 pass |
+| [Study, YYYY] or [Study, YYYY-MM] | Published research or benchmark with a disclosed method or sample (B2B Institute, Ehrenberg-Bass, Forrester, Dreamdata, Kiin) |
 | [Practitioner consensus] | Widely repeated by credible operators, no hard data |
 | [Contested] | Credible sources disagree; both sides in the reference |
-| [Unverified] | Not confirmed in the 2026-10 build; verify before it drives a decision |
+| [Unverified] | Not confirmed in the 2026-10-08 pass; verify before it drives a decision |
 
 Data priority: CRM truth (MEASUREMENT.md) > Campaign Manager data (export, API, MCP) > revenue attribution report (influence) > external benchmarks.
+
+### Changes from 2025 to 2026 that alter decisions
+| Change | Date | What the agent does differently |
+|--------|------|---------------------------------|
+| Qualified leads optimization, then MQL and SQL conversion types | 2025-04, 2026-08 | Send qualified stages through CAPI (at least 5 qualified leads every 2 weeks is LinkedIn's guidance) and test the qualified leads goal on Lead generation ad sets |
+| Hierarchy rename (Campaign, Ad set) | 2025-10 | Use new UI names in change lists; check UTM and CRM fields that read dynamic UTM tokens |
+| Frequency cap for Brand awareness | 2025-07 | Set Customize caps on ABM awareness instead of relying on budget limits alone |
+| Reserved Ads and First Impression Ads | 2025-06 to 2025-12 | Consider for launches and events at Enterprise tier; judge on ICP reach and lift, not CPM |
+| Companies tab with paid plus organic engagement | 2024 to 2026 | Weekly engaged company export to sales; build retargeting lists from engagement levels |
+| Event Ads: off-platform events and Lead generation objective | 2026-04, 2026-05 | Webinars hosted elsewhere can use event ads with lead gen forms |
+| AI creative tools and Flexible Ad Creation | 2026-07 | Use AI variants for volume, but review every line against BRAND.md; Flexible ads auto pause losers |
+| BrandLink self serve, CTV via The Trade Desk and Amazon DSP | 2026-03, 2026-05 | Enterprise video programs can buy LinkedIn audiences off platform; plan lift measurement |
+| DoubleVerify post-bid measurement on Audience Network | 2026-05 | If Audience Network is tested, require DV or site level reports before scaling |
+| Sponsored Messaging creative rotation defaults to OPTIMIZED for lead gen | 2026-07 | Set even rotation (API value ROUND_ROBIN) explicitly when testing message variants |
+| Data sharing with Microsoft for ads (outside EU, EEA, UK, Switzerland) | 2025-11-03 | Expect members to have new Advertising Data opt outs; do not assume parity across regions |
 
 ## Intake (minimum facts needed)
 | Fact | Where to find it | Cold start question |
@@ -89,7 +109,7 @@ Data priority: CRM truth (MEASUREMENT.md) > Campaign Manager data (export, API, 
 | Model | LinkedIn role | Structure | Primary KPI | Formats that usually fit | Tests to run first |
 |-------|---------------|-----------|-------------|--------------------------|--------------------|
 | B2B SaaS | Demand creation plus ABM plus lead capture | Campaign groups by funnel stage; ABM group for tier 1 accounts | Pipeline per dollar, cost per SQL | Thought Leader Ads, document, video, lead gen forms, conversation ads for demos | Thought Leader vs company page ads; gated vs ungated document |
-| Lead gen (services, finance, education for professionals) | Lead capture with quality control | Audience by role and seniority; lead gen forms | Cost per qualified lead | Single image, document with lead form, event ads | Higher intent form vs standard; qualifying question vs none |
+| Lead gen (services, finance, education for professionals) | Lead capture with quality control | Audience by role and seniority; lead gen forms | Cost per qualified lead | Single image, document with lead form, event ads | Work email validation vs none; qualifying question vs none |
 | Ecommerce (B2B commerce, premium professional products) | Niche reach to professional segments | Few campaigns, retargeting heavy | ROAS on CRM or backend revenue | Single image, carousel, video | Retargeting vs cold by job function |
 | Local services (professional, regional B2B) | Regional decision makers | Location plus company size plus function | Cost per qualified enquiry | Single image, lead gen forms | Small audience Manual bidding vs Maximum delivery |
 | App (B2B tools with app) | Awareness and trial among roles | Website conversions to trial | Cost per activated account | Video, single image | Trial vs demo offer |
@@ -98,7 +118,7 @@ Data priority: CRM truth (MEASUREMENT.md) > Campaign Manager data (export, API, 
 ### By budget and signal tier
 | Tier | Monthly LinkedIn spend | Structure | Bidding | Cadence | Creative volume |
 |------|------------------------|-----------|---------|---------|-----------------|
-| Starter | under $3k | 1 to 2 campaign groups, 2 to 3 campaigns (one core audience, one retargeting); no Audience Network | Maximum delivery with lifetime or daily caps, or Manual CPC for very small audiences | Weekly | 2 to 4 ads per campaign, refresh every 6 to 8 weeks |
+| Starter | under $3k | 1 to 2 campaigns (old campaign groups), 2 to 3 ad sets (one core audience, one retargeting); no Audience Network | Maximum delivery with lifetime or daily caps, or Manual CPC for very small audiences | Weekly | 2 to 4 ads per campaign, refresh every 6 to 8 weeks |
 | Growth | $3k to $30k | Funnel stage groups, ABM group, retargeting ladder | Maximum delivery to learn, Cost cap once cost per result is known | Twice weekly checks, weekly optimization | 3 to 5 ads per campaign, Thought Leader Ads, monthly refresh |
 | Scale | $30k to $300k | Multiple ICP segments and regions, Accelerate tests, video and CTV tests | Cost cap by segment; Manual for tier 1 ABM | Daily pacing, weekly optimization, monthly tests | Ongoing creative pipeline, executive programs |
 | Enterprise | over $300k | Multi market, Business Manager governance, BrandLink or CTV, lift studies | Mixed by objective | Automated reporting via API | Always on creative production |
@@ -130,7 +150,7 @@ Data priority: CRM truth (MEASUREMENT.md) > Campaign Manager data (export, API, 
 ## The laws
 1. No lead generation without a written qualified lead definition agreed with sales. Otherwise you optimize to noise.
 2. Measure on pipeline and revenue in the CRM; CPL is a diagnostic, not a goal.
-3. Turn off Audience expansion and LinkedIn Audience Network for B2B lead gen and ABM unless a test proves otherwise. Both dilute ICP precision.
+3. Turn off Audience expansion and LinkedIn Audience Network for B2B lead gen and ABM unless a test proves otherwise. Both dilute ICP precision. Audience Network is enabled by default on new single image, carousel, document and video ad sets [Official, 2026-10], and practitioners report Audience expansion on by default in many ad sets [Practitioner consensus, 2026-05].
 4. One objective and one audience per campaign. Mixed campaigns make results unreadable.
 5. Size audiences for the job: retargeting and ABM can be small, cold acquisition needs scale. Under delivery is usually an audience problem.
 6. Check the Demographics report two weeks after launch; you are paying for who you reached, not who you targeted.
@@ -139,10 +159,10 @@ Data priority: CRM truth (MEASUREMENT.md) > Campaign Manager data (export, API, 
 9. Use Thought Leader Ads and native formats (document, video) for demand creation. B2B buyers engage with people more than logos [Practitioner consensus].
 10. Lead gen forms: minimal fields for volume, one qualifying question for quality; sync to CRM in near real time. Speed to lead decides conversion.
 11. Retarget engagers (video viewers, document readers, form openers, page visitors) with a next step offer. Engagement audiences are LinkedIn's cheapest high intent pool.
-12. Start with Maximum delivery to learn the market price, then use Cost cap; use Manual bidding for small ABM audiences. Automated bids overpay on tiny audiences.
+12. Start with Maximum delivery to learn the market price, then use Cost cap; use Manual bidding for small ABM audiences. Automated bids overpay on tiny audiences. Expect daily spend up to 50% above the daily budget on single days under any strategy [Official, 2026-10].
 13. Give campaigns time: B2B cycles are long; judge demand creation on 60 to 90 day pipeline influence, not same week leads.
-14. Feed outcomes back through CAPI and CRM integrations so the system optimizes to qualified events.
-15. Plan for the 95%: protect a demand creation budget share, because only a small share of buyers is in market at any time [Study, 2021].
+14. Feed outcomes back through CAPI and CRM integrations so the system optimizes to qualified events. Qualified leads optimization (2025-04) and the MQL and SQL conversion types (API 202608) make this a bidding input, not only a report [Official, 2026-08].
+15. Plan for the 95%: protect a demand creation budget share, because only a small share of buyers is in market at any time [Study, 2021]. LinkedIn data shows long paths: Dreamdata measured 272 days from first touch to revenue in its 2026 report [Study, 2026].
 16. ABM is a sales program, not a targeting setting: agree account tiers, plays and follow up with sales.
 17. Test one variable at a time with Campaign Manager A/B tests or holdouts; log in EXPERIMENTS.md.
 18. Compare to the project's own history first and benchmarks second.
@@ -152,12 +172,12 @@ Data priority: CRM truth (MEASUREMENT.md) > Campaign Manager data (export, API, 
 |---------|---------------|--------|-------|
 | Campaign not spending | Audience too small, bid too low (Manual or Cost cap), budget too low, ad rejected, payment | Forecast panel, bid vs suggested range, ad status | Widen audience, raise cap, fix ad, Maximum delivery |
 | High CPL | Narrow audience, weak offer, long form, poor creative, wrong objective | CTR, form open and completion rates, frequency | New offer, shorter form, new creative, broaden roles |
-| Cheap leads, poor quality | Audience expansion on, Audience Network on, broad roles, job seekers, offer too generic | Demographics report, lead fields, CRM stages | Turn off expansion and network, exclude, qualifying question, higher intent form |
+| Cheap leads, poor quality | Audience expansion on, Audience Network on, broad roles, job seekers, offer too generic | Demographics report, lead fields, CRM stages | Turn off expansion and network, exclude, qualifying question, work email validation, Qualified leads goal |
 | CTR falling | Fatigue, frequency too high, stale creative | Frequency, CTR trend per ad | Refresh creative, rotate offers, widen audience |
 | Conversions not recording | Insight Tag missing, rule misconfigured, consent, CAPI not deduped | Tag status, conversion rule status, event test | Hand off to measurement |
 | Spend concentrated on one ad | Delivery picks early winner | Ad level impressions | Split test properly or accept and refresh |
 | Leads not reaching CRM | Integration disconnected, field mapping | Lead sync status, CRM logs | Reconnect, map fields, alert |
-| Target accounts not engaging | List match rate low, creative irrelevant, budget too thin | Company list match rate, company engagement report | Clean list, tier accounts, account specific creative |
+| Target accounts not engaging | List match rate low, creative irrelevant, budget too thin | Company list match rate, Companies tab | Clean list, tier accounts, account specific creative |
 
 Detailed trees are in [Optimization and diagnostics](references/optimization-and-diagnostics.md).
 
@@ -167,7 +187,7 @@ Detailed trees are in [Optimization and diagnostics](references/optimization-and
 | Daily (Growth and above) | Spend pacing, rejected ads, lead sync working, no zero lead days on lead gen campaigns |
 | Weekly | KPIs by campaign, CTR and frequency by ad, form completion rate, lead quality notes from sales, budget shifts within groups |
 | Every 2 weeks | Demographics report review, exclusions, creative rotation decisions |
-| Monthly | CRM report: qualified leads, opportunities and pipeline by campaign; company engagement report for ABM; creative refresh plan; freshness check |
+| Monthly | CRM report: qualified leads, opportunities and pipeline by campaign; Companies tab for ABM; creative refresh plan; freshness check |
 | Quarterly | Full audit, revenue attribution review, lift or holdout test, budget split between demand creation and capture, ABM tier review with sales |
 
 ## Guardrails and approvals
@@ -179,7 +199,7 @@ Detailed trees are in [Optimization and diagnostics](references/optimization-and
 | Thought Leader Ads | Human plus documented member permission | Permission per post in Campaign Manager flow |
 | Lead gen form privacy policy and consent text | Human (legal) | Required field in forms |
 | Turning on Audience expansion or Audience Network | Human | Only as a test |
-| Conversation and message ads | Human | Sender must agree; respect regional delivery rules |
+| Conversation and message ads | Human | Sender must agree; EEA and Swiss members receive them only if they opted in [Official, 2024-10] |
 | CRM integration changes | Human plus measurement | Affects sales workflow |
 
 ## Outputs
@@ -206,17 +226,19 @@ Before acting on a feature, setting, policy or benchmark:
 1. LinkedIn Marketing Solutions blog and product news: https://www.linkedin.com/business/marketing/blog
 2. LinkedIn Help Center for Campaign Manager: https://www.linkedin.com/help/lms
 3. LinkedIn Ads Guide and specs on business.linkedin.com (Marketing Solutions).
-4. LinkedIn Marketing API docs and versioning: https://learn.microsoft.com/en-us/linkedin/marketing/
+4. LinkedIn Marketing API docs and versioning: https://learn.microsoft.com/en-us/linkedin/marketing/ and the Recent Marketing API Changes page: https://learn.microsoft.com/en-us/linkedin/marketing/integrations/recent-changes (monthly; this is where 2026 objective, optimization goal and CAPI changes first appeared).
 5. LinkedIn Advertising Policies: https://www.linkedin.com/legal/ads-policy
 6. Campaign Manager in-product announcements and the objective, bidding and format menus themselves.
 7. LinkedIn developer repositories on GitHub (github.com/linkedin-developers) for CAPI templates and client libraries.
-8. Log changes in `ads-master/journal/YYYY-MM-DD_HHMM_linkedin-ads_freshness.md` with URL and date, and flag outdated reference modules.
+8. Trade coverage that reports LinkedIn launches within days: Social Media Today LinkedIn topic (https://www.socialmediatoday.com/topic/linkedin/) and PPC Land; treat as pointers and confirm in the Help Center.
+9. Microsoft Advertising blog for LinkedIn data used in Microsoft search, audience and CTV products: https://about.ads.microsoft.com/en/blog
+10. Log changes in `ads-master/journal/YYYY-MM-DD_HHMM_linkedin-ads_freshness.md` with URL and date, and flag outdated reference modules.
 
 ## Reference index
 - [Account structure and objectives](references/account-structure-and-objectives.md): hierarchy, Business Manager, objectives, Accelerate, naming, structures by tier.
-- [Targeting and ABM](references/targeting-and-abm.md): attributes, titles vs function and seniority, skills, matched audiences, company lists, predictive audiences, expansion pitfalls, company engagement report.
+- [Targeting and ABM](references/targeting-and-abm.md): attributes, titles vs function and seniority, skills, matched audiences, company lists, predictive audiences, expansion defaults, EU and EEA rules, Companies tab.
 - [Formats and creative](references/formats-and-creative.md): every format with specs and use, Thought Leader Ads, BrandLink and CTV, creative system and fatigue.
-- [Lead gen forms and CRM](references/lead-gen-forms-and-crm.md): form design, higher intent forms, hidden fields, HubSpot and Salesforce sync, lead quality loop.
+- [Lead gen forms and CRM](references/lead-gen-forms-and-crm.md): form design, work email validation, hidden fields, booking, HubSpot and Salesforce sync, qualified lead feedback, lead quality loop.
 - [Bidding and budgets](references/bidding-and-budgets.md): strategies, cost cap logic, minimums, pacing, frequency, budget sizing.
 - [Measurement: CAPI and attribution](references/measurement-capi-and-attribution.md): Insight Tag, conversion rules, windows, CAPI, offline and CRM conversions, revenue attribution, lift tests.
 - [B2B strategy playbooks](references/b2b-strategy-playbooks.md): 95 to 5, buying committee, demand creation vs capture, ABM programs, launch, scale and recover plays.
