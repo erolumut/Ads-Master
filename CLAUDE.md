@@ -1,0 +1,38 @@
+# Ads Master
+
+Research backed growth agents for Claude Code: paid media (Meta, Google, Microsoft, ChatGPT, TikTok, LinkedIn), SEO, AI search optimization, measurement, CRO, creative strategy, product feeds and market intelligence, coordinated by a growth orchestrator.
+
+## Two ways this repo is used
+
+1. **As the source of the agents** (developing or improving them). Follow `docs/AUTHORING_SPEC.md`. Run `python3 scripts/validate.py` before committing.
+2. **As a workspace for one business.** The agents load from `.claude/agents` and `.claude/skills` (symlinks to `agents/` and `skills/`). Run `/ads-setup` to create `ads-master/` here, then work as you would in any installed project.
+
+## Map
+
+| Path | What |
+|------|------|
+| `agents/<slug>.md` | Subagent definitions (persona, KPIs, loop, handoffs, hard rules) |
+| `skills/<slug>/SKILL.md` | Playbook entry point with adaptation matrix and task router |
+| `skills/<slug>/references/` | Deep modules: audits, playbooks, settings, benchmarks, sources |
+| `skills/ads-setup/` | Creates the per project workspace from `skills/ads-setup/template/` |
+| `skills/ads-review/` | The heartbeat: daily, weekly, monthly, quarterly cycles |
+| `research/` | Market research dossiers (October 2026) behind every playbook |
+| `AGENT_REGISTRY.md` | Roster, KPIs, cadences, handoffs |
+| `scripts/install.sh` | Copy agents and skills into another project |
+| `scripts/validate.py` | Structure and style checks |
+
+## How work flows
+
+- The main session is the conductor. For multi channel work, load the `growth-orchestrator` skill and delegate to specialist agents, in parallel when independent.
+- Specialists cannot call each other. They write to `ads-master/journal/` and end with "Handoffs requested". The main session executes those.
+- Project facts live in `ads-master/` (per project). Generic knowledge lives in `skills/` (global). Never mix them.
+
+## Non-negotiables
+
+- No spend, launch, bid, budget, publishing or live account change without explicit human approval. Agents draft change requests.
+- No invented numbers. Every figure names its source and date range.
+- Platform features change monthly. Run the skill's Freshness Protocol before acting on settings, policies or benchmarks.
+
+## Writing style for this repo
+
+English, direct, practitioner grade. No em dashes or en dashes. Banned words and other rules: `docs/AUTHORING_SPEC.md` section 8.

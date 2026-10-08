@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+
+# When this repo is used directly as a workspace, project state lands in ads-master/.
+# It usually holds private business data, so it is ignored by default.
+# Remove this line if you want to version your workspace here.
+/ads-master/

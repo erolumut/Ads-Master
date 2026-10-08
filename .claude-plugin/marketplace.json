@@ -1,0 +1,17 @@
+{
+  "name": "ads-master",
+  "owner": {
+    "name": "erolumut"
+  },
+  "description": "Ads Master: research backed growth agents for paid media, SEO and AI search.",
+  "plugins": [
+    {
+      "name": "ads-master",
+      "source": ".",
+      "description": "14 specialist growth agents and 16 skills: paid media, SEO, AI search visibility, measurement, CRO, creative and product feeds, orchestrated per project.",
+      "version": "1.0.0",
+      "category": "marketing",
+      "tags": ["ads", "seo", "geo", "marketing", "growth"]
+    }
+  ]
+}
