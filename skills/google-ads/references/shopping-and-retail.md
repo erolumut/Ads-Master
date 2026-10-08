@@ -74,13 +74,14 @@ Coordinate with commerce-feeds; check these during an audit:
 | Shipping and returns settings | Shown in ads, affects CTR and eligibility for annotations |
 | Product ratings and store ratings | Stars in ads lift CTR |
 | Promotions | Promotion annotations; Direct Offers in AI Mode for pilot advertisers |
-| Loyalty programs and member pricing | Loyalty annotations; Loyalty Customer Match expanded to AI Mode and Gemini apps in 14 countries [Unverified, trade press 2026-10] |
-| Local inventory feed | LIA eligibility |
+| Loyalty programs and member pricing | Loyalty annotations and member prices for users on lists labeled "Loyalty program members" (tiers must match Merchant Center). Since 2026-10-02 member benefits also show in AI Mode and Gemini apps (US only); the program now covers the US, UK, Germany, France, Canada, Brazil, Mexico, Australia, India, Italy, the Netherlands, South Korea and Spain, with Japan for points programs [Official, Merchant Center Help; Search Engine Roundtable 2026-10-02]. Check that no automatically labeled list carries the loyalty label by mistake |
+| Local inventory feed | LIA eligibility. Local inventory ads are on by default in Standard Shopping campaigns since 2026-08-31; the API treats `enable_local` as true for Shopping and v25.1+ rejects false. Control online vs local serving with the Inventory filter (Channel = Online or Local) [Official, Google Ads Developer Blog 2026-07] |
+| Free listings in the EEA | Free product listings and popular product carousels disappeared from Search in parts of the EEA on 2026-09-17 and 18 under Digital Markets Act requirements, per a trade summary citing the Ads Liaison [Unverified, single source 2026-09]. Expect paid Shopping to carry more of the EEA product traffic |
 | Merchant Center linking to Google Ads | Must be linked and accepted |
 | Feed labels and country targeting | Determine which products serve in which markets |
-| Content API for Shopping to Merchant API migration | API based feed tools must use the Merchant API; Content API retirement planned for 2026 [Unverified exact date, commerce-feeds owns] |
+| Content API for Shopping to Merchant API migration | Content API v2.1 reached sunset on 2026-08-18. From 2026-09-01 requests without an approved extension fail intermittently (HTTP 410); extensions run to 2026-10-15 or 2026-12-31; all endpoints shut down in early 2027 [Official, Content API "Deprecation and sunset" page]. Any feed tool still on it is a delivery risk. commerce-feeds owns the migration |
 
-Ask Advisor began rolling out to selected Merchant Center accounts in July 2026 [Practitioner report, 2026-07].
+Ask Advisor in Merchant Center is a closed beta for selected US merchants with English accounts active for at least three months (rollout from 2026-07) [Official, Merchant Center Help "About Ask Advisor in Merchant Center"].
 
 ## 6. Shopping query management
 
@@ -103,10 +104,10 @@ Ask Advisor began rolling out to selected Merchant Center accounts in July 2026 
 | Local inventory ads | Products available in nearby stores | Local inventory feed, store pickup or in-store availability |
 | Location assets and affiliate location assets | Show address and distance, required for Maps placements | Business Profile, or chain selection for retailers selling through stores |
 | Demand Gen Maps channel | Promoted pins in Maps (Browse, Directions, Place details) | Location asset required, beta [Official, 2026] |
-| Local Services Ads | Pay per lead for home services, professional services | Google Screened or Google Guaranteed eligibility; moving into the Google Ads interface for select US advertisers from 2026-08 [Official, 2026-08, verify] |
-| Book button (Reserve with Google) | Appointments from Search and PMax ads | Reserve with Google partner integration, on by default for eligible merchants, opt-out in Google Ads, not available for healthcare [Unverified, trade press 2026-09] |
+| Local Services Ads | Pay per lead for home services, professional services | Google Screened or Google Guaranteed eligibility. LSA campaigns migrate automatically into a specialized PMax campaign type with pay-per-lead goals in Google Ads: select US home and storefront categories from 2026-08, service-area businesses and custom bidding or booking setups in late 2026, non-US and remaining categories through 2027. Manual max cost per lead and vertical-level tCPA go away (one campaign tCPA); weekly budgets become daily averages [Official, Google Ads Help "Local Services Ads transition to Performance Max", 2026-08]. Export historical LSA reports before migration; notice can be short. From 2026-10-01 unanswered calls in business hours where the caller waits more than 20 seconds, and qualifying follow-up calls, are charged as leads; follow-ups to the same person within 15 days are charged once; with a key-press menu the timer starts after the key press [Google notice of 2026-08-24 as reported by Search Engine Roundtable and PPC Land; 15-day rule from the Ads Liaison, 2026-08-26]. Track answer rate: missed calls now cost money |
+| Book button (Reserve with Google partner bookings) | Appointments from Search and PMax ads | Eligible merchants with a published appointment link get Book buttons on Search and PMax ads automatically; the "Appointments booked" goal is available without opt-in but must be added to campaign goals to influence bidding; billing is per click; opt out in Google Ads, not in Business Profile; not available for healthcare [Official, Google Ads Help "About partner bookings"; Search Engine Roundtable 2026-09] |
 | Call ads and call assets | Phone leads | Call reporting, call conversion minimum duration |
-| Automated promotions | Offers extracted from your site and added to eligible Search and PMax campaigns | On by default from 2026-10-12 in eligible accounts; turn off in account-level automated assets if offers are not valid [Unverified, trade press 2026-10] |
+| Automated promotions | Offers extracted from your site and added to eligible Search and PMax campaigns | On by default from 2026-10-12 for Search and PMax campaigns with location assets and no manual promotion assets; refreshed within 24 hours while the offer stays on the site. Turn off in Assets, Account level automated assets, Advanced settings, if site offers are not always valid. Not the same as Merchant Center "automated promotions" [Official notice quoted by Search Engine Roundtable and PPC Land, 2026-10-05] |
 
 Local rules:
 1. Location option Presence. Radius matched to the real service or delivery area.

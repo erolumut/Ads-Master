@@ -1,6 +1,6 @@
 # Conversion Tracking and Value (Google Ads side)
 
-> Knowledge as of 2026-10. Deep implementation (GTM, server-side tagging, CRM pipelines, CMP setup, code) belongs to the measurement agent. This module covers what the google-ads agent must check, decide and request inside Google Ads. Several 2026 changes (Data Manager API migration for uploads, consent signal changes on 2026-06-15, enhanced conversions settings merge) are partly from trade press and labeled.
+> Knowledge as of 2026-10. Deep implementation (GTM, server-side tagging, CRM pipelines, CMP setup, code) belongs to the measurement agent. This module covers what the google-ads agent must check, decide and request inside Google Ads. The 2026 changes in this module (Data Manager API for offline uploads, consent signal changes on 2026-06-15, enhanced conversions settings merge, Customer Match IP matching) were re-verified against Google help and developer pages on 2026-10-08 and are labeled with their source.
 
 ## 1. The conversion data contract
 
@@ -42,10 +42,13 @@ Rules:
 | Store visits and store sales | Modeled or matched store outcomes | Directional, validate with geo tests |
 | App conversions | Firebase, MMPs, SKAdNetwork, on-device measurement | Keep event definitions stable |
 
+Call recording: for US and Canada accounts that had never chosen a call recording setting, Google switched call recording to "Yes" on 2026-07-01; recordings feed AI lead scoring of calls, with call duration as a fallback signal [Practitioner reports citing Google's notice, 2026-05 to 2026-07]. Confirm the setting is a deliberate choice in every account (account settings, Call recording) and that the business's call disclosure covers it.
+
 ## 4. Enhanced conversions
 
-- Enhanced conversions for web and for leads: in 2026 Google merged the settings into a single on and off control in the conversions settings [Official help article "Updates to your enhanced conversions settings", 2026; verify UI].
-- Google cites an average gain of about 11% more Search conversions from enhanced conversions in 2026 materials [Official claim via trade press, 2026-09; not independently verified].
+- Enhanced conversions for web and for leads: since 2026-06 one account-level setting covers both, and Google deduplicates data arriving from the tag, Data Manager and API integrations at the same time (multiple sources allowed from 2026-04). Accounts that had accepted the customer data terms were moved automatically [Official, Google Ads Help "Updates to your enhanced conversions settings", 2026].
+- Google cites an average gain of 11% more Search conversions from enhanced conversions compared with standard conversion imports [Official claim, repeated in Google's 2026-09 Data Strength materials; not independently verified].
+- In 2026-09 the Conversions menu was reorganized: Summary and Leads moved above Conversions, an "All conversions" view was added and Settings was renamed "Conversion settings" [Practitioner report, Search Engine Roundtable 2026-09]. Update any written UI paths.
 - Check: Diagnostics tab shows enhanced conversions status without errors, match rate and coverage acceptable, customer data terms accepted.
 
 ## 5. Offline conversion import (lead gen and B2B)
@@ -59,22 +62,29 @@ Recommended stage design:
 | Closed won | Converted lead | Primary for value-based bidding at Scale tier, secondary otherwise | Actual deal value or gross profit |
 
 Rules:
-- Upload at least daily, ideally within 24 hours of the stage change. Uploads more than 7 days after the conversion are reported to be ignored by data-driven attribution [Unverified, trade press 2026-09].
+- Upload at least daily, ideally within 24 hours of the stage change. Several 2026-09 trade reports say uploads arriving more than 7 days after the conversion still appear in reports but are ignored by data-driven attribution [Unverified: not found in Google documentation this edition]. Google's Data Manager guidance asks for uploads within 24 hours of the tag event for best results [Official, Data Manager API docs].
 - Use conversion adjustments (retractions, restatements) for refunds and disqualified leads.
-- In 2026, Google moved offline conversion and enhanced conversions for leads uploads toward the Data Manager API. Trade press reports that from 2026-06-15 these uploads are handled through the Data Manager API rather than the Google Ads API conversion upload service [Contested: confirm the exact scope in the Google Ads API release notes before building or fixing an integration]. Hand off integration work to measurement.
+- Data Manager API is now the path for offline uploads [Official, Google Ads Developer Blog 2026-05-15 and Google Ads API docs]:
+  - From 2026-06-15 the Google Ads API `ConversionUploadService.UploadClickConversions` method (offline click conversions, including enhanced conversions for leads) accepts only developer tokens that already uploaded offline click conversions before the cutoff. New integrations get `CUSTOMER_NOT_ALLOWLISTED_FOR_THIS_FEATURE`. Google calls the allowlisted access transitional and has published no end date for it.
+  - New builds must use the Data Manager API (no developer token, project-based quotas, optional encryption, IP and session attributes available to all users). Existing pipelines should plan a migration rather than wait.
+  - Customer Match uploads followed the same pattern earlier: from 2026-04-01 tokens with no Customer Match requests between 2025-10-01 and 2026-03-31 lost Google Ads API access to OfflineUserDataJobService and UserDataService [Official, Google Ads API deprecations page]. A March 2027 deadline for data partners is reported but not confirmed [Unverified, PPC Land 2026].
+  - Silent failure risk: a pipeline that does not handle the allowlist error stops sending conversions without an alert. Check the upload history (Goals, Uploads) and diagnostics weekly.
+  - Hand off integration work to measurement.
 - Google Ads API v22 was sunset on 2026-10-07 [Official, Google Ads Developer Blog]. Any upload script on v22 has stopped. Check integrations.
 
 ## 6. Google Data Manager
 
 - Data Manager in Google Ads (Tools, Data manager) is the hub to connect first-party data sources (CRM, CDP, cloud storage, Shopify, HubSpot, Salesforce and others) for Customer Match and conversions. [Official, 2025]
 - In 2026-09 Data Manager was extended to Google Analytics and Display and Video 360, and a Data Strength Uplift metric was added to Google Ads estimating conversions recovered by first-party data setup [Official via trade press, 2026-09-10].
-- Customer Match gained IP addresses and interaction timestamps as signals through Data Manager, with matching restricted for EEA, UK and Switzerland users [Unverified, trade press 2026-10].
+- Customer Match accepts IP addresses (unhashed IPv4 or IPv6) with optional first and last interaction timestamps, through file upload, Data Manager and the Data Manager API (v1.7, 2026-05). IP matching is not supported for users in the EEA, UK or Switzerland, so exclude those users' IPs. Google expects match rate gains from these signals from 2026-10 [Official, Data Manager Help and Google Ads Developer Blog, 2026-05 to 2026-09].
+- Multi-source conversions: uploaded conversion events can fill gaps in tag-based conversions for the same action (same transaction ID). Allowlist only; uploaded conversions that create new conversions are reported but not used for bidding during a 14-day trial period of the action [Official, Data Manager API docs, 2026; beta reported 2026-09-21].
 
 ## 7. Consent mode v2 and privacy signals
 
 - Consent mode v2 with ad_user_data and ad_personalization is required for advertisers serving EEA users to keep measurement, remarketing and Customer Match features [Official, effective 2024-03].
 - Advanced consent mode (tags load and send cookieless pings when consent is denied) enables conversion modeling. Basic mode (tags blocked until consent) gives less modeling.
-- June 2026: trade press reports that from 2026-06-15 ad_storage becomes the deciding signal for advertising data from linked accounts, Google signals is narrowed to GA4 reporting, and calls from visitors who deny ad_storage may not be linked to the ad click [Unverified, vendor sources 2026-06]. Ask measurement to verify and annotate.
+- Since 2026-06-15, consent mode (ad_storage) is the single control for advertising data collected by the Google tag, including data a linked Google Analytics property shares with Google Ads. Google signals now only controls whether Analytics data is joined with signed-in user data for Analytics reporting. ad_personalization will alone decide personalization use on a date Google has not announced [Official, Analytics Help "Updates to Google Analytics data controls", 2026-04].
+- Practical effects to check with measurement: GA4-based remarketing lists only include users who granted ad_storage, and calls from visitors who denied ad_storage may not be linked to the ad click [Practitioner and vendor reports, 2026-06]. Compare list sizes and call conversions before and after 2026-06-15 and annotate the journal.
 - Never disable consent to recover conversions.
 
 ## 8. Google tag gateway for advertisers

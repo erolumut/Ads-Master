@@ -25,7 +25,8 @@
 | 2026-08 | Certification process update: Social Casino Games certification introduced gradually; updates to gambling and games (global), cryptocurrencies, political content, YouTube and Discover feed ad requirements | [Official, 2026-08] |
 | 2026-09-07 | Limited Ad Serving applied to Demand Gen and other surfaces | [Practitioner report, 2026-09] |
 | 2026-10-30 | Personalized advertising policy update: alcohol ads allowed on YouTube inventory where locally permitted; targeting based on alcohol-related health information stays prohibited | [Official, 2026-09 notice] |
-| 2026-10 | Policy updates listed for Gambling and Games (Colombia), Editorial, Financial products and services, Government documents and services | [Official policy change log, 2026-10] |
+| 2026-10 | Policy updates listed for Gambling and Games (Colombia), Editorial, Financial products and services, Government documents and services (effective 2026-10-05) and Prediction markets | [Official policy change log, 2026-10] |
+| 2026-10 (posted 2026-10-01) | Editorial policy: the business name may differ from the destination domain only if it is the advertiser's recognized brand, the advertiser has a direct verified relationship with the domain owner and the products are sold on the linked site. Resellers, booking intermediaries, affiliates and secondary sellers do not qualify. Trade press reports 2026-10-16 or 2026-10-19 as the start | [Official, Advertising Policies Help "Update to Editorial Policy (October 2026)"; start date Contested between trade reports] |
 
 ## 3. Advertiser verification
 

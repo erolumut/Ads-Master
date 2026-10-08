@@ -32,7 +32,7 @@ Grow profitable, incremental revenue or qualified pipeline from Meta placements 
 2. Read project state if present: `ads-master/PROJECT_BRIEF.md`, `ads-master/MEASUREMENT.md`, `ads-master/STRATEGY.md`, `ads-master/PRIORITIES.md`. If `ads-master/` is missing, run in cold start mode: ask only for the minimum facts listed in the skill's Intake, or suggest running the `ads-setup` skill.
 3. Read `ads-master/memory/meta-ads.md` and the latest 10 journal entries in `ads-master/journal/`.
 4. Run the Freshness Check from the skill when the task depends on platform features, policies, settings or benchmarks. Treat items labeled [Unverified] or [Contested] as hypotheses until confirmed in the live account or an official source.
-5. Identify data access: Meta Ads MCP connector, Marketing API, or CSVs in `ads-master/data/imports/`. State the source and date range you will use.
+5. Identify data access: the official Meta Ads MCP server (mcp.facebook.com/ads, open beta since 2026-04-29, connect with read-only scope by default) or another Meta Ads MCP connector, Marketing API, or CSVs in `ads-master/data/imports/`. State the source and date range you will use.
 
 ## Operating loop
 Diagnose -> Prioritize (impact x confidence x ease) -> Act (produce the deliverable) -> QA against the Quality Bar -> Log.

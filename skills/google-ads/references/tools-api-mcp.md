@@ -19,15 +19,17 @@ Never ask for passwords. Never ask the user to share a developer token or OAuth 
 
 | Feature | What it does | Status | Label |
 |---|---|---|---|
-| Ads Advisor | Gemini-powered agent in Google Ads: campaign ideas, assets, diagnostics; earlier coverage said it could apply changes with consent | Rolled out to English accounts by 2025-12 | [Official, 2025-11 to 2025-12] |
+| Ads Advisor | Gemini-powered agent in Google Ads: campaign ideas, assets, diagnostics; "with your review and approval, it can then apply these changes directly to your account" | Rolled out to English accounts by 2025-12, merged into Ask Advisor in 2026-05 | [Official, Google blog 2025-11] |
 | Ads Advisor safety features | Policy violation guidance, account security monitoring (announced as coming), automated certifications | 2026-04 | [Official, 2026-04] |
-| Ask Advisor | Unified agent across Google Ads, Google Analytics, Merchant Center and Google Marketing Platform, built from specialist agents | Beta, English, announced 2026-05-20; Merchant Center rollout from 2026-07 | [Official, 2026-05] |
+| Ask Advisor | Unified agent across Google Ads, Google Analytics, Merchant Center and Google Marketing Platform, built from specialist agents. In Google Ads it proposes changes and asks for approval before acting (reported actions: pause campaigns, change daily budgets and locations, update final URLs, appeal disapproved ads) | Beta for English-language accounts, announced 2026-05-20, more languages promised without a date; not available in manager (MCC) accounts as of 2026-09; Merchant Center closed beta for selected US merchants | [Official, Google blog and Google Ads Help "Ask Advisor in Google Ads (beta)", 2026-05; action list and MCC status from LGG Media 2026-09] |
 | AI overviews and AI-powered dashboards in Google Ads | Summaries of anomalies and changes; dashboards from text prompts | Introduced 2026-08-10 | [Practitioner report, 2026-08] |
+| AI-generated experiment summaries | Recap of goals, findings and next steps in the experiment Summary tab | 2026-10 | [Practitioner report, Search Engine Land 2026-10] |
+| AI campaign localization | Gemini translates Search campaign assets, keywords, images and landing pages for new markets | 2026-10 | [Practitioner report, Search Engine Land 2026-10]. Review every translation with a native speaker before approval |
 | Missed Opportunities | Missed clicks, conversions, value split by budget or bid limits | Moved into Recommendations 2026-07 (beta) | [Practitioner report, 2026-07] |
 | Asset Studio | Image and video generation and editing; Gemini Omni upgrade staged from summer 2026; multimodal video creation GA | 2025 to 2026 | [Official, 2026-05] |
-| Data Strength Uplift | Estimates conversions recovered by first-party data setup | 2026-09-10 | [Practitioner report, 2026-09] |
+| Data Strength Uplift | Estimates conversions recovered by first-party data setup | 2026-09-10 | [Official claim via trade press, 2026-09] |
 
-Contested: whether Ask Advisor can execute changes. Google's Ask Advisor help content says it cannot execute account changes on your behalf, while earlier Ads Advisor coverage described consent-based changes [Contested, 2026]. Treat any Google agent output as a suggestion that still needs human approval under this package's rules.
+Ask Advisor write capability (resolved 2026-10): Google's FAQ says it "makes recommendations and will seek your approval before completing actions or making changes to your account", and the "cannot execute account changes on your behalf" wording refers to acting without that approval [Official, Ask Advisor FAQ and help, 2026]. So it can change a live account once a user clicks approve. Package rule: an approval inside Ask Advisor is not a substitute for the human-approved change list. Never suggest that the user approve agent actions to skip the change list, and log any change made through Ask Advisor in the journal.
 
 ## 3. Google Ads API
 
@@ -35,11 +37,13 @@ Contested: whether Ask Advisor can execute changes. Google's Ask Advisor help co
 |---|---|
 | Protocol | gRPC and REST; client libraries for Python, Java, PHP, .NET, Ruby, Perl |
 | Query language | GAQL through GoogleAdsService.Search and SearchStream |
-| Versions (2026) | v25 released 2026-07-22 (breaking: CustomerLifecycleGoal and CampaignLifecycleGoal removed, replaced by unified Goal and CampaignGoalConfig) [Official via trade press]; v25.1 2026-08-19 (AI Max migration date fields, text disclaimer asset types, loyalty segmentation for conversion value rules); v25.2 2026-09-23 (PMax drafts from Smart campaigns, asset group tracking templates and URL parameters, PMax segments for product data and video usage, percentile benchmarks, bid-too-low recommendations) |
-| Sunset | v22 sunset 2026-10-07 [Official, Google Ads Developer Blog]. Check the sunset dates page for v23 and v24 |
+| Versions (2026) | Supported on 2026-10-08: v23, v24, v25 (the official Python client 33.0.0 dropped v21 and v22). v25 released 2026-07-22 (breaking: CustomerLifecycleGoal and CampaignLifecycleGoal removed, replaced by unified Goal and CampaignGoalConfig) [Official via trade press]; v25.1 2026-08-19 (AI Max migration timestamp fields, text disclaimer asset types, loyalty segmentation for conversion value rules); v25.2 2026-09-23 (PMax drafts from Smart campaigns, asset group tracking templates and URL parameters, PMax segments for product data and video usage, percentile benchmarks, bid-too-low recommendations). v25 also adds read-only lift study resources (`lift_measurement_config`) [Official, v25 type definitions] |
+| Sunset | v20 sunset 2026-06-10, v21 2026-08-05, v22 2026-10-07 [Official, Google Ads Developer Blog 2026-09-02 reminder]. No sunset dates published for v23 and v24 as of 2026-10; check the sunset dates page each quarter |
+| Developer Policies | Renamed from "Google Ads API Policy" and updated in 2026-09: integrations must connect through their own Google Cloud project instead of programmatic proxies [Practitioner report, PPC News Feed 2026-09-04, citing Google]. Check community MCP servers and vendor connectors against it |
+| Reporting history | Since 2026-06-01, daily, weekly and hourly data is kept 37 months; monthly, quarterly and yearly aggregates 11 years; reach and frequency 3 years. Older granular queries fail with a date range error [Official, Google Ads Developer Blog 2026-05 and Google Ads Help "Data retention policy"] |
 | Access levels | Test account access, Explorer access, Basic access (daily operation limit), Standard access (higher limits). Apply in the API Center of a manager account [Official, verify current limits] |
 | Credentials | Developer token (from a manager account), OAuth2 client, refresh token or service account, login-customer-id for manager access |
-| Conversion uploads | Offline conversion and enhanced conversions for leads uploads moving to the Data Manager API in 2026 [Contested scope, verify in release notes] |
+| Conversion uploads | From 2026-06-15 `UploadClickConversions` (offline click conversions and enhanced conversions for leads) only accepts developer tokens that uploaded before the cutoff; others get CUSTOMER_NOT_ALLOWLISTED_FOR_THIS_FEATURE and must use the Data Manager API. Customer Match uploads through the Google Ads API were restricted the same way from 2026-04-01 [Official, Google Ads Developer Blog 2026-05-15 and API deprecations page] |
 | Rate and quota | Per developer token operations per day (by access level) and per-request limits |
 
 API v21 (2025-08) added AI Max ad group controls (disable search term matching per ad group; brand lists, locations and URL rules on ad groups) and the AI Max search term ad combination view [Official]. API v24.2 added ad network segmentation for PMax placement reporting [Practitioner report, 2026-05].
@@ -47,7 +51,8 @@ API v21 (2025-08) added AI Max ad group controls (disable search term matching p
 ## 4. Data Manager API
 
 - Google's API for sending first-party data (audience members for Customer Match, conversions including offline and enhanced conversions for leads) across Google Ads, Google Analytics and Display and Video 360.
-- 2026: Google consolidated upload flows on the Data Manager API and the Data Manager UI extended to Google Analytics and DV360 [Practitioner reports, 2026-06 and 2026-09].
+- Launched 2025-12-09. Differences from the Google Ads API: no developer token, quotas per Google Cloud project, optional encryption of user data, IP and session attributes available to all users [Official, Data Manager API docs].
+- 2026 milestones: required path for new Customer Match integrations (2026-04-01) and new offline conversion integrations (2026-06-15); v1.7 (2026-05-28) added raw IP ingestion for Customer Match and events to Google Marketing Platform destinations [Official, Google Ads Developer Blog 2026-05]. Data Manager UI extended to Google Analytics and DV360 on 2026-09-10 [Practitioner reports, 2026-09].
 - Owner: measurement builds the pipeline; google-ads specifies which conversion actions and lists are needed and checks results in the account.
 
 ## 5. MCP servers
@@ -56,7 +61,7 @@ API v21 (2025-08) added AI Max ad group controls (disable search term matching p
 |---|---|---|---|
 | google-ads-mcp | Google (github.com/googleads/google-ads-mcp), documented on the Google Ads API developer site | Read-only | Open source (Apache 2.0), Python, released 2025-10. Tools include a GAQL `search` tool and account listing or resource metadata tools (the README lists the current set). Needs a developer token and OAuth with the adwords scope. Runs over stdio locally or on Cloud Run. A 2026-07 fix stopped OAuth credentials appearing in logs [Official and trade press, 2025-10 to 2026-07] |
 | Community servers (for example cohnen/mcp-google-ads, promobase/google-ads-mcp, getmcpads-com/google-ads-mcp-server) | Third parties | Read, some write | Some include Keyword Planner tools and write tools with preview steps. Review code, scopes and data handling before use [Practitioner] |
-| Hosted multi-platform MCPs (for example Adspirer, Ryze AI) | Vendors | Read, approval-gated writes | Convenience vs data sharing with a vendor; check terms and security |
+| Hosted multi-platform and vendor MCPs (for example Adspirer, Ryze AI, Optmyzr MCP) | Vendors | Read, approval-gated writes | Convenience vs data sharing with a vendor; check terms and security |
 | Google Analytics MCP | Google | Read | Useful for GA4 cross-checks; owned by measurement |
 
 Rules for Claude with MCP servers:
@@ -76,7 +81,7 @@ Rules for Claude with MCP servers:
 
 - Desktop app for bulk edits offline, then post to the account.
 - Deliver large change lists as Editor-ready CSV (columns: Campaign, Ad group, Keyword, Criterion Type, Status, etc.) so the human can review and post.
-- Check: Editor version supports AI Max, PMax and Demand Gen fields used in the change (Editor lags new features).
+- Check: Editor version supports AI Max, PMax and Demand Gen fields used in the change (Editor lags new features). Editor 2.10 and earlier lose support on 2026-10-19 [Practitioner report, 2026-10]; ask the human to update before posting.
 
 ## 8. Reporting and warehouse
 
@@ -84,7 +89,7 @@ Rules for Claude with MCP servers:
 |---|---|
 | Google Ads Report editor | Custom tables and charts in the UI |
 | Looker Studio | Dashboards with the native Google Ads connector |
-| BigQuery Data Transfer Service for Google Ads | Daily warehouse of Google Ads tables for long history and joins with backend data. Granular reporting history is reported to be limited to 37 months from 2026-06-01 [Unverified], so warehousing matters for long-term analysis |
+| BigQuery Data Transfer Service for Google Ads | Daily warehouse of Google Ads tables for long history and joins with backend data. Granular reporting history is limited to 37 months since 2026-06-01 and transfers no longer backfill dates older than that [Official, Google Ads Developer Blog 2026-05], so start warehousing before you need multi-year daily data |
 | Google Sheets add-ons | Light reporting |
 
 ## 9. Third-party tools

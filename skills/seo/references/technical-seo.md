@@ -97,7 +97,7 @@ auth_basic_user_file /etc/nginx/.htpasswd;
 ```
 Conflicts: when meta robots and the header disagree, Google applies the most restrictive directive.
 
-Google Search Console AI features setting (2026): Search Console added a property level "Search generative AI" setting that excludes a site from AI Overviews, AI Mode and AI features in Discover without removing classic snippets. Default is Include; Google says it is not a ranking signal [Official, 2026-06; rollout status Contested]. Decision process in [ai-overviews-and-serp-changes.md](ai-overviews-and-serp-changes.md). Never change it without written approval.
+Google Search Console AI features setting (2026): Search Console added a property level "Search generative AI" setting that excludes a site from AI Overviews, AI Mode and AI features in Discover without removing classic snippets. Options are Include (default), Exclude and Inherit from parent; Google says it is not a ranking signal. Available to all websites worldwide since 2026-08-31 [Official, 2026-06 and 2026-08]. Decision process in [ai-overviews-and-serp-changes.md](ai-overviews-and-serp-changes.md). Never change it without written approval.
 
 ## 5. XML sitemaps
 Facts [Official, Google sitemaps docs]:

@@ -16,7 +16,8 @@
 |--------|-------------------|--------------------------|--------|-------|
 | Q2 2025 | +11% | +9% | Meta Q2 2025 earnings release | [Official, 2025-07] |
 | Q3 2025 | +14% | +10% | Meta Q3 2025 earnings release | [Official, 2025-10] |
-| Q4 2025 to Q2 2026 | check investor.atmeta.com | check | Meta earnings releases and 10-Q filings | Refresh |
+| Q2 2026 | +14% | +12% (driven by ad performance gains, better macro conditions than Q2 2025 and currency) | Meta Q2 2026 results and 10-Q (Family of Apps ad revenue 59.4 billion USD, +27%) | [Official, 2026-07] |
+| Q4 2025, Q1 2026, Q3 2026 | check investor.atmeta.com (Q3 2026 results due late October 2026) | check | Meta earnings releases and 10-Q filings | Refresh |
 Caveat: global averages across all formats and regions. Price per ad rising means auctions are more competitive on average, but your CPM depends on your audience, creative quality and geo.
 
 ## 3. Meta-reported effects of system and feature changes
@@ -31,7 +32,8 @@ Meta-reported numbers come from Meta's own tests and selected segments. Treat th
 | Ranking model consolidation | About 12% ads quality increase tied to consolidating surfaces into the Facebook model (Q4 2025) | 2026-01 | Earnings commentary via secondary | [Unverified] |
 | GEM plus Lattice | More than 6% conversion rate increase on landing page view ads (Q1 2026) | 2026-04 | Earnings commentary via secondary | [Unverified] |
 | Incremental attribution | 46% lift in incremental conversions vs business as usual in Meta tests; earlier tests (Jan to Jun 2024) above 20% | 2025 | Meta via Jon Loomer, Social Media Today | [Official, 2025] |
-| Incremental attribution update | 25% average increase in incremental conversions | 2026-04 | Single secondary source | [Unverified] |
+| Incremental attribution update | 25% average increase in incremental conversions | 2026-04 | One agency blog (Webtopia); no Meta announcement found in the 2026-10 verification pass | [Unverified] |
+| New user understanding models plus GEM and sequence learning | +8.3% ad clicks and +15.7% conversions on Facebook; first generative model deployed in ads retrieval; LLM-based preference pilots +1% app event conversions on Instagram | 2026-07 | Meta Q2 2026 earnings call (2026-07-29) | [Official, 2026-07]; combined effect of several changes, not one model |
 | Opportunity Score recommendations | Median 12% lower cost per result for advertisers who adopted recommendations | 2024 to 2025 | Meta via Social Media Today and agency blogs | [Official] |
 | Advantage+ sales | 22% higher ROAS often quoted | n/a | Widely repeated, not traced to a primary source in this build | [Unverified] |
 | Threads in Advantage+ placements | 11.7% lower CPA claimed | 2026 | Single secondary source | [Unverified] |
@@ -41,11 +43,12 @@ Meta-reported numbers come from Meta's own tests and selected segments. Treat th
 | Study | Finding | Date | Sample and caveat | Label |
 |-------|---------|------|-------------------|-------|
 | Haus, early tests of Meta incremental attribution | 43% success rate versus standard settings | 2025 | Haus customer tests; vendor; small sample | [Study, 2025] |
+| Haus, incremental vs standard attribution, July 2025 to June 2026 | Pooled incremental return 1.26x for incremental attribution vs standard (DTC-only 1.38x, omnichannel 1.02x); standard had led at 0.80x in the prior year | 2026 | Haus geo tests; vendor | [Study, 2026] |
 | Cassandra App analysis | Incremental ROAS 1.90x for cold acquisition, 3.64x for retargeting, versus 8x platform-reported | 2025 to 2026 | Vendor analysis, method not fully public | [Study, vendor] |
 | Seer Interactive, incremental attribution test on about $1M spend | Practitioner test write-up | 2025 | Single agency, specific clients | [Study, 2025] |
 | Vendor reports on March 2026 click attribution change | Reported click-through conversions down 15 to 40% overnight in some accounts | 2026-03 | WooCommerce store samples, vendor blogs | [Unverified] |
 | Vendor reports on January 2026 view window removal | Reported conversions down 15 to 30% for advertisers relying on 7-day view | 2026-01 | Vendor estimates | [Unverified] |
-| Threads CPM | 30 to 40% below Instagram | 2026 | Single guide, unclear sample | [Unverified] |
+| Threads CPM | 30 to 50% below Instagram Feed | 2026 | Agency commentary quoted in 2026-09 coverage of the Threads profile change; no Meta figure | [Unverified] |
 
 ## 5. Practitioner diagnostic ranges (heuristics, not targets)
 

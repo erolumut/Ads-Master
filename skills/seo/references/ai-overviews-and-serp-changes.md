@@ -14,12 +14,20 @@
 | 2025-07 | Google reports AI Overviews at 2 billion+ monthly users and AI Mode at 100 million+ monthly active users in the US and India (Q2 earnings) | [Official, 2025-07] |
 | 2025-08 | Google says total organic click volume is relatively stable year over year and click quality is higher (Search blog) | [Official, 2025-08]; disputed by publisher data |
 | 2025-08 to 2025-10 | AI Mode expands: 180+ countries in English, then 40+ more countries and 35+ languages on 2025-10-07 | [Official, 2025-10] |
-| 2025-11 | Gemini 3 in AI Mode | [Unverified exact date] |
-| 2025-12 | Generative AI features appear in Discover | [Unverified, reported by industry roundups] |
-| 2026-01 | AI Overviews moved to Gemini 3 globally | [Unverified, secondary report] |
-| 2026-05-19 | Google I/O 2026: AI Overviews reported at about 2.5 billion monthly users and AI Mode at about 1 billion | [Unverified, secondary reports of Google figures] |
-| 2026-06-02 to 2026-06-03 | Search Console "Search generative AI" setting to exclude a site from AI Overviews, AI Mode and Discover AI features; Generative AI performance reports (impressions) launched to a subset of sites first | [Official, 2026-06]; later worldwide rollout reported by Search Engine Journal, status [Contested] |
-| 2026-06-03 | UK CMA imposed its first conduct requirement on Google (publisher controls); substantive obligations in force 2026-12-03 | [Unverified, secondary reports] |
+| 2025-11-18 | Gemini 3 in AI Mode | [Official, 2025-11] |
+| 2025-12 | Generative AI features appear in Discover (Discover has its own generative AI report and is covered by the 2026 AI features control) | [Unverified date, reported by industry roundups] |
+| 2026-01-27 | Gemini 3 becomes the default model for AI Overviews where they are available; follow-up questions from an AI Overview continue in AI Mode | [Official, 2026-01] (Google Keyword post, relayed by Search Engine Journal) |
+| 2026-02 | AI Mode adds 53 languages (just under 100 in total) | [Official, 2026-02] (via trade press) |
+| 2026-05-19 | Google I/O 2026: AI Overviews over 2.5 billion monthly users, AI Mode over 1 billion monthly users (repeated on the 2026-07-22 earnings call); Gemini 3.5 Flash the default AI Mode model; AI Mode targeted at about 200 countries and 98 languages | [Official, 2026-05] (keynote and Google blog, relayed by trade press) |
+| 2026-06-02 to 2026-06-03 | Search Console "Search generative AI" setting to exclude a site from AI Overviews, AI Mode and Discover AI features; Generative AI performance reports (impressions) launched to a subset of UK sites first; outside the UK from July | [Official, 2026-06] |
+| 2026-06-03 | UK CMA imposed its first conduct requirement on Google Search (publisher controls: opt-out of AI Overviews, AI Mode and other AI search features with one control, fine-tuning opt-out, attribution with clear links, no organic penalty for opting out). Google has nine months to implement all of it (about 2027-03), with key parts expected earlier; compliance reports every six months in year one | [Official, 2026-06] (GOV.UK) |
+| 2026-06-17 | UK CMA fair ranking conduct requirement: objective, non-discriminatory ranking including in AI features; six months to implement (about 2026-12), data portability within three months; new AI features may be exempt for up to six months | [Official, 2026-06] (GOV.UK) |
+| 2026-07-22 | AI Overviews and AI Mode launch in France | [Official, 2026-07] (via trade press) |
+| 2026-08-26 | Google confirms google.com/goto passthrough links for results (organic, People Also Ask, AI Overviews); referrers still pass in third-party tests | [Official, 2026-08] (via Search Engine Roundtable) |
+| 2026-08-31 | Search Console Generative AI report and AI control available to all websites worldwide | [Official, 2026-08] (help page note) |
+| 2026-09-02 | Gemini 3.8 Flash selectable in AI Mode for Google AI Pro and Ultra subscribers | [Official, 2026-09] (via trade press) |
+| 2026-09 | Google confirms an invitation-only Search Console "AI Contribution" pilot paying about 100 publishers when content contributes to AI Overviews, AI Mode and Gemini | [Official, 2026-09] (Search Engine Land, Digiday) |
+| 2026-09-23 | UK CMA consults on a search choice screen conduct requirement (AI assistants could qualify); comments close 2026-10-09; decision expected by end of 2026 | [Official, 2026-09] (GOV.UK) |
 
 ## 2. How AI features select and show content [Official, AI features and your website]
 - No special markup or "AI optimization" is required. A page must be indexed and eligible to show a snippet. Standard SEO best practices apply.
@@ -63,14 +71,14 @@ Search Console Performance report [Official, Search Console help on AI features]
 - AI Overviews: a link in an AI Overview gets the position of the AI Overview block on the page; all links in the same overview share that position. Impressions follow the standard rule (the link must be visible, which can require expanding the overview). Clicks on links in the overview count as clicks.
 - AI Mode: counted in the web search type since June 2025. Follow-up questions are new queries. Standard impression and click rules apply.
 - No filter in the main Performance report isolates AI Overviews or AI Mode.
-- Generative AI performance report (beta, from 2026-06-03): impressions only, for Search (AI Overviews and AI Mode) and Discover, by page, country, device (Search only) and date (hourly, daily, weekly, monthly). No clicks, CTR, position or queries at launch; data backfilled to about 2026-05-18; these impressions are already part of the overall totals [Official, 2026-06; details from secondary coverage]. Whether AI Mode and AI Overview impressions are shown separately is reported inconsistently, and API access was not available at launch [Contested; check your property].
+- Generative AI performance report (beta, from 2026-06-03; all sites worldwide since 2026-08-31): impressions only, for AI Overviews and AI Mode combined, by page (final URL after redirects), country and date (some guides also show device); Discover has its own generative AI report. Search type filter: Web: text-based or Web: multimodal. No filter separates AI Mode from AI Overviews; a single blog's claim of a 2026-09-07 change was not confirmed. No clicks, CTR, position or queries; data from about 2026-05-18; these impressions are already part of the Web totals. Not in the Search Console API or the BigQuery bulk export as of 2026-10 (UI and CSV only) [Official, 2026-06 and 2026-08; re-checked 2026-10-08].
 
 GA4:
 - Clicks from AI Overviews and AI Mode arrive as `google / organic`. There is no reliable referrer distinction.
 - Browsers hide text fragment directives (`#:~:text=`) from page scripts, so fragment based detection is unreliable; do not build reporting on it.
 - Track AI assistants (chatgpt.com, perplexity.ai, copilot, gemini.google.com) as a custom channel group: hand to measurement and ai-search-optimization.
 
-Bing: Bing Webmaster Tools AI Performance (public preview since 2026-02-10) reports citations in Copilot and Bing AI answers: total citations, average cited pages per day, and grounding queries (retrieval phrases generated by the system, not user queries); grounding query to page mapping added March 2026; further features (citation share, intents, topics) reported for mid-2026 [Official, 2026-02; later features Contested]. No clicks in that report.
+Bing: Bing Webmaster Tools AI Performance (public preview since 2026-02-10) reports citations in Copilot and Bing AI answers: total citations, average cited pages per day, and grounding queries (retrieval phrases generated by the system, not user queries); grounding query to page mapping added 2026-03-23; Intents, Topics, Citation Share and Compare added 2026-06-16 [Official, 2026-02, 2026-03 and 2026-06]. No clicks, sampled data, no API (CSV export only) and no further features as of 2026-10-08.
 
 ## 5. Adapting strategy
 ### 5.1 Classify your query portfolio
@@ -136,10 +144,12 @@ How to handle in reporting:
 | Google requires JavaScript to load results | 2025-01 | Scraper disruption | Use licensed SERP APIs |
 | Seven structured data features phased out (book actions, course info, claim review, estimated salary, learning video, special announcement, vehicle listing) | 2025-06 | Fewer rich result types | See structured data reference |
 | Web Guide (Labs): AI organized results | 2025-07 | Experimental | Monitor |
-| Preferred sources for Top Stories (users pick favored publishers) | 2025-08, US and India first | Publishers can ask readers to add them | See publisher section |
+| Preferred sources for Top Stories (users pick favored publishers) | 2025-08 US and India; English worldwide planned for 2025-12; all languages 2026-04-30 [Official, 2026-04] | Publishers can ask readers to add them (Google: 200,000+ sites selected; readers twice as likely to click a preferred source) | See publisher section |
 | Discover: follow publishers and creators, social posts in feed | 2025-09 | More competition in Discover | See publisher section |
 | Search Console branded filter, query groups, annotations, weekly and monthly views, AI powered configuration | 2025-10 to 2025-12 | Better analysis | See measurement reference |
-| Discover core update | 2026-02 | Local relevance, less clickbait | See publisher section |
+| Discover core update | 2026-02-05 to 2026-02-27, US English only; expansion to all countries and languages promised, none announced as of 2026-10 | Local relevance, less clickbait | See publisher section |
+| FAQ rich results no longer shown | 2026-05-07 | FAQ snippets gone for all sites | See structured data reference |
+| google.com/goto passthrough links | 2026-08 | Rank trackers and AI citation tools must resolve /goto URLs; referrers still pass in tests | Update parsers; watch google / organic vs Direct |
 | Ads in AI Overviews and AI Mode | 2025 to 2026 | Paid units inside AI answers | google-ads owns |
 
 ## 9. Bing and Copilot

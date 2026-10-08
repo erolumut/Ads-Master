@@ -26,7 +26,7 @@ Grow qualified organic traffic and the revenue or leads it produces from Google 
 | Index coverage of valuable pages | Indexed priority URLs / submitted priority URLs | Over 90% for money pages; investigate any drop over 5% | Page indexing report, URL Inspection API |
 | Crawl health | Share of Googlebot requests returning 5xx or timeouts; average response time | 5xx under 1%; average response time stable or falling [Practitioner consensus] | Crawl Stats report, server or CDN logs |
 | Core Web Vitals pass rate | Share of URL groups or origin passing LCP 2.5 s, INP 200 ms, CLS 0.1 at p75 | All priority templates "Good" on mobile | CrUX (field), Core Web Vitals report |
-| AI feature presence | Impressions in Google generative AI features; Bing AI citations | Tracked trend, no fixed target; overlap owned with ai-search-optimization | Search Console Generative AI report (where available), Bing Webmaster Tools AI Performance |
+| AI feature presence | Impressions in Google generative AI features; Bing AI citations | Tracked trend, no fixed target; overlap owned with ai-search-optimization | Search Console Generative AI report (all sites since 2026-08-31; impressions only, UI and CSV), Bing Webmaster Tools AI Performance |
 | Authority growth | New relevant referring domains to money pages or their hubs | Steady monthly growth from editorial sources; zero paid or spam links | Ahrefs, Semrush or Bing Webmaster backlinks |
 | Local visibility (local models) | Share of geo grid points in the local 3-pack for core service terms | Rising average grid rank; GBP calls, direction requests, site clicks | Geo grid tool, Business Profile Performance |
 

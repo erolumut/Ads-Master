@@ -67,7 +67,7 @@ Timeline: policy announced March 2024, enforcement (manual actions) began May 20
 
 Remedies: move the content to its own domain (not a subdomain or subfolder of the host) without redirects that carry signals, or noindex it. Moving it inside the same site does not resolve the issue [Official, 2024-11 FAQ]. For publishers whose commercial sections were hit, hand the business trade-off to growth-orchestrator.
 
-Regulatory note: the European Commission opened a proceeding in late 2025 examining whether Google's application of this policy demotes publishers unfairly [Unverified details; monitor].
+Regulatory note: the European Commission opened a Digital Markets Act proceeding in 2025-11 examining whether Google's application of this policy demotes publishers unfairly [Official, 2025-11; outcome pending, monitor].
 
 ## 5. Scaled content abuse in depth
 Signals that make a content program look like scaled abuse:

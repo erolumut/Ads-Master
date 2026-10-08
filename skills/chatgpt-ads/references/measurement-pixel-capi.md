@@ -63,7 +63,7 @@ oaiq("init", { user: {
 ```
 Normalization: email trim and lowercase; phone with country code, strip formatting and leading + or zeros, 8 to 15 digits; external ID trim only; names lowercase, remove whitespace and ASCII punctuation. Hash with SHA-256, lowercase hex. Never send raw identifiers.
 
-Automatic advanced matching (AAM): when enabled, the pixel detects customer information on the page, hashes it in the browser and attaches it [Official, 2026-09]. OpenAI recommends enabling it for conversion campaigns [Official, 2026-09]. Independent research reported AAM was switched on for existing pixels on 2026-08-17 and that scraped identity outnumbered advertiser supplied identity [Unverified]. Decide deliberately with legal; document in MEASUREMENT.md.
+Automatic advanced matching (AAM): when enabled, the pixel detects customer information on the page, hashes it in the browser and attaches it [Official, 2026-09]. OpenAI recommends enabling it for conversion campaigns [Official, 2026-09]. AAM is the default for new web pixels, and OpenAI emailed advertisers (week of 2026-08-03) that it would switch AAM on for existing web pixels on 2026-08-17 unless they opted out per pixel in Ads Manager (Tools > Conversions > Data Source > Edit pixel) [Official, 2026-08] (relayed by PPC Land and Search Engine Land). A 2026-06-16 matching update already used supplied user data and raised reported conversions for some advertisers (agency relays) [Unverified]. Independent research reported that scraped identity outnumbered advertiser supplied identity [Unverified]. Check every pixel's current AAM state; do not assume the pre-August setting. Decide deliberately with legal; document in MEASUREMENT.md.
 
 Content Security Policy [Official, 2026-09]:
 | Directive | Allow |
@@ -175,7 +175,7 @@ Recommended paid UTM convention [Practitioner consensus]:
 utm_source=chatgpt&utm_medium=paid_ai&utm_campaign=<campaign_slug>&utm_content=<adgroup_key>&utm_term=<ad_key>
 ```
 - In Ads Manager, static UTMs on destination URLs work; dynamic UTM macros are not supported in the UI as of the Measure Results article [Official, 2026-09].
-- Via the API, ad groups accept a `query_string_template` with placeholders such as `{campaign_id}`, `{ad_group_id}`, `{ad_id}`, `{ad_account_id}`, `{oppref}` [Contested] (documented by community API notes and Linkrunner; conflicts with the UI article). If you need the click reference in your own parameter, use your own name, for example `click_ref={oppref}`.
+- Via the API, ad groups accept a `query_string_template` with placeholders such as `{campaign_id}`, `{ad_group_id}`, `{ad_id}`, `{ad_account_id}`, `{oppref}` [Contested] (documented by community API notes and Linkrunner; Search Engine Roundtable reported dynamic URL support in the August 2026 update alongside oCPC and carousels; the UI article captured in 2026-09 still said dynamic macros are not supported). If you need the click reference in your own parameter, use your own name, for example `click_ref={oppref}`.
 - Parameter precedence when set at several levels: ad URL, then ad, then ad group, then campaign, then account [Unverified].
 - Never use `utm_source=chatgpt.com` for paid traffic; that value is the organic signal.
 

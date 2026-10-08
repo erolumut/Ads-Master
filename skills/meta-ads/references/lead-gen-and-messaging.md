@@ -38,7 +38,7 @@ What it does: optimizes delivery toward leads likely to reach a deeper CRM stage
 Setup:
 1. Integrate CRM with Meta via Conversions API for CRM (lead_id from Meta captured in the CRM; or hashed email and phone).
 2. Map lead stages in Events Manager (for example: Lead > Marketing qualified > Sales qualified > Won). Choose the optimization stage.
-3. Send stage updates at least daily; reported eligibility thresholds include roughly 200+ leads per month and a stage conversion rate between about 1% and 40% [Unverified, verify current Help Center requirements].
+3. Send stage updates at least daily. Meta's developer documentation (Conversions API for CRM integration, updated 2025-12) sets two conditions for the optimization stage: it is reached within 28 days of lead creation, and its conversion rate from lead is between 1% and 40%; the goal supports Facebook and Instagram instant forms only; Meta estimates about 1 month to value and the funnel validation step can take up to 3 weeks [Official, 2025-12]. The often quoted "200+ leads per month" floor comes from a CRM vendor describing a former requirement, not from Meta [Unverified]. The Help Center now calls the goal "Conversion leads performance goal".
 4. Create the Leads campaign with performance goal "Maximize number of conversion leads".
 5. Expect CPL to rise and cost per qualified lead to fall. Judge on cost per SQL and close rate after 2 to 4 weeks.
 
@@ -76,7 +76,7 @@ Destinations: Messenger, Instagram Direct, WhatsApp, or multiple (Meta chooses).
 | Tracking | Label chats (lead, qualified, booked, purchase) in the inbox or CRM; send those events back via Conversions API for business messaging |
 
 WhatsApp specifics:
-- WhatsApp Business Platform moved to per-message pricing on 2025-07-01 [Official, 2025]. Conversations started from click to WhatsApp ads have a free entry point window (72 hours historically), during which business messages are free [Official, long-standing]; a 7-day free window for click to WhatsApp ads was reported in September 2026 [Unverified, 2026-09]. Verify current pricing before forecasting.
+- WhatsApp Business Platform moved to per-message pricing on 2025-07-01 [Official, 2025]. Conversations started from click to WhatsApp ads have a free entry point window (72 hours historically), during which business messages, including marketing templates, are free [Official, long-standing]. A WhatsApp Business Platform changelog update dated 2026-09-28 reportedly extends the window to up to 7 days when the business replies within the 24-hour customer service window, mobile-originated chats only (respond.io, 360dialog coverage); a Meta page stamped 2026-08-25 still said 72 hours, and Meta does not say when a window is shorter than 7 days [Contested, 2026-09]. Working stance: plan follow-up sequences to finish within 72 hours until the account's billing confirms 7 days. Business AI agent replies are billed separately [Unverified]. Verify current pricing before forecasting.
 - Use the WhatsApp Business app for small teams, the WhatsApp Business Platform (Cloud API via a BSP) for scale and CRM integration.
 - Opt-in rules apply for marketing messages after the chat window; respect local consent law (KVKK in Turkey, GDPR in EU).
 
@@ -87,10 +87,12 @@ Messaging KPIs: cost per conversation, reply rate within 5 minutes, qualified co
 | Date | Event | Label |
 |------|-------|-------|
 | 2025-06-16 | Meta announced ads in Status, Promoted Channels and channel subscriptions in the WhatsApp Updates tab; ads never shown in personal chats | [Official, 2025-06] |
-| 2025-09 | Click to message ads in Status reported | [Unverified, 2025-09] |
-| 2026-02 | Promoted Channels and ads in Status reported rolling out globally after limited tests | [Official, 2026-02] via trade press |
+| 2025-09 | Click to message ads in Status (tap opens a chat with the business) | [Official, 2025-09] via Social Media Today |
+| 2026-02 to 2026-03 | Promoted Channels and ads in Status rolling out globally after limited tests (WhatsApp post dated 2026-03-02 per one report); no single general availability date; EU later | [Official, 2026-02] via trade press |
 | EU | Irish DPC indicated no WhatsApp ads in the EU until 2026; EU rollout lags | [Official, 2025] via Silicon Republic |
-| 2026-08 | WhatsApp campaign management and Status placement inside Ads Manager reported | [Unverified, 2026-08] |
+| 2026-07-01 | Location fees (UK 2%, France, Italy, Spain 3%, Austria and Turkey 5%) also apply to click to WhatsApp ads and marketing messages delivered to those countries | [Official, 2026-03 announcement via Reuters] |
+| 2026-07-29 | Q2 2026 earnings call: more ad destinations and performance goals added in Status, on track for global rollout | [Official, 2026-07] |
+| 2026-08 | Status ads are bought only through Ads Manager (placement inside Advantage+ placements or selected manually); a dedicated "WhatsApp campaigns" area with subscriber uploads and Advantage+ budgets is reported by one training site only | Placement [Official]; dedicated area [Unverified, 2026-08] |
 
 Targeting for Status ads uses city or country, language, channels followed and ad interactions; Meta states phone numbers are not shared with advertisers [Official, 2025-06]. Practical use: include WhatsApp Status inside Advantage+ placements where available; judge by placement breakdown with breakdown-effect caution; for chat-led markets build creative that sends people into WhatsApp chats.
 

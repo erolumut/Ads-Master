@@ -1,6 +1,6 @@
 # Experiments and Testing
 
-> Knowledge as of 2026-10. Google added AI Max experiments (2025), PMax asset experiments (reported generally available 2026-10) and new experimentation tools to explain automated decisions (reported rollout by end of 2026-09). Meridian GeoX became globally available 2026-09-10 and Meridian Studio was announced at GML 2026. Verify availability before planning.
+> Knowledge as of 2026-10. Google added AI Max experiments (2025; brand and location controls and multi-campaign budget and target tests from 2026-08 to 2026-09), PMax asset A/B experiments (rolling out to all advertisers from 2026-10-02), self-serve Conversion Lift for Search and PMax (2026-10) and AI-generated experiment summaries (2026-10). Meridian GeoX became globally available 2026-09-10 and Meridian Studio was announced at GML 2026. Re-verified 2026-10-08; check availability in the account before planning.
 
 ## 1. Which test answers which question
 
@@ -10,10 +10,10 @@
 | Does AI Max add incremental conversions? | AI Max experiment | Yes | 4 to 6 weeks |
 | Does adding PMax add incremental conversions to Search or Shopping? | PMax uplift experiment | Yes | 6 to 8 weeks |
 | Does final URL expansion help PMax? | PMax final URL expansion experiment | Yes | 4 to 6 weeks |
-| Do new creatives help PMax? | PMax asset experiment | Yes (reported GA 2026-10) [Unverified] | 4 weeks |
+| Do new creatives help PMax? | PMax asset A/B experiment | Yes, rolling out to all advertisers from 2026-10-02 [Practitioner report, Search Engine Land] | 4 to 6 weeks |
 | Which Demand Gen creative or audience wins? | Demand Gen A/B experiment | Yes | 3 to 6 weeks |
 | Does an ad copy change help across many ad groups? | Ad variations | Yes | 4 weeks |
-| Does the channel cause conversions at all? | Conversion Lift (user or geo based) | Yes, eligibility rules | 2 to 8 weeks |
+| Does the channel cause conversions at all? | Conversion Lift (user or geo based), now including Search and PMax | Yes, eligibility rules (1,000 conversions, 5,000 USD) | 2 to 8 weeks |
 | Does video lift awareness or consideration? | Brand Lift | Yes, eligibility rules | 1 to 4 weeks |
 | Is brand search incremental? | Geo holdout or time-based on/off | DIY or Meridian GeoX | 4 to 8 weeks |
 | What is the right channel mix? | MMM (Meridian), calibrated by experiments | Open source and Google tools | Quarterly |
@@ -39,12 +39,13 @@ Procedure:
 4. Split 50/50, choose search-based or cookie-based.
 5. Enable experiment sync if you want changes to the base to copy to the trial (default on for most). Turn it off if you must keep the arms isolated.
 6. Run, monitor weekly for tracking issues only.
-7. Read results: Google shows the difference and a confidence indication. Apply only when the primary metric is significant and secondary metrics (CPA, ROAS, lead quality) are acceptable.
+7. Read results: Google shows the difference and a confidence indication. Since 2026-10 the Summary tab also shows an AI-generated recap of goals, findings and next steps [Practitioner report, Search Engine Land 2026-10]. Read the numbers yourself; the recap is not evidence. Apply only when the primary metric is significant and secondary metrics (CPA, ROAS, lead quality) are acceptable.
 8. Apply or end. Applying converts the trial changes into the base campaign or replaces it.
 
 ## 4. AI Max experiments
 
-- Built-in experiment type that tests AI Max on vs off for an existing Search campaign. [Official, 2025]
+- Built-in experiment type that tests AI Max on vs off for an existing Search campaign, as a 50/50 split inside the original campaign [Official, 2025]. Since 2026-08-20 the test can run with brand and location controls enabled, and from 2026-09 one A/B experiment can test budget and ROI target changes across several Search campaigns [Official, Google Ads and Commerce blog 2026-08-20]. Google also published a help article on testing AI Max against DSA with experiments in 2026-09 [Practitioner report, Search Engine Roundtable 2026-09].
+- Performance Planner now previews the effect of bidding and budget target changes on existing campaigns and offers one-click apply [Official, 2026-08-20]. Use the preview as evidence in a change list; never apply from the planner without approval.
 - Use before enabling AI Max on a high spend campaign, and after the September 2026 auto-upgrade to decide whether to keep features on.
 - Read: incremental conversions and value, CPA and ROAS in the AI Max arm, the share of AI Max matched terms and their quality.
 - Adopt rule: incremental conversions with marginal CPA within 1.2x target, or marginal ROAS within 0.8x target, and no compliance problems in generated copy.
@@ -53,19 +54,25 @@ Procedure:
 
 - Uplift experiment: holds out PMax for a share of users to measure the incremental conversions PMax adds to the account. Judge on account-level conversions and value.
 - Final URL expansion experiment: on vs off.
-- Asset experiments: test added videos, new images, seasonal vs evergreen creative [Unverified availability, 2026-10].
+- Asset A/B experiments: test new headlines, descriptions, images or videos (added video, UGC style vs polished, seasonal vs evergreen) against the current assets of one asset group. One experiment per campaign; the asset group is locked until the test ends; MCC and API support follow the UI rollout of 2026-10-02 [Practitioner report, Search Engine Land 2026-10-02].
 - Do not judge PMax by PMax-attributed conversions alone. Brand and remarketing overlap inflate them.
 
 ## 6. Conversion Lift and Brand Lift
 
 | Study | Measures | Notes |
 |---|---|---|
-| Conversion Lift based on users | Incremental conversions from exposed vs holdout users | YouTube, Demand Gen, Display; eligibility depends on budget and expected conversions |
-| Conversion Lift based on geography | Incremental conversions by geo holdouts | Works when user-level measurement is limited; needs enough geos |
+| Conversion Lift based on users | Incremental conversions from exposed vs holdout users | YouTube, Demand Gen and Video self-serve; Search and PMax self-serve since 2026-10 (previously through a Google rep); Display and alpha or beta formats still need a rep |
+| Conversion Lift based on geography | Incremental conversions by geo holdouts | Beta, one target country per study, no published minimum budget; works when user-level measurement is limited |
 | Brand Lift | Ad recall, awareness, consideration, favorability, purchase intent via surveys | Video campaigns; minimum spend thresholds apply |
 | Search Lift | Increase in brand searches after video exposure | Video campaigns, eligibility rules |
 
-Thresholds: Google lowered the minimum budget for some incrementality studies in 2025 (widely reported at around 5,000 USD using Bayesian methods) [Unverified exact figure]. Check the current thresholds in the Lift measurement setup screen; contact your Google rep if the option is not visible.
+Thresholds and method [Official, Google Ads Help "Set up Conversion Lift based on users" and "About Bayesian methodology in Conversion Lift"]:
+- User-based Conversion Lift needs at least 1,000 observed conversions (conversions from supplementary data do not count), a 5,000 USD budget and at least one Conversion Lift-compatible conversion action. The 5,000 USD floor dates from GML 2025, down from near six figures before.
+- Results use a Bayesian method that blends the study's own data with priors from comparable past studies; reported ranges are 80% credible intervals.
+- Study power: setup estimates the chance of a conclusive result and suggests budget to reach 90% when projected power is lower.
+- A campaign can be in only one lift study at a time. Availability varies by account.
+- Self-serve for Search and PMax reached accounts in early 2026-10 [Practitioner reports, Search Engine Land and Search Engine Roundtable, 2026-10, citing updated help docs]; some help page variants still say "contact your rep". If the option is not visible, ask the rep.
+- API v25 exposes lift studies as read-only `lift_measurement_config` resources (campaigns, conversion actions, holdback ratio) [Official, v25].
 
 Do not run migration tools or copy and paste campaigns that are part of a running lift study (Google's VAC to Demand Gen guidance warns about this) [Official, 2025].
 

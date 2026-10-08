@@ -5,7 +5,7 @@ description: Meta advertising playbook for Facebook, Instagram, Threads, WhatsAp
 
 # Meta Ads
 
-> Knowledge as of 2026-10. Platforms change monthly. Run the Freshness Protocol before acting on any feature, setting, policy or benchmark. Several mid 2026 changes are labeled [Unverified] or [Contested] in the references; confirm them in the live account first.
+> Knowledge as of 2026-10 (verification pass 2026-10-08). Platforms change monthly. Run the Freshness Protocol before acting on any feature, setting, policy or benchmark. Most mid 2026 changes are now confirmed by Meta statements or multiple independent reports; the remaining [Unverified] or [Contested] items in the references must be confirmed in the live account first.
 
 ## Mission and scope
 
@@ -78,10 +78,15 @@ Quality bar for every deliverable:
 | 2025-11 | GEM engineering details published | [Official] |
 | 2025-12-16 | Meta AI chat interactions used for ad personalization (not EU, UK, South Korea at launch) | [Official] |
 | 2026-01 | EU less personalized ads choice live; Threads ads to all users globally; Insights API stops 7-day view and 28-day view (Jan 12) | [Official] |
-| 2026-02 | Unified Advantage+ creation flow; creative enhancements pre-selected; WhatsApp Status ads rolling out globally | [Unverified details] |
+| 2026-02 | Automation Unification (2026-02-13): unified Advantage+ creation flow for Sales, Leads, App; creative enhancements on by default; WhatsApp Status ads rolling out globally | [Official, 2026-02 via secondary; UI details Practitioner consensus] |
 | 2026-03-03 | Click-through attribution counts link clicks only; engage-through attribution (1 day); engaged-view threshold 5s | [Official via trade press] |
-| 2026-08 | Ad set placement exclusions reported removed; placement value rules as alternative | [Contested] |
-| 2026-09 | Creator Marketing Hub, Instagram live partnership ads, Threads ads without Instagram username match, Creative Diversity rating reported | [Unverified] |
+| 2026-04-29 | Official Meta Ads AI Connectors: hosted MCP server (mcp.facebook.com/ads) and Ads CLI, open beta | [Official, 2026-04] |
+| 2026-06-01 | Automated "AI info" labels on ads whose media was made with third-party AI tools (C2PA metadata) | [Official, 2026-06] |
+| 2026-07-01 | Location fees on ads delivered to Turkey and Austria (5%), France, Italy, Spain (3%), UK (2%) | [Official, 2026-03 announcement] |
+| 2026-07-29 | Graph API v26.0: Instagram Explore Feed placement removed, Messenger Stories stripped; applies to all versions from 2026-10-27 | [Official, 2026-07] |
+| 2026-08 | Ad set placement exclusions removed account by account from 2026-08-25; placement value rules (minus 90% floor) as alternative; Creative diversity column in Ads Manager | [Practitioner consensus; scope Contested]; column [Official] |
+| 2026-09 | Creator Marketing Hub (09-15), Threads ads without an Instagram account (from about 09-21), Instagram live partnership ads (09-29), click to WhatsApp free window up to 7 days (09-28, reported) | [Official, 2026-09]; WhatsApp window [Contested] |
+| 2026-10-06 | Advertising Week: image to video GA, Customer Lifecycle Strategy (new customers only) open to all, MCP server expanded, agentic Meta AI business assistant in testing | [Official, 2026-10] |
 
 ## Adaptation matrix
 
@@ -239,6 +244,7 @@ Run before any launch, audit, policy answer or feature recommendation, and month
 | Check | Source | What to verify |
 |-------|--------|----------------|
 | API and attribution changes | https://developers.facebook.com/docs/graph-api/changelog and https://developers.facebook.com/blog/ | Current version, deprecated fields, attribution windows |
+| Official MCP and CLI | https://developers.facebook.com/documentation/ads-commerce/ads-ai-connectors/ads-mcp-server/ads-mcp-server-overview | Tool list, scopes, beta status |
 | Product changes | https://www.facebook.com/business/news and Ads Manager notices | New or renamed settings (Advantage+, placements, enhancements, testing tool) |
 | Help Center rules | https://www.facebook.com/business/help | Learning phase, budgets, lead ads requirements, conversion leads eligibility |
 | Policies | https://transparency.meta.com/policies/ad-standards/ | Restricted content, special ad categories, AI disclosure |
@@ -250,7 +256,7 @@ Run before any launch, audit, policy answer or feature recommendation, and month
 
 How to log: create `ads-master/journal/YYYY-MM-DD_HHMM_meta-ads_freshness.md` listing each item checked, the date, URL, what changed and which reference section is now outdated. Propose updates to the global package through the human; do not edit global files from a project.
 
-Watch list (verify on every freshness run): placement exclusion removal scope, WhatsApp Status availability by country, Threads formats, Creator Marketing Hub, incremental attribution model updates, conversion leads thresholds, new customer controls labels, Meta's stated goal of end-to-end AI ad automation by the end of 2026, official Meta MCP or AI agent access to ad accounts.
+Watch list (verify on every freshness run): placement exclusion removal scope and any official Meta statement, WhatsApp Status availability by country and the 7-day free entry point window, Threads formats, Muse Image in Advantage+ creative, agentic Meta AI business assistant actions, AI audience discovery in Detailed Targeting (due end of 2026), incremental attribution model updates, Customer Lifecycle Strategy labels, Meta's stated goal of end-to-end AI ad automation by the end of 2026, official Ads MCP server tool list and scopes, v26.0 changes applying to all API versions on 2026-10-27.
 
 ## Reference index
 

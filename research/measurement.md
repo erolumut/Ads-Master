@@ -7,19 +7,20 @@
 - 14 web searches were run (several in extended mode) across Google Analytics, Tag Manager, Google Ads, Meta, TCF, KVKK, EU Digital Omnibus and Privacy Sandbox topics before the session's shared search budget was exhausted. Direct page fetching (WebFetch and curl) was blocked in this environment, so findings rely on search result extracts that quote official pages, plus prior knowledge up to mid 2026.
 - Two research notes from sibling builders in the same session (Microsoft Ads and ChatGPT Ads, both built from search extracts) were used for Microsoft UET and ChatGPT Ads measurement details and are cited as such.
 - Items that could not be confirmed against a primary source carry [Unverified] or "verify" in the skill. The Freshness Protocol in SKILL.md lists the pages to check before acting.
-- Not covered by fresh searches this session (prior knowledge only, labeled in the skill): TikTok, LinkedIn, Pinterest, Snap and Reddit CAPI field details; Microsoft UET Conversions API status; Safari 26 privacy changes; US state law list beyond widely known effective dates; AdAttributionKit iOS 26 additions; Meta incremental attribution; vendor pricing.
+- Verification pass (2026-10-08): a second researcher ran live extended searches on the highest impact items (Data Manager migration, enhanced conversions merge, Chrome 150 and Privacy Sandbox removal, GA4 AI Assistant channel, Microsoft UET Conversions API, Meta incremental attribution, Meta Offline Conversions API, Safari 26, Digital Omnibus, KVKK fines, UK DUAA commencement, California browser signal law and CPPA rules). Confirmed and corrected items are dated below (sources 78 to 100).
+- Still not covered by fresh searches (prior knowledge only, labeled in the skill): TikTok, LinkedIn, Pinterest, Snap and Reddit CAPI field details; US state law list beyond widely known effective dates; AdAttributionKit iOS 26 additions; vendor pricing.
 
 ## 1. Executive summary
 
-1. Chrome kept third-party cookies. Google confirmed in April 2025 it would not launch a new cookie choice prompt, then announced on 2025-10-17 the retirement of most Privacy Sandbox APIs (Topics, Protected Audience, Attribution Reporting, Private Aggregation, Shared Storage, IP Protection, Related Website Sets and others), with deprecation from Chrome 144 (January 2026) and removal targeted for Chrome 150 (July 2026). Measurement roadmaps built on Attribution Reporting API are dead; consent, first-party data and server-side events are what matter [Official, 2025-10].
+1. Chrome kept third-party cookies. Google confirmed in April 2025 it would not launch a new cookie choice prompt, then announced on 2025-10-17 the retirement of most Privacy Sandbox APIs (Topics, Protected Audience, Attribution Reporting, Private Aggregation, Shared Storage, IP Protection, Related Website Sets and others), with deprecation from Chrome 144 (January 2026). Removal was staged rather than done in one release: Chrome 150 (stable 2026-06-30) removed the Ad privacy settings and made API calls reject for field-trial browsers, Chrome 152 replaced implementations with stubs, and the Topics stub was ramping on Stable (M153) to 100% after 2026-10-15 [Official, blink-dev and Chrome release notes, 2026-06 to 2026-09]. Third-party cookies were never removed. Measurement roadmaps built on Attribution Reporting API are dead; consent, first-party data and server-side events are what matter.
 2. Meta changed attribution twice in 2026: 7-day view and 28-day view windows were removed from the Ads Insights API on 2026-01-12 (queries return empty data, not errors), and from March 2026 click-through only counts link clicks while likes, shares, saves and comments moved to a new 1-day "engage-through" category. Reported conversions dropped with no change in real performance; dashboards and targets need rebaselining [Official plus secondary, 2026].
-3. Google moved offline conversion imports and enhanced conversions for leads uploads from the Google Ads API to the Data Manager API from 2026-06-15; new users of session attributes and IP data in Google Ads API imports were blocked from 2026-02-02. Silent upload failures after June 2026 are a top audit item [Official, 2026].
-4. Google is merging enhanced conversions for web and for leads into one setting during 2026 and recommends the Data Manager API for new server-to-server integrations, while keeping the GA4 Measurement Protocol supported [Official, 2025 to 2026].
-5. GA4 added an AI Assistant channel to the Default Channel Group on 2026-05-13 (medium ai-assistant), not retroactive and blind to referrer-less app traffic; a custom channel group is still needed for history and full coverage [Official plus secondary, 2026-05].
+3. Google moved offline conversion imports and enhanced conversions for leads uploads from the Google Ads API (ConversionUploadService.UploadClickConversions) to the Data Manager API from 2026-06-15 (announced 2026-05-15). Developer tokens without recent upload history get CUSTOMER_NOT_ALLOWLISTED_FOR_THIS_FEATURE; the lookback window is reported as January to June 2026 (Google Ads Help) or 2025-12-17 to 2026-06-15 (other sources) [Contested], and Google has published no end date for the transitional legacy access. New users of session attributes and IP data in Google Ads API imports were blocked from 2026-02-02. Silent upload failures after June 2026 are a top audit item [Official, 2026-05].
+4. Google merged enhanced conversions in two steps: from April 2026 Google Ads accepts user-provided data from tags, Data Manager and API connections at the same time, and from June 2026 the separate web and leads settings became one on or off setting with the method selection screen removed; existing users who accepted customer data terms were migrated. Google recommends the Data Manager API for new server-to-server integrations, while keeping the GA4 Measurement Protocol supported [Official, 2026-04; June step via trade press].
+5. GA4 added an AI Assistant channel to the Default Channel Group on 2026-05-13 (medium ai-assistant), not retroactive and blind to referrer-less app traffic; Google names ChatGPT, Gemini and Claude in launch messaging but publishes no full list, and Perplexity and Claude inclusion is reported inconsistently [Official, 2026-05; list Contested]. A custom channel group is still needed for history and full coverage.
 6. Google Ads Conversion Lift became accessible to far smaller advertisers: $5,000 minimum budget and at least 1,000 observed conversions, with Search and Performance Max now self-serve and feasibility ratings shown before launch [Official help page; announcement date contested between 2025-05 and 2025-11].
 7. Google tag gateway for advertisers (renamed from first-party mode in May 2025) serves Google tags from the advertiser's domain via Cloudflare (free, one click) and, since 2026-06-01, Google Cloud load balancers (GA). It does not bypass consent or reliably bypass ad blockers, and can disturb CMP load order [Official, 2025 to 2026].
-8. Consent infrastructure tightened: IAB TCF v2.3 became mandatory for TC strings created from 2026-03-01 (disclosedVendors segment), and Google may serve Limited Ads on non-compliant requests. The EU Digital Omnibus cookie reform (browser signal consent, cookies into GDPR) remains a proposal as of 2026-10-08 with the Council split and the browser signal article removed in a June Council text [Official and press, 2026].
-9. Turkey's KVKK cross-border regime (Law No. 7499, in force 2024-06-01; consent fallback ended 2024-09-01) requires standard contracts notified within 5 business days, with 2026 fines of roughly TRY 90k to 1.8m for notification failures and no adequacy decisions as of August 2026. Ad pixels and CAPIs that send personal data abroad fall under it [Official and law firm summaries, 2024 to 2026].
+8. Consent infrastructure tightened: IAB TCF v2.3 became mandatory for TC strings created from 2026-03-01 (disclosedVendors segment), and Google may serve Limited Ads on non-compliant requests. The EU Digital Omnibus cookie reform (browser signal consent, cookies into GDPR) remains a proposal as of 2026-10-08: the Coreper vote set for 2026-10-07 was postponed to 2026-10-11 under pressure from France and Germany, the browser signal article was dropped from Council texts, and the Irish Presidency compromise keeps cookie rules in the ePrivacy framework [Press, 2026-10]. The separate AI part of the omnibus is already law (Regulation (EU) 2026/1744, in force 2026-07-27) [Official, 2026-07].
+9. Turkey's KVKK cross-border regime (Law No. 7499, in force 2024-06-01; consent fallback ended 2024-09-01) requires standard contracts notified within 5 business days, with 2026 fines of TRY 90,308 to 1,806,177 for notification failures (25.49% revaluation) and no adequacy decision as of 2026-08-17. Ad pixels and CAPIs that send personal data abroad fall under it [Official and law firm summaries, 2024 to 2026].
 10. ChatGPT Ads launched pixel and Conversions API with its self-serve Ads Manager beta around 2026-05-05 (event ID dedup, oppref click parameter, standard events for optimization, 30-day click window recommended), and expanded to 60+ countries by late September 2026: measurement teams must add it to click ID capture, CAPI senders and channel groups [Secondary, 2026].
 
 ## 2. State of measurement in 2026 (with numbers)
@@ -29,7 +30,7 @@
 | Browser signal loss | Third-party cookies remain in Chrome; Safari and Firefox restrict tracking; ad blockers persist | Topics API was used on about 13% of page loads at retirement (Google intent thread, 2025) [Official, 2025-10]; site-specific loss must be measured against backend |
 | Consent | Opt-in regimes (EEA, UK, CH, TR) shape GA4 and Google Ads modeling | GA4 behavioral modeling needs 1,000 denied events per day for 7 days and 1,000 granted daily users for 7 of 28 days [Official, long standing]; Google Ads conversion modeling cited at 700 ad clicks over 7 days per country and domain grouping [Official, verify] |
 | Platform attribution | Narrower, more conservative windows at Meta; GA4 adds impression-inclusive and per-conversion attribution | Meta: secondary sources report 15% to 40% lower reported conversions after 2026-01-12 for view-heavy accounts [Secondary, unaudited] |
-| Server-side | CAPIs standard on Meta, Google, TikTok, LinkedIn, Pinterest, Snap, Reddit; ChatGPT Ads added in 2026; Microsoft UET Conversions API in pilot or rollout | Google offline uploads moved to Data Manager API 2026-06-15 [Official] |
+| Server-side | CAPIs standard on Meta, Google, TikTok, LinkedIn, Pinterest, Snap, Reddit; ChatGPT Ads added in 2026; Microsoft Conversions API still a per-account pilot (full docs published August 2026) | Google offline uploads moved to Data Manager API 2026-06-15 [Official] |
 | Incrementality | Self-serve lift more accessible | Google user-based lift: $5,000 and 1,000 conversions; High feasibility 60% to 90% chance of conclusive results, Low 0% to 30% [Official] |
 | MMM | Open-source Bayesian MMM mainstream (Meridian GA January 2025, Robyn, PyMC-Marketing) | Data rule of thumb 2 years weekly [Practitioner consensus] |
 | Privacy law | US state patchwork growing; EU reform stalled; KVKK enforcement on transfers | About 19 US states with comprehensive laws in force by January 2026 [Practitioner consensus, verify]; Digital Omnibus 1,750+ committee amendments by 2026-07-15 [Press, 2026] |
@@ -43,7 +44,7 @@
 | GA4 | Measurement Protocol (EU endpoint available), sGTM | transaction_id (prevent at source) | client_id, session_id, user_id | Data Manager recommended for new server-to-server integrations into Google Ads | [Official] |
 | TikTok | Events API (v1.3), Events API Gateway, partner apps | event_id | email, phone (E.164 before hashing), external_id, ttclid, ttp | Check version sunset dates | [Official, verify] |
 | LinkedIn | Conversions API (versioned headers), CRM integrations | eventId | SHA256 email, li_fat_id, name and company | B2B pipeline loops | [Official, verify] |
-| Microsoft | UET with enhanced conversions, offline import by MSCLKID, Conversions API | Varies | Hashed email and phone, msclkid | Conversions API in pilot or rollout as of 2026-10; consent mode required for EEA, UK, CH | [Official via microsoft-ads notes; Unverified details] |
+| Microsoft | UET with enhanced conversions, offline import by MSCLKID, Conversions API | Varies | Hashed email and phone, msclkid | Conversions API in beta: Microsoft provisions it per account through the account manager or support, recommends it alongside UET, full documentation published August 2026; late 2025 "GA" claims are vendor conflations [Official docs via trade press, 2026-08]; consent mode required for EEA, UK, CH | [Official, 2026-08] |
 | Pinterest | Conversions API v5 | event_id | em, ph, epik, IP, UA | | [Official, verify] |
 | Snap | Conversions API v3 | event_id | em, ph, ScCid, _scid, IP, UA | | [Official, verify] |
 | Reddit | Conversions API (Ads API) | conversion_id | rdt_cid, email, IP, UA, _rdt_uuid | v3 API paths introduced | [Official, verify] |
@@ -54,10 +55,10 @@
 | Region | Regime | Practical default for tags | Open items |
 |--------|--------|----------------------------|-----------|
 | EEA | GDPR plus ePrivacy national laws; DMA for gatekeepers; Google EU user consent policy | Opt-in: consent mode v2 defaults denied, certified CMP, TCF v2.3 if TCF is used | Digital Omnibus outcome |
-| UK | UK GDPR plus PECR; Data (Use and Access) Act 2025 | Opt-in for advertising; analytics exemption once in force and guided by ICO | Commencement and ICO guidance |
+| UK | UK GDPR plus PECR; Data (Use and Access) Act 2025 | Opt-in for advertising; statistical (analytics) exception in force since 2026-02-05 only when the sole purpose is statistics about the service, with clear information and a free opt-out; ICO final guidance 2026-04-29 | Whether third-party analytics that reuse data qualify; ICO enforcement |
 | Switzerland | revFADP | Treat as opt-in for Google ad products (EU user consent policy covers CH) | |
 | Turkey | KVKK; cookie guideline; Article 9 transfer regime (Law 7499) | Opt-in for non-essential cookies; transfer safeguards for vendors abroad | Adequacy decisions; vendor standard contracts |
-| United States | About 19 state comprehensive laws; GPC honoring in many; sector rules (health) and litigation (CIPA, VPPA) | Notice plus opt-out, GPC honored, restricted processing for opted-out users; no pixels on sensitive health pages | New state laws, California browser signal law |
+| United States | About 19 state comprehensive laws; GPC honoring in many; sector rules (health) and litigation (CIPA, VPPA) | Notice plus opt-out, GPC honored, restricted processing for opted-out users; no pixels on sensitive health pages | New state laws; California AB 566 requires browsers to offer an opt-out preference signal from 2027-01-01 |
 | Rest of world | Varies (Brazil LGPD, India DPDP rules phasing in, others) | Follow CMP region rules; counsel review for large markets | Track per project |
 
 ## 3. Timeline of changes, January 2025 to October 2026
@@ -69,46 +70,57 @@
 | 2025-03-19 | GTM first-party mode via Cloudflare (beta) | First-party serving of Google tags | [Official, GTM release notes] |
 | 2025-04 | Google says Chrome will not add a new third-party cookie prompt | No cookieless cliff | [Official] |
 | 2025-04 | European Commission fines Meta EUR 200m under the DMA (pay or consent) | Consent models for ads under scrutiny | [Official, prior knowledge] |
+| 2025-04 | Meta incremental attribution available as an optional ad set attribution setting (incremental data retroactive to 2025-04-01) | Optimizes and reports modeled incremental conversions | [Secondary, multiple; check Meta Business Help Center] |
+| 2025-05 | Meta Offline Conversions API discontinued with Graph API v16.0 expiry; offline events go through the Conversions API with a dataset | Legacy offline event set uploads stop | [Official, Meta for Developers] |
 | 2025-05 | First-party mode renamed Google tag gateway for advertisers; Cloudflare one-click integration (2025-05-08) | Low effort first-party Google tags | [Official] |
 | 2025-05 | Google Marketing Live: cross-channel reporting, third-party cost import (Meta, TikTok, Snap, Reddit, Pinterest), impression-inclusive multi-touch attribution previewed; lower incrementality thresholds reported | Cross-channel views in GA4 | [Official; lift threshold date contested] |
 | 2025-05 to 2025-06 | GA4 Measurement Protocol EU endpoints, geographic, device and user_agent fields | Better server-side GA4 events | [Official, MP changelog] |
 | 2025-06 | UK Data (Use and Access) Act receives Royal Assent | Future analytics cookie exemption, higher PECR fines | [Official, prior knowledge; commencement verify] |
 | 2025-06-30 | GTM serves scripts through the web container | Container serving change | [Official] |
 | 2025-08-01 | GTM template API readAnalyticsStorage | Templates can read client and session IDs | [Official] |
-| 2025-08-28 | Shopify Plus deadline for Thank you and Order status page upgrade | Additional scripts tracking ends for Plus | [Official, verify] |
+| 2025-08-28 | Shopify Plus deadline for Thank you and Order status page upgrade (unupgraded Plus stores auto-upgraded from January 2026) | Additional scripts tracking ends for Plus | [Official, shopify.dev] |
+| 2025-09 | Safari 26: Advanced Fingerprinting Protection on in all browsing by default; Link Tracking Protection default scope unchanged (Private Browsing, Mail, Messages) | Click IDs still arrive in normal tabs unless the user opts into protection for All Browsing | [Secondary tests, 2025-09; claims of all-browsing stripping are wrong] |
+| 2025-10-08 | California AB 566 (Opt Me Out Act) signed: browsers must offer an opt-out preference signal from 2027-01-01 | GPC-style signals become default reachable for California users | [Official, CPPA 2025-10] |
 | 2025-09 | CM360 splits Floodlight into web and app streams for new GA properties | Floodlight users | [Official] |
 | 2025-10-17 | Google announces retirement of most Privacy Sandbox APIs | Stop investing in Attribution Reporting API | [Official] |
 | 2025-11 | European Commission proposes Digital Omnibus (cookies into GDPR Article 88a, browser signals Article 88b) | Possible future change to banners | [Official] |
 | 2025-11-11 | Google lowers lift test minimum to $5,000 (one report; another ties it to May 2025) | Lift tests for mid-size advertisers | [Contested date] |
 | 2025-12 | Data Manager API launch reported (2025-12-09) | One endpoint for conversions, leads, audiences | [Secondary] |
 | 2025-12-11 | GTM built-in Client ID, Session ID, Session Number variables; MP accepts in_app_purchase for app streams | Easier stitching of server events | [Official] |
-| 2026-01-01 | Indiana, Kentucky, Rhode Island privacy laws effective | More US opt-out obligations | [Practitioner consensus, verify] |
+| 2026-01-01 | Indiana, Kentucky, Rhode Island privacy laws effective; CPPA regulations on risk assessments, ADMT and cybersecurity audits effective (ADMT compliance 2027, audits from 2028) | More US opt-out and assessment obligations | [Official, CPPA 2025-09; state list Practitioner consensus] |
 | 2026-01-05 | Google tag gateway on Google Cloud load balancer (beta) | Non-Cloudflare option | [Official] |
 | 2026-01 | Chrome 144 begins Privacy Sandbox API deprecation | | [Official] |
 | 2026-01-12 | Meta removes 7-day and 28-day view windows from Ads Insights API | Empty data in old queries; lower reported conversions | [Secondary, multiple] |
 | 2026-01-16 | GA4: cross-channel budgeting announced, attribution settings per conversion, conversion attribution analysis report (beta); OpenAI announces ad testing in ChatGPT | New GA4 planning features; new ad surface | [Official] |
 | 2026-02-02 | Google Ads API stops onboarding new session attributes and IP users for imports | Use Data Manager | [Official] |
+| 2026-02-05 | UK DUAA cookie exceptions (statistical purposes, appearance and others) commenced by the Commencement No. 6 Regulations 2026 | Analytics-only cookies can run without consent if the exception conditions are met | [Official via law firm summaries, 2026-02] |
 | 2026-02-09 | ChatGPT ads test begins for US logged-in adult Free and Go users | | [Secondary via chatgpt-ads notes] |
 | 2026-02-10 | GA4 cross-channel budgeting (beta) | | [Official] |
 | 2026-03-01 | TCF v2.3 mandatory for new TC strings; Google may fall back to Limited Ads | CMP updates required | [Official] |
 | 2026-03-03 | Meta: click-through limited to link clicks; engage-through category (1 day) | Reporting break | [Official, Meta business news; details secondary] |
-| 2026-04 | Google begins combining enhanced conversions for web and leads into one setting | Settings migration | [Official] |
+| 2026-04 | Google Ads accepts user-provided data from tags, Data Manager and API at the same time (first step of the enhanced conversions merge) | Settings migration | [Official, 2026-04] |
+| 2026-04-29 | ICO publishes final guidance on storage and access technologies | Defines the statistical exception; advertising stays consent based | [Official, 2026-04] |
 | 2026-04-29 | GA4 Task Assistant | Built-in configuration recommendations | [Secondary mirror of Google notes] |
 | 2026-05-05 | ChatGPT Ads Manager self-serve beta with pixel and CAPI | New CAPI to implement | [Secondary via chatgpt-ads notes] |
 | 2026-05-13 | GA4 AI Assistant default channel | AI referral reporting | [Official plus secondary] |
+| 2026-05-15 | Google Ads Developer Blog announces the offline click conversion import change | One month runway to 2026-06-15 | [Official, 2026-05] |
 | 2026-05 | Microsoft Ads data-driven attribution rolling out to all accounts | Attribution model change | [Official via microsoft-ads notes] |
 | 2026-06-01 | Google tag gateway on Google Cloud generally available | | [Official] |
 | 2026-06-05 | ChatGPT conversion-optimized campaigns first wave | Pixel or CAPI needed | [Secondary] |
-| 2026-06-15 | Offline conversion imports and enhanced conversions for leads uploads moved to Data Manager API | Legacy uploads blocked unless allowlisted | [Official] |
+| 2026-06 | Enhanced conversions for web and for leads become one on or off setting; method selection screen removed | Check conversion settings after migration | [Official help plus trade press, 2026-06] |
+| 2026-06-15 | Offline conversion imports and enhanced conversions for leads uploads moved to Data Manager API | Legacy uploads blocked unless allowlisted (error CUSTOMER_NOT_ALLOWLISTED_FOR_THIS_FEATURE) | [Official] |
 | 2026-06-18 | Council text reportedly removes Digital Omnibus Article 88b (browser signals) | Banners stay | [Press, noyb] |
-| 2026-07 | Chrome 150 removal target for Privacy Sandbox APIs | | [Official; completion verify] |
+| 2026-06-30 | Chrome 150 stable: Ad privacy settings removed and Privacy Sandbox API calls reject for field-trial browsers (plan revised in June 2026) | No Attribution Reporting or Topics signal to build on | [Official, blink-dev and release notes, 2026-06] |
+| 2026-07-27 | EU AI omnibus (Regulation (EU) 2026/1744) in force; AI Act Article 50 disclosure duties still apply from 2026-08-02 | AI-generated ad content disclosures; separate from the cookie file | [Official, EUR-Lex 2026-07] |
 | 2026-07 | KVKK announcement on standard contract execution formalities | Contract signing and translations | [Law firm summary] |
-| 2026-08-26 | Shopify non-Plus deadline for Thank you and Order status page upgrade | Additional scripts tracking ends | [Official, verify] |
+| 2026-08 | Microsoft publishes full Conversions API documentation; access still a per-account pilot | Do not promise Microsoft CAPI until the account shows it | [Official via trade press, 2026-08] |
+| 2026-08-26 | Shopify non-Plus deadline for Thank you and Order status page upgrade | Additional scripts and script tags stop on those pages; whether every store was auto-upgraded that day is reported inconsistently | [Official, shopify.dev; post-deadline behavior Contested] |
 | 2026-08 to 2026-09 | ChatGPT Ads serving in 31 European markets (2026-08-24), India and MENA, Turkey and Gulf (2026-09-16), Southeast Asia (late September) | Consent and CAPI in more regions | [Secondary] |
 | 2026-09-08 | Microsoft PMax uplift experiments generally available | New lift option | [Official via microsoft-ads notes] |
 | 2026-09-09 | GA4 Dashboards | In-product KPI views | [Official] |
 | 2026-09-29 | GA4 improved app conversion management for Google Ads customers | App advertisers | [Official] |
-| 2026-10-11 | Coreper vote on Digital Omnibus (postponed from 2026-10-07) | Watch outcome | [Press] |
+| 2026-09 to 2026-10 | Chrome 152 replaces Privacy Sandbox implementations with stubs; Topics stub at 10% of Stable (M153) until 2026-10-15, then 100% | Calls return nothing useful | [Official, blink-dev 2026-09-24] |
+| 2026-10-07 | Coreper discusses Irish Presidency Digital Omnibus compromise; vote postponed to 2026-10-11 | Watch outcome | [Press, Agence Europe 2026-10] |
 
 ## 4. Best practice consensus
 
@@ -179,7 +191,7 @@ Benchmarks vary by vertical, geo, season and setup. Compare the project to its o
 | Topics API usage at retirement | About 13% of page loads | Google Chromium intent thread, 2025 | Shows low adoption |
 | GA4 behavioral modeling thresholds | 1,000 denied events per day for 7 days; 1,000 granted daily users for 7 of 28 days | Google Analytics Help | Eligibility, not accuracy |
 | Meta learning phase | About 50 optimization events per ad set per 7 days | Meta Business Help | Guideline |
-| KVKK fine for missing standard contract notification (2026) | About TRY 90,308 to 1.8 million | Law firm summaries, 2026 | Upper figure differs by source |
+| KVKK fine for missing standard contract notification (2026) | TRY 90,308 to 1,806,177 (one vendor lists 1,806,377, likely a typo) | Law firm summaries citing the 25.49% revaluation, 2026 | Verify against the Article 18 table |
 | Small business lift detectability | Effects under 10% to 20% often not detectable even with multi-week tests | Secondary analysis, 2025 to 2026 | Depends on volume and noise |
 | Digital Omnibus committee amendments | More than 1,750 by 2026-07-15 (another source: 1,840) | Praxikon, EU Perspectives, 2026 | Process indicator |
 
@@ -200,6 +212,7 @@ Benchmarks vary by vertical, geo, season and setup. Compare the project to its o
 | LinkedIn Conversions API | Official | B2B server events | [Official] |
 | Pinterest, Snap, Reddit CAPIs | Official | Server events | [Official] |
 | OpenAI ChatGPT Ads pixel and CAPI | Official | Server events for ChatGPT Ads | [Secondary, 2026] |
+| Microsoft Advertising Conversions API | Official, pilot | Server events alongside UET; per-account provisioning | [Official docs, 2026-08] |
 | Stape and other sGTM hosts | Commercial | Managed server-side tagging | [Practitioner consensus] |
 | GeoLift, CausalImpact, Trimmed Match | Open source | Geo experiments | [Official open source] |
 | Meridian, Robyn, PyMC-Marketing | Open source | MMM | [Official open source] |
@@ -233,16 +246,16 @@ Benchmarks vary by vertical, geo, season and setup. Compare the project to its o
 ## 11. Open questions and watch list
 
 1. Digital Omnibus: Coreper vote on 2026-10-11 and Parliament committee vote; whether cookie rules move into GDPR and whether any browser signal mechanism survives.
-2. Chrome 150 removal: confirm whether all retired Privacy Sandbox APIs are gone and whether anything replaces Attribution Reporting for cross-site measurement.
-3. Google Data Manager API: allowlist status for legacy Google Ads API uploads after 2026-06-15; next API versions; consent field requirements.
+2. Privacy Sandbox stubs: when the Chrome 152 and 153 stubs are fully removed, and whether anything replaces Attribution Reporting for cross-site measurement (nothing announced as of 2026-10).
+3. Google Data Manager API: end date for transitional legacy Google Ads API upload access (none published as of 2026-10); exact allowlist lookback window [Contested]; consent field requirements.
 4. GA4 AI Assistant channel: the official list of recognized assistants (Perplexity status), whether tagged paid AI clicks (ChatGPT Ads) are overwritten into AI Assistant, and whether it reaches user acquisition reports.
 5. Meta: future attribution changes (incremental attribution adoption, 28-day click status) and parameter restrictions for sensitive categories.
-6. Microsoft UET Conversions API general availability and consent enforcement details.
+6. Microsoft Conversions API general availability date (still a per-account pilot in 2026-08 to 2026-09 coverage).
 7. ChatGPT Ads measurement: official CAPI endpoint documentation, attribution window defaults, MMP and partner integrations, EEA consent handling.
-8. UK DUAA commencement for the analytics cookie exemption and ICO final guidance.
+8. UK DUAA: how the ICO enforces the statistical exception (in force 2026-02-05, guidance 2026-04-29), and whether third-party analytics vendors qualify.
 9. KVKK: first adequacy decisions; vendor availability of KVKK standard contracts for ad platforms.
 10. US: new state laws effective 2027 and California browser opt-out signal requirement.
-11. Safari and iOS 26 privacy changes affecting click IDs and fingerprinting protection in normal browsing.
+11. Safari: whether Apple ever extends Link Tracking Protection to normal browsing by default; a July 2026 review of WebKit source reports new parameters (xmt, si, twclid) added in the Safari 27 cycle [Unverified].
 12. Google impression-inclusive multi-touch attribution in GA4: global rollout and how it changes GA4 versus platform comparisons.
 
 ## 12. Sources
@@ -324,3 +337,26 @@ Benchmarks vary by vertical, geo, season and setup. Compare the project to its o
 75. Web Pixels API, Shopify, https://shopify.dev/docs/api/web-pixels-api, accessed 2026-10
 76. Conversions API, Meta for Developers, https://developers.facebook.com/docs/marketing-api/conversions-api, accessed 2026-10
 77. AdAttributionKit, Apple Developer, https://developer.apple.com/documentation/adattributionkit, accessed 2026-10
+78. Changes to Offline Click Conversion Import Support in the Google Ads API, Google Ads Developer Blog, https://ads-developers.googleblog.com/2026/05/changes-to-offline-click-conversion.html, 2026-05
+79. Google is moving offline conversion imports out of the Google Ads API, Search Engine Land, https://searchengineland.com/google-is-moving-offline-conversion-imports-out-of-the-google-ads-api-477669, 2026-05
+80. Google Ads finally collapses enhanced conversions into a single toggle, PPC Land, https://ppc.land/google-ads-finally-collapses-enhanced-conversions-into-a-single-toggle/, 2026-06
+81. Google Ads Consolidating Enhanced Conversions, Search Engine Roundtable, https://www.seroundtable.com/google-ads-consolidating-enhanced-conversions-41166.html, 2026-04
+82. Chrome 150 release notes, Chrome for Developers, https://developer.chrome.com/release-notes/150, 2026-06-30
+83. Intent to Deprecate and Remove: Topics API, blink-dev, https://groups.google.com/a/chromium.org/g/blink-dev/c/_R85yctz4Rs, 2025-10 to 2026-09
+84. Privacy Sandbox history and timeline, Hidekazu Konishi, https://hidekazu-konishi.com/entry/privacy_sandbox_history_and_timeline.html, 2026
+85. Default channel group, Analytics Help, https://support.google.com/analytics/answer/9756891, accessed 2026-10
+86. Microsoft Advertising publishes Conversions API documentation, Search Engine Land, https://searchengineland.com/microsoft-advertising-publishes-conversions-api-documentation-485356, 2026-08
+87. Microsoft gates its new Conversions API behind per-account pilot approval, PPC Land, https://ppc.land/microsoft-gates-its-new-conversions-api-behind-per-account-pilot-approval/, 2026-08
+88. Meta Shares More Info on Incremental Attribution Tracking, Social Media Today, https://www.socialmediatoday.com/news/meta-updates-information-incremental-attribution-conversion-tracking/759205/, 2025
+89. Safari 26 tracking changes explained, TAGGRS, https://taggrs.io/safari-26-tracking-changes/, 2025 to 2026
+90. Safari 26 tracking changes to impact marketing measurement, PPC Land, https://ppc.land/safari-26-tracking-changes-to-impact-marketing-measurement/, 2025-09
+91. Ireland puts forward new compromise proposals on Digital Omnibus, Agence Europe, https://agenceurope.eu/en/bulletin/article/13952/8/ireland-puts-forward-new-compromise-proposals-on-digital-omnibus-in-bid-to-secure-agreement-between-member-states-on-7-october, 2026-10
+92. Council: Coreper vote of 26 June 2026 cancelled, Praxikon, https://www.praxikon.com/en/avg/digital-omnibus/raad-mandaat-niet-bereikt, 2026-06
+93. DUAA: The Commencement No. 6 Regulations are now in force, Womble Bond Dickinson, https://www.womblebonddickinson.com/uk/insights/articles-and-briefings/duaa-commencement-no-6-regulations-are-now-force-what-organisations, 2026-02
+94. What are the exceptions? (guidance on storage and access technologies), ICO, https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guidance-on-the-use-of-storage-and-access-technologies/what-are-the-exceptions/, 2026-04
+95. California Governor Newsom Signs Browser Opt-out Signal Bill, Foley and Lardner, https://www.foley.com/p/102lpc9/california-governor-newsom-signs-browser-opt-out-signal-bill/, 2025-10
+96. CCPA updates, cybersecurity audits, risk assessments, ADMT regulations, CPPA, https://cppa.ca.gov/regulations/ccpa_updates.html, 2025-09
+97. Meta Offline Conversions API is going away, but not just yet, Jon Loomer Digital, https://www.jonloomer.com/qvt/offline-conversions-api-deprecation-delayed/, 2024
+98. Sending Offline Events Using the Conversions API, Meta for Developers, https://developers.facebook.com/docs/marketing-api/conversions-api/offline-events, accessed 2026-10
+99. Regulation (EU) 2026/1744 (Digital Omnibus on AI), EUR-Lex, https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ%3AL_202601744, 2026-07-24
+100. KVKK Administrative Fines 2026, Koksal Partners, https://www.koksalpartners.com/en/kvkk-cezalari, 2026

@@ -51,7 +51,7 @@ Conventions:
 - Rate limits: 600 requests per minute per endpoint and 1,200 per minute total, per ad account and per IP [Unverified] (community notes); honor `Retry-After`.
 - Enums: `bidding_type` `impressions|clicks|conversions`; `billing_event_type` `impression|click`; `strategy` `fixed_bid|maximize_clicks|maximize_conversions`; review status `in_review|approved|rejected`; platforms `ios_app`, `android_app`, `web` (granular `desktop_web`, `ios_web`, `android_web` reported) [Official, 2026-09] and [Unverified] (granular).
 - Diagnostics: `include[]=serving_issues`, `include[]=bid_too_low`.
-- Removed from the public spec in September 2026 per community notes: lead forms, business agents, negative keywords [Unverified].
+- Removed from the public spec in September 2026 per community notes: lead forms, business agents, negative keywords [Unverified]. Exclusions returned in the UI as Negative Phrases for qualifying advertisers on 2026-10-05 [Official, 2026-10]; API support for them is not documented as of 2026-10-08.
 
 Insights parameters:
 | Parameter | Values |

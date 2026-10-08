@@ -6,7 +6,7 @@
 
 | Priority | Option | Read | Write | Setup |
 |----------|--------|------|-------|-------|
-| 1 | Meta Ads MCP connector installed in the user's Claude environment | Yes | Only with approval | User installs and authorizes |
+| 1 | Official Meta Ads MCP server (https://mcp.facebook.com/ads, open beta since 2026-04-29) or another Meta Ads MCP connector installed in the user's Claude environment | Yes | Only with approval | User adds the remote MCP URL as a custom connector and completes Meta Business OAuth (read-only scope preferred) |
 | 2 | Marketing API with a system user token in the user's environment (scripts below) | Yes | Only with approval | Business portfolio admin creates system user and app |
 | 3 | Reporting connector exports (Supermetrics, Funnel, Windsor.ai, Porter Metrics, Airbyte, Fivetran) into CSV or warehouse | Yes | No | Existing BI setup |
 | 4 | Ads Manager CSV exports dropped in ads-master/data/imports/ | Yes | No | See HOW_TO_EXPORT.md |
@@ -18,7 +18,7 @@ Always state which source and date range were used in every output.
 
 Objects: `act_<AD_ACCOUNT_ID>` > campaigns > adsets > ads > adcreatives; `insights` edge on each level; `customaudiences`, `adspixels` (datasets), `product_catalogs`, `adrules_library` (automated rules).
 
-Versioning: new Graph and Marketing API versions ship several times per year and older Marketing API versions are deprecated on their own schedule (check the support end date of the version you use); Advantage+ legacy creation via `smart_promotion_type` was phased out across v24 and v25 (2025 to 2026) [Official, via PPC Land]. Always read https://developers.facebook.com/docs/graph-api/changelog before building.
+Versioning: new Graph and Marketing API versions ship several times per year and older Marketing API versions are deprecated on their own schedule (check the support end date of the version you use); Advantage+ legacy creation via `smart_promotion_type` was phased out across v24 and v25 (2025 to 2026) [Official, via PPC Land]. Graph API v26.0 (released 2026-07-29) removed the Instagram Explore Feed placement (calls that name it return an error) and silently strips the Messenger Stories value from `messenger_positions`; these v26.0 changes apply to every API version from 2026-10-27, so pinning an older version does not avoid them [Official changelog via PPC Land and Unalsoft, 2026-07]. Always read https://developers.facebook.com/docs/graph-api/changelog before building.
 
 Permissions: `ads_read` for reporting, `ads_management` for writes, `business_management` for portfolio assets, `leads_retrieval` for lead forms, `catalog_management` for catalogs. Use system user tokens (long-lived) scoped to the needed ad accounts.
 
@@ -115,12 +115,29 @@ Competitive research belongs to `market-intel`; request with the competitor list
 
 ## 5. MCP servers
 
+### 5.1 Official: Meta Ads AI Connectors (MCP server and Ads CLI)
+
+| Item | Detail | Label |
+|------|--------|-------|
+| Launch | 2026-04-29, open beta, free apart from ad spend; expanded at Advertising Week on 2026-10-06 with more campaign workflows for large advertisers and agencies | [Official, 2026-04 and 2026-10] via PPC Land, Common Thread Collective, Relevant Audience |
+| Endpoint | Remote, Meta-hosted MCP server at https://mcp.facebook.com/ads; works with MCP clients such as Claude, ChatGPT and Cursor (client support varies) | [Official, 2026-04] Meta developer docs |
+| Auth | Meta Business OAuth; no developer app or app review for the MCP path; read or write scopes chosen at consent; the connector inherits the permissions of the signed-in user | [Official, 2026-04] |
+| Tools | About 29 tools across performance reporting, campaign management, catalog management and signal diagnostics (some guides list A/B test and lift study tools, activity log and Help Center search; one counts 58 functions) | [Official] for scope; tool count [Contested] |
+| Ads CLI | First-party command line for the Marketing API (`meta ads <resource> <action>` covering campaigns, ad sets, ads, creatives, insights, catalogs, datasets); install method differs across guides (npm vs Python package) | [Official, 2026-04]; install details [Contested] |
+| Guardrails reported | Objects created through the connector land paused; no published rate limits during beta; partnership ads can be created and managed through the connector (2026-09) | [Practitioner reports, 2026] |
+| Docs | https://developers.facebook.com/documentation/ads-commerce/ads-ai-connectors/ads-mcp-server/ads-mcp-server-overview | [Official] |
+
+How to use it under this skill's guardrails: connect with read-only scope by default; request write scope only for a session where the human has approved a specific change list; log the connector name, scope and date in every output. Third-party "AI tool" access through unofficial apps has been linked by practitioners to account restrictions in 2026 [Unverified]; prefer the official connector.
+
+Related (testing, not general release as of 2026-10): agentic actions in the Meta AI business assistant (campaign setup, targeting and budget changes, scheduled tasks and alerts) [Official, 2026-10, testing]. Treat any assistant that can change live campaigns exactly like a write-capable MCP server.
+
+### 5.2 Community and vendor servers
+
 | Server | Type | Notes | Label |
 |--------|------|-------|-------|
 | Pipeboard Meta Ads MCP (github.com/pipeboard-co/meta-ads-mcp) | Community, open source, also hosted | Reads insights, campaigns, creatives; some write tools; uses Meta OAuth or token | [Unverified current feature set] |
 | GoMarble facebook-ads-mcp-server | Community, open source | Read-focused insights and account data | [Unverified current feature set] |
 | Other community servers (various GitHub projects, Zapier MCP, Windsor.ai MCP, Supermetrics MCP style connectors) | Community or vendor | Read access through connectors | [Unverified] |
-| Official Meta-provided MCP server for ads | Not confirmed as of this writing | Meta AI connecting to ad accounts for reporting was reported in 2026-09 [Unverified] | [Unverified] |
 
 MCP safety rules:
 1. Prefer servers that support read-only mode or scoped tokens with `ads_read` only.

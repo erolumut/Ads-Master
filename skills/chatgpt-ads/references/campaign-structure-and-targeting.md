@@ -144,7 +144,7 @@ Recommended feed structure:
 | Long tail | remaining | Low bid or Maximize results to find demand |
 | Exclusions | `availability` out of stock, low margin, policy risk products | Never advertise |
 
-Carousels: OpenAI decides whether a single product or a carousel shows; carousels currently show one retailer [Unverified] (Digiday, 2026-08). Carousel card impressions and clicks are reported separately and card impressions are not billable [Official, 2026-09].
+Carousels: OpenAI decides whether a single product or a carousel shows; carousels currently show one retailer (Digiday, 2026-08-06; Search Engine Land, 2026-08). Carousel card impressions and clicks are reported separately and card impressions are not billable [Official, 2026-09].
 
 ## 8. Bulk upload and edits
 

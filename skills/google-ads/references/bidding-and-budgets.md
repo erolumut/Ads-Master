@@ -1,6 +1,6 @@
 # Bidding and Budgets
 
-> Knowledge as of 2026-10. Two 2026 changes alter how targets behave: the target-based bidding update rolled out 2026-08-17 to 2026-08-27, and campaign total budgets entered open beta 2026-01-15. Verify both in Google Ads Help.
+> Knowledge as of 2026-10. 2026 changes that alter how targets and budgets behave: the target-based bidding update (2026-08-17, completed 2026-08-27), campaign total budgets (open beta since 2026-01-15), Promotion mode (beta, 2026-06) and Smart Bidding Exploration for PMax without feeds (GA 2026-06). Re-verified on 2026-10-08; check Google Ads Help before acting.
 
 ## 1. The strategy menu
 
@@ -17,6 +17,8 @@
 | tCPI, tCPA, tROAS in App campaigns | Installs, in-app actions, value | App | |
 
 Enhanced CPC was retired for Search and Display; affected campaigns run as Manual CPC [Official, announced 2024-10, effective 2025-03].
+
+Naming: since 2026-06 the UI shows "Maximize conversions with a target CPA" as "Target CPA" and "Maximize conversion value with a target ROAS" as "Target ROAS". Bidding behavior did not change [Official wording quoted by trade press, 2026-06]. The API keeps its existing fields (`maximize_conversions.target_cpa_micros`, `target_cpa.target_cpa_micros` and the ROAS equivalents).
 
 ## 2. Choosing a strategy (decision tree)
 
@@ -50,21 +52,22 @@ Target change rules [Practitioner consensus]:
 
 ## 4. Target-based bidding update (August 2026)
 
-Google updated its bidding systems so that campaigns perform more consistently toward the targets you set. Rollout ran from 2026-08-17 and completed 2026-08-27. [Official, 2026-07 help articles "Changes to target based bid strategies" and FAQ]
+Google changed its bidding systems on 2026-08-17 so that target-based strategies deliver toward the target you set even when budget changes; rollout completed 2026-08-27 [Official, Google Ads Help "Changes to target based bid strategies" and FAQ, announced 2026-06].
 
-What changes:
-- Budget-limited campaigns using tCPA or tROAS that were beating their targets may now move closer to the target. Example reported from Google's help content: a 10 tCPA campaign delivering 5 conversions may drift toward 10. [Official example via trade press, 2026]
-- Google does not change your budgets or targets automatically.
+What changed:
+- Scope: Search, Shopping, Performance Max and Demand Gen campaigns using Target CPA or Target ROAS that are "Limited by budget". Target CPC is affected only in Demand Gen. Maximize conversions without a target, Manual CPC, Target impression share and Target CPM are not affected. Display and Hotel campaigns already behaved this way [Official FAQ as summarized by trade press, 2026-06 to 2026-08].
+- Google's example: Target CPA 10 with recent actual CPA 5 now delivers closer to 10. Before the update, a tight budget held spend down so results beat the target on paper.
+- Google does not change targets or budgets for you. A Bid Target Adjustment Tool is available in Google Ads to reset targets in bulk. Temporary volatility is expected.
 
 What to do:
-1. List campaigns that are budget-limited and beating target by 20% or more (GAQL budget query plus CPA vs target).
-2. Either lower the target to the level you actually want (tighter tCPA, higher tROAS), or raise the budget if the marginal results are profitable.
+1. List campaigns that are budget-limited and beating target by 20% or more (Q23 budget query plus CPA or ROAS vs target).
+2. Either set the target to the level you actually want (if recent performance is what you want, set the target at recent actual), or raise the budget if marginal results are profitable.
 3. Compare performance 4 weeks before 2026-08-17 vs 4 weeks after 2026-08-27 for these campaigns; annotate the journal so other agents do not misread the shift.
 
 ## 5. Learning periods
 
 - A learning period follows: new strategy, target change, conversion goal change, large budget change, major structure change.
-- Typical length: about 1 to 2 weeks or a few conversion cycles; one Google help variant mentions up to about 50 conversion events or 3 conversion cycles [Contested, 2026-09].
+- Typical length: Google's guidance changed in 2026-09. The UK English help page now says calibration "can take up to around 50 conversion events or 3 conversion cycles", while the US English page still said "a few conversion cycles (1 to 2 typically)" when checked by trade press [Contested, 2026-09: PPC News Feed 2026-09-22 and LGG Media 2026-09]. Plan for the longer figure on low-volume or long-lag campaigns.
 - During learning, do not judge CPA or ROAS daily. Use 7-day rolling numbers and check for tracking breaks first.
 
 ## 6. Portfolio strategies and bid limits
@@ -79,20 +82,21 @@ What to do:
 |---|---|---|
 | Seasonality adjustment | Short events (1 to 7 days best, up to 14) where conversion rate is expected to change sharply: flash sale, Black Friday, a promo launch. Enter the expected conversion rate change | Long seasons (Smart Bidding already adapts), normal weekly cycles |
 | Data exclusion | Tracking outages, double counting, site downtime: exclude the affected dates so Smart Bidding ignores them | Normal performance dips |
+| Promotion mode (beta, Search and PMax with Target ROAS) | Planned peaks (sale, launch): schedule a temporary ROAS tolerance and extra daily budget for the window; settings revert automatically when it ends [Official, Google Ads announcement, 2026-06]. Works with daily budgets and with campaign total budgets | Shopping and Display (not supported in beta); campaigns without a Target ROAS |
 
-Both are set in Tools, Shared library, Bid strategies, Advanced controls. Scope by campaign type or specific campaigns, and by date and time.
+Seasonality adjustments and data exclusions are set in Tools, Shared library, Bid strategies, Advanced controls. Scope by campaign type or specific campaigns, and by date and time. Promotion mode rules: the baseline Target ROAS cannot be edited while a promotion is active, so set targets before the window starts [Practitioner report, Search Engine Roundtable 2026-09]. Third-party guides cite a 3 to 14 day window and a 5% to 30% tolerance band [Unverified]. Seasonality adjustments change the expected conversion rate; Promotion mode changes the ROAS tolerance and budget. Do not stack both on the same days without a reason.
 
 ## 8. Smart Bidding Exploration
 
 - Lets tROAS flex down (10% to 30%, your choice) to explore new query categories. Generally available for Search tROAS from 2025-07 [Official]. Google reported an 18% average increase in unique converting query categories and 19% more conversions (internal data, 2025-03-11 to 2025-04-11) [Official claim, not independently verified].
-- Expanded to Shopping and PMax (PMax without product feeds globally available from 2026-06) [Practitioner report, 2026-06, verify].
+- PMax without product feeds: out of beta, all languages, from mid-June 2026 [Official via Google Ads Liaison, reported by Search Engine Land and Search Engine Roundtable, 2026-06]. PMax with feeds and Standard Shopping: separate beta with limited access, no published results [Practitioner reports, 2026-06].
 - Use when: tROAS campaign with broad match or AI Max, not budget-limited (Search lost IS budget near 0%), stable tracking, 30 to 50+ conversions a month.
 - Expect: lower average ROAS on explored traffic, more total conversion value. Judge on total profit, over 6 weeks.
 
 ## 9. Journey aware bidding (lead gen, beta)
 
 - Uses later funnel stages (MQL, SQL, proposal, won) that you import as signals to improve bidding toward the primary biddable conversion. The later stages inform the model without counting as conversions. [Practitioner reports, 2026]
-- Status: discussed in 2025, beta for Search tCPA in 2026 (reports say from 2026-05), no GA date confirmed [Contested timing, Unverified eligibility]. Reports say it is gated to lead gen accounts that already import offline conversions.
+- Status: previewed at Think Week 2025, beta for Search campaigns using Target CPA announced on Google's blog on 2026-05-07 [Official, reported by Search Engine Journal and Search Engine Roundtable, 2026-05]. Still beta with no GA date as of 2026-07 [Practitioner reports]. Access is gated to accounts that already import offline conversions or use enhanced conversions for leads. Not available for PMax per agency reports [Unverified].
 - Preparation: import every CRM stage with GCLID or enhanced conversions for leads, consistently, within 24 to 48 hours of the stage change.
 
 ## 10. New customer acquisition and retention goals
@@ -115,8 +119,9 @@ Requirements: Customer Match lists of existing customers (refresh at least month
 | Monthly charging limit | You are not charged more than the average daily budget x 30.4 in a month [Official] |
 | Budget changes mid-month | The monthly limit recalculates; large mid-day changes can create uneven spend |
 | Shared budgets | One budget across campaigns. Use for small accounts or brand clusters; avoid mixing campaigns with different targets because the budget flows to the easiest spender |
-| Campaign total budgets | Set one budget for a date range: 3 to 90 days for Search, Shopping and PMax; up to 1 year for Demand Gen and YouTube. No daily cap, never charged more than the total, pacing recalculates from remaining budget [Official, 2026-01 open beta] |
-| Demand-led pacing | Reported upgrade to budget pacing for Search and Shopping in 2026 [Unverified] |
+| Campaign total budgets | Set one budget for a date range: 3 to 90 days for Search, Shopping and PMax (open beta since 2026-01-15, no GA announcement found as of 2026-10); Demand Gen and YouTube support total budgets generally. No daily cap, never charged more than the total, spend recalculates daily from the remaining budget. Compatible strategies: PMax (Target ROAS, Maximize conversion value, Target CPA, Maximize conversions); Search (those plus Maximize clicks, Target impression share, Manual CPC); Shopping (Target ROAS, Maximize conversion value, Maximize clicks, Manual CPC) [Official, Google Ads Help "About campaign total budgets"] |
+| Budget pacing updates | Announced with journey aware bidding in 2026-05 [Practitioner report, Search Engine Journal 2026-05]; mechanics not documented in help pages found this edition [Unverified] |
+| Budget recommendations | Since 2026-09 include a forecast and can be applied from the card; investment strategy recommendations add "Strategic budget allocation" with Holistic and Growth modes [Practitioner report, Search Engine Roundtable 2026-09]. Treat as proposals for the change list, never auto-apply |
 | Missed Opportunities | Report (beta) moved into Recommendations in 2026-07: missed clicks, conversions and value split by budget or bid limits [Practitioner report, 2026-07] |
 | Budget simulators and bid simulators | Estimate marginal results of budget and target changes. Use as directional only |
 
@@ -155,6 +160,7 @@ The budget pacing script in [GAQL and scripts](gaql-and-scripts.md) automates th
 | Spend collapsed after setting a target | Target too aggressive vs history | Reset target to 30-day actual, step down 10% every 2 weeks |
 | CPA jumped after a budget increase | Moving into less efficient auctions; learning | Wait 2 weeks; if marginal CPA is above target, revert half |
 | ROAS drifted toward target after 2026-08 | Target-based bidding update on budget-limited campaigns | Tighten target or raise budget deliberately |
+| "Bid too low" recommendation on a Search campaign | Target CPA too low or Target ROAS too high to enter auctions (recommendation types added in API v25.2, 2026-09) [Official via trade press] | Loosen target 10% to 15% or accept lower volume deliberately |
 | Smart Bidding chasing micro conversions | Wrong primary conversion actions | Fix goals (conversion module) |
 | Erratic results after promotions | Seasonality adjustment missing or left on too long | Add for short events only, remove after |
 | Learning after every small change | Too many edits | Batch changes weekly |

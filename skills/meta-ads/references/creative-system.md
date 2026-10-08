@@ -33,14 +33,14 @@ Score coverage monthly: count live concepts per cell. Gaps are next month's brie
 | Enterprise (over $300k) | 40+ per market cluster | 25 to 60 | 3 to 8 including localization | Continuous; dedicated creative ops |
 [Practitioner consensus, 2025 to 2026]. Scale volume to spend: a rough rule is one new concept per week per 1,000 to 2,000 of weekly spend for ecommerce; lead gen and B2B need fewer.
 
-Ad set limit: 50 ads per ad set [Official]. Do not fill it; 6 to 20 active ads per ad set is a workable range, with concepts distinct.
+Ad set limit: 50 non-archived ads per ad set [Official, Marketing API reference]. Page-level ad limits also apply by the Page's highest monthly spend (250, 1,000, 5,000 or 20,000 ads) [Official, long-standing]; one account reported the Page limit no longer enforced in 2026-09 [Unverified, PPC Land]. Do not fill the ad set limit; 6 to 20 active ads per ad set is a workable range, with concepts distinct.
 
 ## 4. Specs and safe zones
 
 | Placement group | Aspect ratio | Resolution | Notes |
 |-----------------|-------------|-----------|-------|
 | Feeds (FB, IG, Threads) | 4:5 (preferred), 1:1 | 1080 x 1350 or 1080 x 1080 | 4:5 takes more screen; Threads supports 1.91:1 to 9:16 video [Official, 2025-08 via secondary] |
-| Stories, Reels, WhatsApp Status | 9:16 | 1080 x 1920 | Keep key text and logos out of the top about 14% and bottom about 35% of Reels; about 6% side margins [Official guidance, verify current overlay] |
+| Stories, Reels, WhatsApp Status | 9:16 | 1080 x 1920 | Stories and Reels share one 9:16 safe zone since about 2026-03: keep key text and logos out of the top about 14% (270 px) and the bottom 20 to 35% (up to 670 px), with about 6% side margins; measured overlays differ (one tool reports 23% bottom on Reels), so use the conservative zone and check the Ads Manager safe zone overlay [Practitioner consensus, 2026-03] |
 | Carousel | 1:1 or 4:5 | 1080 x 1080 or 1080 x 1350 | 2 to 10 cards; Threads carousels image only, 2 to 10 cards, headline 40 characters [Unverified, 2026] |
 | Right column, Marketplace, search | 1:1 | 1080 x 1080 | Rendered from feed assets |
 | Audience Network | 9:16, 1:1, 16:9 | as above | Lower quality traffic for leads; price with value rules |
@@ -55,11 +55,11 @@ Video guidance [Practitioner consensus]:
 ## 5. Advantage+ creative and generative features
 
 See the enhancement table in [campaign-types-and-settings](campaign-types-and-settings.md) section 7. Operating rules:
-1. Review every enhancement toggle at launch. Since 2026-02 many are pre-selected on new Sales, Leads and App campaigns [Unverified].
+1. Review every enhancement toggle at launch. Since 2026-02 enhancements are on by default for new Sales, Leads and App campaigns [Practitioner consensus, 2026-02]. Image to video in Advantage+ creative became generally available on 2026-10-06; product image to product video is in beta for eligible catalog advertisers; Ads Creative Studio (video concepts with editable hooks, audio, length, overlays and end scenes) widened access the same day [Official, 2026-10, via Relevant Audience].
 2. Preview AI-modified versions (expanded images, generated backgrounds, text variations) for every ad in regulated or claims-sensitive accounts.
 3. Test generative features as an A/B test (enhancements on vs off) when spend allows; otherwise use them for catalog and static-heavy accounts first.
 4. Keep brand kit (logos, colors, fonts) uploaded where the account supports it so generated variants stay on brand.
-5. Treat AI-generated people, voices and likenesses carefully: disclosure laws for synthetic performers are emerging (California, 2026-09) [Unverified details]; Meta labels some AI-generated ads. Coordinate with `creative-strategy` and legal.
+5. Treat AI-generated people, voices and likenesses carefully. New York requires a conspicuous disclosure when an ad contains a synthetic performer (General Business Law 396-b, in force 2026-06-09, fines 1,000 USD then 5,000 USD) and California SB 1050 (signed 2026-09-16, effective 2027-01-01) requires a clear disclosure near the performer [Official law, via Manatt and DLA Piper]. Meta adds an "AI info" label (in the About this ad menu, sometimes next to Sponsored) to ads made with Meta's generative tools and, since 2026-06-01, to ads whose media carries C2PA or similar metadata from third-party AI tools [Official, 2026-06]. Coordinate with `creative-strategy` and legal.
 
 ## 6. Testing creative on Meta
 
@@ -67,7 +67,7 @@ Methods compared:
 | Method | How | Pros | Cons | Use when |
 |--------|-----|------|------|----------|
 | In-flight (BAU) | Add new concepts to the scaling ad set | Real auction, no extra structure | Meta favors incumbents; new ads may get little spend | Default at Starter and for most iterations |
-| Creative testing tool (Ads Manager, from 2025-10) | From an ad in an existing ad set, create 2 to 5 test ads; Meta splits spend evenly, each person sees one ad, with set duration, budget and comparison metric | Fair spend, clean read, no new campaign | Reported limits: no lifetime budgets, highest volume only, new ads only; original ad not in test [Unverified details] | Growth tier and above for concept tests |
+| Creative testing tool (Ads Manager, from 2025-10) | From an ad in an existing ad set, create 2 to 5 test ads; Meta splits spend evenly, each person sees one ad, with set duration, budget and comparison metric | Fair spend, clean read, no new campaign | Reported limits: no lifetime budgets, highest volume only, new ads only; original ad not in test [Practitioner reports, 2025-10] | Growth tier and above for concept tests |
 | ABO testing campaign ("sandbox") | Separate campaign, one ad set per concept, equal budgets | Controlled spend per concept | More learning resets, auction overlap with main campaign | When the testing tool cannot be used (bid strategy, format) |
 | Experiments A/B test | Split audiences between 2 to 5 cells, choose key metric | Statistical read with confidence | Needs budget and time | Structural tests: enhancements on/off, format strategy, landing page |
 
@@ -100,8 +100,8 @@ Kill and keep rules (per ad, after it has had a fair chance):
 
 Mechanics:
 - Partnership ads run with both the brand and creator (or partner brand) handles in the header. Created from an existing creator post (with permission) or with a partnership ad code, or built in Ads Manager with creator permission.
-- Creator Marketplace and the Partnership Ads Hub were reported merged into a Creator Marketing Hub on 2026-09-15 with AI creator discovery, one-click ad creation from creator posts and tools to remove copyrighted music from creator content [Unverified, 2026-09].
-- Instagram live partnership ads reported generally available from 2026-09-29 [Unverified].
+- Creator Marketing Hub (launched globally 2026-09-15 at IAB Global Creator Week; merger first signaled at Cannes in 2026-06) combines Creator Marketplace and the Partnership Ads Hub: creator and organic content discovery (including a "predicted affiliate content" filter), content-level permissions with expiration dates, a draft partnership ad from the hub in one click with a suggested objective, editing tools that remove copyrighted music and stickers that block ad use, and partnership messaging with creators [Official, 2026-09, via MediaPost, Marketing Dive, Social Media Today]. The Creator Marketplace API now covers Facebook creators, a Messaging API was added, and partnership ads can be created through Meta's ads connector for AI agents. Not included: affiliate commissions, order-level creator attribution or performance payments. Rollout continues through the end of 2026.
+- Instagram live video partnership ads: a creator's active livestream can run as a partnership ad in Instagram Stories, Reels and Feed, scheduled generally available from 2026-09-29 (previously Facebook only); the creator must grant ad access in advance [Official, 2026-09]; availability varies by account.
 
 Operating rules:
 1. Secure paid usage rights in the creator contract: duration (90 days minimum, 12 months preferred), placements, edit rights, whitelisting or partnership ad permissions, exclusivity, and disclosure obligations.

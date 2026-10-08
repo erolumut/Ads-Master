@@ -12,12 +12,12 @@
 | 2025-11 | ChatGPT shopping research experience; Perplexity shopping with PayPal in the US | [Official, 2025-11; Perplexity date Unverified] |
 | 2026-01-11 | Google announces the Universal Commerce Protocol (UCP) at NRF with partners including Shopify, Etsy, Wayfair, Target, Walmart | [Official, 2026-01] |
 | 2026-02 | Forrester tally: about 30 Shopify merchants live on Instant Checkout | [Study, 2026-02, via secondary] |
-| 2026-03 | OpenAI says Instant Checkout did not offer the flexibility it wanted and moves to merchant-handled checkout; ACP expanded to product discovery. One source dates removal to 2026-03-04 | [Contested] |
+| 2026-03-06 to 2026-03-24 | OpenAI says Instant Checkout "did not offer the level of flexibility that we aspire to provide" and moves to merchant-handled checkout and merchant apps in ChatGPT (Walmart, Target, Instacart, Expedia); ChatGPT shopping refocuses on discovery; ACP work with Stripe continues for app-based transactions. Not formally announced as shut down | [Official, 2026-03] (TechCrunch, Digital Commerce 360) |
 | 2026-03-24 | Revamped ChatGPT shopping focused on discovery; Shopify Agentic Storefronts on by default for eligible merchants | [Secondary, verify] |
 | 2026-03 | UCP adds multi-item carts, real-time catalog access and identity linking for loyalty | [Secondary, verify] |
 | 2026-05 | UCP checkout reported live on YouTube Shopping for eligible retailers | [Secondary, verify] |
-| 2026-10-06 | Merchant Center integration hub for UCP begins gradual US rollout (cart transfer to merchant site, native Google checkout, or merchant account sign-in) | [Unverified, single source] |
-| By end of 2026 | UCP planned for Canada, Australia and the UK | [Secondary, verify] |
+| 2026-10-06 | Merchant Center UCP integration hub begins gradual US rollout: merchants choose cart transfer to their site, native checkout on Google and identity linking; a checkout button appears on eligible listings in AI Mode and Gemini. Access: complete the UCP developer guide implementation, submit the interest form, wait for selection, validate in the sandbox. US products only | [Official, 2026-10] (Merchant Center Help; Search Engine Land; PPC Land) |
+| 2027 | Merchant Center UCP hub expected for Canada and Australia (earlier talk of end of 2026 slipped); no UK date | [Official, 2026-10, via PPC Land] |
 
 ## 2. How AI shopping answers choose products (best current understanding)
 

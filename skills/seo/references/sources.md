@@ -114,6 +114,31 @@
 | 83 | Next.js generateMetadata reference | Vercel | https://nextjs.org/docs/app/api-reference/functions/generate-metadata | Ongoing | Metadata API, canonical, alternates |
 | 84 | Customize robots.txt (Shopify themes) | Shopify | https://shopify.dev/docs/storefronts/themes/seo/robots-txt | Ongoing | robots.txt.liquid pattern |
 
+## Verification pass additions (2026-10-08)
+| # | Title | Publisher | URL | Date | Supports |
+|---|-------|-----------|-----|------|----------|
+| 85 | Generative AI performance report (Search) | Search Console Help | https://support.google.com/webmasters/answer/16984139 | 2026-06, updated 2026-08-31 (checked 2026-10) | Combined AI Overviews and AI Mode impressions, search type filter, worldwide rollout |
+| 86 | Google Search Console AI Reports Rolled Out Worldwide | Search Engine Journal | https://www.searchenginejournal.com/google-search-console-ai-reports-rolled-out-worldwide/587836/ | 2026-09 | Worldwide rollout of report and control |
+| 87 | CMA secures fairer deal for publishers and improves Google search services in UK | GOV.UK (CMA) | https://www.gov.uk/government/news/cma-secures-fairer-deal-for-publishers-and-improves-google-search-services-in-uk | 2026-06-03 | Publisher controls conduct requirement, nine month implementation |
+| 88 | Google search fair ranking conduct requirement | GOV.UK (CMA) | https://www.gov.uk/find-digital-markets-measures/google-search-fair-ranking-conduct-requirement | 2026-06-17 | Fair ranking requirement, six month implementation |
+| 89 | CMA strengthens proposals allowing people choice over their search service | GOV.UK (CMA) | https://www.gov.uk/government/news/cma-strengthens-proposals-allowing-people-choice-over-their-search-service | 2026-09-23 | Choice screen consultation |
+| 90 | Google rewrites Googlebot's rulebook: 2MB limits, IP moves, and what crawlers really are | PPC Land | https://ppc.land/google-rewrites-googlebots-rulebook-2mb-limits-ip-moves-and-what-crawlers-really-are/ | 2026-02 | 2 MB HTML, 64 MB PDF, 15 MB default |
+| 91 | What Googlebot's 2MB Crawl Size Limit Means For SEO | DebugBear | https://www.debugbear.com/blog/googlebot-crawler-file-size-limit | 2026-02 | Google contact: old docs wrong |
+| 92 | Google Updates Googlebot File Size Limit Docs | Search Engine Journal | https://www.searchenginejournal.com/google-updates-googlebot-file-size-limit-docs/566485/ | 2026-02 | Documentation change, Mueller comment |
+| 93 | Google phases out practice problem and dataset structured data | PPC Land | https://ppc.land/google-phases-out-practice-problem-and-dataset-structured-data/ | 2026-01 | Practice problem and Dataset changes |
+| 94 | FAQ rich results deprecated May 2026 | Claudio Novaglio | https://www.claudio-novaglio.com/en/blog/seo-ranking/faq-rich-results-deprecated-2026 | 2026-05 | FAQ deprecation dates (verify on Search Central updates page) |
+| 95 | Google Completes September 2026 Spam Update After Nearly 14 Days | Search Engine Journal | https://www.searchenginejournal.com/google-september-2026-spam-update-complete/592283/ | 2026-10-08 | Spam update completion time; no core update since May |
+| 96 | Bing AI dashboard maps grounding queries to cited pages | Search Engine Journal | https://searchenginejournal.com/bing-ai-dashboard-maps-grounding-queries-to-cited-pages/570323/ | 2026-03 | Grounding query to page mapping (2026-03-23) |
+| 97 | AI Performance (help) | Bing Webmaster Tools | https://www.bing.com/webmasters/help/ai-performance-9f8e7d6c | Living doc (checked 2026-10) | Metrics, export, no clicks |
+| 98 | Google Search's I/O 2026 updates | Google | https://blog.google/products-and-platforms/products/search/search-io-2026/ | 2026-05-19 | AI Mode and AI Overviews user figures, Gemini 3.5 Flash |
+| 99 | Google makes Gemini 3 the default model for AI Overviews globally | Dataconomy | https://dataconomy.com/2026/01/28/google-makes-gemini-3-the-default-model-for-ai-overviews-globally/ | 2026-01-28 | AIO model change |
+| 100 | Google preferred sources global language expansion | 9to5Google | https://9to5google.com/2026/04/30/google-preferred-sources-global-language-expansion/ | 2026-04-30 | Preferred sources in all languages |
+| 101 | Google confirms google.com/goto search links | Relevant Audience | https://www.relevantaudience.com/seo/google-search-goto-passthrough-urls-confirmed/ | 2026-09 | /goto passthrough links |
+| 102 | In 2026, less than one third of Google searches still send a click | SparkToro | https://sparktoro.com/blog/in-2026-less-than-one-third-of-google-searches-still-send-a-click/ | 2026 | US zero-click 68.01%, AI Mode 0.34% of searches |
+| 103 | Semrush MCP | Semrush Developer | https://developer.semrush.com/api/basics/semrush-mcp/ | 2026 | Official remote MCP endpoint and auth |
+| 104 | Ahrefs remote MCP server listing | mcpservers.org | https://mcpservers.org/remote-mcp-servers/ahrefs | 2026 | Official Ahrefs endpoint (confirm on ahrefs.com/mcp) |
+| 105 | Google Search Console MCP: no official server exists | Carly | https://www.usecarly.com/blog/google-search-console-mcp/ | 2026 | No official GSC MCP (vendor claim, consistent with registry checks) |
+
 ## Source reliability tiers (how to weigh conflicting claims)
 | Tier | Examples | How to use |
 |------|----------|-----------|
@@ -125,4 +150,5 @@
 
 ## Research limits for this version
 - The October 2026 research pass ran 19 web searches before a shared search budget was exhausted, and direct page fetching was unavailable. Items without "checked 2026-10" rely on long standing official documentation or on prior knowledge, and items labeled [Unverified] in the references need confirmation before high stakes use.
-- Highest priority re-checks: Search Console Generative AI report fields and API status; whether AI Mode and AI Overview impressions are separated; AI features opt-out rollout by country; structured data deprecations after June 2025; Googlebot file size documentation changes in 2026; Bing AI Performance features after June 2026; official MCP servers for Search Console, Ahrefs and Semrush.
+- Verification pass (2026-10-08): about 20 additional web searches resolved the previous re-check list (rows 85 to 105): the Generative AI report combines AI Mode and AI Overviews and has no API; the AI features control is worldwide since 2026-08-31; CMA dates come from GOV.UK; Googlebot's 2 MB HTML limit is documented since 2026-02; FAQ (2026-05) and Practice problem (2026-01) were deprecated; Bing AI Performance has had no new features since 2026-06-16; Ahrefs and Semrush have official remote MCP servers and Google has none for Search Console.
+- Remaining re-checks: next core update timing; Discover core update expansion; Bing AI Performance API; Q&A in Business Profiles; Adobe's Semrush acquisition closing (announced 2025-11, closing not confirmed).

@@ -25,11 +25,16 @@ Do not use PMax as the first campaign for: a brand new account without conversio
 | 2025-08 | Shared negative keyword lists for PMax fully rolled out | [Practitioner report, 2025-08] |
 | 2025-11 | Channel performance report available in all PMax campaigns, also through manager accounts | [Official, 2025] |
 | 2026-05 | Google Ads API v24.2 adds `ad_network_type` segmentation for PMax placement reporting | [Practitioner report, 2026-05] |
-| 2026-06 | Smart Bidding Exploration available for PMax without product feeds. Promotion Mode beta for Search and PMax | [Practitioner report, 2026-06, verify] |
-| 2026-08 | Channel prioritization controls (sliders) in alpha: adjust how conversions are prioritized across channels; lowering a channel's priority raises the CPA bid for that channel under tCPA | [Unverified, trade press 2026-08] |
+| 2026-06 (mid) | Smart Bidding Exploration out of beta for PMax without product feeds. Promotion mode beta for Search and PMax with Target ROAS | [Official announcement and Ads Liaison, reported by Search Engine Land, 2026-06] |
+| 2026-06-15 | Product reporting in the API (shopping_performance_view) starts including data from all PMax networks, not only Shopping inventory | [Official, Google Ads Developer Blog 2026-04] |
+| 2026-07 | "Partners" alpha test lets some advertisers exclude Search Partners and Display inventory from PMax | [Practitioner report, Digiday 2026-07] |
+| 2026-08 | Channel prioritization alpha: a "Channels" setting with a Lower, Auto or Higher control per channel (Search, Search Partners, Discover, YouTube, Maps, Gmail, Display). Higher loosens the CPA or ROAS tolerance for that channel, Lower tightens it. It is not a budget split. Allowlisted accounts only, access through a Google rep; no Google announcement, beta or GA date as of 2026-10 | [Practitioner reports, Search Engine Land and Search Engine Roundtable, 2026-08 to 2026-09] |
+| 2026-08 onward | Local Services Ads migrate to a specialized PMax campaign type with pay-per-lead goals, starting with select US home and storefront categories | [Official, Google Ads Help, 2026-08] |
 | 2026-09 | Language setting no longer applies to PMax ads on the Search Network (other channels still use it) | [Official, 2026-09] |
+| 2026-09-15 | New campaign setting "Where should people go after clicking your ads?" | [Practitioner report, Search Engine Roundtable 2026-09] |
 | 2026-09-23 | API v25.2: create PMax drafts from Smart campaigns, asset group tracking templates and URL parameters, segments for product data and video usage | [Official via trade press, 2026-09] |
-| 2026-10-02 | Asset experiments for PMax reported as available to all advertisers | [Unverified, single third-party source] |
+| 2026-10-02 | A/B asset experiments for asset groups rolling out to all advertisers (beta since 2025); MCC and API support to follow in the coming weeks | [Practitioner report, Search Engine Land 2026-10-02; earlier beta in Google Ads Help] |
+| 2026-10-12 | Automated promotions (offers pulled from your site) on by default for eligible Search and PMax campaigns with location assets and no manual promotion assets | [Official notice quoted by Search Engine Roundtable, 2026-10-05] |
 
 ## 3. Campaign setup decisions
 
@@ -83,7 +88,7 @@ Asset group strategy:
 | Channel performance | Insights and reports, Channel performance (or campaign level) | See cost, conversions and value by Search, Shopping, YouTube, Display, Discover, Gmail, Maps. Flag if Display or YouTube take over 30% of spend with weak conversion value |
 | Search terms | Insights and reports, Search terms | Same granularity as Search campaigns, with a source column showing keywordless targeting vs search themes. Privacy thresholds apply [Official, 2025] |
 | Search term insights (categories) | Insights | Category level trends |
-| Asset reporting | Asset group, Assets | Conversions and value per asset (2025), replace low performers |
+| Asset reporting | Asset group, Assets | Conversions and value per asset (2025). Performance labels (Low, Good, Best) were deprecated in 2025; judge on metrics [Practitioner report, 2025-05; label field absent from API v23 to v25] |
 | Placements | Report editor, Performance Max placements | Where Display and YouTube ads served (impressions), build exclusion lists |
 | Listing groups and products | Listing groups, Products | Spend concentration, zombie products |
 | Auction insights | Campaign | Competitors on Search and Shopping inventory |
@@ -137,6 +142,6 @@ Check: compare total account conversions, not only PMax conversions, before and 
 ## 11. PMax experiments
 
 - PMax uplift experiment: measures the incremental effect of adding PMax to an account with Search or Shopping.
-- Asset experiments: test creative changes (added video, new images) within PMax. Reported generally available in October 2026 [Unverified].
+- Asset experiments (A/B for asset groups): test new headlines, descriptions, images or videos against the current set in one asset group. Rolling out to all advertisers from 2026-10-02 after a beta that started in 2025 [Practitioner report, Search Engine Land 2026-10-02; Google Ads Help lists the earlier beta]. Rules reported: one experiment per campaign at a time, the asset group is locked during the test, adjustable traffic split, 4 to 6 weeks recommended. Assets made in Asset Studio can go into the treatment arm. Check the Experiments page; MCC and API access lag the UI.
 - Final URL expansion experiments: test expansion on vs off.
 - Run 4 to 8 weeks, do not change the campaign during the test, judge on account-level conversions and value. See [experiments](experiments-and-testing.md).

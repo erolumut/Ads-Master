@@ -7,7 +7,7 @@
 | Audience type | Search | PMax | Demand Gen | Video | Notes |
 |---|---|---|---|---|---|
 | Your data segments (website visitors, app users, YouTube users) | Observation or targeting | Signal | Targeting | Targeting | Remarketing |
-| Customer Match (emails, phones, addresses, now IP and timestamps via Data Manager [Unverified, 2026-10]) | Observation, targeting, exclusion | Signal, NCA customer definition | Targeting, lookalike seed or signal | Targeting | Highest value first-party asset |
+| Customer Match (emails, phones, addresses, and since 2026-09 IP addresses with interaction timestamps, not for EEA, UK or Swiss users [Official, 2026-09]) | Observation, targeting, exclusion | Signal, NCA customer definition | Targeting, lookalike seed or signal | Targeting | Highest value first-party asset |
 | Custom segments (search terms, URLs, apps) | Observation | Signal | Targeting | Targeting | Build from converting queries and competitor URLs |
 | Affinity, in-market, life events, detailed demographics | Observation | Signal | Targeting | Targeting | Weak signals alone |
 | Lookalike segments | n/a | n/a | Signal (from 2026-03-15) [Practitioner report, 2026] | n/a | Narrow 2.5%, balanced 5%, broad 10% sizes |
@@ -23,8 +23,10 @@ Observation vs targeting in Search:
 
 Requirements and rules [Official, verify current policy]:
 - Account in good standing, compliant with Google Ads policies and the Customer Match policy; accept the customer data terms.
+- Full use (targeting, observation, manual bid adjustments, exclusions) requires 90 days of Google Ads history and more than 50,000 USD lifetime spend; other compliant advertisers can use Customer Match for observation and exclusions [Official, Customer Match policy].
 - Upload only data collected with consent for this use; follow regional rules (EEA, UK, Switzerland have stricter rules and consent mode requirements).
-- Minimum list sizes apply before a list can serve (historically about 1,000 active matched users for Search and YouTube, lower for some other networks) [Unverified current thresholds].
+- Minimum list size to serve: 100 active matched users in the last 30 days on Search, YouTube and Display (Google lowered the Search and YouTube floor from 1,000) [Practitioner report, Search Engine Roundtable citing Google Ads Help 7476585, 2025-12]. Active matched users are far fewer than uploaded rows; match rates of 30% to 70% are typical [Practitioner consensus].
+- IP matching (2026-09): upload unhashed IP addresses with first and last interaction timestamps (a timestamp alone is an error; IP-only lists are allowed). Without timestamps Google matches the IP's latest known user, which is weaker on shared IPs. Exclude EEA, UK and Swiss users' IPs [Official, Data Manager Help "Prepare your data for import"; Google Ads Developer Blog 2026-05].
 - Membership duration: set to match the use; refresh at least monthly, ideally automatically through Data Manager connectors.
 - Uploading methods: Data Manager (connectors for CRM, cloud storage, Shopify, HubSpot, Salesforce and others), Google Ads UI file upload, Data Manager API (programmatic).
 
@@ -40,7 +42,7 @@ Lists every account should maintain:
 | Target account contacts (B2B) | ABM style targeting and signals |
 | Employees and partners | Exclusion |
 
-Customer list labeling: from 2026-08-18 Google reportedly assigns a customer type automatically to eligible conversion-based lists that were not classified [Unverified, spotted in product, 2026-08]. Classify your lists yourself so NCA and retention goals use your definitions.
+Customer list labeling: from 2026-08-18 Google assigns a customer type automatically to eligible conversion-based customer lists you have not classified [Practitioner report, Search Engine Land 2026-06; not described on the Google help page found this edition]. Labels feed NCA, retention goals and loyalty pricing (a list labeled "Loyalty program members" gets member prices and shipping in Shopping ads). Classify every list yourself in Tools, Shared library, Audience manager, Your data segments.
 
 ## 3. PMax audience signals: what works
 

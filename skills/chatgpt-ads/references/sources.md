@@ -11,9 +11,9 @@
 | A4 | ChatGPT Ads wird in Europa ausgeweitet (Europe expansion) | OpenAI | https://openai.com/de-DE/index/chatgpt-ads-expands-across-europe/ | 2026-08-18; update 2026-08-31 | 31 European markets, buying paths, conversion optimization, audiences |
 | A5 | A milestone in expanding access to AI | OpenAI | https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads/ | 2026-08-31 | $1B run rate, tens of thousands of advertisers, 40+ countries, 50+ partners, 3x ROAS case, 80% new customers |
 | A6 | Reimagining advertising with AI | OpenAI | https://openai.com/index/reimagining-advertising-with-ai/ | 2026-09-16 | Sponsored Agents test, Ads Manager plugin, AI creative, text customization, HubSpot, Shopify |
-| A7 | ChatGPT Ads expands to Southeast Asia and Taiwan | OpenAI | https://openai.com/index/chatgpt-ads-expands-southeast-asia-taiwan/ | 2026-09 (late; exact date unverified) | ID, MY, PH, SG, TH, VN, TW expansion |
-| A8 | Building advertising for the way people use AI | OpenAI | https://openai.com/index/new-chatgpt-ads-format-and-measurement | 2026-10-05 | Visual ads in image generation, measurement partners, brand suitability controls (read via secondary summaries) |
-| A9 | More ways to measure | OpenAI Ads blog | https://ads.openai.com/blog/more-ways-to-measure | 2026-10-05 | 1-day view-through in reports, partner list, partner case results, Negative Phrases (read via secondary summary) |
+| A7 | ChatGPT Ads expands to Southeast Asia and Taiwan | OpenAI | https://openai.com/index/chatgpt-ads-expands-southeast-asia-taiwan/ | 2026-09-23 to 2026-09-24 (TechNode Global dated 09-24) | ID, MY, PH, SG, TH, VN, TW expansion; over 60 countries |
+| A8 | Building advertising for the way people use AI | OpenAI | https://openai.com/index/new-chatgpt-ads-format-and-measurement | 2026-10-05 | Visual ads in image generation, measurement partners, brand suitability controls, Negative Phrases (confirmed by TechCrunch, Search Engine Journal, BleepingComputer, 2026-10-05 to 10-06) |
+| A9 | More ways to measure | OpenAI Ads blog | https://ads.openai.com/blog/more-ways-to-measure | 2026-10-05 | 1-day view-through in reports, partner list, partner case results (relayed by Digiday, Scalevise and press, 2026-10) |
 | A10 | Buy it in ChatGPT: Instant Checkout and the Agentic Commerce Protocol | OpenAI | https://openai.com/index/buy-it-in-chatgpt/ | 2025-09-29 | Instant Checkout launch, ACP, merchant fee |
 | A11 | ChatGPT Ads Manager plugin | OpenAI | https://openai.com/business/plugins/chatgpt-ads-manager/ | 2026-09 | Prompt driven campaign management |
 
@@ -99,7 +99,7 @@
 | F4 | Ads in AI Search: Key takeaways from the front line | Adthena | https://www.adthena.com/resources/blog/ads-in-ai-search/ | 2026-04-16 | Early ChatGPT ad frequency, AIO ad detection, launch partners | [Study, 2026-04] |
 | F5 | Similarweb opens AI ad data as 26% of ChatGPT replies carry sponsored ads | PPC Land | https://ppc.land/similarweb-opens-ai-ad-data-as-26-of-chatgpt-replies-carry-sponsored-ads/ | 2026-08 | Similarweb CTR 0.50%, 66.3% after second prompt, 26% presence | [Study, 2026-07] |
 
-## G. Trade press (reports; [Unverified] unless confirmed by OpenAI)
+## G. Trade press (reports; [Unverified] when single source and not confirmed by OpenAI; items confirmed by two or more independent outlets are cited by outlet and date)
 | # | Title | Publisher | URL | Date | Supports |
 |---|-------|-----------|-----|------|----------|
 | G1 | OpenAI to begin testing ads on ChatGPT in the U.S. | CNBC | https://www.cnbc.com/2026/01/16/open-ai-chatgpt-ads-us.html | 2026-01-16 | Announcement coverage |
@@ -127,8 +127,32 @@
 | G23 | OpenAI moves to make ChatGPT ads more measurable and more visual | Digiday | https://digiday.com/marketing/openai-moves-to-make-chatgpt-ads-more-measurable-and-more-visual/ | 2026-10 | October changes context |
 | G24 | Perplexity pulling sponsored answers from AI platform | PYMNTS (FT relay) | https://www.pymnts.com/artificial-intelligence-2/2026/perplexity-pulling-sponsored-answers-from-ai-platform/ | 2026-02-18 | Perplexity exit from ads |
 | G25 | Google denies Gemini ads despite advertiser briefings on 2026 rollout | PPC Land | https://ppc.land/google-denies-gemini-ads-despite-advertiser-briefings-on-2026-rollout/ | 2025-12-14 | Gemini no ads statement |
-| G26 | Amazon lets its advertisers buy ads in ChatGPT in a pilot with OpenAI | The Next Web | https://thenextweb.com/news/amazon-ads-chatgpt-ads-openai-pilot | 2026 | Amazon DSP path [Unverified] |
-| G27 | FAQ on ChatGPT Advertising | eMarketer | https://www.emarketer.com/content/faq-on-chatgpt-advertising--formats--costs--early-strategies-win | 2026 | Minimum cut to $50k in April [Unverified] |
+| G26 | Amazon lets its advertisers buy ads in ChatGPT in a pilot with OpenAI | The Next Web | https://thenextweb.com/news/amazon-ads-chatgpt-ads-openai-pilot | 2026 | Amazon DSP path (see G38, G39) |
+| G27 | FAQ on ChatGPT Advertising | eMarketer | https://www.emarketer.com/content/faq-on-chatgpt-advertising--formats--costs--early-strategies-win | 2026 | Minimum cut to $50k in April (also G29) |
+| G28 | EXCLUSIVE: OpenAI Confirms $200,000 Minimum Commitment for ChatGPT Ads | Adweek | https://www.adweek.com/media/exclusive-openai-confirms-200000-minimum-commitment-for-chatgpt-ads/ | 2026-02 | $200k minimum confirmed by OpenAI (verified 2026-10-08) |
+| G29 | 'Everything is coming down': ChatGPT ads are getting cheaper | Digiday | https://digiday.com/marketing/everything-is-coming-down-chatgpt-ads-are-getting-cheaper/ | 2026-04-17 | CPM $60 to as low as $25, minimum $250k to $50k, $3 to $5 CPC screenshots |
+| G30 | EXCLUSIVE: Criteo Cuts ChatGPT Ad Minimums, Offers Incentives to Woo Retailer Brands | Adweek | https://www.adweek.com/media/exclusive-criteo-cuts-chatgpt-ad-minimums-offers-incentives-to-woo-retailer-brands/ | 2026-06 | Criteo $10k monthly minimum, media match |
+| G31 | StackAdapt Drops Minimum Spend Commitment for ChatGPT Ads | Adweek | https://www.adweek.com/media/stackadapt-drops-minimum-spend-commitment-for-chatgpt-ads/ | 2026-05 | Partner minimums |
+| G32 | Criteo lowers ChatGPT spending minimums to $10,000 | eMarketer | https://www.emarketer.com/content/criteo-lowers-chatgpt-spending-minimums--10-000--opening-door-smaller-brands | 2026-06 | Criteo minimum (second outlet) |
+| G33 | ChatGPT Ads adds negative phrases | Adthena | https://www.adthena.com/resources/blog/chatgpt-ads-negative-phrases/ | 2026-10 | Negative Phrases field: 100 phrases, 100 characters (single source) |
+| G34 | OpenAI To Test Visual Ads In ChatGPT Image Generation | Search Engine Journal | https://www.searchenginejournal.com/openai-chatgpt-image-generation-visual-ads-test/591981/ | 2026-10 | Visual ads, Negative Phrases, brand suitability pilots |
+| G35 | ChatGPT advertisers face 10 days to opt out of automatic advanced matching | PPC Land | https://ppc.land/chatgpt-advertisers-face-10-days-to-opt-out-of-automatic-advanced-matching/ | 2026-08 | AAM switch on 2026-08-17, opt-out path |
+| G36 | ChatGPT Ads rolls out oCPC campaigns, AAM and product carousels | Search Engine Land | https://searchengineland.com/chatgpt-ads-rolls-out-ocpc-campaigns-aam-and-product-carousels-484494 | 2026-08 | oCPC, AAM, carousels |
+| G37 | OpenAI ChatGPT Ads Updates: oCPC, Dynamic URLs, Multi-Product Carousel Format | Search Engine Roundtable | https://www.seroundtable.com/openai-chatgpt-ads-updates-41828.html | 2026-08 | Dynamic URL support report |
+| G38 | Amazon starts selling ads inside ChatGPT to its own advertisers | PPC Land | https://ppc.land/amazon-starts-selling-ads-inside-chatgpt-to-its-own-advertisers/ | 2026-09 | Amazon DSP managed pilot |
+| G39 | Amazon pilots ad services in ChatGPT: What marketers need to know | Marketing Dive | https://www.marketingdive.com/news/amazon-pilots-ad-services-in-chatgpt-what-marketers-need-to-know/829945/ | 2026-09 | Amazon DSP pilot details |
+| G40 | ChatGPT ads go live in the UK as OpenAI expands pilot beyond US | PPC Land | https://ppc.land/chatgpt-ads-go-live-in-the-uk-as-openai-expands-pilot-beyond-us/ | 2026-06 | UK pilot about 2026-06-06 |
+| G41 | OpenAI opens ChatGPT Ads Manager beta to UK advertisers | Search Engine Land | https://searchengineland.com/openai-opens-chatgpt-ads-manager-beta-to-uk-advertisers-480679 | 2026-06 | UK self-serve beta about 2026-06-19 |
+| G42 | OpenAI gains 7 Asian markets for ChatGPT ads, passing 60 countries | PPC Land | https://ppc.land/openai-gains-7-asian-markets-for-chatgpt-ads-passing-60-countries/ | 2026-09 | 56 countries on 2026-09-16, 60+ after SE Asia |
+| G43 | ChatGPT Is Now A "Very Large Online Search Engine" In The EU | Search Engine Journal | https://www.searchenginejournal.com/chatgpt-is-now-a-very-large-online-search-engine-in-the-eu/587801/ | 2026-09 | VLOSE designation 2026-08-31 |
+| G44 | DSA: EU Commission classifies ChatGPT as "very large search engine" | heise online | https://www.heise.de/en/news/DSA-EU-Commission-classifies-ChatGPT-as-very-large-search-engine-11435758.html | 2026-09 | VLOSE designation (second outlet) |
+| G45 | OpenAI's plans to make ChatGPT more like Amazon aren't going so well | TechCrunch | https://techcrunch.com/2026/03/24/openais-plans-to-make-chatgpt-more-like-amazon-arent-going-so-well/ | 2026-03-24 | Instant Checkout scale back, OpenAI statement |
+| G46 | OpenAI shifts checkout plans in its agentic commerce strategy | Digital Commerce 360 | https://www.digitalcommerce360.com/2026/03/06/openai-shifts-checkout-plans-agentic-commerce-strategy/ | 2026-03-06 | Instant Checkout scale back |
+| G47 | OpenAI shifts ChatGPT ads to cost-per-click as $60 CPM erodes in ten weeks | The Next Web | https://thenextweb.com/news/openai-chatgpt-cpc-ads-launch | 2026-05 | CPM erosion, $2.5B target report |
+| G48 | OpenAI surpassed $100M annualized revenue from ChatGPT ads, 600 advertisers (The Information relay) | Ben's Bites | https://news.bensbites.co/posts/62158-openai-has-surpassed-100m-in-annualized-revenue-from-chatgpt-ads-has-expanded-to-600-advertisers-and-plans-to-launch-self-serve-advertiser-access-in-april | 2026-03 | $100M run rate, 600 advertisers |
+| G49 | Perplexity walks away from ads | TechSpot | https://www.techspot.com/news/111374-perplexity-walks-away-ads-differentiate-openai-google.html | 2026-02 | Perplexity exit (second outlet) |
+| G50 | Meta Will Use AI Chats for Personalization | eWeek | https://www.eweek.com/news/meta-ai-chats-to-personalize-ads-across-apps/ | 2025-10 | Meta AI chat signals for ads from 2025-12-16 |
+| G51 | Ads in AI Overviews now live in 12 countries | PPC News Feed | https://ppcnewsfeed.com/ppc-news/2025-12/ads-in-ai-overviews-now-live-in-12-countries/ | 2025-12 | AIO ads country expansion |
 
 ## H. Independent research, community tools and code
 | # | Title | URL | Date | Supports | Label |

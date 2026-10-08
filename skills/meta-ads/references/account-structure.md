@@ -22,7 +22,8 @@ Key facts with dates:
 [Practitioner consensus, 2025 to 2026] Practitioners report, based on Meta guidance shared with agencies, that Andromeda groups visually and semantically similar ads under a shared "entity" for retrieval. Consequences:
 - Ten near-identical variations (same video, different headline or color) behave like one retrieval candidate. They do not buy you more reach into new pockets of users.
 - Genuinely different concepts (different persona, motivator, format, creator, setting, visual style) are retrieved for different people. That is how you "target" in 2026.
-- A Creative Diversity style rating reportedly appeared in Ads Manager in September 2026 [Unverified]. If present, use it as a check, not as a goal.
+- A "Creative diversity" column appeared in Ads Manager from late August 2026 (Columns > Customize columns > Creative diversity). It rates each ad set Low, Medium or High by comparing the visual similarity of its images and video thumbnails, and is marked "estimated and in development" [Official, 2026-08, Business Help Center as reported by Common Thread Collective and Marketing Concurrent]. Use it as a check, not as a goal: early users report Low ratings even on mixed-format ad sets. Similarity percentages that circulate (keep below 40%, suppression above 60%) come from vendors, not Meta [Unverified].
+- Separately, Meta has tested creative fatigue, creative similarity and top creative themes metrics in the Insights API with a small number of agencies and resellers since June 2026; Meta says they are not widely available [Official, 2026-09 statement to Marketing Brew].
 
 Rule: count concepts, not ads. An ad set with 30 ads built from 3 concepts has 3 concepts.
 
@@ -102,7 +103,7 @@ Notes: one campaign is the default. Do not run A/B tests below 30 conversions pe
 |---------|-------|----------------|
 | Audience segments (engaged audience, existing customers) | Ad account settings, Advertising settings | Define with website, app, CRM and engagement sources. Required for new versus existing customer reporting and customer acquisition goals in Advantage+ sales |
 | Account-level audience controls (minimum age, locations, excluded audiences, employee exclusions) | Ad account settings | Set legal minimum age and excluded employees once, at account level |
-| Placement controls (account level) | Ad account settings, Brand safety and suitability | Since August 2026 reports, ad set placement exclusions are being removed in some accounts; account-level placement controls remain the true block [Unverified, 2026-08] |
+| Placement controls (account level) | Advertising settings > Account controls > Placement controls (Brand safety and suitability) | Since 2026-08-25 practitioners report ad set placement exclusions being removed account by account, without a Meta announcement as of 2026-10-08; account-level placement controls remain the only hard block [Practitioner consensus, 2026-08; scope Contested] |
 | Inventory filter, block lists, publisher lists | Brand safety and suitability | Expanded or moderate inventory for most; limited for regulated or sensitive brands |
 | Default attribution setting | Ads Manager columns and ad set attribution | Keep the account consistent; document in ads-master/MEASUREMENT.md |
 | Spending limit | Payment settings | Set an account spending limit as a safety net for agencies and API automation |

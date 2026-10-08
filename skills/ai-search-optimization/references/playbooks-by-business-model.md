@@ -128,7 +128,7 @@ Regulated services (financial, legal, health): every claim on the site and in pi
 | Allow AI search bots? | Usually yes for citation traffic and brand; measure referral value |
 | Allow training bots? | Licensing decision; consider Cloudflare pay per crawl or Pay Per Use, direct licensing, or blocking |
 | Google Search generative AI control | Default Include. Exclude only after modeling lost AI impressions and possible side effects (Top Stories inside AI Overviews reported [Unverified]) and with approval |
-| Google AI contribution pilot | Trade press reported a 2026-09 Search Console pilot that pays publishers whose content shapes AI answers [Unverified]; monitor eligibility |
+| Google AI Contribution pilot | Google confirmed (2026-09) an invitation-only Search Console pilot paying about 100 publishers when their content contributes to AI Overviews, AI Mode and Gemini; an AI earnings widget shows monthly amounts; formula and per-page detail not disclosed; declining payment does not remove content from AI features [Official, 2026-09] (Search Engine Land, Digiday). Monitor for an invitation; do not treat it as a reason to stay in or opt out |
 | Content strategy | Original reporting, data, expert analysis, tools; commodity explainers lose the most clicks to AI answers |
 | Measurement | Citation share in your topics, AI impressions in GSC, referral sessions and revenue per AI session |
 

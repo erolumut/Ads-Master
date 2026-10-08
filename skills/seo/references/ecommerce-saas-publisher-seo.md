@@ -70,7 +70,7 @@ Out of stock and discontinued:
 - Two paths to product rich features: product structured data on your pages, and a Merchant Center product feed (free listings). Use both and keep them consistent; mismatches in price or availability cause disapprovals and lost visibility. Feed work belongs to commerce-feeds.
 - Search Console shows Merchant listings and Product snippets enhancement reports; when Merchant Center is linked, product issues appear there too.
 - Organization level shipping and return policies (in Merchant Center, Search Console where available, or Organization markup) reduce per product markup work.
-- Loyalty program pricing can show via MemberProgram markup or Merchant Center [Unverified rollout by market].
+- Loyalty program pricing can show via MemberProgram markup (supported since 2025-06 [Official, 2025-06]) or Merchant Center [Unverified rollout by market].
 - AI generated product images need IPTC `DigitalSourceType` metadata in Merchant Center.
 
 ### A6. Internal search and other crawl traps
@@ -153,7 +153,7 @@ Organic signups, demo requests and pipeline by landing page group (product, comp
 | Top Stories (news carousels) | Any indexed news content can appear; no AMP requirement since 2021 | Freshness, topical authority, original reporting, page experience, clear dates, Article markup, news sitemap |
 | Google News | Automatic eligibility based on content and policies [Unverified current Publisher Center process] | Transparency (bylines, about, contact), policies |
 | Discover | Indexed content meeting Discover policies; no markup needed | Large images (1200 px wide plus `max-image-preview:large`), compelling but honest titles, expertise, timeliness, local relevance |
-| Preferred sources | Users choose favored sources for Top Stories (launched 2025-08 in US and India, expanding) [Official, 2025-08; expansion Unverified] | Ask loyal readers to add you via a button or link; verify the current link format in Google's help |
+| Preferred sources | Users choose favored sources for Top Stories (launched 2025-08 in US and India; all languages where Search is offered from 2026-04-30; Google reports 200,000+ sites selected and readers twice as likely to click a preferred source) [Official, 2025-08 and 2026-04] | Ask loyal readers to add you via a button or link; verify the current link format in Google's help |
 | Web search evergreen | Classic SEO | Topic hubs, explainers, updates |
 | AI Overviews and AI Mode, Discover AI features | Same index | Original reporting is cited; generic rewrites are substituted |
 

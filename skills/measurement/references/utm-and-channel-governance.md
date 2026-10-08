@@ -75,10 +75,10 @@ Rules are evaluated in order; the first match wins. Summary of Google's definiti
 | Audio | Medium is audio |
 | SMS | Source or medium is sms |
 | Mobile Push Notifications | Medium ends with push or contains mobile or notification, or source is firebase |
-| AI Assistant (since 2026-05-13) | GA4 sets medium ai-assistant, campaign (ai-assistant) when the referrer matches Google's list of AI assistants (named examples ChatGPT, Gemini, Claude; full list not published; Perplexity status reported inconsistently) [Official plus secondary, 2026-05] |
+| AI Assistant (since 2026-05-13) | GA4 sets medium ai-assistant, campaign (ai-assistant) when the referrer matches Google's list of AI assistants (launch messaging names ChatGPT, Gemini, Claude; later guides cite ChatGPT, Gemini, DeepSeek, Copilot and Grok from the help page and say Perplexity and Claude still land in Referral) [Official, 2026-05; list Contested, check the Default channel group help page] |
 | Unassigned | Nothing matched |
 
-AI Assistant channel caveats [Secondary, 2026]: not retroactive (data before 2026-05-13 keeps old classification); visits from native apps that strip the referrer stay in Direct; reported as session-scoped (user acquisition may not show it).
+AI Assistant channel caveats [Secondary, 2026]: not retroactive (data before 2026-05-13 keeps old classification); rollout was gradual and reported broad by about 2026-06-07; visits from native apps that strip the referrer stay in Direct (vendor estimates of AI sessions landing in Direct range from 35% to 70%, unaudited); reported as session-scoped (user acquisition may not show it).
 
 ## 5. Custom channel group (recommended)
 

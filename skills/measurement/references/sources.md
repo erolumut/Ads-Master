@@ -30,6 +30,10 @@ Annotated source list for the measurement skill. Dates are publication dates whe
 | About session_attributes | Google | https://support.google.com/google-ads/answer/16194756 | Checked 2026-10 | 2026-02-02 onboarding stop, session_attributes_encoded |
 | Data Manager API events overview | Google for Developers | https://developers.google.com/data-manager/api/devguides/events/send-events | Checked 2026-10 | Data Manager API scope |
 | Manage offline conversions | Google Ads API | https://developers.google.com/google-ads/api/docs/conversions/upload-offline | Checked 2026-10 | Legacy upload behavior |
+| Changes to Offline Click Conversion Import Support in the Google Ads API | Google Ads Developer Blog | https://ads-developers.googleblog.com/2026/05/changes-to-offline-click-conversion.html | 2026-05 | Announcement of the 2026-06-15 change (verification pass) |
+| Google is moving offline conversion imports out of the Google Ads API | Search Engine Land | https://searchengineland.com/google-is-moving-offline-conversion-imports-out-of-the-google-ads-api-477669 | 2026-05 | Allowlist and error code (verification pass) |
+| Google Ads finally collapses enhanced conversions into a single toggle | PPC Land | https://ppc.land/google-ads-finally-collapses-enhanced-conversions-into-a-single-toggle/ | 2026-06 | June merge of web and leads settings (verification pass) |
+| Default channel group | Google | https://support.google.com/analytics/answer/9756891 | Checked 2026-10 | AI Assistant channel rule (verification pass) |
 | Google blocks new offline conversion imports via Ads API from June 15 | PPC Land | https://ppc.land/google-blocks-new-offline-conversion-imports-via-ads-api-from-june-15/ | 2026 | Migration context |
 | Google Ads API tightens conversion data rules | Search Engine Land | https://searchengineland.com/google-ads-api-tightens-conversion-data-rules-467263 | 2026 | Session attributes and IP rules |
 | Set up Conversion Lift based on users | Google | https://support.google.com/google-ads/answer/12005564 | Checked 2026-10 | $5,000 and 1,000 conversions minimums |
@@ -84,15 +88,35 @@ Annotated source list for the measurement skill. Dates are publication dates whe
 | PyMC-Marketing | PyMC Labs | https://github.com/pymc-labs/pymc-marketing | Ongoing | MMM and CLV |
 | GeoLift | Meta | https://github.com/facebookincubator/GeoLift | Ongoing | Geo experiments |
 
-## Items needing verification (from prior knowledge, not re-checked this session)
+## Verification pass (2026-10-08)
+
+| Title | Publisher | URL | Date | Supports |
+|-------|-----------|-----|------|----------|
+| Chrome 150 release notes | Chrome for Developers | https://developer.chrome.com/release-notes/150 | 2026-06-30 | Chrome 150 stable date |
+| Intent to Deprecate and Remove: Topics API | blink-dev | https://groups.google.com/a/chromium.org/g/blink-dev/c/_R85yctz4Rs | 2025-10 to 2026-09 | Staged removal: settings in M150, stubs in M152, Topics stub ramp after 2026-10-15 |
+| Microsoft Advertising publishes Conversions API documentation | Search Engine Land | https://searchengineland.com/microsoft-advertising-publishes-conversions-api-documentation-485356 | 2026-08 | Microsoft CAPI still beta |
+| Microsoft gates its new Conversions API behind per-account pilot approval | PPC Land | https://ppc.land/microsoft-gates-its-new-conversions-api-behind-per-account-pilot-approval/ | 2026-08 | Per-account provisioning |
+| Meta Shares More Info on Incremental Attribution Tracking | Social Media Today | https://www.socialmediatoday.com/news/meta-updates-information-incremental-attribution-conversion-tracking/759205/ | 2025 | Incremental attribution details |
+| Sending Offline Events Using the Conversions API | Meta for Developers | https://developers.facebook.com/docs/marketing-api/conversions-api/offline-events | Checked 2026-10 | Offline events via CAPI datasets |
+| Meta Offline Conversions API is going away, but not just yet | Jon Loomer Digital | https://www.jonloomer.com/qvt/offline-conversions-api-deprecation-delayed/ | 2024 | OCAPI end moved to May 2025 |
+| Safari 26 tracking changes explained | TAGGRS | https://taggrs.io/safari-26-tracking-changes/ | 2025 to 2026 | Click IDs still arrive in normal tabs |
+| Ireland puts forward new compromise proposals on Digital Omnibus | Agence Europe | https://agenceurope.eu/en/bulletin/article/13952/8/ireland-puts-forward-new-compromise-proposals-on-digital-omnibus-in-bid-to-secure-agreement-between-member-states-on-7-october | 2026-10 | Irish compromise, 4 month re-ask period |
+| Regulation (EU) 2026/1744 (Digital Omnibus on AI) | EUR-Lex | https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ%3AL_202601744 | 2026-07-24 | AI omnibus in force 2026-07-27 |
+| DUAA: The Commencement No. 6 Regulations are now in force | Womble Bond Dickinson | https://www.womblebonddickinson.com/uk/insights/articles-and-briefings/duaa-commencement-no-6-regulations-are-now-force-what-organisations | 2026-02 | PECR changes in force 2026-02-05 |
+| What are the exceptions? | ICO | https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guidance-on-the-use-of-storage-and-access-technologies/what-are-the-exceptions/ | 2026-04 | Statistical purposes exception conditions |
+| California Governor Newsom Signs Browser Opt-out Signal Bill | Foley and Lardner | https://www.foley.com/p/102lpc9/california-governor-newsom-signs-browser-opt-out-signal-bill/ | 2025-10 | AB 566, browsers from 2027-01-01 |
+| CCPA updates, risk assessments, ADMT regulations | CPPA | https://cppa.ca.gov/regulations/ccpa_updates.html | 2025-09 | Effective 2026-01-01, phased obligations |
+| KVKK Administrative Fines 2026 | Koksal Partners | https://www.koksalpartners.com/en/kvkk-cezalari | 2026 | 2026 Article 18 bands |
+
+## Items still needing verification
 
 - TikTok Events API version and event names; LinkedIn macro names; Pinterest, Snap and Reddit CAPI endpoint versions.
-- Microsoft UET Conversions API availability and consent enforcement date.
-- Meta incremental attribution availability; Meta Offline Conversions API retirement date; Conversion leads eligibility.
-- Shopify Thank you and Order status page deadlines (Plus 2025-08-28, non-Plus 2026-08-26).
-- UK DUAA commencement dates; US state law list and California browser signal law.
-- Safari 26 and iOS 26 privacy changes; AdAttributionKit additions after iOS 18.4.
-- GA4 limits and modeling thresholds (long standing values; confirm no change).
+- Microsoft Conversions API general availability date (pilot as of 2026-09).
+- Meta Conversion leads eligibility thresholds; incremental attribution availability per objective in each account.
+- Shopify behavior after the 2026-08-26 non-Plus deadline (auto-upgrade reports conflict).
+- US state law list effective 2027; CPPA ADMT start date (January or April 2027).
+- AdAttributionKit additions after iOS 18.4; Safari 27 link tracking parameter additions.
+- GA4 limits and modeling thresholds (long standing values; confirm no change); official AI Assistant referrer list.
 - ChatGPT Ads pixel cookie names and CAPI endpoint (community notes only).
 
 ## Additional secondary sources (context and corroboration)

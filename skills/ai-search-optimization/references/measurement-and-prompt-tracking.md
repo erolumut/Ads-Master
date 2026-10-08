@@ -141,14 +141,15 @@ Accuracy: list the facts stated about the brand in each sampled answer. Mark eac
 
 ## 7. Google Search Console: Generative AI performance report
 
-Facts [Official, 2026-06 to 2026-08; details partly via trade press]:
-1. Launched 2026-06-03 (UK subset first); available to all sites worldwide as of 2026-08-31.
-2. Shows impressions from AI Overviews and AI Mode combined (and Discover AI features in the control scope), by page, country, device and date.
+Facts [Official, 2026-06 to 2026-08; re-checked 2026-10-08]:
+1. Launched 2026-06-03 (UK subset first); beyond the UK from July; available to all sites worldwide as of 2026-08-31 (help page note).
+2. Shows impressions from AI Overviews and AI Mode combined, by page (final URL after redirects), country and date; some guides also show a device split. There is no filter that separates AI Mode from AI Overviews as of 2026-10; a single blog's claim of a 2026-09-07 change could not be confirmed. Discover has its own generative AI report.
 3. No clicks, no CTR, no position, no query text. Search Labs experiments excluded.
 4. Data starts 2026-05-18. No backfill.
-5. A search type selector covers text and image-based searches.
+5. A search type selector covers Web: text-based and Web: multimodal (image-based) searches.
 6. These impressions are already included in Web search type totals. Do not add them to Web totals.
-7. Large sites hit the 1,000-row export limit; filter by country, device or URL path.
+7. Large sites hit the 1,000-row export limit; filter by country or URL path.
+8. Not available in the Search Console API (no generative AI search type or search appearance value) or in the BigQuery bulk export as of 2026-10; UI and CSV export only [Official API docs; third-party checks 2026-08 and 2026-10].
 
 How to use it:
 1. Monthly: export page-level AI impressions. Rank pages by AI impressions and by AI share (AI impressions / Web impressions for the same page, both filtered to Web search type).
@@ -158,11 +159,11 @@ How to use it:
 
 ## 8. Bing Webmaster Tools: AI Performance
 
-Facts [Official, 2026-02 and 2026-06]:
+Facts [Official, 2026-02, 2026-03 and 2026-06; re-checked 2026-10-08]:
 1. Public preview since 2026-02-10 at bing.com/webmasters/aiperformance. Covers Copilot, Bing AI summaries and select partners.
 2. Metrics: total citations, average cited pages (daily unique URLs cited), page-level citation activity, grounding queries (phrases the AI used to retrieve content).
-3. 2026-06-16 additions in preview: Intents, Topics, Citation Share and Compare.
-4. Sampled data, no clicks, no public API, preview status. Does not cover ChatGPT, Claude or Perplexity.
+3. 2026-03-23: grounding query to page mapping (select a query to see cited pages, or a page to see its grounding queries), worldwide for verified sites. 2026-06-16 additions in preview: Intents (for example Learn and Solve, Research, Comparison, Planning), Topics, Citation Share and Compare. No further features found between 2026-06-16 and 2026-10-08.
+4. Sampled data, no clicks, no public API (Microsoft said API access would come during 2026; not shipped as of 2026-09), CSV export only, preview status. Does not cover ChatGPT, Claude or Perplexity.
 
 How to use it:
 1. Export grounding queries monthly. They are a real fan-out log. Map each to an owned passage; gaps become content briefs.
@@ -190,7 +191,7 @@ Ownership: the GA4 configuration itself belongs to `measurement`. This agent spe
 
 | Source | How it appears | Notes |
 |--------|---------------|-------|
-| ChatGPT web | chatgpt.com referral; links often carry utm_source=chatgpt.com [Practitioner consensus] | Mobile and desktop apps may strip referrers |
+| ChatGPT web | chatgpt.com referral; ChatGPT appends utm_source=chatgpt.com to referral links [Official] (OpenAI Publishers and Developers FAQ). Since 2026-05-07 more prominent inline brand links send about 60% of ChatGPT referrals to homepages [Study, 2026-05] | Mobile and desktop apps may strip referrers (Direct); citation links with the UTM but no medium can land in Unassigned |
 | Google AI Overviews and AI Mode | google / organic, inseparable from classic organic | Use the Search Console Generative AI report for impressions |
 | Gemini app | gemini.google.com when a referrer passes | App traffic often direct |
 | Copilot | copilot.microsoft.com or bing.com variants | Check actual values |

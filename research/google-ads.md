@@ -4,45 +4,49 @@
 
 ## Method and limits
 
-- Research ran on 2026-10-08. Nineteen web searches (extended mode for 2026 topics) were completed before the shared search budget for the session was exhausted, and direct page fetching (WebFetch, curl) was blocked by the environment's network policy. Findings for 2025 to 2026 therefore rest on search result summaries of official pages (Google Ads Help, blog.google, business.google.com, Google Ads API docs, Advertising Policies Help) and trade press (Search Engine Land, Search Engine Roundtable, PPC Land, PPC News Feed, Search Engine Journal, MediaPost), cross-checked where two or more sources agreed.
-- Long-standing fundamentals (match type behavior, Quality Score, Ad Rank, budget mechanics, attribution models, policy structure) come from prior knowledge of Google documentation and are labeled [Official] only where the behavior has been stable for years; anything else is labeled [Unverified].
-- Evidence labels: [Official, YYYY-MM], [Study, YYYY-MM], [Practitioner consensus], [Contested], [Unverified].
-- The brief asked for 35+ searches. This edition falls short (19). The human should schedule a refresh pass with page-level verification of the [Unverified] and [Contested] items listed in the watch list.
+- First edition (2026-10-08): 19 web searches before the shared search budget ran out; direct page fetching (WebFetch, curl) was blocked by the environment's network policy, so 2025 to 2026 findings rested on search result summaries of official pages and trade press.
+- Verification pass (same day): 50 further searches (extended mode for 2026 items) aimed at every [Unverified] and [Contested] item and at announcements from 2026-06 to 2026-10, plus direct reads of Google's official client library on GitHub (googleads/google-ads-python, release 33.0.0 with v23 to v25 type definitions and changelog) to check every GAQL field name. Google help, policy and developer pages were still read through search summaries, not full page loads. Sources 111 to 190 were added in this pass.
+- Long-standing fundamentals (match type behavior, Quality Score, Ad Rank, budget mechanics, attribution models, policy structure) come from prior knowledge of Google documentation and are labeled [Official] only where the behavior has been stable for years.
+- Evidence labels: [Official, YYYY-MM], [Study, YYYY-MM], [Practitioner report or consensus], [Contested], [Unverified]. "Official via trade press" means a Google statement (help text, notice email, Ads Liaison post) quoted by trade press.
+- Still open after the pass: listed in the watch list. The human should re-check the open items and the four remaining [Unverified] claims when Google publishes help pages for them.
 
 ## Executive summary
 
-1. Search is now AI-matched by default. AI Max for Search (launched 2025-05, out of beta 2026-04) absorbed automatically created assets and the campaign-level broad match setting through an automatic upgrade between 2026-09-01 and 2026-09-30; DSA follows (auto-migration reported for 2027-02) [Official, 2026; DSA timing Contested].
-2. Keyword control still matters, but it shifted from match types to controls: brand inclusions and exclusions, URL inclusions and exclusions, locations of interest, text guidelines, text disclaimers and AI Brief (closed beta) [Official, 2025 to 2026].
-3. Performance Max became auditable: channel performance reporting (announced 2025-04, in all campaigns by 2025-11), search terms at Search-level granularity, asset-level conversions, 10,000 negative keywords per campaign, shared negative lists, and channel prioritization sliders in alpha (2026-08) [Official and Practitioner reports].
-4. Ads in AI Overviews run in 12 English-language markets (as of 2025-12); ads in AI Mode remain a US test; GML 2026 (2026-05-20) announced Highlighted Answers, Conversational Discovery Ads, expanded Direct Offers with native checkout, AI-powered Shopping ads and Universal Cart [Official, 2025-12 and 2026-05].
-5. There is no placement targeting or segmented reporting for AI Overviews ads. Eligibility comes from Search (broad match or AI Max), Shopping and PMax campaigns [Official help page; AI Mode eligibility Contested].
-6. Google's agents moved into the UI: Ads Advisor (English accounts by 2025-12) merged into Ask Advisor (beta, announced 2026-05-20) spanning Google Ads, Analytics, Merchant Center and GMP; Gemini summaries and prompt dashboards arrived in 2026-08 [Official and Practitioner reports]. Whether Ask Advisor can execute changes is [Contested].
-7. Bidding behavior changed: Smart Bidding Exploration (GA for Search tROAS 2025-07, Google reports +19% conversions in its internal test), campaign total budgets (open beta 2026-01-15), and a target-based bidding update (2026-08-17 to 2026-08-27) that moves budget-limited campaigns closer to their targets [Official, 2025 to 2026].
-8. First-party data plumbing consolidated on Google Data Manager and the Data Manager API (2025 to 2026), with enhanced conversions settings merged into one control and offline uploads moving toward the Data Manager API; consent signal handling reportedly tightened from 2026-06-15 [Official in part; scope Contested].
-9. Demand Gen is Google's single visual campaign: Video action campaigns were fully upgraded by 2026-04, Display campaigns began migrating from 2026-06, Maps became a channel (beta), lookalikes became signals (2026-03-15), and view-through optimization is on by default [Official and Practitioner reports].
-10. Account health risk rose: in-account appeals closed for decisions older than 6 months (2026-07-21), Limited Ad Serving extended to all Google Ads with rollout through 2028, and the official Google Ads MCP server (read-only, 2025-10) gives agents safe read access while writes stay human-approved [Official, 2025 to 2026].
+1. Search is now AI-matched by default. New Search campaigns start with AI Max on; AI Max (launched 2025-05, out of beta 2026-04) absorbed automatically created assets and campaign-level broad match through an auto-upgrade from 2026-09-01. DSA auto-migration moved to 2027-02, with new DSA creation ending 2027-01 [Official, Google Ads Help and Ads Liaison, 2026-06].
+2. Keyword control shifted from match types to controls: brand inclusions and exclusions, URL inclusions and exclusions, locations of interest, text guidelines, text disclaimers and AI Brief (now in 7 more languages). Manual language targeting for Search ads was removed in late 2026-09 [Official, 2025 to 2026].
+3. Performance Max became auditable and testable: channel performance reporting, search terms with cost (API `campaign_search_term_view`), asset-level metrics (performance labels retired), 10,000 negatives, asset A/B experiments rolling out to all from 2026-10-02, and an allowlisted channel prioritization alpha (2026-08) [Official and Practitioner reports].
+4. Ads in AI Overviews run in 12 English-language markets with no 2026 expansion found; ads in AI Mode remain a US test. Broad match Search is eligible for AI Mode without AI Max, and a small test since 2026-09 lets exact and phrase keywords serve there for explicit intent. No reporting segment exists for either surface [Official via Ads Liaison, 2025-12 to 2026-09].
+5. GML 2026 formats (Highlighted Answers, Conversational Discovery Ads) were still US tests in 2026-09; a Direct Offer asset for AI Mode entered testing in 2026-10 [Official, 2026-05; trade press 2026-09 to 2026-10].
+6. Google's agents moved into the UI: Ask Advisor (beta, English, no MCC access) proposes changes and applies them only after user approval; AI summaries for experiments and AI campaign localization arrived in 2026-10 [Official, 2026-05; trade press 2026-09 to 2026-10].
+7. Bidding behavior changed: target-based bidding now delivers toward the target on budget-limited tCPA and tROAS campaigns (2026-08-17 to 2026-08-27), Promotion mode (beta) and Smart Bidding Exploration for PMax without feeds (GA) arrived in 2026-06, campaign total budgets stay in open beta for Search, PMax and Shopping [Official, 2026].
+8. First-party data plumbing moved to the Data Manager API: new Customer Match integrations from 2026-04-01 and new offline conversion integrations from 2026-06-15 can no longer use the Google Ads API; consent mode (ad_storage) became the single control for Google tag ads data on 2026-06-15; Customer Match accepts IP addresses from 2026-09 [Official, Google Ads Developer Blog and help pages, 2026].
+9. Demand Gen is Google's single visual campaign: Video action campaigns upgraded by 2026-04, Display migration tool from 2026-06 with automatic migration in 2027, VTC optimization on by default (video only) and CPM billing for some placements from 2026-07-15 [Official and trade press, 2026].
+10. Account operations got stricter: granular reporting history cut to 37 months (2026-06-01), in-account appeals closed for decisions older than 6 months (2026-07-21), Limited Ad Serving extended to all Google Ads, default-on changes (call recording 2026-07-01, local inventory ads 2026-08-31, automated promotions 2026-10-12) that each need an explicit decision [Official, 2026].
 
 ## State of the channel in 2026 (with numbers)
 
 | Area | Status as of 2026-10 | Numbers | Label |
 |---|---|---|---|
-| AI Max for Search | GA for Search since 2026-04; auto-upgrade of ACA and campaign-level broad match in 2026-09 | Google cites +14% conversions or value at similar CPA or ROAS, +27% for exact and phrase heavy campaigns (2025-05) | [Official claim] |
+| AI Max for Search | GA for Search since 2026-04; on by default in new Search campaigns; auto-upgrade of ACA and campaign-level broad match from 2026-09-01 | Google cites +14% conversions or value at similar CPA or ROAS, +27% for exact and phrase heavy campaigns (2025-05) | [Official claim] |
 | AI Max for Shopping and Travel | Closed betas, global, all languages, from 2026-04-30 | n/a | [Official, 2026-04] |
-| DSA | Still running; new DSA creation status and auto-migration timing disputed | Auto-migration reported for 2027-02 | [Contested] |
-| Language targeting | Manual setting removed from Search, AI Max and PMax Search inventory in late 2026-09 | n/a | [Official via Google Ads Liaison, 2026-09] |
+| DSA | Still running; creation re-enabled 2026-06-15, ends 2027-01; auto-migration 2027-02 | n/a | [Official via Ads Liaison, 2026-06] |
+| Language targeting | Manual setting removed for Search ads (Search, AI Max, PMax Search inventory) in late 2026-09 | n/a | [Official, Ads Liaison 2026-08-14 and help page] |
 | PMax negatives | Campaign negatives and shared lists, Search and Shopping inventory | Up to 10,000 per campaign | [Official, 2025] |
-| PMax reporting | Channel performance, search terms, asset metrics, MCC access | Available in all PMax campaigns since 2025-11 | [Official, 2025] |
-| Ads in AI Overviews | Live on mobile and desktop | 12 countries, English | [Official via trade press, 2025-12] |
-| Ads in AI Mode | US test; new formats announced 2026-05 | n/a | [Official framing; Contested scope] |
-| Smart Bidding Exploration | Search tROAS GA 2025-07; PMax without feeds 2026-06 | Flex 10% to 30%; Google reports +18% converting query categories, +19% conversions (internal 2025-03-11 to 2025-04-11) | [Official claim] |
-| Campaign total budgets | Open beta 2026-01-15 for Search, PMax, Shopping | 3 to 90 days (Search, Shopping, PMax); up to 1 year (Demand Gen, YouTube) | [Official, 2026-01] |
-| Target-based bidding update | Completed 2026-08-27 | n/a | [Official, 2026-07] |
-| Enhanced conversions | Single setting for web and leads | Google cites about +11% Search conversions | [Official claim via trade press, 2026-09] |
+| PMax reporting and testing | Channel performance, search terms with cost, asset metrics; asset A/B experiments rolling out from 2026-10-02 | n/a | [Official 2025; trade press 2026-10] |
+| Ads in AI Overviews | Live on mobile and desktop, no opt-out, no targeting | 12 countries, English | [Official, Google Ads Help] |
+| Ads in AI Mode | US test; broad match, AI Max, PMax and Shopping eligible; exact and phrase in a small test since 2026-09 | n/a | [Official via Ads Liaison, 2026-06 and 2026-09] |
+| Smart Bidding Exploration | Search tROAS GA 2025-07; PMax without feeds GA 2026-06; Shopping beta | Flex 10% to 30%; Google reports +18% converting query categories, +19% conversions (internal 2025-03-11 to 2025-04-11) | [Official claim] |
+| Campaign total budgets | Open beta since 2026-01-15 for Search, PMax, Shopping; no GA found | 3 to 90 days (Search, Shopping, PMax) | [Official, 2026-01] |
+| Target-based bidding update | Completed 2026-08-27 | Google example: tCPA 10 with actual 5 now delivers closer to 10 | [Official, 2026-06 to 2026-08] |
+| Enhanced conversions | Single setting for web and leads since 2026-06 | Google cites 11% more Search conversions vs standard imports | [Official claim, 2026-09] |
+| Offline uploads and Customer Match via API | Google Ads API restricted to previously active tokens (Customer Match 2026-04-01, offline clicks 2026-06-15); Data Manager API for new integrations | n/a | [Official, Google Ads Developer Blog 2026-05] |
 | Demand Gen | Single visual campaign type | Google cites +30% average conversions from H2 2025 improvements | [Official claim via trade press, 2026-08] |
-| Ask Advisor | Beta, English | n/a | [Official, 2026-05] |
-| Google Ads API | v25 (2026-07-22), v25.1 (2026-08-19), v25.2 (2026-09-23) | v22 sunset 2026-10-07 | [Official, 2026] |
+| Ask Advisor | Beta, English accounts, not in MCC; applies changes after approval | n/a | [Official, 2026-05; trade press 2026-09] |
+| Conversion Lift | Self-serve for Search and PMax from 2026-10 | Minimum 1,000 conversions and 5,000 USD budget | [Official help; trade press 2026-10] |
+| Reporting history | Granular data kept 37 months since 2026-06-01; monthly aggregates 11 years | n/a | [Official, 2026-05] |
+| Google Ads API | Supported v23, v24, v25 (v25.2 on 2026-09-23); v20, v21, v22 sunset in 2026 | v22 sunset 2026-10-07 | [Official, 2026] |
 | Appeals | 6-month window | From 2026-07-21 | [Official, 2026-07] |
-| Search benchmarks (all industries, WordStream by LocaliQ 2025) | n/a | CTR 6.66%, CPC 5.26 USD, CVR 7.52%, CPL 70.11 USD | [Study, 2025; Unverified this session] |
+| Search benchmarks (all industries, WordStream by LocaliQ 2026) | n/a | CTR 6.64%, CPC 5.42 USD, CVR 8.18%, CPL 66.69 USD (2025 edition: 6.66%, 5.26 USD, 7.52%, 70.11 USD) | [Study, 2026; read from search summaries] |
 
 ## Timeline of changes, January 2025 to October 2026
 
@@ -351,5 +355,85 @@ Operating thresholds used by the package (zero-conversion term spend under 15%, 
 106. Google Ads MCP server: official vs hosted. Adspirer. https://www.adspirer.com/blog/google-ads-mcp. 2026.
 107. getmcpads-com/google-ads-mcp-server. GitHub. https://github.com/getmcpads-com/google-ads-mcp-server. 2026.
 108. promobase/google-ads-mcp. GitHub. https://github.com/promobase/google-ads-mcp. 2026.
-109. Google Ads benchmarks 2025 (Search advertising benchmarks). WordStream by LocaliQ. https://www.wordstream.com (exact article URL not verified this session). 2025.
+109. 2025 Google Ads Benchmarks: Competitive Data and Insights for Your Industry. WordStream by LocaliQ. https://www.wordstream.com/resources/google-ads-industry-benchmarks. 2025.
 110. Meridian. GitHub (Google). https://github.com/google/meridian. 2025 onward.
+111. Changes to Offline Click Conversion Import Support in the Google Ads API. Google Ads Developer Blog. https://ads-developers.googleblog.com/2026/05/changes-to-offline-click-conversion.html. 2026-05-15.
+112. Upcoming Improvements to Offline Conversion Imports. Google Ads Developer Blog. https://ads-developers.googleblog.com/2026/03/upcoming-improvements-to-offline.html. 2026-03.
+113. Data Manager API now supports sending events to Google Marketing Platform destinations and IP ingestion for Google Ads Customer Match. Google Ads Developer Blog. https://ads-developers.googleblog.com/2026/05/data-manager-api-now-supports-sending.html. 2026-05.
+114. Upgrade from the Google Ads API (offline conversions). Data Manager API docs. https://developers.google.com/data-manager/api/devguides/events/google-ads/offline/upgrade. n.d..
+115. Feature deprecations and unversioned changes. Google Ads API docs. https://developers.google.com/google-ads/api/docs/deprecations. n.d..
+116. New Data Retention Policy for Google Ads starting June 1, 2026. Google Ads Developer Blog. https://ads-developers.googleblog.com/2026/05/new-data-retention-policy-for-google.html. 2026-05.
+117. Google Ads Data Retention Policy. Google Ads Help. https://support.google.com/google-ads/answer/15188209. n.d..
+118. Google Ads API v22 sunset reminder. Google Ads Developer Blog. https://ads-developers.googleblog.com/2026/09/google-ads-api-v22-sunset-reminder.html. 2026-09-02.
+119. Enabling Local Inventory Ads by Default for Shopping Campaigns starting on August 31, 2026. Google Ads Developer Blog. https://ads-developers.googleblog.com/2026/07/enabling-local-inventory-ads-by-default.html. 2026-07.
+120. googleads/google-ads-python (v25 type definitions, ChangeLog 33.0.0). GitHub (Google). https://github.com/googleads/google-ads-python. checked 2026-10-08.
+121. Updates to Google Analytics data controls. Analytics Help. https://support.google.com/analytics/answer/17016975. 2026-04.
+122. About partner bookings. Google Ads Help. https://support.google.com/google-ads/answer/17199940. 2026.
+123. Ask Advisor in Google Ads (beta). Google Ads Help. https://support.google.com/google-ads/answer/16574983. 2026.
+124. About Ask Advisor in Merchant Center. Merchant Center Help. https://support.google.com/merchants/answer/17091244. 2026.
+125. Set up Conversion Lift based on users. Google Ads Help. https://support.google.com/google-ads/answer/12005564. n.d..
+126. About Bayesian methodology in Conversion Lift. Google Ads Help. https://support.google.com/google-ads/answer/16627074. n.d..
+127. Action Required: Transition from call ads to call assets. Google Ads Help. https://support.google.com/google-ads/answer/16598240. 2025-10 onward.
+128. Local Services Ads transition to Performance Max campaigns with pay-per-lead goals. Google Ads Help. https://support.google.com/google-ads/answer/17213585. 2026-08.
+129. Google Display Ads campaigns have a new home in Demand Gen. Google Ads Help. https://support.google.com/google-ads/answer/17051545. 2026.
+130. Update to Editorial Policy (October 2026). Advertising Policies Help. https://support.google.com/adspolicy/answer/18287059. 2026-10-01.
+131. Promotion mode. Google (business.google.com). https://business.google.com/us/accelerate/announcements/promotion-mode/. 2026-06.
+132. Prepare your data for import. Google Ads Data Manager Help. https://support.google.com/google-ads-data-manager/answer/14184381. n.d..
+133. Customer Match policy. Advertising Policies Help. https://support.google.com/adspolicy/answer/6299717. n.d..
+134. Step 4: Set up Customer Match lists for members. Merchant Center Help. https://support.google.com/merchants/answer/16467744. 2026.
+135. Deprecation and sunset (Content API for Shopping). Google for Developers. https://developers.google.com/shopping-content/guides/deprecation-and-sunset. 2026.
+136. About language targeting. Google Ads Help. https://support.google.com/google-ads/answer/1722078. n.d..
+137. AdsLiaison post on removing language targeting. X (Google Ads Liaison). https://x.com/adsliaison/status/2088017049960231270. 2026-08.
+138. New features and announcements. Google Ads Help. https://support.google.com/google-ads/announcements/9048695. n.d..
+139. CampaignSearchTermView (v25 reference). Google Ads API docs. https://developers.google.com/google-ads/api/reference/rpc/v25/CampaignSearchTermView. 2026-07-22.
+140. Google is moving offline conversion imports out of the Google Ads API. Search Engine Land. https://searchengineland.com/google-is-moving-offline-conversion-imports-out-of-the-google-ads-api-477669. 2026-05.
+141. Google blocks new offline conversion imports via Ads API from June 15. PPC Land. https://ppc.land/google-blocks-new-offline-conversion-imports-via-ads-api-from-june-15/. 2026-05.
+142. Google to disable Customer Match uploads in Ads API. Search Engine Land. https://searchengineland.com/google-to-disable-customer-match-uploads-in-ads-api-470796. 2026.
+143. Google delays Dynamic Search Ads migration to AI Max. Search Engine Land. https://searchengineland.com/google-delays-dynamic-search-ads-migration-to-ai-max-480049. 2026-06.
+144. Google Provides More Time For Dynamic Search Ads Migration. Search Engine Journal. https://www.searchenginejournal.com/google-extends-dynamic-search-ads-migration-deadline/579074/. 2026-06.
+145. Google Ads Is Retiring Language Targeting In Search Campaigns. Search Engine Journal. https://www.searchenginejournal.com/google-is-removing-language-targeting-from-search-campaigns/585592/. 2026-08.
+146. Google Ads Changes With Bidding For Campaigns Limited By Budget. Search Engine Roundtable. https://www.seroundtable.com/google-ads-bidding-campaigns-limited-budget-41618.html. 2026-06.
+147. Google expands Smart Bidding Exploration, adds Promotion Mode. Search Engine Land. https://searchengineland.com/google-expands-smart-bidding-exploration-adds-promotion-mode-480165. 2026-06.
+148. Google Ads Promotion Mode Beta, Smart Bidding Exploration Expands and Bidding Target Optimization Changes. Search Engine Roundtable. https://www.seroundtable.com/google-ads-promotion-mode-smart-bidding-bidding-target-41501.html. 2026-06.
+149. Google Ads Rolls Out Journey-Aware Bidding And New Pacing Controls. Search Engine Journal. https://www.searchenginejournal.com/google-ads-introduces-journey-aware-bidding-and-new-budget-pacing-updates/574141/. 2026-05.
+150. Google tests channel prioritization controls for Performance Max. Search Engine Land. https://searchengineland.com/google-tests-channel-prioritization-controls-for-performance-max-485825. 2026-08.
+151. Google Ads Channel Settings Prioritization Slider (Alpha Test). Search Engine Roundtable. https://www.seroundtable.com/google-ads-channel-settings-prioritization-slider-41949.html. 2026-08.
+152. Google quietly gives ground on PMax controls. Digiday. https://digiday.com/media-buying/google-quietly-gives-ground-on-pmax-controls/. 2026-07.
+153. Google Ads brings A/B testing to Performance Max asset groups. Search Engine Land. https://searchengineland.com/google-ads-brings-a-b-testing-to-performance-max-asset-groups-493229. 2026-10-02.
+154. Google opens Conversion Lift to Search and Performance Max. Search Engine Land. https://searchengineland.com/google-opens-conversion-lift-to-search-and-performance-max-494195. 2026-10.
+155. Google Ads Conversion Lift Measurement Now Self-Service. Search Engine Roundtable. https://www.seroundtable.com/google-ads-conversion-lift-measurement-self-service-42250.html. 2026-10.
+156. Google Ads adds AI-powered insights to experiment reporting. Search Engine Land. https://searchengineland.com/google-ads-adds-ai-powered-insights-to-experiment-reporting-494562. 2026-10.
+157. Google tests traditional Search campaigns in AI Mode. Search Engine Land. https://searchengineland.com/google-tests-traditional-search-campaigns-in-ai-mode-487199. 2026-09.
+158. Exact and phrase match keywords gain AI Mode ads in Google test. PPC Land. https://ppc.land/exact-and-phrase-match-keywords-gain-ai-mode-ads-in-google-test/. 2026-09.
+159. Ginny Marvin clarifies AI Max, AI Search ads and what advertisers should prioritize after GML. Search Engine Land. https://searchengineland.com/ginny-marvin-clarifies-ai-max-ai-search-ads-and-what-advertisers-should-prioritize-after-gml-479838. 2026-06.
+160. Google tests new conversational ad formats in AI Mode and Search. Search Engine Land. https://searchengineland.com/google-tests-new-conversational-ad-formats-in-ai-mode-and-search-478115. 2026-05.
+161. Google Ads will auto-apply website coupons to some campaigns from October 12. PPC Land. https://ppc.land/google-ads-will-auto-apply-website-coupons-to-some-campaigns-from-october-12/. 2026-10.
+162. Google Ads To Allow Some Advertisers To Use Business Names That Differ From Destination Domains. Search Engine Roundtable. https://www.seroundtable.com/google-ads-business-name-policy-42214.html. 2026-10.
+163. Google confirms Local Inventory Ads will be enabled by default. Search Engine Land. https://searchengineland.com/google-confirms-local-inventory-ads-will-be-enabled-by-default-482779. 2026-07.
+164. Google Ads shifts Demand Gen billing to CPM for some Discover campaigns. Search Engine Land. https://searchengineland.com/google-ads-shifts-demand-gen-billing-to-cpm-for-some-discover-campaigns-480300. 2026-06 to 2026-07.
+165. Google updates Demand Gen view-through conversion optimization. Search Engine Land. https://searchengineland.com/google-updates-demand-gen-view-through-conversion-optimization-485127. 2026-08.
+166. Google Ads Call Recording To Default To Yes On July 1st. Search Engine Roundtable. https://www.seroundtable.com/google-ads-call-recording-default-yes-41262.html. 2026-05.
+167. Google Ads to automatically classify conversion-based customer lists. Search Engine Land. https://searchengineland.com/google-ads-to-automatically-classify-conversion-based-customer-lists-480433. 2026-06.
+168. Google Merchant Center Loyalty Customer Match Expands To AI Mode and More Regions. Search Engine Roundtable. https://www.seroundtable.com/google-loyalty-customer-match-expands-42216.html. 2026-10-02.
+169. Google Customer Match gains raw IP matching, minus users in 32 countries. PPC Land. https://ppc.land/google-customer-match-gains-raw-ip-matching-minus-users-in-32-countries/. 2026-09.
+170. Google Signals loses ad data control on June 15: what it really means. PPC Land. https://ppc.land/google-signals-loses-ad-data-control-on-june-15-what-it-really-means/. 2026-06.
+171. Google Ads cuts granular data access to 37 months starting June 2026. PPC Land. https://ppc.land/google-ads-cuts-granular-data-access-to-37-months-starting-june-2026/. 2026-05.
+172. Google Ads Is Cutting Off Access To Older Reporting Data. Search Engine Journal. https://www.searchenginejournal.com/google-ads-will-limit-access-to-older-reporting-data/574467/. 2026-05.
+173. Google Is Retiring Standalone Display Campaigns In Favor Of Demand Gen. Search Engine Journal. https://www.searchenginejournal.com/google-is-retiring-standalone-display-campaigns-in-favor-of-demand-gen/575889/. 2026-06.
+174. Google Ads lowers customer lists. Search Engine Roundtable. https://www.seroundtable.com/google-ads-lowers-customer-lists-40648.html. 2025-12.
+175. Google Updates Bid Strategy Learning Period to Around 50 Conversions. PPC News Feed. https://ppcnewsfeed.com/ppc-news/2026-09/google-updates-bid-strategy-learning-period/. 2026-09-22.
+176. Google Ads Developer Policies Updated for Enhanced Security. PPC News Feed. https://ppcnewsfeed.com/ppc-news/2026-09/google-ads-developer-policies-updated-security/. 2026-09-04.
+177. Google Ads Expands Promotion Mode to Daily Budgets. PPC News Feed. https://ppcnewsfeed.com/ppc-news/2026-09/google-ads-expands-promotion-mode-daily-budgets/. 2026-09.
+178. Daily Search Forum Recap: September 23, 2026. Search Engine Roundtable. https://www.seroundtable.com/recap-09-23-2026-42145.html. 2026-09-23.
+179. Google Ads Updates: October 2026. PPC News Feed. https://ppcnewsfeed.com/google-ads-updates/2026-10/. 2026-10.
+180. Google Ads Benchmarks 2026: Competitive Data and Insights for Every Industry. WordStream by LocaliQ. https://www.wordstream.com/blog/2026-google-ads-benchmarks. 2026.
+181. Search Advertising Benchmarks for Every Industry (2026 Data). LocaliQ. https://localiq.com/blog/search-advertising-benchmarks/. 2026.
+182. The State of Google Ads Q1 2026. Optmyzr. https://www.optmyzr.com/blog/state-of-google-ads-q1-2026/. 2026.
+183. New Optmyzr Data: Google Ads Engagement Jumps While Efficiency Stays Flat. Search Engine Journal. https://www.searchenginejournal.com/optmyzr-report-finds-google-ads-engagement-rising-while-efficiency-holds/573718/. 2026.
+184. Is Performance Max Cannibalizing Your Search Campaigns? Optmyzr. https://www.optmyzr.com/blog/is-pmax-cannibalizing-search/. 2025.
+185. How Google's June 2026 Privacy Update Will Affect Phone Call Conversion Attribution. Invoca. https://www.invoca.com/blog/how-googles-june-2026-privacy-update-will-affect-phone-call-conversion-attribution. 2026.
+186. AI Max testing and planning tools (post by Brandon Ervin, Search Ads product lead). Google (blog.google). https://blog.google/products/ads-commerce/ai-max-testing-planning-tools/. 2026-08-20.
+187. Google Ads Launches New Search and AI Max Experimentation Tools. Search Engine Journal. https://www.searchenginejournal.com/google-ads-launches-new-search-and-ai-max-experimentation-tools/586549/. 2026-08-24.
+188. Google To Charge For Missed and Subsequent Calls On LSAs. Search Engine Roundtable. https://seroundtable.com/google-lsa-missed-subsequent-calls-41940.html. 2026-08-25.
+189. Google LSA advertisers face missed call charges from October 1. PPC Land. https://ppc.land/google-lsa-advertisers-face-missed-call-charges-from-october-1/. 2026-08.
+190. AI Max experiments arrive in Google Ads: Here’s how they work. Search Engine Land. https://searchengineland.com/ai-max-experiments-arrive-in-google-ads-heres-how-they-work-459935. 2025.

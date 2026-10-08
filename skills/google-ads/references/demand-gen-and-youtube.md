@@ -1,6 +1,6 @@
 # Demand Gen, YouTube, Display and App
 
-> Knowledge as of 2026-10. Demand Gen absorbed Video action campaigns (completed by 2026-04) and is absorbing Display campaigns (migration tool from 2026-06). Verify statuses in Google Ads Help.
+> Knowledge as of 2026-10. Demand Gen absorbed Video action campaigns (completed by 2026-04) and is absorbing Display campaigns (voluntary migration tool from 2026-06, automatic migration of remaining campaigns later in 2027). Re-verified 2026-10-08; check Google Ads Help before acting.
 
 ## 1. The map of visual and video campaign types in 2026
 
@@ -10,7 +10,7 @@
 | Video reach campaigns (VRC) | Reach and frequency (bumpers, skippable, non-skippable, Shorts in one campaign) | Target CPM, CPM | Awareness |
 | Video views campaigns (VVC) | Views and engagement across in-stream, in-feed, Shorts | Maximum CPV | Consideration |
 | Video action campaigns (VAC) | Retired, upgraded to Demand Gen | n/a | All remaining VAC were auto-upgraded by 2026-04 [Official, 2025 to 2026] |
-| Display campaigns | Moving into Demand Gen as the GDN channel. Migration tool rolling out from 2026-06; later, new Display campaigns only inside Demand Gen | Same as Demand Gen | [Official, 2026] |
+| Display campaigns | Moving into Demand Gen as the GDN channel. Voluntary "Upgrade to Demand Gen" tool from 2026-06; creating new standalone Display campaigns reported to end in 2027-01; remaining eligible campaigns migrate automatically later in 2027 (no single date published). Display-only campaigns on GDN inventory remain possible inside Demand Gen | Same as Demand Gen | [Official, Google Ads Help "Google Display Ads campaigns have a new home in Demand Gen"; 2027-01 creation cutoff from trade press] |
 | App campaigns | Installs, in-app actions, pre-registration, engagement | tCPI, tCPA, tROAS | Separate system |
 | Performance Max | Cross-channel conversion | See PMax module | |
 
@@ -23,15 +23,16 @@ Formats: single image, carousel, video, product (feed-linked). One-tap image ads
 Settings and defaults to check:
 | Setting | 2026 behavior | Action |
 |---|---|---|
-| View-through conversion optimization | On by default in new Demand Gen campaigns, open beta, video assets only; does not support offline conversions, store visits or OCI [Practitioner report, 2026-04] | Decide whether VTC counts in your goal. Report click-through and view-through separately. Validate with lift tests |
-| Billing on Discover with VTC optimization | Switched from CPC to CPM billing from 2026-07-15 [Unverified, trade press] | Check billing and compare CPMs before and after |
+| View-through conversion optimization | On by default in new Demand Gen campaigns (open beta), video assets only, across YouTube, Display and Discover; does not support offline conversions, store visits or OCI. Image asset view-throughs stay as secondary conversions but are no longer biddable [Official help as reported by Search Engine Land, 2026-04 to 2026-09] | Decide whether VTC counts in your goal. Report click-through and view-through separately. Validate with lift tests |
+| Billing | Discover placements in campaigns with VTC optimization switched from CPC to CPM billing on 2026-07-15 (limited set of advertisers, automatic). Video assets served on Display in Demand Gen move to CPM billing whether or not VTC is used [Practitioner reports, Search Engine Land 2026-07 and 2026-09, citing Google notices] | Turning VTC off keeps Discover on CPC. Compare CPMs, CPCs and pacing before and after |
+| Branded Search conversion type | Counts brand searches that follow a YouTube or Demand Gen view [Practitioner report, 2026-09] | Report as a secondary signal of demand creation; do not make it primary |
 | Lookalike segments | Moved from strict targeting to AI-powered audience signals from 2026-03-15 [Practitioner report, 2026] | Treat lookalikes as signals; tighten with exclusions and creative |
 | New customer acquisition goal | Available | Use for growth with customer lists |
 | Channel controls | Per ad group | Separate Shorts, in-stream and feeds when creative differs |
 | Limited Ad Serving | Policy extended to all Google Ads surfaces in 2026, Demand Gen included from 2026-09-07 [Official policy update 2026-08, rollout gradual until 2028] | New advertisers may see limited delivery until trust is established |
 
 Budget and learning [Practitioner consensus based on Google guidance]:
-- Daily budget at least 15x target CPA (or a meaningful minimum, about 100 USD a day, if no target).
+- Daily budget at least 15x target CPA (or a meaningful minimum, about 100 USD a day, if no target). Google's in-product recommendation was reported lowered to 10x target CPA in 2026-09 [Practitioner report, not found in help pages]; treat 10x as the floor and 15x as the default for faster learning.
 - Judge after about 50 conversions or 2 to 4 weeks, whichever is later.
 - Do not change targets more than 15% at a time; do not edit creatives in the first 2 weeks.
 - Google reported a 30% average conversion increase from H2 2025 Demand Gen improvements [Official claim via trade press, 2026-08; not independently verified].
@@ -45,7 +46,7 @@ Audience strategy:
 Measurement:
 - Demand Gen often shows low click-through conversions but real incremental effect. Do not cut it on last click alone. Use Conversion Lift (user or geo) or a geo holdout. See [experiments](experiments-and-testing.md).
 - Report engaged-view conversions and view-through conversions separately from click conversions.
-- Qualified Future Conversions, a predictive metric linking upper funnel views to later sales, was announced at GML 2026 [Official, 2026-05, availability unverified].
+- Qualified Future Conversions, a Gemini-powered predictive metric estimating conversions up to 180 days after an ad interaction, was announced at GML 2026. The Ads Liaison later described it as supplemental and in limited testing [Official, 2026-05; status via Ads Liaison, 2026]. Do not optimize to it.
 
 ## 3. YouTube creative: ABCD and Shorts
 
@@ -93,7 +94,7 @@ Asset Studio and generation:
 - Use VVC for consideration and remarketing pools.
 - Connected TV: a large share of YouTube watch time is on TV screens; use 15 to 30 second creatives with clear branding. For CTV, QR codes or a memorable URL help direct response.
 - Alcohol ads on YouTube inventory are allowed where locally permitted from 2026-10-30 under a personalized advertising policy update; targeting based on alcohol-related health information stays prohibited [Official policy notice, 2026-09].
-- Business Agent (conversational agent in ads) entering a US beta on YouTube ads [Unverified, trade press 2026-09].
+- Business Agent (conversational agent inside ads), previously on Search, entered a US beta in YouTube video ads on 2026-09-16 [Practitioner report, Granular Marketing 2026-09; no Google post found]. Review its answers like any generated asset.
 
 ## 5. Display (inside Demand Gen from 2026)
 

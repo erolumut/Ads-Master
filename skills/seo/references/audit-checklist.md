@@ -45,7 +45,7 @@ Severity: Critical (blocks indexing or causes sitewide loss or policy risk), Hig
 | D2 | No JS-only navigation or `#` routes for indexable views | Discovery | Crawl, code review | High | History API URLs and links |
 | D3 | Client side 404 views return HTTP 404 | Soft 404s | curl unknown route | Medium | Server status handling |
 | D4 | Lazy loaded content visible without interaction | Content discovery | Rendered HTML | Medium | Native lazy loading, render in HTML |
-| D5 | HTML size and inline hydration payload reasonable (well under 2 MB) | Processing limits, speed | Page weight | Low | Trim payloads |
+| D5 | HTML size and inline hydration payload reasonable (well under 2 MB; Googlebot stops at 2 MB of uncompressed HTML per Google docs, 2026-02) | Processing limits, speed | Page weight | Low | Trim payloads |
 
 ## E. Canonicals and duplicates
 | ID | Check | Why | How to verify | Severity | Fix |

@@ -122,7 +122,7 @@ curl -s -X POST "https://api.indexnow.org/indexnow" -H "Content-Type: applicatio
 ```
 Up to 10,000 URLs per POST. Response 200 or 202 means received; 403 key invalid; 422 URLs do not match host; 429 too many requests [Official, IndexNow docs]. Many CMS plugins and CDNs (Cloudflare) integrate it; confirm it fires on updates and deletes.
 
-Bing Webmaster API: generate an API key in Bing Webmaster Tools settings; JSON endpoints under `https://ssl.bing.com/webmaster/api.svc/json/` (for example `GetQueryStats`, `GetPageStats`, `SubmitUrlBatch`, `GetUrlSubmissionQuota`) with `?apikey=`. Verify method names in Microsoft's current API reference. The AI Performance report had no public API at launch [Unverified current state].
+Bing Webmaster API: generate an API key in Bing Webmaster Tools settings; JSON endpoints under `https://ssl.bing.com/webmaster/api.svc/json/` (for example `GetQueryStats`, `GetPageStats`, `SubmitUrlBatch`, `GetUrlSubmissionQuota`) with `?apikey=`. Verify method names in Microsoft's current API reference. The AI Performance report has no public API as of 2026-10 (CSV export only; Microsoft said API access would come during 2026) [Official, 2026-06; re-checked 2026-10]. The Search Console Generative AI report is also not exposed in the Search Analytics API (no generative AI search type or search appearance value) or the BigQuery bulk export as of 2026-10.
 
 ## 6. Business Profile APIs
 Business Profile APIs (Business Information, Performance, reviews endpoints in the legacy My Business API) require an approved Google Cloud project. Performance API returns daily metrics (impressions by surface, calls, website clicks, direction requests). Use for multi location reporting; edits through API still need human approval under this playbook.
@@ -151,8 +151,8 @@ Crawl etiquette: identify the user agent, limit to 2 to 5 URLs per second on pro
 ## 8. Third party SEO platforms
 | Platform | API | MCP | Notes |
 |----------|-----|-----|-------|
-| Ahrefs | API v3 (plan dependent, API units) | Official Ahrefs MCP server launched 2025 [verify setup in Ahrefs docs] | Ahrefs Webmaster Tools free for verified sites (site audit, backlinks); Brand Radar for AI mentions (ai-search-optimization) |
-| Semrush | Semrush API (units) | Official Semrush MCP server launched 2025 [verify setup in Semrush docs] | Position tracking, Site Audit, Sensor volatility; AI visibility toolkit (ai-search-optimization) |
+| Ahrefs | API v3 (plan dependent, API units) | Official remote MCP server at `https://api.ahrefs.com/mcp/mcp` (Streamable HTTP, OAuth or MCP key, paid plans); the old local npm server is archived [Official, re-checked 2026-10] | Ahrefs Webmaster Tools free for verified sites (site audit, backlinks); Brand Radar for AI mentions (ai-search-optimization) |
+| Semrush | Semrush API (units) | Official remote MCP server at `https://mcp.semrush.com/v1/mcp` (OAuth 2.1 or API key; SEO API, Trends API, read-only Projects API; consumes API units, no separate fee) [Official, re-checked 2026-10] | Position tracking, Site Audit, Sensor volatility; AI visibility toolkit (ai-search-optimization) |
 | DataForSEO | Pay as you go APIs: SERP, Keywords Data (Google Ads volumes), DataForSEO Labs, Backlinks, On-Page, Content Analysis | Official open source MCP server (GitHub `dataforseo/mcp-server-typescript`) | Best for custom pipelines; SERP depth pricing changed after num=100 [Unverified details] |
 | Similarweb | API (enterprise) | [Unverified] | Traffic estimates, zero-click and AI referral studies |
 | Moz, Majestic | APIs | Community | Link metrics |
@@ -165,11 +165,11 @@ Use third party numbers as estimates and say so; prefer Search Console for your 
 | Google Analytics MCP | Google (official, read-only) | GA4 reports and admin info for organic analysis | Released 2025 [Official, 2025-07] |
 | Chrome DevTools MCP | Google Chrome team (official) | Performance traces (LCP, INP), network, console, rendering checks | Public preview from 2025-09 |
 | Playwright MCP | Microsoft (official) | Headless browsing, rendered DOM, screenshots | Stable |
-| Search Console MCP | Community servers on GitHub (several) | Search Analytics queries, URL Inspection, sitemaps | No official Google server known as of this writing [Unverified; check] |
-| Ahrefs MCP | Ahrefs (official) | Keywords, backlinks, competitors | Plan dependent |
-| Semrush MCP | Semrush (official) | Keywords, domains, positions | Plan dependent |
+| Search Console MCP | Community servers on GitHub (for example AminForou/mcp-gsc) | Search Analytics queries, URL Inspection, sitemaps | No official Google server as of 2026-10 (Google ships official MCP servers for GA4 and other products, not Search Console); review community code before use |
+| Ahrefs MCP | Ahrefs (official, remote `https://api.ahrefs.com/mcp/mcp`) | Keywords, backlinks, competitors, Brand Radar | Paid plans |
+| Semrush MCP | Semrush (official, remote `https://mcp.semrush.com/v1/mcp`) | Keywords, domains, positions, Trends | API units |
 | DataForSEO MCP | DataForSEO (official) | SERP, keywords, backlinks, on-page | Pay per call |
-| Bing Webmaster MCP | Community | Bing stats, URL submission | [Unverified] |
+| Bing Webmaster MCP | Community only (no official Microsoft server found as of 2026-10) | Bing stats, URL submission | [Unverified] quality; review code |
 | Firecrawl or similar crawl MCPs | Vendors and community | Fetch and parse pages at scale | Check licensing |
 
 Adding servers in Claude Code (generic patterns; follow each vendor's README):

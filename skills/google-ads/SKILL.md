@@ -154,7 +154,8 @@ Cold start (no `ads-master/`): ask only for business model and website, primary 
 | Learning never ends | Too many edits, low volume per strategy | Q24, conversions per strategy | Batch changes, consolidate, portfolio |
 | Disapprovals or suspension | Policy violation, site transparency, trademark | Policy manager, Q16 | Policy playbook, appeal within 6 months |
 | Demand Gen results mostly view-through | VTC optimization default | Conversion columns by type | Separate reporting, lift test, decide VTC setting |
-| OCI conversions stopped | Upload pipeline on sunset API (v22 ended 2026-10-07), Data Manager migration, CRM changes | Upload history, errors | Hand off to measurement |
+| OCI conversions stopped | Upload pipeline on sunset API (v22 ended 2026-10-07), new integration blocked by the Google Ads API allowlist (CUSTOMER_NOT_ALLOWLISTED since 2026-06-15), CRM changes | Upload history, errors | Hand off to measurement (Data Manager API) |
+| Remarketing lists or call conversions shrank after mid-June 2026 | Consent mode ad_storage became the single control for Google tag ads data on 2026-06-15 | List sizes and call conversions before vs after | Hand off to measurement, annotate journal |
 
 ## Cadence
 
@@ -254,17 +255,29 @@ Run monthly and before any task that depends on a feature, setting, policy or be
 
 | Source | What to verify |
 |---|---|
-| Google Ads Help, "What's new" and product announcements (support.google.com/google-ads, business.google.com/us/accelerate/announcements/) | New features, migrations (AI Max, DSA, Display to Demand Gen), default changes (automated assets, promotions, LIA) |
+| Google Ads Help, "What's new" and product announcements (support.google.com/google-ads/announcements/9048695, business.google.com/us/accelerate/announcements/) | New features, migrations (AI Max, DSA, Display to Demand Gen, LSA to PMax), default changes (automated assets, promotions, LIA, call recording) |
 | Google Ads and Commerce blog (blog.google/products/ads-commerce/) | Major launches (GML, Think events), AI Mode and AI Overviews ads, AI Max |
 | Advertising Policies Help, policy change log (support.google.com/adspolicy) | Policy updates by month, certifications, appeals rules |
-| Google Ads API release notes and sunset dates (developers.google.com/google-ads/api/docs/release-notes and /sunset-dates) and the Google Ads Developer Blog (ads-developers.googleblog.com) | Version changes, breaking changes, new report fields, upload method changes (Data Manager API) |
+| Google Ads API release notes, sunset dates and deprecations (developers.google.com/google-ads/api/docs/release-notes, /sunset-dates, /deprecations), the Google Ads Developer Blog (ads-developers.googleblog.com) and the official client library changelog (github.com/googleads/google-ads-python) | Version changes, breaking changes, new report fields, upload method changes (Data Manager API), retention limits. The client library's type files are fetchable from GitHub raw content and confirm field names when developer pages are blocked |
 | googleads/google-ads-mcp on GitHub | MCP tools and access scope |
 | Google Ads Liaison (Ginny Marvin) public posts | Clarifications and timing of rollouts |
 | Google Ads Status Dashboard (ads.google.com/status) | Incidents affecting data or delivery |
 | Trade press: Search Engine Land, Search Engine Roundtable, PPC Land, PPC News Feed, Search Engine Journal | Early signals; confirm with official sources |
 | In-account: Notifications, Recommendations, Change history (Google-initiated changes), campaign labels | What actually changed in this account |
 
-Watch list as of 2026-10: DSA to AI Max migration date (February 2027 reported), AI Max for Shopping and Travel betas, AI Brief availability, PMax channel prioritization sliders (alpha), PMax asset experiments, AI Mode ads outside the US, AI Overviews and AI Mode reporting, Direct Offers and AI-powered Shopping ads, journey aware bidding GA, Data Manager API scope for uploads, consent signal changes from 2026-06-15, Ask Advisor write capabilities, automated promotions, Limited Ad Serving rollout, Display to Demand Gen auto-migration date, API v23 and v24 sunset dates.
+Watch list as of 2026-10-08: DSA creation cutoff (2027-01) and auto-migration (2027-02), AI Max for Shopping and Travel betas, AI Brief languages, PMax channel prioritization (alpha, allowlisted), PMax asset experiments reaching MCC and API, AI Mode ads outside the US and the exact and phrase AI Mode test, any AI Overviews or AI Mode reporting segment, Highlighted Answers, Conversational Discovery Ads and Direct Offer asset status, journey aware bidding GA, campaign total budgets GA, end date of the Google Ads API upload allowlist, Ask Advisor languages and MCC access, Limited Ad Serving rollout, Display to Demand Gen automatic migration date (2027), LSA to PMax migration phases, Content API final shutdown (early 2027), API v23 and v24 sunset dates.
+
+Google-initiated changes from 2026-06 to 2026-10 to check in every account (details in the modules):
+| Date | Change | Check |
+|---|---|---|
+| 2026-06-01 | Granular reporting history cut to 37 months | Warehouse daily data before it ages out ([tools](references/tools-api-mcp.md)) |
+| 2026-06-15 | Consent mode as single ads data control; offline upload allowlist in the Google Ads API | [conversion module](references/conversion-tracking-and-value.md) sections 5 and 7 |
+| 2026-07-01 | Call recording defaulted to Yes (US, Canada) where never set | Account settings, audit B12 |
+| 2026-07-15 | CPM billing for Discover in Demand Gen with VTC optimization | [Demand Gen](references/demand-gen-and-youtube.md) |
+| 2026-08-17 | Target-based bidding update for budget-limited tCPA and tROAS | [bidding](references/bidding-and-budgets.md) section 4 |
+| 2026-08-31 | Local inventory ads on by default in Standard Shopping | Inventory filter, audit H7 |
+| 2026-09 | AI Max auto-upgrade of ACA and campaign-level broad match; manual language targeting removed | Q8b, audit E1 and B10 |
+| 2026-10-12 | Automated promotions on by default (Search and PMax with location assets) | Account-level automated assets |
 
 How to log: when a change is confirmed, write a journal entry `YYYY-MM-DD_HHMM_google-ads_platform-change.md` with the source URL, date, what it changes in this account and the action. If a reference module is outdated, say so in the deliverable and propose the update to the human (knowledge files change only with approval).
 

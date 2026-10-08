@@ -5,16 +5,17 @@
 ## Research method and limitations
 - Web search: 13 extended searches were run before the shared web search budget for the session was exhausted. The brief asked for 35+; the gap was covered by direct reading of primary sources rather than more search snippets.
 - Primary sources: openai.com, help.openai.com and developers.openai.com did not resolve from the research environment. Official OpenAI pages were therefore read through dated GitHub mirrors and captures (help center and developer docs mirrors; a September 2026 research corpus with raw captures of 40+ OpenAI, Google, Microsoft, Amazon and press pages), search engine excerpts of the official pages, and OpenAI's own GitHub (openai/plugins). Capture dates are 2026-09-22 to 2026-09-24 unless noted.
-- October 2026 items (visual ads, measurement partners, Negative Phrases) were read via secondary summaries and aggregator entries (TechCrunch, The Verge, The Decoder headlines; a news site summary of the OpenAI posts). They are labeled [Official] because the OpenAI posts exist, but details need live verification.
+- October 2026 items (visual ads, measurement partners, Negative Phrases) were first read via secondary summaries; the 2026-10-08 verification pass confirmed them against the OpenAI post and TechCrunch, Search Engine Journal, BleepingComputer and Adthena coverage.
+- Verification pass (2026-10-08): about 20 additional extended web searches re-checked launch pricing and minimums, partner roles, Instant Checkout, country counts, the EU DSA designation, Negative Phrases, automatic advanced matching, the UK pilot, conversion bidding dates, Perplexity, Meta and Google AI Overview ad history. Items confirmed by OpenAI to the press are labeled [Official]; items confirmed by two or more independent outlets are cited by outlet and date without [Unverified]; single-source items keep [Unverified].
 - About 60 pages were fetched and read in full (official captures, vendor studies, partner press releases, developer docs, community API notes and code).
 - Every claim not on an OpenAI or platform page is labeled [Unverified] or [Study]. Vendor panels are labeled [Study] with their method limits.
 
 ## 1. Executive summary
-1. ChatGPT Ads went from announcement (2026-01-16) to a US test (2026-02-09), self-serve Ads Manager with CPC (2026-05-05), conversion optimized bidding (mid 2026), 31 European markets (2026-08), a $1B annualized run rate with tens of thousands of advertisers (2026-08-31) and 60+ countries (late 2026-09) in under nine months [Official, 2026-08] and [Unverified] (country count).
+1. ChatGPT Ads went from announcement (2026-01-16) to a US test (2026-02-09), a $100M run rate with 600+ advertisers (2026-03), self-serve Ads Manager with CPC (2026-05-05), conversion optimized bidding (2026-06 to 2026-08), 31 European markets (2026-08), a $1B annualized run rate with tens of thousands of advertisers (2026-08-31) and 60+ countries (late 2026-09) in under nine months [Official, 2026-03 to 2026-09].
 2. Only Free and Go plan users see ads (not Plus, Pro, Business, Enterprise, Edu, under 18s, Temporary Chat or the Atlas browser), and never near health, mental health, politics or other sensitive conversations [Official, 2026-09]. The reachable audience skews to free tier and low price users.
 3. Targeting is contextual plus optional personalization: the current conversation, the ad and landing page, advertiser "context hints" at the ad group level, geo, platform and custom audiences; past chats and memory only with personalization on and never in the EEA or Switzerland [Official, 2026-09]. There are no keywords and no query reports.
 4. Buying model: Views (CPM), Clicks (CPC), Conversions (oCPC click billing, oCPM for eligible advertisers), Manual max bid or Maximize results, in a relevance weighted second price auction. OpenAI recommends starting CPC bids at $3 to $5 and says it has no cross advertiser benchmarks yet [Official, 2026-09].
-5. Pricing fell fast: about $60 CPM with $200k to $250k commitments at launch, $25 to $45 CPMs and a $50k minimum by April, then self-serve from a $25 per day minimum in May [Unverified] (launch and April) and [Official, 2026-09] (minimum daily budget).
+5. Pricing fell fast: about $60 CPM and a $200k minimum commitment at launch (OpenAI confirmed $200k to Adweek; some agencies were quoted $250k), CPMs as low as $25 and a $50k minimum by mid April (Digiday, 2026-04-17), then self-serve with no account minimum and a $25 per day campaign minimum from May; partner minimums fell to $0 (StackAdapt) and $10k per month (Criteo) [Official, 2026-02] and [Official, 2026-09] (minimum daily budget); April and partner figures are multi-outlet trade reports.
 6. Measurement is now credible on paper: OpenAI pixel plus Conversions API, the `oppref` click reference, event ID dedup, 7, 14 or 30 day click windows, an optional 1-day view-through for reporting, MMPs and 20+ measurement partners including geo incrementality vendors (October 2026) [Official, 2026-10]. In the pilot, agencies could not prove ROI [Unverified].
 7. Public performance evidence is split. OpenAI and partners cite a 3x ROAS case, a CPA 15.3% below blended paid search, a geo lift showing 2.3x more incremental orders than last click, and 80%+ new customers [Official, 2026-10]. Independent panels show CTR around 0.5% to 1.3%, and small advertisers self report clicks without conversions [Study, 2026-08] and [Unverified].
 8. Ads do not buy answers: OpenAI says ads never influence responses, and advertiser domains were cited in only 3.63% of ad placements in a 50,006 prompt study [Official, 2026-01] and [Study, 2026-08]. Paid and organic AI visibility are separate workstreams that should share one intent map.
@@ -26,11 +27,11 @@
 | Metric | Value | Date | Label |
 |--------|-------|------|-------|
 | Annualized revenue run rate | $1B in under 200 days | 2026-08-31 | [Official, 2026-08] |
-| Earlier run rate | $100M within about six weeks; 600+ advertisers | 2026-03-26 | [Unverified] |
+| Earlier run rate | $100M within about six weeks; 600+ advertisers | 2026-03-26 | [Official, 2026-03] (spokesperson to The Information) |
 | Advertisers | Tens of thousands | 2026-08-31 | [Official, 2026-08] |
 | Panel advertiser counts | 7,378 distinct in one July week (Adthena); 1,159 in a 50k prompt sample (SE Ranking); about 1,200 US mobile in August (Sensor Tower) | 2026-07 to 2026-09 | [Study] and [Unverified] |
 | Partners | 50+ technology and measurement partners | 2026-08-31 | [Official, 2026-08] |
-| Countries | 56 listed self-serve on 2026-09-22; Southeast Asia and Taiwan added late September; 60+ reported | 2026-09 | [Official, 2026-09] and [Unverified] |
+| Countries | 56 listed self-serve on 2026-09-22 (UAE, Saudi Arabia, Israel, Turkey added 2026-09-16); Southeast Asia and Taiwan added late September; over 60 | 2026-09 | [Official, 2026-09] |
 | Weekly users | 1B+ (August), 1.2B weekly people (October) | 2026 | [Official, 2026-10] |
 | Ad presence | 0.8% of prompts (Feb), 14% (May) and 26% (June) of US desktop chats, 25.94% of US commercial prompts (July) | 2026 | [Study] |
 | CTR | 0.50% (Similarweb panel), 1.30% (SE Ranking test), 0.91% (one Adthena client) | 2026 | [Study] and [Unverified] |
@@ -39,62 +40,69 @@
 | Bidding mix | CPC and outcome optimized bidding are the majority of campaigns | 2026-08-31 | [Official, 2026-08] |
 | Carousel share | About 23% of US desktop ads (2026-08-15 to 08-30) | 2026-09 | [Unverified] |
 | Financial services share | 2% to 13% of ads, April to August | 2026-09 | [Unverified] |
-| Reported revenue targets | $2.5B in 2026; over $100B by 2030 | 2026-08 | [Unverified] |
+| Reported revenue targets | $2.5B in 2026 (Digiday, The Next Web); over $100B by 2030 | 2026 | Trade reports; [Unverified] for 2030 |
+| EU status | ChatGPT designated a Very Large Online Search Engine (159.1M EU monthly recipients of ChatGPT search) | 2026-08-31 | [Official, 2026-08] |
 
 ## 3. Timeline of changes, January 2025 to October 2026
 
 | Date | Platform | Change | Label |
 |------|----------|--------|-------|
-| 2025-05 | Google | Ads in AI Overviews expanded to desktop (US) and more countries announced; ads in AI Mode testing announced at Google Marketing Live 2025 | [Unverified] |
+| 2025-05 | Google | Ads in AI Overviews expanded to desktop (US) and more countries announced; ads in AI Mode testing announced at Google Marketing Live 2025 | [Official, 2025-05] |
+| 2025-05 | OpenAI | Fidji Simo named CEO of Applications | [Official, 2025-05] |
 | 2025-07 to 2025-08 | xAI | FT reports X plans ads in Grok answers (2025-08-07) | [Unverified] |
 | 2025-08 | OpenAI | ChatGPT Go launched (India first), 171 countries by January 2026 | [Official, 2026-01] |
 | 2025-09 | Google | Ads in AI Mode introduced (Think Week) | [Unverified] |
 | 2025-09-29 | OpenAI | Instant Checkout and Agentic Commerce Protocol with Stripe | [Official, 2025-09] |
-| 2025-10 | Meta | Announces AI chat interactions will personalize ads from 2025-12-16 (not EU, UK, South Korea) | [Unverified] |
+| 2025-10-01 | Meta | Announces AI chat interactions will personalize ads from 2025-12-16 (not EU, UK, South Korea) | [Official, 2025-10] |
+| 2025-10-21 | OpenAI | ChatGPT Atlas browser launches (later excluded from ads) | [Official, 2025-10] |
 | 2025-10-30 | Google | Says it is testing ads in AI Mode before expanding | [Unverified] |
 | 2025-11-24 | Google | First within-AIO ads detected by a vendor at 0.052% frequency | [Study, 2026-04] |
 | 2025-12-08 | Google | VP: "There are no ads in the Gemini app and there are no current plans to change that" | [Official, 2025-12] |
-| 2025-12-19 | Google | AI Overview ads expanded to 11 more countries | [Unverified] |
+| 2025-12 | Google | AI Overview ads expanded to 11 more countries (AU, CA, IN, ID, KE, MY, NZ, NG, PK, PH, SG) | [Official, 2025-12] (relayed; exact day unconfirmed) |
 | 2026-01-08 | Microsoft | Copilot Checkout (US) and Brand Agents; no commission | [Official, 2026-01] |
 | 2026-01-11 | Google | Universal Commerce Protocol, Business Agent, Direct Offers pilot | [Official, 2026-01] |
 | 2026-01-16 | OpenAI | Ads approach announced; Go at $8 in US and worldwide | [Official, 2026-01] |
 | 2026-02-04 | Anthropic | Claude will remain ad free | [Official, 2026-02] |
 | 2026-02-09 | OpenAI | US ads test begins for logged-in adult Free and Go users | [Official, 2026-02] |
-| 2026-02 | OpenAI | Pilot pricing about $60 CPM, $200k to $250k commitments; agency partners WPP, Omnicom, Dentsu | [Unverified] |
+| 2026-02 | OpenAI | Pilot pricing about $60 CPM; $200k minimum commitment confirmed to Adweek ($250k quoted to some agencies); agency partners WPP, Omnicom, Dentsu | [Official, 2026-02] and [Contested] ($250k) |
 | 2026-02-11 | Google | Shopping ads in AI Mode announced | [Study, 2026-04] (relay) |
-| 2026-02-17 | Perplexity | FT: no plans to pursue advertising after phasing out ads in 2025 | [Unverified] |
+| 2026-02-17 | Perplexity | Executives to FT: no plans to pursue advertising after phasing out ads in 2025 | [Official, 2026-02] |
 | 2026-03-02 | OpenAI, Criteo | Criteo first ad tech partner integrated | [Official, 2026-05] (Criteo) |
 | 2026-03 | OpenAI | Ad Policies v1.0 | [Official, 2026-09] |
-| 2026-03 | OpenAI | Instant Checkout removed for Shopify and other merchants; merchant checkout and ACP discovery focus | [Unverified] |
+| 2026-03-06 to 03-24 | OpenAI | Moves away from Instant Checkout (first version lacked flexibility); merchants use their own checkout or ChatGPT apps; ACP continues for discovery and app-based transactions | [Official, 2026-03] (TechCrunch, Digital Commerce 360) |
 | 2026-03-25 | Amazon | Sponsored Products and Brands prompts generally available in the US (CPC) | [Official, 2026-03] |
-| 2026-03-26 | OpenAI | Pilot next phase; CA, AU, NZ pilots; no impact on trust metrics | [Official, 2026-03] |
-| 2026-04 | OpenAI | Ad Policies v1.1 (medical, legal, financial advice contexts no longer blocked by default); CPM down to $25, minimum $50k reported | [Official, 2026-09] and [Unverified] |
+| 2026-03-26 | OpenAI | Pilot next phase; CA, AU, NZ pilots; no impact on trust metrics; $100M annualized run rate and 600+ advertisers (spokesperson to The Information) | [Official, 2026-03] |
+| 2026-04 | OpenAI | Ad Policies v1.1 (medical, legal, financial advice contexts no longer blocked by default); CPMs as low as $25 and minimum $50k (Digiday 2026-04-17; Ad Age) | [Official, 2026-09] and trade reports |
 | 2026-04-21 | Microsoft | Offer Highlights in Copilot; UCP-ready feeds GA in US | [Official, 2026-04] |
+| 2026-05 | StackAdapt | Drops its ChatGPT Ads minimum spend (Adweek) | Trade report |
 | 2026-05-05 | OpenAI | Self-serve Ads Manager beta, CPC, partners named (Dentsu, Omnicom, Publicis, WPP; Adobe, Criteo, Kargo, Pacvue, StackAdapt), pixel and CAPI | [Official, 2026-05] |
 | 2026-05-07 | OpenAI | Expansion plan for UK, MX, BR, JP, KR | [Official, 2026-05] |
 | 2026-05 | Microsoft | AI Max for Search pilot serving Copilot Search and Answers | [Official, 2026-05] |
 | 2026-05 | OpenAI | Ad Policies v1.2 (review and enforcement) | [Official, 2026-09] |
 | 2026-05-13 | Amazon | Rufus renamed Alexa for Shopping | [Official, 2026-05] |
 | 2026-05-20 | Google | GML 2026: Conversational Discovery ads, Highlighted Answers, AI-powered Shopping ads, Business Agent for Leads, Direct Offers | [Official, 2026-05] |
-| 2026-06-05 | OpenAI | Conversion optimized campaigns first wave reported | [Unverified] |
-| 2026-06-06 | OpenAI | UK pilot reported | [Unverified] |
+| 2026-06-05 | OpenAI | Conversion optimized campaigns first wave (broader 2026-07-24; feed oCPC beta early August per Search Engine Land) | [Unverified] (exact dates) |
+| 2026-06-06 | OpenAI | UK pilot live (managed); UK Ads Manager beta from about 2026-06-19 | Trade reports (PPC Land, Search Engine Land) |
+| 2026-06 | Criteo | ChatGPT Ads minimum cut from $50k to $10k per month, media match | Trade reports (Adweek, eMarketer) |
 | 2026-06-15 | OpenAI | Merchant Feed Terms of Service | [Official, 2026-06] |
 | 2026-06-22 | Criteo | 2,000+ brands on ChatGPT Ads via Criteo | [Official, 2026-06] (Criteo) |
 | 2026-07 | OpenAI | Ad Policies v1.3 | [Official, 2026-09] |
-| 2026-08-06 | OpenAI | Product carousels reported | [Unverified] |
+| 2026-08-06 | OpenAI | Product carousels (one retailer), with oCPC and AAM updates | Trade reports (Digiday, Search Engine Land) |
 | 2026-08-10 | SE Ranking | 50,006 prompt study published | [Study, 2026-08] |
 | 2026-08-11 | OpenAI | Ads launched in UK, MX, BR, JP, KR | [Official, 2026-08] |
 | 2026-08-17 | Similarweb | AI ads data product: ads in 26% of ChatGPT responses | [Study, 2026-08] |
-| 2026-08-17 | OpenAI | Automatic advanced matching reportedly switched on for existing pixels (opt-out) | [Unverified] |
+| 2026-08-17 | OpenAI | Automatic advanced matching switched on for existing web pixels unless advertisers opted out (advertiser email, week of 2026-08-03) | [Official, 2026-08] |
 | 2026-08-18 | OpenAI | 31 European markets announced | [Official, 2026-08] |
 | 2026-08 | OpenAI | Ad Policies v1.4 (housing and jobs) and v1.5 (US legal services) | [Official, 2026-09] |
 | 2026-08-31 | OpenAI | $1B run rate; self-serve in India, Europe, MENA | [Official, 2026-08] |
-| 2026-08-31 | EU | ChatGPT reported designated a very large online search engine; DSA obligations from January 2027 | [Unverified] |
+| 2026-08-31 | EU | European Commission designates ChatGPT a Very Large Online Search Engine under the DSA; extra obligations about four months after notification | [Official, 2026-08] |
+| 2026-09-10 | Amazon | Managed pilot selling ChatGPT Ads through Amazon DSP to select US advertisers | Trade reports (Digiday, Marketing Dive, PPC Land) |
 | 2026-09-10 | OpenAI | Ad Policies v1.6 (competitive position clause) | [Official, 2026-09] |
 | 2026-09-16 | OpenAI | Sponsored Agents test, Ads Manager plugin, AI creative, text customization, HubSpot and Shopify integrations | [Official, 2026-09] |
 | 2026-09-22 | OpenAI | Availability page lists 56 self-serve countries | [Official, 2026-09] |
-| 2026-09-23 to 24 | OpenAI | Southeast Asia and Taiwan expansion; Shopify app international | [Official, 2026-09] |
-| 2026-10-05 | OpenAI | Visual ads in image generation (US test later in October), measurement partner expansion, 1-day view-through in reports, DV and IAS brand safety pilots, Negative Phrases | [Official, 2026-10] |
+| 2026-09-23 to 24 | OpenAI | Southeast Asia and Taiwan expansion (over 60 countries); Shopify app international | [Official, 2026-09] |
+| 2026-09-30 | OpenAI | Product update: spreadsheet bulk creation, bulk product campaigns, product review status, richer Insights API conversion data, separate account names | [Unverified] |
+| 2026-10-05 | OpenAI | Visual ads in image generation (US test with initial advertisers later in October, Free and Go users), measurement partner expansion (Haus, Measured, WorkMagic geo incrementality; Hightouch, Tealium, LiveRamp data connections), 1-day view-through in reports, DV and IAS brand suitability pilots, Negative Phrases for qualifying advertisers | [Official, 2026-10] |
 
 ## 4. Best practice consensus
 1. Measure from day one: pixel plus CAPI with a shared event ID, attach event settings to every campaign, preserve `oppref` [Official, 2026-09] and [Practitioner consensus].
@@ -115,11 +123,11 @@
 | CTR level | Criteo: 2x to 3x comparable formats [Unverified] | Similarweb 0.50%, compared with 6.4% on Google Search [Study] | Own baseline; expect under 1.5% |
 | Conversions column | Developer docs: `conversions` includes click plus view | Community notes: equals click-through in practice | Request click-through explicitly |
 | Dynamic URL parameters | Help: dynamic UTM macros not supported (UI) | API: query string templates with `{campaign_id}`, `{ad_id}`, `{oppref}` | UI static UTMs; API macros where available |
-| Negative controls | SE Ranking advises negative keywords | Negative keywords removed from public API spec (2026-09); Negative Phrases for qualifying advertisers (2026-10) | Check account eligibility |
+| Negative controls | SE Ranking advises negative keywords | Negative keywords removed from public API spec (2026-09); Negative Phrases for qualifying advertisers (2026-10; Adthena saw up to 100 phrases of 100 characters) | Check account eligibility; criteria unpublished |
 | Ad frequency | 0.8% of prompts (Feb) | 26% of chats (June) | Both true at different times and samples |
 | AI Mode ad frequency | 5.8% (Adthena) | 29.45% (SE Ranking) | Method dependent |
 | Privacy | OpenAI: no pixel data for user level personalization; aggregate only for advertisers | Independent research: cross advertiser `__obi` cookie, AAM enabled by default | Consent false by default in regulated markets; legal review |
-| Criteo minimums | $50k to $100k | $25k, later $10k | Ask the partner; terms changed monthly |
+| Criteo minimums | $50k to $100k (March deck) | $10k per month (Adweek, 2026-06) | Ask the partner; terms changed monthly |
 
 ## 6. What top operators do differently
 - They run the eligibility gate and measurement build before writing a single ad, and they attach event settings to every campaign so a later move to oCPC has history [Practitioner consensus].
@@ -147,8 +155,9 @@
 | Judging on blended platform conversions | Over crediting | [Practitioner consensus] |
 | Expecting pause to stop spend immediately | Up to 24 hours of billable delivery | [Official, 2026-09] |
 | Treating vendor CTR and new customer claims as targets | Bad forecasts | [Practitioner consensus] |
-| Large pilot commitments early in 2026 | Under delivery (15% to 20% of commitments delivered) | [Unverified] |
-| Planning around Instant Checkout | Program scaled back in March 2026 | [Unverified] |
+| Large pilot commitments early in 2026 | Under delivery (15% to 20% of commitments delivered) | [Unverified] (The Information relay) |
+| Planning around Instant Checkout | Program scaled back in March 2026 | [Official, 2026-03] |
+| Leaving automatic advanced matching unreviewed after 2026-08-17 | Hashed on page identity sent without a consent decision | [Official, 2026-08] |
 
 ## 8. Benchmarks (source, date, caveat)
 | Metric | Value | Source | Date | Caveat |
@@ -158,7 +167,7 @@
 | CTR | 0.68% overall, top quartile 1%, best 1.57% | Similarweb analysis relay | 2026-05 | Conflicts with 0.50% |
 | CPC guidance | $3 to $5 | OpenAI | 2026 | US calibrated |
 | CPC observed | $3.37 | One advertiser self report | 2026 | Single case |
-| CPM | $60 launch, $25 to $45 by April | Trade reports | 2026-02 to 04 | Pilot buys |
+| CPM | $60 launch, as low as $25 by mid April ($25 to $45 range, Ad Age lows of $15) | Adweek, Digiday, Ad Age | 2026-02 to 04 | Pilot buys |
 | Presence | 25.94% of 50,006 US commercial prompts | SE Ranking | 2026-08 | Synthetic prompts, July snapshot |
 | Presence | 26% of US desktop chats (June) | Similarweb | 2026-07 | Panel |
 | Relevance | 14.35% of impressions off topic | SE Ranking | 2026-08 | Method: semantic similarity vs random |
@@ -229,14 +238,14 @@ Competitive intelligence: Adthena, Similarweb AI Ads, SE Ranking ads tracker, Se
 - Multi advertiser carousels and competing retailers side by side [Unverified].
 - Sponsored Agents general availability, pricing, lead data handling.
 - Visual ads performance and expansion beyond the US.
-- Negative Phrases eligibility criteria.
-- EU DSA ad repository (expected around January 2027) and any EEA personalization change [Unverified].
+- Negative Phrases eligibility criteria (not published as of 2026-10-08) and API support.
+- EU DSA obligations after the 2026-08-31 VLOSE designation (ad repository about four months after notification) and any EEA personalization change.
 - Whether OpenAI publishes benchmarks or a native conversion lift product.
 - Competitive clause enforcement (AI tools, other assistants) [Unverified].
-- Instant Checkout's future and ACP adoption [Unverified].
+- ACP adoption after the 2026-03 Instant Checkout scale back; merchant apps in ChatGPT.
 - Google AI Mode ad formats moving from test to general availability; Gemini app ads (no current plans as of 2025-12).
 - Microsoft Copilot specific reporting.
-- Perplexity re-entering advertising; Grok ads status.
+- Perplexity re-entering advertising (executives said "for now"); Grok ads status; Amazon DSP pilot expansion beyond select US advertisers.
 
 ## 12. Sources
 1. Our approach to advertising and expanding access to ChatGPT. OpenAI. https://openai.com/index/our-approach-to-advertising-and-expanding-access/ . 2026-01-16.
@@ -317,3 +326,26 @@ Competitive intelligence: Adthena, Similarweb AI Ads, SE Ranking ads tracker, Se
 76. AI assistant ads research corpus with raw captures. VAD37 (GitHub). https://github.com/VAD37/market-research-2026-09-22 . 2026-09-23.
 77. The Instant Checkout postmortem. towton (GitHub). https://github.com/terrence-giggy/towton/blob/main/terrain/marketplace-wars/2026-04-02-the-instant-checkout-postmortem.md . 2026-04-02.
 78. FAQ on ChatGPT Advertising. eMarketer. https://www.emarketer.com/content/faq-on-chatgpt-advertising--formats--costs--early-strategies-win . 2026.
+79. EXCLUSIVE: OpenAI Confirms $200,000 Minimum Commitment for ChatGPT Ads. Adweek. https://www.adweek.com/media/exclusive-openai-confirms-200000-minimum-commitment-for-chatgpt-ads/ . 2026-02.
+80. 'Everything is coming down': ChatGPT ads are getting cheaper. Digiday. https://digiday.com/marketing/everything-is-coming-down-chatgpt-ads-are-getting-cheaper/ . 2026-04-17.
+81. EXCLUSIVE: Criteo Cuts ChatGPT Ad Minimums, Offers Incentives to Woo Retailer Brands. Adweek. https://www.adweek.com/media/exclusive-criteo-cuts-chatgpt-ad-minimums-offers-incentives-to-woo-retailer-brands/ . 2026-06.
+82. StackAdapt Drops Minimum Spend Commitment for ChatGPT Ads. Adweek. https://www.adweek.com/media/stackadapt-drops-minimum-spend-commitment-for-chatgpt-ads/ . 2026-05.
+83. ChatGPT Ads adds negative phrases. Adthena. https://www.adthena.com/resources/blog/chatgpt-ads-negative-phrases/ . 2026-10.
+84. OpenAI To Test Visual Ads In ChatGPT Image Generation. Search Engine Journal. https://www.searchenginejournal.com/openai-chatgpt-image-generation-visual-ads-test/591981/ . 2026-10.
+85. OpenAI will show visual ads in ChatGPT while you generate images. BleepingComputer. https://www.bleepingcomputer.com/news/artificial-intelligence/openai-will-show-visual-ads-in-chatgpt-while-you-generate-images/ . 2026-10.
+86. ChatGPT advertisers face 10 days to opt out of automatic advanced matching. PPC Land. https://ppc.land/chatgpt-advertisers-face-10-days-to-opt-out-of-automatic-advanced-matching/ . 2026-08.
+87. ChatGPT Ads rolls out oCPC campaigns, AAM and product carousels. Search Engine Land. https://searchengineland.com/chatgpt-ads-rolls-out-ocpc-campaigns-aam-and-product-carousels-484494 . 2026-08.
+88. ChatGPT ads go live in the UK as OpenAI expands pilot beyond US. PPC Land. https://ppc.land/chatgpt-ads-go-live-in-the-uk-as-openai-expands-pilot-beyond-us/ . 2026-06.
+89. OpenAI opens ChatGPT Ads Manager beta to UK advertisers. Search Engine Land. https://searchengineland.com/openai-opens-chatgpt-ads-manager-beta-to-uk-advertisers-480679 . 2026-06.
+90. Amazon starts selling ads inside ChatGPT to its own advertisers. PPC Land. https://ppc.land/amazon-starts-selling-ads-inside-chatgpt-to-its-own-advertisers/ . 2026-09.
+91. Amazon pilots ad services in ChatGPT: What marketers need to know. Marketing Dive. https://www.marketingdive.com/news/amazon-pilots-ad-services-in-chatgpt-what-marketers-need-to-know/829945/ . 2026-09.
+92. OpenAI gains 7 Asian markets for ChatGPT ads, passing 60 countries. PPC Land. https://ppc.land/openai-gains-7-asian-markets-for-chatgpt-ads-passing-60-countries/ . 2026-09.
+93. ChatGPT Is Now A "Very Large Online Search Engine" In The EU. Search Engine Journal. https://www.searchenginejournal.com/chatgpt-is-now-a-very-large-online-search-engine-in-the-eu/587801/ . 2026-09.
+94. DSA: EU Commission classifies ChatGPT as "very large search engine". heise online. https://www.heise.de/en/news/DSA-EU-Commission-classifies-ChatGPT-as-very-large-search-engine-11435758.html . 2026-09.
+95. OpenAI's plans to make ChatGPT more like Amazon aren't going so well. TechCrunch. https://techcrunch.com/2026/03/24/openais-plans-to-make-chatgpt-more-like-amazon-arent-going-so-well/ . 2026-03-24.
+96. OpenAI shifts checkout plans in its agentic commerce strategy. Digital Commerce 360. https://www.digitalcommerce360.com/2026/03/06/openai-shifts-checkout-plans-agentic-commerce-strategy/ . 2026-03-06.
+97. OpenAI shifts ChatGPT ads to cost-per-click as $60 CPM erodes in ten weeks. The Next Web. https://thenextweb.com/news/openai-chatgpt-cpc-ads-launch . 2026-05.
+98. OpenAI surpassed $100M in annualized revenue from ChatGPT ads (relay of The Information). Ben's Bites. https://news.bensbites.co/posts/62158-openai-has-surpassed-100m-in-annualized-revenue-from-chatgpt-ads-has-expanded-to-600-advertisers-and-plans-to-launch-self-serve-advertiser-access-in-april . 2026-03.
+99. Perplexity walks away from ads. TechSpot. https://www.techspot.com/news/111374-perplexity-walks-away-ads-differentiate-openai-google.html . 2026-02.
+100. Meta Will Use AI Chats for Personalization. eWeek. https://www.eweek.com/news/meta-ai-chats-to-personalize-ads-across-apps/ . 2025-10.
+101. Ads in AI Overviews now live in 12 countries. PPC News Feed. https://ppcnewsfeed.com/ppc-news/2025-12/ads-in-ai-overviews-now-live-in-12-countries/ . 2025-12.

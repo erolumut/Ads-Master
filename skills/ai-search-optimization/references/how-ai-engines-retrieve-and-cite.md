@@ -41,7 +41,7 @@ Most AI search products follow the same broad steps. Vendors do not publish the 
 | ChatGPT shopping | Structured product data from merchant feeds (ACP) and third-party providers [Official, 2025 to 2026] | OAI-SearchBot plus feeds | n/a | None public | Merchant feed via ACP (owned by `commerce-feeds`) |
 | Perplexity | Own index built by PerplexityBot, plus live fetches [Official] | PerplexityBot (index, honors robots.txt), Perplexity-User (user fetch, generally does not apply robots.txt) [Official] | No [Study, 2024-12] | None | Allow PerplexityBot. Cloudflare delisted Perplexity as a verified bot in 2025-08 after stealth crawling allegations, which Perplexity disputed [Contested] |
 | Microsoft Copilot and Bing AI answers | Bing index | Bingbot | Yes (Bingbot renders) | Bing Webmaster Tools AI Performance: citations, cited pages, grounding queries, citation share [Official, 2026-02 and 2026-06] | Standard robots.txt, IndexNow for freshness |
-| Claude | Web search tool plus Anthropic's own crawler index [Official]. Third-party search provider reported as Brave Search in 2025 [Unverified for 2026] | Claude-SearchBot (search index), Claude-User (user fetch), ClaudeBot (training). Anthropic says its bots honor robots.txt [Official] | No for ClaudeBot per 2024 logs study [Study, 2024-12] | None | Allow Claude-SearchBot and Claude-User |
+| Claude | Web search tool plus Anthropic's own crawler index [Official]. Brave Search listed as a web search subprocessor (with TurboPuffer) as of 2026-09-02 [Official, 2026-09]; 86.7% overlap with Brave top results [Study, 2025] | Claude-SearchBot (search index), Claude-User (user fetch), ClaudeBot (training). Anthropic says its bots honor robots.txt [Official] | No for ClaudeBot per 2024 logs study [Study, 2024-12] | None | Allow Claude-SearchBot and Claude-User |
 | Meta AI | Reported web search partnerships plus Meta crawlers [Unverified] | Meta-ExternalAgent (training and indexing), Meta-ExternalFetcher (user fetch) [Official, verify current names] | Unknown | None | robots.txt per token. Blocking Meta-ExternalAgent may reduce Meta AI visibility [Unverified] |
 | Grok (xAI) | X posts plus web search [Practitioner consensus] | No widely documented crawler token [Unverified] | Unknown | None | Presence on X matters more here than anywhere else |
 | Apple (Siri, Spotlight, Apple Intelligence) | Applebot index. Applebot-Extended controls use for training only [Official] | Applebot, Applebot-Extended | Yes (Applebot renders) [Study, 2024-12] | None | Apple Business Connect for local facts |
@@ -53,14 +53,14 @@ Facts from Google's documentation [Official, 2025 to 2026]:
 1. Eligibility: a page must be indexed and eligible to show with a snippet. There are no additional technical requirements and no special markup.
 2. Both features may use query fan-out: multiple related searches across subtopics and data sources. Supporting pages are identified while the response is generated, so the link set is wider than classic results.
 3. AI Overviews appear only where Google judges them additive. AI Mode handles longer, exploratory and follow-up queries. Deep Search in AI Mode can issue hundreds of searches [Official, 2025-05].
-4. Traffic from AI features is counted in Search Console Performance under the Web search type. Since 2026-06-03 a separate Generative AI performance report shows impressions for AI Overviews and AI Mode combined, by page, country, device and date, with no clicks, no CTR, no position and no queries. Data starts 2026-05-18. Worldwide since 2026-08-31 [Official, 2026-08].
+4. Traffic from AI features is counted in Search Console Performance under the Web search type. Since 2026-06-03 a separate Generative AI performance report shows impressions for AI Overviews and AI Mode combined (no filter to split them), by page, country and date, with no clicks, no CTR, no position and no queries, and no API or BigQuery export. Data starts 2026-05-18. Worldwide since 2026-08-31 [Official, 2026-08].
 5. Snippet controls (nosnippet, data-nosnippet, max-snippet, noindex) apply to AI features. Google-Extended does not affect inclusion in Search or AI Overviews.
-6. Search generative AI control (Search Console, Settings): property-level Include or Exclude for AI Overviews, AI Mode and Discover AI features. Default Include. Takes one to two days. Does not cover the Gemini app. Not a ranking signal for classic results. Page-level control is not yet available (the UK CMA set a deadline of 2027-03) [Official, 2026-06; details via trade press].
+6. Search generative AI control (Search Console, Settings): property-level Include or Exclude for AI Overviews, AI Mode and Discover AI features. Default Include. Takes one to two days. Does not cover the Gemini app. Not a ranking signal for classic results. Options are Include, Exclude and Inherit from parent. Page-level control is not yet available (the CMA publisher controls conduct requirement, imposed 2026-06-03, gives Google nine months, about 2027-03) [Official, 2026-06 and 2026-08].
 
 Observed behavior [Study and Contested, see evidence module]:
 1. Overlap between AI Overview citations and the classic top 10 was reported at 76% in 2025 (Ahrefs), while 2026 analyses report far lower overlap for AI Mode (around 12% in a Moz analysis) [Contested].
 2. AI Mode cites more unique domains than AI Overviews (one 2026 analysis: 143% more) [Study, 2026-01, secondary].
-3. Models change often: Gemini 3 reached AI Mode in 2025-11 [Official]. Trade press reported a newer Gemini Flash model in AI Mode in 2026-09 [Unverified]. Re-baseline tracking after model changes.
+3. Models change often: Gemini 3 reached AI Mode on 2025-11-18 and became the AI Overviews default on 2026-01-27 [Official]; Gemini 3.5 Flash became the AI Mode default at I/O 2026-05-19 [Official, 2026-05]; Gemini 3.7 Flash (2026-08-14) and 3.8 Flash (2026-09-02) became selectable for paying subscribers [Official, via trade press]. Free users and paid users can therefore see different models. Re-baseline tracking after model changes.
 
 ### 3.3 ChatGPT search
 
@@ -76,7 +76,7 @@ Reported architecture [Study, 2026-07; vendor research, treat percentages as ind
 3. Only about 1.5% of Labrador URLs appeared in Bing's top 20 for the same fan-out queries. Bing visibility is no longer a sufficient ChatGPT strategy [Study, 2026-07].
 4. Earlier evidence pointed to Bing: Seer found 87% of SearchGPT citations matched Bing top results [Study, 2024]. Grow and Convert later found only about 40% of ChatGPT sources came from Google and Bing results for known fan-out queries [Study, 2025]. The index mix has moved over time and differs by tier.
 5. A trade report states the free-tier index stores only a page title and about 200 characters of body text per page [Unverified]. Even if imprecise, it supports front-loading the key fact in the title and opening sentence.
-6. Profound data reported via a vendor blog: the first turn of a conversation is about 2.5 times more likely to trigger citations than turn 10 [Unverified].
+6. Profound (about 700k US English ChatGPT conversations, 2025-10 to 2025-12): the first turn of a conversation produces citations at about 2.5 times the rate of turn 10 [Study, 2026] (read via secondary write-ups).
 7. Similarweb observed that from 2026-05-07 the share of ChatGPT referrals landing on brand homepages jumped from roughly 26 to 32% to about 60%, with total ChatGPT referrals up 157.7% week over week [Study, 2026-05]. Homepages now carry more AI landing traffic: make them answer "what is this, who is it for, what does it cost, why trust it".
 
 Tier and mode matter: logged-out, free, paid, think mode and agent mode can use different retrieval paths. Track the modes your buyers use.
@@ -101,7 +101,7 @@ Tier and mode matter: logged-out, free, paid, think mode and agent mode can use 
 
 1. Anthropic documents three bots: ClaudeBot (training), Claude-User (fetches pages for a user's question), Claude-SearchBot (indexes for search quality). Anthropic says its bots honor robots.txt and do not bypass CAPTCHAs, and supports Crawl-delay [Official].
 2. Blocking Claude-User or Claude-SearchBot reduces visibility in Claude answers [Official].
-3. Claude web search launched 2025-03 and reached all plans in 2025-05 [Official, 2025]. The external search provider was reported as Brave Search in 2025 [Unverified for 2026]. If Brave is still used, Brave Search ranking is a lever. Test, do not assume.
+3. Claude web search launched 2025-03-20 and reached all plans in 2025-05 [Official, 2025]. Anthropic's subprocessor list still names Brave Search under Web Search (2026-09-02) [Official, 2026-09], and cited URLs overlap heavily with Brave's top results [Study, 2025]. Brave Search ranking is a lever; test, do not assume.
 4. Claude is a fast-growing referral source in B2B (one B2B study put Claude at 18.5% of measurable B2B AI referrals in 2026) [Study, 2026, secondary]. Check your own GA4 before prioritizing.
 
 ### 3.7 Meta AI, Grok, Apple, Amazon, others
@@ -156,7 +156,7 @@ Procedure to build a fan-out map for one priority prompt:
 | Location (IP, stated city) | Changes local results, availability, currency, retailers | [Official for local features; Practitioner consensus] |
 | Logged-in vs logged-out | Different models, modes and limits. Logged-out runs are a cleaner baseline but not what most paying users see | [Practitioner consensus] |
 | Google personal context | Google has announced personal context features for AI Mode and Gemini that can use Gmail and other apps with permission | [Official, 2025 to 2026; rollout scope Unverified] |
-| Conversation turn | Earlier turns are more likely to show citations | [Unverified] |
+| Conversation turn | Earlier turns are more likely to show citations (about 2.5x at turn 1 vs turn 10) | [Study, 2026] (Profound) |
 
 Measurement consequence: no single run represents "the answer". Answers vary run to run. SparkToro and Gumshoe found less than a 1 in 100 chance that ChatGPT or Google AI returned the same brand list twice for the same prompt, and under 0.1% for the same list in the same order, across 2,961 responses [Study, 2026, fieldwork 2025-11 to 2025-12]. A stable core of category leaders still appeared repeatedly. Track mention frequency across many runs. See [Measurement](measurement-and-prompt-tracking.md).
 

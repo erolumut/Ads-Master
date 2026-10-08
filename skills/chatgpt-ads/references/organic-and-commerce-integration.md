@@ -63,7 +63,7 @@ Practical rule: one source of truth for product data (PIM or platform catalog) f
 | Date | Event | Label |
 |------|-------|-------|
 | 2025-09-29 | Instant Checkout launched with Etsy sellers (US), Shopify merchants "coming soon"; ACP open sourced with Stripe; merchants pay a fee on completed purchases; Instant Checkout availability considered in ranking among other factors | [Official, 2025-09] |
-| 2026-03 | Instant Checkout removed for Shopify merchants and other retailers; OpenAI said the initial version "did not offer the level of flexibility that we aspire to provide," merchants use their own checkout, focus on discovery with ACP connecting users to merchants | [Unverified] (Digital Commerce 360, 2026-03-06 and 2026-03-24) |
+| 2026-03 | Instant Checkout scaled back (OpenAI says it is moving away from it; coverage that calls it "shut down" overstates the official wording; only about 30 Shopify merchants were live per Forrester); OpenAI said the initial version "did not offer the level of flexibility that we aspire to provide," merchants use their own checkout, focus on discovery with ACP connecting users to merchants | [Official, 2026-03] (OpenAI statement reported by Digital Commerce 360, 2026-03-06, and TechCrunch, 2026-03-24) |
 | 2026-03 | Walmart said Instant Checkout converted at one third the rate of click outs to its site; Walmart moved to its own app in ChatGPT | [Unverified] (Search Engine Land, Retail Dive relays) |
 | 2026-09 | OpenAI's Shopify help page states users check out on merchants' online stores | [Official, 2026-09] |
 | 2026 | ACP maintained by OpenAI and Stripe, Apache 2.0; integrations for discovery reported for Target, Sephora, Nordstrom, Lowe's, Best Buy, The Home Depot, Wayfair | [Unverified] |
@@ -74,7 +74,7 @@ Implications for paid:
 - Agentic commerce protocols across platforms (OpenAI ACP, Google UCP, Microsoft Copilot Checkout, Amazon Buy for Me) are commerce-feeds territory; this agent only needs to know whether a surface sends users to the merchant site (trackable with pixel and UTMs) or completes purchase in platform (needs platform reporting).
 
 ## 6. Apps in ChatGPT, Sponsored Agents and brand agents
-- Brands such as Walmart, Instacart and Booking have built apps inside ChatGPT (organic or partner distribution, not ads) [Unverified].
+- Brands such as Walmart, Target, Instacart, Expedia and Booking.com run apps inside ChatGPT that handle account linking and checkout (organic or partner distribution, not ads) (TechCrunch, 2026-03-24; Modern Retail).
 - Sponsored Agents (paid, test with select US advertisers) let users chat with a business's AI representative from an ad [Official, 2026-09]. Messages a user sends to an advertiser are visible to that advertiser [Official, 2026-09], which makes lead capture possible but also creates data handling obligations.
 - Decision: an owned ChatGPT app is a product and distribution decision (growth-orchestrator); Sponsored Agents are a paid format this agent evaluates when access opens.
 

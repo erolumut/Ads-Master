@@ -24,7 +24,7 @@ Output of the gate: go, conditional go (list conditions) or no go, with dates of
 Ads Manager Availability on 2026-09-22 listed 56 countries, all Available [Official, 2026-09]:
 Algeria, Australia, Austria, Bahrain, Belgium, Brazil, Bulgaria, Canada, Croatia, Cyprus, Czech Republic, Denmark, Egypt, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, India, Iraq, Ireland, Israel, Italy, Japan, Jordan, Korea, Kuwait, Latvia, Lebanon, Liechtenstein, Lithuania, Luxembourg, Malta, Mexico, Morocco, Netherlands, New Zealand, Norway, Oman, Poland, Portugal, Qatar, Romania, Saudi Arabia, Slovakia, Slovenia, Spain, Sweden, Switzerland, Tunisia, Turkey, United Arab Emirates, United Kingdom, United States.
 
-Added in late September 2026: Indonesia, Malaysia, Philippines, Singapore, Thailand, Vietnam, Taiwan [Official, 2026-09] (OpenAI post on Southeast Asia and Taiwan) with exact self-serve status [Unverified]. Third-party trackers count 63 countries [Unverified].
+Added in late September 2026: Indonesia, Malaysia, Philippines, Singapore, Thailand, Vietnam, Taiwan [Official, 2026-09] (OpenAI post on Southeast Asia and Taiwan; TechNode Global, 2026-09-24), taking the total past 60 countries; exact self-serve status per country [Unverified]. Third-party trackers count 63 countries [Unverified]. No Latin American market beyond Brazil and Mexico and no sub-Saharan African market was announced as of 2026-10-08.
 
 Rules [Official, 2026-09]:
 - Access follows the country selected for the advertiser business or ad account, not the ChatGPT login country.
@@ -101,7 +101,8 @@ Spend control without account limits: set campaign total budgets with end dates 
 | Path | When to use | Notes | Label |
 |------|------------|-------|-------|
 | OpenAI Ads Solutions (sales) | Large budgets, complex needs, markets before self-serve opens, invoice terms | Contact through the availability page form | [Official, 2026-09] |
-| Criteo (Criteo GO for SMB, API integration for brands) | Retail media buyers already on Criteo, wanting managed activation and retail data | Reported minimums fell from $50k to $100k to as low as $10k by June 2026 | [Official, 2026-06] (availability) and [Unverified] (minimums) |
+| Criteo (Criteo GO for SMB, API integration for brands) | Retail media buyers already on Criteo, wanting managed activation and retail data | Minimums fell from $50k to $100k (March pitch deck) to $10k per month with a dollar-for-dollar media match (Adweek, 2026-06) | [Official, 2026-06] (availability) and trade reports (minimums; Criteo declined comment) |
+| Amazon Ads (Amazon DSP, managed service) | Amazon advertisers wanting ChatGPT inventory with Amazon's managed team | Select US advertisers from 2026-09-10; CPC or CPM; aggregate reporting (impressions, clicks, CPM, CPC); no commission or affiliate reporting | Trade reports (Digiday, Marketing Dive, PPC Land, 2026-09) |
 | StackAdapt, Kargo, Pacvue, Adobe | Programmatic or commerce teams already on these platforms | Partner controls budgets, bids and creative; OpenAI controls delivery | [Official, 2026-05] |
 | Holding company agencies (Dentsu, Omnicom, Publicis, WPP) | Enterprise brands with agency of record | Early pilot access was mainly via these | [Official, 2026-05] |
 | Shopify app | Shopify merchants wanting catalog sync and simple campaigns | US from 2026-09-16, international from 2026-09-23 | [Official, 2026-09] |

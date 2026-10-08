@@ -12,23 +12,31 @@
 
 ## 2. External Search benchmarks (all industries)
 
-| Metric | Value | Source | Date | Sample and caveat |
+| Metric | 2026 edition | 2025 edition | Source | Sample and caveat |
 |---|---|---|---|---|
-| Average Search CTR | 6.66% | WordStream by LocaliQ, Google Ads Benchmarks 2025 | 2025 | US-centric advertiser sample across about 20 industries, data roughly April 2024 to March 2025; averages hide large differences by industry and by brand share [Study, 2025; figures from prior knowledge, Unverified this session: confirm against the current edition before quoting] |
-| Average Search CPC | 5.26 USD | Same | 2025 | CPCs rose year over year in most industries in that report |
-| Average Search conversion rate | 7.52% | Same | 2025 | Conversion definitions differ by advertiser |
-| Average cost per lead | 70.11 USD | Same | 2025 | Lead definitions vary; not qualified leads |
+| Average Search CTR | 6.64% | 6.66% | WordStream by LocaliQ, Google Ads Benchmarks 2026 and 2025 | 2026: about 13,500 US search campaigns (reported 13,474), April 2025 to March 2026, 23 industries, Google and Microsoft Ads search campaigns combined per one summary. 2025: 16,446 US campaigns, April 2024 to March 2025. Figures read from search summaries of the publisher pages, not the full report; summaries disagree on whether they are averages or medians [Study, 2026 and 2025] |
+| Average Search CPC | 5.42 USD | 5.26 USD | Same | CPC rose again in 2026; varies widely by vertical (education CPC fell about 23% in 2026) |
+| Average Search conversion rate | 8.18% | 7.52% | Same | Conversion definitions differ by advertiser |
+| Average cost per lead | 66.69 USD | 70.11 USD | Same | First CPL decline in five years per the publisher; lead definitions vary, not qualified leads |
+| Search CTR range by industry (2026) | Real estate highest at 7.61%, health and fitness lowest at 5.81% | n/a | WordStream 2026 | Use the industry tables for vertical comparisons |
 
-A 2026 edition may exist; the agent must check before quoting. Use the industry tables in the current edition for vertical comparisons.
+Do not mix editions in one comparison: methods and samples change between years. Quote the edition and its data window with the figure.
+
+Practitioner data studies (method published, sample is the vendor's customer base):
+| Study | Finding | Sample and date | Caveat |
+|---|---|---|---|
+| Optmyzr, State of Google Ads Q1 2026 | PMax campaign volume up 15.7% year over year; PMax CTR rose from 1.29% to 1.68% while CPA rose and ROAS slipped slightly | 21,000+ accounts managed in Optmyzr, Q1 2026 vs Q1 2025 [Study, 2026] | Tool users skew to managed, mid to large accounts |
+| Optmyzr, PMax and Search overlap | PMax often takes queries from Search campaigns, even where exact match keywords exist | 503 accounts, 2025-02-01 to 2025-02-28 [Study, 2025] | One month of data; predates 2025 to 2026 PMax controls |
 
 Other recurring benchmark sources to check (no figures quoted here because they were not verified this session):
 | Source | What it covers | Cadence |
 |---|---|---|
 | Tinuiti Digital Ads Benchmark Report | Google Search, Shopping, PMax spend, CPC and click growth trends for large retail advertisers | Quarterly |
 | Skai quarterly trends report | Search, retail media and social trends | Quarterly |
-| Optmyzr studies | PMax, match types, AI Max and bidding analyses on large account samples | Irregular |
-| Smarter Ecommerce (smec) research | PMax and Shopping analyses | Irregular |
+| Optmyzr data studies (optmyzr.com/blog/data-studies) | PMax, match types, AI Max and bidding analyses on large account samples | Quarterly and irregular |
+| Smarter Ecommerce (smec) research | PMax, Shopping and AI Max overlap analyses | Irregular |
 | Google Ads API percentile benchmarks (v25.2) | Competitive benchmark percentiles by category for an account | Ongoing [Official via trade press, 2026-09] |
+| Spend benchmarks report in Google Ads | Spend compared with similar businesses (comparison added 2026-09) | Ongoing [Practitioner report, Search Engine Roundtable 2026-09] |
 | Google Analytics benchmarking | Anonymized peer averages in GA4 | Ongoing |
 
 ## 3. Google's own uplift claims (vendor claims, not independent)
@@ -37,7 +45,7 @@ Other recurring benchmark sources to check (no figures quoted here because they 
 |---|---|---|---|
 | AI Max for Search | 14% more conversions or conversion value at similar CPA or ROAS on average; 27% for campaigns mostly using exact and phrase match | Google, 2025-05 | Google internal data; incrementality vs keyword cannibalization not shown. Test with AI Max experiments |
 | Smart Bidding Exploration | 18% more unique converting query categories, 19% more conversions | Google, internal data 2025-03-11 to 2025-04-11 | Selection effects possible; judge on profit |
-| Enhanced conversions | About 11% more Search conversions on average vs standard imports | Google 2026 materials via trade press, 2026-09 | Recovered conversions are partly modeled or matched, not incremental sales |
+| Enhanced conversions | 11% more Search conversions on average vs standard conversion imports | Google, repeated in 2026-09 Data Strength materials | Recovered conversions are partly modeled or matched, not incremental sales |
 | Demand Gen H2 2025 improvements | 30% average conversion increase | Google via trade press, 2026-08 | Platform reported conversions |
 | ABCD video framework | Ads following ABCD associated with higher short-term sales likelihood | Google and Kantar research (Think with Google) | Correlational creative research |
 
@@ -98,7 +106,7 @@ Store confirmed baselines (not one-off numbers) in `ads-master/memory/google-ads
 
 ## 8. Benchmark refresh checklist (annual or when a new report lands)
 
-1. Check whether WordStream by LocaliQ published a new Google Ads benchmark edition; update section 2 with the new figures, date, sample and method.
+1. Check whether WordStream by LocaliQ published a new Google Ads benchmark edition (editions appear around April to June with an April to March data window); update section 2 with the new figures, date, sample and method.
 2. Check Tinuiti and Skai latest quarterly reports for CPC and spend trends in Search and Shopping.
 3. Check Google Ads API release notes for benchmark resources and the Google Ads UI for benchmark features.
 4. Update the date at the top of this file. Log the refresh in the journal.

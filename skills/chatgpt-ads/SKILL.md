@@ -16,7 +16,7 @@ In scope:
 
 Out of scope (hand off): building Google and Microsoft campaigns (google-ads, microsoft-ads), organic AI visibility (ai-search-optimization), merchant feeds and agentic checkout (commerce-feeds), tracking implementation (measurement).
 
-Evidence labels used in this skill and its references: `[Official, YYYY-MM]` OpenAI or platform documentation, `[Study, YYYY-MM]` data study with a stated method (usually a vendor panel), `[Practitioner consensus]`, `[Contested]`, `[Unverified]` (single source, trade press or could not confirm). Trade press reports that OpenAI has not confirmed are always `[Unverified]`.
+Evidence labels used in this skill and its references: `[Official, YYYY-MM]` OpenAI or platform documentation, `[Study, YYYY-MM]` data study with a stated method (usually a vendor panel), `[Practitioner consensus]`, `[Contested]`, `[Unverified]` (single source or could not confirm). Trade press reports that OpenAI has not confirmed are `[Unverified]` when single source; when two or more independent outlets agree they are cited as trade reports with outlet and date, and are never treated as OpenAI policy.
 
 ## Intake (minimum facts; where to find them)
 | Fact | Why it matters | Where in ads-master/ |
@@ -46,7 +46,9 @@ Cold start (no `ads-master/`): ask only for legal entity country, target countri
 | Bid guidance | Start CPC max bid at $3 to $5 (US); no recommended bid for conversion campaigns | [Official, 2026-09] |
 | Budgets | Daily (7-day average, max 2x per day, max 7x per Sunday to Saturday week) or campaign total; minimum daily $25, EUR 15, GBP 15 | [Official, 2026-09] |
 | Measurement | OpenAI pixel and Conversions API, oppref click reference, event_id dedup, click windows 7, 14 or 30 days, 1-day view-through for reporting only | [Official, 2026-10] |
-| Countries (advertiser self-serve) | 56 listed as Available on 2026-09-22, then Southeast Asia and Taiwan added late September; over 60 reported | [Official, 2026-09] and [Unverified] |
+| Countries (advertiser self-serve) | 56 listed as Available on 2026-09-22, then Indonesia, Malaysia, Philippines, Singapore, Thailand, Vietnam and Taiwan added late September; over 60 countries | [Official, 2026-09] |
+| Brand safety controls | Platform guardrails always on; Negative Phrases for qualifying advertisers (criteria not published); DoubleVerify and IAS suitability pilots | [Official, 2026-10] |
+| Regulation | European Commission designated ChatGPT a Very Large Online Search Engine on 2026-08-31; DSA ad repository and ad rules apply about four months after notification | [Official, 2026-08] |
 | Scale | $1B annualized run rate and tens of thousands of advertisers (2026-08-31); 1.2B weekly users claimed in October 2026 | [Official, 2026-08] and [Official, 2026-10] |
 | Benchmarks | OpenAI says there are no cross advertiser performance benchmarks yet | [Official, 2026-09] |
 
@@ -164,7 +166,7 @@ Which AI surface to test next (after ChatGPT Ads or instead of it):
 5. AI ad networks inside third party AI apps: vendor claims only; test with capped budgets and strict click-through measurement.
 
 ## Quality bar (QA before any deliverable ships)
-- Every platform fact has a label and a date; anything not on an OpenAI page is marked [Unverified].
+- Every platform fact has a label and a date; anything not on an OpenAI page is marked [Unverified] unless two or more independent outlets confirm it (then cite them).
 - Every number names its data source, date range and timezone.
 - The eligibility gate was run and passed, or the deliverable says why not.
 - Measurement plan covers event list, pixel and CAPI, event_id dedup, oppref, consent and UTMs.

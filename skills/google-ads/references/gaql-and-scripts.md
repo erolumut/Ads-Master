@@ -1,6 +1,6 @@
 # GAQL Audit Queries and Google Ads Scripts
 
-> Knowledge as of 2026-10. Field availability depends on the Google Ads API version. Before running, check the field in the Google Ads API field reference for the version your connector or script uses. Google Ads API v22 was sunset on 2026-10-07; v25 (2026-07-22) and v25.2 (2026-09-23) are current as of this writing. Queries marked [verify fields] use resources added in 2025 or 2026.
+> Knowledge as of 2026-10. Field availability depends on the Google Ads API version. Supported versions on 2026-10-08: v23, v24 and v25 (v25.2 released 2026-09-23). Sunsets in 2026: v20 on 2026-06-10, v21 on 2026-08-05, v22 on 2026-10-07 [Official, Google Ads Developer Blog and client library changelog]. Every field name in this module was checked on 2026-10-08 against the v25 type definitions published in Google's official client library (googleads/google-ads-python, release 33.0.0). Field names are therefore [Official, v25]; where a resource and segment combination could not be confirmed, the query says so.
 
 All queries are read-only. They run in: the official Google Ads MCP server (`search` tool), community MCP servers, the Google Ads API (GoogleAdsService.Search or SearchStream), Google Ads Scripts (`AdsApp.search`), and the Google Ads Query Builder for testing. GAQL does not support comments, so notes sit outside the code blocks.
 
@@ -9,6 +9,7 @@ Conventions:
 - Date filters: `segments.date DURING LAST_30_DAYS` or `segments.date BETWEEN '2026-09-01' AND '2026-09-30'`.
 - Selecting `segments.date` returns one row per day; filtering on it without selecting it returns totals.
 - Replace 1234567890 with real IDs. Replace thresholds with values derived from the target CPA.
+- Reporting history: since 2026-06-01, daily, weekly and hourly segments are available for 37 months only; older periods return a date range error (REQUESTED_DATE_GRANULARITY_NOT_SUPPORTED in v24 and later). Query older periods with `segments.month`, `segments.quarter` or `segments.year` (kept 11 years) [Official, Google Ads Developer Blog 2026-05].
 
 ## Part A: Audit queries
 
@@ -51,18 +52,20 @@ ORDER BY metrics.cost_micros DESC
 LIMIT 10000
 ```
 
-### Q3b. Search terms with match source (AI Max, keywordless, PMax) [verify fields]
+### Q3b. Search terms with match source, all campaign types including PMax
 ```sql
-SELECT campaign.name, ad_group.name, search_term_view.search_term, segments.search_term_match_type,
-  segments.search_term_match_source, metrics.clicks, metrics.cost_micros, metrics.conversions,
-  metrics.conversions_value
-FROM search_term_view
+SELECT campaign.name, campaign.advertising_channel_type, campaign_search_term_view.search_term,
+  segments.search_term_match_source, metrics.impressions, metrics.clicks, metrics.cost_micros,
+  metrics.conversions, metrics.conversions_value
+FROM campaign_search_term_view
 WHERE segments.date DURING LAST_30_DAYS
   AND metrics.cost_micros > 0
 ORDER BY metrics.cost_micros DESC
 LIMIT 10000
 ```
-The UI shows match type "AI Max" and a source column. The API segment name for the source has varied across versions; if `segments.search_term_match_source` errors, check the field reference for the current name and fall back to Q3.
+- `campaign_search_term_view` returns one row per search term per campaign with cost metrics, including Performance Max. Adding keyword-related segments (ad group, keyword, match type) removes PMax rows from the result [Official, API reference v21 to v25].
+- `segments.search_term_match_source` values in v25: ADVERTISER_PROVIDED_KEYWORD, AI_MAX_KEYWORDLESS, AI_MAX_BROAD_MATCH, DYNAMIC_SEARCH_ADS, PERFORMANCE_MAX, VERTICAL_ADS_DATA_FEED [Official, v25 enum]. Use it to split spend between your keywords, AI Max expansion, DSA and PMax.
+- The combination of this segment with this view was not test-run for this edition. If the API rejects it, drop the segment, keep the view for PMax, and use Q3 with `segments.search_term_match_type` (v25 values include AI_MAX and PERFORMANCE_MAX besides BROAD, EXACT, PHRASE, NEAR_EXACT and NEAR_PHRASE).
 
 ### Q4. Wasted spend: search terms with cost and no conversions
 ```sql
@@ -135,14 +138,18 @@ WHERE campaign.status = 'ENABLED'
 ```
 Flag: Search campaigns with target_content_network = TRUE (Display expansion), positive_geo_target_type = PRESENCE_OR_INTEREST for local or shipping-limited businesses, shared budgets mixing different targets.
 
-### Q8b. AI Max status per campaign [verify fields]
+### Q8b. AI Max status and auto-upgrade dates per campaign
 ```sql
-SELECT campaign.id, campaign.name, campaign.ai_max_setting.enable_ai_max, campaign.status
+SELECT campaign.id, campaign.name, campaign.status, campaign.ai_max_setting.enable_ai_max,
+  campaign.ai_max_setting.bundling_required, campaign.aca_migration_date_time,
+  campaign.broad_match_migration_date_time
 FROM campaign
 WHERE campaign.advertising_channel_type = 'SEARCH'
   AND campaign.status = 'ENABLED'
 ```
-API v25.1 also added campaign fields for scheduled migration dates (reported as `aca_migration_date_time` and `broad_match_migration_date_time`) [Unverified field paths]. Confirm in the field reference.
+- `enable_ai_max` FALSE or empty means no AI Max feature serves, whatever the individual feature settings say. Search term matching is on by default when AI Max is on and can be turned off per ad group [Official, v25 field docs].
+- `bundling_required` = REQUIRED means AI Max must stay enabled for the campaign to keep serving text asset automation and brand list targeting [Official, v25 field docs].
+- `aca_migration_date_time` and `broad_match_migration_date_time` (added in v25.1, 2026-08-19) are output-only timestamps in account time ("yyyy-MM-dd HH:mm:ss") recording when the campaign was migrated to AI Max from automatically created assets or campaign-level broad match. Empty means not migrated by that route [Official, v25 field docs]. Use them to date the trend break in reports.
 
 ### Q9. PMax channel split
 ```sql
@@ -152,7 +159,7 @@ FROM campaign
 WHERE campaign.advertising_channel_type = 'PERFORMANCE_MAX'
   AND segments.date DURING LAST_30_DAYS
 ```
-Older API versions return MIXED for PMax network segments. If the result shows only MIXED, use the Channel performance report in the UI (Insights and reports) or its export, and the placement view below. Flag when Display plus YouTube exceed 30% of cost and deliver under 10% of conversion value.
+The v25 `AdNetworkType` enum includes SEARCH, SEARCH_PARTNERS, CONTENT, YOUTUBE, GOOGLE_TV, GMAIL, DISCOVER, MAPS, GOOGLE_OWNED_CHANNELS and MIXED [Official, v25 enum]. Versions before the 2026 channel segmentation updates (v24.2 added ad network segmentation for PMax placement reporting) return MIXED for PMax. If the result still shows only MIXED, use the Channel performance report in the UI (Insights and reports) or its export, and the placement view below. Flag when Display plus YouTube exceed 30% of cost and deliver under 10% of conversion value.
 
 ### Q10. PMax placements (Display, YouTube, apps)
 ```sql
@@ -175,7 +182,7 @@ WHERE campaign_search_term_insight.campaign_id = '1234567890'
   AND segments.date DURING LAST_30_DAYS
 ORDER BY metrics.conversions DESC
 ```
-Requires a single campaign ID filter. For query-level PMax search terms with cost (added in 2025 with the PMax search terms report), check the current API reference for the search term view that supports PMax; if unavailable in your version, export the PMax search terms report from the UI to `ads-master/data/imports/`.
+Requires a single campaign ID filter. For query-level PMax search terms with cost, use Q3b (`campaign_search_term_view`). If your connector runs an older version without it, export the PMax search terms report from the UI to `ads-master/data/imports/`.
 
 ### Q12. PMax asset group performance
 ```sql
@@ -190,15 +197,16 @@ ORDER BY metrics.cost_micros DESC
 ### Q13. PMax asset performance (asset level reporting)
 ```sql
 SELECT campaign.name, asset_group.name, asset_group_asset.field_type,
-  asset_group_asset.performance_label, asset_group_asset.status, asset.id, asset.type, asset.name,
-  asset.text_asset.text, asset.youtube_video_asset.youtube_video_id, metrics.impressions,
-  metrics.clicks, metrics.cost_micros, metrics.conversions, metrics.conversions_value
+  asset_group_asset.status, asset_group_asset.primary_status, asset_group_asset.source,
+  asset.id, asset.type, asset.name, asset.text_asset.text, asset.youtube_video_asset.youtube_video_id,
+  metrics.impressions, metrics.clicks, metrics.cost_micros, metrics.conversions,
+  metrics.conversions_value
 FROM asset_group_asset
 WHERE campaign.advertising_channel_type = 'PERFORMANCE_MAX'
   AND segments.date DURING LAST_30_DAYS
 ORDER BY metrics.cost_micros DESC
 ```
-Metrics on asset_group_asset came with 2025 asset reporting [verify fields]. If metrics error, drop them and use performance_label only.
+`asset_group_asset.performance_label` is gone: Google deprecated PMax performance labels in favor of full metrics in 2025, and the field is absent from the v23 to v25 type definitions [Official, client library; Practitioner report, 2025-05]. Judge assets on conversions and value per impression instead. `source` separates advertiser assets from automatically created ones. If metrics are rejected for this resource in your version, use the asset group level report (Q12) and the UI asset report.
 
 ### Q14. RSA asset performance
 ```sql
@@ -251,14 +259,14 @@ FROM campaign_shared_set
 WHERE shared_set.type = 'NEGATIVE_KEYWORDS'
 ```
 
-### Q18. Brand list exclusions on PMax and AI Max [verify fields]
+### Q18. Brand list exclusions on PMax and AI Max
 ```sql
 SELECT campaign.name, campaign.advertising_channel_type, campaign_criterion.type,
   campaign_criterion.negative, campaign_criterion.brand_list.shared_set
 FROM campaign_criterion
 WHERE campaign_criterion.type = 'BRAND_LIST'
 ```
-Any non-brand PMax or AI Max campaign without a negative BRAND_LIST criterion is a brand leakage risk.
+Any non-brand PMax or AI Max campaign without a negative BRAND_LIST criterion is a brand leakage risk. Field names, the BRAND_LIST criterion type and the BRANDS shared set type are confirmed in v25 [Official, v25]. To list the brand lists themselves: `SELECT shared_set.id, shared_set.name, shared_set.member_count FROM shared_set WHERE shared_set.type = 'BRANDS'`.
 
 ### Q19. Landing pages (including expanded URLs)
 ```sql
@@ -352,7 +360,7 @@ FROM customer
 SELECT recommendation_subscription.type, recommendation_subscription.status
 FROM recommendation_subscription
 ```
-The last query lists auto-apply subscriptions [verify resource availability]. Flag auto-apply for keyword additions, broad match upgrades, budget increases or target changes.
+The last query lists auto-apply subscriptions (resource confirmed in v25 [Official]). Flag auto-apply for keyword additions, broad match upgrades, budget increases or target changes.
 
 ### Q26. Audience performance and Customer Match sizes
 ```sql
@@ -377,7 +385,7 @@ WHERE campaign.name LIKE '%_BR_%'
 ```
 Run again with `NOT LIKE '%_BR_%'` for non-brand. Depends on the naming convention in the account structure module.
 
-### Q28. AI Max search term, headline and landing page combinations [verify fields]
+### Q28. AI Max search term, headline and landing page combinations
 ```sql
 SELECT campaign.name, ad_group.name, ai_max_search_term_ad_combination_view.search_term,
   ai_max_search_term_ad_combination_view.headline,
@@ -388,7 +396,7 @@ WHERE segments.date DURING LAST_30_DAYS
 ORDER BY metrics.cost_micros DESC
 LIMIT 1000
 ```
-The view was added in API v21 (2025-08) [Official]; attribute names here are [Unverified]. Check the field reference and adjust.
+The view was added in API v21 (2025-08); attribute names `search_term`, `headline` (up to three headline assets joined by " | ") and `landing_page` (the dynamically generated destination URL) are confirmed in v25 [Official, v25 field docs]. Related: `final_url_expansion_asset_view` (campaign, ad_group, asset_group, asset, field_type, status, final_url) shows which assets served with expanded URLs [Official, v25].
 
 ### Q29. Hour of day and day of week
 ```sql

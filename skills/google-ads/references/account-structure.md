@@ -30,7 +30,7 @@ Structure decides how much signal each bid strategy gets, what you can control, 
 | App campaigns (installs) | Firebase or MMP linked | Daily budget at least 50x target CPI [Official guidance, verify] | Separate iOS and Android |
 | App campaigns (in-app actions) | 10+ in-app conversions a day recommended | Daily budget at least 10x target CPA [Official guidance, verify] | Move to tROAS only with purchase values |
 
-Learning period: Google describes it as a few conversion cycles; one Google help page variant mentions up to about 50 conversion events or 3 conversion cycles [Contested, 2026-09: wording differs between regional versions of the same help page]. Plan 1 to 3 weeks before judging any bid strategy change, longer for long conversion lags.
+Learning period: Google updated its guidance in 2026-09 to "up to around 50 conversion events or 3 conversion cycles" on the UK English help page, while the US English page still said 1 to 2 conversion cycles [Contested, 2026-09: regional versions of the same help page differ]. Plan 2 to 3 weeks (or 50 conversions) before judging any bid strategy change, longer for long conversion lags.
 
 ## 3. When to segment (the only valid reasons)
 
@@ -106,7 +106,7 @@ PMax margin band pattern: custom_label_0 = margin band (high, mid, low), custom_
 |---|---|---|---|
 | Starter | Brand Search. 1 or 2 non-brand Search campaigns by service line, phrase and exact match, ad groups by intent theme. Call assets, location assets | Maximize conversions once at least 15 qualified leads a month are tracked. Otherwise Manual CPC or Max clicks with a cap | No PMax until offline conversion import (OCI) or strong spam filtering exists. PMax lead gen without qualification feedback tends to buy junk leads [Practitioner consensus] |
 | Growth | Non-brand Search per service line with broad match plus tCPA once at least 30 qualified conversions a month. OCI with qualified lead as primary. PMax for leads only with OCI and customer list exclusions. Local Services Ads if eligible | tCPA on qualified lead, or Maximize conversion value with stage values | Lead form asset test in Search |
-| Scale | Value-based bidding on stage values (lead, MQL, SQL, won). Journey aware bidding if accepted into the beta [Unverified availability, beta since 2026-05]. Demand Gen for retargeting and lookalike signals. Geo campaigns by service area economics | tROAS on predicted lead value | Lead quality reporting from CRM weekly |
+| Scale | Value-based bidding on stage values (lead, MQL, SQL, won). Journey aware bidding if accepted into the beta (Search tCPA, announced 2026-05-07, gated to accounts with OCI or enhanced conversions for leads) [Official via trade press, 2026-05]. Demand Gen for retargeting and lookalike signals. Geo campaigns by service area economics | tROAS on predicted lead value | Lead quality reporting from CRM weekly |
 | Enterprise | Separate campaigns per region and product line, CRM integration through Data Manager, call tracking with qualified call import | Portfolio tROAS | Incrementality tests per region |
 
 ### 7.3 B2B SaaS
@@ -123,9 +123,9 @@ PMax margin band pattern: custom_label_0 = margin band (high, mid, low), custom_
 ### 7.4 Local services and multi-location
 
 - Search per service, radius or ZIP targeting matching the service area, location option "Presence".
-- Local Services Ads (LSA) for eligible categories. LSA management is moving into the Google Ads interface, starting August 2026 with select US home and storefront providers [Official, 2026-08, verify availability].
+- Local Services Ads (LSA) for eligible categories. LSA campaigns migrate automatically into a specialized PMax campaign type with pay-per-lead goals inside Google Ads: select US home and storefront categories from 2026-08, more in late 2026, non-US through 2027 [Official, Google Ads Help, 2026-08]. Export LSA history before the migration date.
 - Call assets with call reporting, ad schedule matching opening hours, call conversions with a minimum duration matched to a real lead (default 60 seconds).
-- Book button through Reserve with Google is expanding to Search and PMax for eligible merchants, on by default with the opt-out in Google Ads [Unverified, 2026-09 trade press]. Healthcare is excluded.
+- Book button (partner bookings through Reserve with Google) now shows on Search and PMax ads for eligible merchants automatically; opt out in Google Ads; add the "Appointments booked" goal to campaigns to bid on it [Official, Google Ads Help "About partner bookings", 2026-09]. Healthcare is excluded.
 - PMax with store goals for retail with physical stores and store visit data.
 - Demand Gen with the Maps channel (requires location assets) for local awareness [Official beta, 2026].
 - Multi-location: one campaign per region with a location group, or one campaign per location only if each has its own budget owner.
@@ -151,7 +151,7 @@ PMax margin band pattern: custom_label_0 = margin band (high, mid, low), custom_
 - Users: Admin only for the owner and 1 or 2 senior operators. Standard for operators. Read only for analysts and Claude connectors unless writes are approved.
 - 2-step verification on all users with access to the account.
 - Auto-tagging on. Tracking template and final URL suffix at account level for UTMs.
-- Account-level settings to review: auto-applied recommendations, account-level automated assets (Automated promotions turns on by default from 2026-10-12 for eligible accounts [Unverified, trade press]), brand lists, account-level negative keyword list, conversion goals, customer data terms, Customer Match acceptance.
+- Account-level settings to review: auto-applied recommendations, account-level automated assets (Automated promotions turns on by default from 2026-10-12 for Search and PMax campaigns with location assets and no manual promotions [Official notice quoted by Search Engine Roundtable, 2026-10-05]), brand lists, account-level negative keyword list, conversion goals, customer data terms, Customer Match acceptance.
 - Billing: monthly invoicing for large spenders, backup payment method for card billing.
 
 ## 9. Worked example: consolidating an over-split ecommerce account

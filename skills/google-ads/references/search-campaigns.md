@@ -100,11 +100,11 @@ Testing ads:
 | Callouts | 25 characters | 6 to 10, benefits not repeated from headlines |
 | Structured snippets | Header plus values of 25 characters | 2 headers minimum |
 | Image assets | Square 1:1 and landscape 1.91:1 | Add on all eligible campaigns, real product or service photos |
-| Business name and logo | Business name 25 characters | Set at account level, must match the domain owner (advertiser verification) |
-| Call | Phone number, call reporting on | Use for local and lead gen, schedule to staffed hours |
+| Business name and logo | Business name 25 characters | Set at account level. Normally must match the domain owner. From 2026-10, the Editorial policy allows a business name that differs from the destination domain only when it is the advertiser's recognized brand, the advertiser has a direct verified relationship with the domain owner and the advertised products are sold on the linked site; resellers, booking intermediaries and affiliates do not qualify [Official, Advertising Policies Help "Update to Editorial Policy (October 2026)", posted 2026-10-01] |
+| Call | Phone number, call reporting on | Use for local and lead gen, schedule to staffed hours. Call-only ads are deprecated: creation was removed in 2026-02 and existing call-only ads stop serving in 2027-02. Move them to RSAs with call assets now [Official, Google Ads Help "Transition from call ads to call assets"] |
 | Location | Business Profile link | Required for local, Maps and some new features (Demand Gen Maps, automated promotions) |
 | Lead form | Native form | Test in lead gen, with qualifying questions and CRM integration |
-| Price, promotion | Prices, offers with dates | Promotion assets for sales periods. Automated promotions may be added from your site [Unverified, from 2026-10-12] |
+| Price, promotion | Prices, offers with dates | Promotion assets for sales periods. From 2026-10-12 automated promotions pull offers from your site into eligible Search and PMax campaigns (location assets present, no manual promotion assets); each runs under 24 hours and renews only while the offer is still on the site; created assets show "Google AI" in the Added by column. Opt out: Assets, Account level automated assets, Advanced settings, Automated promotions: Off [Official notice quoted by Search Engine Roundtable and PPC Land, 2026-10-05] |
 | Text disclaimers | Required disclosure text | New in 2026 for regulated advertisers, works with final URL expansion [Official, 2026-04] |
 
 Account-level automated assets (dynamic sitelinks, dynamic callouts, dynamic structured snippets, dynamic images, automated promotions) are on by default. Review monthly. Turn off any that create inaccurate claims.
@@ -147,7 +147,7 @@ Do not optimize Quality Score as a KPI. Use it to find structural mismatches. We
 | Networks: Display Network in Search | Off | Display expansion in Search campaigns dilutes intent and reporting |
 | Locations | "Presence: People in or regularly in your included locations" for local, lead gen, legally restricted, shipping-limited businesses | Default "Presence or interest" sends traffic from outside your market |
 | Location exclusions | Same option set to presence | Prevents unwanted geos |
-| Language | Manual language targeting is being removed from Search, AI Max and the Search portion of PMax; matching uses ad and landing page language and Google's understanding of the user (late September 2026) [Official, 2026-09 via Google Ads Liaison]. Keep each campaign's ads and landing pages in one language | The setting no longer filters |
+| Language | Manual language targeting removed from Search campaigns, AI Max and PMax ads on the Search Network in late 2026-09 (announced by the Google Ads Liaison on 2026-08-14). Matching uses the language of the ad and landing page, the query and the user's language settings; with several eligible languages, ad group prioritization picks the better match. PMax language settings still apply to YouTube, Display, Discover and Gmail. No language exclusions exist. API: adding or editing a language criterion on a Search campaign now returns an error, so remove it from automations [Official, Ads Liaison and Google Ads Help "About language targeting", 2026-08 to 2026-09]. Keep each campaign's ads and landing pages in one language | The setting no longer filters Search ads |
 | Ad schedule | All hours unless staffed calls or legal reasons; Smart Bidding adjusts by time | Manual schedule bid adjustments are ignored by Smart Bidding (except device -100%) |
 | Device | No manual adjustments with Smart Bidding. A -100% device adjustment still excludes the device; on tCPA a device adjustment acts as a target adjustment [Official, verify] | Smart Bidding sets device bids per auction |
 | Ad rotation | Optimize | Rotation evenly is a legacy option |
@@ -156,7 +156,7 @@ Do not optimize Quality Score as a KPI. Use it to find structural mismatches. We
 
 ## 10. Dynamic Search Ads (legacy)
 
-- DSA is being replaced by AI Max. Google's September 2026 auto-upgrade covered automatically created assets and campaign-level broad match. The DSA auto-migration was delayed to February 2027 [Contested: Google's 2026 announcement said September 2026, mid-June 2026 coverage reports a delay to February 2027 and creation removal around January 2027]. Check Google Ads Help and your account notifications.
+- DSA is being replaced by AI Max. Google's September 2026 auto-upgrade covered automatically created assets and campaign-level broad match. On 2026-06-11 the Google Ads Liaison moved DSA auto-migration from September 2026 to February 2027; DSA creation was re-enabled from 2026-06-15 and is planned to end in January 2027 [Official via Ads Liaison, reported by Search Engine Land and Search Engine Journal 2026-06; the January 2027 creation cutoff is not yet on a help page]. Watch account notifications: Google began showing voluntary upgrade notices in 2026-09.
 - When DSA migrates, all three AI Max features turn on and legacy URL targeting is preserved as URL controls. [Official, 2026]
 - Action now: test AI Max on a copy of the DSA traffic through an AI Max experiment before forced migration, and move page feeds and URL exclusions into AI Max URL controls.
 

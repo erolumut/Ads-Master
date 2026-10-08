@@ -126,13 +126,13 @@ gtag('event', 'conversion', {
 });
 ```
 
-Enable in Google Ads: Goals > Conversions > Settings > Enhanced conversions (and accept customer data terms). In 2026 Google combines enhanced conversions for web and for leads into one setting that accepts user-provided data from tags, Data Manager and API connections; existing users are migrated [Official, 2026; check the help page for the exact state in your account].
+Enable in Google Ads: Goals > Conversions > Settings > Enhanced conversions (and accept customer data terms). Google merged the settings in 2026: from April Google Ads accepts user-provided data from tags, Data Manager and API connections at the same time, and from June enhanced conversions for web and for leads are one on or off setting (account level or per conversion action) with the method selection screen removed; existing users who accepted customer data terms were migrated [Official, 2026-04; June step via trade press 2026-06; confirm in the account].
 
 ### Enhanced conversions for leads and offline conversion import
 
 - Capture: the tag hashes email or phone at form submit (enhanced conversions for leads), and your form stores gclid, gbraid or wbraid in the CRM.
 - Upload: when the lead converts in the CRM, upload the conversion with the click ID and or hashed user identifiers.
-- Route as of 2026: Google Ads Data Manager (UI) connectors (HubSpot, Salesforce, Google Sheets, BigQuery, Cloud Storage, others) or the Data Manager API. Google moved offline conversion imports and enhanced conversions for leads uploads from the Google Ads API (ConversionUploadService.UploadClickConversions) to the Data Manager API starting 2026-06-15; developer tokens without recent usage in the specified window were not allowlisted for legacy access [Official, 2026]. New users of session attributes and IP address data in Google Ads API imports were blocked from 2026-02-02; Data Manager accepts them [Official, 2026].
+- Route as of 2026: Google Ads Data Manager (UI) connectors (HubSpot, Salesforce, Google Sheets, BigQuery, Cloud Storage, others) or the Data Manager API. Google moved offline conversion imports and enhanced conversions for leads uploads from the Google Ads API (ConversionUploadService.UploadClickConversions) to the Data Manager API starting 2026-06-15 (announced 2026-05-15); developer tokens without upload history in the lookback window get CUSTOMER_NOT_ALLOWLISTED_FOR_THIS_FEATURE, and the window is reported differently by source (January to June 2026, or 2025-12-17 to 2026-06-15) [Official, 2026-05; window Contested]. Legacy access is transitional with no published end date. New users of session attributes and IP address data in Google Ads API imports were blocked from 2026-02-02; Data Manager accepts them [Official, 2026].
 - Fields: click ID (only one of gclid, gbraid, wbraid per row), conversion action, conversion date time with timezone, value, currency, order ID, hashed user identifiers, consent (ad user data, ad personalization) for EEA users.
 
 Details and CRM recipes: [Offline and CRM conversions](offline-and-crm-conversions.md).
@@ -229,7 +229,7 @@ Rules: capture client_id (from the _ga cookie) and session_id (from the _ga_<con
 | Enhanced conversions | Pass email or phone with UET (`window.uetq.push('set', {pid: {em: '<email>', ph: '<+E164 phone>'}})`), hashed by UET or pre-hashed [Official; verify syntax] |
 | Consent | UET consent mode (ad_storage); required for EEA, UK and Swiss traffic |
 | Offline conversions | Upload by MSCLKID (stored from the landing URL, 90-day window) via UI, scheduled file or API; enhanced conversions for leads with hashed email or phone |
-| Conversions API | Microsoft's server-side UET Conversions API was in pilot or rolling out as of October 2026 [Unverified; check Microsoft Advertising docs and the microsoft-ads agent's research] |
+| Conversions API | Server-side Conversions API in beta: Microsoft provisions it per account (request through the account manager or support), recommends running it alongside UET, and published full documentation in August 2026. A goal must exist for the UET tag and event name, or events return 200 with no conversions recorded [Official docs via trade press, 2026-08]. Do not scope it into a statement of work until the account exposes it |
 | Auto-tagging | Turn on MSCLKID auto-tagging in account settings |
 
 ## 7. Pinterest Conversions API

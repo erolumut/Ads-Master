@@ -75,7 +75,7 @@
 | 57 | Cloudflare accuses Perplexity of stealth crawling | TechRepublic | https://www.techrepublic.com/article/news-cloudflare-accuses-perplexity-stealth-crawling-violations/ | 2025-08 | Allegation and response |
 | 58 | Google announces a new protocol to facilitate commerce using AI agents | TechCrunch | https://www.techcrunch.com/2026/01/11/google-announces-a-new-protocol-to-facilitate-commerce-using-ai-agents/ | 2026-01-11 | UCP announcement |
 | 59 | Google UCP: merchant guide to agentic commerce | commercetools | https://commercetools.com/blog/google-ucp-merchant-guide-to-agentic-commerce | 2026 | UCP mechanics (vendor) |
-| 60 | Google Merchant Center UCP integration hub | UCP Checker | https://ucpchecker.com/blog/google-merchant-center-ucp-integration-hub | 2026-10 | Integration hub rollout (single source) |
+| 60 | Google Merchant Center UCP integration hub | UCP Checker | https://ucpchecker.com/blog/google-merchant-center-ucp-integration-hub | 2026-10 | Integration hub rollout (confirmed by 101 to 103) |
 | 61 | ChatGPT for ecommerce: what to do now that Instant Checkout is gone | Digital Silk | https://www.digitalsilk.com/digital-trends/digital-trends-chatgpt-ecommerce/ | 2026 | Instant Checkout pivot (secondary) |
 | 62 | ChatGPT Instant Checkout: ACP protocol retailer guide | Ekamoira | https://www.ekamoira.com/blog/chatgpt-instant-checkout-agentic-commerce-protocol-2026 | 2026-02 | ACP feed mechanics (secondary) |
 | 63 | Google AI Overviews reduce clicks by 58% | MediaNama | https://www.medianama.com/2026/02/223-google-ai-overviews-click-through-rates-58-study/ | 2026-02 | Ahrefs update coverage |
@@ -102,7 +102,7 @@
 | 79 | llms.txt adoption data: server-log analysis | AWRSHIFT | https://wp.awrshift.com/llms-txt-in-practice/ | 2026 | Zero llms.txt fetches |
 | 80 | llms.txt: what it is and who actually reads it | Loudface | https://www.loudface.co/blog/llms-txt | 2026 | Claude-User fetched llms.txt twice |
 | 81 | llms.txt in 2026: Google says skip it, Lighthouse audits it | PikaSEO | https://pikaseo.com/articles/google-llms-txt-lighthouse-contradiction-2026 | 2026 | Lighthouse audit claim (Unverified) |
-| 82 | Cloudflare's September 15 AI crawler wall | fastCRW | https://fastcrw.com/blog/cloudflare-ai-crawler-block-september-2026 | 2026 | Scope for existing sites (Contested) |
+| 82 | Cloudflare's September 15 AI crawler wall | fastCRW | https://fastcrw.com/blog/cloudflare-ai-crawler-block-september-2026 | 2026 | Scope for existing sites (resolved by 96, 97) |
 | 83 | Cloudflare AI crawler controls: new September 2026 defaults | Shattered | https://shattered.io/cloudflare-ai-crawler-default-20-bots-2026/ | 2026 | Default bot categories |
 | 84 | Content Signals in robots.txt: what ai-train=no does | ContextBolt | https://contextbolt.com/blog/content-signals-robots-txt/ | 2026 | Vendor non-adoption |
 | 85 | Cloudflare accuses Perplexity of secretly crawling sites despite explicit blocks | The Decoder | https://the-decoder.com/cloudflare-accuses-perplexity-of-secretly-crawling-sites-despite-explicit-blocks/ | 2025-08 | Perplexity response |
@@ -117,25 +117,59 @@
 | 94 | Why AI checkout stalled: discover in AI, buy on site | Digital Applied | https://www.digitalapplied.com/blog/ai-agentic-commerce-discover-in-ai-buy-on-site-2026 | 2026 | Checkout pivot |
 | 95 | AI recommendations vary, marketers warned on tracking tools | Communicate Online | https://communicateonline.me/news/ai-brand-recommendations-vary-marketers-warned-on-tracking-tools/ | 2026 | SparkToro study coverage |
 
+## Verification pass additions (2026-10-08)
+
+| # | Title | Publisher | URL | Date | Supports |
+|---|-------|-----------|-----|------|----------|
+| 96 | Your site, your rules: new AI traffic options for all customers | Cloudflare | https://blog.cloudflare.com/content-independence-day-ai-options/ | 2026-07-01 | Search, Agent, Training classes; 2026-09-15 defaults |
+| 97 | Cloudflare Allows the Agentic Internet to Flourish: Your Content, Your Rules | Cloudflare press release | https://www.cloudflare.com/press/press-releases/2026/cloudflare-allows-the-agentic-internet-to-flourish-with-a-simple-philosophy-your-content-your-rules/ | 2026-07-01 | Scope for new and existing customers |
+| 98 | Bot reference (AI Crawl Control) | Cloudflare Docs | https://developers.cloudflare.com/ai-crawl-control/reference/bots/ | Living doc | ChatGPT-User and Claude-User listed as AI Assistant |
+| 99 | ChatGPT-User bot information | Cloudflare Radar | https://radar.cloudflare.com/bots/directory/chatgpt-user | Living doc | ChatGPT-User category Agent |
+| 100 | Publishers and Developers FAQ | OpenAI Help Center | https://help.openai.com/en/articles/12627856-publishers-and-developers-faq | Living doc | utm_source=chatgpt.com on referral links |
+| 101 | How to onboard to the UCP integration hub in Merchant Center | Google Merchant Center Help | https://support.google.com/merchants/answer/16992327 | 2026-10 | Onboarding steps, US scope |
+| 102 | About the UCP integration hub in Merchant Center | Google for Developers | https://developers.google.com/merchant/ucp/guides/tools/merchant-center/overview | 2026-10 | Hub features |
+| 103 | Google rolls out Merchant Center UCP integration hub in the U.S. | Search Engine Land | https://searchengineland.com/google-rolls-out-merchant-center-ucp-integration-hub-in-the-u-s-493889 | 2026-10 | Rollout from 2026-10-06 |
+| 104 | Canada and Australia face 2027 wait for Google's Merchant Center UCP hub | PPC Land | https://ppc.land/canada-and-australia-face-2027-wait-for-googles-merchant-center-ucp-hub/ | 2026-10 | Next markets in 2027 |
+| 105 | Google tests paying publishers for using its content in AI Mode, AI Overviews and Gemini | Search Engine Land | https://searchengineland.com/google-tests-paying-publishers-for-using-its-content-in-ai-mode-ai-overviews-and-gemini-488382 | 2026-09 | AI Contribution pilot confirmed |
+| 106 | Google tests paying publishers for AI answers via Search Console | Search Engine Journal | https://www.searchenginejournal.com/google-tests-paying-publishers-for-ai-answers-via-search-console/589414/ | 2026-09 | Pilot details |
+| 107 | Google Search's I/O 2026 updates | Google | https://blog.google/products-and-platforms/products/search/search-io-2026/ | 2026-05-19 | AI Mode 1B users, Gemini 3.5 Flash default |
+| 108 | Google brings Gemini 3.8 Flash to Search's AI Mode | ALM Corp | https://almcorp.com/news/google-brings-gemini-3-8-flash-to-ai-mode/ | 2026-09-21 | Subscriber model selection |
+| 109 | Google makes Gemini 3 the default model for AI Overviews globally | Dataconomy | https://dataconomy.com/2026/01/28/google-makes-gemini-3-the-default-model-for-ai-overviews-globally/ | 2026-01-28 | AIO model change 2026-01-27 |
+| 110 | Claude web search explained | Profound | https://www.tryprofound.com/blog/what-is-claude-web-search-explained | 2025 to 2026 | Brave overlap 86.7% |
+| 111 | Semrush Releases Expanded 2026 AI Visibility Index (126M prompts) | Business Wire via StreetInsider | https://www.streetinsider.com/Business+Wire/Semrush+Releases+Expanded+2026+AI+Visibility+Index,+Analyzing+126+Million+AI+Search+Prompts/26695555.html | 2026-06-26 | Sources per answer by engine |
+| 112 | ChatGPT vs Google AI Mode (mini study) | Semrush | https://ai-visibility-index.semrush.com/downloads/chatgpt-vs-ai-mode | 2026-08 | Brand overlap 69%, source mix |
+| 113 | The 50 Most-Cited Websites in ChatGPT (September 2026) | Ahrefs | https://ahrefs.com/blog/most-cited-domains-in-chatgpt/ | 2026-09 | Monthly leaderboard |
+| 114 | The 50 Most-Cited Websites in Google AI Overviews (September 2026) | Ahrefs | https://ahrefs.com/blog/most-cited-domains-ai-overviews/ | 2026-09 | Monthly leaderboard |
+| 115 | AI Overviews Currently Appear for 83% of Branded Searches | Ahrefs | https://ahrefs.com/blog/ai-overviews-on-branded-searches/ | 2026-09 | Branded AIO prevalence |
+| 116 | Study says adding schema did not improve AI citations | Search Engine Roundtable | https://www.seroundtable.com/study-schema-citations-study-41311.html | 2026-05 | Ahrefs controlled schema study |
+| 117 | How query language reshapes AI citations | Profound | https://www.tryprofound.com/blog/how-query-language-reshapes-ai-citations | 2026-03 | 3.25B citations; language effects |
+| 118 | In 2026, less than one third of Google searches still send a click | SparkToro | https://sparktoro.com/blog/in-2026-less-than-one-third-of-google-searches-still-send-a-click/ | 2026 | Zero-click 68.01%; AI Mode 0.34% of searches |
+| 119 | BrightEdge Data: ChatGPT referral traffic more than doubles in 2026 | BrightEdge via GlobeNewswire | https://www.globenewswire.com/news-release/2026/09/24/3368345/0/en/brightedge-data-chatgpt-referral-traffic-more-than-doubles-in-2026-reaching-record-95-1-share-of-ai-traffic.html | 2026-09-24 | ChatGPT 95.1% of AI referrals |
+| 120 | Google confirms google.com/goto search links | Relevant Audience | https://www.relevantaudience.com/seo/google-search-goto-passthrough-urls-confirmed/ | 2026-09 | /goto passthrough links |
+| 121 | Does Google's new goto redirect break attribution? We tested it | Attributer | https://attributer.io/blog/google-goto-redirect-attribution | 2026-09 | Referrer preserved in 10 tests |
+| 122 | Bing AI dashboard maps grounding queries to cited pages | Search Engine Journal | https://searchenginejournal.com/bing-ai-dashboard-maps-grounding-queries-to-cited-pages/570323/ | 2026-03 | Grounding query to page mapping |
+| 123 | Ahrefs remote MCP server | Ahrefs (via directory listing) | https://mcpservers.org/remote-mcp-servers/ahrefs | 2026 | Official endpoint |
+| 124 | Semrush MCP | Semrush Developer | https://developer.semrush.com/api/basics/semrush-mcp/ | 2026 | Official endpoint and auth |
+
 ## Sources by module
 
 | Module | Primary sources (numbers above) |
 |--------|-------------------------------|
 | how-ai-engines-retrieve-and-cite | 1 to 5, 8, 9, 11, 22 to 28, 34, 40 |
-| evidence-and-ranking-factors | 15 to 23, 28 to 37, 41, 52 to 54 |
+| evidence-and-ranking-factors | 15 to 23, 28 to 37, 41, 52 to 54, 111 to 119 |
 | content-engineering-for-llms | 4, 15, 16, 40 |
 | entity-and-brand-authority | 4, 17, 29 |
 | off-site-and-community-presence | 29 to 32, 86 to 88 |
-| technical-access-and-crawlers | 1 to 4, 8, 10, 11, 13, 14, 38 to 40, 55 to 57, 79 to 85 |
-| measurement-and-prompt-tracking | 6, 7, 9, 28, 34, 42 to 48, 67 to 69 |
-| engine-playbooks | 1 to 9, 24, 25, 29, 33, 65 |
-| agentic-commerce-visibility | 58 to 62, 91 to 94 |
-| playbooks-by-business-model | 6, 7, 10, 44, 45, 71, 72 |
+| technical-access-and-crawlers | 1 to 4, 8, 10, 11, 13, 14, 38 to 40, 55 to 57, 79 to 85, 96 to 99 |
+| measurement-and-prompt-tracking | 6, 7, 9, 28, 34, 42 to 48, 67 to 69, 100, 118 to 122 |
+| engine-playbooks | 1 to 9, 24, 25, 29, 33, 65, 107 to 110 |
+| agentic-commerce-visibility | 58 to 62, 91 to 94, 101 to 104 |
+| playbooks-by-business-model | 6, 7, 10, 44, 45, 71, 72, 105, 106 |
 | myths-and-anti-patterns | 1, 4, 8, 13, 15, 28, 52 to 56 |
-| tools-api-mcp | 6, 9, 24, 32, 65 |
+| tools-api-mcp | 6, 9, 24, 32, 65, 123, 124 |
 
 ## Known gaps
 
-1. Kevin Indig (Growth Memo), iPullRank, BrightEdge, Conductor and Semrush 2026 studies were not read in primary form during this research cycle (search budget exhausted). Claims attributed to them in this package are labeled [Unverified] or dated 2025 from prior knowledge.
+1. Kevin Indig (Growth Memo), iPullRank and Conductor 2026 studies were not read in primary form during this research cycle. Semrush, Ahrefs, Profound, SparkToro and BrightEdge 2026 studies were added in the 2026-10-08 verification pass (rows 111 to 119), mostly via their own pages or press releases. Claims attributed to them in this package are labeled [Unverified] or dated 2025 from prior knowledge.
 2. OpenAI help center pages on ChatGPT search, shopping and merchants were not re-read in 2026-10. Verify feed fields and checkout status with `commerce-feeds`.
-3. Cloudflare's own 2026-07-01 post was not read; the 2026-09-15 default details come from trade press.
+3. Cloudflare's 2026-07-01 post and press release were confirmed through search excerpts in the 2026-10-08 pass (rows 96, 97); no Cloudflare post confirming the 2026-09-15 rollout itself was found.

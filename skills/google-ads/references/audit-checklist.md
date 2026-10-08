@@ -32,7 +32,7 @@ Report format: score, grade, top 10 issues ranked by estimated monthly impact (c
 | A7 | Enhanced conversions on and error-free | Recovers lost conversions | Conversion settings, Diagnostics | High | Enable, fix data fields with measurement |
 | A8 | Consent mode v2 active for EEA and UK traffic | Required for EEA features and modeling | Tag diagnostics, measurement confirms | Critical (if EEA traffic) | Measurement implements |
 | A9 | Offline conversion import of qualified stages for lead gen and B2B | Lead quality feedback | Conversion actions with import source, last upload date | High (lead gen) | Build OCI through Data Manager with measurement |
-| A10 | OCI uploads within 24 to 72 hours and on a supported API version | Late uploads lose value; v22 sunset 2026-10-07 | Upload history, error rate | High | Fix pipeline |
+| A10 | OCI uploads within 24 to 72 hours, on a supported route (Data Manager API, or an allowlisted Google Ads API token on v23 to v25) with no CUSTOMER_NOT_ALLOWLISTED errors | Late or blocked uploads stop lead quality bidding silently; v22 sunset 2026-10-07; API allowlist since 2026-06-15 | Upload history, error rate, integration owner confirms route | High | Fix pipeline with measurement |
 | A11 | Click-through windows match the sales cycle | Undercounting long cycles | Q6 lookback days | Medium | Adjust windows |
 | A12 | Attribution model data-driven (unless volume too low) | DDA is default and best supported | Q6 attribution model | Low | Switch |
 | A13 | Data exclusions applied for known tracking outages | Prevents bidding on bad data | Shared library, Advanced controls; journal incidents | High | Add exclusions |
@@ -53,6 +53,7 @@ Report format: score, grade, top 10 issues ranked by estimated monthly impact (c
 | B9 | Account-level automated assets reviewed (including Automated promotions from 2026-10-12) | Inaccurate claims or offers | Account settings, Assets | Medium | Turn off inaccurate ones |
 | B10 | Language: each campaign's ads and landing pages in one language (manual language targeting removed in 2026-09) | Matching now uses ad and page language | Ad copy and landing pages by campaign | Medium | Split mixed-language campaigns |
 | B11 | Admin access limited, 2-step verification, ex-users removed | Security | Access and security page | High | Clean up |
+| B12 | Call setup current: no call-only ads left (they stop serving 2027-02), call recording setting chosen deliberately (defaulted to Yes on 2026-07-01 in the US and Canada) | Lost call volume, privacy disclosure | Ads list by type, account settings | Medium (call-driven businesses) | RSAs with call assets; set recording per policy |
 
 ## C. Search keywords, match types and negatives
 
@@ -86,7 +87,7 @@ Report format: score, grade, top 10 issues ranked by estimated monthly impact (c
 
 | ID | Check | Why | How to verify | Severity | Fix |
 |---|---|---|---|---|---|
-| E1 | Inventory of campaigns with AI Max on, including auto-upgrades of 2026-09 | Unplanned matching changes | Q8b, campaign settings, labels | High | Document state |
+| E1 | Inventory of campaigns with AI Max on, including auto-upgrades of 2026-09 and new campaigns where AI Max was left on by default | Unplanned matching changes | Q8b (enable_ai_max, migration timestamps), AI Max columns, labels | High | Document state |
 | E2 | AI Max campaigns use conversion-based Smart Bidding | Features need it | Q8 | High | Change bid strategy or disable |
 | E3 | Brand exclusions on non-brand AI Max campaigns | Brand leakage | Q18 | High | Add brand list |
 | E4 | URL exclusions set when final URL expansion is on | Traffic to wrong pages | Q19 expanded URLs, settings | High | Add exclusions |

@@ -13,28 +13,30 @@
 |--------|-------|------|--------|--------|
 | Annualized revenue run rate | $1B, reached in under 200 days | 2026-08-31 | OpenAI milestone post [Official, 2026-08] | Run rate, not booked revenue |
 | Advertisers | "Tens of thousands" | 2026-08-31 | OpenAI [Official, 2026-08] | No exact count |
-| Countries | Over 40 (sales and partners) | 2026-08-31 | OpenAI [Official, 2026-08] | Over 60 reported late September [Unverified] |
+| Countries | Over 40 (sales and partners) on 2026-08-31; 56 self-serve on 2026-09-22; over 60 after the Southeast Asia and Taiwan wave | 2026-08 to 2026-09 | OpenAI [Official, 2026-09] | One tracker counts 63 rows on the availability page |
 | Partners | Over 50 technology and measurement partners | 2026-08-31 | OpenAI [Official, 2026-08] | |
 | Bidding mix | CPC and outcome optimized bidding are the majority of campaigns | 2026-08-31 | OpenAI [Official, 2026-08] | |
 | New customers | More than 80% of ad driven ChatGPT traffic from new customers (a technology partner's figure) | 2026-08-31 | OpenAI citing a partner; Criteo states the same in June 2026 [Official, 2026-06] | Definition of new customer not given |
 | Consumer trust | No impact on consumer trust metrics, low ad dismissal rates | 2026-03-26 | OpenAI [Official, 2026-03] | No numbers published |
 | Weekly users | More than 1B (August); 1.2B weekly people (October) | 2026-08, 2026-10 | OpenAI [Official, 2026-10] | Most are on ad supported plans but share not disclosed |
-| Early run rate | $100M annualized within about six weeks; 600+ advertisers | 2026-03-26 | Reuters relay [Unverified] | |
+| Image generation volume | About 3B images created per week (context for the visual ads test) | 2026-10 | Inc. relay of OpenAI figures [Unverified] | Not an ad metric |
+| Early run rate | $100M annualized within about six weeks; 600+ advertisers | 2026-03-26 | OpenAI spokesperson to The Information [Official, 2026-03] | Run rate, not booked revenue |
 | EU recipients | 159.1M average monthly active recipients of ChatGPT search in the EU, six months to 2026-03-31 | 2026-09 | OpenAI DSA page [Official, 2026-09] | Search feature, not ads |
 
 ## 3. Pricing
 | Metric | Value | Date | Source | Caveat |
 |--------|-------|------|--------|--------|
 | Recommended starting CPC max bid | $3 to $5 | 2026-05 onward | OpenAI Help Center [Official, 2026-09] | US calibrated |
-| Launch CPM | About $60 | 2026-02 | Adweek and Digiday reports [Unverified] | CPM only pilot |
-| Launch minimum commitment | $200k to $250k | 2026-02 | Adweek, Digiday, Adthena relays [Unverified] | Removed for self-serve |
-| CPM by late April | As low as $25, range $25 to $45, lows of $15 | 2026-04 | Digiday, Ad Age relay [Unverified] | Pilot buys |
-| Minimum after April | $50k | 2026-04 | eMarketer relay [Unverified] | Removed 2026-05-05 for self-serve [Unverified] |
-| Criteo minimums | $50k to $100k, later $25k and $10k reported | 2026-03 to 2026-06 | Trade reports [Contested] | Partner terms vary |
+| Launch CPM | About $60 | 2026-02 | Adweek, Digiday and The Information (multiple outlets) | CPM only pilot; managed buys, not a rate card |
+| Launch minimum commitment | $200k confirmed by OpenAI to Adweek; $250k quoted to some agencies (Digiday) | 2026-02 | [Official, 2026-02] and [Contested] (amount varied by buyer) | Removed for self-serve |
+| CPM by late April | As low as $25 about nine weeks after launch; $25 to $35 via Criteo; Jellyfish averages near $45; Ad Age reported lows of $15 | 2026-04-17 | Digiday buyer reports; Ad Age | Pilot buys; routing of the $15 figure unclear |
+| Minimum after April | $50k (down from $200k to $250k) | 2026-04 | Digiday (2026-04-17), eMarketer, Adweek | Self-serve from 2026-05-05 has no account minimum, only a minimum daily budget [Official, 2026-09] |
+| Criteo minimums | $50k to $100k (March pitch deck), $50k per month, then $10k per month with a dollar-for-dollar media match (Adweek exclusive, 2026-06; eMarketer) | 2026-03 to 2026-06 | Trade reports; Criteo declined comment | Partner terms vary; confirm current terms with the partner |
+| StackAdapt minimum | None from 2026-05 | 2026-05 | Adweek | Partner terms |
 | Minimum daily budget | $25 USD, EUR 15, GBP 15 (full table in bidding module) | 2026-09 | OpenAI [Official, 2026-09] | Per campaign |
 | Observed CPC | $3.37 (one US visa service) | 2026 | Reddit self report [Unverified] | Single advertiser |
 | Observed CPC in CZ and SK | About EUR 1 delivered | 2026-09 | Practitioner pilot (faborsky) [Unverified] | Small market |
-| Reported internal ad revenue targets | $2.5B in 2026, over $100B by 2030 | 2026-08 | Digiday relay [Unverified] | Not confirmed by OpenAI |
+| Reported internal ad revenue targets | $2.5B in 2026 (Digiday, The Next Web); over $100B by 2030 [Unverified] | 2026 | Trade reports | Not confirmed by OpenAI |
 
 ## 4. CTR
 | Value | Sample and method | Date | Source | Caveat |
@@ -74,11 +76,11 @@ Relevance: 14.35% of ad impressions were judged no more related to the query tha
 | Claim | Context | Date | Source | Label |
 |-------|---------|------|--------|-------|
 | 3x ROAS over 28 days | One unnamed ecommerce advertiser | 2026-08-31 | OpenAI | [Official, 2026-08] (single case) |
-| Attributed CPA 15.3% lower than blended paid search benchmark | WeightWatchers, measured by DV Rockerbox | 2026-10 | OpenAI cited partner result | [Official, 2026-10] (read via secondary summary) |
-| 2.3x more incremental orders than last click captured | Dose, WorkMagic geo lift | 2026-10 | OpenAI cited partner result | [Official, 2026-10] (read via secondary summary) |
-| 67% of incremental purchases from net new customers | Dose, WorkMagic | 2026-10 | OpenAI cited partner result | [Official, 2026-10] (read via secondary summary) |
-| 93% of ChatGPT Ads visitors new | Portland Leather, Triple Whale | 2026-10 | OpenAI cited partner result | [Official, 2026-10] (read via secondary summary) |
-| 52.7% of eligible 1-day view-through conversions within an hour of the impression | OpenAI analysis of deeper funnel campaigns | 2026-10 | OpenAI | [Official, 2026-10] (read via secondary summary) |
+| Attributed CPA 15.3% lower than blended paid search benchmark | WeightWatchers, measured by DV Rockerbox | 2026-10 | OpenAI cited partner result | [Official, 2026-10] (partner reported) |
+| 2.3x more incremental orders than last click captured | Dose, WorkMagic geo lift | 2026-10 | OpenAI cited partner result | [Official, 2026-10] (partner reported) |
+| 67% of incremental purchases from net new customers | Dose, WorkMagic | 2026-10 | OpenAI cited partner result | [Official, 2026-10] (partner reported) |
+| 93% of ChatGPT Ads visitors new | Portland Leather, Triple Whale | 2026-10 | OpenAI cited partner result | [Official, 2026-10] (partner reported) |
+| 52.7% of eligible 1-day view-through conversions within an hour of the impression | OpenAI analysis of deeper funnel campaigns | 2026-10 | OpenAI ads blog figure, relayed by press | [Official, 2026-10] |
 | LLM referred users convert about 1.5x other referral channels | Criteo, February 2026 (n=500 reported) | 2026-03 | Criteo | [Unverified] (vendor) |
 | Close to 2x conversion vs traditional search in consumer electronics, lifestyle and wellbeing, home and garden | Criteo advertisers | 2026-05 | Criteo press release | [Unverified] (vendor) |
 | About 4x higher spend after activating Prompt Smart Ads | Criteo early testing | 2026-06 | Criteo press release | [Unverified] (vendor) |

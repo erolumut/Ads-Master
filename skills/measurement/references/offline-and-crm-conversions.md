@@ -60,8 +60,8 @@ Example: average gross profit per deal $6,000. Close rates: lead 5%, MQL 12%, SQ
 | Path | Use | Notes |
 |------|-----|-------|
 | Data Manager (Google Ads UI: Tools > Data manager) | Native connectors for HubSpot, Salesforce, Shopify, Zapier, Google Sheets, BigQuery, Cloud Storage and others | Easiest for Growth tier; schedule daily |
-| Data Manager API | Programmatic uploads of offline conversions, enhanced conversions for leads, events and audiences | Primary API after Google moved uploads off the Google Ads API from 2026-06-15 [Official, 2026] |
-| Google Ads API (legacy UploadClickConversions) | Only for allowlisted developer tokens with recent usage | Do not build new integrations on it |
+| Data Manager API | Programmatic uploads of offline conversions, enhanced conversions for leads, events and audiences | Primary API after Google moved uploads off the Google Ads API from 2026-06-15 [Official, 2026-05]. Needs its own OAuth scope (datamanager) and Google Cloud project; reported limits 100,000 requests per day, 300 per minute, up to 2,000 events per request [Secondary, 2026; check quotas page] |
+| Google Ads API (legacy UploadClickConversions) | Only for allowlisted developer tokens with recent upload history (lookback reported as January to June 2026 by Google Ads Help, or 2025-12-17 to 2026-06-15 by other sources [Contested]); others get CUSTOMER_NOT_ALLOWLISTED_FOR_THIS_FEATURE | Google calls the legacy access transitional and has published no end date; do not build new integrations on it. Run old and new pipelines in parallel for 2 to 4 weeks and check response bodies, not job status |
 | Manual CSV upload | Starter, monthly | Use the template from Google Ads; watch timezone formats |
 | Salesforce native integration | Historic native import from Salesforce opportunities | Check whether it now routes through Data Manager in your account |
 
@@ -80,7 +80,7 @@ Adjustments: retract (refunds, cancelled deals) and restate (changed value) uplo
 
 - Send CRM stage events through the Conversions API with action_source "system_generated" (or "physical_store" for in-store sales), matching keys (hashed email and phone, lead_id for Meta lead ads, external_id), and event_time of the stage change.
 - For Meta lead ads: connect the CRM in Events Manager (CRM integration) and use the Conversion leads optimization goal when the account meets eligibility (volume and stage rate requirements change; check Meta Business Help) [Official; verify thresholds].
-- Offline Conversions API (old offline event sets) was retired in favor of the Conversions API in 2025 [Official, verify date]; migrate any legacy offline event set uploads.
+- Offline Conversions API (old offline event sets) was discontinued with the Graph API v16.0 expiry in May 2025 (vendors cite 2025-05-01 or 2025-05-14); offline events now go through the Conversions API tied to a dataset [Official, Meta for Developers 2025-05]. Migrate any legacy offline event set uploads and watch accepted event counts after the switch.
 
 ## 7. HubSpot
 

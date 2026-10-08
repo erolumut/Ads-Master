@@ -29,6 +29,7 @@ Facts from the help center that change decisions [Official]:
 - To add new brand lists to a Search campaign you must enable AI Max. Existing brand lists on legacy campaigns can stay.
 - Locations of interest work at ad group level and only inside AI Max. If the campaign location option is "Presence", people outside the targeted area still do not see ads.
 - The features need conversion-based Smart Bidding to work as intended.
+- New Search campaigns start with AI Max turned on by default; choose the features to keep during setup [Official, Google Ads Help "Set up AI Max for Search campaigns"]. Every new Search build must record an explicit AI Max decision.
 
 ## 2. Timeline that matters for audits
 
@@ -39,11 +40,16 @@ Facts from the help center that change decisions [Official]:
 | 2025-07 | Brand inclusions and exclusions moved under AI Max for new Search campaigns | [Official via Search Engine Land, 2025-07] |
 | 2025-08 | Google Ads API v21 adds ad group level AI Max controls (disable search term matching per ad group; brand lists, locations and URL rules on ad groups) and the AI Max search term, headline and landing page combination view | [Official, 2025-08] |
 | 2026-04 | AI Max out of beta for Search. AI Brief announced (closed beta). AI Max for Shopping and Travel announced as closed betas. Text disclaimers added. Brand inclusion recommendation appears | [Official, 2026-04] |
-| 2026-06 (mid) | DSA auto-migration delayed to February 2027 | [Contested: trade press 2026-06; Google's original post said September 2026] |
-| 2026-08 | Google Ads API v25.1 adds campaign fields with the scheduled AI Max migration date for automatically created assets and campaign-level broad match | [Official via trade press, 2026-08] |
+| 2026-06-11 | DSA auto-migration moved from September 2026 to February 2027 to avoid Q4 disruption. Creating new DSA campaigns was allowed again from 2026-06-15. ACA and campaign-level broad match kept the September 2026 date | [Official, Google Ads Liaison, reported by Search Engine Land and Search Engine Journal, 2026-06] |
+| 2026-08-03 | New campaign-level broad match settings and legacy ACA setups can no longer be created | [Unverified, agency summaries 2026-08] |
+| 2026-08-19 | Google Ads API v25.1 adds output-only campaign fields `aca_migration_date_time` and `broad_match_migration_date_time` that record when a campaign was migrated to AI Max | [Official, v25 field docs] |
+| 2026-08-20 | AI Max experiments (already a 50/50 split inside the original campaign since 2025) can now run with brand and location controls enabled; multi-campaign A/B tests of budget and ROI target changes roll out from 2026-09; Performance Planner previews bidding and budget target changes and can apply them in one click | [Official, Google Ads and Commerce blog 2026-08-20; Search Engine Journal 2026-08-24] |
 | 2026-09-01 to 2026-09-30 | Auto-upgrade of Search campaigns using automatically created assets (ACA) or the campaign-level broad match setting into AI Max | [Official, 2026] |
-| 2026-09 | AI Brief closed beta extended to more languages; new AI Max reporting feature | [Official, 2026-09] |
-| 2027-02 (planned) | Auto-migration of remaining DSA campaigns | [Contested timing] |
+| 2026-09 | AI Brief audience targeting extended to Dutch, French, German, Italian, Japanese, Portuguese and Spanish; new AI Max reporting feature for the Search ads journey; help article on testing AI Max against DSA with experiments; in-account notices invite voluntary DSA upgrades | [Official, Google Ads and Commerce blog 2026-09; Search Engine Roundtable 2026-09-23] |
+| 2026-09 | Small test: exact and phrase keywords in standard Search can serve text ads in AI Mode for explicit intent | [Official, Ads Liaison via trade press, 2026-09] |
+| 2026-10 | New AI Max reporting columns show targeting, location and brand settings across campaigns | [Practitioner report, Search Engine Land 2026-10] |
+| 2027-01 (planned) | Creation of new DSA campaigns ends | [Official via Ads Liaison as reported by Search Engine Roundtable, 2026-06; not yet on a help page as of 2026-10] |
+| 2027-02 (planned) | Auto-migration of remaining DSA campaigns to AI Max | [Official, Google Ads Liaison and Google Ads Developer Blog, 2026-06] |
 
 How each legacy setting was mapped in the 2026 upgrade [Official, Google DSA and AI Max announcement]:
 | Legacy setting | AI Max features turned on |
@@ -58,7 +64,8 @@ Audit implication: any Search campaign that had ACA or campaign-level broad matc
 
 | Report | Where | What to look at |
 |---|---|---|
-| Search terms report with match type "AI Max" and a source column | Insights and reports, Search terms | Spend share, CPA and ROAS of AI Max terms vs keyword terms. Source shows whether the term came from broad match expansion or keywordless matching [Official, 2025 and 2026] |
+| Search terms report with match type "AI Max" and a source column | Insights and reports, Search terms | Spend share, CPA and ROAS of AI Max terms vs keyword terms. Source shows whether the term came from broad match expansion or keywordless matching [Official, 2025 and 2026]. API: `segments.search_term_match_source` (AI_MAX_KEYWORDLESS, AI_MAX_BROAD_MATCH), see Q3b |
+| AI Max columns (2026-10) | Campaigns table, columns | Which AI Max targeting, location and brand settings each campaign uses; use for the post-upgrade inventory |
 | Landing pages report with a "Selected by" column | Landing pages | Performance of pages chosen by final URL expansion vs your final URLs |
 | Search term, headline and landing page combinations | AI Max reporting, API `ai_max_search_term_ad_combination_view` | Which generated headlines and expanded URLs serve for which queries |
 | Asset report | Ads and assets | Generated assets ("Automatically created" source) with performance |

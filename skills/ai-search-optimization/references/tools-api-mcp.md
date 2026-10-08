@@ -13,8 +13,8 @@
 
 | Tool | What it gives for AI visibility | Access for Claude | Limits |
 |------|--------------------------------|-------------------|--------|
-| Google Search Console | Generative AI performance report (AIO and AI Mode impressions by page, country, device, date; since 2026-05-18); Search generative AI control; Web performance; URL Inspection | Search Console API covers Web performance; availability of the Generative AI report in the API is not confirmed [Unverified]. Community MCP servers for Search Console exist [Unverified quality] | No clicks or queries for AI; combined AIO and AI Mode |
-| Bing Webmaster Tools | AI Performance: citations, cited pages, grounding queries, intents, topics, citation share, compare (preview) | Bing Webmaster API exists for classic data; AI Performance has no public API as of 2026-06 [Official] | Sampled; preview; Microsoft surfaces only |
+| Google Search Console | Generative AI performance report (AIO and AI Mode impressions combined, by page, country and date; since 2026-05-18); Search generative AI control; Web performance; URL Inspection | Search Console API covers Web performance; the Generative AI report is not in the API or the BigQuery bulk export as of 2026-10 (UI and CSV export only) [Official, 2026-08; re-checked 2026-10]. Community MCP servers for Search Console exist [Unverified quality] | No clicks or queries for AI; combined AIO and AI Mode |
+| Bing Webmaster Tools | AI Performance: citations, cited pages, grounding queries, intents, topics, citation share, compare (preview) | Bing Webmaster API exists for classic data; AI Performance has no public API as of 2026-10 (CSV export only; Microsoft said API access would come during 2026) [Official, 2026-06; re-checked 2026-10] | Sampled; preview; Microsoft surfaces only |
 | GA4 | AI channel group sessions, engagement, key events | GA4 Data API; Google released an official experimental Google Analytics MCP server in 2025 [Official, 2025; verify current status] | Dark AI traffic; AI Overviews inseparable from organic |
 | Server and CDN logs | Bot access, status codes, user-fetch hits by URL | File export to `ads-master/data/imports/`; Cloudflare dashboard and API | Requires access; spoofed UAs |
 | Cloudflare AI Crawl Control | Per-crawler requests, allow or block, robots.txt compliance, pay per crawl | Dashboard; Cloudflare API | Cloudflare sites only |
@@ -65,11 +65,11 @@ Selection rule: the cheapest tool that covers the project's top engines with exp
 
 | Server | Use | Status |
 |--------|-----|--------|
-| Ahrefs MCP | Keyword, backlink, Brand Radar style data inside Claude | Official [Official, 2025; verify endpoints] |
-| Semrush MCP | Keyword, domain and AI visibility data | Official [Official, 2025; verify] |
+| Ahrefs MCP | Keyword, backlink and Brand Radar data inside Claude | Official remote server at https://api.ahrefs.com/mcp/mcp (Streamable HTTP; OAuth or MCP key; paid plans); the older local npm package is archived [Official, re-checked 2026-10] |
+| Semrush MCP | Keyword, domain, Trends and read-only Projects data | Official remote server at https://mcp.semrush.com/v1/mcp (OAuth 2.1 or API key; no separate fee; consumes API units) [Official, re-checked 2026-10] |
 | DataForSEO MCP | SERP data including AI Overview elements, LLM response and mention APIs | Official [Official, 2025; verify product names] |
-| Google Analytics MCP | GA4 reporting queries | Official experimental [Official, 2025; verify] |
-| Search Console MCP | GSC performance queries | Community projects [Unverified quality; review code before use] |
+| Google Analytics MCP | GA4 reporting queries | Official, Google-maintained (googleanalytics/google-analytics-mcp) [Official, 2025; re-checked 2026-10] |
+| Search Console MCP | GSC performance queries | No official Google server as of 2026-10; community projects only (for example AminForou/mcp-gsc) [Unverified quality; review code before use] |
 | Bing Webmaster Tools MCP | Classic Bing data | Community [Unverified] |
 | Cloudflare MCP servers | Account and analytics access | Official Cloudflare MCP servers exist [Official, 2025; verify scope] |
 | Profound, Peec AI, other trackers | Tracking data | Some vendors offer APIs or MCP; check [Unverified] |

@@ -19,23 +19,24 @@
 | Article (Article, NewsArticle, BlogPosting) | Supported | No required properties; helps title, image, date understanding |
 | Breadcrumb (BreadcrumbList) | Supported | Mobile results show breadcrumbs in URL line variably |
 | Carousel (ItemList) | Supported for specific types | Check gallery for current host types |
-| Dataset | Supported (Dataset Search) | |
+| Dataset | Dataset Search only (Google clarified in 2026 it powers Dataset Search results, not Google Search features) [Official, 2026] | |
 | Discussion forum (DiscussionForumPosting) | Supported | For forum and UGC threads |
 | Education Q&A (flashcards) | Supported | Education sites |
 | Employer aggregate rating | Supported | |
 | Event | Supported | Event experience in Search |
-| FAQ (FAQPage) | Restricted since 2023-08 to well-known, authoritative government and health sites | Harmless elsewhere, but no rich result expected; do not build strategy on it |
+| FAQ (FAQPage) | Rich results no longer shown in Google Search for any site from 2026-05-07 (deprecation note added to docs 2026-05-08); Search Console FAQ reporting retired 2026-06; API support ended 2026-08 [Official, 2026-05]. Before that, restricted since 2023-08 to authoritative government and health sites | Valid schema.org markup; harmless, no display; do not build strategy on it. Bing and AI systems may still read it |
 | HowTo | Removed (2023) | Remove or keep as harmless; no rich result |
 | Image metadata | Supported | License, creator, credit |
 | Job posting | Supported | Also Indexing API eligible |
 | Local business | Supported | Knowledge panel signals; most local data comes from GBP |
-| Math solver, Practice problem | Supported for education [verify current status] | |
+| Practice problem | Deprecated: removed from Search Console rich result reports, the Rich Results Test and search appearance filters in 2026-01 [Official, 2026-01] | Harmless, no display |
+| Math solver | Verify current status in the gallery | |
 | Movie carousel | Supported | |
 | Organization (logo, contact, return policy, loyalty program) | Supported | Organization level `hasMerchantReturnPolicy` and `hasMemberProgram` for merchants |
 | Product: product snippets | Supported | Reviews, ratings, price in snippets |
 | Product: merchant listings | Supported | Shopping knowledge panel, popular products, free listings eligibility signals |
 | Product variants (ProductGroup) | Supported (since 2024) | Variants with `hasVariant`, `variesBy` |
-| Loyalty program (MemberProgram) | Supported (2025) [Unverified exact date] | Member prices in results |
+| Loyalty program (MemberProgram) | Supported (added 2025-06) [Official, 2025-06] | Member prices in results |
 | Profile page (ProfilePage) | Supported | Creators, authors, forum profiles |
 | Q&A (QAPage) | Supported | Single question pages with user answers |
 | Recipe | Supported | |
@@ -46,10 +47,10 @@
 | Vacation rental | Supported | Partner program |
 | Video (VideoObject, Clip, SeekToAction, BroadcastEvent) | Supported | Key moments, LIVE badge |
 | Site name (WebSite) | Supported | Homepage only |
-| Book actions, Course info, Claim review (fact check in Search), Estimated salary, Learning video, Special announcement, Vehicle listing | Phased out from Search results (announced 2025-06) | [Official, 2025-06]; markup harmless, no display |
+| Book actions, Course info, Claim review (fact check in Search), Estimated salary, Learning video, Special announcement, Vehicle listing | Phased out from Search results (announced 2025-06); documentation for course info, estimated salary, learning video, special announcement and vehicle listing removed 2025-09; coverage conflicts on whether Book actions got a reprieve | [Official, 2025-06 and 2025-09]; markup harmless, no display |
 | Sitelinks search box (WebSite SearchAction) | Removed 2024-11 | No effect |
 
-Additional deprecations may have happened after June 2025. Verify every type in the gallery before an implementation project [Freshness rule].
+Deprecations after June 2025 confirmed in the 2026-10-08 check: Practice problem (2026-01), FAQ rich results (2026-05). Google says unused structured data causes no harm and that these removals do not affect ranking. Verify every type in the gallery and on developers.google.com/search/updates before an implementation project [Freshness rule].
 
 ## 3. Required and recommended properties (key types)
 Verify against current Google docs before implementation; properties change.

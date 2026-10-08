@@ -101,8 +101,8 @@ What to do:
 
 ## 7. Turkey specific notes
 
-- Location fees: Meta announced location fees passed on to advertisers for ads delivered to audiences in several countries with digital services taxes, reported as Turkey 5% (with UK, France, Italy, Spain, Austria at their own rates), effective in 2025 [Unverified, verify in Billing and payment settings].
-- VAT: Turkish businesses buying Meta ads face Turkish VAT treatment (20% standard rate) depending on account tax settings and business registration; ensure the business tax ID is entered in billing so invoices are correct [Unverified, confirm with an accountant].
+- Location fees: Meta announced in March 2026 that from 2026-07-01 it charges a location fee on image and video ads (including click to WhatsApp ads and WhatsApp marketing messages) delivered to audiences in six countries with digital services taxes: Turkey 5%, Austria 5%, France, Italy and Spain 3%, United Kingdom 2%. The fee follows the audience's location, not the advertiser's, so a non-Turkish advertiser reaching Turkey pays it too. Example from Meta: 100 of delivery to Italy is billed 100 plus 3 location fee; applicable VAT is calculated on top of the total. Meta says the country list and rates may change [Official, 2026-03, via Reuters and Bloomberg Tax]. Add the fee to CPA and ROAS targets for Turkey (breakeven ROAS rises about 5%) and check Billing and payment settings for the current list.
+- VAT: Meta calculates applicable VAT on top of ad delivery plus location fee [Official, 2026-03]. For Turkish businesses the treatment (20% standard rate, reverse charge or charged on invoice) depends on account tax settings and business registration; ensure the business tax ID is entered in billing so invoices are correct [Unverified local treatment, confirm with an accountant].
 - Currency: Turkish lira accounts are exposed to FX moves; budgets set in TRY need monthly review. A USD or EUR ad account may be preferable for multi-market advertisers, subject to payment method and tax advice.
 - Platform availability risk: Instagram was blocked in Turkey for about 9 days in August 2024 and Threads was suspended in Turkey in April 2024 due to a competition authority order [Official news, 2024; Threads current status Unverified]. Keep contingency plans (other channels, owned audiences).
 - Advertising Board (Reklam Kurulu) rules on influencer marketing require clear disclosure of commercial content [Unverified details, 2021 guidance]; apply to partnership ads.
@@ -115,7 +115,7 @@ What to do:
 | Inventory filter (expanded, moderate, limited) | Moderate default; limited for sensitive brands |
 | Block lists (Audience Network, in-stream, Instant Articles legacy) | Block known unsafe publishers |
 | Publisher lists and delivery reports | Audit where ads ran on Audience Network and in-stream |
-| Account-level placement controls | Hard block placements (the remaining true exclusion after 2026-08 changes) [Unverified] |
+| Account-level placement controls | Hard block placements (the remaining true exclusion after ad set exclusions began disappearing on 2026-08-25) [Practitioner consensus, 2026-08] |
 | Comment moderation | Hide keywords, moderation assist; required if "relevant comments" enhancement is on |
 | Third-party verification partners | Integral Ad Science, DoubleVerify, Zefr for feed and Reels brand safety reporting |
 

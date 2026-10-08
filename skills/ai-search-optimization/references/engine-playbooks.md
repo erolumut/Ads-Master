@@ -43,7 +43,7 @@ Plays:
 Plays:
 1. Build the fan-out map for priority prompts and close facet gaps.
 2. Track follow-up prompts ("which is cheaper?", "which works for restaurants?"), since AI Mode is conversational.
-3. Re-baseline after Gemini model updates in AI Mode (Gemini 3 in 2025-11 [Official]; a newer Flash model reported in 2026-09 [Unverified]).
+3. Re-baseline after Gemini model updates in AI Mode: Gemini 3 (2025-11-18), Gemini 3.5 Flash as the default for everyone (I/O, 2026-05-19), Gemini 3.7 Flash (2026-08-14) and 3.8 Flash (2026-09-02) selectable for Google AI Pro and Ultra subscribers [Official, 2025-11 to 2026-09; 2026-08 and 2026-09 via trade press]. AI Overviews moved to Gemini 3 as default on 2026-01-27 [Official, 2026-01].
 4. AI Mode answered 97% of sampled People Also Ask answers in a 2026-09 sample [Unverified, secondary]: treat PAA questions as AI Mode sub-queries.
 
 ## 3. Gemini app
@@ -79,7 +79,7 @@ Plays:
 | Item | Detail |
 |------|--------|
 | Source selection | Product data from merchant feeds via the Agentic Commerce Protocol and third-party providers; reviews and editorial content for recommendations [Official, 2025 to 2026] |
-| Status | Instant Checkout launched 2025-09-29; OpenAI pivoted in 2026-03 to discovery with merchant-side checkout; Shopify Agentic Storefronts on by default for eligible merchants from 2026-03-24 [Contested details; verify] |
+| Status | Instant Checkout launched 2025-09-29; OpenAI moved away from it in 2026-03 toward discovery with merchant-side checkout and merchant apps [Official, 2026-03]; Shopify Agentic Storefronts on by default for eligible merchants from 2026-03-24 [secondary; verify with commerce-feeds] |
 | Strongest levers | Complete, accurate feed (owned by `commerce-feeds`); review volume and quality; competitive price and availability; product page facts in HTML; third-party reviews |
 | Measure | Shopping prompt tracking; GA4 chatgpt.com sessions to product pages |
 
@@ -114,8 +114,8 @@ Plays:
 
 | Item | Detail |
 |------|--------|
-| Source selection | Web search tool plus Anthropic search index (Claude-SearchBot); Claude-User fetches pages for users [Official]. External provider reported as Brave Search in 2025 [Unverified for 2026] |
-| Strongest levers | Allow Claude-SearchBot and Claude-User; fact-dense pages; documentation and technical content for developer and B2B audiences; if Brave is the provider, Brave Search visibility |
+| Source selection | Web search tool plus Anthropic search index (Claude-SearchBot); Claude-User fetches pages for users [Official]. Anthropic's subprocessor list names Brave Search (and TurboPuffer) under Web Search as of 2026-09-02 [Official, 2026-09]; Profound measured 86.7% overlap between Claude-cited URLs and Brave's top organic results [Study, 2025]. Anthropic does not describe Brave's exact role |
+| Strongest levers | Allow Claude-SearchBot and Claude-User; fact-dense pages; documentation and technical content for developer and B2B audiences; Brave Search visibility (check rankings on search.brave.com) |
 | Measure | Prompt tracking (some tools added Claude tracking in 2026, for example Yoast on 2026-05-28) [Official vendor, 2026-05]; GA4 claude.ai |
 | Audience | Strong in B2B and developer segments (18.5% of B2B AI referrals in one 2026 study) [Study, 2026, secondary] |
 

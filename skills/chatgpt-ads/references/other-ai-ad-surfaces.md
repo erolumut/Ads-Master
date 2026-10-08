@@ -12,8 +12,8 @@
 | Gemini app | No ads | None | n/a | n/a | n/a | [Official, 2025-12] (Google VP statement) |
 | Microsoft Copilot | Yes: multimedia, product, search ads with logo, vertical ads; Offer Highlights | Existing Microsoft Advertising campaigns, auto opted in | Negative keywords apply; no opt out | No Copilot specific metrics | Markets served by Microsoft Advertising; Offer Highlights English speaking | [Official, 2026-09] |
 | Amazon Alexa for Shopping (formerly Rufus) | Yes: Sponsored Products and Sponsored Brands prompts | Existing Amazon SP and SB campaigns, CPC | Through existing campaigns | Prompt Ad Extension reports | US | [Official, 2026-03] |
-| Perplexity | No (sponsored follow-up questions launched 2024-11, phased out; no plans as of 2026-02) | None | n/a | n/a | n/a | [Unverified] (FT relay) |
-| Meta AI | No ad unit inside Meta AI; AI chat interactions used to personalize ads on Facebook and Instagram since 2025-12-16 outside EU, UK, South Korea | Regular Meta campaigns | Indirect | Regular Meta reporting | Outside EU, UK, KR | [Unverified] |
+| Perplexity | No (sponsored follow-up questions launched 2024-11, phased out; no plans as of 2026-02) | None | n/a | n/a | n/a | [Official, 2026-02] (executives to FT; TechSpot, Gigazine) |
+| Meta AI | No ad unit inside Meta AI; AI chat interactions used to personalize ads on Facebook and Instagram since 2025-12-16 outside EU, UK, South Korea | Regular Meta campaigns | Indirect | Regular Meta reporting | Outside EU, UK, KR | [Official, 2025-10] |
 | Claude (Anthropic) | No; committed to remain ad free (2026-02-04) | None | n/a | n/a | n/a | [Official, 2026-02] |
 | Grok (xAI on X) | Ads in Grok answers planned (reported 2025-08); current status unconfirmed | Possibly via X Ads | Unknown | Unknown | Unknown | [Unverified] |
 | Snapchat My AI | Sponsored Links sold by Microsoft Advertising (2023 page, may be stale) | Microsoft Advertising | Unknown | Unknown | Unknown | [Unverified] |
@@ -24,8 +24,8 @@
 ### What is known
 - Ads can appear above, below or within AI Overviews. Within-AIO ads are listed for 12 countries in English on mobile and desktop: Australia, Canada, India, Indonesia, Kenya, Malaysia, New Zealand, Nigeria, Pakistan, Philippines, Singapore, United States. Above and below placements cover 200+ markets [Official, 2026-09] (Google Ads Help as captured).
 - Eligible campaign types: Search, Shopping, Performance Max, App. Advertisers cannot target AI Overview placements or opt out. Placements report as Top ads. Sensitive verticals are excluded [Official, 2026-09].
-- Expansion history: ads in AI Overviews launched in the US in 2024 and expanded to desktop and more countries during 2025; an ad intelligence vendor first detected within-AIO ads at 0.052% frequency on 2025-11-24 and Google expanded to 11 more countries on 2025-12-19 without a formal announcement [Study, 2026-04] and [Unverified] (dates).
-- AI Mode: Google introduced ads in AI Mode in September 2025 and said in October 2025 it was testing before expanding [Unverified] (PPC Land relay). Shopping ads in AI Mode announced 2026-02-11 [Study, 2026-04] (Adthena relay).
+- Expansion history: ads in AI Overviews launched on US mobile in 2024 and reached US desktop from Google Marketing Live 2025 (2025-05) [Official, 2025-05]; in 2025-12 Google expanded them to 11 more countries (Australia, Canada, India, Indonesia, Kenya, Malaysia, New Zealand, Nigeria, Pakistan, Philippines, Singapore), mostly English language queries [Official, 2025-12] (relayed by PPC News Feed and trade press; exact day unconfirmed). An ad intelligence vendor first detected within-AIO ads at 0.052% frequency on 2025-11-24 [Study, 2026-04]. Ads are excluded from AI Overviews in sensitive categories (adult, alcohol, gambling, finance, healthcare, politics) per trade summaries [Unverified].
+- AI Mode: Google announced ads in AI Mode tests at I/O and GML 2025 (2025-05); Ad Age reported (2025-07) a wider launch planned for Q4 2025, and US and India serving was reported in 2025; Google said in October 2025 it was testing before expanding [Unverified] (exact dates; PPC Land and Ad Age relays). Shopping ads in AI Mode announced 2026-02-11 [Study, 2026-04] (Adthena relay).
 - Google Marketing Live, 2026-05-20 [Official, 2026-05]:
   | Format | Surface | Status |
   |--------|---------|--------|
@@ -81,19 +81,19 @@ Related launches:
 - Rufus was renamed Alexa for Shopping on 2026-05-13 [Official, 2026-05].
 - Amazon cites 300M+ customers using Rufus in 2025 and nearly 20% of shoppers continuing the conversation [Official, 2026-09] (company stated, no sample).
 - Alexa+ conversational ads exist on Alexa devices; no billing model stated [Official, 2026-09].
-- Separate: Amazon DSP reportedly piloted buying ChatGPT ads for its advertisers [Unverified]; Amazon reportedly invested in OpenAI in February 2026 [Unverified].
+- Separate: Amazon Ads sells ChatGPT Ads inventory through Amazon DSP as a managed service to select US advertisers from 2026-09-10 (CPC or CPM, text and image units under responses, product feeds can generate assets, aggregate reporting only, no commission reporting; Delta Vacations named as a tester) (Digiday, Marketing Dive, PPC Land, 2026-09). Amazon reportedly invested in OpenAI in February 2026 [Unverified].
 
 Strategy: for Amazon sellers, ensure SP and SB campaigns are eligible for prompts (US), monitor Prompt Ad Extension reports, and improve detail page content (it feeds prompt generation). No roster agent owns Amazon Ads; request resourcing from growth-orchestrator.
 
 ## 5. Perplexity
 
 - Launched ads 2024-11-12: sponsored follow-up questions and paid media beside answers; launch partners included Indeed, Whole Foods Market, Universal McCann, PMG [Official, 2024-11].
-- Reported to have phased out ads during 2025; in February 2026 executives said they had no plans to pursue advertising because "a user would just start doubting everything" (FT via PYMNTS, 2026-02-18) [Unverified].
+- Reported to have phased out ads during 2025; in February 2026 executives said they had no plans to pursue advertising because "a user would just start doubting everything" (FT via PYMNTS, 2026-02-18; also TechSpot and Gigazine) [Official, 2026-02]. The executive framed it as not beneficial "for now", not a permanent ban; shopping listings are documented as not sponsored. Recheck before any plan.
 - No advertiser page or ad product found on Perplexity's site in September 2026 [Study, 2026-09] (independent check).
 - Strategy: treat Perplexity as organic visibility only (ai-search-optimization). Do not budget paid Perplexity.
 
 ## 6. Meta AI, Gemini, Claude, Grok
-- Meta: no ad unit inside the Meta AI assistant found; Meta announced it would use people's interactions with Meta AI to personalize content and ads across its apps from 2025-12-16 (not EU, UK, South Korea) [Unverified]. Implication: no separate buy; meta-ads should expect AI chat derived interest signals in delivery.
+- Meta: no ad unit inside the Meta AI assistant found; Meta announced on 2025-10-01 that it would use people's text and voice interactions with Meta AI to personalize content and ads across its apps from 2025-12-16 (not EU, UK, South Korea; sensitive topics such as religion, politics, health and sexual orientation excluded; no separate opt-out other than not using Meta AI) [Official, 2025-10]. Implication: no separate buy; meta-ads should expect AI chat derived interest signals in delivery.
 - Gemini app: no ads, "no current plans" (2025-12-08) [Official, 2025-12]; watch for change.
 - Claude: Anthropic states Claude will remain ad free (2026-02-04) [Official, 2026-02]. Organic only.
 - Grok: X planned ads in Grok answers (FT, 2025-08-07) [Unverified]; no confirmed self-serve product found. Check X Ads documentation before planning.

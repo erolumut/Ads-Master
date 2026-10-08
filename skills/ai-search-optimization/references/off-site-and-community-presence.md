@@ -37,6 +37,9 @@ Procedure:
 | YouTube 16% of LLM answers vs Reddit 10% over six months; crossover around 2025-10 | Bluefish via Adweek, 2026 | Vendor |
 | YouTube 26.47% vs Reddit 17.39% of citations | LLM Pulse, 2026-05 | Vendor |
 | Peec AI, 30M sources: Reddit first, then YouTube and LinkedIn | Peec AI, 2026 | Vendor |
+| ChatGPT: Reddit 28.9% and Wikipedia 23.1% of citations; AI Mode: YouTube 21.1% top source; most-mentioned brands overlap about 69% across 22 industries (data 2026-01 to 2026-06) | Semrush AI Visibility Index, 2026-08 | Vendor panel; prompt set not public |
+| Mention share of top sources, US, September 2026: ChatGPT Reddit 16.8%, Wikipedia 7.0%; AI Overviews YouTube 22.9%, Reddit 18.5%; Gemini Reddit 28.5%, YouTube 14.6% | Ahrefs Brand Radar leaderboards, 2026-09 | Share of top sources only; refreshed monthly, so compare like for like |
+| LinkedIn rose from about 11th to about 5th among cited domains between 2025-11 and 2026-02 | Profound, 2026 (via secondary) | Vendor |
 | Reddit's share of ChatGPT citations fell from 3.83% to 0.52% in four days | Promptwatch via Search Engine Land, 2025-09 | Cause disputed |
 | Forums about 2% of citations, 86% brand-controlled sources | Yext, 6.8M citations, 2025 | Different classification |
 | Community platforms 52.5% of citations | OtterlyAI, 1M+ citations, 2026 | Different classification |

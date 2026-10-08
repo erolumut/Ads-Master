@@ -7,7 +7,7 @@
 |--------|---------|--------|
 | Search Console Performance (web, image, video, news, Discover, Google News) | Clicks, impressions, CTR, average position by query, page, country, device, search appearance, date | Anonymized queries hidden; UI shows 1,000 rows; API returns a capped number of rows per day per search type; 16 months history; AI features included in totals with no AI filter in the main report |
 | Search Console bulk export to BigQuery | Daily rows without UI row limits | Starts from setup date (no backfill); anonymized queries still null; storage cost |
-| Search Console Generative AI report (beta 2026) | AI feature impressions by page, country, device, date for Search and Discover | Impressions only; no clicks or queries at launch; rollout and API status vary [Contested] |
+| Search Console Generative AI report (beta 2026; all sites worldwide since 2026-08-31) | AI Overviews and AI Mode impressions combined, by page, country and date (separate report for Discover AI features); search type filter text or multimodal | Impressions only; no clicks, queries or AI Mode vs AI Overviews split; not in the API or BigQuery export as of 2026-10 (UI and CSV only) [Official, 2026-08] |
 | Search Console Insights, query groups, branded filter, annotations | Faster analysis | Eligibility limits (query groups for large sites; branded filter for top level properties) |
 | GA4 | Organic sessions, engagement, key events, revenue by landing page | Consent mode gaps, (not set) landing pages, AI feature clicks indistinguishable from organic |
 | Backend or CRM | Revenue and lead quality truth | Needs landing page or first touch capture |

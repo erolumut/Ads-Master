@@ -119,9 +119,9 @@ This simulates the user agent only; it does not prove OpenAI's real crawler can 
 | Control | Status (2026-10) | Label |
 |---------|------------------|-------|
 | Platform placement guardrails (sensitive and unsafe contexts excluded) | Always on | [Official, 2026-09] |
-| Negative Phrases | For qualifying advertisers (October 2026) | [Official, 2026-10] (read via secondary summary) |
+| Negative Phrases | For qualifying advertisers with narrow, brand policy driven placement needs (announced 2026-10-05); OpenAI published no eligibility criteria. Adthena saw the field in a live UK account before the announcement: up to 100 phrases of up to 100 characters each; an ad is blocked when the user's message contains a phrase (hard exclusion, unlike context hints) | [Official, 2026-10] (availability) and [Unverified] (limits, single source) |
 | Negative keywords in the API | Removed from the public API spec in 2026-09 | [Unverified] |
-| Third-party verification | DoubleVerify and Integral Ad Science brand safety pilots; OpenAI states they do not access private conversations | [Official, 2026-10] (read via secondary summary) |
+| Third-party verification | DoubleVerify and Integral Ad Science brand suitability pilots in a controlled test environment; OpenAI states they do not access private conversations | [Official, 2026-10] |
 | Placement or query reports | Not available; advertisers cannot see the conversations or prompts | [Official, 2026-09] |
 | Off topic risk | One panel found 14.35% of ad impressions unrelated to the query [Study, 2026-08] | |
 
@@ -134,7 +134,7 @@ Brand safety practice: sample your own placements by asking ChatGPT (on a Free a
 - EEA and Switzerland: no ad personalization; do not use custom audiences [Official, 2026-09].
 - Custom audience uploads need a legal basis and, for EEA data, are not to be used [Official, 2026-09].
 - Independent research raised questions about a cross site `__obi` cookie and AAM defaults [Unverified]; consult counsel for EU and UK deployments and configure consent false by default.
-- EU DSA: ChatGPT search reported 159.1M EU monthly recipients; designation as a very large online search engine reported 2026-08-31 with ad repository obligations expected from January 2027 [Unverified]. Expect your ads (creative, advertiser name, targeting parameters) to become publicly visible in an EU ad repository.
+- EU DSA: ChatGPT search reported 159.1M EU monthly recipients; the European Commission designated ChatGPT a Very Large Online Search Engine on 2026-08-31 [Official, 2026-08]. Obligations apply four months after notification (around end of 2026 to January 2027): ad repository, systemic risk assessments, audits, no ads based on profiling of minors or on sensitive data (religion, political opinions, health and other special categories). Expect your ads (creative, advertiser name, targeting parameters) to become publicly visible in an EU ad repository. The UK lists only ChatGPT Search in Ofcom's Category 2A under the Online Safety Act [Unverified] (legal commentary).
 - FTC (US): ads must be clearly labeled (OpenAI labels them); your claims remain your responsibility under truth in advertising rules [Practitioner consensus].
 
 ## 9. Pre-launch policy checklist

@@ -14,7 +14,7 @@
 Key facts:
 - Relevance weighted second price auction: the highest bid does not automatically win, and you pay based on the next competing bid adjusted for relevance [Official, 2026-09].
 - Recommended starting CPC max bid: $3 to $5 USD [Official, 2026-09]. Ads Manager warns below $3 in the US [Unverified]. The API does not enforce a minimum bid [Unverified].
-- Default max CPM bid reported at $60 [Unverified].
+- Default max CPM bid reported at $60 (agency guides; same as the launch rate) [Unverified].
 - Conversion campaigns: "There is no recommended bid amount at this time" [Official, 2026-09]. You never pay per conversion [Official, 2026-09].
 - Conversion campaigns need conversion tracking and one standard event (custom events not supported); objective, billing model and event cannot change [Official, 2026-09].
 - oCPM learns from a broader set of signals (after clicks and after views) [Official, 2026-09].
@@ -25,9 +25,11 @@ Key facts:
 ### Pricing history (context, not targets)
 | Period | Reported pricing | Label |
 |--------|-----------------|-------|
-| Feb 2026 pilot | About $60 CPM, $200k to $250k minimum commitment, CPM only | [Unverified] |
-| Mid April 2026 | CPMs reported $25 to $45, lows of $15; minimum reduced to $50k | [Unverified] |
-| May 5, 2026 | CPC added; self-serve with no platform minimum spend beyond minimum daily budgets | [Official, 2026-05] and [Unverified] (minimum removal) |
+| Feb 2026 pilot | About $60 CPM (Adweek, Digiday, The Information); $200k minimum commitment confirmed by OpenAI to Adweek, $250k quoted to some agencies; CPM only | [Official, 2026-02] ($200k) and [Contested] ($250k) |
+| Mid April 2026 | Digiday (2026-04-17): CPMs as low as $25 (via Criteo $25 to $35, Jellyfish averages near $45; Ad Age lows of $15); minimum reduced to $50k | Trade reports, multiple outlets |
+| May 5, 2026 | CPC added; self-serve with no platform minimum spend beyond minimum daily budgets | [Official, 2026-05] and [Official, 2026-09] (help center lists only minimum daily budgets) |
+| May to June 2026 | Partner minimums fall: StackAdapt none (May), Criteo $10k per month with a media match (June) | Trade reports (Adweek, eMarketer) |
+| June to August 2026 | Conversion optimized campaigns (first wave 2026-06-05; broader 2026-07-24; feed oCPC beta early August) | [Official, 2026-09] (feature) and trade reports (dates) |
 | Practitioner reports | US CPC around $3 to $4 (one advertiser $3.37); about EUR 1 per click delivered in Czech and Slovak markets | [Unverified] |
 
 ## 2. Objective decision tree
