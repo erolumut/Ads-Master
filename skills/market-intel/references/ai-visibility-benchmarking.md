@@ -93,3 +93,35 @@ Prompt volume: no official prompt volume data exists from assistants; some tools
 - Changing the prompt set every month: no trend.
 - Treating tool share of voice numbers from different vendors as comparable.
 - Ignoring accuracy: a mention with a wrong price can hurt more than no mention.
+
+## 11. Sampling sheet (one row per answer)
+| Date | Engine | Model label | Location | Account state | Prompt ID | Prompt | Run | Brands in order | Recommended brand(s) | Sentiment per brand | Cited URLs | Notes |
+|------|--------|-------------|----------|---------------|-----------|--------|-----|-----------------|----------------------|---------------------|-----------|-------|
+
+Scoring rules (apply consistently):
+- Mentioned: brand name appears anywhere in the answer.
+- Recommended: brand is presented as a top pick, "best for", or explicitly suggested for the user's situation.
+- Position: order of first mention among brands.
+- Sentiment: positive (praise, strengths), neutral (listed), negative (warnings, weaknesses dominate).
+- Accuracy: any factual error about price, features, availability or policy.
+
+## 12. Script: compute rates from the sampling sheet
+```python
+# python3 -I ai_sov.py answers.csv  (columns as in the sampling sheet; brands separated by ";")
+import csv, sys, collections as co
+rows = list(csv.DictReader(open(sys.argv[1])))
+n = len(rows)
+mention, recommend, pos = co.Counter(), co.Counter(), co.defaultdict(list)
+for r in rows:
+    order = [b.strip() for b in r["Brands in order"].split(";") if b.strip()]
+    for i, b in enumerate(order):
+        mention[b] += 1; pos[b].append(i + 1)
+    for b in [x.strip() for x in r["Recommended brand(s)"].split(";") if x.strip()]:
+        recommend[b] += 1
+total_mentions = sum(mention.values()) or 1
+for b, m in mention.most_common():
+    print(f"{b}: mention {m/n:.0%}, recommend {recommend[b]/n:.0%}, avg pos {sum(pos[b])/len(pos[b]):.1f}, SOV {m/total_mentions:.0%}")
+```
+
+## 13. Worked example
+40 prompts x 3 runs x 3 engines = 360 answers. We are mentioned in 126 (35%), recommended in 54 (15%), average position 3.2. Competitor A: mentioned in 252 (70%), recommended in 151 (42%), average position 1.6. Top cited domains when A is recommended: a review platform (88 citations), Reddit (61), a publisher listicle (40). We have 37 reviews on that platform vs A's 1,900. Recommendation to ai-search-optimization and growth-orchestrator: review generation program and inclusion pitches to the cited listicles, then re-measure in 60 days.

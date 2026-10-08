@@ -92,3 +92,40 @@ Fads: sharp spikes with fast decay, usually social driven; use for creative timi
 - Mixing markets or languages in one volume number.
 - Ignoring zero click effects when converting search volume into traffic.
 - Acting on a single breakout query.
+
+## 10. Worked example: seasonality index
+Illustrative monthly category demand (Search Console impressions, 2 year average):
+| Month | Avg impressions | Index (month / annual mean) |
+|-------|-----------------|-----------------------------|
+| Jan | 80,000 | 0.80 |
+| Feb | 85,000 | 0.85 |
+| Mar | 95,000 | 0.95 |
+| Apr | 100,000 | 1.00 |
+| May | 105,000 | 1.05 |
+| Jun | 90,000 | 0.90 |
+| Jul | 85,000 | 0.85 |
+| Aug | 90,000 | 0.90 |
+| Sep | 100,000 | 1.00 |
+| Oct | 110,000 | 1.10 |
+| Nov | 150,000 | 1.50 |
+| Dec | 110,000 | 1.10 |
+Annual mean = 100,000. November at 1.50 means plan about 50% more demand than an average month; growth-orchestrator uses this for budget weights and forecasts.
+
+## 11. Script: seasonality index and share of search from exports
+```python
+# python3 -I demand.py trends.csv   (columns: month,brand_us,brand_a,brand_b,category)
+import csv, sys, statistics as st
+rows = list(csv.DictReader(open(sys.argv[1])))
+brands = [c for c in rows[0] if c.startswith("brand_")]
+cat = [float(r["category"]) for r in rows]
+mean = st.mean(cat)
+print("month,season_index," + ",".join(f"sos_{b}" for b in brands))
+for r, c in zip(rows, cat):
+    total = sum(float(r[b]) for b in brands) or 1.0
+    shares = [f"{float(r[b]) / total:.3f}" for b in brands]
+    print(f"{r['month']},{c / mean:.2f}," + ",".join(shares))
+```
+Run on exports pulled the same day, or stitched with an anchor term. Report 12 month rolling averages for share of search.
+
+## 12. Share of search worked example
+Illustrative Google Trends values (same pull) for September: us 24, competitor A 48, competitor B 18, competitor C 10. Total 100. Share of search: us 24%, A 48%, B 18%, C 10%. If our 12 month rolling share moved from 21% to 24% while A moved from 52% to 48%, we are gaining mental availability; check market share data or sales trends to confirm.
