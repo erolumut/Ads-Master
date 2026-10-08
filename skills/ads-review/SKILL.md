@@ -26,7 +26,7 @@ Goal: numbers every day, decisions on 3 and 7 day windows. One bad day is not a 
 5. Write a journal entry only when there are exceptions or a decision.
 
 ## Mode: weekly (the learning loop)
-1. **Fan out.** Delegate to every active specialist in parallel (paid channels, mobile-app-growth, seo, ai-search-optimization, cro, site-engineer, commerce-feeds, creative-strategy, video-studio, offer-strategy, lifecycle-crm, measurement; compliance reviews anything due to publish). Brief for each:
+1. **Fan out.** Delegate to every active specialist in parallel (paid channels, mobile-app-growth, seo, ai-search-optimization, cro, storefront-ux, site-engineer, commerce-feeds, creative-strategy, video-studio, offer-strategy, lifecycle-crm, measurement; compliance reviews anything due to publish). Brief for each:
    > Weekly review for <project>, week of <date>. Follow the weekly Cadence section of your skill. Use data from <sources and date range>. Deliver: (1) KPI scorecard vs targets in STRATEGY.md and your memory baselines, (2) wins and misses with the evidence, (3) experiments to close or launch (update EXPERIMENTS.md rows you own), (4) a change list for approval using ads-master/templates/CHANGE_REQUEST.md, (5) memory updates only for confirmed patterns, (6) a journal entry. Save to ads-master/outputs/<slug>/<date>_<slug>_weekly-review.md. End with "Handoffs requested" if you need another agent.
 2. **Execute handoffs.** Collect each response. Run any requested handoffs that are needed before the synthesis (for example a tracking fix).
 3. **Synthesize.** Delegate to the `growth-orchestrator` agent (or follow the growth-orchestrator skill in this session) to write `ads-master/outputs/growth-orchestrator/<date>_growth-orchestrator_weekly-review.md` using `ads-master/templates/WEEKLY_REVIEW.md`: business KPIs, channel scorecard, cross channel insights, budget shifts within guardrails, experiment decisions, and an updated `PRIORITIES.md` (max 5 items).
@@ -43,6 +43,7 @@ Everything in weekly, plus:
 - `lifecycle-crm`: cohort repeat rates (30, 45, 60, 90 days), flow revenue and list health.
 - `offer-strategy`: offer and bundle performance, promo calendar for next month, price consistency across channels and retail.
 - `compliance`: claims registry review (expired evidence, new claims found in live copy).
+- `storefront-ux`: conformance audit delta on the top templates (homepage, collection, PDP, cart).
 - `site-engineer`: release log review and a worst case data pass on the top landing pages.
 
 ## Mode: quarterly

@@ -95,6 +95,7 @@ Set the Active column in `HEARTBEAT.md` using these rules, then show the human t
 | Channel active or planned in the brief | meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads accordingly |
 | B2B with deal size over about $5k | linkedin-ads (consider), microsoft-ads (consider) |
 | Any customer facing publishing (always, in practice) | compliance |
+| Ecommerce storefront | storefront-ux |
 | Website code or theme in this repo, or a site the team edits | site-engineer |
 | Meta, TikTok, YouTube or other video placements active or planned | video-studio |
 | Ecommerce, subscriptions or a meaningful offer decision | offer-strategy |
@@ -108,7 +109,7 @@ Ask before editing. Append this block to the project `CLAUDE.md` (create the fil
 <!-- ads-master:start -->
 ## Growth agents (Ads Master)
 Project growth state lives in `ads-master/`. Before any marketing, ads, SEO, AI search, tracking or landing page task, read `ads-master/PROJECT_BRIEF.md` and `ads-master/MEASUREMENT.md`.
-For multi channel work, load the `growth-orchestrator` skill and delegate to the specialist agents it names. Specialists: meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads, mobile-app-growth, seo, ai-search-optimization, measurement, cro, site-engineer, creative-strategy, video-studio, offer-strategy, lifecycle-crm, compliance, commerce-feeds, market-intel.
+For multi channel work, load the `growth-orchestrator` skill and delegate to the specialist agents it names. Specialists: meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads, mobile-app-growth, seo, ai-search-optimization, measurement, cro, storefront-ux, site-engineer, creative-strategy, video-studio, offer-strategy, lifecycle-crm, compliance, commerce-feeds, market-intel.
 Safety policy: `ads-master/GUARDRAILS.md` (automation stage, caps, gates), enforced by the Ads Master guard hooks. Agents never change live accounts, spend, message customers or publish without explicit approval.
 <!-- ads-master:end -->
 ```

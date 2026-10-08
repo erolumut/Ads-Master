@@ -1,6 +1,6 @@
 ---
 name: growth-orchestrator
-description: Conductor playbook and default entry point for the Ads Master growth system. Use for any multi channel or "where do we grow" request. Diagnose a business from ads-master/PROJECT_BRIEF.md, activate agents, route tasks to specialists (meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads, mobile-app-growth, seo, ai-search-optimization, measurement, commerce-feeds, cro, site-engineer, creative-strategy, video-studio, offer-strategy, lifecycle-crm, compliance, market-intel), run multi agent audits, launches with publish gates, scaling plans and drop recoveries, build channel mix and budget plans (marginal returns, response curves, 70/20/10, pacing), compute unit economics (breakeven ROAS, POAS, MER, aMER, nCAC, acquisition investment, LTV to CAC, payback), forecast scenarios, apply geo modules and build new country modules, plan channels without an agent and run weekly and monthly reviews.
+description: Conductor playbook and default entry point for the Ads Master growth system. Use for any multi channel or "where do we grow" request. Diagnose a business from ads-master/PROJECT_BRIEF.md, activate agents, route tasks to specialists (meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads, mobile-app-growth, seo, ai-search-optimization, measurement, commerce-feeds, cro, storefront-ux, site-engineer, creative-strategy, video-studio, offer-strategy, lifecycle-crm, compliance, market-intel), run multi agent audits, launches with publish gates, scaling plans and drop recoveries, build channel mix and budget plans (marginal returns, response curves, 70/20/10, pacing), compute unit economics (breakeven ROAS, POAS, MER, aMER, nCAC, acquisition investment, LTV to CAC, payback), forecast scenarios, apply geo modules and build new country modules, plan channels without an agent and run weekly and monthly reviews.
 ---
 
 # Growth Orchestrator
@@ -75,6 +75,7 @@ If `ads-master/` is missing: ask these 8 in one message, or suggest the `ads-set
 | creative-strategy | Angles, hooks, briefs, creative testing, AI creative, creative analytics | "creative fatigue", "new ads", "hooks", "UGC", "briefs", "what to make next" | Landing page copy (cro) |
 | market-intel | Competitors, ad libraries, offers, pricing, positioning, VoC, demand, market sizing | "what are competitors doing", "ad library", "pricing study", "market size", "reviews mining" | |
 | mobile-app-growth | ASO, Apple Ads, app campaigns on Google, Meta and TikTok, MMPs, SKAN and AdAttributionKit, deep links, onboarding and paywalls, web to app | "app installs", "ASO", "Apple Ads", "App campaigns", "SKAN", "paywall", "web to app" | Web only businesses |
+| storefront-ux | Ecommerce storefront UX and implementation: navigation, homepage, on-site search, filters, collection pages, PDP, cart drawer, checkout extensions, post purchase; best practice conformance audits; builds components | "optimize the store", "product page", "cart drawer", "site search", "filters", "homepage redesign", "best practices for our shop" | Campaign landing pages and experiment design (cro) |
 | site-engineer | Dev and preview loops, release QA, rollback, launch QA for ads (URL, UTM, pixel, status), mobile web polish, worst case data tests, security review of changes | "publish the theme", "release", "preview", "QA before launch", "it breaks on mobile", "check the landing page works" | Copy and offer decisions (cro, offer-strategy) |
 | video-studio | Video ad production from brief to rendered files, variants, captions, specs, safe zones | "make the video", "render variants", "cut downs", "UGC edit", "product motion video" | Deciding what concept to make (creative-strategy) |
 | offer-strategy | Bundles, price ladders, launch offers, discount vs bonus economics, free shipping thresholds, promo calendar, channel conflict | "which bundle", "launch offer", "free shipping threshold", "discount or gift", "retail price conflict" | Page layout (cro) |
@@ -136,6 +137,7 @@ Approval gates: <what the human must approve and when>
 | Any paid channel active or planned | creative-strategy, market-intel | weekly (creative), monthly (market-intel) |
 | Product catalog | commerce-feeds | weekly diagnostics |
 | Any customer facing publishing | compliance | on every publish, monthly registry review |
+| Ecommerce storefront | storefront-ux | monthly conformance audit, on every storefront change |
 | Website in a repo or a theme the team changes | site-engineer | on every release, weekly QA |
 | Paid social or video channels active | video-studio | weekly production batch |
 | Ecommerce or subscription offers | offer-strategy | monthly, before promos |
@@ -159,10 +161,11 @@ Full plans with steps, inputs and output paths are in [Routing and workflows](re
 | Tracking break | measurement (lead) | affected channel agents (impact on bidding) | none | incident report + bidding protection list |
 | AI search program | ai-search-optimization, seo, market-intel | chatgpt-ads (paid), commerce-feeds (shopping feeds) | measurement (AI referral tracking) | AI visibility program |
 | BFCM or seasonal plan | measurement, commerce-feeds | channel agents, creative-strategy, cro | market-intel (competitor promos) | seasonal plan + pacing calendar |
-| Launch readiness (first paid launch) | measurement, site-engineer, offer-strategy, compliance (facts and claims) | creative-strategy, then video-studio | channel agent drafts PAUSED, site-engineer launch QA | go live checklist + change request |
+| Launch readiness (first paid launch) | measurement, site-engineer, storefront-ux (store conformance), offer-strategy, compliance (facts and claims) | creative-strategy, then video-studio | channel agent drafts PAUSED, site-engineer launch QA | go live checklist + change request |
 | Creative production sprint | creative-strategy (concepts and briefs) | video-studio (renders and variants), compliance | channel agents (PAUSED upload plan) | creative batch + registry rows |
 | Retention program | lifecycle-crm, measurement (cohorts) | offer-strategy, compliance | cro (post purchase pages) | lifecycle plan + flow specs |
 | Offer test | offer-strategy, measurement | cro, compliance | channel agents, creative-strategy | experiment brief + economics |
+| Storefront optimization | storefront-ux (conformance audit), cro (funnel research) | storefront-ux builds table stakes fixes, cro designs tests for uncertain changes | site-engineer (preview, QA, release) | ranked change list + release plan |
 | App growth program | mobile-app-growth, measurement (MMP and SKAN) | creative-strategy, video-studio | lifecycle-crm (onboarding and push) | app growth plan |
 
 ## Adaptation matrix

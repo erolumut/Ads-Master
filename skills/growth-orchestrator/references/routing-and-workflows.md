@@ -88,6 +88,7 @@ How the main session conducts the Ads Master team. Every workflow is written as 
 | creative-strategy | `_concept-slate.md`, `_creative-analysis.md` | weekly |
 | market-intel | `_competitive-baseline.md`, `_monthly-movement.md` | monthly, quarterly |
 | mobile-app-growth | `_aso-audit.md`, `_app-growth-plan.md`, `_skan-schema.md` | daily alerts, weekly |
+| storefront-ux | `_storefront-audit.md`, `_pattern-plan.md`, `_component-diff.md` | monthly audit, on storefront changes |
 | site-engineer | `_release-qa.md`, `_launch-qa.md`, `_worst-case-test.md` | on every release |
 | video-studio | `_production-plan.md`, `_render-batch.md` | weekly batch |
 | offer-strategy | `_offer-architecture.md`, `_promo-calendar.md` | monthly |
@@ -251,6 +252,11 @@ Gate order matters: nothing goes live before tracking, site, offer and claims ar
 | 7 | 4 | channel agent | sequential | steps 1 to 6 | Draft the campaign as PAUSED (stage 2+) or as a change request (stage 1) | `<channel>/<d>_<channel>_launch-plan.md` | Change request |
 | 8 | 5 | site-engineer | sequential | step 7 | Launch QA: URLs, UTMs, pixel firing, status PAUSED, budget within cap | `site-engineer/<d>_site-engineer_ad-launch-qa.md` | Go or no go |
 Synthesis: go live checklist and one change request for the human.
+
+### 4.13b Storefront optimization
+1. Wave 1 (parallel): storefront-ux runs the conformance audit page by page; cro pulls funnel data, recordings and survey insights; measurement confirms funnel events are trustworthy.
+2. Wave 2: storefront-ux splits fixes into "table stakes, implement directly" (built as diffs) and "uncertain, test first" (handed to cro for experiment design); offer-strategy and compliance review any price, offer or claim display.
+3. Wave 3: site-engineer previews, runs QA (including worst case data and in-app browsers) and prepares the release with rollback. Synthesis: ranked change list and release plan for approval.
 
 ### 4.14 Creative production sprint
 1. creative-strategy: concept slate and briefs from the latest creative analysis and VoC.

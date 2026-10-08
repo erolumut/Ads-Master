@@ -21,6 +21,7 @@
 | market-intel | | | |
 | video-studio | | | |
 | compliance | yes | on every publish | Pre-publish gate for ads, pages, emails, feeds, videos |
+| storefront-ux | | | Storefront conformance audit and component builds |
 | site-engineer | | | Release QA before any site change goes live |
 | lifecycle-crm | | | |
 | offer-strategy | | | |
