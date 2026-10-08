@@ -106,3 +106,41 @@ See [App creative](app-creative.md) for briefs and testing.
 | Geo or lift tests | Incremental effect | Slow, costly, the only causal read |
 
 Rule: decisions use a triangulated range (MMP, SAN, SKAN modeled, backend), calibrated by tests. Write both platform and calibrated numbers in every report.
+
+## 9. Launch procedure: Meta app campaign
+
+1. Prerequisites: app registered and linked to the ad account and the app dataset; Meta SDK or MMP sending install and bid events with values; SKAN configuration through the SDK or MMP; iOS and Android store IDs verified.
+2. Create PAUSED (G2): App promotion objective, Advantage+ app campaign, one per OS, optimization to installs (or the bid event if it already reaches about 50 per week).
+3. Creative: 6 to 10 ads across 3 to 5 concepts, 9:16 video first, captions, Advantage+ creative enhancements reviewed one by one.
+4. Budget: enough for about 50 optimization events per week (for example cost per event $8 needs about $57 per day).
+5. Activation change list (G3); hands off for 7 days except for broken tracking or policy issues.
+6. Week 2 onward: creative kill and scale per meta-ads rules; move to app events optimization when volume allows.
+
+## 10. Launch procedure: TikTok app campaign
+
+1. Prerequisites: app added in Events Manager with the MMP integration (SAN), in-app events mapped, iOS SKAN handled by the MMP.
+2. Create PAUSED: App promotion, Smart+ App or manual, one per OS; iOS placements limited to TikTok and Lemon8 in Smart+ App.
+3. Creative: 4 to 6 native videos for Smart+ App, creator voiceover, real UI.
+4. Budget: at least 10x target CPA per ad group per day and a path to about 50 conversions per week.
+5. Optimize install first, then AEO on the bid event, then VBO for value; consider TikTok Ad Network as a separate tested cell on Android and for games.
+
+## 11. Diagnostics for social and network app campaigns
+
+| Symptom | Likely causes | Checks | Fixes |
+|---------|--------------|--------|-------|
+| Spend concentrates on Android or low ARPU countries | Blended campaign, broad geo | Spend and revenue by OS and country | Split campaigns, adjust geo |
+| Installs fine, bid events missing on iOS | SKAN value mapping, SDK version, consent | MMP SKAN report, event logs | Fix schema and SDK |
+| Network installs with near zero D1 retention | Fraud or misleading creative | CTIT, publisher IDs, creative review | Blocklist publishers, replace creative, claim refunds through the MMP fraud process |
+| Learning limited | Too few events per ad set | Events per 7 days | Consolidate, shallower event, budget |
+| CPI rises across all social | Creative fatigue, seasonality, auction | IPM and CTR trend, CPM | New concepts, accept seasonal CPM |
+
+## 12. Budget split example (Growth tier subscription app, $20k per month)
+
+| Channel | Share | Reason |
+|---------|-------|--------|
+| Apple Ads | 35% | Highest intent iOS demand; keyword level revenue visibility |
+| Meta (iOS and Android app campaigns plus web funnel test) | 40% | Volume and creative learning |
+| Google App campaigns (Android first) | 20% | Android scale and Play search |
+| Test cell (TikTok or one network) | 5% | Next channel learning |
+
+This is an illustrative split [Practitioner consensus]; the real split comes from marginal cost per payer by channel and the growth-orchestrator budget plan.

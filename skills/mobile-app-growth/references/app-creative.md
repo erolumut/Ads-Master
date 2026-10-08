@@ -104,3 +104,35 @@ Success metric and kill rule: <IPM, cost per bid event, D7 ROAS thresholds>
 Compliance notes: <category rules, disclosures>
 Handoffs: video-studio (production), creative-strategy (concept system), compliance (claims)
 ```
+
+## 9. Creative by app type
+
+| App type | Lead concepts | Proof that works | Avoid |
+|----------|---------------|------------------|-------|
+| Subscription (health, education, AI) | Outcome demo, personalized plan reveal, creator testimonial | Ratings count, verified outcomes, expert reviewer (if real) | Unverified results, before and after without disclosure |
+| Game | Real gameplay first 3 s, progression, satisfying loops, playables | Ratings, downloads milestones | Gameplay that does not exist in the game |
+| Ecommerce or marketplace | Product discovery, price and delivery promise, app only offer | Assortment, delivery times, reviews | Offers that differ from the store page or checkout |
+| Fintech | Speed and simplicity of the core task, security cues | Licenses and regulators named correctly, fees stated | Return promises, unlicensed claims, "free" without terms |
+| Utility | Problem to fix in one tap, screen recording | Speed, ratings | Fake system warnings ("your phone is infected") |
+| B2B companion | Workflow demo for existing customers | Customer logos only with permission | Install chasing creative |
+
+## 10. Refresh cadence and fatigue signals
+
+| Tier | New concepts per week | New variants per week | Fatigue flag |
+|------|----------------------|-----------------------|--------------|
+| Starter | 1 to 2 | 2 to 4 | IPM or CTR down 25% vs first 7 days |
+| Growth | 3 to 5 | 6 to 15 | Same, or cost per bid event up 20% with stable CPM |
+| Scale | 10 to 30 | 30 to 100 | Same, plus frequency rising on social |
+| Enterprise | 30+ by market | 100+ | Per market dashboards |
+
+These cadences are [Practitioner consensus] starting points; adjust to the account's own hit rate (share of new creatives that reach scale).
+
+## 11. Localization of creative
+
+- Translate captions and voiceover for the top revenue markets; re-shoot creator content locally where budgets allow.
+- Show local currency, local UI language and local payment methods in screen recordings.
+- Check local rules: comparative claims, price display and influencer disclosure differ by country (compliance).
+
+## 12. Naming convention
+
+`<APP>_<OS>_<CHANNEL>_<CONCEPT>_<HOOK>_<FORMAT>_<LEN>_<VER>`, for example `BUDGETLY_IOS_META_ROUNDUP_H02_9x16_20s_v3`. Use the same concept ID in the CPP registry and creative-library/registry.csv so store pages and ads can be joined in reports.

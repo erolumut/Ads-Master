@@ -108,3 +108,32 @@ Rules:
 | # | Campaign | Setting | From | To | Reason with data | Expected effect | Risk | Rollback trigger | Approval |
 |---|----------|---------|------|----|------------------|-----------------|------|------------------|----------|
 | 1 | ACi_US_Android_tCPA | Target CPA | $18.00 | $19.80 | 14-day CPA $19.40 on 420 trials, budget capped 6 of 7 days | +10% to 15% volume | Higher CPA | CPA over $22 for 5 days | |
+
+## 11. Setup procedure (ACi, new app or new market)
+
+1. Link the app: Google Ads > Tools > Data manager (linked accounts) > Firebase or the app attribution partner; confirm the app ID for each OS.
+2. Import conversions: first_open or install, the bid event (for example `trial_start`, `purchase`, `level_10`) and value events; mark only the bid event as primary for the campaign goal.
+3. iOS: confirm on-device conversion measurement and ICM status in the Google Ads iOS diagnostics before launch.
+4. Create the campaign PAUSED (G2): subtype App installs, OS, locations, languages, bidding focus (Install volume first unless the bid event already reaches about 10 users per day), budget at the ratio floor.
+5. Ad groups: 2 to 3 by creative theme, each with full asset sets (5 headlines, 5 descriptions, images, portrait, square and landscape video, HTML5 if gaming); link the matching Play custom store listing.
+6. Exclusions: only legal, brand safety and child directed requirements; avoid narrowing placements.
+7. Change list for activation (G3) with budget, target and the expected learning period.
+8. After activation: daily spend and conversion sanity for 7 days; no target or budget change above 20% in the first 2 weeks.
+
+## 12. ACe (engagement) specifics
+
+- Audiences: lapsed users, purchasers, high value segments from Firebase or the AAP; minimum list sizes apply [Official, verify current minimums].
+- Every ad needs a working deep link into specific content; Google validates deep links and disapproves broken ones [Official].
+- Bid on an in-app action that signals reactivation (session with purchase, content view with subscription restart).
+- Exclude active users; coordinate frequency with lifecycle-crm push and email so users are not hit three times for the same message.
+- Measure incrementality with a holdout of the audience where possible; re-engagement attribution over-credits users who were coming back anyway [Practitioner consensus].
+
+## 13. Pre-registration (ACpre, Android)
+
+- Run 2 to 8 weeks before launch with a pre-registration custom store listing and reward.
+- Budget at least 50x the bid daily [Official].
+- Pre-registrants receive install prompts at launch; track pre-registration to install and D7 retention of that cohort vs launch week paid users.
+
+## 14. Naming
+
+`ACI_<CC>_<OS>_<BID>_<EVENT>_<THEME>_v<N>`, for example `ACI_US_AND_tCPA_trialstart_outcome_v2`; `ACE_<CC>_<OS>_<AUDIENCE>_v<N>`; `ACPRE_<CC>_<TITLE>`.

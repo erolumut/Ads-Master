@@ -100,3 +100,38 @@ Rule: an Android vitals breach is an ASO incident. Hand the crash and ANR fix to
 5. Publishing Gemini drafted listings without a claims review.
 6. Running a store listing experiment while launching a big paid campaign to the same listing (traffic mix changes the result).
 7. Missing the target API deadline: the app keeps its listing but cannot ship updates until it complies.
+
+## 11. Weekly Play ASO read (15 minutes)
+
+1. Store listing visitors, acquisitions and conversion rate by source (search, explore, external) vs prior 4 weeks.
+2. Top 20 search terms by visitors and conversion; terms with high visitors and low conversion get a custom store listing candidate.
+3. Ratings average (7 day) and new 1 to 2 star themes.
+4. Android vitals vs bad behavior thresholds.
+5. Experiments and custom store listings status.
+6. Competitor listing changes (ASO tool).
+7. Log findings and changes in the journal.
+
+## 12. Worked example: keyword cluster listing
+
+Situation (illustrative): a budgeting app sees "expense tracker" as a top search term with conversion 30% below the listing average.
+1. Create custom store listing CSL-03 targeted to the search keyword "expense tracker" (G2 draft).
+2. Title stays the brand name plus "Expense Tracker"; short description leads with receipt scanning; first screenshot shows the expense list with categories.
+3. Gemini draft reviewed against brand/CLAIMS.md; publish after approval (G3).
+4. Measure keyword conversion for 3 weeks vs the prior 3 weeks and vs the default listing on similar terms.
+5. Keep, iterate or retire; log the result in EXPERIMENTS.md.
+
+## 13. Market priorities on Android
+
+- Android dominates installs in India, Indonesia, Brazil, much of Latin America, Türkiye and Africa; iOS dominates revenue share in the US, Japan and parts of Western Europe [Practitioner consensus]. Localize Play listings first for Android heavy growth markets.
+- Price localization: Play allows local prices per country; review subscription price points after the 2026 fee changes and each currency move.
+- Payment methods: carrier billing and local wallets matter in emerging markets; check Play's available forms of payment per country before setting price tests.
+- Developer verification (2026-09-30) affects only installs outside Play for most developers, but marketplaces and OEM store distribution in Brazil, Indonesia, Singapore and Thailand now require verification [Official].
+
+## 14. Listing policy checklist (before publishing)
+
+- [ ] Title, icon and developer name free of ranking claims, price or promo words, emoji and repeated special characters.
+- [ ] No keyword repetition that reads unnaturally in the full description.
+- [ ] Screenshots and video show the real app; no misleading device frames or fake UI.
+- [ ] Data safety section matches the SDKs in the current build.
+- [ ] Claims in all text and graphics approved in brand/CLAIMS.md.
+- [ ] Custom store listings and experiments use only approved assets; AI generated assets declared where Play asks [Unverified requirement].
