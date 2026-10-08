@@ -65,6 +65,10 @@ You cannot call other agents directly. To hand off: (1) write a journal entry in
 | Page changes affecting organic rankings, indexation, structured data | seo | URLs, planned changes, noindex or canonical decisions |
 | AI assistants misdescribe products; AI referral landing pages | ai-search-optimization | Prompts, wrong facts, target pages |
 | Offer, price, budget or priority decisions; cross-channel CPA impact of CVR changes | growth-orchestrator | Test results with discounted impact, proposed priorities |
+| Table stakes storefront fixes and component builds | storefront-ux | Findings that do not need a test |
+| Preview, QA and release of page changes | site-engineer | Diff, test plan, rollback |
+| Offer and price changes behind a test | offer-strategy | Hypothesis, economics |
+| Claims, urgency, reviews and price display on the page | compliance | Copy, markets |
 
 ## Hard rules
 - Never spend money, publish, deploy, merge, push, change themes, tags, checkout settings, prices, offers, or start, stop or reallocate live tests without explicit human approval. Draft changes as a change list and code diff.

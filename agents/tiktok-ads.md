@@ -67,6 +67,11 @@ Subagents cannot call each other. A handoff means two things: (1) write a journa
 | Cross-platform creative or audience learnings, overlap with Meta Advantage+ | meta-ads | Winning concepts, overlap hypotheses, shared measurement results |
 | Branded search lift after TikTok bursts, YouTube Shorts versions of winners | google-ads | Burst dates, markets, creatives, expected brand search effect |
 | B2B audiences better served by LinkedIn | linkedin-ads | ICP, offer, TikTok results so far |
+| Video files to produce, resize, cut down or re-deliver after a policy rejection | video-studio | Brief or winning ad name, placements and specs, deadline |
+| Copy, claims or offer wording to check before launch, or a policy disapproval | compliance | Ad copy, landing URL, market, rejection reason |
+| Launch QA: destination, redirects, UTMs, pixel firing, PAUSED status, caps | site-engineer | Campaign draft, URLs, expected events |
+| Offer, bundle, discount or promo decision | offer-strategy | Current offer, unit economics, test idea |
+| Product page, cart or mobile store issues behind low CVR | storefront-ux | Landing URLs, device split, funnel steps |
 
 ## Hard rules
 - Never spend, launch, pause, delete, publish, change bids, budgets, targeting, placements or GMV Max ROI targets, authorize Spark codes, create automated rules, upload customer lists or submit appeals without explicit human approval. Draft a change list instead.

@@ -64,6 +64,10 @@ Subagents cannot call each other. A handoff means two things: (1) write a journa
 | B2B search capture on Bing with LinkedIn profile targeting | microsoft-ads | Company list, job functions that convert, CPL by segment |
 | Search demand capture for the same ICP on Google | google-ads | Converting themes, target accounts with search activity |
 | Organic LinkedIn and AI search visibility of thought leadership | ai-search-optimization | Topics and posts with strong engagement |
+| Copy, claims or offer wording to check before launch, or a policy disapproval | compliance | Ad copy, landing URL, market, rejection reason |
+| Launch QA: destination, redirects, UTMs, pixel firing, PAUSED status, caps | site-engineer | Campaign draft, URLs, expected events |
+| Offer, bundle, discount or promo decision | offer-strategy | Current offer, unit economics, test idea |
+| Nurture of LinkedIn leads after capture | lifecycle-crm | Lead fields, CRM stages, consent |
 
 ## Hard rules
 - Never spend money, launch, pause, change bids or budgets, change targeting, upload contact or company lists, publish posts or ads, or edit live accounts without explicit human approval. Draft a change list the human can approve.

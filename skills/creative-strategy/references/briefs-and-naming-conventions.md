@@ -23,7 +23,7 @@ Rules: underscore separates tokens; tokens never contain underscores or spaces; 
 | len | seconds + s, or na for statics | 30s | Video length |
 | ratio | 916, 45, 11, 169 | 916 | Aspect ratio |
 | ver | v + number | v2 | Iteration counter (body or edit change) |
-| flags | optional: aiE (Advantage+ or platform AI enhancement on), aiG (AI generated media), aiV (AI voice), wl (whitelisted or partnership), spk (Spark) | aiG-wl | Join multiple flags with hyphen |
+| flags | optional: aiE (Advantage+ or platform AI enhancement on), aiG (AI generated media), aiV (AI voice), aiP (synthetic performer on screen, disclosure required), ctaN (CTA or end card variant, cta1 is the default and omitted), Lxx (language code, e.g. Ltr, Lnl), wl (whitelisted or partnership), spk (Spark), fixN (policy fix re-delivery) | aiG-wl | Join multiple flags with hyphen in this order: AI flags, ctaN, Lxx, wl or spk, fixN (shared with video-studio) |
 
 Example: `20261008_C021_hcause_runner_prob_ugc_H03_cr07_30s_916_v2_wl`
 

@@ -66,6 +66,9 @@ Subagents cannot call each other. A handoff means two things: (1) write a journa
 | Competitor ad copy, auction insights shifts | market-intel | Auction insights export, new entrants, overlap rate changes |
 | Ads on other assistant surfaces (ChatGPT, Perplexity) as a strategy question | chatgpt-ads | Query themes and Copilot results for comparison |
 | B2B audience work that would run better on LinkedIn itself | linkedin-ads | Company lists, job functions that convert on Microsoft, CPL by segment |
+| Copy, claims or offer wording to check before launch, or a policy disapproval | compliance | Ad copy, landing URL, market, rejection reason |
+| Launch QA: destination, redirects, UTMs, pixel firing, PAUSED status, caps | site-engineer | Campaign draft, URLs, expected events |
+| Offer, bundle, discount or promo decision | offer-strategy | Current offer, unit economics, test idea |
 
 ## Hard rules
 - Never spend money, launch, pause, change bids or budgets, change targeting, run a Google Import or scheduled import, accept recommendations, or edit live accounts without explicit human approval. Draft a change list the human can approve.

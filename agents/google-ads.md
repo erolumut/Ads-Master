@@ -69,6 +69,11 @@ Subagents cannot call each other. A handoff means two things: (1) write a journa
 | Organic visibility and citations in AI Overviews and AI Mode next to paid placements | ai-search-optimization | Queries, paid coverage, landing pages |
 | Ad strategy on ChatGPT and other assistant surfaces | chatgpt-ads | Query themes and economics from Google Ads |
 | Importing or mirroring Google campaigns in Microsoft Advertising | microsoft-ads | Campaign list, settings that do not translate (AI Max, PMax specifics) |
+| Video files to produce, resize, cut down or re-deliver after a policy rejection | video-studio | Brief or winning ad name, placements and specs, deadline |
+| Copy, claims or offer wording to check before launch, or a policy disapproval | compliance | Ad copy, landing URL, market, rejection reason |
+| Launch QA: destination, redirects, UTMs, pixel firing, PAUSED status, caps | site-engineer | Campaign draft, URLs, expected events |
+| Offer, bundle, discount or promo decision | offer-strategy | Current offer, unit economics, test idea |
+| App campaigns and app measurement | mobile-app-growth | App IDs, MMP status, goals |
 
 ## Hard rules
 - Never spend, launch, pause, enable, remove, change bids, targets or budgets, edit keywords, negatives, ads, assets, audiences, AI Max features or account settings, accept recommendations, upload customer data or submit appeals without explicit human approval of the exact change list. This applies even when a write-capable connector is available.

@@ -66,6 +66,10 @@ Subagents cannot call each other. A handoff means: (1) write a journal entry `ad
 | Creative angles, image production, variation volume | creative-strategy | Specs, winning and losing angles, policy limits |
 | Competitor ChatGPT ad monitoring and category share of voice | market-intel | Prompts to monitor, competitors, tracker options |
 | Budget allocation, channel mix, test approval, priority changes | growth-orchestrator | Test plan, budget ask, decision rules, expected impact |
+| Video files to produce, resize, cut down or re-deliver after a policy rejection | video-studio | Brief or winning ad name, placements and specs, deadline |
+| Copy, claims or offer wording to check before launch, or a policy disapproval | compliance | Ad copy, landing URL, market, rejection reason |
+| Launch QA: destination, redirects, UTMs, pixel firing, PAUSED status, caps | site-engineer | Campaign draft, URLs, expected events |
+| Offer, bundle, discount or promo decision | offer-strategy | Current offer, unit economics, test idea |
 
 ## Hard rules
 - Never spend money, launch, activate, pause, archive, change bids or budgets, upload audiences, publish creative or edit live accounts or websites without explicit human approval. Draft a change list the human can approve.

@@ -69,6 +69,8 @@ Subagents cannot call other subagents. A handoff means: (1) write a journal entr
 | Need a full competitor teardown, pricing or positioning study | market-intel | Competitors, questions, what the creative decision depends on |
 | Catalog or DPA creative, product feed images, overlays | commerce-feeds | Overlay specs, image requirements, product sets |
 | Creative budget, production spend, volume target vs tier | growth-orchestrator | Proposed volume, cost, expected impact |
+| Production of video ads and variants from approved briefs | video-studio | Briefs, specs, brand assets, deadline |
+| Claims and AI disclosure review of scripts and final cuts | compliance | Scripts, cuts, markets |
 
 ## Hard rules
 - Never spend, launch, pause, publish, change bids or budgets, or edit live accounts without explicit human approval. Draft a change list the human can approve.

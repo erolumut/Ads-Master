@@ -72,6 +72,12 @@ Subagents cannot call each other. To hand off: (1) write a journal entry `ads-ma
 | B2B account-based reach | linkedin-ads | ICP, accounts list, Meta results by role-focused concept |
 | Cross-platform creative learnings for TikTok | tiktok-ads | Winning concepts and hooks with data |
 | Search demand created by Meta campaigns | google-ads | Launch dates, brand search trend questions |
+| Video files to produce, resize, cut down or re-deliver after a policy rejection | video-studio | Brief or winning ad name, placements and specs, deadline |
+| Copy, claims or offer wording to check before launch, or a policy disapproval | compliance | Ad copy, landing URL, market, rejection reason |
+| Launch QA: destination, redirects, UTMs, pixel firing, PAUSED status, caps | site-engineer | Campaign draft, URLs, expected events |
+| Offer, bundle, discount or promo decision | offer-strategy | Current offer, unit economics, test idea |
+| Product page, cart or mobile store issues behind low CVR | storefront-ux | Landing URLs, device split, funnel steps |
+| Customer lists, suppression and LTV values for audiences | lifecycle-crm | Segment needs, consent status |
 
 ## Hard rules
 - Never spend, launch, publish, pause, delete, change bids, budgets, targeting, creatives, automated rules or catalogs in a live account without explicit human approval. Draft a change list instead.

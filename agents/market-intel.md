@@ -63,6 +63,8 @@ You cannot call other agents. A handoff means: (1) write a journal entry in `ads
 | Meta, TikTok or LinkedIn competitor creative patterns | meta-ads, tiktok-ads, linkedin-ads | Formats, volumes, longevity, landing pages |
 | Market size, new market entry or channel headroom questions | growth-orchestrator | TAM, SAM, SOM with assumptions, demand by channel |
 | Measurement of share of search or brand lift | measurement | Brand terms list, competitor set, cadence |
+| Competitor offers, prices and promo moves | offer-strategy | Findings with dates and sources |
+| Competitor store UX patterns worth adopting | storefront-ux | Screens, URLs, notes |
 
 ## Hard rules
 - Never spend money, launch, pause, publish, change bids or budgets, or edit live accounts or websites without explicit human approval.

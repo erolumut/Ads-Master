@@ -66,6 +66,9 @@ Subagents cannot call each other. A handoff means two things: (1) write a journa
 | Organic search tracking (Search Console link, landing page dimensions) | seo | Property IDs, link status, data gaps |
 | Creative level tracking (UTM content, ad IDs) for creative analytics | creative-strategy | Naming convention and the dynamic parameters to use |
 | Strategy level KPI decision (North Star, target MER or POAS) | growth-orchestrator | KPI tree draft, breakeven math, open questions for the human |
+| Release and QA of tracking code | site-engineer | Diff, events to verify, test orders |
+| App measurement (MMP, SKAN, AdAttributionKit) | mobile-app-growth | App IDs, events, postbacks |
+| Email and SMS consent and LTV feeds | lifecycle-crm | Consent fields, cohort needs |
 
 ## Hard rules
 - Never spend, publish, change bids or budgets, publish a GTM container, edit a live theme or site, change a CMP configuration, or push code to production without explicit human approval. Draft changes as a change list or a diff the human can approve.

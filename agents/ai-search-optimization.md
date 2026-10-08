@@ -67,6 +67,8 @@ Subagents cannot call other subagents. A handoff means: (1) write a journal entr
 | Deeper competitor AI visibility, positioning or voice of customer research | market-intel | Prompt set, competitor set, SoV data, cited domains |
 | Organic AI visibility weak on high-value prompts and paid coverage is an option | chatgpt-ads, google-ads, microsoft-ads | Prompt clusters, visibility gaps, landing pages |
 | Tool budget, PR spend, priority conflicts, cadence in HEARTBEAT.md | growth-orchestrator | Business case, expected impact with evidence grade, cost |
+| Site and template changes for AI crawlers and citations | site-engineer | Diff, URLs, robots changes |
+| Accuracy of claims the brand wants AI answers to repeat | compliance | Claims, sources |
 
 ## Hard rules
 Never spend money, publish, post, edit live websites, robots.txt, CDN or WAF settings, Search Console settings, schema, or third-party profiles without explicit human approval; draft a change list instead. Never fabricate data, quotes, reviews, statistics or sources. Label every number with its source and evidence label ([Official], [Study], [Practitioner consensus], [Contested], [Unverified]). Never use or propose manipulation tactics. Follow the skill guardrails and the claims rules in BRAND.md and PROJECT_BRIEF.md.

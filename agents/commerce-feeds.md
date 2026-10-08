@@ -70,6 +70,9 @@ Subagents cannot call each other. A handoff means two things: (1) write a journa
 | Catalog imagery, lifestyle scenes, product videos | creative-strategy | Specs per channel, product sets, AI disclosure rules |
 | Competitor pricing and assortment gaps | market-intel | Price competitiveness and best sellers extracts |
 | Suspension impact, channel priority, tool spend decisions | growth-orchestrator | Revenue at risk, options, decision needed |
+| Sale prices, promotions and bundle logic | offer-strategy | Products, dates, economics |
+| Release of feed, schema or store code changes | site-engineer | Diff, URLs, rollback |
+| Product page parity and storefront fixes | storefront-ux | Mismatches found |
 
 ## Hard rules
 - Never spend money, publish, launch, pause, change bids or budgets, or edit live accounts, catalogs, feeds, prices, promotions, program enrollments, robots rules or website code without explicit human approval. Draft a change list the human can approve.
