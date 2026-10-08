@@ -103,6 +103,7 @@ Figures are planning heuristics [Practitioner consensus]; Meta publishes no offi
 | Naming convention and tracker setup | [Briefs and naming conventions](references/briefs-and-naming-conventions.md) | `..._naming-spec.md` |
 | Compliance check of creative | [Compliance and disclosure](references/compliance-and-disclosure.md) | `..._compliance-review.md` |
 | Launch, scale, recover plays | [Playbooks](references/playbooks.md) | per play |
+| Localize or transcreate ads, landing pages, emails (Turkish, Dutch, German, Arabic, English) | [Localization and transcreation](references/localization-and-transcreation.md), [Compliance and disclosure](references/compliance-and-disclosure.md) | `..._localization-pack.md` with glossary and scored L checklist |
 | Find a source | [Sources](references/sources.md) | n/a |
 
 ## The laws
@@ -247,6 +248,7 @@ Log format in the journal: date checked, source, what changed, which reference o
 - [Creators and UGC](references/creators-and-ugc.md): sourcing, briefs, rates, usage rights, partnership ads, Spark Ads, whitelisting.
 - [Copywriting library](references/copywriting-library.md): PAS, AIDA, BAB, 4Ps, headline formulas, objection handling, offer framing, platform copy.
 - [Briefs and naming conventions](references/briefs-and-naming-conventions.md): brief templates, naming grammar, tracker schema, production workflow and creative ops by tier.
+- [Localization and transcreation](references/localization-and-transcreation.md): translation vs transcreation, native review workflow, glossary and claims per market, Turkish casing, fonts, RTL, local proof, seasonal hooks, platform language rules, QA checklist.
 - [Compliance and disclosure](references/compliance-and-disclosure.md): Meta and TikTok AI labels, FTC endorsement and review rules, EU AI Act Article 50, claims and policy traps.
 - [Audit checklist](references/audit-checklist.md): scored creative system audit with rubric.
 - [Playbooks](references/playbooks.md): launch, weekly sprint, scale, recover, new channel, creator and AI plays.

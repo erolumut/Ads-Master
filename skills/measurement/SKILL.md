@@ -106,6 +106,7 @@ Budget and signal tiers: Starter under $3k per month (under 30 conversions per c
 | Lift test, geo test, holdout | [Incrementality](references/incrementality-testing.md) | Test design with power analysis, EXPERIMENTS.md row |
 | MMM readiness or build | [MMM](references/mmm.md), [Incrementality](references/incrementality-testing.md) | Readiness assessment or model plan |
 | Dashboard, MER, nCAC, alerts | [Dashboards](references/dashboards-and-reporting.md) | Metric dictionary, SQL, dashboard spec |
+| Daily fact table and daily report (platform vs backend, acquisition investment, status from target CPA, `scripts/daily_report.py`) | [Unified metrics and daily report](references/unified-metrics-and-daily-report.md) | Daily report with FACTS, INTERPRETATION, RECOMMENDATION |
 | Tracking broke or conversions dropped | [Playbooks](references/playbooks.md) (recovery), [Audit checklist](references/audit-checklist.md) | Incident report with timeline and fix |
 | App measurement (SKAN, AdAttributionKit, MMP, Firebase) | [Attribution](references/attribution.md) (apps), [Playbooks](references/playbooks.md) | App measurement plan |
 | Connect data sources, MCP, APIs | [Tools, APIs and MCP](references/tools-api-mcp.md) | Connector setup note |
@@ -278,6 +279,7 @@ How to log: write a journal entry `YYYY-MM-DD_HHMM_measurement_freshness.md` lis
 - [Incrementality testing](references/incrementality-testing.md): conversion lift, geo tests, holdouts, small budget designs, vendors, reading results.
 - [MMM](references/mmm.md): readiness, data, Meridian, Robyn, PyMC-Marketing, calibration, using outputs.
 - [Dashboards and reporting](references/dashboards-and-reporting.md): MER, aMER, nCAC, contribution margin, BigQuery models, Looker Studio, alerts.
+- [Unified metrics and daily report](references/unified-metrics-and-daily-report.md): daily fact table, formulas (nCAC, aMER, POAS, acquisition investment), platform vs backend, decision windows, status from target CPA, report template, `scripts/daily_report.py`.
 - [Implementation recipes](references/implementation-recipes.md): code for consent, data layer, Shopify Web Pixels, WooCommerce, Next.js, SPAs, click ID capture, server-side sender.
 - [Tools, APIs and MCP](references/tools-api-mcp.md): Google Analytics MCP, Google Ads MCP, BigQuery, GTM API, platform APIs, community servers.
 - [Playbooks](references/playbooks.md): foundation build, CAPI rollout, offline loop, consent rollout, recovery, attribution shock, first lift test, MMM, apps.

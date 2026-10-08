@@ -146,6 +146,7 @@ Worked example: a lead gen client spends $40,000 per month at $200 CPA (200 lead
 | Build a variant in the codebase | [Build recipes](references/landing-page-build-recipes.md) | Variant diff document |
 | Choose or connect tools | [Tools, APIs and MCP](references/tools-api-mcp.md) | Tool recommendation |
 | Accessibility or dark pattern check | [Audit checklist](references/audit-checklist.md) section K, [Offer and copy](references/offer-and-copy.md) section 9 | Compliance findings list |
+| Mobile, in-app browser (Instagram, Facebook, TikTok, LinkedIn, Snapchat) and worst case content QA | [Mobile and in-app browsers](references/mobile-and-in-app-browsers.md), [Ecommerce](references/ecommerce-pdp-cart-checkout.md) | IAB test matrix and scored M checklist |
 
 ## The laws
 
@@ -260,6 +261,7 @@ How to log: if a check changes a recommendation, write a journal entry `YYYY-MM-
 - [Offer and copy](references/offer-and-copy.md): offer architecture, value proposition, headlines, frameworks, risk reversal, social proof law, urgency without dark patterns, copy deck.
 - [Forms and lead capture](references/forms-and-lead-capture.md): field audit, multi-step, qualification, form UX, native lead forms, form analytics code, booking and demo flows.
 - [Ecommerce PDP, cart and checkout](references/ecommerce-pdp-cart-checkout.md): Baymard evidence, PDP, cart and checkout checklists, payment methods by market, Shopify constraints 2026.
+- [Mobile and in-app browsers](references/mobile-and-in-app-browsers.md): Instagram, Facebook, TikTok, LinkedIn and Snapchat IAB quirks (cookies, wallets, OAuth, redirects), test matrix, mobile form and checkout code, worst case content checks, real device testing.
 - [SaaS and pricing pages](references/saas-and-pricing-pages.md): funnel metrics, pricing page anatomy, signup flows, trial models, activation.
 - [Speed and Core Web Vitals](references/speed-and-core-web-vitals.md): thresholds, evidence, diagnosis and fixes, third-party and testing tool impact, budgets, platform specifics.
 - [Experimentation statistics](references/experimentation-statistics.md): sample size tables, SRM, peeking, Bayesian vs frequentist, CUPED, false positive risk, low traffic protocol, scripts, templates.

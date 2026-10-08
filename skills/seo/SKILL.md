@@ -107,6 +107,7 @@ Then compare with the rendered DOM (URL Inspection live test, or a headless brow
 | Fix SEO in a codebase (meta, canonicals, sitemap, robots, JSON-LD) | [Technical SEO](references/technical-seo.md), [Structured data](references/structured-data.md) | Diff list with verify steps |
 | Pages not indexed, Search Console coverage errors | [Crawl, index, render](references/crawl-index-render.md) | Indexing triage table |
 | JavaScript rendering, CSR vs SSR decision | [Crawl, index, render](references/crawl-index-render.md), [Technical SEO](references/technical-seo.md) | Rendering decision memo |
+| AI-built or SPA site (Lovable, Bolt, v0, Replit, Cursor), no-JS preflight crawl (`scripts/seo_preflight.py`) | [AI-built and JS sites](references/ai-built-and-js-sites.md), [Crawl, index, render](references/crawl-index-render.md) | Preflight report plus JS site fix plan |
 | Core Web Vitals or INP problems | [Technical SEO](references/technical-seo.md) | CWV fix plan per template |
 | Traffic drop or update impact | [Algorithm updates and recovery](references/algorithm-updates-and-recovery.md), [AI Overviews and SERP changes](references/ai-overviews-and-serp-changes.md), [Measurement](references/measurement-and-reporting.md) | Drop diagnosis report |
 | Keyword research, topical map, content plan | [Keyword research and topical maps](references/keyword-research-and-topical-maps.md) | Topical map sheet plus roadmap |
@@ -263,6 +264,7 @@ How to log: journal entry `YYYY-MM-DD_HHMM_seo_freshness.md` with what changed, 
 ## Reference index
 - [Technical SEO](references/technical-seo.md): status codes, redirects, robots.txt, meta robots, sitemaps, CWV and INP, mobile, framework recipes and diffs for Next.js, Nuxt, Shopify, WordPress, Webflow.
 - [Crawl, index, render](references/crawl-index-render.md): rendering modes, JS SEO, indexing statuses triage, canonicalization, faceted navigation, pagination, crawl budget, log file analysis.
+- [AI-built and JS sites](references/ai-built-and-js-sites.md): Lovable, Bolt, v0, Replit, Cursor and SPA failures, fixes per stack, the annotated vibe coding checklist, and how to run `scripts/seo_preflight.py`.
 - [Site architecture and internal linking](references/site-architecture-and-internal-linking.md): hub and spoke, click depth, URL design, internal link audits and prioritization.
 - [Keyword research and topical maps](references/keyword-research-and-topical-maps.md): intent, SERP clustering, opportunity scoring, cannibalization, topical map template.
 - [On-page and content](references/on-page-and-content.md): titles, headings, briefs, information gain, refresh, pruning, programmatic SEO, AI assisted workflows.
