@@ -62,7 +62,7 @@ Place it above "Referral" in the channel order. Coordinate with the `measurement
 
 ### 3.3 Revenue impact of a leak (use to rank problems)
 ```
-Monthly value of fixing a step = sessions reaching step x (target step rate - current step rate) x downstream conversion to purchase x AOV
+Monthly value of fixing a step = sessions reaching step x (target step rate minus current step rate) x downstream conversion to purchase x AOV
 ```
 Worked example: 40,000 monthly sessions reach the cart. Cart to checkout is 38%; the store's own mobile best month was 45%. Checkout to purchase is 55%, AOV $82.
 Value = 40,000 x 0.07 x 0.55 x 82 = $126,280 per month at full recovery. Use 30% of that (winner's curse and partial recovery) for planning: about $38k per month.
@@ -199,7 +199,7 @@ Do not paraphrase phrases. Do not invent quotes. Then list the top 8 themes with
 Value proposition is the engine. Five factors move it: Relevance (+), Clarity (+), Urgency (+), Anxiety (-), Distraction (-). Score each 1 to 5 per page and write one sentence of evidence per factor.
 
 ### 9.2 MECLABS conversion heuristic [Practitioner]
-`C = 4m + 3v + 2(i - f) - 2a`: motivation of the user, clarity of the value proposition, incentive, friction, anxiety. The coefficients are relative weights, not math. Use it to remind stakeholders that motivation (traffic quality) and value clarity beat button colors.
+`C = 4m + 3v + 2(i-f)-2a`: motivation of the user, clarity of the value proposition, incentive, friction, anxiety. The coefficients are relative weights, not math. Use it to remind stakeholders that motivation (traffic quality) and value clarity beat button colors.
 
 ### 9.3 Fast heuristic pass (per page, 15 minutes)
 1. Relevance: does the first screen match the ad or query that sent the traffic?

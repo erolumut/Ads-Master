@@ -38,7 +38,7 @@ Visitors needed per arm (two-sided alpha 0.05, power 0.80, computed with the nor
 | 10% | 57,763 | 14,751 | 6,693 | 3,841 | 1,774 | 686 |
 | 20% | 25,583 | 6,510 | 2,943 | 1,683 | 772 | 294 |
 
-Rule of thumb (Lehr's rule for proportions): conversions needed per arm is roughly 16 x (1 - p) / MDE squared. For a 10% relative MDE that is about 1,600 conversions per arm at low baselines; for 20% about 400; for 5% about 6,400.
+Rule of thumb (Lehr's rule for proportions): conversions needed per arm is roughly 16 x (1-p) / MDE squared. For a 10% relative MDE that is about 1,600 conversions per arm at low baselines; for 20% about 400; for 5% about 6,400.
 
 Feasibility check (do this before every test):
 ```
@@ -103,7 +103,7 @@ Position for this agent: method matters less than discipline. Pre-register the m
 
 False positive risk (FPR): share of "significant" wins that are not real. It depends on the prior win rate (Kohavi, Deng, Vermeer, "A/B Testing Intuition Busters", KDD 2022) [Study, 2022].
 ```
-FPR = (alpha/2 x (1 - prior)) / (alpha/2 x (1 - prior) + power x prior)
+FPR = (alpha/2 x (1-prior)) / (alpha/2 x (1-prior) + power x prior)
 ```
 | Prior win rate | alpha 0.05, power 0.8 | alpha 0.10, power 0.8 |
 |----------------|----------------------|----------------------|
@@ -122,7 +122,7 @@ CUPED (Controlled-experiment Using Pre-Experiment Data; Deng, Xu, Kohavi, Walker
 
 Supported natively in several platforms (GrowthBook, Statsig, Optimizely and others) [Unverified per vendor, check docs]. Adjustment formula:
 ```
-Y_adj = Y - theta x (X - mean(X)),  theta = cov(X, Y) / var(X)
+Y_adj = Y-theta x (X-mean(X)),  theta = cov(X, Y) / var(X)
 X = same metric in the pre-period for each user (0 for users with no history)
 ```
 
@@ -195,31 +195,31 @@ N = NormalDist()
 
 def sample_size_per_arm(baseline, mde_rel, alpha=0.05, power=0.80):
     p1, p2 = baseline, baseline * (1 + mde_rel)
-    za, zb = N.inv_cdf(1 - alpha / 2), N.inv_cdf(power)
+    za, zb = N.inv_cdf(1-alpha / 2), N.inv_cdf(power)
     pbar = (p1 + p2) / 2
-    num = (za * sqrt(2 * pbar * (1 - pbar)) + zb * sqrt(p1 * (1 - p1) + p2 * (1 - p2))) ** 2
-    return ceil(num / (p2 - p1) ** 2)
+    num = (za * sqrt(2 * pbar * (1-pbar)) + zb * sqrt(p1 * (1-p1) + p2 * (1-p2))) ** 2
+    return ceil(num / (p2-p1) ** 2)
 
 def srm_check(n_a, n_b, expected_share_a=0.5):
     total = n_a + n_b
-    ea, eb = total * expected_share_a, total * (1 - expected_share_a)
-    chi2 = (n_a - ea) ** 2 / ea + (n_b - eb) ** 2 / eb
+    ea, eb = total * expected_share_a, total * (1-expected_share_a)
+    chi2 = (n_a-ea) ** 2 / ea + (n_b-eb) ** 2 / eb
     return chi2, erfc(sqrt(chi2 / 2))          # flag SRM if p < 0.001
 
 def two_prop_ztest(conv_a, n_a, conv_b, n_b):
     pa, pb = conv_a / n_a, conv_b / n_b
     pooled = (conv_a + conv_b) / (n_a + n_b)
-    z = (pb - pa) / sqrt(pooled * (1 - pooled) * (1 / n_a + 1 / n_b))
-    se = sqrt(pa * (1 - pa) / n_a + pb * (1 - pb) / n_b)
-    return (pb - pa) / pa, (pb - pa - 1.96 * se, pb - pa + 1.96 * se), 2 * (1 - N.cdf(abs(z)))
+    z = (pb-pa) / sqrt(pooled * (1-pooled) * (1 / n_a + 1 / n_b))
+    se = sqrt(pa * (1-pa) / n_a + pb * (1-pb) / n_b)
+    return (pb-pa) / pa, (pb-pa-1.96 * se, pb-pa + 1.96 * se), 2 * (1-N.cdf(abs(z)))
 
 def prob_b_beats_a(conv_a, n_a, conv_b, n_b, draws=200_000, seed=7):
     rng, wins, loss = random.Random(seed), 0, 0.0
     for _ in range(draws):
-        a = rng.betavariate(1 + conv_a, 1 + n_a - conv_a)
-        b = rng.betavariate(1 + conv_b, 1 + n_b - conv_b)
+        a = rng.betavariate(1 + conv_a, 1 + n_a-conv_a)
+        b = rng.betavariate(1 + conv_b, 1 + n_b-conv_b)
         wins += b > a
-        loss += max(a - b, 0)
+        loss += max(a-b, 0)
     return wins / draws, loss / draws           # P(B>A), expected loss of shipping B
 
 print(sample_size_per_arm(0.03, 0.10))           # 53211

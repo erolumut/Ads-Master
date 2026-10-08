@@ -124,7 +124,7 @@ export type State = { ok: boolean; error?: string };
 export async function submitLead(_: State, fd: FormData): Promise<State> {
   if (fd.get('company_website')) return { ok: true };            // honeypot: pretend success
   const started = Number(fd.get('t0') || 0);
-  if (Date.now() - started < 3000) return { ok: true };         // too fast, likely bot
+  if (Date.now()-started < 3000) return { ok: true };         // too fast, likely bot
   const email = String(fd.get('email') || '').trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { ok: false, error: 'Enter a valid email, like name@company.com' };
   const res = await fetch(process.env.CRM_WEBHOOK_URL!, {
