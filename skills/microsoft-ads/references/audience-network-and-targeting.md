@@ -99,7 +99,7 @@ Search campaigns can be eligible to serve on the Audience Network depending on s
 
 ## 7. Consent and audience growth
 - EEA, UK and Swiss visitors: remarketing lists only grow with consent; consent rates directly cap list size.
-- Advanced Consent Mode does not restore remarketing for non consenting users; it is about conversion measurement [Official, 2026-02].
+- Advanced Consent Mode guidance (2026-02) addresses conversion measurement; do not expect it to restore remarketing for non consenting users [Practitioner consensus].
 - Track list size weekly; a sudden drop usually means a tag or CMP change.
 
 ## 8. Programmatic changes: Microsoft Invest and Curate

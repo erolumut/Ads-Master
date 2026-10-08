@@ -99,6 +99,16 @@
 | 12 | Current LinkedIn benchmark figures | Marketing Solutions, B2B Institute | "LinkedIn ads benchmarks CTR 2026" |
 After each check, update the label in the module and add a row to the freshness log.
 
+## Source quality rules for this package
+| Source type | Can support | Cannot support alone |
+|------------|-------------|---------------------|
+| LinkedIn Help Center and API docs | Settings, limits, mechanics | Performance expectations |
+| LinkedIn Marketing Blog | Launch dates, feature intent | Availability in a given account or market |
+| B2B Institute and academic studies | Strategy (95 to 5, brand vs activation) | Tactical targets |
+| Vendor benchmark reports | Ranges with disclosed samples | Targets for a specific account |
+| Practitioner posts and communities | Edge cases, sentiment | Platform facts |
+| GitHub repositories | Tool existence, dates, maintainers | Tool quality or security |
+
 ## How to verify a claim quickly
 1. Search the LinkedIn Help Center for the exact feature name.
 2. Open Campaign Manager and look for the setting in the relevant step (objective, audience, budget and schedule, ads).

@@ -46,6 +46,63 @@
 | New objectives or pricing | Unknown for 2025 to 2026 | Verify | Freshness check |
 | LinkedIn's own benchmarks | CTR and lead form figures appear in LinkedIn materials | Verify current figures | Quote only with date and source |
 
+### 2.2 How LinkedIn fits with other channels
+| Channel | Role vs LinkedIn | Coordination |
+|---------|------------------|--------------|
+| Google Search | Captures in market demand created partly by LinkedIn | Track branded search and demo requests from target accounts |
+| Microsoft Advertising | Search capture with LinkedIn company, industry and job function layers; company lists up to 10,000 | Share company lists and converting job functions; data excludes EEA, UK, Swiss users [Official, 2026-09] |
+| Meta | Cheaper reach for some B2B audiences (founders, SMB owners) with weaker professional targeting | Use for SMB ICPs; compare cost per SQL |
+| Email and CRM nurture | Converts LinkedIn leads over time | Sync and sequences, suppression of customers |
+| Organic LinkedIn | Thought leadership that Thought Leader Ads amplify | Promote posts that earn organic traction |
+| Events and field | Event ads and conversation ads drive registrations | Attendance sync to CRM |
+
+### 2.3 Measurement stack (summary)
+| Layer | Role | Weakness |
+|-------|------|----------|
+| Insight Tag | Web conversions, retargeting, visitor demographics | Consent and browser limits |
+| Conversions API | Server-side and offline events with hashed identifiers | Needs engineering or a connector |
+| Lead gen form sync | Leads into CRM with profile data | Quality depends on form design |
+| Revenue attribution report | Influence on pipeline and revenue | Not causal |
+| Company engagement report | ABM engagement by account | Directional |
+| Demographics report | Who was reached | Thresholded, approximate |
+| Lift tests and holdouts | Incrementality | Budget and time |
+
+### 2.4 Targeting evidence and judgement
+- Titles: precise but fragmented; LinkedIn standardizes titles, yet many members use non standard titles [Practitioner consensus].
+- Function and seniority: inferred classifications with misclassification at the edges; scale is the benefit [Practitioner consensus].
+- Skills: self reported; useful for technical practitioners; includes juniors and students [Practitioner consensus].
+- Company size and industry: from company pages; small and new companies are often misclassified [Practitioner consensus].
+- Matched audiences: match rates vary with list quality; company lists with domains and page URLs match better [Practitioner consensus].
+- Conclusion: build two competing audience definitions and let the Demographics report and CRM quality decide.
+
+### 2.5 Auction and pricing mechanics (as known)
+- LinkedIn runs an auction where bid and a relevance or engagement estimate determine delivery; higher predicted engagement lowers the effective price [Official, long standing] [Unverified] for current details.
+- Campaign Manager shows suggested bid ranges per audience and objective; floors exist by format [Unverified].
+- Narrow, senior and ABM audiences carry higher CPMs because of competition for the same members [Practitioner consensus].
+- Charge types: CPM, CPC, CPV for video, and cost per send for Sponsored Messaging [Official, 2024].
+- Implication: creative relevance (CTR, engagement) is a cost lever, not only a performance metric.
+
+### 2.6 Policy essentials (verify current policy pages)
+| Area | Rule as known | Label |
+|------|--------------|-------|
+| Political ads | Not allowed on LinkedIn | [Official, 2020] |
+| Restricted categories | Financial services, healthcare, alcohol, dating and others carry restrictions by region | [Unverified] for current list |
+| Discrimination | Ads must not discriminate; housing, employment and credit carry targeting limits in some regions | [Unverified] for current rules |
+| Thought Leader Ads | Member permission required for each promoted post | [Official, 2024] |
+| Lead gen forms | Privacy policy link required; consent handling per law | [Official] |
+| EU transparency | Ad Library shows additional data for EU under the Digital Services Act | [Unverified] for fields |
+| Data use | Matched audience uploads require lawful basis and adherence to LinkedIn terms | [Official] |
+
+### 2.7 Fit by business model and budget tier
+| Model | LinkedIn fit | Note |
+|-------|-------------|------|
+| B2B SaaS mid market and enterprise | Strong | ABM, Thought Leader, pipeline measurement |
+| Professional services and B2B lead gen | Strong when deal values are high | Lead quality controls are essential |
+| SMB focused B2B | Mixed | Meta and search can be cheaper; test cost per SQL |
+| B2B ecommerce and premium professional products | Niche | Retargeting and narrow professional segments |
+| Recruiting | Strong | Talent objectives, separate from marketing budgets |
+| Starter budgets under $3k per month | Limited | One ICP campaign plus retargeting; long learning periods |
+
 ## 3. Timeline of changes
 
 ### 3.1 Baseline still shaping 2025 to 2026 (pre-2025)
@@ -117,6 +174,11 @@
 - They send SQL and opportunity stages back via CAPI so optimization learns from quality.
 - They protect demand creation budgets and report pipeline influence over the sales cycle, not weekly CPL.
 - They pair LinkedIn ABM with Microsoft Advertising LinkedIn profile targeting on search for cheap capture.
+- They derive cost caps and CPL ceilings from deal economics, not from benchmarks.
+- They keep a creative pipeline (new angles monthly) because small B2B audiences fatigue fast.
+- They separate click and view conversions in reports and reconcile with the CRM monthly.
+- They run account holdouts for ABM programs to show incremental pipeline instead of relying on influence reports.
+- They use the LinkedIn Ad Library to study competitor offers and Thought Leader usage before briefing creative.
 
 ## 7. Common expensive mistakes
 
@@ -132,6 +194,10 @@
 | Judging awareness on leads | Cutting future pipeline | Stage appropriate KPIs |
 | Agency owned ad account | Data loss | Business Manager ownership |
 | Gating everything | Low engagement, small retargeting pools | Ungated to cold audiences |
+| Overlapping audiences across campaigns | Self competition and frequency spikes | Exclusions or one campaign per audience |
+| Promoting member posts without documented permission | Policy and trust risk | Permission records |
+| Reporting post-view conversions as if they were clicks | Overstated ROI | Separate reporting |
+| No hidden fields or UTMs in lead forms | Quality cannot be analyzed by campaign | Hidden field standard |
 
 ## 8. Benchmarks
 

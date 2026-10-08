@@ -88,7 +88,17 @@ Validate with the account's own weekly history before building a seasonal plan.
 | Lead capture | SQL rate stable or rising while cost per SQL stays under ceiling |
 | ABM | Share of target accounts reached and engaged rising, opportunities in target accounts rising vs holdout |
 
-## 9. Benchmark hygiene
+## 9. Metric definitions that cause bad comparisons
+| Metric | Trap | Practice |
+|--------|------|----------|
+| Clicks and CTR | Campaign Manager "Clicks" can include clicks on the company name, logo or "see more", not only the destination [Unverified] for current definition | Use landing page clicks for traffic comparisons with other channels |
+| Conversions | Include post-view conversions by default | Report click and view conversions separately |
+| Leads | Lead gen form submissions, not qualified leads | Always pair with SQL rate |
+| Video views | Definition depends on format and placement | Compare completion rates, not raw views |
+| Engagement rate | Includes social actions, follows and clicks | Use for screening, not ROI |
+| Cost per result | Depends on the optimization goal | Compare campaigns only with the same goal |
+
+## 10. Benchmark hygiene
 1. Every external figure in a deliverable shows source, date, sample and caveat.
 2. Figures older than 24 months are context only.
 3. Platform authored figures are labeled as such.
@@ -97,7 +107,7 @@ Validate with the account's own weekly history before building a seasonal plan.
 6. When the account differs from a benchmark, explain with account facts (audience size, seniority, offer, creative).
 7. Replace each placeholder in section 2 with account data within 60 days and log the replacement in the journal.
 
-## 10. Quick significance check for CTR or conversion rate tests
+## 11. Quick significance check for CTR or conversion rate tests
 ```python
 from math import sqrt
 def z(conv_a, n_a, conv_b, n_b):

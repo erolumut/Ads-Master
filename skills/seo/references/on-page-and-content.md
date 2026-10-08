@@ -99,7 +99,7 @@ SELECT cur.url, prev.c AS clicks_ly, cur.c AS clicks_now,
        SAFE_DIVIDE(cur.c, prev.c) AS ratio, prev.pos AS pos_ly, cur.pos AS pos_now
 FROM cur JOIN prev USING (url)
 WHERE prev.c >= 100 AND SAFE_DIVIDE(cur.c, prev.c) < 0.8
-ORDER BY prev.c - cur.c DESC
+ORDER BY prev.c DESC
 LIMIT 200;
 ```
 Note: impressions before mid-September 2025 include scraper inflated impressions; compare clicks and positions, not impressions, across that boundary.
