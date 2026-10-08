@@ -99,3 +99,35 @@ Implications for paid:
 - **ai-search-optimization:** "Priority intents for ChatGPT (list). Our ad tests show these converting intents: (list with CTR, CVR, dates). Competitors seen in ads: (list). Request: organic presence audit on these prompts and a content plan; share prompt tracking export monthly."
 - **commerce-feeds:** "Ads Manager product feed needed for (markets). Catalog source (platform), item count, current Merchant Center health. Request: hosted feed URL or SFTP daily refresh, `is_ads_eligible`, `ads_metadata` margin labels, price and availability delta updates. Also confirm organic OpenAI feed and checkout status."
 - **measurement:** "Separate paid and organic ChatGPT traffic in GA4 (channel rules attached). Implement pixel plus CAPI with shared event ID and oppref. Add incrementality evidence row after the test."
+
+## 10. Total ChatGPT demand report (monthly, shared with ai-search-optimization)
+| Line | Metric | Source |
+|------|--------|--------|
+| Organic referrals | Sessions, conversions, revenue with `utm_source=chatgpt.com` | GA4 |
+| Paid clicks | Clicks, spend, click-through conversions | Ads Manager or Insights API |
+| Paid sessions | Sessions with paid ChatGPT UTMs; session rate | GA4 |
+| Brand demand proxy | Branded search impressions and direct traffic trend | Search Console, GA4 |
+| Organic presence | Share of priority prompts where the brand is mentioned or cited | Prompt tracking tool |
+| Paid presence | Share of priority prompts where our ad or a competitor ad appears (manual sample) | Manual checks, market-intel |
+| Incrementality | Latest iCPA and incrementality factor | MEASUREMENT.md |
+
+Interpretation rules:
+- Organic referrals rising while paid spend is flat: organic program is working; keep paid on proven intents only.
+- Paid conversions rising and organic referrals falling: check whether paid is capturing demand organic used to win (cannibalization); run a holdout.
+- Both flat while competitor ads rise: competitor bought the next step; test offer led ads on those intents.
+
+## 11. Competitor and brand situations
+| Situation | What paid can do | What paid cannot do |
+|-----------|------------------|--------------------|
+| Competitor ads appear on prompts about our category | Run ads on the same needs with a stronger concrete offer | Bid on a competitor's name as a keyword (no keywords exist); hints describe needs, not brands |
+| ChatGPT answer recommends a competitor | Show our ad below the answer for that conversation type | Change the answer or remove the competitor |
+| ChatGPT answer misstates our pricing or features | Ads with correct pricing on the relevant intents | Correct the answer (organic: update pages, structured data, third-party sources via ai-search-optimization) |
+| Our brand is the answer | Low paid priority; maybe defend the next step with an offer | Nothing needed |
+| Comparison prompts ("X vs Y") | Substantiated comparison angle | Unsubstantiated superiority claims (policy) |
+
+## 12. Commerce readiness checklist for paid ChatGPT traffic
+- [ ] Product detail pages show price, availability and shipping above the fold on mobile.
+- [ ] Feed prices match landing pages (delta updates for price changes).
+- [ ] Checkout works without account creation; express wallets available.
+- [ ] Promotions in ads are live on the site for the full flight.
+- [ ] Out of stock products excluded from product sets within 24 hours.

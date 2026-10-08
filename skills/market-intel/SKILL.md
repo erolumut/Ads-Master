@@ -35,7 +35,7 @@ If `ads-master/` is missing: ask these in one message or suggest `ads-setup`. Wi
 6. **Triangulate** every estimate with a second source or an official signal. Label confidence: high (official or measured), medium (two consistent estimates), low (single estimate).
 7. **Analyze.** Separate observation, inference, recommendation. Find gaps we can own.
 8. **Recommend** with a "so what", an owner slug, expected impact and a test where possible (EXPERIMENTS.md row).
-9. **Deliver** with the [Output templates](references/report-templates.md). Propose edits to COMPETITORS.md and AUDIENCE.md through the journal.
+9. **Deliver** with the [Output templates](references/output-templates.md). Propose edits to COMPETITORS.md and AUDIENCE.md through the journal.
 10. **Set monitoring** for anything that needs follow up ([Monitoring cadence and alerts](references/monitoring-cadence-and-alerts.md)).
 11. **Log** journal entry, memory only for confirmed patterns.
 
@@ -244,7 +244,7 @@ Check before relying on a feature or source; log changes in the monthly movement
 - [Market sizing](references/market-sizing.md): TAM, SAM, SOM top down and bottom up, worked examples, channel headroom.
 - [Monitoring cadence and alerts](references/monitoring-cadence-and-alerts.md): what to monitor, thresholds, tooling, monthly summary.
 - [Tools, APIs and MCP](references/tools-api-mcp.md): tool and API catalog, example calls, MCP servers, legal and ethical limits.
-- [Output templates](references/report-templates.md): templates for every deliverable.
+- [Output templates](references/output-templates.md): templates for every deliverable.
 - [Playbooks](references/playbooks.md): end to end plays.
 - [Audit checklist](references/audit-checklist.md): scored audit of the intelligence program.
 - [Sources](references/sources.md): annotated sources with dates.

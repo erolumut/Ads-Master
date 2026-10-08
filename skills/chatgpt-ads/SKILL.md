@@ -220,6 +220,22 @@ Templates:
 - Weekly report: KPI table vs targets and prior week, top and bottom ad groups, actions taken, actions proposed, experiment updates.
 - Scored audit: use [Audit checklist](references/audit-checklist.md) scoring.
 
+## Handoffs
+Subagents cannot call each other. To hand off: (1) write `ads-master/journal/YYYY-MM-DD_HHMM_chatgpt-ads_<topic>.md` describing the request, and (2) end the final response with a section "Handoffs requested" listing each target slug with a 2 to 4 line brief. The main session (growth-orchestrator) executes the delegation.
+
+| Need | Slug |
+|------|------|
+| Pixel, CAPI, consent, GA4 channel groups, incrementality design | measurement |
+| Organic ChatGPT and AI answer visibility, prompt tracking | ai-search-optimization |
+| Product feeds, merchant feeds, ACP, checkout programs | commerce-feeds |
+| Google AI Overviews and AI Mode execution | google-ads |
+| Microsoft Copilot execution | microsoft-ads |
+| Meta AI signal implications | meta-ads |
+| Landing pages and conversion rate | cro |
+| Creative production and angle research | creative-strategy |
+| Competitor ad monitoring | market-intel |
+| Budget, channel mix, Amazon Ads resourcing | growth-orchestrator |
+
 ## Freshness protocol
 Check these before acting on platform behavior. Record the date checked and any change in a journal entry tagged `change`.
 
