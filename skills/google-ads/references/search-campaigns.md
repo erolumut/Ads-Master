@@ -70,7 +70,7 @@ Specs [Official]:
 - Up to 15 headlines (30 characters each) and 4 descriptions (90 characters each). Minimum 3 headlines and 2 descriptions.
 - 2 display path fields (15 characters each).
 - Up to 3 enabled RSAs per ad group.
-- Ad strength (Poor, Average, Good, Excellent) is a guide to asset variety, not a performance metric. Do not chase "Excellent" at the cost of message quality. Google has said ad strength is not an Ad Rank input. [Official]
+- Ad strength (four ratings, from Poor up to the top rating) is a guide to asset variety, not a performance metric. Do not chase the top rating at the cost of message quality. Google has said ad strength is not an Ad Rank input. [Official]
 
 Writing system for one RSA:
 | Slot | Count | Content |

@@ -30,7 +30,7 @@ Enhanced CPC was retired for Search and Display; affected campaigns run as Manua
 
 ```
 Breakeven CPA          = average gross profit per conversion (after COGS, shipping, fees, returns)
-Target CPA             = breakeven CPA x (1 - required margin of safety), or LTV-based CPA (below)
+Target CPA             = breakeven CPA x (1 minus required margin of safety), or LTV-based CPA (below)
 LTV-based CPA          = (12-month contribution per customer) x (share of LTV you will pay to acquire), e.g. 40%
 Lead gen target CPA    = target cost per sale x lead-to-sale rate
                          e.g. 900 per sale x 12% lead-to-sale = 108 per lead

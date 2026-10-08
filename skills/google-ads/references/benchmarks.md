@@ -55,7 +55,7 @@ These are decision thresholds used throughout this package. They are [Practition
 | Non-brand Search lost IS (rank) | Under 40% | Above: target, bid or quality constraints |
 | Zero-conversion search term spend | Under 10% to 15% of Search spend (30-day, terms above 1x target CPA) | Above 25%: weak negatives or broad match without signal |
 | Cost-weighted Quality Score | 6 or higher on non-brand | Below 5: structure or landing page issues |
-| RSA ad strength | Good or Excellent on most ads | Not a performance metric, but Poor often means too few assets |
+| RSA ad strength | Good or the top rating on most ads | Not a performance metric, but Poor often means too few assets |
 | Conversions per bid strategy | 30+ per 30 days (tCPA), 50+ (tROAS) | Below: pool or simplify |
 | PMax Display plus YouTube cost share | Investigate above 30% when their conversion value share is under 10% | Possible low quality inventory |
 | PMax brand term share of conversions | Investigate above 20% | Brand cannibalization |
