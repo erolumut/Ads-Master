@@ -107,20 +107,31 @@ AD_API_HOSTS = re.compile(
     r"api\.appstoreconnect\.apple\.com|androidpublisher\.googleapis\.com)", re.I)
 
 BASH_RULES = [
-    # (gate, compiled pattern, reason)
+    # (gate, pattern, reason). Order: G4, then G3, then G2. First match wins.
     ("G4", r"\bshopify\s+theme\s+delete\b", "Deleting a Shopify theme"),
+    ("G4", r"\bshopify\s+store\s+delete\b", "Deleting a Shopify store resource"),
     ("G4", r"curl\b[^|;&]*-X\s*DELETE\b[^|;&]*", "HTTP DELETE call"),
     ("G4", r"\brm\s+-[a-zA-Z]*r[a-zA-Z]*\s+[^|;&]*\bads-master\b", "Removing the ads-master workspace"),
+    ("G4", r"\bwp\b[^|;&]*\bdb\s+(drop|reset)\b", "Dropping or resetting a WordPress database"),
     ("G3", r"\bshopify\s+theme\s+publish\b", "Publishing a Shopify theme"),
-    ("G3", r"\bshopify\s+theme\s+push\b[^|;&]*(--live|--allow-live|\s-l\b|\s-a\b)", "Pushing to the live Shopify theme"),
-    ("G3", r"\bvercel\b[^|;&]*(--prod\b|\s--production\b)", "Production deploy (Vercel)"),
+    ("G3", r"\bshopify\s+theme\s+push\b[^|;&]*(--live|--allow-live|--publish|\s-l\b|\s-a\b|\s-p\b)", "Pushing to or publishing the live Shopify theme"),
+    ("G3", r"\bshopify\s+theme\s+dev\b[^|;&]*(--allow-live\b|\s-a\b)", "Developing against the live Shopify theme"),
+    ("G3", r"\bshopify\s+store\s+(bulk\s+)?execute\b[^|;&]*--allow-mutations\b", "Running mutations against a Shopify store"),
+    ("G3", r"\bSHOPIFY_FLAG_(PUBLISH|LIVE|ALLOW_LIVE|ALLOW_MUTATIONS)\w*\s*=", "Shopify CLI flag set through the environment"),
+    ("G3", r"\bvercel\b[^|;&]*(--prod\b|\s--production\b|\spromote\b|\srollback\b|\srolling-release\b)", "Production deploy, promote or rollback (Vercel)"),
     ("G3", r"\bnetlify\s+deploy\b[^|;&]*--prod\b", "Production deploy (Netlify)"),
+    ("G3", r"\bnetlify\s+api\s+restoreSiteDeploy\b", "Restoring a published Netlify deploy"),
     ("G3", r"\bfirebase\s+deploy\b", "Firebase deploy"),
     ("G3", r"\bwrangler\s+(deploy|publish)\b", "Cloudflare deploy"),
     ("G3", r"\bfastlane\s+(deliver|supply|pilot)\b", "App store submission"),
+    ("G3", r"\bwp\s+(@(prod|production|live)\b|[^|;&]*--ssh=)[^|;&]*\b(update|create|delete|install|activate|deactivate|import|search-replace|set|add|remove|generate)\b", "Write command against production or remote WordPress"),
     ("G3", r"\bgit\s+push\b[^|;&]*\b(origin\s+)?(main|master|production|live)\b", "Push to a production branch"),
     ("G3", r"(status\W{1,4}ACTIVE|\"status\"\s*:\s*\"ENABLED\"|effective_status=ACTIVE)", "Setting an entity live"),
-    ("G2", r"\bshopify\s+theme\s+push\b", "Pushing a Shopify theme (unpublished or development)"),
+    ("ASK_EXTRA", None, None),
+    ("G2", r"\bshopify\s+theme\s+push\b[^|;&]*(--unpublished|--development|\s-u\b|\s-d\b)", "Pushing an unpublished or development Shopify theme"),
+    ("G3", r"\bshopify\s+theme\s+push\b", "Pushing to an existing Shopify theme (could be the live one)"),
+    ("G2", r"\bshopify\s+theme\s+(duplicate|share)\b", "Creating a theme copy in the library"),
+    ("G2", r"\bnetlify\s+deploy\b", "Preview deploy (Netlify)"),
     ("G2", r"\bvercel\b(\s+deploy)?\b", "Preview deploy"),
 ]
 
@@ -283,6 +294,12 @@ def classify_bash(command, policy):
         if re.search(pat, command, re.I):
             return "G4", "matches a blocked pattern in guardrails.json"
     for gate, pat, reason in BASH_RULES:
+        if gate == "ASK_EXTRA":
+            # Project specific ask patterns run before the built in G2 rules.
+            for extra in policy.get("extra_ask_bash_patterns", []):
+                if re.search(extra, command, re.I):
+                    return "G3", "matches an ask pattern in guardrails.json"
+            continue
         if re.search(pat, command, re.I):
             return gate, reason
     if AD_API_HOSTS.search(command):
@@ -293,9 +310,6 @@ def classify_bash(command, policy):
                 return "G2", "API call that creates or edits a paused object"
             return "G3", "write call to an ad, commerce or messaging API"
         return "G0", "read call to an ad or commerce API"
-    for pat in policy.get("extra_ask_bash_patterns", []):
-        if re.search(pat, command, re.I):
-            return "G3", "matches an ask pattern in guardrails.json"
     return None, None
 
 

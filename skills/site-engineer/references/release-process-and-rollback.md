@@ -144,46 +144,27 @@ After a rollback: write an `INCIDENTS.md` row, a journal entry, and keep the fai
 
 Also write a journal entry `ads-master/journal/YYYY-MM-DD_HHMM_site-engineer_release-<topic>.md` so channel agents know URLs, templates or tracking changed.
 
-## 10. Guard hook coverage for release commands (verified 2026-10-08)
+## 10. Guard hook coverage for release commands (updated in Ads Master v1.1)
 
-The Ads Master guard (`scripts/guard.py`) classifies Bash commands with regular expressions. A probe on 2026-10-08 against Shopify CLI 4.9 flags showed gaps. Until the guard is updated, the agent applies the stricter gate in this table by judgment and states it in the change request.
+The Ads Master guard (`scripts/guard.py`) classifies Bash commands with regular expressions. A probe on 2026-10-08 against Shopify CLI 4.9 flags found gaps; v1.1 of the guard closes them (tests in `scripts/test_guard.py`).
 
-| Command | Guard today | Correct gate | Why |
-|---------|-------------|--------------|-----|
-| `shopify theme push --unpublished --theme "<name>"` | G2 | G2 | Creates a new unpublished theme |
-| `shopify theme push --theme <id>` where `<id>` is the live theme | G2 | G3 | Overwrites live files without `--live` |
-| `shopify theme push ... --publish` or `-p` | G2 | G3 | Publishes after upload |
-| `SHOPIFY_FLAG_LIVE=1`, `SHOPIFY_FLAG_PUBLISH=1`, `SHOPIFY_FLAG_ALLOW_LIVE=1` env prefixes | G2 | G3 | Flags set through environment variables bypass flag patterns |
-| `shopify theme dev --allow-live` or `-a` | not matched | G3 | Live reload writes to the live theme |
-| `shopify theme duplicate`, `shopify theme share` | not matched | G2 | Creates a theme in the library |
-| `shopify store execute ... --allow-mutations`, `shopify store bulk execute ... --allow-mutations` | not matched | G3 | Admin GraphQL writes (products, prices, inventory) |
-| `shopify store delete` | not matched | G4 | Deletes a dev store |
-| `vercel promote`, `vercel rollback`, `vercel rolling-release ...` | G2 ("Preview deploy") | G3 | Changes what production serves |
-| `netlify deploy --alias <name>` | not matched | G2 | Preview deploy |
-| `netlify api restoreSiteDeploy` | not matched | G3 | Changes the published deploy |
-| `wp @prod ...`, `wp ... --ssh=<prod>` | not matched | G3 for writes | WP-CLI against production |
+| Command | Gate in the guard (v1.1) | Why |
+|---------|--------------------------|-----|
+| `shopify theme push --unpublished` or `--development` | G2 | Creates or updates a non live theme |
+| `shopify theme push --theme <id>` without `--unpublished` or `--development` | G3 | The target could be the live theme |
+| `shopify theme push ... --publish`, `-p`, `--live`, `--allow-live` | G3 | Publishes or overwrites live files |
+| `SHOPIFY_FLAG_LIVE=`, `SHOPIFY_FLAG_PUBLISH=`, `SHOPIFY_FLAG_ALLOW_LIVE=`, `SHOPIFY_FLAG_ALLOW_MUTATIONS=` prefixes | G3 | Flags set through environment variables |
+| `shopify theme dev --allow-live` or `-a` | G3 | Live reload writes to the live theme |
+| `shopify theme duplicate`, `shopify theme share` | G2 | Creates a theme in the library |
+| `shopify store execute` or `store bulk execute` with `--allow-mutations` | G3 | Admin GraphQL writes (products, prices, inventory) |
+| `shopify store delete`, `shopify theme delete` | G4 | Destructive |
+| `vercel --prod`, `vercel promote`, `vercel rollback`, `vercel rolling-release` | G3 | Changes what production serves |
+| `vercel deploy` (preview), `netlify deploy` without `--prod` | G2 | Preview deploy |
+| `netlify deploy --prod`, `netlify api restoreSiteDeploy` | G3 | Changes the published deploy |
+| `wp @prod ...` or `wp ... --ssh=<host>` with a write subcommand | G3 | WP-CLI writes against production |
+| `wp ... db drop` or `db reset` | G4 | Destructive |
 
-What the human can do now (guardrails.json is human owned): patterns in `extra_blocked_bash_patterns` are evaluated before the built in rules, so they work even where a built in G2 rule would match first. Patterns in `extra_ask_bash_patterns` only apply when no built in rule matched.
-
-```json
-{
-  "extra_blocked_bash_patterns": [
-    "shopify\\s+theme\\s+push\\b[^|;&]*(--publish|\\s-p\\b)",
-    "SHOPIFY_FLAG_(LIVE|PUBLISH|ALLOW_LIVE)=",
-    "shopify\\s+store\\s+delete\\b",
-    "vercel\\s+(promote|rollback|rolling-release)\\b"
-  ],
-  "extra_ask_bash_patterns": [
-    "shopify\\s+store\\s+(bulk\\s+)?execute\\b[^|;&]*--allow-mutations",
-    "shopify\\s+theme\\s+dev\\b[^|;&]*(--allow-live|\\s-a\\b)",
-    "netlify\\s+api\\s+restoreSiteDeploy",
-    "\\bwp\\s+@(prod|production|live)\\b",
-    "\\bwp\\b[^|;&]*--ssh="
-  ]
-}
-```
-
-Blocked means the human runs those commands personally (or publishes in the admin), which is the intended G3 behavior for publishing anyway. Report the gap to the human and request a guard update through the main session; never edit `guardrails.json` or the guard yourself.
+The human can still add project specific rules in `guardrails.json` (human owned): `extra_blocked_bash_patterns` are evaluated before every built in rule; `extra_ask_bash_patterns` are evaluated after the built in G4 and G3 rules and before the built in G2 rules. If a release command is not covered, apply the stricter gate by judgment, state it in the change request, and ask the main session for a guard update. Never edit `guardrails.json` or the guard yourself.
 
 ## 11. Plays
 

@@ -73,6 +73,38 @@ class GuardTest(unittest.TestCase):
         self.assertEqual(self.pre("Bash", {"command": "shopify theme publish -t 9"}), "ask")
         self.assertEqual(self.pre("mcp__klaviyo__send_campaign", {"id": "c"}), "ask")
 
+    def test_release_commands(self):
+        self.stage(4)
+        cases = {
+            "shopify theme push --publish": "ask",
+            "shopify theme push --theme 123456": "ask",
+            "SHOPIFY_FLAG_PUBLISH=1 shopify theme push": "ask",
+            "vercel promote https://x.vercel.app": "ask",
+            "vercel rollback": "ask",
+            "shopify store execute --allow-mutations q.graphql": "ask",
+            "shopify theme dev --allow-live": "ask",
+            "wp @prod option update blogname X": "ask",
+            "shopify store bulk execute --allow-mutations q.graphql": "ask",
+            "shopify theme push -p": "ask",
+            "netlify api restoreSiteDeploy --data x": "ask",
+            "wp --ssh=prod.example.com option update home x": "ask",
+            "vercel rolling-release start": "ask",
+            "shopify store delete --product 1": "deny",
+            "wp @prod db reset --yes": "deny",
+        }
+        for cmd, want in cases.items():
+            self.assertEqual(self.pre("Bash", {"command": cmd}), want, cmd)
+        self.stage(2)
+        self.assertEqual(self.pre("Bash", {"command": "shopify theme push --unpublished"}), "ask")
+        self.assertEqual(self.pre("Bash", {"command": "shopify theme push --theme 1"}), "deny")
+
+    def test_extra_ask_pattern_beats_builtin_g2(self):
+        self.policy = {"automation_stage": 4, "extra_ask_bash_patterns": [r"vercel\s+deploy"]}
+        with open(os.path.join(self.root, "ads-master", "guardrails.json"), "w") as fh:
+            json.dump(self.policy, fh)
+        out = run("pre", {"session_id": "t", "tool_name": "Bash", "tool_input": {"command": "vercel deploy"}}, self.root)
+        self.assertIn("guardrails.json", out["hookSpecificOutput"]["permissionDecisionReason"])
+
     def test_secrets_blocked_outside_env(self):
         secret = "EAAB" + "x" * 50
         self.assertEqual(self.pre("Write", {"file_path": os.path.join(self.root, "notes.md"), "content": secret}), "deny")
