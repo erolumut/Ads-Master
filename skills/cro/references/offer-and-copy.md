@@ -115,7 +115,7 @@ Rules:
 
 Place risk reversal under the primary CTA, next to the price, in the cart and in checkout. A guarantee only in the footer does nothing.
 
-Cancellation: the US FTC "click to cancel" negative option rule was vacated by a federal appeals court in July 2025 [Unverified, verify status], but state laws (for example California automatic renewal law) and EU consumer law still require easy cancellation. Make cancellation as easy as signup regardless.
+Cancellation: the US FTC "click to cancel" negative option rule was vacated by the Eighth Circuit on procedural grounds in July 2025; the FTC reopened rulemaking with an advance notice in March 2026 (comments closed 2026-04-13) and keeps enforcing ROSCA and Section 5 meanwhile [Official, 2025-07 and 2026-03], but state laws (for example California automatic renewal law) and EU consumer law still require easy cancellation. Make cancellation as easy as signup regardless.
 
 ## 8. Social proof and trust
 
@@ -153,7 +153,7 @@ Not allowed (illegal in many markets, and they erode trust):
 | Pre-ticked add-ons or insurance | EU Consumer Rights Directive Article 22 requires express consent for extra payments [Official] |
 | Drip pricing (fees revealed at checkout) | FTC junk fees rule for live events and short-term lodging (effective May 2025) [Unverified date], California SB 478 (July 2024), UK DMCC Act; also a top abandonment cause in Baymard data |
 | Confirmshaming ("No thanks, I like paying more") | EU Digital Services Act Article 25 bans manipulative interface design on online platforms [Official, applies since Feb 2024]; erodes brand |
-| Hard-to-cancel subscriptions | State automatic renewal laws, EU rules; the EU Digital Fairness Act proposal targets dark patterns and subscription traps [Unverified timing, proposal expected 2026] |
+| Hard-to-cancel subscriptions | State automatic renewal laws, EU rules; the EU Digital Fairness Act targets dark patterns and unfair personalization; the Commission work programme schedules the proposal for Q4 2026 and the Commissioner said in May 2026 it will come before year end; not proposed as of early October 2026, legal form (regulation or directive) open [Official, 2026-05; check Commission press releases] |
 | Hidden opt-outs for marketing consent | GDPR requires freely given, unambiguous consent |
 
 ## 10. Pricing presentation

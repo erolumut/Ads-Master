@@ -10,11 +10,12 @@
 | Hotjar merged into Contentsquare Group | 1 July 2025 | Hotjar pricing now on Contentsquare plans (Experience Analytics, Voice of Customer, Product Analytics lines); Sense AI features by plan [secondary sources, 2026] |
 | OpenAI acquired Statsig ($1.1B, stock) | Announced 2 Sept 2025 | Founder became OpenAI CTO of Applications [Study/press, 2025-09] |
 | Amplitude took over Statsig brand, platform and customers | 5 May 2026 | Engineering team stayed at OpenAI; Amplitude frames it as a strategic partnership; check roadmap and renewal terms [press, 2026-05] |
-| VWO and AB Tasty agreed to combine | 20 Jan 2026 | Everstone-backed; over $100M ARR, 4,000+ customers claimed [press, 2026-01] |
-| Combined company rebranded Wingify | 16 Sept 2026 | AI engine "Wingz"; customers can keep using VWO or AB Tasty during transition [press, 2026-09] |
+| VWO and AB Tasty agreed to combine | 20 Jan 2026 | Everstone-backed; over $100M ARR, 4,000+ customers claimed; CEO Sparsh Gupta (VWO) [press, 2026-01] |
+| VWO app domain moved to app.wingify.com | 13 June 2026 | Users log in again; campaigns, credentials, tracking and SmartCode unchanged [Official, Wingify 2026-06] |
+| Combined company rebranded Wingify | 16 Sept 2026 | Positioned as an "Agentic Experience Optimization Platform" with AI engine "Wingz"; existing contracts carried over; VWO and AB Tasty still run as separate suites while data models merge over several quarters [Official press release and Wingify blog, 2026-09] |
 | Optimizely Opal renamed Optimizely Agent Platform | 1 Sept 2026 | Experimentation agents: Idea builder, Build agent, CRO Manager virtual teammate [Official, 2026] |
-| Shopify Rollouts (native theme A/B testing) | Winter '26 Edition, expanded June 2026 | Server-side theme splits; limited stats [secondary sources, 2026] |
-| Datadog acquired Eppo | 2025 | Warehouse-native experimentation now part of Datadog [Unverified] |
+| Shopify Rollouts (native theme A/B testing) | Winter '26 Edition, expanded June 2026; discount and offer tests reported 2 Oct 2026 | Server-side theme splits; limited stats [secondary sources, 2026] |
+| Datadog acquired Eppo | Announced 5 May 2025 | Continues as "Eppo by Datadog" inside Datadog Product Analytics; price undisclosed (about $220M reported) [press, 2025-05] |
 
 Consolidation is raising prices and pushing vendors upmarket, according to competitors' analyses [Contested, vendor commentary]. For new purchases, check contract terms, data export, and roadmap commitments.
 
@@ -24,14 +25,14 @@ Consolidation is raising prices and pushing vendors upmarket, according to compe
 | Tool | Type | Strength | Notes |
 |------|------|----------|-------|
 | Optimizely Web and Feature Experimentation | Client and server side | Enterprise programs, Stats Engine (sequential), Agent Platform AI agents, contextual bandits (April 2026) | Expensive; release notes at support.optimizely.com |
-| Wingify (VWO, AB Tasty) | Client side plus server side, personalization | Mid-market and enterprise; Bayesian reporting (VWO SmartStats) [Unverified current] | Integration ongoing in 2026 |
+| Wingify (VWO, AB Tasty) | Client side plus server side, personalization | Mid-market and enterprise; Bayesian reporting (VWO SmartStats) [Unverified current] | Rebranded 16 Sept 2026; products still separate suites while integration runs; check renewal terms |
 | Kameleoon | Client and server side | Hybrid testing, personalization, strong in EU | Check AI features [Unverified] |
 | Convert | Client side | Privacy focus, flat pricing, both stats approaches [Unverified] | |
 | GrowthBook | Open source, warehouse native, feature flags | Bayesian default, frequentist and sequential, CUPED, self-host option [Unverified current defaults] | Good fit for Next.js and data teams |
-| PostHog | Product analytics plus experiments, flags, replay, surveys | One tool for SaaS; generous free tier [Unverified current limits] | |
+| PostHog | Product analytics plus experiments, flags, replay, surveys | One tool for SaaS; generous free tier [Unverified current limits] | Official hosted MCP server covers experiments end to end [Official, posthog.com docs] |
 | Statsig (Amplitude) | Flags and experiments, CUPED, warehouse native | Strong stats; ownership changed May 2026 | Watch for consolidation with Amplitude Experiment |
 | LaunchDarkly | Feature management plus experimentation | Engineering-led rollouts | |
-| Shopify Rollouts | Native theme and configuration tests | Server-side split, free with Shopify | No targeting, no confidence intervals [secondary 2026] |
+| Shopify Rollouts | Native theme, checkout and account configuration tests | Server-side split, included in Shopify (experiments plan-gated) | No targeting, no confidence intervals, no variant data to GA4 [secondary 2026] |
 | Shopify apps (for example Intelligems, Shoplift) | Price, shipping, theme tests | Ecommerce-specific metrics | Verify app listing details |
 
 Choosing:
@@ -61,7 +62,7 @@ UserTesting, Lyssna (five-second, preference, first-click tests), Maze (prototyp
 Unbounce, Instapage, Leadpages, Webflow, Framer, Shopify page builders (PageFly, GemPages, Shogun, Replo). Check each page's weight; builders often add JavaScript. Unbounce's 2024 benchmark (41,000 pages) is useful context for lead gen medians [Study, 2024].
 
 ### 2.5 Speed and accessibility
-PageSpeed Insights (and API), CrUX API and CrUX History API, Search Console CWV report, Lighthouse and Lighthouse CI, WebPageTest, DebugBear, SpeedCurve, RUMvision; axe DevTools, WAVE, Pa11y, Lighthouse accessibility. Do not recommend accessibility overlays as a compliance fix: the US FTC took action against an overlay vendor (accessiBe) in 2025 over claims its tool made sites compliant [Unverified details, verify].
+PageSpeed Insights (and API), CrUX API and CrUX History API, Search Console CWV report, Lighthouse and Lighthouse CI, WebPageTest, DebugBear, SpeedCurve, RUMvision; axe DevTools, WAVE, Pa11y, Lighthouse accessibility. Do not recommend accessibility overlays as a compliance fix: the US FTC finalized an order against overlay vendor accessiBe in April 2025 (proposed January 2025, approved 3-0) requiring $1 million and barring claims that its automated tool can make or keep a site WCAG compliant without substantiation, plus disclosure of paid reviewer relationships [Official, FTC 2025-04].
 
 ## 3. Data access matrix for Claude
 
@@ -74,20 +75,19 @@ PageSpeed Insights (and API), CrUX API and CrUX History API, Search Console CWV 
 | Lead quality | CRM (HubSpot, Salesforce) | CRM connector or CSV export of leads with stage |
 | Speed | CrUX API, PSI API, RUM | API calls below |
 | Pages and code | Repository | Read files directly; run local build and Lighthouse |
-| Screenshots and QA | Local browser automation | Playwright (CLI or MCP), Chrome DevTools MCP [Unverified availability] |
+| Screenshots and QA | Local browser automation | Playwright (CLI or MCP), Chrome DevTools MCP [Official, both open source] |
 
 ## 4. API and MCP recipes
 
 ### 4.1 Microsoft Clarity MCP server and Data Export API
-Community directories list an official package `@microsoft/clarity-mcp-server`, run with npx and a `CLARITY_API_TOKEN` (or `--clarity_api_token`), exposing a `get-clarity-data` tool that queries the Data Export API for the last 1 to 3 days with up to 3 dimensions (for example Browser, Device, Country/Region) and metrics such as Scroll Depth, Engagement Time and Traffic [secondary sources; verify on Microsoft Learn and npm].
+Microsoft publishes `@microsoft/clarity-mcp-server` (MIT, repository microsoft/clarity-mcp-server), run locally with npx and a Clarity Data Export API token (`--clarity_api_token` flag in the README, or an environment variable in some clients). Version 2.x exposes three read-only tools: `query-analytics-data` (natural language queries over dashboard metrics), `list-session-recordings` (recording links, duration and interaction timelines) and `query-documentation-data` (Clarity docs). Versions 1.0.x exposed a single `get-clarity-data` tool (last 1 to 3 days, up to 3 dimensions such as Browser, Device, Country/Region; metrics such as Scroll Depth, Engagement Time, Traffic). The Data Export API is capped at about 10 requests per project per day [Official package metadata via npm mirrors, 2026; check `npm view @microsoft/clarity-mcp-server` for the current tool list].
 Example MCP client config (Claude Code `.mcp.json`):
 ```json
 {
   "mcpServers": {
     "clarity": {
       "command": "npx",
-      "args": ["-y", "@microsoft/clarity-mcp-server"],
-      "env": { "CLARITY_API_TOKEN": "${CLARITY_API_TOKEN}" }
+      "args": ["-y", "@microsoft/clarity-mcp-server", "--clarity_api_token=${CLARITY_API_TOKEN}"]
     }
   }
 }
@@ -137,16 +137,16 @@ npx lighthouse https://www.example.com/lp/running --preset=perf --form-factor=mo
 ```
 
 ### 4.6 Shopify Admin GraphQL (read-only order data for AOV and product mix)
-Use a custom app with `read_orders` and `read_products` scopes, or a Shopify MCP connector if installed. Shopify also publishes a developer MCP server for docs and schema lookup [Unverified package name; check shopify.dev]. Never use write scopes for CRO analysis.
+Use a custom app with `read_orders` and `read_products` scopes, or a Shopify MCP connector if installed. Shopify also publishes a developer MCP server for docs and Admin GraphQL schema lookup: `npx -y @shopify/dev-mcp@latest` (tools include search_dev_docs, introspect_admin_schema, fetch_docs_by_path) [Official, shopify.dev/apps/build/devmcp]. Never use write scopes for CRO analysis.
 
 ### 4.7 Other MCP servers to look for
 | Server | Use | Status |
 |--------|-----|--------|
-| PostHog MCP | Query insights, flags, experiments | Official [Unverified, check posthog.com docs] |
-| GrowthBook MCP | Read experiments and flags, create drafts | Official [Unverified] |
+| PostHog MCP | Query insights, flags, experiments (sample size estimates, create experiment with its flag, results and timeseries, audit trail, stale flags) | Official, hosted: https://mcp.posthog.com/mcp (EU Cloud: https://mcp-eu.posthog.com/mcp), browser OAuth [Official, posthog.com docs 2026] |
+| GrowthBook MCP | List and get experiments, create flag-backed experiments and feature flags | npm `@growthbook/mcp` from the growthbook GitHub organization, needs an API key plus user email (GB_API_KEY and GB_EMAIL in listings); hosted endpoint listed in one directory [Official package; config names Unverified, check the README] |
 | Contentsquare connectors | Ask analytics questions from Claude or ChatGPT | Official support pages list availability on all plans with tool call limits [secondary 2026] |
-| Playwright MCP | Drive a browser for screenshots and QA | Microsoft open source [Unverified] |
-| Chrome DevTools MCP | Performance traces, network, console | Google open source [Unverified] |
+| Playwright MCP | Drive a browser for screenshots and QA via the accessibility tree (`npx @playwright/mcp@latest`) | Microsoft open source, released 2025-03 [Official, github.com/microsoft/playwright-mcp] |
+| Chrome DevTools MCP | Performance traces, network, console, CrUX field data (`npx chrome-devtools-mcp@latest`, Node 22) | Google, public preview 2025-09-23, declared stable by 2026-06 [Official, Chrome for Developers] |
 | CRM MCP servers (HubSpot, Salesforce) | Lead quality by source and form | Check vendor |
 
 If a connector is present in the session, use it. If not, ask for a CSV export (see `ads-master/data/imports/HOW_TO_EXPORT.md`, row `cro`) and continue.
