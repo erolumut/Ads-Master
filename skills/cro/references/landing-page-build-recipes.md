@@ -124,7 +124,7 @@ export type State = { ok: boolean; error?: string };
 export async function submitLead(_: State, fd: FormData): Promise<State> {
   if (fd.get('company_website')) return { ok: true };            // honeypot: pretend success
   const started = Number(fd.get('t0') || 0);
-  if (Date.now()-started < 3000) return { ok: true };         // too fast, likely bot
+  if (started > 0 && Date.now()-started < 3000) return { ok: true }; // too fast, likely bot
   const email = String(fd.get('email') || '').trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { ok: false, error: 'Enter a valid email, like name@company.com' };
   const res = await fetch(process.env.CRM_WEBHOOK_URL!, {
@@ -137,10 +137,12 @@ export async function submitLead(_: State, fd: FormData): Promise<State> {
 ```tsx
 // app/lp/running/lead-form.tsx
 'use client';
-import { useActionState, useEffect } from 'react';
+import { useActionState, useEffect, useState } from 'react';
 import { submitLead, type State } from './actions';
 export function LeadForm({ variant, utm }: { variant: string; utm: string }) {
   const [state, action, pending] = useActionState<State, FormData>(submitLead, { ok: false });
+  const [t0, setT0] = useState(0);
+  useEffect(() => setT0(Date.now()), []);                       // set after hydration, avoids mismatch
   useEffect(() => { if (state.ok) (window as any).dataLayer?.push({ event: 'generate_lead', form_id: 'lp-running', variant_id: variant }); }, [state.ok, variant]);
   if (state.ok) return <p role="status">Thanks. We will email your fitting guide within 5 minutes.</p>;
   return (
@@ -150,7 +152,7 @@ export function LeadForm({ variant, utm }: { variant: string; utm: string }) {
       <label htmlFor="email">Email</label>
       <input id="email" name="email" type="email" autoComplete="email" required aria-describedby={state.error ? 'err' : undefined} />
       <input type="text" name="company_website" tabIndex={-1} autoComplete="off" className="hp" aria-hidden="true" />
-      <input type="hidden" name="t0" value={Date.now()} />
+      <input type="hidden" name="t0" value={t0} />
       <input type="hidden" name="utm" value={utm} /><input type="hidden" name="variant" value={variant} />
       {state.error && <p id="err" role="alert">{state.error}</p>}
       <button type="submit" disabled={pending}>{pending ? 'Sending...' : 'Get my fitting guide'}</button>
@@ -159,7 +161,7 @@ export function LeadForm({ variant, utm }: { variant: string; utm: string }) {
   );
 }
 ```
-`.hp { position:absolute; left:-9999px; }` hides the honeypot from people but not from bots. `useActionState` requires React 19 (Next.js 15+). The `t0` value renders on the server; that is acceptable for a time check. Coordinate the `generate_lead` event and CRM mapping with `measurement`.
+`.hp { position:absolute; left:-9999px; }` hides the honeypot from people but not from bots. `useActionState` requires React 19 (Next.js 15+). The `t0` timestamp is set after hydration (0 means unknown, so the time check is skipped and the honeypot still applies). Coordinate the `generate_lead` event and CRM mapping with `measurement`.
 
 ## 4. Shopify (Online Store 2.0) recipes
 

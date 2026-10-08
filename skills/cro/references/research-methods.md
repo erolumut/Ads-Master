@@ -56,7 +56,7 @@ Add two streams that matter for paid traffic:
 GA4 custom channel group for AI assistants (Admin > Data display > Channel groups > Create new). Condition: Source matches regex:
 
 ```
-^(chatgpt\.com|chat\.openai\.com|perplexity\.ai|www\.perplexity\.ai|copilot\.microsoft\.com|gemini\.google\.com|claude\.ai|chat\.mistral\.ai|meta\.ai)$|utm_source=chatgpt\.com
+^(chatgpt\.com|chat\.openai\.com|perplexity\.ai|www\.perplexity\.ai|copilot\.microsoft\.com|gemini\.google\.com|claude\.ai|chat\.mistral\.ai|meta\.ai)$
 ```
 Place it above "Referral" in the channel order. Coordinate with the `measurement` agent before changing channel groups.
 
