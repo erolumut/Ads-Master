@@ -142,7 +142,7 @@ def wrap(text, max_chars):
 
 
 def srt_to_ass(srt_path, ass_path, target, font="DejaVu Sans", size=None, upper=None,
-               max_chars=28, position="lower"):
+               max_chars=24, position="lower"):
     w, h, _, (top, bottom, left, right), *_ = TARGETS[target]
     size = size or max(36, round(w * 0.058))
     if position == "center":
@@ -173,6 +173,39 @@ def srt_to_ass(srt_path, ass_path, target, font="DejaVu Sans", size=None, upper=
     return ass_path
 
 
+def trim_args(start, end):
+    """Input-side trim (accurate when re-encoding) so tpad and apad can extend past the cut."""
+    out = []
+    if start is not None:
+        out += ["-ss", str(start)]
+    if end is not None:
+        out += ["-to", str(end)]
+    return out
+
+
+def faststart(path):
+    """True when the moov atom comes before mdat (progressive playback, required by some uploaders)."""
+    order = []
+    with open(path, "rb") as fh:
+        while True:
+            head = fh.read(8)
+            if len(head) < 8:
+                break
+            size = int.from_bytes(head[:4], "big")
+            kind = head[4:8].decode("latin-1")
+            order.append(kind)
+            if size == 1:
+                size = int.from_bytes(fh.read(8), "big")
+                fh.seek(size - 16, 1)
+            elif size == 0:
+                break
+            else:
+                fh.seek(size - 8, 1)
+            if "moov" in order and "mdat" in order:
+                break
+    return "moov" in order and ("mdat" not in order or order.index("moov") < order.index("mdat"))
+
+
 def loudnorm_args(lufs, tp, lra=11, measured=None):
     base = f"loudnorm=I={lufs}:TP={tp}:LRA={lra}"
     if not measured:
@@ -183,11 +216,7 @@ def loudnorm_args(lufs, tp, lra=11, measured=None):
 
 
 def measure_loudness(path, lufs, tp, start=None, end=None):
-    cmd = ["ffmpeg", "-hide_banner", "-nostats", "-i", path]
-    if start is not None:
-        cmd += ["-ss", str(start)]
-    if end is not None:
-        cmd += ["-to", str(end)]
+    cmd = ["ffmpeg", "-hide_banner", "-nostats"] + trim_args(start, end) + ["-i", path]
     cmd += ["-af", loudnorm_args(lufs, tp) + ":print_format=json", "-f", "null", "-"]
     code, out = run(cmd)
     m = re.search(r"\{[^{}]*\"input_i\"[^{}]*\}", out, re.S)
@@ -209,11 +238,7 @@ def build_command(args, target, out_path, ass_path=None, measured=None, audio=Tr
         fc = fc[:-3] + f",ass='{esc_filter_path(ass_path)}'[v]"
     if args.hold_last:
         fc = fc[:-3] + f",tpad=stop_mode=clone:stop_duration={args.hold_last}[v]"
-    cmd = ["ffmpeg", "-hide_banner", "-y", "-i", args.input]
-    if args.start is not None:
-        cmd += ["-ss", str(args.start)]
-    if args.end is not None:
-        cmd += ["-to", str(args.end)]
+    cmd = ["ffmpeg", "-hide_banner", "-y"] + trim_args(args.start, args.end) + ["-i", args.input]
     cmd += ["-filter_complex", fc, "-map", label]
     if audio:
         af = loudnorm_args(lufs, tp, measured=measured)
@@ -267,11 +292,7 @@ def cmd_plan(args, execute=False):
                 print(f"# captions: python3 ffmpeg_deliver.py srt2ass --srt {q(args.captions)} --target {t} --out {q(ass_path)}")
         lufs, tp = TARGETS[t][4], TARGETS[t][5]
         if audio:
-            pass1 = ["ffmpeg", "-hide_banner", "-nostats", "-i", args.input]
-            if args.start is not None:
-                pass1 += ["-ss", str(args.start)]
-            if args.end is not None:
-                pass1 += ["-to", str(args.end)]
+            pass1 = ["ffmpeg", "-hide_banner", "-nostats"] + trim_args(args.start, args.end) + ["-i", args.input]
             pass1 += ["-af", loudnorm_args(lufs, tp) + ":print_format=json", "-f", "null", "-"]
         measured = None
         if execute and audio:
@@ -348,7 +369,8 @@ def cmd_check(args):
     res("duration", 0 < dur <= max_s, f"{dur:.2f}s (preset max {max_s}s; platform max may differ)", blocker=False)
     if args.expect_seconds:
         res("duration vs plan", abs(dur - args.expect_seconds) <= 0.5, f"{dur:.2f}s vs {args.expect_seconds}s")
-    res("faststart", True, "check moov atom with: ffprobe -v trace (manual)", blocker=False)
+    fs = faststart(args.input)
+    res("faststart (moov first)", fs, "moov before mdat" if fs else "re-mux with -movflags +faststart", blocker=False)
     if a:
         res("audio codec", a.get("codec_name") == "aac", a.get("codec_name"))
         res("sample rate", a.get("sample_rate") in ("48000", "44100"), a.get("sample_rate"))
@@ -373,7 +395,6 @@ def cmd_check(args):
     m = re.search(r"black_start:(\d+(?:\.\d+)?)", out)
     res("first frame not black", not (m and float(m.group(1)) < 0.05), "black at 0s" if m else "ok")
     stem = os.path.splitext(os.path.basename(args.input))[0]
-    stem_core = re.sub(r"_(916|45|11|169)_(v\d+)(_[a-zA-Z0-9-]+)?$", "", stem)
     if args.check_name:
         res("name grammar", bool(STEM_RE.match(stem)), stem)
     failed = [r for r in results if not r[1] and r[3]]
@@ -414,7 +435,7 @@ def main():
         p.add_argument("--captions", help="SRT file to burn in (converted to ASS per target)")
         p.add_argument("--font", default="DejaVu Sans")
         p.add_argument("--upper", choices=["en", "tr"], help="uppercase captions; tr keeps dotted and dotless i correct")
-        p.add_argument("--max-chars", type=int, default=28)
+        p.add_argument("--max-chars", type=int, default=24)
         p.add_argument("--caption-position", default="lower", choices=["lower", "center"])
         p.add_argument("--no-audio", action="store_true", help="plan only: assume no audio track")
 
@@ -446,7 +467,7 @@ def main():
     p.add_argument("--font", default="DejaVu Sans")
     p.add_argument("--size", type=int)
     p.add_argument("--upper", choices=["en", "tr"])
-    p.add_argument("--max-chars", type=int, default=28)
+    p.add_argument("--max-chars", type=int, default=24)
     p.add_argument("--caption-position", default="lower", choices=["lower", "center"])
 
     args = ap.parse_args()
