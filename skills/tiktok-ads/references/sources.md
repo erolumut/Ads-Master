@@ -1,6 +1,6 @@
 # Sources (annotated)
 
-> Compiled 2026-10-08. Numbering matches `research/tiktok-ads.md`. "Accessed" means the page was located in this research cycle but carries no visible publish date; check the page's "last updated" line before relying on it. Research limits this cycle: direct page fetching was blocked by network policy and the shared web search budget ran out after 21 searches, so findings come from search-indexed page content. Re-verify Official items in the live help center before acting.
+> Compiled 2026-10-08. Numbering matches `research/tiktok-ads.md`. "Accessed" means the page was located in this research cycle but carries no visible publish date; check the page's "last updated" line before relying on it. Research limits this cycle: direct page fetching was blocked by network policy and the first pass ran out of search budget after 21 searches, so findings come from search-indexed page content. A verification pass on 2026-10-08 added sources 88 to 123 (section D2). Re-verify Official items in the live help center before acting.
 
 ## A. TikTok official: announcements and blogs
 
@@ -109,6 +109,48 @@
 | 85 | TikTok ad learning phase | TikAdTools | https://tikadtools.com/blog/tiktok-ad-learning-phase/ | 2026 | 25 conversion alternative threshold (contested) |
 | 87 | TikTok ads bidding | WordStream | https://www.wordstream.com/blog/tiktok-ads-bidding | Accessed 2026-10 | Blank bid defaults to Maximum Delivery |
 
+
+## D2. Added in the 2026-10-08 verification pass
+
+| # | Title | Publisher | URL | Date | Supports |
+|---|-------|-----------|-----|------|----------|
+| 88 | Learning Phase FAQs | TikTok Ads Help Center | https://ads.tiktok.com/help/article/learning-phase-faq | Accessed 2026-10 | 50 conversions as the most significant indicator of passing learning; fixes |
+| 89 | Campaign Creation FAQs | TikTok Ads Help Center | https://ads.tiktok.com/help/article/campaign-creation-faq | Accessed 2026-10 | Under 20 conversions in first 10 days is a failure signal; no edits before 20 |
+| 90 | How to Create Attribution Windows for your Ad Group | TikTok Ads Help Center | https://ads.tiktok.com/help/article/attribution-settings-at-the-ad-group-level?lang=en | About 2025 | CTA 1, 7, 14, 28 days; VTA off, 1, 7; locked after publish |
+| 91 | About Engaged View-through Attribution | TikTok Ads Help Center | https://ads.tiktok.com/help/article/about-engaged-view-through-attribution | About 2025 | EVTA 6-second rule; window lists inconsistent |
+| 92 | Introducing TikTok's Attribution Portfolio | TikTok for Business | https://ads.tiktok.com/business/en/blog/attribution-analytics-performance-comparison | 2026-05 | Attribution Portfolio tools; 1 in 4 view then direct visit claim |
+| 93 | TikTok's Attribution Portfolio wants to end the last-click debate | PPC Land | https://ppc.land/tiktoks-attribution-portfolio-wants-to-end-the-last-click-debate/ | 2026-05 | Portfolio components and launch |
+| 94 | Attribution Analytics: Assisted Conversions | TikTok Ads Help Center | https://ads.tiktok.com/resources/help/article/attribution-analytics-how-to-view-assisted-conversions-in-tiktok-ads-manager | 2026 | Assisted Conversion path and definition |
+| 95 | How To Build Campaigns Your Way With Smart+ | TikTok for Business | https://ads.tiktok.com/business/en/blog/smart-plus-ai-performance-solution | 2025 to 2026 | 30 ad groups, 30 asset groups, 50 creatives per asset group |
+| 96 | Ads for Smart+ campaigns (asset groups) | TikTok Ads Help Center | https://ads.tiktok.com/help/article/about-asset-groups-for-smart-plus-campaigns | 2026 | Up to 30 unique ads (asset groups) per ad group |
+| 97 | Smart+ Upgraded Experience | TikTok Ads Help Center | https://ads.tiktok.com/help/article/about-updates-to-smart-plus?lang=en | 2026-09 | Upgraded flow; up to 50 asset groups wording |
+| 98 | About ad account limits | TikTok Ads Help Center | https://ads.tiktok.com/help/article/campaign-ad-group-and-ad-limits-limitations?lang=en | Accessed 2026-10 | 5,000 campaigns, 999 ad groups per campaign, 50 ads per ad group |
+| 99 | About Placement for your upgraded Smart+ experience | TikTok Ads Help Center | https://ads.tiktok.com/help/article/about-placement-for-your-upgraded-smart-experience?lang=en | 2026-02 | Automatic placement default; Pangle by region; manual choice in manual mode |
+| 100 | About Smart+ Web Campaigns | TikTok Ads Help Center | https://ads.tiktok.com/help/article/about-smart-plus-web-campaigns | 2026 | Smart+ Web placements; non-Smart+ needed to exclude Pangle |
+| 101 | TikTok Expands Its Off-Platform Ad Network to US Advertisers | Adweek | https://www.adweek.com/media/tiktok-expands-its-off-platform-ad-network-to-us-advertisers/ | 2026-10 | Earlier limited US tests; broad opening |
+| 102 | TikTok broadens agentic AI play, brings global ad network to US | Marketing Dive | https://www.marketingdive.com/news/tiktok-broadens-agentic-ai-play-brings-global-ad-network-to-us/832007/ | 2026-10 | TTAN GA in US, 48th market, agentic tools |
+| 103 | TikTok opens ad network of nearly 400,000 apps to US advertisers | PPC Land | https://ppc.land/tiktok-opens-ad-network-of-nearly-400-000-apps-to-us-advertisers/ | 2026-10 | App count wording change; DV and IAS |
+| 104 | TikTok brings its global ad network to the US and unveils agentic AI tools | Music Business Worldwide | https://www.musicbusinessworldwide.com/tiktok-brings-its-global-ad-network-to-the-us-and-unveils-agentic-ai-tools/ | 2026-10 | Agentic tools via eligibility-based testing |
+| 105 | TikTok adds Buy Direct, Agentic Leads and GMV Max changes | Relevant Audience | https://www.relevantaudience.com/tiktok-ads/tiktok-advertising-week-2026-buy-direct-agentic-leads-gmv-max/ | 2026-10 | Advertising Week product status |
+| 106 | About Product GMV Max (links About GMV Max Pro) | TikTok Ads Help Center | https://ads.tiktok.com/resources/help/article/about-product-gmv-max?lang=ja | 2026-09 | GMV Max Pro help article exists |
+| 107 | GMV Max Is No Longer Just an Ads Button | Allymatic | https://www.allymatic.com/en/academy/tiktok-shop-gmv-max-profit-system/ | 2026 | GMV Max Pro debut at TikTok World, profit system |
+| 108 | About Custom Audiences | TikTok Ads Help Center | https://ads.tiktok.com/help/article/custom-audiences | Accessed 2026-10 | 1,000 matched users minimum |
+| 109 | About Customer File audiences | TikTok Ads Help Center | https://ads.tiktok.com/help/article/customer-file | Accessed 2026-10 | File formats, matching, deletion |
+| 110 | TikTok launches MCP server to let AI agents run campaigns | Digiday | https://digiday.com/marketing/tiktok-launches-mcp-server-to-let-ai-agents-run-campaigns/ | 2026-05 | MCP launch at TikTok World 2026-05-13 |
+| 111 | About TikTok for Business Agentic Hub and MCP Server | TikTok Ads Help Center | https://ads.tiktok.com/help/article/about-tiktok-for-business-agentic-hub-and-mcp-server | 2026-08 | Agentic Hub discovery layer, MCP connectivity layer |
+| 112 | TikTok's Agentic Hub: AI Agents Run Your Ad Ops | Digital Applied | https://www.digitalapplied.com/blog/tiktok-agentic-hub-ai-agents-ad-workflows-2026 | 2026 | Agentic Hub launch 2026-06-30, 14 partners |
+| 113 | Commission accepts TikTok's commitments on advertising transparency under the Digital Services Act | European Commission | https://digital-strategy.ec.europa.eu/en/news/commission-accepts-tiktoks-commitments-advertising-transparency-under-digital-services-act | 2025-12 | Ad repository case closed by commitments |
+| 114 | Commission preliminarily finds TikTok's addictive design in breach of the Digital Services Act | European Commission | https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-tiktoks-addictive-design-breach-digital-services-act | 2026-02 | Preliminary finding, addictive design |
+| 115 | EU Commission finds TikTok failed to protect minors' privacy under Digital Services Act | JURIST | https://www.jurist.org/news/2026/07/eu-commission-finds-tiktok-failed-to-protect-minors-privacy-under-digital-services-act/ | 2026-07 | Preliminary finding, minors |
+| 116 | Minister Joly's statement on the further national security review of TikTok Technology Canada Inc. | Government of Canada | https://www.canada.ca/en/innovation-science-economic-development/news/2026/03/minister-jolys-statement-on-the-outcome-of-the-further-national-security-review-of-tiktok-technology-canada-inc-under-the-investment-canada-act.html | 2026-03 | TikTok Canada may continue under undertakings |
+| 117 | TikTok in Canada: Court sets aside order to wind down operations | BNN Bloomberg | https://www.bnnbloomberg.ca/business/technology/2026/01/21/federal-court-sets-aside-tiktok-canada-shutdown-order/ | 2026-01-21 | Consent set-aside of wind-down order |
+| 118 | Announcement from the new TikTok USDS Joint Venture LLC | TikTok Newsroom | https://newsroom.tiktok.com/announcement-from-the-new-tiktok-usds-joint-venture-llc?lang=en | 2026-01 | TikTok global US entities manage advertising and e-commerce |
+| 119 | Transforming Video Creation With TikTok Symphony And Dreamina Seedance 2.5 | TikTok for Business | https://ads.tiktok.com/business/en/blog/transforming-video-creation-tiktok-symphony-dreamina-seedance | 2026-08-03 | Seedance 2.5, 30-second video, labels and C2PA |
+| 120 | TikTok Symphony gains 30-second AI video with Seedance 2.5 upgrade | PPC Land | https://ppc.land/tiktok-symphony-gains-30-second-ai-video-with-seedance-2-5-upgrade/ | 2026-08 | Reference uploads 9 to 50 for paid advertisers |
+| 121 | Misleading and false content (advertising policy) | TikTok Ads Help Center | https://ads.tiktok.com/help/article/tiktok-ads-policy-misleading-and-false-content | 2026 | AIGC label or clear disclaimer on AI ad content |
+| 122 | TikTok AI Content Disclosure Rules for Advertisers (2026) | UGCVids | https://ugcvids.ai/blog/tiktok-ai-content-disclosure-rules-2026 | 2026-08 | Policy text summary; changelog has no 2026 AIGC change |
+| 123 | TikTok's New AI Ad Disclosure Rules | Common Thread Collective | https://commonthreadco.com/blogs/coachs-corner/tiktok-ai-ad-disclosure-rules-ecommerce-2026 | 2026-07 | Source of the 2026-07-21 date [Contested] |
+
 ## E. How to extend this list
 When the Freshness Protocol finds a new change, add a row with the next number, the official URL first, and update `research/tiktok-ads.md` timeline. Remove nothing; mark superseded items "superseded by #N".
 
@@ -122,29 +164,39 @@ When the Freshness Protocol finds a new change, add a row with the next number, 
 | Smart+ Web: 30x/10x CPA budget, 6+ creatives, 7 days no edits, 15% bid edits per 2 days | 7, 9 | Official (page about 2025) |
 | Daily minimums $50 campaign, $20 ad group | 11 | Official |
 | VBO guidance (7-day actual ROAS, Highest Value if unsure, 10x CPA budget) | 15, 16 | Official (2025-02, 2022) |
-| Default 7-day click + 1-day view; CTA, EVTA, VTA settings at ad group | 17, 18, 19, 68 | Official; option list contested |
+| Default 7-day click + 1-day view; CTA 1/7/14/28, VTA off/1/7; locked after publish | 17, 18, 19, 68, 90, 91 | Official; EVTA window list inconsistent across pages |
+| Attribution Portfolio (2026-05) with Assisted Conversion | 92, 93, 94 | Official |
 | Event dedup rules (event_id, _ttp, 48 hours, first event kept) | 21 | Official (2025-05) |
 | Search Ads Campaign controls and 20x budget; Automatic Search Placement rename and precedence | 22, 23, 25 | Official (2026-08, 2026-06) |
 | ROI protection rules | 27, 70 | Official (2026-02); critique in 70 |
 | LIVE GMV Max creative supply and Creative Boost | 29, 30, 31 | Official |
-| GMV Max Pro and seller-cost-aware optimization | 3, 49, 54, 62, 69 | Official announcements; limited rollout |
-| Official MCP server, about 400 endpoints, Agentic Hub | 34, 35, 36, 37 | Official (2026) |
-| TikTok Ad Network open to US advertisers on 2026-10-05 | 43, 49, 50, 51, 52, 56 | Official plus trade press |
+| GMV Max Pro and seller-cost-aware optimization | 2, 3, 49, 54, 62, 69, 106, 107 | Official; eligibility by market unpublished |
+| Smart+ structure: 30 ad groups, 30 asset groups, 50 creatives per asset group | 95, 96, 97, 98 | Official; 50 asset groups wording conflicts |
+| Smart+ automatic placement can include TikTok Ad Network | 99, 100 | Official |
+| Custom audience minimum 1,000 matched users | 108, 109 | Official |
+| Official MCP server, about 400 endpoints, Agentic Hub | 34, 35, 36, 37, 110, 111, 112 | Official (2026-05; Hub 2026-06-30; help 2026-08) |
+| TikTok Ad Network open to US advertisers on 2026-10-05 | 43, 49, 50, 51, 52, 56, 101, 102, 103 | Official plus trade press |
+| Buy Direct, Shopping Assistant, Agentic Leads in eligibility-based testing | 54, 80, 102, 104, 105 | Official announcement; no launch dates |
 | US JV closed 2026-01-22; ownership split | 44, 45 | News, consistent |
-| JV commercial control of ads and e-commerce | 45, 46, 50 | Contested |
+| JV commercial control of ads and e-commerce | 45, 46, 50, 118 | TikTok says TikTok global's US entities manage ads and e-commerce [Official]; press accounts still differ |
+| EU DSA: ad repository commitments (2025-12); preliminary findings on design (2026-02) and minors (2026-07) | 113, 114, 115 | Official |
+| Canada: wind-down order set aside (2026-01-21); operations allowed with undertakings (2026-03-09) | 116, 117 | Official |
+| Seedance 2.5 in Symphony (2026-08-03) | 119, 120 | Official |
+| AIGC label or disclaimer required on AI ad content; 2026-07-21 date | 121, 122, 123 | Rule Official; date Contested |
 | TCM replaced by TikTok One (2025-04-01) | 40, 41, 60 | Official plus news |
 | Symphony Agent, Custom Creator Networks (2026-06) | 57, 58 | Trade press reporting official launch |
 | Symphony Creative Studio on Seedance 2.0 | 39, 59 | Official product page plus guide |
 | TopReach 59% incremental reach claim | 3, 48 | Platform-reported |
-| Learning phase about 50 conversions in 7 days | 12, 84, 85 | Practitioner consensus; official wording unverified |
+| Learning phase about 50 conversions; under 20 in 10 days is a failure signal | 12, 84, 88, 89 | Official (Learning Phase FAQ, Campaign Creation FAQ); 25 (source 85) not supported |
 | EMQ thresholds | 74, 75 | Third-party only |
 
 ## G. Items that need a primary-source check in the next cycle
-1. Current learning phase wording and thresholds (source 12).
-2. Full attribution window option list in the live ad group UI (sources 17, 18).
-3. Smart+ asset group and ad group limits (sources 4, 64, 82).
-4. TikTok Ad Network auto-inclusion in Smart+ and how to opt out (sources 50, 53).
-5. Buy Direct and Agentic Leads markets and dates (sources 49, 54, 55, 80).
-6. Custom audience size minimums and retention windows (Help Center audience articles, not captured this cycle).
+Resolved on 2026-10-08: learning phase wording (88, 89), attribution options and lock after publish (90), Smart+ structure limits (95 to 98, one conflict left), TikTok Ad Network auto-inclusion (99, 100), custom audience minimum (108), EU and Canada status (113 to 117). Still open:
+1. Smart+ asset group cap: 30 (sources 95, 96) vs 50 (source 97).
+2. Opt-out path from TikTok Ad Network in Smart+ Web when no placement module is shown (sources 53, 100).
+3. Buy Direct, Shopping Assistant and Agentic Leads markets and dates (sources 49, 54, 80, 104, 105).
+4. GMV Max Pro eligibility and markets (source 106 article body not read).
+5. Custom audience retention windows per audience type (not captured).
+6. Date of the TikTok AIGC ad rule (sources 121 to 123).
 7. Current TikTok Advertising Policies per category and market (policy pages, not captured this cycle).
 8. Vertical CPM, CPC, CTR and CVR benchmarks from a published method (none captured this cycle).

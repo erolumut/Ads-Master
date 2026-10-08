@@ -40,7 +40,7 @@ Behavior targeting note: "video interactions" (watched to end, liked, commented,
 | Shop Activity | Product views, add to cart, purchase in TikTok Shop | Varies | GMV Max handles most Shop retargeting automatically; use for web campaigns' exclusions |
 | LIVE | Users who watched or interacted with your LIVE | Varies | LIVE promotion and replay retargeting |
 
-Minimum sizes: a custom audience generally needs on the order of 1,000 matched users before it can be used for targeting [Unverified, check the audience status column]. Small lists (B2B accounts, high-ticket customers) often fail to match.
+Minimum sizes: a custom audience needs at least 1,000 matched users before it can be applied to an ad group; the threshold counts matched users, not uploaded rows, so a 1,500-row file can still fall short [Official, Help Center "About Custom Audiences" and "About Customer File audiences"]. Customer files take .csv or .txt with email, phone or mobile advertising IDs (hashed or plain), are matched then deleted, and need about a day to process; idle audiences eventually expire [Official]. Small lists (B2B accounts, high-ticket customers) often fail to match.
 
 ## 4. Lookalike audiences
 - Seeds: purchasers (best), high-value purchasers (top 20% by value), qualified leads from CRM, app payers, 75% or 100% video viewers (weakest for sales).

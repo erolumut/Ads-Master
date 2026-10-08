@@ -6,29 +6,29 @@
 
 | Strategy | Optimizes for | Optional target | Use when |
 |----------|--------------|-----------------|----------|
-| Manual CPC | Your keyword bids | None | Very low volume, brand, tight control |
+| Manual CPC | Your keyword bids | None | Only Audience (display and video) and lodging campaigns; Search, Shopping and DSA campaigns moved to Enhanced CPC in 2021 [Official, ManualCpcBiddingScheme API reference] |
 | Enhanced CPC | Manual bids adjusted by conversion likelihood | None | Low volume with some conversion data |
-| Maximize clicks | Clicks within budget | Max CPC cap | New account without conversion history |
+| Maximize clicks | Clicks within budget | Max CPC cap (not offered on new non-portfolio campaigns from 2026-10-01; a portfolio keeps it) | New account without conversion history |
 | Maximize conversions | Conversions within budget | Target CPA | 15 to 30+ conversions in 30 days |
 | Maximize conversion value | Value within budget | Target ROAS | Ecommerce or value based lead gen with 30+ conversions in 30 days |
-| Target impression share | Impression share at a position | Max CPC cap | Brand defense |
+| Target impression share | Impression share at a position | Max CPC cap (still available after 2026-10-01) | Brand defense |
 | Portfolio bid strategies | Any automated strategy across campaigns | Shared target | Pool signal across low volume campaigns |
 | Cross-account portfolios | Portfolio across accounts in one manager account | Shared target | Multi account advertisers (since 2026-05) [Official, 2026-05] |
 
-Reports in 2026 suggested Microsoft removed or changed the Max CPC option for some new campaigns [Unverified]. Check the bid strategy panel before writing a plan that depends on manual bids.
+Max CPC change (effective 2026-10-01): Max CPC is no longer available when creating new non-portfolio campaigns that use Maximize Clicks, Maximize Conversions or Maximize Conversion Value. Portfolio bid strategies, Enhanced CPC and Target impression share keep a cap. Microsoft's rationale: a cap layered on CPA or ROAS targets can conflict with them; it said more updates on Max CPC would follow [Official advertiser notice via trade press, 2026-09]. Existing campaigns keep their caps according to most write-ups, but the notice does not address them explicitly [Contested]; one newsletter says a cap removed from an existing campaign cannot be re-added and that API and third-party tool support narrows from 2027-01-12 [Unverified]. Rules: do not remove caps from existing campaigns; when a new campaign needs a cap (thin data, volatile CPCs), create it inside a portfolio bid strategy.
 
 ## 2. Strategy selection tree
 
 ```
 Is UET recording the primary goal with trustworthy values?
-  no  -> Manual CPC, Enhanced CPC or Maximize clicks with CPC cap; fix tracking
+  no  -> Enhanced CPC, or Maximize clicks with a CPC cap inside a portfolio; fix tracking
   yes -> continue
 Conversions in the last 30 days for this campaign (or a portfolio you can join)?
-  under 15 -> Enhanced CPC or Maximize clicks with cap; or join a portfolio
+  under 15 -> Enhanced CPC, or join a portfolio (Maximize clicks with cap)
   15 to 30 -> Maximize conversions without a target for 2 to 4 weeks
   30+      -> Maximize conversions with tCPA, or Maximize conversion value with tROAS if values are reliable
 Is this a brand campaign?
-  yes -> Target impression share (top of page 90%+) with a CPC cap, or Manual CPC
+  yes -> Target impression share (top of page 90%+) with a CPC cap, or Enhanced CPC
 Are several campaigns each under 30 conversions with the same economics?
   yes -> one portfolio bid strategy with a shared target
 ```

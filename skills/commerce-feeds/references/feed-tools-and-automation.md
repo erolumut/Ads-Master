@@ -36,7 +36,7 @@
 | Meta | Marketing API v26.0 | Catalog diagnostics, product sets, items | `items_batch`, `localized_items_batch`, product sets, feeds | System user token with catalog permission |
 | Pinterest | API v5 (OpenAPI 5.28.0) | Catalogs, items, product groups | Items batch, feeds | |
 | TikTok | Business API (catalog endpoints) | Catalog items | Items upload | Verify current endpoints [Unverified] |
-| Microsoft Merchant Center | Content API style service and feed fetch | Product status | Products | Verify current docs [Unverified] |
+| Microsoft Merchant Center | Content API style service, feed fetch, Google Merchant Center Import tool (scheduled) | Product status | Products | Import carries only approved Google offers [Official, Microsoft Advertising Help]; API details verify in Microsoft Learn |
 | OpenAI (ChatGPT) | SFTP file delivery after acceptance; Ads Manager feeds (upload, URL, SFTP); ACP Feed API for agent-hosted feeds | n/a | Feed files | No public product submission API for ads feeds reported in 2026-06 |
 | Shopify | Admin GraphQL API | Products, variants, metafields, inventory, orders | Metafields (labels, Google fields) | Platform data is also the AI channel feed |
 | WooCommerce | REST API, Google for WooCommerce extension | Products, orders | Product meta | |

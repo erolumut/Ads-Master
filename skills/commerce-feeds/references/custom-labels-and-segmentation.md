@@ -100,7 +100,7 @@ WHERE segments.date DURING LAST_30_DAYS
 - Product groups by custom label in Shopping and PMax, same as Google.
 
 ### tiktok-ads
-- Product sets for catalog ads (Video Shopping Ads with catalog, Smart+ catalog). TikTok Shop GMV Max uses the Shop product list, not the ads catalog labels [Unverified, check with tiktok-ads].
+- Product sets for catalog ads (Video Shopping Ads with catalog, Smart+ catalog). TikTok Shop GMV Max uses the Shop product list (whole catalog or up to 50 selected SKUs), not the ads catalog labels [Secondary, multiple 2026; check with tiktok-ads].
 
 ## 5. Implementation options
 

@@ -46,9 +46,12 @@
 | Placement group | Ratio | Recommended pixels | Notes |
 |-----------------|-------|--------------------|-------|
 | Feed (FB, IG) | 4:5 (vertical) or 1:1 | 1080 x 1350 | 4:5 takes more screen; 1:1 acceptable |
-| Stories, Reels | 9:16 | 1080 x 1920 | Keep text and logos out of the top and bottom UI zones (Meta guidance: roughly top 14% and bottom 35% on Reels) |
+| Stories, Reels, WhatsApp Status | 9:16 | 1080 x 1920 | Stories and Reels share one 9:16 safe zone since about 2026-03: keep text and logos out of the top about 14% (270 px), the bottom 20 to 35% (up to 670 px) and about 6% each side; measured overlays differ, so design to the conservative zone and check the Ads Manager safe zone overlay [Practitioner consensus, 2026-03] |
 | Right column, search | 1:1 or 1.91:1 | 1080 x 1080 | Minor placements |
 | Carousel cards | 1:1 or 4:5 | 1080 x 1080 or 1080 x 1350 | 2 to 10 cards |
+| Threads feed | 1:1 or 4:5 images; video 1.91:1 to 9:16 | 1080 x 1350 | Threads ads can run from a native Threads profile with no Instagram account since 2026-09 [Official, 2026-09]; conversational, text-led statics fit the feed |
+
+Ad count: Meta documents 50 non-archived ads per ad set [Official, Marketing API reference]. Instagram Explore Feed is no longer a placement (Graph API v26.0, 2026-07-29) [Official]; do not brief Explore-specific assets.
 
 Copy guidance: primary text shows about 125 characters before truncation; headlines around 27 to 40 characters display fully in most placements [Official, Meta Ads Guide, verify]. Lead with the hook line; put the URL or offer in the first 125 characters if it matters.
 
@@ -68,9 +71,10 @@ Copy guidance: primary text shows about 125 characters before truncation; headli
 | Length | In-feed supports 5 to 60s widely and longer; TikTok guidance has long pointed to roughly 21 to 34s as a sweet spot for in-feed performance [Official, older TikTok guidance, verify] |
 | Sound | Sound on is the norm; use Commercial Music Library or original audio |
 | Ad text | Short caption; keep the hook in the video, not the caption |
-| Safe zone | Keep text away from the right side buttons and the bottom caption area; use TikTok's safe zone overlay |
+| Safe zone | On 1080 x 1920 keep text, price and CTA clear of about the top 130 to 160 px, the bottom about 480 px (caption and CTA button) and the right about 140 px (like, comment, share icons); ads use the organic zones plus a CTA button [Practitioner consensus, 2026]; check TikTok's safe zone overlay |
 | Spark Ads | Boost organic posts from the brand or creator account (authorization code from creator) |
-| Formats | In-feed, Spark Ads, carousel (photo mode), TopView (reservation), Smart+ campaigns use multiple creatives automatically |
+| Formats | In-feed, Spark Ads, carousel (photo mode), TopView (reservation), Smart+ campaigns use multiple creatives automatically (official structure: up to 30 asset groups per ad group, 50 creatives per asset group) |
+| AI disclosure | Realistic AI-generated or significantly edited ad content needs TikTok's AIGC label or a clear on-screen disclaimer, or the ad is rejected or restricted [Official, ad policy 2026]; see [Compliance and disclosure](compliance-and-disclosure.md) |
 
 Native TikTok traits: creator talking to camera, fast cuts, text in TikTok native fonts, trends and sounds, POV and duet or stitch styles, humor. Repurposed Meta ads with 4:5 crops and polished brand intros typically underperform. [Practitioner consensus]
 
@@ -87,7 +91,7 @@ Research: TikTok Creative Center (Top Ads, Creative Insights, Trends, Keyword In
 | C: Connect | Make people feel and think | Human faces, emotion, humor, one simple message, demos |
 | D: Direct | Ask for action | Clear CTA spoken and on screen, end card, offer |
 
-Google and Kantar reported that ads following the ABCDs were associated with about a 30% lift in short-term sales likelihood and a 17% lift in long-term brand contribution [Study, 2022, Google with Kantar; verify on Think with Google]. Use the ABCD check on every YouTube asset.
+Google and Kantar reported that ads following the ABCDs were associated with about a 30% lift in short-term sales likelihood and a 17% lift in long-term brand contribution [Study, Google with Kantar, about 2021 to 2022; confirmed on YouTube's ABCDs page and Kantar's validation page in 2026-10]. Method caveat: Kantar scored about 11,000 ads with its Link AI model across 180 creative features, so these are modeled predictions from a Google-commissioned study, not measured sales. Use the ABCD check on every YouTube asset as a checklist, not as a forecast.
 
 | Format | Spec planning values |
 |--------|---------------------|
@@ -136,7 +140,10 @@ OpenAI announced in January 2026 that it would test ads in ChatGPT for logged in
 - The ad appears in the context of a specific question. Write copy that answers the intent directly ("Best CRM for a 5 person agency? [Product] sets up in a day"). No hype superlatives.
 - Build intent clusters from search query mining and `ai-search-optimization` prompt data; one ad message per cluster.
 - Claims and comparisons will be read next to an AI answer that may contradict them: only verifiable claims.
-- Format, character limits, image support and policies: verify with `chatgpt-ads` before writing final copy.
+- Formats as of 2026-10: a sponsored chat card below the answer (`chat_card` in OpenAI's Ads API: advertiser name, favicon, title, copy, square image, landing page) and a product ad template fed from a product feed (`product_ad_template`); a Shopify-linked product carousel was reported from 2026-03 [Official, OpenAI Ads API reference; carousel via secondary]. No video ads in hands-on reviews; claims of sidebar or sponsored-answer formats are disputed [Contested].
+- Chat card copy limits shown as counters in Ads Manager (ads.openai.com): title up to 50 characters (OpenAI recommends 16 to 24; longer titles truncate on some placements), copy up to 100 characters (recommended 32 to 48); square image (guides cite up to 1200 x 1200, at least 256 x 256), favicon at least 128 x 128; bulk upload by CSV [Practitioner consensus, 2026, Jon Loomer and spec guides]. OpenAI asks for several title and copy variations per offer, each with a different angle, and simple images without small text.
+- Allow OAI-AdsBot and OAI-SearchBot to reach the landing page. Ads are not shown near health, mental health, politics, gambling, legal and financial services topics.
+- Verify final format, limits and policies with `chatgpt-ads` before writing final copy.
 
 ## 8. Microsoft Advertising
 

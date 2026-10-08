@@ -113,13 +113,26 @@ Annotated sources behind this skill. Status: **S** = surfaced through live web s
 | 74 | How Meta's AI push is changing ad creation | Marketing Brew | https://www.marketingbrew.com/stories/2026/04/07/meta-ai-ad-creation | AI generated creative trends visible in libraries (2026-04-07) | S |
 | 75 | Google Expands Ads In AI Overviews To More Countries | Search Engine Roundtable | https://www.seroundtable.com/google-expands-ads-in-ai-overviews-40629.html | Ads inside AI Overviews in 12 markets (2025-12) | S |
 
+## Verification pass (2026-10-08, via search)
+| # | Title | Publisher | URL | Supports | Status |
+|---|-------|-----------|-----|----------|--------|
+| 76 | LinkedIn's Ad Library | LinkedIn Help | https://www.linkedin.com/help/linkedin/answer/a1517918 | Coverage from 2023-06-01, one year retention, EU fields | S |
+| 77 | Getting Started, Commercial Content API | TikTok for Developers | https://developers.tiktok.com/docs/en/commercial-content-api-getting-started | Endpoints and access | S |
+| 78 | Meta Ad Library API | Meta | https://www.facebook.com/ads/library/api | Access and identity confirmation | S |
+| 79 | Meta Ad Library API: Access, Limits and Example Requests (2026) | Swipekit | https://swipekit.app/articles/meta-ad-library-api | Required parameters, approval time | S |
+| 80 | Google Ads Transparency Center: Official Access and Research Guide | AdMapix | https://www.admapix.com/blog/ad-intelligence/google-ads-transparency-center-guide | Fields, Europe and Türkiye details, retention | S |
+| 81 | Google introduces new AI labels for Ads | Google | https://blog.google/products/ads-commerce/google-ads-ai-transparency-labels/ | "How this ad was made" panel (2026-07) | S |
+| 82 | Semrush MCP | Semrush Developer | https://developer.semrush.com/api/v4/introduction/semrush-mcp/ | Official remote MCP, auth, units | S |
+| 83 | Announcing Similarweb MCP Server | Similarweb | https://www.similarweb.com/blog/updates/announcements/mcp-server-launch/ | Official MCP launch 2025-09-25 | S |
+| 84 | Similarweb MCP Server | Similarweb Developers | https://developers.similarweb.com/docs/similarweb-mcp | Endpoint, plan and credit rules | S |
+
 ## How evidence labels map to these sources
 | Label | Typical source type here |
 |-------|--------------------------|
 | [Official, YYYY-MM] | Platform libraries, help centers, API docs, regulators (1 to 18, 30, 31) |
 | [Study, YYYY-MM] | SparkToro, Pew, Seer, Ahrefs studies, IAB, WPP, dentsu (19 to 22, 33, 47, 64, 65) |
 | [Practitioner consensus] | Repeated operator practice without a single study (longevity heuristic, sampling counts) |
-| [Unverified] | Field lists, MCP availability and tool features not re-checked in this sweep |
+| [Unverified] | Field lists and tool features not re-checked (Semrush and Similarweb MCP, LinkedIn and TikTok library fields were confirmed on 2026-10-08, sources 76 to 84) |
 
 ## Internal cross-references
 AI visibility, measurement and platform facts marked "per research/<slug>.md" were cross-checked against the channel dossiers built in parallel: `research/ai-search-optimization.md` (answer variability study, Bing AI Performance, Search Console Generative AI report, ChatGPT retrieval sources), `research/seo.md`, `research/chatgpt-ads.md` (ChatGPT ad formats and eligibility), `research/google-ads.md` (official Google Ads MCP server), `research/tiktok-ads.md` (official TikTok MCP server, TikTok Ad Network), `research/linkedin-ads.md` (LinkedIn Ad Library MCP), `research/measurement.md`.

@@ -29,7 +29,7 @@
 | 2026-05-20 | Google Marketing Live: UCP-powered checkout to roll out in Canada and Australia "in the coming months", later the UK | [Official, 2026-05] |
 | 2026-07-13 | Merchant API adds Q&A, related products, variant options, popularity rank, item group title, document links | [Official, 2026-07] |
 | 2026-08-25 | UCP protocol version 2026-08-25 released | [Official, 2026-08] |
-| 2026-10-07 | Merchant Center help page for the UCP integration hub: US first, Australia and Canada next year (conflicts with the May "coming months" wording) | [Official, 2026-10]; timing [Contested] |
+| 2026-10-06 to 10-07 | UCP integration hub rolling out gradually to US merchants as early access (Google selects participants after the technical build and an interest form; sandbox checks the UCP profile, cart transfer and native checkout APIs); Canada and Australia moved to 2027, replacing the May "coming months" wording. The older "About UCP" help article still lists US, Canada and Australia product eligibility for participating merchants | [Official, help pages and Search Engine Land 2026-10] |
 
 ### 2.2 How UCP checkout works
 - Merchant publishes a UCP profile at `/.well-known/ucp` listing capabilities (for example `dev.ucp.shopping.checkout`, `dev.ucp.shopping.order`, `dev.ucp.common.identity_linking`, catalog search `dev.ucp.shopping.catalog.search` and lookup `dev.ucp.shopping.catalog.lookup`, discounts and fulfillment extensions). Platforms advertise their profile on each request (`UCP-Agent` header or MCP `meta`).
@@ -37,7 +37,8 @@
 - Versioning by date; the business and platform negotiate the highest mutual version.
 - Checkout: the agent creates a merchant-side checkout session; payment uses a token from the payment provider (Google Pay with Google Wallet credentials), so card numbers never pass through the agent. The merchant remains seller of record.
 - Integration styles: native (API integration, more engineering, the baseline route) or embedded (merchant checkout rendered in the surface, more customization).
-- Merchant Center side: product-level eligibility (reported as a `native_commerce` attribute) plus completed return policies; reporting context `FREE_LISTINGS_UCP_CHECKOUT` in Merchant API [Official enum; attribute name Unverified].
+- Merchant Center side: product-level eligibility through the optional `native_commerce` group attribute with boolean sub-attribute `checkout_eligibility` (true shows the Buy button on supported surfaces; false or empty keeps a standard listing), manageable through a supplemental feed, plus completed return policies and customer support details; reporting context `FREE_LISTINGS_UCP_CHECKOUT` in Merchant API [Official, Merchant Center Help 2026]. Do not flag subscriptions, installments, personalized, refurbished, used or final sale items, pre-orders, age-restricted items, services, rentals or virtual items as eligible [Secondary citing Google's setup guide, 2026].
+- Cart transfer needs UCP version 2026-04-08 or later and the `dev.ucp.shopping.cart` capability; the first cart release only creates and transfers carts (no updates or sync) [Secondary, 2026-10].
 - New capabilities in the repo in late 2026: `ask` capability for natural-language Q&A (2026-10-07), lodging booking (2026-09-24), media variants (image, video, 3D, 2026-09-29) [Official, 2026-10].
 
 ### 2.3 What commerce-feeds does for Google AI surfaces
@@ -90,7 +91,7 @@
 | Shopify DTC, US | Shopify product data quality (it syndicates to AI channels) | Google free listings and conversational attributes | Decide AI channel toggles and Copilot Checkout with the human |
 | Custom platform DTC, US | Google Merchant Center quality plus PDP structured data | ChatGPT application with OpenAI-format feed | Microsoft store feed for Copilot; UCP early access if engineering capacity exists |
 | Marketplace or multi-seller | `external_seller_id` and seller data in Merchant Center | ACP or UCP only through platform partners | Agent access policy for the site |
-| Non-US merchant | Google free listings (AI Mode is global for discovery) | Watch UCP country rollout (CA, AU, UK announced) | ChatGPT ads countries if paid feeds fit |
+| Non-US merchant | Google free listings (AI Mode is global for discovery) | Watch UCP country rollout (Canada and Australia expected 2027, UK later) | ChatGPT ads countries if paid feeds fit |
 | B2B ecommerce | Complete specs, documents (`document_links`), compatibility in `related_products` | Decimal quantities and B2B carts exist in ACP (2026-04-17) | Pricing visibility rules (login prices block agents) |
 
 ## 8. Agent access policy (decide and document)

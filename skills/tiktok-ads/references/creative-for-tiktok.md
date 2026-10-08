@@ -148,14 +148,14 @@ Smart+ Auto-add can introduce fresh creative after launch to reduce fatigue [Off
 | Product Avatars | Avatar holds or shows an uploaded product or app screen image; some apparel accessories unsupported | 2026 | [Unverified] |
 | Custom Avatars | Only sanctioned route for a real person's likeness; the person verifies identity on camera and records consent | 2026 | [Unverified] |
 | Symphony Agent | Agentic ad creation across Creative Studio, Content Suite and TikTok One; analyzes trends, drafts videos from prompts, images or example videos | Cannes, 2026-06-22 | [Official, 2026-06] |
-| Seedance 2.5 in Symphony | Newer video model | Reported 2026-08 | [Unverified] |
+| Seedance 2.5 in Symphony | Video generation up to 30 seconds (was 15); reference uploads up from 9 to 50 for paid advertisers in select markets; timestamp-level scene control; AI labels, invisible watermark and C2PA credentials | 2026-08-03 | [Official, 2026-08, TikTok business blog] |
 | Smart+ creative generation | Generates TikTok-ready videos from a product URL inside Smart+; Catalog Image and Video Auto-Crawl | 2025-10 to 2026-07 | [Official] |
 
 How to use AI creative without hurting performance or trust:
 1. Use AI for variations (new hooks, dubbing into new languages, resizing, caption removal), not as a replacement for real people demonstrating real products.
 2. Never use an avatar to fake a customer testimonial or an expert endorsement. That is deceptive and violates ad policy.
 3. Test AI variants against the human original in the same ad group; keep only those within 10% of the original's CPA.
-4. Keep the AI-generated label. Symphony output carries AI labels and invisible watermarks [Official, 2026-06]. Disclose AI-generated realistic content you produce outside Symphony using the AI-generated content disclosure in the ad or post flow [Unverified for exact toggle name].
+4. Keep the AI-generated label. Symphony output carries AI labels, invisible watermarks and C2PA credentials [Official, 2026-06 and 2026-08]. For realistic AI content made outside Symphony, apply TikTok's AIGC label or a clear on-screen disclaimer; the ad policy rejects or restricts undisclosed AI content [Official, 2026 policy text]. The exact toggle name in Ads Manager varies [Unverified].
 5. Users and creators can decline Dreamina-generated videos in some contexts [Unverified]; never use a creator's likeness or voice without a written license.
 
 ## 9. Brief template (send to creators or the creative-strategy agent)

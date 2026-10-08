@@ -9,11 +9,12 @@
 | Andromeda is Meta's ads retrieval system: it selects a few thousand candidate ads from tens of millions for each request, before ranking | [Official, 2024-12] | Meta Engineering blog, Dec 2024; repeated on Meta's Q2 2025 earnings call (July 30, 2025) per secondary reports |
 | Ranking of the shortlisted ads is done by other models; GEM (Generative Ads Recommendation Model) is a foundation model that improves downstream ranking models | [Official, 2025-11] | Meta Engineering blog, Nov 10, 2025 |
 | Q2 2025: Andromeda enhancements selected more relevant, personalized candidates and expanded to Facebook Reels | [Official per secondary, 2025-07] | Meta Q2 2025 earnings call as quoted by trade press |
-| Conversion lifts quoted for 2025 (about 5% Instagram, about 3% Facebook from the ads recommendation model; about 4% from Andromeda changes) | [Contested] attribution between models differs across secondary sources | MobileDevMemo, Marketing Dive and others, 2025 |
+| Q2 2025 lifts per Meta: GEM about +5% ad conversions on Instagram and +3% on Facebook Feed and Reels; Andromeda nearly +4% on Facebook mobile Feed and Reels; Lattice nearly +4% on Facebook Feed and Reels | [Official, 2025-07 earnings call; GEM figures repeated by Meta Engineering 2025-11]. Earlier confusion came from secondary sources merging the models | Meta Q2 2025 call via secondary summaries; Meta Engineering blog |
 | Meta recommends diversifying creative by concept, message, visuals and format to give the system more options | [Official, 2024 to 2025] Meta guidance as summarized by trade press | Social Media Today, Meta Performance guidance; Meta resource "Maximize conversions with differentiated ad creative" (cited by Jon Loomer, 2025-10) |
 | Meta publishes no official number of ads or concepts per ad set | [Practitioner consensus] | Multiple 2025 to 2026 guides |
-| Ads Manager shows a Creative diversity rating (Low, Medium, High) per ad set based on how alike the images and video thumbnails are, described by Meta as estimated and in development | [Official per secondary, 2026-08] | Common Thread changelog (Aug 2026); third-party summaries of Meta Help Center; availability varies by account |
-| Creative fatigue and similarity metrics were tested with select partners via the Insights API from about June 2026; Meta said they are not widely available | [Unverified] | Trade press summary, 2026 |
+| Ads Manager shows a Creative diversity rating (Low, Medium, High) per ad set based on how alike the images and video thumbnails are, described by Meta as estimated and in development; enable via Columns > Customize columns > Creative diversity | [Official, 2026-08, Business Help Center as quoted] | Common Thread Collective and Marketing Concurrent (2026-08 to 09); availability varies by account; early users report Low ratings even on mixed-format ad sets |
+| Creative fatigue, creative similarity and top creative themes metrics have been tested via the Insights API with a small number of agencies and GCR resellers since June 2026; Meta says they are not widely available and does not explain how ranking models represent individual creatives | [Official, 2026-09 statement] | Meta spokesperson to Marketing Brew, 2026-09 |
+| Q2 2026: Meta deployed its first generative model in ads retrieval; new user understanding models with GEM and sequence learning lifted Facebook ad clicks 8.3% and conversions 15.7% | [Official, 2026-07] | Meta Q2 2026 earnings call (2026-07-29); the call did not name Andromeda or Lattice |
 | "Entity ID": near-duplicate ads are clustered under one ID and get one "ticket" to the auction | [Practitioner consensus, mechanism unverified]. The term is industry shorthand, not a Meta term | AdsUploader guide (2026) states the term is not official |
 | A "Creative Similarity Score" above 60% triggers retrieval suppression | [Unverified]. Threshold traced to a vendor's data, not Meta | Admetrics and repeats; no Meta confirmation found |
 | "Andromeda killed targeting" | Myth. Targeting inputs still exist; Andromeda is retrieval infrastructure. Creative carries more of the matching work in broad setups | Jon Loomer (2025-11), Meta statements |
@@ -26,7 +27,7 @@ Operating stance: build for the documented direction (diverse, distinct creative
 1. Retrieval picks candidates per person per request. If ten of your ads look and say the same thing, they are likely competing for the same people and the system has little reason to retrieve more than one of them. [Practitioner consensus]
 2. Different concepts open different audience pockets. A runner identity ad and a parent humor ad reach different people even with identical targeting.
 3. Ads that differ only cosmetically (color, crop, headline wording, music) are iterations. They are useful for optimizing a winner but add little reach.
-4. Signals from concept level differences (persona, setting, talent, format, message) are what the creative understanding models can detect. Meta's diversity rating reportedly reads image and video thumbnail similarity [per secondary summaries], so visual sameness is directly measurable.
+4. Signals from concept level differences (persona, setting, talent, format, message) are what the creative understanding models can detect. Meta's diversity rating reads image and video thumbnail similarity [Official, 2026-08, Help Center as quoted], so visual sameness is directly measurable.
 
 ## 3. The "new concept" test (run before launching anything as a new concept)
 
@@ -60,7 +61,7 @@ No official numbers exist. Use these starting points, then size by what your tes
 
 Practitioner ranges published in 2025 to 2026 vary widely (for example "at least 6 meaningfully different ads per ad set", "8 to 20 different concepts", "10 to 15 diverse concepts") and none come from Meta [Practitioner consensus, contested numbers]. More ads than the budget can feed spreads spend thin: at low budgets, fewer and more different beats more and similar.
 
-Meta's ad count limits per ad set have changed over time (reports in 2026 cite 150 ads per ad set) [Unverified]. Check the current limit in Ads Manager.
+Meta's documented limit is 50 non-archived ads per ad set [Official, Marketing API reference]; the "150 ads per ad set" figure from a 2026 podcast could not be confirmed and conflicts with the documentation. Page-level ad limits (250 to 20,000 by Page spend tier) also apply [Official, long-standing]. Check the current limit in Ads Manager.
 
 ## 5. Concept mix targets (per main ad set)
 
@@ -83,11 +84,11 @@ If the rating appears in your Ads Manager (ad set level, Low, Medium, High):
 | Medium | Balance: about half new concepts, half iterations on winners. Check which visual worlds dominate. |
 | High | Keep cadence; focus iterations on top concepts; still add at least 2 new concepts per month. |
 
-Treat the rating as a hint, not a KPI: it reportedly reads visual similarity only, not message or persona. An ad set can rate High with all ads using the same hook. [Per secondary sources; Meta describes it as estimated and in development]
+Treat the rating as a hint, not a KPI: it reads visual similarity of images and thumbnails only, not message or persona. An ad set can rate High with all ads using the same hook. [Official, 2026-08; Meta describes it as estimated and in development]
 
 ## 7. Advantage+ creative and AI enhancements (creative decisions)
 
-Meta's Advantage+ creative includes standard enhancements (adjusting brightness and contrast, aspect ratio, templates, music, text variations, image animation, 3D animation, image expansion, backgrounds, product overlays, comments and site links, among others; the list changes often). Reports in 2026 say enhancements are on by default for new Sales, Leads and App campaigns, with disputed start dates (February vs September 2026) [Contested]. Meta's help text says some enhancements may be on by default and can be turned off, and recommends checking previews. Meta made image to video generation in Advantage+ creative generally available on October 6, 2026 [Official per trade press, 2026-10].
+Meta's Advantage+ creative includes standard enhancements (adjusting brightness and contrast, aspect ratio, templates, music, text variations, image animation, 3D animation, image expansion, backgrounds, product overlays, comments and site links, among others; the list changes often). Enhancements are on by default for new Sales, Leads and App campaigns since the February 2026 unified creation flow (Meta for Developers "Automation Unification", 2026-02-13); the September 2026 date in some posts was not supported [Practitioner consensus, 2026-02]. Meta's help text says some enhancements may be on by default and can be turned off, and recommends checking previews. Meta made image to video generation in Advantage+ creative generally available on October 6, 2026 [Official, 2026-10, Advertising Week]. Muse Image (announced 2026-07-07) was not confirmed live in Advantage+ creative as of 2026-10-08 [Unverified availability].
 
 Creative strategist's rules (the channel agent applies settings after approval):
 

@@ -92,8 +92,25 @@
 | 69 | schema.org release history | schema.org | https://schema.org/docs/releases.html (read from the schemaorg GitHub repository) | v28.0 2024-09-17; v29.0 2025-03-24; v30.1 2026-09-16 (primary) | MemberProgram, ShippingService, retail feed vocabulary, DPP |
 | 70 | How to get ChatGPT to recommend your product | Bazaarvoice | https://www.bazaarvoice.com/blog/how-to-get-featured-on-chatgpt-ai-recommendations/ | 2026 | Conflicting PDP versus feed figures |
 
+## Verification pass (2026-10-08, via search)
+
+| # | Title | Publisher | URL | Date | Supports |
+|---|-------|-----------|-----|------|----------|
+| 71 | Native commerce [native_commerce] | Google Merchant Center Help | https://support.google.com/merchants/answer/17251586 | Checked 2026-10 | Attribute structure, optional, Buy button |
+| 72 | How to onboard to the UCP integration hub in Merchant Center | Google Merchant Center Help | https://support.google.com/merchants/answer/16992327 | 2026-10 | Selection, sandbox, US early access |
+| 73 | Google rolls out Merchant Center UCP integration hub in the U.S. | Search Engine Land | https://searchengineland.com/google-rolls-out-merchant-center-ucp-integration-hub-in-the-u-s-493889 | 2026-10-06 | Canada and Australia moved to 2027 |
+| 74 | Merchant API is coming to Google Ads scripts starting April 22, 2026 | Google Ads Developer Blog | https://ads-developers.googleblog.com/2026/04/merchant-api-is-coming-to-google-ads.html | 2026-04 | Scripts migration date |
+| 75 | Content API for Shopping release notes | Google for Developers | https://developers.google.com/shopping-content/guides/rel-notes | Checked 2026-10 | Sunset 2026-08-18, progressive errors from 2026-09-01 |
+| 76 | Google Content API for Shopping Extended Access Form | Search Engine Roundtable | https://www.seroundtable.com/google-content-api-extension-41710.html | 2026 | Extension dates 2026-10-15 or 2026-12-31 |
+| 77 | Updates to Meta Shops checkout for BigCommerce | BigCommerce | https://www.bigcommerce.com/blog/updates-to-meta-shops-checkout-for-bigcommerce/ | 2025 | Shops move to website checkout |
+| 78 | Meta turns to AI to make shopping easier on Instagram and Facebook | TechCrunch | https://techcrunch.com/2026/03/25/meta-turns-to-ai-to-make-shopping-easier-on-instagram-and-facebook/ | 2026-03-25 | One-tap checkout in Facebook ads |
+| 79 | TikTok Shop Makes GMV Max Ads Mandatory From Sept 1 | CedCommerce | https://cedcommerce.com/blog/tiktok-shop-mandates-gmv-max-use-for-ads-what-this-means-for-your-strategy/ | 2025 | GMV Max mandatory date |
+| 80 | Import from Google Merchant Center | Microsoft Advertising Help | https://help.ads.microsoft.com/apex/index/3/en/56870 | Checked 2026-10 | Import tool, schedules, approved offers only |
+| 81 | Feed: How to submit my GoDataFeed feed to ChatGPT Ads? | GoDataFeed Help | https://help.godatafeed.com/hc/en-us/articles/51837706971675-Feed-How-to-submit-my-GoDataFeed-feed-to-ChatGPT-Ads | 2026 | 1,000 minimum and 2 million maximum claim |
+| 82 | OpenAI makes it easier to run shopping ads in ChatGPT | Digiday | https://digiday.com/marketing/openai-makes-it-easier-to-run-shopping-ads-in-chatgpt/ | 2026-06 | 100-product sample and 1 million SKU claim |
+
 ## Recheck list (sources read only via search)
-Items 8, 9, 10, 22, 23, 24, 25, 26, 34, 36, 43, 44, 45, 59, 65: open the live page before quoting in a client deliverable.
+Items 8, 9, 10, 22, 23, 24, 25, 26, 34, 36, 43, 44, 45, 59, 65 and 71 to 82: open the live page before quoting in a client deliverable.
 
 ## Monitoring list (what to check, how often)
 

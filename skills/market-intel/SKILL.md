@@ -65,11 +65,11 @@ Review the set quarterly. A brand that appears in two lists is a priority compet
 ## Ad transparency availability by region (summary)
 | Library | Outside EU and UK | EU (DSA) and UK | Notes |
 |---------|-------------------|-----------------|-------|
-| Meta Ad Library | Active ads only, creative and start date; political and issue ads archived with spend ranges | All ads incl. inactive for about a year, with reach and targeting summaries for EU delivered ads [Official, DSA era] | API returns EU delivered ads and political or issue ads; requires identity confirmation |
-| Google Ads Transparency Center | Ads from verified advertisers by advertiser or domain, region, format, date | Extra details for ads served in the EU [Unverified field list] | No official API for commercial ads |
+| Meta Ad Library | Active ads only, creative and start date; political and issue ads archived with spend ranges | All ads incl. inactive for one year after last impression, with reach and targeting summaries for EU delivered ads; no new EU political or issue ads since 2025-10-06 [Official, DSA era] | API returns EU delivered ads and political or issue ads; requires identity confirmation (government ID, proof of residence) and ads_read |
+| Google Ads Transparency Center | Ads by advertiser or domain, region, format, date; legal name and verification badge; inactive creatives for up to about 13 months; no spend or performance | Ads from unverified advertisers also shown in Europe and Türkiye; impression ranges published with a delay; EU political ad history removed around 2025-09 [Secondary, 2026] | No official API for commercial ads; political ads BigQuery dataset only [Practitioner consensus] |
 | TikTok Creative Center (Top Ads) | High performing ads by region, industry, objective | Same | Inspiration tool, curated; not a full library |
-| TikTok Ad Library (Commercial Content Library) | Limited | Ads shown in the EU with targeting and reach information | Research API on application |
-| LinkedIn Ad Library | Ads run in the past year, searchable | Adds targeting and impression information for EU served ads [Unverified detail] | No public API |
+| TikTok Ad Library (Commercial Content Library) | Limited | Ads shown in the EU (plus UK and Switzerland) with targeting and reach information | Commercial Content API on application; eligibility reported as researcher focused [Contested] |
+| LinkedIn Ad Library | Ads run after 2023-06-01, kept one year after last impression; search by company, payer, keyword, country, date | EU served ads add impression ranges, impressions by country and targeting categories used (not the values chosen); no spend or results [Official, LinkedIn Help] | No public API |
 | Microsoft Ad Library | Limited | Ads served in the EU | Check coverage |
 Details, fields and API calls: [Competitor ad intelligence](references/competitor-ad-intelligence.md).
 

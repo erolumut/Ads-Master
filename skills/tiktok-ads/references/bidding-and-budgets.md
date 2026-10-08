@@ -97,9 +97,11 @@ Under CBO, one ad group often takes most of the spend. That is expected. Judge t
 | Fact | Detail | Label |
 |------|--------|-------|
 | Scope | Learning runs per ad group, not per campaign | [Practitioner consensus] |
-| Exit benchmark | About 50 conversions in 7 days per ad group is the widely cited exit marker | [Practitioner consensus; TikTok help page "About Learning Phase" exists, exact current wording not verified this cycle] |
-| Alternative threshold | One guide cites 7 days or 25 conversions, whichever first, with 50 as full stability | [Contested] |
-| Risk signal | Fewer than 20 conversions in the first 10 days rarely exits learning; status may show learning limited | [Practitioner consensus] |
+| Exit benchmark | TikTok's Learning Phase FAQ: "achieving 50 conversions is the most significant indicator of passing the learning phase"; practitioners frame it as about 50 per ad group within about 7 days | [Official, Help Center Learning Phase FAQ; 7-day framing Practitioner consensus] |
+| Alternative threshold | One third-party guide cites 25 conversions; the same page calls 50 the full mark, and no TikTok page supports 25 | [Unverified, likely wrong]; plan on 50 |
+| Risk signal | TikTok's Campaign Creation FAQ: an ad group that struggles to reach at least 20 conversions in the first 10 days has a high chance of not passing learning; do not edit before about 20 conversions | [Official, Help Center] |
+| Duration by type | Search Ads learning about 5 days; value-based optimization for app at least 7 days | [Official, Help Center pages for those campaign types] |
+| Fixes TikTok names | Broaden targeting, raise the bid, refresh creative; or optimize to an upper-funnel event (add to cart, product page view) during learning | [Official, Learning Phase FAQ and Campaign Creation FAQ] |
 | Status | Visible in the delivery or status column of Ads Manager | [Practitioner consensus] |
 | Resets | Significant edits to bid, audience, optimization event or creative in the first 7 days | [Official, Smart+ Web best practices] |
 

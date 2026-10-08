@@ -159,7 +159,7 @@ Shopify CRO quick wins (theme level): reduce apps that inject scripts on every p
 - Measure repeat purchase rate per acquisition source; hand to `growth-orchestrator`.
 
 ## 10. Agentic commerce (watch)
-AI agents now browse and buy for users (for example ChatGPT Instant Checkout via the Agentic Commerce Protocol announced September 2025) [Unverified, verify current scope]. Implications for CRO: product data, prices, availability, shipping and return policies must be machine-readable and consistent across feed, page and structured data; checkout must not depend on visual-only cues. Coordinate with `commerce-feeds` and `ai-search-optimization`.
+AI agents now browse and buy for users: ChatGPT Instant Checkout launched with the Agentic Commerce Protocol on 2025-09-29, then OpenAI moved away from standalone Instant Checkout in March 2026 toward discovery and merchant-owned checkout [Official, 2025-09 and 2026-03]; Google's UCP-powered checkout in AI Mode and Gemini is rolling out to selected US merchants, with Canada and Australia now expected in 2027 [Official, 2026-10]. Scope changes fast; `commerce-feeds` owns the current state. Implications for CRO: product data, prices, availability, shipping and return policies must be machine-readable and consistent across feed, page and structured data; checkout must not depend on visual-only cues. Coordinate with `commerce-feeds` and `ai-search-optimization`.
 
 ## 11. Ecommerce test backlog starters (rank with [Prioritization](prioritization-and-playbooks.md))
 | Area | Test idea | Primary metric | Guardrail |

@@ -89,12 +89,13 @@ Endpoint pattern: `POST https://business-api.tiktok.com/open_api/v1.3/event/trac
 |---------|--------------|-------|
 | Default web windows | 7-day click and 1-day view (default since Attribution Manager, 2022) | [Official, 2022-06] |
 | Where set | Ad group level: Click-through attribution (CTA), Engaged view-through attribution (EVTA), View-through attribution (VTA) | [Official, 2025-02] |
-| Options in the help article | CTA 1 or 7 days; EVTA 1 or 7 days; VTA off or 1 day | [Official, 2025-02] |
-| Other options reported | Click 14 or 28 days, view 7 days, EVTA 28 days | [Contested] |
+| Options (ad group help article "How to Create Attribution Windows for your Ad Group") | CTA 1, 7, 14 or 28 days; VTA off, 1 or 7 days; set in the Bidding and Optimization step via the edit icon in the attribution section | [Official, Help Center, about 2025] |
+| Older or narrower lists | A SAN-era article lists CTA 1 or 7, EVTA 1 or 7, VTA off or 1; the EVTA article lists Off, 1, 7 or 28 days in one place and 1 or 7 in another | [Official but inconsistent]; the account UI decides |
 | EVTA definition | Conversion after a user watched at least 6 seconds (or the full ad if shorter than 6 s) without clicking, within the window (max 7 days per TikTok) | [Official] |
 | EVTA prerequisite (app) | Advertiser must have transitioned to SAN | [Official] |
-| Editable after launch | Sources disagree on whether attribution settings can change after an ad group goes live | [Contested] |
-| Attribution Portfolio with assisted conversions | Reported May 2026 launch | [Unverified] |
+| Editable after launch | No: TikTok's ad group help article says publishing the ad group locks the attribution choices; duplicate the ad group to change windows | [Official, Help Center] |
+| Attribution Portfolio | Launched 2026-05 in Ads Manager (Analytics > Attribution Analytics): Attribution Analytics, Assisted Conversion, Performance Comparison, Time to Conversion, Performance Insight Summary; first-touch options include Post Purchase Survey. Assisted Conversion uses pixel URL, referrer and UTM data, needs no setup beyond the pixel, and shows conversions where TikTok was earlier in the path but not last. TikTok says more than 1 in 4 TikTok-attributed conversions follow a view then a same-day direct visit. GA4 can be connected to Ads Manager as an optimization signal (TikTok test: +54% conversions, -27% CPA among advertisers who improved) | [Official, 2026-05, TikTok business blog and Help Center]; TikTok figures are self-reported. Critics note the Performance Insight Summary blends click and view credit into one ROAS |
+| View window guidance | TikTok's older blog calls 7-day view its maximum and recommends it; TikTok claims click plus view attribution exits learning up to 113% faster; independent analysts warn 7-day view inflates ROAS | [Official, older blog]; [Contested] for which window to use. Working stance: report click-only next to the default for cross-channel comparison |
 
 Agent rules:
 1. Record the attribution setting of every ad group in reports. Comparing ad groups with different windows is invalid.

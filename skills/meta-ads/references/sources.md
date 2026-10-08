@@ -155,6 +155,10 @@
 | 131 | Ad campaign (ad set) reference | Meta for Developers | https://developers.facebook.com/documentation/ads-commerce/marketing-api/reference/ad-campaign | living | 50 non-archived ads per ad set |
 | 132 | Meta Expands WhatsApp Status Ad Options | Social Media Today | https://www.socialmediatoday.com/news/meta-adds-whatsapp-click-to-message-whatsapp-status-ads/760186/ | 2025-09 | Click to message ads in Status |
 | 133 | Meta Ads Safe Zones: A Guide to the 2026 Unified Creative Updates | Billo | https://billo.app/blog/meta-ads-safe-zones | 2026-03 | Unified 9:16 safe zone |
+| 134 | Meta Advantage+ explained in two minutes (Korean edition) | Meta Newsroom | https://about.fb.com/ko/news/2025/04/meta-advantage-explained-in-two-minutes/amp/ | 2025-04 | 4.52 USD per 1 USD, 22% higher ROAS vs business-as-usual |
+| 135 | Upcoming pricing updates for Meta Business Agent, service and utility messages | Meta for Developers | https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing/non-template-messages | 2026 | Service messages billed from 2026-10-01 |
+| 136 | WhatsApp Business API Pricing: Complete Guide (2026) | Spur | https://www.spurnow.com/en/blogs/whatsapp-business-api-pricing-explained | 2026-09 | 7-day free entry point window dated 2026-09-28 [Contested] |
+| 137 | Meta Q2 2026 Earnings Call Transcript | The Motley Fool | https://www.fool.com/earnings/call-transcripts/2026/08/07/meta-meta-q2-2026-earnings-call-transcript/ | 2026-07-29 | Threads 500 million monthly actives; Threads ads global |
 
 ## D. How to use this list
 

@@ -6,15 +6,16 @@
 - Primary sources read directly: Google's Merchant API protocol buffers and their commit history (googleapis repository), the ACP specification repository (OpenAI and Stripe), the UCP repository, the AP2 repository, Meta's Business SDK (catalog objects), Pinterest's OpenAPI description, schema.org release notes, the Google for WooCommerce readme. These carry exact field names and commit dates.
 - Help centers and vendor sites (support.google.com, developers.openai.com, chatgpt.com, shopify.com, Microsoft and Meta docs) were not reachable from the research environment. Their content was read through search result extracts and is marked "via search" in the sources list. Recheck before quoting in client work.
 - The shared web search budget ran out after 14 extended searches, below the 35 planned. Areas with thinner verification: Meta Shops checkout status, TikTok catalog field specifics, Microsoft Merchant Center import options, Snapchat catalogs, feed tool pricing, title optimization effect sizes, 2026 misrepresentation policy changes. These are labeled [Unverified] in the skill.
+- Verification pass (2026-10-08): live searches re-checked Meta Shops checkout, TikTok GMV Max requirements, the Microsoft Merchant Center Google import, ChatGPT Ads feed limits, the `native_commerce` attribute and UCP markets, the Google Ads scripts Merchant API date and the Content API shutdown aftermath (sources 78 to 92). Confirmed and corrected facts are dated below.
 
 ## 1. Executive summary
-1. The Content API for Shopping shut down on 2026-08-18; the Merchant API (v1 GA in August 2025; v1beta retired 2026-02-28 per migration vendors) is now the only programmatic path into Merchant Center [Official, 2025 to 2026].
+1. The Content API for Shopping shut down on 2026-08-18 and requests degrade progressively from 2026-09-01 unless Google approved extended access (the request form offered 2026-10-15 or 2026-12-31); the Merchant API (v1 GA in August 2025; v1beta retired 2026-02-28) is now the only programmatic path into Merchant Center, and Google Ads scripts gained a Merchant API service on 2026-04-22 [Official, 2025 to 2026].
 2. Google kept expanding the product specification for AI-era shopping: product-level handling cutoffs and minimum order values, loyalty shipping, `video_link` (2026-04-14), pickup cost in UK, CH and EEA (2026-04-28), Q&A, related products, variant options, popularity rank, item group title and document links (Merchant API 2026-07-13), and offer-level return rules (2026-09-29). The minimum image size rises to 500 x 500 on 2027-01-31 [Official].
-3. UCP (announced 2026-01-11) is Google's open protocol for agentic shopping; UCP-powered checkout in AI Mode and Gemini is live for select US merchants, has its own Merchant API reporting context (`FREE_LISTINGS_UCP_CHECKOUT`), and its Merchant Center integration hub reaches the US first with Canada and Australia "next year" per an October 2026 help page, conflicting with May's "coming months" [Official; timing Contested].
+3. UCP (announced 2026-01-11) is Google's open protocol for agentic shopping; UCP-powered checkout in AI Mode and Gemini is live for select US merchants, has its own Merchant API reporting context (`FREE_LISTINGS_UCP_CHECKOUT`), and its Merchant Center integration hub is rolling out gradually to selected US merchants (early access, Google selects participants after the technical build), with Canada and Australia moved to 2027 per the October 2026 help page and Search Engine Land (2026-10-06), replacing May's "coming months". Product eligibility is the optional `native_commerce` group attribute with boolean `checkout_eligibility` [Official, 2026-10].
 4. OpenAI launched Instant Checkout and ACP on 2025-09-29, then retired standalone Instant Checkout in March 2026: purchases now complete on merchant sites, Shopify and Etsy catalogs are integrated automatically, and other merchants apply for feed access [Official, 2026-03].
 5. Feeds became the main retrieval source for ChatGPT shopping: Profound's tracked data shows feed-sourced picks jumping from 8.26 to 61.54 percent on 2026-07-10 and about 65 percent by 2026-09-03, with visibility concentrating in fewer merchants [Study, 2026-09].
 6. ACP's 2026-04-17 release added a push-model Feed API (agent-hosted feeds, JSONL ingestion, partial upserts), carts, native orders, 3DS2 delegate authentication and an MCP binding; it is the most complete open description of an agent-ready product object [Official, 2026-04].
-7. ChatGPT Ads added product feed campaigns (beta from June 2026), self-serve in Ads Manager; feed products serve ads only during the beta [Official per coverage, 2026-06].
+7. ChatGPT Ads added product feed campaigns (beta from June 2026), self-serve in Ads Manager; feed products serve ads only during the beta, need `is_ads_eligible` true (default true for feeds created in Ads Manager), and catalog size limits are reported inconsistently (100-product sample, 1,000 minimum or none; 1 million or 2 million maximum) [Official per coverage, 2026-06; limits Contested].
 8. Microsoft launched Copilot Checkout (2026-01-08) with PayPal, Stripe and Shopify (auto-enrolled with opt-out) and Brand Agents; checkout reached the Copilot mobile app in April 2026 with a catalog of more than 500,000 merchants [Official, 2026].
 9. Shopify became an AI distribution layer: Agentic Storefronts and Shopify Catalog syndicate merchant product data to AI channels by default for eligible stores, so Shopify product data quality is now feed quality for ChatGPT, Copilot, Perplexity and Google AI surfaces [Official per coverage, 2026].
 10. schema.org 30.1 (2026-09-16) added retail feed vocabulary (`consumerNotice`, `isOftenBoughtWith`, `itemPopularity`, `minimumOrderValue`) and EU Digital Product Passport types, mirroring the new Merchant Center attributes; Google support for them is not yet documented [Official, 2026-09].
@@ -34,7 +35,8 @@
 | Shopify Catalog conversion claim | AI searches using Catalog convert at 2x scraped data | Shopify via coverage [Official claim, unaudited, 2026] |
 | Shopify AI traffic and orders growth | AI traffic 8x, AI search orders nearly 13x year over year | Shopify earnings call via secondhand coverage [Unverified] |
 | Perplexity PayPal merchant network | About 5,000 merchants, more via BigCommerce, Shopware, Wix | Coverage of 2025-11 launch [Unverified] |
-| ChatGPT Ads feed limits | 1 million SKUs per advertiser and a 100-product sample (PPC Land) versus 1,000 minimum and 2 million maximum (Geekseller) | [Contested, 2026-06] |
+| ChatGPT Ads feed limits | 1 million SKUs and a 100-product onboarding sample (Digiday via a briefed ad executive, PPC Land) versus 1,000 minimum and 2 million maximum (GoDataFeed citing OpenAI help, Geekseller) versus no published minimum or maximum (Reach, GPT Ads AI reading the feed spec) | [Contested, 2026-06 to 2026-09] |
+| Meta Shops checkout | Onsite checkout phased out for US shops from June 2025 (most moved to website checkout by end of August 2025; stores on third-party order management later); 2026 one-tap checkout in Facebook ads runs through payment partners with the merchant as seller | Meta notice via BigCommerce and coverage [Official per coverage, 2025-06 to 2026-04] |
 | AP2 backers | 60+ at launch (2025-09), 100+ partners reported later | Google [Official, 2025] |
 | Google Merchant Center GTIN capacity per item | Up to 10 GTINs (`gtins`) | Merchant API proto [Official, 2026] |
 | Custom label limits | 100 characters, 1,000 unique values per label | Google spec [Official] |
@@ -62,6 +64,8 @@
 | 2025-03-24 | schema.org | v29.0: `ShippingService`, `ShippingConditions`, `hasShippingService`, `fulfillmentType`, `ServicePeriod`; deprecates `DeliveryTimeSettings`, `shippingLabel` | [Official] |
 | 2025-04 | Amazon | Buy for Me beta: Amazon app buys from brand sites | [Unverified date] |
 | 2025-05 | Google | I/O: AI Mode shopping, virtual try-on, agentic checkout preview | [Official] |
+| 2025-06 to 2025-09 | Meta | Shops move from onsite checkout to website checkout (most by end of August 2025; BigCommerce cites 2025-09-04); order management and disputes leave the apps | [Official per coverage] |
+| 2025-07 to 2025-09-01 | TikTok | GMV Max becomes the default (July 2025) and then the only campaign type for new TikTok Shop ads (2025-09-01); one guide gives a phased June 1 to July 15 schedule | [Contested dates] |
 | 2025-08-04/05 | Google | Merchant API v1 client libraries (datasources, products): v1 general availability | [Official] |
 | 2025-09-16 | Google | Agent Payments Protocol (AP2) announced with 60+ partners | [Official] |
 | 2025-09-29 | OpenAI, Stripe | Instant Checkout in ChatGPT (Etsy first, Shopify announced); ACP open-sourced | [Official] |
@@ -80,6 +84,7 @@
 | 2026-03-06 to 03-24 | OpenAI | Standalone Instant Checkout retired; merchant-owned checkout; discovery focus | [Official] |
 | 2026-03 | Google | Simplified UCP onboarding through Merchant Center announced, phased | [Official per coverage] |
 | 2026-03-11 | Google | Merchant API: `handling_cutoff_timezone`, shipping business days | [Official] |
+| 2026-03-25 | Meta | One-tap checkout in Facebook ads with Stripe and PayPal (Adyen and Shopify payments to follow; Instagram announced) | [Official per TechCrunch] |
 | 2026-03-19 | schema.org | v30.0: GS1 equivalences, EU DPP examples | [Official] |
 | 2026-03-24 | Shopify | Agentic Storefronts at scale | [Official per coverage] |
 | 2026-04 | Google | AP2 v0.2 contributed to FIDO Alliance | [Official] |
@@ -87,7 +92,7 @@
 | 2026-04-09 | Google | Merchant API `base64_encoded_name` output field | [Official] |
 | 2026-04-14 | Google | Spec update phase 1: product-level `handling_cutoff_time`, `minimum_order_value`, loyalty labels in shipping, `video_link` (errors from this date) | [Official] |
 | 2026-04-17 | ACP | Release: Feed API (push), carts, orders, delegate authentication, MCP binding, `/.well-known/acp.json`, required Idempotency-Key | [Official] |
-| 2026-04-22 | Google | Google Ads scripts migrate Merchant Center access to Merchant API | [Unverified] |
+| 2026-04-22 | Google | Merchant API available in Google Ads scripts as an Advanced API (announced 2026-04-09); scripts must link a Google Cloud project registered with Merchant Center | [Official, Google Ads Developer Blog 2026-04] |
 | 2026-04-28 | Google | `pickup_cost` and pickup minimum order value required in UK, CH, EEA | [Official] |
 | 2026-05-20 | Google | Marketing Live: UCP checkout to Canada and Australia "in coming months", UK later | [Official] |
 | 2026-05-25 | Shopify | Updated Catalog supplemental terms (no sharing with new AI channels until eligible) | [Official per coverage] |
@@ -98,6 +103,7 @@
 | 2026-07-10 | OpenAI | Feed retrieval overtakes web retrieval in ChatGPT shopping (observed) | [Study] |
 | 2026-07-13 | Google | Merchant API: Q&A, popularity rank, item group title, document links, variant options, related products, short title, vehicle and property attributes, loyalty in shipping, PickupCost, minimum order value; `archived` product flag | [Official] |
 | 2026-08-18 | Google | Content API for Shopping shut down | [Official] |
+| 2026-09-01 | Google | Content API requests without approved extended access begin progressive errors | [Official, release notes] |
 | 2026-08-25 | UCP | Protocol version 2026-08-25 | [Official] |
 | 2026-08-31 and 09-16 | OpenAI | ChatGPT Ads self-serve beta expands to more countries | [Official per coverage] |
 | 2026-09-09 | Industry | SEJ publishes Profound's feed retrieval analysis | [Study] |
@@ -105,7 +111,8 @@
 | 2026-09-24 to 10-07 | UCP | Lodging booking draft, media variants, `ask` capability for natural-language Q&A | [Official] |
 | 2026-09-26 | Google | Flipkart buy button test in Gemini and AI Mode (India) | [Official per TechCrunch] |
 | 2026-09-29 | Google | Merchant API offer-level `returns`; lease terms, warranty units, certification links | [Official] |
-| 2026-10-07 | Google | UCP integration hub help page: US first, Canada and Australia next year | [Official per SER and PPC Land] |
+| 2026-10-06 to 10-07 | Google | UCP integration hub rolling out gradually to US merchants (early access); Canada and Australia moved to 2027 | [Official, help page and Search Engine Land] |
+| 2026-10-15 and 2026-12-31 | Google | Extension deadlines offered on the Content API extended access form | [Press, SERoundtable] |
 | 2027-01-31 (scheduled) | Google | Minimum product image 500 x 500 | [Official] |
 
 ## 4. Best practice consensus
@@ -215,15 +222,15 @@ No credible public benchmark for title optimization lift was verified in this re
 - schema.org releases: https://schema.org/docs/releases.html
 
 ## 11. Open questions and watch list
-1. When will UCP checkout reach Canada, Australia and the UK, and which attribute marks product eligibility (reported as `native_commerce`)?
+1. When in 2027 will UCP checkout reach Canada and Australia, and when the UK? (Eligibility attribute confirmed as `native_commerce` with `checkout_eligibility`.)
 2. Will OpenAI open the self-serve merchant platform in 2026, and will organic and ads feeds merge?
 3. Which of the July 2026 Merchant API attributes (Q&A, related products, popularity rank) does Google surface in AI Mode, and in which countries?
 4. Will Google adopt schema.org 30.1 properties (`itemPopularity`, `isOftenBoughtWith`, `consumerNotice`) in structured data documentation?
-5. Meta Shops: current onsite checkout availability by market.
-6. TikTok Shop: GMV Max requirements and listing quality signals in 2026.
+5. Meta: whether one-tap ad checkout reaches Instagram and which markets beyond the initial launch (7 new markets were reported for spring 2026) [Unverified].
+6. TikTok Shop: official GMV Max thresholds (creative minimums and daily budget floors differ by source: 10 or 20 videos per product, $50 or $100 per day) [Contested].
 7. Copilot Checkout expansion to Bing, Edge, MSN, Windows and to non-US markets.
 8. Perplexity merchant terms and the outcome of Amazon's lawsuit over agentic shopping.
-9. Content API full decommission timing in 2027 (reported, unverified).
+9. Content API full decommission timing (early 2027 reported by one vendor) and HTTP 410 behavior after extension dates lapse [Unverified].
 10. Merchant Center enforcement of separate online and in-store IDs when attributes differ.
 
 
@@ -313,3 +320,18 @@ No credible public benchmark for title optimization lift was verified in this re
 75. Semrush: Universal Commerce Protocol explained. Semrush. https://www.semrush.com/blog/universal-commerce-protocol/. 2026.
 76. Google agentic checkout guide. BigCommerce. https://www.bigcommerce.com/articles/ecommerce/google-agentic-checkout/. 2026.
 77. Secure agent commerce with AP2 and UCP codelab. Google. https://codelabs.developers.google.com/next26/adk-agent-commerce. 2026.
+78. Native commerce [native_commerce]. Google Merchant Center Help. https://support.google.com/merchants/answer/17251586. Checked 2026-10 (via search).
+79. About the Universal Commerce Protocol (UCP) and UCP-powered checkout feature on Google. Google Merchant Center Help. https://support.google.com/merchants/answer/16837055. Checked 2026-10 (via search).
+80. How to onboard to the UCP integration hub in Merchant Center. Google Merchant Center Help. https://support.google.com/merchants/answer/16992327. 2026-10 (via search).
+81. Google rolls out Merchant Center UCP integration hub in the U.S. Search Engine Land. https://searchengineland.com/google-rolls-out-merchant-center-ucp-integration-hub-in-the-u-s-493889. 2026-10-06.
+82. Canada and Australia face 2027 wait for Google's Merchant Center UCP hub. PPC Land. https://ppc.land/canada-and-australia-face-2027-wait-for-googles-merchant-center-ucp-hub/. 2026-10.
+83. Merchant API is coming to Google Ads scripts starting April 22, 2026. Google Ads Developer Blog. https://ads-developers.googleblog.com/2026/04/merchant-api-is-coming-to-google-ads.html. 2026-04.
+84. Content API for Shopping release notes. Google for Developers. https://developers.google.com/shopping-content/guides/rel-notes. Checked 2026-10 (via search).
+85. Google Content API for Shopping Extended Access Form. Search Engine Roundtable. https://www.seroundtable.com/google-content-api-extension-41710.html. 2026.
+86. Meta phases out Facebook and Instagram shops checkout by August 2025. PPC Land. https://ppc.land/meta-phases-out-facebook-and-instagram-shops-checkout-by-august-2025/. 2025.
+87. Updates to Meta Shops checkout for BigCommerce. BigCommerce. https://www.bigcommerce.com/blog/updates-to-meta-shops-checkout-for-bigcommerce/. 2025.
+88. Meta turns to AI to make shopping easier on Instagram and Facebook. TechCrunch. https://techcrunch.com/2026/03/25/meta-turns-to-ai-to-make-shopping-easier-on-instagram-and-facebook/. 2026-03-25.
+89. TikTok Shop Makes GMV Max Ads Mandatory From Sept 1. CedCommerce. https://cedcommerce.com/blog/tiktok-shop-mandates-gmv-max-use-for-ads-what-this-means-for-your-strategy/. 2025.
+90. Import from Google Merchant Center. Microsoft Advertising Help. https://help.ads.microsoft.com/apex/index/3/en/56870. Checked 2026-10 (via search).
+91. Microsoft Advertising simplifies Google Merchant Center import. PPC News Feed. https://ppcnewsfeed.com/ppc-news/2024-09/microsoft-advertising-simplifies-google-merchant-center-import/. 2024-09.
+92. Feed: How to submit my GoDataFeed feed to ChatGPT Ads? GoDataFeed Help. https://help.godatafeed.com/hc/en-us/articles/51837706971675-Feed-How-to-submit-my-GoDataFeed-feed-to-ChatGPT-Ads. 2026.

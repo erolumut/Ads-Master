@@ -23,7 +23,7 @@
 | Employees and founders | Founder story, expert, behind the scenes | LinkedIn Thought Leader Ads, Meta and TikTok organic first |
 | UGC marketplaces (for example Billo, Insense, Trend, JoinBrands, Cohley) | Volume of UGC style videos | Quality varies; brief tightly; check rights terms |
 | TikTok One (TikTok's creator marketplace platform) | TikTok creators with audience data, Spark Ads workflows | Verify current features in TikTok |
-| Meta creator marketplace and partnership tools (Instagram) | Instagram creators, partnership ads | Meta expanded creator marketing tools globally in September 2026 [per trade press, verify] |
+| Meta Creator Marketing Hub (Instagram and Facebook creators) | Creator and organic content discovery (including a "predicted affiliate content" filter), content-level permissions with expiry dates, partnership messaging, one-click draft partnership ads | Launched globally 2026-09-15, merging Creator Marketplace and the Partnership Ads Hub [Official, 2026-09, via MediaPost and Marketing Dive] |
 | YouTube BrandConnect | YouTube creators | Integrations and Shorts |
 | Direct outreach (search hashtags, competitor tags, niche communities) | Niche experts and real users | Slower, higher fit |
 | Agencies and talent managers | Bigger creators, scale programs | Higher cost, contracts heavier |
@@ -71,7 +71,8 @@ Always pay for raw footage and multiple hooks: they multiply the value of each s
 
 - Partnership ads show both the creator's and the brand's identity with a "Paid partnership" label (formerly branded content ads).
 - Setup paths include the creator granting permission to the brand (branded content or partnership ad permissions) or sharing a partnership ad code for a specific post. The brand can then run the creator's post, or use its own media with the creator's identity where permitted [Official, verify current flow in Meta Help Center].
-- Meta integrated partnership ads further with its creator marketplace and AI agent layer in September 2026 [per trade press, verify].
+- Creator Marketing Hub (2026-09-15): draft a partnership ad from a creator post in one click with a suggested objective, remove copyrighted music and stickers that block ad use, and message creators in the hub; the Creator Marketplace API now covers Facebook creators and a Messaging API was added; partnership ads can also be created through Meta's ads connector for AI agents (the official Meta Ads MCP server) [Official, 2026-09]. Not included: affiliate commissions, order-level creator attribution or performance payments.
+- Instagram live video partnership ads: a creator's active livestream can run as a partnership ad in Stories, Reels and Feed, scheduled GA from 2026-09-29; brief live sessions with a product moment in the first minutes and get ad access granted before the stream [Official, 2026-09; availability varies by account].
 - Creative use: partnership ads add a new identity to a concept (new talent and new audience association), which supports diversity. Test the same video with and without the creator identity to measure the identity effect.
 
 ## 7. TikTok Spark Ads

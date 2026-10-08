@@ -82,7 +82,7 @@ Access checklist:
 | 1 | Locations: "Target" options | Set "People in your targeted locations" unless serving travelers or relocation | Presence or interest leaks spend outside the market |
 | 2 | Ad distribution (Search) | Choose owned and operated plus syndicated partners deliberately; review partners after 2 weeks | Partner quality varies by publisher |
 | 3 | Audience Network on Search campaigns | Opt out unless the campaign is meant to run display style ads | Prevents unplanned audience placements [Practitioner consensus] |
-| 4 | Bid strategy and targets | Start on Maximize Clicks with a cap, Enhanced CPC or Manual CPC if UET has no history; move to conversion strategies after 30 conversions in 30 days | Imported targets reflect a different auction |
+| 4 | Bid strategy and targets | Start on Enhanced CPC, or Maximize Clicks with a cap inside a portfolio (new non-portfolio campaigns cannot set Max CPC from 2026-10-01), if UET has no history; move to conversion strategies after 30 conversions in 30 days | Imported targets reflect a different auction |
 | 5 | Budgets | Re-size to forecast (see [Bidding and budgets](bidding-and-budgets.md)) | Google budgets usually overstate Microsoft volume |
 | 6 | Tracking template, final URL suffix | Replace Google only parameters; confirm MSCLKID passes through redirects | Broken click IDs break offline import |
 | 7 | Conversion goals | Create UET goals, set primary goal, values, windows | Imported bid strategies need Microsoft goals |

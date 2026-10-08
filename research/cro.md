@@ -2,15 +2,15 @@
 
 > Research date: 2026-10-08. Scope: CRO for paid and organic traffic, landing pages, forms, ecommerce checkout, SaaS pricing and signup, page speed, experimentation statistics, personalization and AI, tools and data access.
 >
-> Method and limits: web searches were run in extended mode for 2025 to 2026 topics and standard mode for established topics. The shared search budget for this build was exhausted after 19 searches, and direct page fetching (WebFetch) was blocked by DNS in the research environment, so findings rely on search result content (titles, publishers, snippets and summaries) rather than full-page reads. Long-standing primary sources (web.dev, Baymard, KDD papers, EU legal texts) are cited from prior knowledge where noted. Every claim carries an evidence label; anything single-sourced or not confirmable is marked [Unverified]. Re-verify starred items before external use.
+> Method and limits: web searches were run in extended mode for 2025 to 2026 topics and standard mode for established topics. The shared search budget for this build was exhausted after 19 searches, and direct page fetching (WebFetch) was blocked by DNS in the research environment, so findings rely on search result content (titles, publishers, snippets and summaries) rather than full-page reads. A verification pass on 2026-10-08 re-checked the Shopify deadline outcome, Shopify Rollouts, the Clarity, GrowthBook, PostHog, Playwright and Chrome DevTools MCP servers, the Wingify rebrand, the Digital Fairness Act, the FTC accessiBe order, the click to cancel rulemaking and the Eppo acquisition (sources 81 to 95). Long-standing primary sources (web.dev, Baymard, KDD papers, EU legal texts) are cited from prior knowledge where noted. Every claim carries an evidence label; anything single-sourced or not confirmable is marked [Unverified]. Re-verify starred items before external use.
 
 ## 1. Executive summary
 
 1. AI-referred traffic flipped from a conversion liability to an asset in 12 months: Adobe measured US retail AI referrals converting 38% worse than non-AI traffic in March 2025, then 42% better in March 2026 and 54% better in May 2026 [Study, Adobe 2026]. Pages that receive AI referrals need specs, comparisons and a clear buy path.
 2. Experimentation vendors consolidated sharply: OpenAI bought Statsig (September 2025, $1.1B), then Amplitude took over the Statsig brand and customers (5 May 2026); VWO and AB Tasty combined (January 2026) and rebranded as Wingify (16 September 2026) [press, 2025 to 2026]. Check contracts, roadmaps and data export before renewals.
 3. Vendors are shipping CRO agents: Optimizely renamed Opal to Optimizely Agent Platform (1 September 2026) with Idea builder, a Build agent that drafts A/B tests, and a CRO Manager virtual teammate; Contentsquare launched Sense Analyst (March 2026); Clarity Copilot summarizes sessions and heatmaps [Official, 2026]. AI speeds research and variant drafting; statistics and compliance still need discipline.
-4. Shopify forced the end of legacy post-purchase scripts: Thank you and Order status pages had to move to checkout extensibility by 28 August 2025 (Plus) and 26 August 2026 (non-Plus), with auto-upgrades removing Additional Scripts [secondary, 2026]. Expect silent tracking breaks in Q3 to Q4 2026 audits.
-5. Shopify now has native A/B testing (Rollouts): server-side theme splits introduced in the Winter '26 Edition and expanded in June 2026 to whole themes plus checkout and account configurations, reporting RPV but no confidence intervals or targeting [Unverified, secondary 2026].
+4. Shopify forced the end of legacy post-purchase scripts: script tags and Additional Scripts stopped on Thank you and Order status pages on 28 August 2025 (Plus; remaining Plus stores auto-upgraded from January 2026) and 26 August 2026 (non-Plus) [Official, shopify.dev 2026]. No extension was announced; whether every unupgraded store was auto-upgraded on the day is reported inconsistently [Contested]. Expect silent tracking breaks in Q3 to Q4 2026 audits.
+5. Shopify now has native A/B testing (Rollouts): server-side theme splits introduced in the Winter '26 Edition and expanded in June 2026 to whole themes plus checkout and account configurations; experiments are plan-gated (Grow or Advanced and higher, sources differ), report no confidence intervals and pass no variant data to GA4; a 2 October 2026 changelog entry reportedly adds discount and offer tests [Secondary, 2026; discount tests Unverified].
 6. Checkout remains the biggest leak: Baymard's average documented cart abandonment is 70.22% (50 studies, updated September 2025), surprise costs remain the top fixable reason, and 64% of large desktop sites still rate mediocre or worse on checkout UX (November 2025) [Study, 2025].
 7. The European Accessibility Act has applied since 28 June 2025, and 2026 brought visible enforcement: the Dutch ACM found 61% of about 100 large online stores not accessible (March 2026); a French court ordered Carrefour to fix its site and app within six months at EUR 500 per day of delay (June 2026) [secondary, 2026]. Accessible checkout and forms are now a legal and conversion requirement.
 8. Most tests lose: Optimizely's 127k-experiment analysis found about 12% win on the primary metric; Kohavi estimated a large share of "wins" at common settings are false positives [Study, 2023]. Programs need pre-registration, SRM checks, and power, not more tests.
@@ -52,25 +52,28 @@
 |------|--------|---------------|----------|
 | 2025-03 | Adobe: AI referrals to US retail convert 38% worse than non-AI traffic | Baseline for AI traffic reversal | [Study, Adobe] |
 | 2025-05 | Contentsquare launches Sense AI agent | AI summaries for replay and zoning | [press, 2025-05] |
-| 2025 (H1) | Datadog acquires Eppo | Warehouse-native experimentation consolidates | [Unverified] |
+| 2025-01 to 2025-04 | FTC proposes (January) then finalizes (April, 3-0 vote) the accessiBe order: $1 million, no unsubstantiated WCAG compliance claims for automated overlays | Overlays are not a compliance fix | [Official, FTC 2025-04] |
+| 2025-05-05 | Datadog announces acquisition of Eppo ("Eppo by Datadog") | Warehouse-native experimentation consolidates | [press, 2025-05] |
 | 2025-06-28 | European Accessibility Act applies | Accessible ecommerce and forms required for EU consumers | [Official, Directive 2019/882] |
 | 2025-07-01 | Hotjar merged into Contentsquare Group | Pricing and plan changes; Sense features by plan | [secondary, 2026] |
 | 2025-07 | CrUX: mobile good LCP about 62%, INP 77%, CLS 81% | LCP still the main failure | [Study, secondary] |
 | 2025-07 | Amazon Prime Day: AI traffic converts 23% worse than non-AI (avg of 4 days) | Pre-reversal baseline | [Study, Adobe via CMSWire] |
-| 2025-08-28 | Shopify Plus deadline: Thank you and Order status pages to checkout extensibility | Legacy scripts removed on upgrade | [secondary, 2026] |
+| 2025-07-08 | Eighth Circuit vacates the FTC click to cancel rule (procedural grounds) | ROSCA and state laws still apply | [Official, court ruling 2025-07] |
+| 2025-08-28 | Shopify Plus deadline: Thank you and Order status pages to checkout extensibility | Legacy scripts removed on upgrade | [Official, shopify.dev] |
 | 2025-09-02 | OpenAI acquires Statsig ($1.1B stock) | Vendor risk for Statsig users | [press, TechCrunch] |
 | 2025-09 | Sense Analyst first beta customers | Agentic analytics | [Official, Contentsquare] |
-| 2025-09 | ChatGPT Instant Checkout and Agentic Commerce Protocol announced | Purchases inside assistants; data consistency matters | [Unverified] |
+| 2025-09-29 | ChatGPT Instant Checkout and Agentic Commerce Protocol announced (OpenAI later moved away from standalone Instant Checkout in March 2026) | Purchases inside assistants; data consistency matters | [Official, 2025-09] |
 | 2025-09-22 | Baymard cart abandonment list update (70.22%, 50 studies) | Current reference | [Study, Baymard] |
 | 2025-11 | Baymard checkout benchmark update: 64% desktop, 63% mobile mediocre or worse | Checkout still the main leak | [Study, Baymard] |
 | 2025 | Web Almanac 2025: INP switch lowered mobile CWV pass rates about 5 points | INP needs attention | [Study, HTTP Archive] |
 | 2026-01-20 | VWO and AB Tasty agree to combine | Vendor consolidation | [press, GlobeNewswire] |
 | 2026-01-22 | Optimizely Experimentation Program Overview agent | AI program reporting | [Official, release notes] |
-| 2026-01 | Shopify Winter '26 Edition introduces Rollouts (early access) | Native theme A/B testing | [Unverified, secondary] |
+| 2026-01 | Shopify Winter '26 Edition introduces Rollouts (early access) | Native theme A/B testing | [Secondary, 2026] |
 | 2026-03 | Adobe: AI referrals convert 42% better than non-AI | Reversal | [Study, Adobe] |
 | 2026-03 | Netherlands ACM: 61% of about 100 large online stores not accessible | EAA enforcement | [secondary] |
 | 2026-03 | Sweden PTS: 28 supervision cases against online shops | EAA enforcement | [secondary] |
 | 2026-03 | Contentsquare introduces Sense Analyst | AI analyst for experience data | [Official, Contentsquare] |
+| 2026-03 (11 or 13 March by source) | FTC publishes an advance notice of proposed rulemaking on negative option marketing (comments closed 2026-04-13) | Click to cancel may return | [Official, 2026-03] |
 | 2026-04 | Optimizely Idea builder for Web Experimentation | AI test ideation from page, goal, heatmaps | [Official, release notes] |
 | 2026-04 | Microsoft Advertising announces expansion of Clarity AI Visibility | AI citation reporting | [secondary] |
 | 2026-04-28 | Optimizely contextual multi-armed bandits | Segment-level allocation | [Official, release notes] |
@@ -81,7 +84,8 @@
 | 2026-05 | Clarity AI citation tracking reported generally available | AI visibility data in Clarity | [Unverified, secondary] |
 | 2026-05 | Auchan accessibility claim dismissed in Lille (appealed) | Legal uncertainty | [secondary] |
 | 2026-06-04 | Caen court orders Carrefour site and app accessibility within 6 months, EUR 500 per day | Private enforcement risk | [secondary] |
-| 2026-06-05 | Shopify Rollouts expanded to whole themes plus checkout and customer account configurations | Broader native testing | [Unverified, secondary] |
+| 2026-06-05 | Shopify Rollouts expanded to whole themes plus checkout and customer account configurations | Broader native testing | [Secondary, multiple 2026] |
+| 2026-06-13 | VWO app moves to app.wingify.com (log in again; campaigns and SmartCode unchanged) | Account admin change | [Official, Wingify 2026-06] |
 | 2026-06-17 | Shopify Summer '26 Edition (naming contested) | Rollouts GA reported | [Contested] |
 | 2026-06-22 | Optimizely Idea builder for Feature Experimentation | AI ideation server side | [Official] |
 | 2026-06 | Clarity content recommendations for AI visibility | AI search actions | [secondary] |
@@ -89,15 +93,17 @@
 | 2026-07-07 | Contentsquare Sense Analyst open beta for new Growth customers | AI analysis for smaller plans | [Official, Contentsquare] |
 | 2026-08 | ChatGPT ads add oCPC bidding and carousel formats | Product LP readiness | [secondary] |
 | 2026-08-25 | Optimizely CRO Manager virtual teammate | Agent stages experiments | [Official] |
-| 2026-08-26 | Shopify non-Plus deadline for Thank you and Order status upgrade | Tracking breaks for unprepared stores | [secondary] |
+| 2026-08-26 | Shopify non-Plus deadline for Thank you and Order status upgrade (passed; no extension announced) | Tracking breaks for unprepared stores | [Official, shopify.dev; day-of auto-upgrade Contested] |
 | 2026-08 | Adobe: AI traffic +127% YoY | Continued growth | [Study, Adobe via Bloomberg] |
 | 2026-09-01 | Optimizely Opal renamed Optimizely Agent Platform | Naming in docs and UI | [Official] |
 | 2026-09-02 to 03 | Optimizely governance agent and flag implementation agent that outputs a SKILL.md file | Agents integrate with coding tools | [Official] |
 | 2026-09 | Optimizely Build agent turns ideas into draft A/B tests | AI-built variants | [Official] |
 | 2026-09 | OpenAI tests Sponsored Agents (ad click opens a brand agent) | Potential "agent as landing page" | [Unverified, secondary] |
-| 2026-09-16 | VWO and AB Tasty unveiled as Wingify with Wingz AI | Rebrand, migration | [press] |
+| 2026-09-16 | VWO and AB Tasty unveiled as Wingify ("Agentic Experience Optimization Platform") with Wingz AI; products remain separate suites during integration | Rebrand, migration | [Official, press release 2026-09] |
 | 2026-09-17 | Optimizely sub-agents and retrieval over artifacts | Agent platform maturity | [Official] |
 | 2026-09-28 | Adobe forecasts AI-assisted shopping +130% for holidays | Prepare AI referral pages before peak | [Study, Adobe via Bloomberg] |
+| 2026-10-02 | Shopify changelog entry: coordinate discounts with theme and checkout changes and test offers on a share of traffic (Rollouts) | Native offer testing | [Unverified, single secondary source] |
+| 2026-Q4 (planned) | European Commission Digital Fairness Act proposal (dark patterns, unfair personalization); not yet proposed as of early October 2026 | Subscription and interface rules | [Official, work programme 2026] |
 | 2026-09 to 11 | EN 301 549 update incorporating WCAG 2.2 published or expected in the EU Official Journal | Accessibility standard tightening | [Contested dates] |
 
 ## 4. Best practice consensus
@@ -203,19 +209,19 @@ Compliance:
 
 | Category | Tools | API and MCP access | Notes |
 |----------|-------|--------------------|-------|
-| Behavior analytics | Microsoft Clarity | Data Export API (recent days only, limited dimensions); MCP package `@microsoft/clarity-mcp-server` with `get-clarity-data` tool [secondary] | Free; Copilot features; AI Visibility |
+| Behavior analytics | Microsoft Clarity | Data Export API (recent days only, about 10 requests per project per day); official MCP package `@microsoft/clarity-mcp-server` (v2.x tools: query-analytics-data, list-session-recordings, query-documentation-data; v1.x: get-clarity-data) [Official package, 2026] | Free; Copilot features; AI Visibility |
 | Behavior analytics | Contentsquare (incl. Hotjar) | Connectors to ChatGPT, Claude, Copilot and IDEs on all plans with tool call limits [Official support, 2026] | Sense Chat, Sense Analyst |
-| Behavior and product analytics | PostHog | API; MCP server [Unverified] | Experiments, flags, replay, surveys |
+| Behavior and product analytics | PostHog | API; official hosted MCP server (mcp.posthog.com, EU mcp-eu.posthog.com) [Official, 2026] | Experiments, flags, replay, surveys |
 | Experimentation | Optimizely | REST APIs; Agent Platform agents | Contextual bandits, Stats Engine |
-| Experimentation | Wingify (VWO, AB Tasty) | APIs per product | Migration ongoing |
+| Experimentation | Wingify (VWO, AB Tasty) | APIs per product | Rebranded 2026-09-16; suites still separate |
 | Experimentation | Kameleoon, Convert | APIs | Check AI features |
-| Experimentation | GrowthBook | Open source, API, MCP server [Unverified] | Warehouse native |
+| Experimentation | GrowthBook | Open source, API, MCP server `@growthbook/mcp` [Official package; config Unverified] | Warehouse native |
 | Experimentation | Statsig (Amplitude) | API, warehouse native | Ownership change May 2026 |
 | Experimentation | Shopify Rollouts | Admin UI | No CI; compute stats externally |
 | Analytics | GA4 | Data API v1beta `runReport`, v1alpha `runFunnelReport`; Google Analytics MCP server [Unverified status]; BigQuery export | Coordinate with measurement |
 | Speed | CrUX API, CrUX History API, PageSpeed Insights API, Lighthouse CLI and CI, WebPageTest | Public APIs with key | Field and lab |
-| QA and screenshots | Playwright, Chrome DevTools | Playwright MCP and Chrome DevTools MCP [Unverified] | Local QA of variants |
-| Commerce data | Shopify Admin GraphQL | Read scopes; Shopify developer MCP for docs [Unverified] | AOV, product mix |
+| QA and screenshots | Playwright, Chrome DevTools | Playwright MCP (Microsoft, 2025-03) and Chrome DevTools MCP (Google, preview 2025-09-23, stable by 2026-06) [Official] | Local QA of variants |
+| Commerce data | Shopify Admin GraphQL | Read scopes; Shopify Dev MCP `@shopify/dev-mcp` for docs and schema [Official] | AOV, product mix |
 | Forms | Zuko | API [Unverified] | Field-level analytics |
 | Surveys | Fairing, KnoCommerce, Typeform | APIs | Post-purchase VOC |
 
@@ -243,17 +249,17 @@ Compliance:
 
 ## 11. Open questions and watch list
 
-1. Shopify Rollouts: plan availability, whether statistical significance reporting is added, and whether checkout testing is open to non-Plus plans [Unverified].
-2. Post-deadline Shopify behavior: how many non-Plus stores lost tracking after 26 August 2026 and whether Shopify extended any deadline [Unverified].
+1. Shopify Rollouts: plan availability (Grow vs Advanced) [Contested], whether statistical significance reporting is added, and the scope and plan limits of the 2026-10-02 discount testing entry [Unverified].
+2. Post-deadline Shopify behavior: how many non-Plus stores lost tracking after 26 August 2026 (no extension was announced; day-of auto-upgrade reports conflict) [Contested].
 3. OpenAI Sponsored Agents: if ad clicks open brand agents, CRO expands to agent prompts, knowledge bases and in-chat conversion paths [Unverified].
 4. Amplitude's plans for Statsig vs Amplitude Experiment; risk of product consolidation [Contested].
-5. Wingify integration: pricing changes at renewal, VWO and AB Tasty convergence timeline [Unverified].
+5. Wingify integration: pricing changes at renewal and when VWO and AB Tasty become one product (Wingify says several quarters from mid 2026) [Unverified].
 6. EN 301 549 update with WCAG 2.2 and its Official Journal citation date [Contested].
-7. EU Digital Fairness Act proposal timing and scope (dark patterns, subscription traps, personalized pricing) [Unverified].
+7. EU Digital Fairness Act: proposal planned for Q4 2026 (Commissioner McGrath, May 2026), legal form open; whether subscription cancellation gets standalone rules [Official timing, scope Unverified].
 8. AI referral conversion advantage: whether it persists as AI traffic broadens beyond early adopters [Open].
 9. Agentic checkout adoption and how much purchase volume moves off-site [Open].
 10. New controlled evidence on INP and conversion; most published data is correlational [Open].
-11. Clarity Data Export API limits and MCP server capabilities in late 2026 [Unverified].
+11. Clarity MCP server: tool set changes between v1 and v2 and whether write or recording-level analysis tools are added [Open].
 12. Whether vendor AI agents (Optimizely Build agent, Wingz, Sense Analyst) measurably raise win rates or only velocity [Open].
 
 ## 12. Sources
@@ -338,3 +344,18 @@ Compliance:
 78. Regulation (EU) 2022/2065, Digital Services Act. EUR-Lex. https://eur-lex.europa.eu/eli/reg/2022/2065/oj. 2022 (canonical, not re-fetched).
 79. Web Content Accessibility Guidelines (WCAG) 2.2. W3C. https://www.w3.org/TR/WCAG22/. 2023-10 (canonical, not re-fetched).
 80. CrUX API documentation. Chrome for Developers. https://developer.chrome.com/docs/crux/api. Ongoing (canonical, not re-fetched).
+81. checkout.liquid layout (script tag sunset dates). Shopify Dev Docs. https://shopify.dev/docs/storefronts/themes/architecture/layouts/checkout-liquid. 2026.
+82. Shopify Thank You and Order Status Page Upgrade (2026). Consentmo. https://www.consentmo.com/blog-posts/shopify-thank-you-order-status-upgrade-august-2026. 2026.
+83. Shopify Rollouts: How to Safely A/B Test Themes, Checkout, and Customer Accounts. Thoughtbulb. https://thoughtbulb.dev/blog/shopify-rollouts-theme-checkout-ab-testing-2026/. 2026.
+84. Shopify A/B Testing: Native Rollouts vs Apps (2026). Ecomhint. https://ecomhint.com/blog/shopify-ab-testing. 2026.
+85. Shopify Rollouts Now Tests Discounts on Live Traffic. Ecommerce Paradise. https://ecommerceparadise.com/shopify-rollouts-tests-discounts/. 2026-10.
+86. AB Tasty and VWO Unite Under Wingify. Newswire (press release). https://www.newswire.ca/news-releases/ab-tasty-and-vwo-unite-under-wingify-launching-a-unified-platform-new-brand-identity-and-a-website-827260962.html. 2026-09-16.
+87. Microsoft Clarity Data Export MCP Server README (v1.0.5). unpkg mirror of npm. https://unpkg.com/@microsoft/clarity-mcp-server@1.0.5/README.md. 2025.
+88. Use experiments over PostHog MCP. PostHog. https://posthog.com/docs/experiments/surfaces/mcp. 2026.
+89. GrowthBook MCP Server. mcp.so. https://mcp.so/servers/growthbook-mcp. 2025 to 2026.
+90. Give your AI eyes: Introducing Chrome DevTools MCP. Addy Osmani. https://addyosmani.com/blog/devtools-mcp/. 2025-09.
+91. FTC Puts the Brakes on accessiBe's Misleading Claims, Orders $1 Million Penalty. GRC Report. https://www.grcreport.com/post/ftc-puts-the-brakes-on-accessibes-misleading-claims-orders-1-million-penalty. 2025-04.
+92. Digital Fairness Act (legislative train). European Parliament. https://www.europarl.europa.eu/legislative-train/theme-protecting-our-democracy-upholding-our-values/file-digital-fairness-act. 2026.
+93. EU proposal on Digital Fairness Act expected by the end of 2026. Privacy Laws and Business. https://www.privacylaws.com/news/eu-proposal-on-digital-fairness-act-expected-by-the-end-of-2026/. 2026-05.
+94. FTC Issues New Advance Notice of Proposed Rulemaking on Negative Option Marketing. Cooley. https://www.cooley.com/news/insight/2026/2026-03-19-ftc-issues-new-advance-notice-of-proposed-rulemaking-on-negative-option-marketing. 2026-03-19.
+95. Datadog acquires experiment platform provider Eppo. Seeking Alpha. https://seekingalpha.com/news/4440981-datadog-acquires-experiment-platform-provider-eppo. 2025-05-05.

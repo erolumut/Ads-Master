@@ -2,7 +2,7 @@
 
 Research date: 2026-10-08. Scope: ad transparency libraries and APIs, search and SEO competitive data, AI visibility benchmarking, offer and price monitoring, voice of customer mining, demand research, market sizing, positioning, win and loss, monitoring, tools and MCP servers, and the legal and ethical limits of collection. Companion: `research/00-market-overview-2026.md`.
 
-Method and limitations: the live web sweep for this build ran 14 extended searches before the shared search budget was exhausted, and direct page fetches were blocked by the research environment's egress policy. Facts confirmed in live search results are marked (S). Established facts from official documentation known before this sweep are marked (K) and must be re-checked in the Freshness Protocol; tool features and API fields change frequently. Nothing here is invented; where a detail could not be confirmed it is labeled [Unverified].
+Method and limitations: the live web sweep for this build ran 14 extended searches before the shared search budget was exhausted, and direct page fetches were blocked by the research environment's egress policy. Facts confirmed in live search results are marked (S). Established facts from official documentation known before this sweep are marked (K) and must be re-checked in the Freshness Protocol; tool features and API fields change frequently. Nothing here is invented; where a detail could not be confirmed it is labeled [Unverified]. A verification pass on 2026-10-08 re-checked the Meta Ad Library API access rules, Google Ads Transparency Center features, TikTok and LinkedIn libraries and the Semrush and Similarweb MCP servers (sources 61 to 69).
 
 ## 1. Executive summary
 1. Ad transparency is richest in the EU. Since the Digital Services Act, very large platforms keep public ad repositories with targeting and reach information for EU delivered ads (Meta, TikTok, LinkedIn, Microsoft, Google and others) (K). Outside the EU, libraries mostly show active ads only. Competitive teams in any market can study a competitor's EU activity to infer tests, scale and targeting.
@@ -11,7 +11,7 @@ Method and limitations: the live web sweep for this build ran 14 extended search
 4. Political ad data in the EU stopped growing: Meta ended political, electoral and social issue ads in the EU from 6 October 2025 and Google stopped political ads in the EU ahead of the TTPA (applied 10 October 2025) (S).
 5. A new competitive arena opened: AI assistants. Zero click searches reached 68.01% of US Google searches in January to April 2026 (SparkToro), AI Overviews cut organic CTR (Pew, Seer, Ahrefs), and generative search is forecast at $5.1 billion of ad revenue in 2026 rising past $100 billion by 2030 (WPP Media) (S). Benchmarking competitor visibility in ChatGPT, Gemini, AI Overviews, AI Mode, Perplexity and Copilot is now a standard intelligence task.
 6. ChatGPT ads launched in 2026 (pilot February, self serve May, more than 60 countries by October, visual ads near image generation announced 5 October 2026) (S). No public ChatGPT ad library was found in this sweep [Unverified]; competitor presence must be observed manually.
-7. SEO suites and new AI visibility platforms now track AI mentions and citations, and several tools expose data to Claude through APIs and MCP servers (K, details [Unverified]). Methods differ widely, so numbers are not comparable across vendors.
+7. SEO suites and new AI visibility platforms now track AI mentions and citations, and several tools expose data to Claude through APIs and MCP servers; Semrush (2025-09) and Similarweb (2025-09-25) run official remote MCP servers that consume API units or data credits (S). Methods differ widely, so numbers are not comparable across vendors.
 8. Voice of customer from reviews, communities and first-party surveys remains the highest value input for creative and positioning; review and community platforms restrict automated collection in their terms (K).
 9. Search demand is fragmenting: dentsu forecasts traditional search growth of 3.4% in 2026 as AI, retail and social search compete (S). Demand research must span Google, marketplaces, social search and AI assistants.
 10. Legal limits matter: platform terms, privacy law (GDPR, KVKK) for any personal data in reviews or comments, competition law on sharing sensitive information, and comparative advertising rules when intelligence turns into claims (K).
@@ -40,9 +40,9 @@ What changed for intelligence teams:
 | Platform | Outside EU | EU (DSA) | API | Notes |
 |----------|-----------|----------|-----|-------|
 | Meta | Active ads, creative, start date, platforms | Inactive ads retained about a year, reach, targeting summary, payer and beneficiary | Ad Library API (EU delivered and political or issue ads) | Most used competitor source (K) |
-| Google | Ads by advertiser or domain, region, format, date; last shown | Additional EU details [Unverified field list] | None for commercial ads [Unverified] | Domain search catches resellers (K) |
-| TikTok | Creative Center Top Ads (curated) | Commercial Content Library with targeting and reach | Commercial Content API for approved researchers | Top Ads is inspiration, not a census (K) |
-| LinkedIn | Ads from the past year | Targeting and impressions for EU ads [Unverified detail] | None public | B2B critical (K) |
+| Google | Ads by advertiser or domain, region, format, date; last shown; legal name and verification badge; no spend | Unverified advertisers also shown in Europe and Türkiye; impression ranges after a delay; EU political history removed around 2025-09 (S, secondary) | None for commercial ads; political BigQuery dataset only (S, secondary) | Domain search catches resellers (K); AI labels panel "How this ad was made" from 2026-07 (S) |
+| TikTok | Creative Center Top Ads (curated) | Commercial Content Library with targeting and reach (EU/EEA, UK, Switzerland; no US) | Commercial Content API on application (docs updated 2026-09-01); eligibility reported as researcher focused [Contested] | Top Ads is inspiration, not a census (K) |
+| LinkedIn | Ads run after 2023-06-01, kept one year after last impression | Impression ranges, impressions by country and targeting categories used for EU ads; no spend (S, LinkedIn Help) | None public | B2B critical (K) |
 | Microsoft | Limited | EU ads | Unknown | Check coverage (K) |
 | OpenAI (ChatGPT) | No public library found | None found | None | Manual observation only [Unverified] |
 
@@ -82,6 +82,8 @@ What changed for intelligence teams:
 | 2025-07 | Pew study on AI summaries and clicks | Evidence for zero click effects | S |
 | 2025-07 | Google Trends API alpha announced | Consistent scaled trend data for approved users | K [Unverified status] |
 | 2025-07-25 | Meta announces end of EU political, electoral and social issue ads | EU political ad library data stops growing | S |
+| 2025-09 (about 09-28) | Google stops EU political ads and removes EU political ad history from the Transparency Center and its BigQuery dataset | Historic EU political research needs other archives | S [secondary] |
+| 2025-09 | Semrush adds MCP support (2025-09-10) and Similarweb launches its MCP server (2025-09-25) | Claude can query both directly | S |
 | 2025-10-06 | Meta EU political and issue ads end | Same | S |
 | 2025-10-10 | EU TTPA applies | Political ad transparency regime | S |
 | 2025-12 | Ahrefs: AI Overviews cut position one CTR 58% | SEO competition context | S |
@@ -98,6 +100,8 @@ What changed for intelligence teams:
 | 2026 (first half) | SparkToro: 68.01% zero click | Organic competition context | S |
 | 2026-08-24 | ChatGPT ads in 31 European countries | EU competitor monitoring in ChatGPT | S [secondary] |
 | 2026-08-31 | ChatGPT self serve opens in Europe, India and MENA | Same | S [secondary] |
+| 2026-07 | Google "How this ad was made" panel discloses generative AI use in ads (My Ad Center on Search, YouTube, Discover) | AI creative becomes visible in competitor research | S |
+| 2026-09-01 | TikTok updates Commercial Content API documentation | Check field changes before building pulls | S |
 | 2026-10-05 | OpenAI visual ads next to image generation (US test) | New format to observe | S |
 
 ## 4. Best practice consensus
@@ -214,7 +218,7 @@ What changed for intelligence teams:
 | Demand | Google Trends (API alpha), Keyword Planner (Google Ads API), Pinterest Trends, TikTok Creative Center, Amazon Brand Analytics | Mixed | K |
 | VoC | Review platforms (G2, Capterra, TrustRadius, Trustpilot, app stores, marketplaces), Reddit (Data API terms), YouTube Data API, listening tools (Brandwatch, Talkwalker, Meltwater, Brand24) | Mixed | K |
 | Price and page monitoring | Prisync, Price2Spy, Competera, Keepa, Visualping, Distill, Wayback Machine CDX | Mixed | K |
-| MCP servers | Ahrefs MCP, DataForSEO MCP, Apify MCP, Firecrawl MCP, Bright Data MCP, Playwright MCP, community Search Console MCP, Google Ads MCP (own accounts); Semrush and Similarweb MCP [Unverified] | Self hosted or vendor | K |
+| MCP servers | Ahrefs MCP, DataForSEO MCP, Apify MCP, Firecrawl MCP, Bright Data MCP, Playwright MCP, community Search Console MCP, Google Ads MCP (own accounts); official remote Semrush MCP (mcp.semrush.com/v2/mcp) and Similarweb MCP (mcp.similarweb.com) | Self hosted or vendor | K; Semrush and Similarweb S |
 Usage rules: read only, official or licensed sources, human approved keys, provenance logged per number.
 
 ## 10. Official sources to monitor
@@ -299,3 +303,12 @@ Usage rules: read only, official or licensed sources, human approved keys, prove
 58. Sikayetvar. https://www.sikayetvar.com/ (ongoing) (K)
 59. Pinterest Trends. Pinterest. https://trends.pinterest.com/ (ongoing) (K)
 60. Apify. https://apify.com/ (ongoing) (K)
+61. LinkedIn's Ad Library. LinkedIn Help. https://www.linkedin.com/help/linkedin/answer/a1517918 (checked 2026-10) (S)
+62. Getting Started, Commercial Content API. TikTok for Developers. https://developers.tiktok.com/docs/en/commercial-content-api-getting-started (2026-09) (S)
+63. Meta Ad Library API. Meta. https://www.facebook.com/ads/library/api (checked 2026-10) (S)
+64. Meta Ad Library API: Access, Limits and Example Requests (2026). Swipekit. https://swipekit.app/articles/meta-ad-library-api (2026) (S)
+65. Google Ads Transparency Center: Official Access and Research Guide. AdMapix. https://www.admapix.com/blog/ad-intelligence/google-ads-transparency-center-guide (2026) (S)
+66. Google introduces new AI labels for Ads. Google. https://blog.google/products/ads-commerce/google-ads-ai-transparency-labels/ (2026-07) (S)
+67. Semrush MCP. Semrush Developer. https://developer.semrush.com/api/v4/introduction/semrush-mcp/ (2026) (S)
+68. Announcing Similarweb MCP Server. Similarweb. https://www.similarweb.com/blog/updates/announcements/mcp-server-launch/ (2025-09-25) (S)
+69. Similarweb MCP Server. Similarweb Developers. https://developers.similarweb.com/docs/similarweb-mcp (2026) (S)

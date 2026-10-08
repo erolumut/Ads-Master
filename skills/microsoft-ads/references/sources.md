@@ -70,8 +70,8 @@
 | 52 | Microsoft Advertising tag archive | AdExchanger | https://www.adexchanger.com/tag/microsoft-advertising/ | 2025 to 2026 | Microsoft Invest wind down, Prebid caching change |
 | 53 | Implement Microsoft Advertising enhanced conversions for offline conversions | Adobe Experience League | https://experienceleague.adobe.com/en/docs/advertising/search-social-commerce/campaign-management/management/special-workflows/microsoft-enhanced-conversions | Rolling | Enhanced conversions for leads use case |
 | 54 | Microsoft Ads offline conversions (partner guide) | MoEngage | https://www.moengage.com/docs/partner-guide/retargeting-and-audience-sync/ad-conversions/microsoft-ads-offline-conversions | Rolling | 90 day click window |
-| 55 | Microsoft Ads Drops Max CPC on New Campaigns | Ecommerce Paradise | https://ecommerceparadise.com/microsoft-ads-drops-max-cpc/ | 2026 | Headline only [Unverified] |
-| 56 | Offline conversion uploads: 7-day upload gate | PPC News Feed | https://ppcnewsfeed.com/ppc-news/2026-08/offline-conversion-uploads-7-day-upload-gate/ | 2026-08 | Headline only [Unverified] |
+| 55 | Microsoft Ads Drops Max CPC on New Campaigns | Ecommerce Paradise | https://ecommerceparadise.com/microsoft-ads-drops-max-cpc/ | 2026 | Max CPC removal headline, confirmed by 67 and 68 |
+| 56 | Offline conversion uploads: 7-day upload gate | PPC News Feed | https://ppcnewsfeed.com/ppc-news/2026-08/offline-conversion-uploads-7-day-upload-gate/ | 2026-08 | Headline only; no matching rule found in Microsoft docs on 2026-10-08 [Unverified] |
 
 ## Tools and repositories (GitHub search, 2026-10-08)
 
@@ -86,6 +86,20 @@
 | 63 | Insightful-Pipe/microsoft-ads-mcp-server | https://github.com/Insightful-Pipe/microsoft-ads-mcp-server | 2026-01-20 | Hosted MCP |
 | 64 | Synter-Media-AI/mcp-server | https://github.com/Synter-Media-AI/mcp-server | 2026-01-29 | Multi platform MCP |
 | 65 | itallstartedwithaidea/advertising-hub | https://github.com/itallstartedwithaidea/advertising-hub | 2026-03-10 | Directory of ad platform MCP and APIs |
+
+## Verification pass (2026-10-08, via search)
+
+| # | Title | Publisher | URL | Date | Supports |
+|---|-------|-----------|-----|------|----------|
+| 66 | About ads in Copilot | Microsoft Learn | https://learn.microsoft.com/en-us/advertising/msa-help/hlp_ba_conc_adsforcopilot | Checked 2026-10 | Auto opt-in, no opt-out, eligible formats |
+| 67 | Microsoft Advertising drops Max CPC from new campaigns on October 1 | PPC Land | https://ppc.land/microsoft-advertising-drops-max-cpc-from-new-campaigns-on-october-1/ | 2026-09 | Max CPC change scope |
+| 68 | Microsoft Advertising Removes Max CPC From New Standalone Campaigns | Elsop | https://www.elsop.com/microsoft-ads-max-cpc-new-standalone-campaigns | 2026-09 | Portfolio, eCPC and Target IS keep caps |
+| 69 | ManualCpcBiddingScheme data object | Microsoft Learn | https://learn.microsoft.com/en-us/advertising/campaign-management-service/manualcpcbiddingscheme?view=bingads-13 | Rolling | Manual CPC limited to Audience and lodging |
+| 70 | AI Max for Search is now available | Microsoft Advertising blog | https://about.ads.microsoft.com/en/blog/post/august-2026/reimagining-search-campaigns-for-the-ai-era-with-ai-max | 2026-08 | AI Max GA, default on for new Search campaigns, DSA supported |
+| 71 | Microsoft Advertising Rolling Out AI Max Globally | Search Engine Roundtable | https://www.seroundtable.com/microsoft-advertising-ai-max-41909.html | 2026-08 | Ads Liaison: AI Max opt-in |
+| 72 | Providing more transparency for your Performance Max campaigns | Microsoft Advertising blog | https://about.ads.microsoft.com/en/blog/post/may-2026/providing-more-transparency-for-your-performance-max-campaigns | 2026-05 | Website URL report with conversions, clicks, spend |
+| 73 | Tracking offline conversions | Microsoft Learn | https://learn.microsoft.com/en-us/advertising/msa-help/hlp_ba_conc_uetv2offlineconversion | Checked 2026-10 | Daily upload recommendation, 6 hour reporting lag |
+| 74 | OfflineConversion data object | Microsoft Learn | https://learn.microsoft.com/en-us/advertising/campaign-management-service/offlineconversion?view=bingads-13 | Rolling | 90 day limit, timestamp rules |
 
 ## Sources by module
 
@@ -113,9 +127,10 @@
 | No official Copilot reporting documentation found | Stakeholder expectations | Help center, account team |
 | Official October 2025, December 2025 and July 2026 advertiser roundups not located in search | Possible missed launches | Blog archive pages |
 | Full text of several Microsoft Learn pages not read directly | Exact limits and parameter names | Re-read pages 27 to 31 before implementation |
-| DSA long term status | Planning for content heavy sites | Help center and next roundups |
+| DSA long term status | Supported until further notice (2026-08); watch for a sunset notice | Monthly roundups |
 
 ## Freshness log
 | Date | Checked | Change found | Module updated |
 |------|---------|--------------|----------------|
 | 2026-10-08 | Blog roundups 2025-02 to 2026-09, API notes, consent docs | Initial build | All |
+| 2026-10-08 | Copilot opt-out, DSA, Max CPC, offline upload rules, AI Max default (verification pass) | Copilot opt-out confirmed impossible; DSA supported; Max CPC removed for new non-portfolio campaigns; no 7 day gate; AI Max default Contested; Manual CPC limited to Audience and lodging | SKILL, bidding, search and Copilot, measurement, account setup |

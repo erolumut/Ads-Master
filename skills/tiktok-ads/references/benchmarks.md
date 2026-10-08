@@ -38,7 +38,7 @@
 | Creative Boost minimum | $10 per day | TikTok Help Center |
 | EVTA threshold | 6-second watch (or full ad if shorter) | TikTok Help Center |
 | Dedup window | 48 hours from first event | TikTok Help Center, 2025-05 |
-| Learning phase exit | About 50 conversions per ad group in 7 days | [Practitioner consensus]; one guide cites 25 [Contested] |
+| Learning phase exit | About 50 conversions per ad group (TikTok: "most significant indicator"); under 20 in the first 10 days is a failure signal | TikTok Help Center Learning Phase FAQ and Campaign Creation FAQ [Official]; the 25 figure in one guide is not supported |
 
 ## 4. Where to get current vertical benchmarks (pull at task time)
 

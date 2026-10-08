@@ -6,7 +6,7 @@
 
 | Rank | Option | Read | Write | Setup effort | Notes |
 |------|--------|------|-------|-------------|-------|
-| 1 | Official TikTok for Business MCP Server | Yes | Yes (campaign management, audiences, creative operations) | Low to medium | Launched at TikTok World (2026-05); packages about 400 TikTok API for Business endpoints as MCP tools; offered through partners including Claude, Perplexity, Manus, Replit, Snowflake and the IAB Tech Lab Agent Registry [Official, 2026] |
+| 1 | Official TikTok for Business MCP Server | Yes | Yes (campaign management, audiences, creative operations) | Low to medium | Launched at TikTok World on 2026-05-13 (after Google on 2026-04-28 and Meta on 2026-04-29); packages about 400 TikTok API for Business endpoints as MCP tools; offered through partners including Claude, Perplexity, Manus, Replit, Snowflake and the IAB Tech Lab Agent Registry [Official, 2026] |
 | 2 | TikTok API for Business (Marketing API) v1.3 | Yes | Yes | Medium (developer app, OAuth, access token) | Full control; reporting, management, audiences, Events API |
 | 3 | Data connectors (Supermetrics, Funnel, Windsor.ai, Fivetran, Airbyte, Porter Metrics and similar) | Yes | No | Low | Into sheets, BigQuery, Looker Studio; Claude reads the warehouse or sheet |
 | 4 | Community MCP servers | Varies | Varies | Medium | Not official; review code and scopes before connecting |
@@ -15,10 +15,11 @@
 TikTok reports that advertiser use of its MCP connector for campaign activation and management grew more than 200% since launch (internal data, July to September 2026, no base given) [Official, 2026-10].
 
 ## 2. Official TikTok for Business MCP Server and Agentic Hub
-- Agentic Hub: the discovery layer, a marketplace of AI-powered tools and AI Skills for advertisers and developers [Official, 2026].
+- Agentic Hub: the discovery layer, a marketplace of AI-powered tools and AI Skills for advertisers and developers, launched 2026-06-30 with skills from TikTok and 14 partners (including HubSpot, Wix and Constant Contact), built on the MCP server [Official, 2026; launch date and partners via Digital Applied].
 - MCP Server: the connectivity layer, a standardized bridge that gives AI agents structured access to TikTok Ads capabilities: campaign management, performance reporting, audience configuration, creative operations [Official, 2026].
-- Docs: `business-api.tiktok.com/portal/docs/tiktok-ads-mcp-server/v1.3` and the help center article "About TikTok for Business MCP Server".
-- Regional availability, authentication and permissions: verify in the docs and in the user's account. In Europe, TikTok said the MCP changes are available [Unverified, single trade source].
+- Docs: `business-api.tiktok.com/portal/docs/tiktok-ads-mcp-server/v1.3` and the help center article "About TikTok for Business Agentic Hub and MCP Server" (last updated 2026-08) [Official, 2026-08]. Early June 2026 guides described the server as announced but not yet usable; public docs and the help article now exist, so treat it as available and confirm access in the user's account.
+- Regional availability, authentication and permissions: verify in the docs and in the user's account. In Europe, TikTok said the MCP changes are available [Unverified, single trade source]. Auth and pricing were not confirmed in this pass [Unverified].
+- Do not confuse it with organic posting MCP tools that use the Content Posting API; those publish organic videos and are out of scope for ads work.
 
 Agent operating rules with any MCP server:
 1. Start every session with read-only calls: list advertisers, campaigns, ad groups, ads; pull reports.
@@ -41,7 +42,7 @@ Security checklist for non-official servers: read the code, prefer read-only sco
 
 | Item | Detail |
 |------|--------|
-| Base URL | `https://business-api.tiktok.com/open_api/v1.3/` [Unverified, confirm current version] |
+| Base URL | `https://business-api.tiktok.com/open_api/v1.3/` (v1.3 is the current documented version, including the MCP server docs, as of 2026-08) [Official, 2026-08] |
 | Auth | Developer app in the TikTok API for Business portal, advertiser authorization (OAuth), long-lived access token passed in the `Access-Token` header |
 | Core objects | advertiser, campaign, adgroup, ad, creative (video, image), audience (DMP), pixel / events, catalog, GMV Max, Smart+ |
 | Reporting | Synchronous integrated report endpoint and asynchronous report tasks for large pulls |

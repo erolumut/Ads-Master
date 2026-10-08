@@ -5,7 +5,7 @@ description: Cross channel ad creative strategy, production and analysis for Met
 
 # Creative Strategy
 
-> Knowledge as of 2026-10. Platforms change monthly. Run the Freshness Protocol before acting on any feature, spec, AI tool, label, policy or benchmark. Research for this package had limited live verification (see `research/creative-strategy.md`, Research limitations); items marked [Unverified] must be checked before use.
+> Knowledge as of 2026-10 (verification pass 2026-10-08). Platforms change monthly. Run the Freshness Protocol before acting on any feature, spec, AI tool, label, policy or benchmark. The 2026 platform and legal facts (AI labels on Meta, TikTok and Google, EU AI Act Article 50 dates, New York and California synthetic performer laws, Creative diversity rating, Symphony and Asset Studio features, ChatGPT ad formats) were re-verified on 2026-10-08; items still marked [Unverified] or [Contested] must be checked before use (see `research/creative-strategy.md`).
 
 ## Mission and scope
 
@@ -226,10 +226,10 @@ Before relying on a feature, spec, policy or AI tool, check the official source,
 | Meta creative and AI | Meta Business Help Center (Advantage+ creative, creative fatigue, Creative diversity), facebook.com/business/ads/meta-advantage-plus/creative, Meta Ads Guide (specs), Meta newsroom about.fb.com, engineering.fb.com | Enhancement list and defaults, generative video availability, Creative diversity rating, fatigue labels, specs and safe zones, AI labels |
 | Meta testing | facebook.com/business/measurement/ab-testing, Help Center "creative testing" | Ad count limits, budget guidance, bid strategy limits |
 | TikTok | TikTok Ads Help Center, TikTok Creative Center (Top Ads, Creative Insights), TikTok Symphony pages, TikTok Advertising Policies, newsroom.tiktok.com | Specs, Symphony features, AIGC labels, Spark Ads code durations, policy changes |
-| Google and YouTube | Google Ads Help (asset specs, Asset Studio, PMax, Demand Gen), Google Ads policy center, YouTube ABCDs on Think with Google, blog.google ads and commerce, Google Ads release notes | Asset limits and character counts, AI generation features (Imagen, Veo, Gemini image models), disclosure requirements, auto-generated video settings |
+| Google and YouTube | Google Ads Help (asset specs, Asset Studio, PMax, Demand Gen), Google Ads policy center ("Updates to AI labeling requirements", support.google.com/adspolicy/answer/17257106), YouTube ABCDs on Think with Google, business.google.com announcements, Google Ads release notes | Asset limits and character counts, AI generation features (Imagen, Veo, Gemini image models), disclosure requirements, auto-generated video settings |
 | LinkedIn | LinkedIn Marketing Solutions help (ad specs), LinkedIn Ad Library, LinkedIn Marketing blog | Specs, Thought Leader Ads eligibility, new formats |
 | ChatGPT ads | OpenAI advertiser documentation and announcements | Format, character limits, policies, eligible categories |
-| Legal | FTC Endorsement Guides and FAQ, FTC rule on consumer reviews and testimonials, EU AI Act (Regulation 2024/1689) Article 50 and Commission guidance or codes of practice, national ad regulators (ASA UK) | Disclosure obligations and dates, any delays or guidance |
+| Legal | FTC Endorsement Guides and FAQ, FTC rule on consumer reviews and testimonials, EU AI Act (Regulation 2024/1689 as amended by the Digital Omnibus, Regulation 2026/1744) Article 50 and Commission guidance or codes of practice, New York GBL 396-b and California SB 1050 (synthetic performers), national ad regulators (ASA UK) | Disclosure obligations and dates (Article 50 from 2026-08-02; 50(2) marking grace to 2026-12-02; California from 2027-01-01), any delays or guidance |
 | Tools | Changelogs of Motion, Foreplay, Atria, Triple Whale, the AI tools in use | Feature changes, API and MCP availability |
 
 Log format in the journal: date checked, source, what changed, which reference or decision it affects, and a proposed edit to this skill if the change is durable.

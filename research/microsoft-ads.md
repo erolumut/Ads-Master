@@ -2,12 +2,12 @@
 
 > Compiled 2026-10-08 for the `microsoft-ads` agent. Covers January 2025 to October 2026.
 >
-> Method and limits: 17 web searches (extended mode for 2025 to 2026 items) returned extracts of Microsoft Advertising blog roundups, Microsoft Learn documentation and trade press. Direct page fetching was blocked by the research environment's egress policy and the shared web search budget ran out before the target of 35 searches, so several items rely on search extracts and are labeled accordingly. GitHub repository search (2026-10-08) was used for tools and MCP servers. Items that need live verification are in the watch list.
+> Method and limits: 17 web searches (extended mode for 2025 to 2026 items) returned extracts of Microsoft Advertising blog roundups, Microsoft Learn documentation and trade press. Direct page fetching was blocked by the research environment's egress policy and the shared web search budget ran out before the target of 35 searches, so several items rely on search extracts and are labeled accordingly. GitHub repository search (2026-10-08) was used for tools and MCP servers. Items that need live verification are in the watch list. A verification pass on 2026-10-08 ran additional live searches on Copilot opt-out and reporting, Dynamic Search Ads, Max CPC, offline upload rules and AI Max defaults (sources 71 to 79).
 
 ## 1. Executive summary
 
-1. Copilot is a placement, not a campaign type. Ads reach Copilot through Search, Shopping, AI Max and PMax campaigns; eligibility depends on formats (logo, images, multimedia, feeds), market and rollout. Copilot specific reporting is inconsistent across sources [Contested].
-2. AI Max for Search became generally available in August 2026 (announcement 2026-08-27) after an open pilot from May. It bundles search term matching, text customization and final URL expansion, with brand controls and term exclusions, and imports from Google Ads [Official, 2026-08].
+1. Copilot is a placement, not a campaign type. Ads reach Copilot through Search, Shopping, AI Max and PMax campaigns; eligibility depends on formats (logo, images, multimedia, feeds), market and rollout. Microsoft Learn states that all eligible campaign and ad types are opted in automatically and advertisers cannot opt out [Official]. Copilot specific reporting is inconsistent across sources and no official Copilot segment was found [Contested].
+2. AI Max for Search became generally available in August 2026 (rollout from 2026-08-19, announcement 2026-08-27) after an open pilot from May. It bundles search term matching, text customization and final URL expansion, with brand controls and term exclusions, and imports from Google Ads. Microsoft's blog says it is on by default for new Search campaigns while the Ads Liaison called it opt-in [Contested]; Dynamic Search Ads stay supported until further notice [Official, 2026-08]. From 2026-10-01 new non-portfolio campaigns on Maximize Clicks, Conversions or Conversion Value cannot set a Max CPC [Official notice via trade press, 2026-09].
 3. Performance Max matured fast: NCA goal GA (2026-02), self-serve negative keywords up to 5,000 per list (2026-03), share of voice (2026-01), landing page report (2026-04), Ad Preview Hub (2026-07), uplift experiments GA (2026-09) [Official].
 4. Experiments became generally available for Search, Shopping, Audience and PMax in September 2026, with side by side results and one click apply [Official, 2026-09].
 5. Measurement shifted: UET consent mode mandatory for EEA, UK and Swiss users since 2025-05-05; modeled conversions since 2025-08; Advanced Consent Mode guidance 2026-02-19; Conversions API documented 2026-08 but beta and enrolled per account [Official].
@@ -55,7 +55,7 @@
 - Model: Copilot is a placement fed by Search, Shopping, AI Max and PMax campaigns [Practitioner consensus, multiple 2026 guides].
 - Formats announced 2025-03: Showroom ads (pilot from 2025-04, account team access), dynamic filters (pilot), ad voice, brand agents (planned or pilot) [Official, 2025-03].
 - Commerce: Universal Commerce Protocol and Copilot Checkout announced at Activate 2026 to power purchase flows with fresh product data [Official, 2026-06].
-- Eligibility signals cited by guides: multimedia ads, product ads, search ads with logo assets, property promotion and tours and activities ads; market and rollout state matter [Unverified].
+- Eligibility per Microsoft Learn: multimedia ads, product ads (Shopping and PMax), search ads with logo extensions or business logo automated extensions (DSA, RSA, PMax in search placements) and certain vertical types; eligible campaigns are opted in automatically and cannot opt out [Official].
 - Measurement: unresolved; treat Copilot as not separable unless the account shows a segment [Contested].
 - Skeptic view: PCWorld (2025-03) argued large conversational ad units could be intrusive; expect user experience changes and format iteration.
 
@@ -118,11 +118,11 @@
 | 2026-08-11 | Bulk edit tool for disapproved assets | Policy | [Official, 2026-08] |
 | 2026-08-12 | Clarity AI Visibility reporting expanded (Topic Insights, grounding queries, citation share, Share of Authority) | Analytics | [Official, 2026-08] |
 | 2026-08 | First monthly product newsletter on LinkedIn | Comms | Trade press |
-| 2026-08-27 | AI Max for Search GA | Search | [Official, 2026-08] |
+| 2026-08-19 to 08-27 | AI Max for Search GA (rollout from 2026-08-19, announcement 2026-08-27); default on for new Search campaigns per Microsoft's blog [Contested]; DSA supported until further notice | Search | [Official, 2026-08] |
 | 2026-09-08 | PMax uplift experiments GA (as announced in August) | PMax | [Official, 2026-08] |
 | 2026-09-30 | Experiments GA across Search, Shopping, Audience, PMax; HubSpot integration; LinkedIn company lists 10,000; SOAP retirement 2027-01-31 | Multiple | [Official, 2026-09] |
-| 2026 (date unclear) | Reports that Max CPC is unavailable for some new campaigns | Bidding | [Unverified] |
-| 2026-08 (headline) | Reports of a 7 day gate on offline conversion uploads | Measurement | [Unverified] |
+| 2026-10-01 | Max CPC no longer available when creating new non-portfolio campaigns on Maximize Clicks, Maximize Conversions or Maximize Conversion Value; portfolios, Enhanced CPC and Target impression share keep caps | Bidding | [Official notice via trade press, 2026-09] |
+| 2026-08 (headline) | Reports of a 7 day gate on offline conversion uploads; no matching rule found in Microsoft docs on 2026-10-08 | Measurement | [Unverified] |
 
 ## 4. Best practice consensus
 
@@ -142,7 +142,8 @@
 | Topic | Side A | Side B | Working position |
 |-------|--------|--------|------------------|
 | Copilot reporting | Some guides: a Copilot segment exists in network or distribution reports | Others: Copilot is mixed with Microsoft sites or no Copilot metrics exist | Check the account; report "not separable" when absent |
-| Copilot opt-out | Guides say eligible campaigns are opted in and cannot opt out | No official confirmation found | Treat as unconfirmed; ask the account team |
+| AI Max default on new Search campaigns | Microsoft's August 2026 blog: enabled by default, can be turned off | Ads Liaison quoted by SERoundtable: opt-in for new and existing campaigns | Check the creation screen; set AI Max deliberately per campaign |
+| Existing campaigns after the Max CPC change | Most write-ups: existing caps stay | Notice does not mention existing campaigns; one newsletter warns removal is irreversible | Do not remove existing caps |
 | Brand agents status | Adweek (2025-03) called branded agents unveiled | Microsoft and 2026 roundups call them planned or pilot | Pilot via account team only |
 | Modeled conversions under consent mode | Microsoft (2025-08, 2026-02) describes modeling to fill gaps | Usercentrics says no modeling for denied users; MB Adv says ACM opt-in needed | Treat modeled data as estimates; verify which goals show modeling |
 | ad_user_data parameter | One guide says both ad_storage and ad_user_data are needed | Microsoft docs describe ad_storage only | Follow Microsoft FAQ |
@@ -218,14 +219,14 @@ No independent, method disclosed, cross account Microsoft Advertising benchmark 
 
 ## 11. Open questions and watch list
 
-1. Copilot placement reporting: is there an official Copilot segment, and can advertisers exclude Copilot?
+1. Copilot placement reporting: is there an official Copilot segment? (Opt-out settled: advertisers cannot exclude Copilot [Official].)
 2. Showroom ads, dynamic filters and brand agents: pilot or GA in 2026, and in which markets?
-3. Dynamic Search Ads: status relative to AI Max final URL expansion.
+3. Dynamic Search Ads: supported until further notice (2026-08); watch for a sunset notice.
 4. Conversions API: GA date, self-serve enrollment, integrations (GTM server template, CDPs).
 5. HubSpot integration: GA or beta; which lifecycle stages feed bidding.
 6. Modeled conversions: does modeling require ACM, and which goals receive it?
-7. Max CPC availability for new campaigns (reports in 2026 unverified).
-8. Offline conversion upload timing gate (reported 2026-08, unverified).
+7. Max CPC: what happens to existing campaigns' caps and to API and tool support after 2026-10-01 (one report cites 2027-01-12) [Unverified].
+8. Offline conversion upload timing gate (reported 2026-08; not in Microsoft docs as of 2026-10-08).
 9. LinkedIn profile targeting market list and PMax signal GA status beyond the 2025 pilot markets.
 10. Universal Commerce Protocol and Copilot Checkout: merchant enrollment steps and eligible markets.
 11. Video and CTV buying inside Microsoft Advertising after the Microsoft Invest wind down.
@@ -303,3 +304,12 @@ No independent, method disclosed, cross account Microsoft Advertising benchmark 
 68. bit-of-a-shambles/microsoft-ads-mcp-server. GitHub. https://github.com/bit-of-a-shambles/microsoft-ads-mcp-server. Created 2026-01-26.
 69. Synter-Media-AI/mcp-server. GitHub. https://github.com/Synter-Media-AI/mcp-server. Created 2026-01-29.
 70. itallstartedwithaidea/advertising-hub. GitHub. https://github.com/itallstartedwithaidea/advertising-hub. Created 2026-03-10.
+71. About ads in Copilot. Microsoft Learn. https://learn.microsoft.com/en-us/advertising/msa-help/hlp_ba_conc_adsforcopilot. Checked 2026-10.
+72. Microsoft Advertising drops Max CPC from new campaigns on October 1. PPC Land. https://ppc.land/microsoft-advertising-drops-max-cpc-from-new-campaigns-on-october-1/. 2026-09.
+73. Microsoft Advertising Removes Max CPC From New Standalone Campaigns: Portfolio Bidding Keeps the Cap. Elsop. https://www.elsop.com/microsoft-ads-max-cpc-new-standalone-campaigns. 2026-09.
+74. ManualCpcBiddingScheme data object. Microsoft Learn. https://learn.microsoft.com/en-us/advertising/campaign-management-service/manualcpcbiddingscheme?view=bingads-13. Rolling.
+75. AI Max for Search is now available. Microsoft Advertising blog. https://about.ads.microsoft.com/en/blog/post/august-2026/reimagining-search-campaigns-for-the-ai-era-with-ai-max. 2026-08.
+76. Microsoft Advertising Rolling Out AI Max Globally. Search Engine Roundtable. https://www.seroundtable.com/microsoft-advertising-ai-max-41909.html. 2026-08.
+77. Providing more transparency for your Performance Max campaigns. Microsoft Advertising blog. https://about.ads.microsoft.com/en/blog/post/may-2026/providing-more-transparency-for-your-performance-max-campaigns. 2026-05.
+78. Tracking offline conversions. Microsoft Learn. https://learn.microsoft.com/en-us/advertising/msa-help/hlp_ba_conc_uetv2offlineconversion. Checked 2026-10.
+79. OfflineConversion data object. Microsoft Learn. https://learn.microsoft.com/en-us/advertising/campaign-management-service/offlineconversion?view=bingads-13. Rolling.

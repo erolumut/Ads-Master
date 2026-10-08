@@ -9,17 +9,17 @@
 | Bing (web, Edge, Windows search) | Search campaigns, Shopping, PMax | Owned and operated, always on in Search |
 | Yahoo and AOL search | Part of Microsoft owned and operated plus partner inventory | Not separable as a single toggle; review in publisher report [Practitioner consensus] |
 | DuckDuckGo, Ecosia and other syndicated search partners | Syndicated search partners | Ad distribution setting and website exclusions |
-| Microsoft Copilot (copilot.microsoft.com, Copilot in Edge, Windows, Bing) | Placement fed by Search, Shopping, AI Max and PMax | No separate campaign type; eligibility by format [Unverified] for opt-out options |
+| Microsoft Copilot (copilot.microsoft.com, Copilot in Edge, Windows, Bing) | Placement fed by Search, Shopping, AI Max and PMax | No separate campaign type; all eligible campaign and ad types are opted in automatically, advertisers cannot opt out, and serving is not guaranteed [Official, Microsoft Learn] |
 | Microsoft Audience Network (MSN, Outlook, Edge new tab, partners) | Audience campaigns, PMax, and Search campaigns if not opted out | See [Audience network](audience-network-and-targeting.md) |
 
 ## 2. Search campaign structure
 
 | Campaign | Purpose | Match types | Bidding default | Notes |
 |----------|---------|-------------|-----------------|-------|
-| Brand | Defend and capture brand demand cheaply | Exact and phrase | Target impression share (top of page) or Manual CPC | Separate budget; exclude brand from all other campaigns and PMax |
+| Brand | Defend and capture brand demand cheaply | Exact and phrase | Target impression share (top of page) or Enhanced CPC | Separate budget; exclude brand from all other campaigns and PMax |
 | Non-brand core | Highest intent category and product terms | Exact and phrase, broad only with conversion bidding | Maximize conversions or value with target after 30 conversions | Split by margin or service line, not by match type |
 | Non-brand discovery | Find new queries | Broad or AI Max | Conversion bidding with a target | Run only when core is profitable |
-| Competitor | Comparison demand | Exact and phrase | Manual or tCPA with lower target | Check trademark policy per market |
+| Competitor | Comparison demand | Exact and phrase | Enhanced CPC or tCPA with lower target | Check trademark policy per market |
 | Problem or category (B2B) | Earlier stage demand | Phrase and broad | tCPA on qualified lead goal | Layer LinkedIn profile Bid only |
 
 Rules:
@@ -59,7 +59,7 @@ Since 2025-11 Microsoft reviews each headline, description and image independent
 
 ## 4. AI Max for Search
 
-Status: generally available since 2026-08 (main announcement 2026-08-27) after an open pilot from 2026-05 [Official, 2026-08].
+Status: generally available since 2026-08 (rollout to all accounts from 2026-08-19, main announcement 2026-08-27) after an open pilot from 2026-05 [Official, 2026-08]. Microsoft's August blog says AI Max is enabled by default for new Search campaigns and can be turned off at creation or later; Microsoft's Ads Liaison was quoted saying it stays opt-in for new and existing campaigns [Contested: check the campaign creation screen]. Existing predictive matching and auto-generated text assets were folded into AI Max with the setting enabled automatically; the expanded features need an explicit opt-in on existing campaigns. No forced conversion date has been announced.
 
 | Component | What it does | Control |
 |-----------|-------------|---------|
@@ -79,7 +79,7 @@ Google parity: Google Import carries AI Max settings; scheduled imports keep app
 
 ## 5. Dynamic Search Ads (status check required)
 
-Dynamic Search Ads generate headlines from site content and target by page feeds, categories or URL rules. As of 2026-10 their long term status relative to AI Max final URL expansion is not confirmed [Unverified]. Google has been moving DSA functionality into AI Max [Practitioner consensus]. Procedure:
+Dynamic Search Ads generate headlines from site content and target by page feeds, categories or URL rules. Microsoft's August 2026 AI Max announcement says DSA campaigns stay supported until further notice and no sunset date is set [Official, 2026-08]. Google, by contrast, is upgrading DSA to AI Max (DSA auto-migration reportedly moved to February 2027) [Contested date]; a Google DSA campaign already upgraded to AI Max is converted back into a DSA campaign when imported to Microsoft. Procedure:
 1. Check the help center and UI for DSA creation availability before proposing new DSA builds.
 2. For existing DSA, compare against an AI Max experiment on the same domain section.
 3. Keep page feeds and URL exclusions current either way; they map to AI Max URL controls.
@@ -98,7 +98,7 @@ Dynamic Search Ads generate headlines from site content and target by page feeds
 Performance claims from Microsoft: ad relevance in Copilot about 25% better than traditional search and CTR roughly doubling (reported 2025-03, company sourced, not independently audited) [Official, 2025-03] [Unverified] for any specific account.
 
 ### Copilot eligibility (what to build)
-Third party guides list these as eligible for Copilot placement: multimedia ads, product ads (Shopping and PMax), search ads with a logo asset or business logo, property promotion ads and tours and activities ads [Unverified]. The same guides state eligible campaigns are opted in automatically and cannot opt out [Unverified].
+Microsoft's "About ads in Copilot" page lists as eligible: multimedia ads, product ads (Shopping and PMax), search ads with logo extensions or business logo automated extensions (including Dynamic Search ads, Responsive Search ads and PMax ads serving in search placements), and certain vertical ad types such as property promotion and tours and activities. All eligible campaign and ad types are opted in automatically; advertisers cannot opt out and display is not guaranteed [Official, Microsoft Learn]. Practical controls: remove any asset you do not want shown in Copilot from eligible campaigns; negatives apply as in Search. Excluding Microsoft owned domains in website exclusions does not block Bing or Microsoft search placements.
 
 Copilot readiness checklist:
 - [ ] RSAs with 15 headlines and 4 descriptions, ad strength good or better
@@ -111,7 +111,7 @@ Copilot readiness checklist:
 - [ ] Vertical feeds (hotel, property, tours) where the business fits
 
 ### Copilot reporting
-Sources conflict: some guides describe a Copilot segment in network or ad distribution reports, others say Copilot data sits with Microsoft sites or audience placements, others say no Copilot specific metrics exist [Contested]. Procedure:
+Sources conflict: some guides describe a Copilot segment in network or ad distribution reports, others say Copilot data sits with Microsoft sites or audience placements, others say no Copilot specific metrics exist [Contested]. No official Microsoft documentation of a Copilot reporting segment was found on 2026-10-08. The PMax Website URL (placement) report gained conversions, clicks and spend in May 2026 (dated 2026-05-02 or 2026-05-07 by source) [Official, 2026-05], but no source confirms that it breaks out Copilot. Procedure:
 1. In Reports, add the "Ad distribution" or network segment and look for a Copilot label.
 2. Check the PMax search insights and landing page reports for conversational query patterns.
 3. If no Copilot breakdown exists in the account, report Copilot as "not separable" and do not estimate it.

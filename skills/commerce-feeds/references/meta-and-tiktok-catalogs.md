@@ -76,7 +76,7 @@ Availability values Meta accepts include `in stock`, `out of stock`, `preorder`,
 - Localized catalogs: country and language override feeds (or `localized_items_batch`) for multi-market price, currency, text and links.
 
 ### A7. Shops and checkout status
-Meta has narrowed onsite checkout on Facebook and Instagram Shops in the US since 2024 and steers purchases to the merchant website, while Shops ads and catalog ads continue [Unverified: confirm the current Shops checkout status for each market in Commerce Manager before planning]. Do not build a plan on onsite checkout without confirming eligibility.
+Meta phased out onsite checkout on Facebook and Instagram Shops: from June 2025 US shops moved to website checkout (most by the end of August 2025; BigCommerce cites 2025-09-04), shops on third-party order management systems later, and Meta stopped handling order management, post-purchase and disputes in the apps. Shops ads and catalog ads continue [Official per Meta notices via coverage, 2025-06 to 2025-09]. In March 2026 Meta launched one-tap checkout inside Facebook ads through payment partners (Stripe and PayPal at launch, Adyen and Shopify payments to follow; Instagram announced as next) where the merchant stays seller of record and fulfills [Official per TechCrunch 2026-03-25; market list Unverified]. This is not a return of Shops checkout: keep the catalog `link` and website checkout correct, and confirm one-tap eligibility per market in Commerce Manager before planning.
 
 ### A8. Meta catalog diagnostics
 | Issue | Cause | Fix |
@@ -113,7 +113,8 @@ Rule: the TikTok pixel and Events API `content_id` must match `sku_id` for retar
 - Category-specific required attributes and certifications; listings pass a compliance review before going live.
 - Titles: product type and key attributes first, no promotional claims; images on clean background with the first image the hero; video assets matter more than on any other channel.
 - Price and stock sync from the store platform through the official integration or a connector; oversell causes order cancellations that hurt shop health scores.
-- GMV Max became the main and then default campaign type for promoting Shop products during 2025 [Unverified: confirm with tiktok-ads]. GMV Max uses Shop products, so Shop listing quality is the lever commerce-feeds controls.
+- GMV Max became the default campaign type for TikTok Shop ads in July 2025 and the only type for new Shop ads campaigns from 2025-09-01 (existing older campaigns kept running); one guide reports a phased June 1 to July 15 schedule [Contested dates, 2025]. GMV Max uses Shop products, so Shop listing quality is the lever commerce-feeds controls.
+- Product GMV Max prerequisites [Secondary, multiple 2026; confirm in Seller Center and Ads Manager]: only the primary ad account linked to the Shop can launch it; SKUs, prices and stock must sync through TikTok Shop or the official integration; the shop authorizes content from the brand account, Shop account and approved creators; choose the whole catalog or up to 50 SKUs; launching GMV Max on a product pauses Video Shopping Ads and Product Shopping Ads for that product across ad accounts (they do not restart on their own); a video that tags products from more than one shop is ineligible. TikTok publishes no list of eligible products: eligible means the SKU passes compliance and has content behind it.
 
 ### B5. TikTok diagnostics
 | Issue | Fix |

@@ -12,13 +12,13 @@ Catalog of data sources Claude can use for market intelligence, how to call them
 ## 2. Official APIs and datasets
 | Source | Endpoint or access | What you get | Access requirements | Status |
 |--------|--------------------|--------------|---------------------|--------|
-| Meta Ad Library API | `GET https://graph.facebook.com/v<version>/ads_archive` | EU delivered ads (all categories) and political or issue ads: creative text, dates, platforms, EU reach, targeting summaries, payer and beneficiary | Meta developer account, identity confirmation, access token | [Official, K] |
+| Meta Ad Library API | `GET https://graph.facebook.com/v<version>/ads_archive` with required `ad_reached_countries` and `search_terms` or `search_page_ids` | EU delivered ads (all categories) and political or issue ads: creative text, dates, platforms, EU reach, targeting summaries, payer and beneficiary | Meta developer account, identity confirmation at facebook.com/ID (government ID, proof of residence), `ads_read` permission, access token; processing time reported from days to weeks | [Official; access steps via 2026 secondary guides] |
 | Google Ads API | Auction Insights metrics are not generally available through the API (access has been restricted) [Unverified current status]; use UI or report exports. KeywordPlanIdeaService and keyword historical metrics for volumes | Keyword ideas, volumes, competition, bid ranges | Developer token, account access | [K] |
 | Google Search Console API | Search Analytics query | Our queries, clicks, impressions, positions | Property access | [K] |
 | Google Trends | UI exports; Trends API alpha announced in 2025 | Relative interest; API gives consistently scaled data | Alpha access [Unverified current status] | [K] |
 | Google political ads transparency data | Public datasets (for example BigQuery public data) | Political ad spend where Google serves political ads | Google Cloud account | [K] |
-| Google Ads Transparency Center | Web UI | Competitor ads by domain and region | No official commercial ads API [Unverified] | [K] |
-| TikTok Commercial Content API | Researcher and approved access | EU commercial content library data | Application and approval | [K; Unverified scope] |
+| Google Ads Transparency Center | Web UI | Competitor ads by domain and region | No official commercial ads API; only the political ads BigQuery dataset is official [Practitioner consensus, 2026]; third-party scrapers exist (check terms) | [K] |
+| TikTok Commercial Content API | developers.tiktok.com (query ads, ad details, advertisers; docs updated 2026-09-01) | EU/EEA, UK and Swiss commercial content library data (advertiser, dates, targeting, reach) | Application and approval; eligibility reported as researcher focused [Contested] | [Official docs; scope Contested] |
 | YouTube Data API | `commentThreads`, `search`, `videos` | Public video metadata and comments | API key, quota | [K] |
 | Reddit Data API | OAuth API | Posts and comments | Data API terms: commercial use requires an agreement with Reddit; respect rate limits | [K] |
 | App store reviews | Apple App Store Connect API and Google Play Developer API for own apps; public review pages for others | Reviews and ratings | Own app credentials | [K] |
@@ -55,8 +55,8 @@ Accounts without meaningful spend may see ranges rather than exact volumes [K].
 | Server | Provider | What it exposes | Status |
 |--------|----------|-----------------|--------|
 | Ahrefs MCP | Ahrefs (official) | Ahrefs data via API key | [K; verify current availability and plan requirements] |
-| Semrush MCP | Semrush | Semrush data via API | [Unverified] |
-| Similarweb MCP | Similarweb | Traffic and market data | [Unverified] |
+| Semrush MCP | Semrush (official, remote; launched 2025-09) | Semrush Standard and Trends API data; endpoint `https://mcp.semrush.com/v2/mcp` (streamable HTTP; some guides still list v1); OAuth by default or API key in the Authorization header; consumes API units; official apps in Claude and ChatGPT, Perplexity connector 2026-06 | [Official, developer.semrush.com 2026] |
+| Similarweb MCP | Similarweb (official, remote; announced 2025-09-25) | Traffic, channel and market data; endpoint `https://mcp.similarweb.com` (streamable HTTP); needs a plan with API access (API-only, Business or Enterprise) and consumes data credits like API calls | [Official, Similarweb docs 2026] |
 | DataForSEO MCP | DataForSEO (official, open source) | SERP, keywords, backlinks, on-page APIs | [K] |
 | Apify MCP | Apify (official) | Runs Apify actors, including community scrapers for ad libraries and reviews | [K]; actor use must respect target site terms |
 | Firecrawl MCP, Bright Data MCP | Vendors | Page crawling and extraction | [K]; terms and robots apply |

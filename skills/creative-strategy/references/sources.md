@@ -20,12 +20,21 @@
 | Title | Publisher | URL | Date | Supports | Status |
 |-------|-----------|-----|------|----------|--------|
 | Google Ads Transparency Center | Google | https://adstransparency.google.com/ | current | Competitor ads across Google surfaces | Not re-fetched |
-| YouTube ABCDs of effective video ads | Google (Think with Google) | thinkwithgoogle.com (search "ABCDs") | 2022 onward | Attract, Brand, Connect, Direct; Kantar study lift figures | Not re-fetched |
+| The ABCDs of effective video ads | YouTube | https://www.youtube.com/intl/en_ae/ads/abcds-of-effective-video-ads | current | Attract, Brand, Connect, Direct; 30% and 17% Kantar figures | Seen 2026-10-08 via summary |
+| Validating Google's ABCD framework with the power of artificial intelligence | Kantar | https://www.kantar.com/industries/technology-and-telecoms/validating-googles-abcd-framework-with-the-power-of-artificial-intelligence | n.d. (about 2021 to 2022) | Method: about 11,000 ads, 180 features, Link AI; modeled predictions | Seen 2026-10-08 via summary |
+| Updates to AI labeling requirements (July 2026) | Google Advertising Policies Help | https://support.google.com/adspolicy/answer/17257106?hl=en | 2026-07 | In-creative AI labels allowed, auto labels on some Google AI assets, AI label setting | Seen 2026-10-08 via summary |
+| Veo in Google Ads (announcement page) | Google Ads | https://business.google.com/en-all/accelerate/announcements/veo-google-ads/ | 2026-03 | Veo image to video in Asset Studio | Seen 2026-10-08 |
+| Multimodal Video Creation in Asset Studio | Google Ads | https://business.google.com/us/accelerate/announcements/multimodal-video-creation-in-asset-studio/ | 2026 | Asset Studio video generation | Seen 2026-10-08 |
+| Asset Studio: your creative home in Google Ads (GML 2026) | Google Ads on X | https://x.com/GoogleAds/status/2057148459497746590 | 2026-05-20 | Gemini, Veo, Nano Banana in Asset Studio; Gemini Omni for summer | Seen 2026-10-08 |
+| Transforming Video Creation With TikTok Symphony And Dreamina Seedance 2.5 | TikTok for Business | https://ads.tiktok.com/business/en/blog/transforming-video-creation-tiktok-symphony-dreamina-seedance | 2026-08-03 | 30-second AI video, labels, watermark, C2PA | Seen 2026-10-08 |
+| Misleading and false content (advertising policy) | TikTok Ads Help Center | https://ads.tiktok.com/help/article/tiktok-ads-policy-misleading-and-false-content | 2026 | AIGC label or clear disclaimer required on AI ad content | Section list seen; text via secondary |
+| Integrity and Authenticity | TikTok Community Guidelines | https://www.tiktok.com/community-guidelines/en/integrity-authenticity | current | Labels on realistic AI content | Seen 2026-10-08 |
+| Ads API reference: Ads | OpenAI Developers | https://developers.openai.com/ads/api-reference/ads | 2026 | chat_card and product_ad_template formats | Seen 2026-10-08 |
 | TikTok Creative Center | TikTok | https://ads.tiktok.com/business/creativecenter/ | current | Top Ads, Creative Insights, trends | Not re-fetched (domain blocked) |
 | TikTok Commercial Content Library | TikTok | https://library.tiktok.com/ | current | EU ad transparency | Not re-fetched |
 | LinkedIn Ad Library | LinkedIn | https://www.linkedin.com/ad-library/ | current | LinkedIn ads research | Not re-fetched |
 | Our approach to advertising (ChatGPT ads announcement) | OpenAI | openai.com (January 2026 announcement) | 2026-01 | ChatGPT ads test: US, Free and Go tiers, labeled, separate from answers | Not re-fetched; verify |
-| Google Ads requires disclosure labels on AI-generated content | Search Engine Journal | https://www.searchenginejournal.com/google-ads-requires-disclosure-for-ai-generated-content/581925/ | 2026 | Reported Google Ads AI disclosure requirement | Seen as search result only; details unverified |
+| Google Ads requires disclosure labels on AI-generated content | Search Engine Journal | https://www.searchenginejournal.com/google-ads-requires-disclosure-for-ai-generated-content/581925/ | 2026 | Reported Google Ads AI disclosure requirement | Headline overstates the rule; use Google's policy page above |
 
 ## Official: law and regulation
 
@@ -36,6 +45,11 @@
 | Federal Trade Commission announces final rule banning fake reviews and testimonials | US FTC | https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials | 2024-08-14 | AI generated fake testimonials prohibited; effective October 21, 2024 | Not re-fetched |
 | AI in advertising: a regulatory lookahead for 2026 | Charles Russell Speechlys | https://www.charlesrussellspeechlys.com/en/insights/expert-insights/commercial/2026/ai-in-advertising-a-regulatory-lookahead-for-2026/ | 2026 | Overview of 2026 AI advertising rules | Seen as search result |
 | C2PA (Content Credentials) | C2PA | https://c2pa.org/ | current | Provenance metadata used in AI labeling | Not re-fetched |
+| EU AI Omnibus enters into force, amending the AI Act | White and Case | https://www.whitecase.com/insight-alert/eu-ai-omnibus-enters-force-amending-ai-act | 2026-07 | Regulation 2026/1744 in force 2026-07-27; high-risk delays | Seen 2026-10-08 |
+| Yes, August 2 Still Matters | Jones Walker | https://www.joneswalker.com/en/insights/blogs/ai-law-blog/yes-august-2-still-matters-the-eu-approved-a-high-risk-ai-delay-but-most-trans.html?id=102nbon | 2026 | Article 50 not delayed; 50(2) grace to 2026-12-02 | Seen 2026-10-08 |
+| EU AI Act Omnibus Agreement | Gibson Dunn | https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/ | 2026-05 | Provisional deal 2026-05-07 | Seen 2026-10-08 |
+| New York Synthetic Performer Law: What Advertisers Need to Know | Manatt | https://www.manatt.com/insights/newsletters/client-alert/new-york-synthetic-performer-law-what-advertisers-need-to-know | 2026 | GBL 396-b, in force 2026-06-09, fines | Seen 2026-10-08 |
+| California becomes the second state to enact a synthetic performer law | DLA Piper | https://www.dlapiper.com/en-us/insights/publications/2026/09/california-becomes-the-second-state-to-enact-a-synthetic-performer-law | 2026-09 | SB 1050 signed 2026-09-16, effective 2027-01-01 | Seen 2026-10-08 |
 
 ## Trade press and practitioner sources (2025 to 2026)
 
@@ -123,16 +137,18 @@
 | Segwise | https://segwise.ai/ | AI creative tagging (apps) | Seen via blog result |
 | Google Ads MCP server (open source, from Google) | https://github.com/googleads/google-ads-mcp | Read access to Google Ads data for LLM agents | Not re-fetched; verify repository and scope |
 | Google Analytics MCP server | https://github.com/googleanalytics/google-analytics-mcp | GA4 data for LLM agents | Not re-fetched; verify |
+| Meta Ads MCP server (official, open beta since 2026-04-29) | https://developers.facebook.com/documentation/ads-commerce/ads-ai-connectors/ads-mcp-server/ads-mcp-server-overview | Hosted at mcp.facebook.com/ads; Meta Business OAuth | Seen 2026-10-08 |
+| TikTok for Business MCP Server (official) | https://business-api.tiktok.com/portal/docs/tiktok-ads-mcp-server/v1.3 | TikTok ads data and actions for agents | Seen 2026-10-08 |
 | Meta Ads MCP (community, Pipeboard) | https://github.com/pipeboard-co/meta-ads-mcp | Meta Marketing API access for LLM agents | Community; verify security and permissions |
 | Meta Marketing API Insights | https://developers.facebook.com/docs/marketing-api/insights/ | Ad level metrics including video plays | Not re-fetched |
 
 ## Re-verification queue (highest priority first)
 
-1. Meta Help Center: Creative diversity rating definition and availability; creative fatigue label thresholds.
-2. Meta Help Center: Advantage+ creative enhancement list and default settings by objective.
-3. Meta Help Center: Creative Testing tool limits (variants, budget, duration, bid strategies).
-4. TikTok: Symphony features and AIGC labeling for ads in 2026; Spark Ads authorization options.
-5. Google Ads Help: Asset Studio, generative image and video features, AI disclosure policy update reported in 2026.
-6. OpenAI: ChatGPT ads formats, limits and policies.
-7. EU: Article 50 application status after digital omnibus negotiations; final code of practice on AI content labeling.
-8. YouTube ABCD study figures on Think with Google.
+Verified on 2026-10-08 (see research dossier sources 68 to 97): Creative diversity rating definition, Advantage+ enhancement default date (2026-02), TikTok Symphony and AIGC ad rule, Google AI labeling update and Asset Studio, ChatGPT ad formats, EU Article 50 status after the omnibus, New York and California laws, ABCD figures and method. Still open:
+
+1. Meta Help Center: creative fatigue label thresholds; Creative Testing tool limits (variants, budget, duration, bid strategies) in Meta's own words.
+2. Meta: Muse Image availability in Advantage+ creative; whether Creative diversity is exposed in the API or the official MCP server.
+3. TikTok: Spark Ads authorization options; free vs paid Seedance access; date of the AIGC ad rule (2026-07-21 claim).
+4. Google: whether Gemini Omni and one-click creative testing in Asset Studio are live.
+5. EU: final Commission code of practice on AI content labeling.
+6. LinkedIn 2026 formats (not re-verified).

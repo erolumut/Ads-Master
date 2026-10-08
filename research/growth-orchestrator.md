@@ -2,7 +2,7 @@
 
 Research date: 2026-10-08. Scope: how top operators decide channel mix, allocate budgets, set unit economics targets, run multi channel teams and reviews, and how the 2025 to 2026 platform, privacy and tax changes alter those decisions. Companion: `research/00-market-overview-2026.md`.
 
-Method and limitations: live web research ran until the shared search budget for this build was exhausted (14 extended searches for this dossier and the market overview), and direct page fetches were blocked by the research environment's egress policy. Every fact below that came from the live sweep is marked (S) in the source list; facts from established prior knowledge are marked (K) and should be re-checked in the Freshness Protocol. Evidence labels follow `docs/AUTHORING_SPEC.md`. Numbers were not invented; where sources conflict the item is marked [Contested].
+Method and limitations: live web research ran until the shared search budget for this build was exhausted (14 extended searches for this dossier and the market overview), and direct page fetches were blocked by the research environment's egress policy. Every fact below that came from the live sweep is marked (S) in the source list; facts from established prior knowledge are marked (K) and should be re-checked in the Freshness Protocol. Evidence labels follow `docs/AUTHORING_SPEC.md`. Numbers were not invented; where sources conflict the item is marked [Contested]. A verification pass on 2026-10-08 re-checked the Turkish DST rate, the withholding rules, the Google regulatory operating cost in Turkey, Turkish CPI, UK DUAA commencement, UK HFSS rules, EU AI Act Article 50 timing, California privacy rules and new brand vs performance research (sources 71 to 79).
 
 ## 1. Executive summary
 1. Automation has moved targeting and bidding inside the platforms. Meta reported its Advantage+ end to end solutions passed a $75 billion annual revenue run rate in Q2 2026 (some coverage says $60 billion) [Official claim, 2026-07; Contested figure]. The orchestrator's leverage is now inputs: conversion signal quality, margin aware values, creative supply and budget allocation across channels.
@@ -11,9 +11,9 @@ Method and limitations: live web research ran until the shared search budget for
 4. ChatGPT became an ad channel in 2026: US pilot in February, self serve Ads Manager beta with CPC bidding in May, expansion to more than 60 countries by October, reported $1 billion annualized run rate by 31 August [Official and secondary reports, 2026]. It belongs in the test bucket (10%) with honest incrementality reads.
 5. Measurement is the binding constraint more often than media: zero click searches reached about 68% of US Google searches in January to April 2026 (SparkToro), AI Overviews cut organic CTR on affected queries, consent rules and DMA choices reduce signal in the EU [Study, 2026]. Incrementality tests and MMM (Meridian, Robyn) are now accessible at Growth and Scale tiers.
 6. Allocation on marginal returns is the main differentiator of top operators: they fit response curves or run budget step tests and equalize marginal CPA across channels instead of chasing the highest average ROAS [Practitioner consensus].
-7. Unit economics must include taxes and fees on media in some markets. In Turkey, payments to foreign ad platforms carry 15% withholding (grossed up, up to about 17.6% extra cost) plus reverse charge VAT; the Digital Services Tax on platforms fell to 5% in 2026 and is set to fall to 2.5% in 2027 [Official, 2025-12; practitioner guidance].
+7. Unit economics must include taxes and fees on media in some markets. In Turkey, payments to foreign ad platforms carry 15% withholding (grossed up, up to about 17.6% extra cost) plus reverse charge VAT; Google adds a Türkiye regulatory operating cost of 4.5% of spend (cut from 7% on 2026-01-01); the Digital Services Tax on platforms fell to 5% in 2026 and is set to fall to 2.5% in 2027 [Official, 2025-12 and 2026-01; practitioner guidance].
 8. EU rules reshape targeting: Meta's less personalized ads choice rolled out to EU users from January 2026 under the DMA, and Meta and Google stopped political, electoral and social issue ads in the EU around the October 2025 TTPA start [Official, 2025 to 2026].
-9. Brand vs performance evidence still points to a deliberate split (Binet and Field average near 60:40 for B2C, about 46:54 for B2B), adjusted by category, stage and budget; small and new brands lean to activation [Study, 2013 to 2019]. No new 2025 to 2026 study with a published method could be verified in this sweep.
+9. Brand vs performance evidence still points to a deliberate split (Binet and Field average near 60:40 for B2C, about 46:54 for B2B), adjusted by category, stage and budget; small and new brands lean to activation [Study, 2013 to 2019]. The main new evidence is WARC's "The Multiplier Effect" (2025): moving from performance-only to a mixed approach lifted total revenue ROI by 25% to 100% (average about 90%) in the cases studied [Study, 2025; US-focused]. No new IPA or B2B Institute split study was found.
 10. The operating system matters as much as tactics: one quarterly goal, max 5 priorities, weekly learning loop, monthly reallocation, quarterly reset and an experiment program with stop rules is what separates consistent teams from reactive ones [Practitioner consensus].
 
 ## 2. State of growth management in 2026 (with numbers)
@@ -54,8 +54,8 @@ Implication for channel mix: social and CTV take the largest share of incrementa
 | AI assistant referrals measurable but small | GA4 referral data from ChatGPT, Perplexity, Copilot, Gemini (K) | Track as a separate channel group; judge on assisted and direct conversions |
 
 ### 2.4 Geo realities that change targets
-- **Turkey.** True media cost on foreign billed platforms is about 15% to 17.6% above platform spend because of the 15% withholding on online advertising payments (Presidential Decision 476, effective 2019), with 20% reverse charge VAT that VAT registered buyers can usually deduct (S). DST on platforms fell to 5% for 2026 and is scheduled at 2.5% from 2027 (S). High inflation means nominal CPC and CPA rise every month; plan in real terms. Installments drive conversion; marketplaces (Trendyol, Hepsiburada, Amazon.com.tr) hold large ecommerce demand (K). KVKK's 2024 amendment changed cross border transfer rules relevant to pixels and CAPI (K).
-- **EU and UK.** Consent Mode and CMP setups are mandatory for signal; DMA choice flows reduce Meta personalization; TTPA ended political and social issue ads on Meta and Google in the EU (S). EU AI Act transparency duties for AI generated content are scheduled for August 2026 (K, timing under review).
+- **Turkey.** True media cost on foreign billed platforms is about 15% to 17.6% above platform spend because of the 15% withholding on online advertising payments (Presidential Decision 476, effective 2019), with 20% reverse charge VAT that VAT registered buyers can usually deduct (S). DST on platforms fell to 5% for 2026 and is scheduled at 2.5% from 2027 (S). Google's Türkiye regulatory operating cost fell from 7% to 4.5% on 2026-01-01 (S). Annual CPI was 29.73% in September 2026, the first reading under 30% since November 2021 (TÜİK, S); nominal CPC and CPA still rise every month, so plan in real terms. Installments drive conversion; marketplaces (Trendyol, Hepsiburada, Amazon.com.tr) hold large ecommerce demand (K). KVKK's 2024 amendment changed cross border transfer rules relevant to pixels and CAPI (K).
+- **EU and UK.** Consent Mode and CMP setups are mandatory for signal; DMA choice flows reduce Meta personalization; TTPA ended political and social issue ads on Meta and Google in the EU (S). EU AI Act Article 50 transparency duties apply from 2 August 2026; the AI omnibus (Regulation (EU) 2026/1744, in force 27 July 2026) kept that date and only gave existing generative AI systems until 2 December 2026 for machine-readable marking (S). UK: DUAA cookie exceptions in force from 5 February 2026; HFSS paid online ad ban in force from 5 January 2026 (S).
 - **US.** First market for new ad products (ChatGPT ads self serve, AI Mode formats, visual ads) (S); state privacy patchwork with universal opt out signals and strict health data laws (K).
 - **MENA and GCC.** ChatGPT ads self serve opened to MENA on 31 August 2026 per reports (S, secondary). Snapchat and TikTok are strong in the Gulf; Ramadan dominates planning; BNPL and local payment methods affect conversion (K).
 
@@ -83,6 +83,9 @@ Implication for channel mix: social and CTV take the largest share of incrementa
 | 2025-12-18 | TikTok signs US joint venture agreement | US platform risk falls | S |
 | 2025-12-19 | Google expands ads in AI Overviews to 11 more English markets (12 total) | AI surface ads | S |
 | 2025-12-25 | Turkey cuts DST to 5% from 2026 and 2.5% from 2027 (Decision No. 10767) | Turkey true media cost | S |
+| 2026-01-01 | Google cuts the Türkiye regulatory operating cost from 7% to 4.5% | Turkey true media cost | S [Official, Google Ads Help] |
+| 2026-01-05 | UK HFSS paid online advertising ban in force (voluntary from 2025-10-01) | Food and drink plans in the UK | S [Official] |
+| 2026-02-05 | UK DUAA PECR changes in force (statistical cookie exception, higher fines) | UK consent and analytics | S [Official via law firm] |
 | 2025-12 | Ahrefs: AI Overviews reduce position one CTR by 58% (300,000 keywords) | Organic forecast | S |
 | 2026-01 | Meta revised EU choice flows (full vs less personalized ads) roll out | EU signal | S |
 | 2026-01-12 | Meta removes 7-day and 28-day view windows from the Ads Insights API | Reported conversions drop without real change; rebaseline targets | K (cross-checked with research/meta-ads.md, research/measurement.md) |
@@ -98,13 +101,14 @@ Implication for channel mix: social and CTV take the largest share of incrementa
 | 2026-05-13 | GA4 adds an AI Assistant default channel | AI referrals visible in standard reports | K (research/measurement.md) |
 | 2026-05-27 | dentsu midyear: 2026 +5.0%, search +3.4% | Planning | S |
 | 2026-06 | WPP Media midyear: +8.9%, $1.3 trillion, generative search forecasts | Planning | S |
+| 2026-07-27 | EU AI omnibus (Regulation (EU) 2026/1744) in force; Article 50 still applies from 2026-08-02 | AI content disclosure in EU ads | S [Official, EUR-Lex] |
 | 2026-07-29 | Meta Q2 2026: revenue $60.8 billion (+28%); Advantage+ run rate claims | Meta scale | S |
 | 2026-08-24 | ChatGPT ads begin serving in 31 European countries | EU AI ads | S [secondary] |
 | 2026-08-31 | OpenAI reports $1 billion annualized ads run rate; self serve opens in Europe, India and MENA | Test availability by geo | S [secondary] |
 | 2026-09 | Google AI Max auto upgrade (automatically created assets and broad match), 1 to 30 September; DSA migration date contested | Search structure | S [secondary; cross-checked with research/google-ads.md] |
 | 2026-09-10 | IAB raises 2026 US forecast to +12.3% | Planning | S |
 | 2026-09 to 2026-10 | ChatGPT ads expand to Southeast Asia and Taiwan; "more than 60 countries" | Geo availability | S |
-| 2026-10-05 | OpenAI announces visual ads next to image generation results (US test); TikTok Ad Network opens to US advertisers | New formats and inventory | S |
+| 2026-10-05 | OpenAI announces visual ads next to image generation results (US test); TikTok Ad Network opens to US advertisers; TÜİK reports September CPI at 29.73% | New formats and inventory; Turkey re-basing | S |
 
 ## 4. Best practice consensus
 1. Diagnose the binding constraint before choosing tactics; tracking and economics come before media [Practitioner consensus].
@@ -229,9 +233,9 @@ Rules: read only access by default; agents never write to accounts; customer dat
 - How many EU users chose Meta's less personalized ads, and what is the measurable effect on CPA? The Commission is monitoring uptake.
 - Will Google expand AI Mode ad formats beyond the US in 2026 or 2027, and with which reporting?
 - Will Meta ship URL to campaign full automation broadly, and what controls remain?
-- How will the 2027 Turkish DST cut to 2.5% change platform pass through fees?
-- Will the EU AI Act Article 50 timing change, and how will platforms label AI generated ads?
-- New brand vs performance research with a published method in 2025 to 2026 (IPA, WARC, LinkedIn B2B Institute): none verified in this sweep.
+- How will the 2027 Turkish DST cut to 2.5% change platform pass through fees? (Google already cut its Turkey fee to 4.5% for 2026.)
+- How will platforms label AI generated ads under AI Act Article 50 (in force 2026-08-02; marking grace for existing systems to 2026-12-02)?
+- New brand vs performance research with a published method beyond WARC's Multiplier Effect (2025): watch IPA, LinkedIn B2B Institute, System1.
 
 ## 12. Sources
 1. This Year Next Year 2026 Midyear Forecast. WPP Media. https://www.wppmedia.com/news/report-this-year-next-year-midyear-2026 (2026-06) (S)
@@ -304,3 +308,12 @@ Rules: read only access by default; agents never write to accounts; customer dat
 68. Digital Markets Act. European Commission. https://digital-markets-act.ec.europa.eu/ (ongoing) (K)
 69. Regulation (EU) 2022/2065 (Digital Services Act). EUR-Lex. https://eur-lex.europa.eu/eli/reg/2022/2065/oj (2022-10) (K)
 70. Ehrenberg-Bass Institute for Marketing Science. https://marketingscience.info/ (ongoing) (K)
+71. Jurisdiction-specific surcharges. Google Ads Help. https://support.google.com/google-ads/answer/9750227 (2026-01) (S)
+72. Dijital hizmet vergisi oranını 2026 ve 2027 yıllarında %5 ve %2,5'e indiren Cumhurbaşkanı Kararı yayımlandı. Vergi Dünyası. https://www.vergidegundem.com/sirkuler/136051 (2025-12) (S)
+73. Google, Instagram ve Facebook Reklamlarında Stopaj ve KDV. İstanbul Mali Müşavirlik. https://www.istanbulmalimusavirlik.net/google-facebook-instagram-reklam-vergi-stopaj-kdv-2026/ (2026) (S)
+74. Enflasyon rakamları açıklandı. Anadolu Ajansı. https://www.aa.com.tr/tr/ekonomi/enflasyon-rakamlari-aciklandi/4078027 (2026-10-05) (S)
+75. DUAA: The Commencement No. 6 Regulations are now in force. Womble Bond Dickinson. https://www.womblebonddickinson.com/uk/insights/articles-and-briefings/duaa-commencement-no-6-regulations-are-now-force-what-organisations (2026-02) (S)
+76. Less healthy food ad ban takes effect. Pinsent Masons Out-Law. https://www.pinsentmasons.com/out-law/news/less-healthy-food-ad-ban-takes-effect (2026-01-05) (S)
+77. Regulation (EU) 2026/1744 (Digital Omnibus on AI). EUR-Lex. https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ%3AL_202601744 (2026-07-24) (S)
+78. CCPA updates, risk assessments, ADMT regulations. CPPA. https://cppa.ca.gov/regulations/ccpa_updates.html (2025-09) (S)
+79. The Multiplier Effect: what we know so far. WARC. https://www.warc.com/en/article/the-multiplier-effect-what-we-know-so-far-1172cd945dd143a3b1eb2bd418e8391b (2025) (S)

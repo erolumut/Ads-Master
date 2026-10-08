@@ -116,7 +116,7 @@ Silent failure causes: goal name mismatch, MSCLKID never reaches the CRM (redire
 
 Enhanced conversions for leads (no click ID): upload hashed email or phone against the conversion when a click ID is unavailable (phone or email sales from web leads) [Practitioner consensus from vendor docs]. Use when MSCLKID capture rates are below 70%.
 
-A 2026-08 trade headline mentioned a 7 day gate on offline conversion uploads [Unverified]. Check the help page; if true, uploads must be daily.
+A 2026-08 trade headline mentioned a 7 day gate on offline conversion uploads, but a 2026-10-08 check found no such rule in Microsoft documentation [Unverified headline]. Documented rules: conversion time within the last 90 days and after the click (earlier timestamps are ignored), wait 2 hours after creating a new offline goal, duplicates with the same click ID, conversion name and time are imported once, reporting can lag up to 6 hours, and Microsoft recommends daily uploads because less frequent uploads can hurt automated bidding [Official, Microsoft Learn]. Upload daily regardless.
 
 ### Value mapping for lead gen
 | Stage | Value logic |

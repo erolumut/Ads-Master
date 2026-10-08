@@ -5,7 +5,7 @@ description: TikTok advertising playbook for TikTok Ads Manager and TikTok Shop.
 
 # TikTok Ads
 
-> Knowledge as of 2026-10. Platforms change monthly. Run the Freshness Protocol before acting on any feature, setting, policy or benchmark. Research note: in the 2026-10 cycle, primary pages could not be fetched directly and the search budget was capped, so several items carry [Unverified] labels. Verify those in the live account before relying on them.
+> Knowledge as of 2026-10 (verification pass 2026-10-08). Platforms change monthly. Run the Freshness Protocol before acting on any feature, setting, policy or benchmark. The 2026-10-08 pass confirmed the learning phase signal (about 50 conversions), attribution window options, Smart+ structure limits, TikTok Ad Network US availability, GMV Max Pro, the official MCP server, custom audience minimums and the EU and Canada status; items still marked [Unverified] or [Contested] must be checked in the live account.
 
 ## Mission and scope
 
@@ -239,7 +239,7 @@ Procedure:
 3. Propose an update to this skill's references through the journal; do not edit global knowledge from a project.
 4. If the live account UI differs from documentation, the UI wins for that account; record it in `memory/tiktok-ads.md` under account facts.
 
-Known items to re-verify first (2026-10): exact learning phase threshold; attribution window options; Smart+ asset group limits; TikTok Ad Network auto-inclusion and opt-out in Smart+; GMV Max Pro and cost-aware optimization availability; Buy Direct and Agentic Leads availability; US JV effects on commercial operations; custom audience minimums and retention windows.
+Known items to re-verify first (after the 2026-10-08 pass): Smart+ asset group cap (30 vs 50 across official pages); whether Smart+ Web in the account allows manual placement to exclude TikTok Ad Network; GMV Max Pro eligibility by market; Buy Direct, Shopping Assistant and Agentic Leads eligibility (testing, no launch dates); custom audience retention windows; Agentic Hub skills and MCP write scopes; EU DSA final decisions (addictive design, minors).
 
 ## Reference index
 

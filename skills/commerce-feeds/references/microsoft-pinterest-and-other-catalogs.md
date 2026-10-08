@@ -15,7 +15,7 @@
 
 ### 1.2 Setup
 1. Microsoft Advertising, Tools, Microsoft Merchant Center: create a store, verify and claim the domain (UET tag or other method).
-2. Feed options: scheduled file fetch (URL, FTP or SFTP), manual upload, API (Content API style), or import from Google Merchant Center [Unverified: confirm the import option and its schedule in the UI].
+2. Feed options: scheduled file fetch (URL, FTP or SFTP), manual upload, API (Content API style), or the Google Merchant Center Import tool [Official, Microsoft Advertising Help]. Import facts: sign in with Google (standard and multi-client accounts); schedules daily, weekly, monthly or run now, set per import under Imports > Scheduled imports; signing out of Google does not stop a scheduled import (delete it to stop); only approved Google offers are imported (pending and disapproved are skipped); only offers targeting Microsoft Shopping markets come across; since October 2024 imports carry the Google feed label and land in one consolidated feed [Official, 2024-09]. An older guide says imported offers expire after 30 days unless re-imported [Unverified for 2026, keep at least weekly schedules].
 3. Format: Microsoft accepts the Google product data specification for most attributes (`id`, `title`, `link`, `price`, `description`, `image_link`, `gtin`, `brand`, `mpn`, `availability`, `condition`, `product_type`, `google_product_category`, `custom_label_0..4`, `item_group_id`, `sale_price`).
 4. Catalog review: new feeds go through review; fix errors in the Merchant Center catalog view.
 5. Link the store to Shopping or PMax campaigns.

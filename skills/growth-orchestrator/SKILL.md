@@ -267,7 +267,7 @@ Before a plan that depends on platform features, policies, taxes or benchmarks:
 | OpenAI | openai.com news, ChatGPT Ads help center | Ad markets, formats, bidding, measurement |
 | TikTok | TikTok Business news, TikTok Shop Seller University | Smart+, GMV Max, US entity changes |
 | Privacy and law | EU DMA and DSA pages, EUR-Lex (TTPA 2024/900), IAPP US state tracker, KVKK (kvkk.gov.tr), UK ICO | Consent, targeting limits, new state laws |
-| Turkey tax | Resmi Gazete, GIB, Google Ads "Taxes in your country" page | DST rate (5% in 2026, 2.5% from 2027 announced), 15% withholding, VAT |
+| Turkey tax | Resmi Gazete, GIB, Google Ads "Taxes in your country" and "Jurisdiction-specific surcharges" pages | DST rate (5% in 2026, 2.5% from 2027 announced), 15% withholding, VAT, Google Türkiye regulatory operating cost (4.5% since 2026-01-01) |
 | Macro for budgets | TUIK CPI, TCMB, local FX | Inflation re-basing of targets |
 
 ## Reference index

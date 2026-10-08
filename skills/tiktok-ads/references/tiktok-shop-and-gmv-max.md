@@ -12,6 +12,8 @@
 | 2025-10-07 | GMV Max updates bundled with the Smart+ automation announcement | [Official, 2025-10] |
 | 2026-02-25 | ROI protection extended to GMV Max campaigns created in Seller Center (PC and mobile) and Ads Manager | [Official, 2026-02] |
 | 2026-05-13 | TikTok World: GMV Max Pro (factors coupons, affiliate costs, platform commissions into optimization; limited rollout); GMV Max reporting includes affiliate commissions, coupons and platform fees | [Official, 2026-05] |
+| 2026-07 | Q3 2026 product preview: GMV Max Pro positioned as the successor that optimizes toward net economics instead of gross order value; a GMV Max creative supply update widens the creative pool with shoppable carousels and Symphony auto-generated product videos; GMV Max not available in Canada | [Official, 2026-07, TikTok business blog] |
+| 2026-09 | Product GMV Max help articles updated; a separate "About GMV Max Pro" help article exists | [Official, 2026-09] |
 | 2026-10-05 | Advertising Week: GMV Max optimization accounts for affiliate commissions, coupons and referral fees when calculating return | [Official, 2026-10] |
 
 What is not affected: Search Ads remain a separate product; campaigns pointing to your own website still use standard, Spark or Smart+ campaigns.
@@ -31,6 +33,8 @@ Types:
 - Product GMV Max: promotes selected products using available videos (own, Spark-authorized, affiliate content) and product cards.
 - LIVE GMV Max: drives viewers into livestreams while live. Product updates include Live Control, Mega Live Mode and Video-to-LIVE [Official, 2026].
 - Seller Scale Up: a lighter option for smaller merchants that optimizes over a 7-day cycle [Unverified, third-party].
+- GMV Max Pro: the profit-aware tier that counts coupons, creator affiliate commissions and platform fees in its goal alongside ad spend, so orders that lose money after commissions and discounts stop looking like wins [Official, 2026-07]. Eligibility, markets and whether Pro becomes required were not published in the sources found [Unverified]; check the "About GMV Max Pro" help article. Third-party lift claims (30% higher GMV vs manual, 20 to 50% revenue lift) are vendor figures [Unverified].
+- Market note: GMV Max is not offered in Canada per the Q3 2026 preview [Official, 2026-07].
 
 ## 3. Shop economics and the ROI target
 
@@ -117,7 +121,7 @@ Operating rule: plan edits in a single daily window, keep a change log, and avoi
 1. Decide each product's primary destination. Products that sell better in-app (impulse, under $50, demo-driven) go to Shop; considered purchases, subscriptions and bundles may go to the website.
 2. Keep prices aligned or Shop listings may lose eligibility and customers notice.
 3. Website campaigns (Smart+ Web, Catalog) and GMV Max compete for the same users. Measure blended: total TikTok-driven revenue (Shop GMV + website revenue attributed and triangulated) vs total TikTok cost.
-4. Buy Direct (announced 2026-10-05) lets users buy from a brand inside the feed via Shopify, Salesforce, Shoplazza and Stripe integrations; early access, rollout timing [Contested]. Treat as a test when offered, not a plan.
+4. Buy Direct (announced 2026-10-05) lets users complete a purchase from a brand inside the app from the For You feed or brand content, with Shopify, Salesforce, Shoplazza and Stripe integrations; a Shopping Assistant agent answers product, shipping, sizing and stock questions in one chat [Official, 2026-10]. Availability: eligibility-based testing or early access, US first per one report, and TikTok announced no launch dates [Official announcement; availability Contested]. Treat as a test when offered, not a plan.
 5. Hand catalog and product data to commerce-feeds (TikTok catalog, Shop listings, product sets).
 
 ## 10. Weekly GMV Max review template

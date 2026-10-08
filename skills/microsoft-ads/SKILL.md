@@ -15,11 +15,11 @@ Out of scope (hand off): feed engineering (commerce-feeds), tag implementation a
 ### Platform state in one table (October 2026)
 | Area | State | Label |
 |------|-------|-------|
-| Copilot ads | A placement served from Search, Shopping, AI Max and PMax; no Copilot campaign type. Showroom ads and brand agents in pilot via account teams. | [Official, 2025-03] [Unverified] for current pilot status |
-| AI Max for Search | Generally available, opt-in suite: search term matching, text customization, final URL expansion, brand controls and term exclusions; Google Import carries AI Max settings | [Official, 2026-08] |
+| Copilot ads | A placement served from Search, Shopping, AI Max and PMax; no Copilot campaign type. All eligible campaign and ad types are opted in automatically and advertisers cannot opt out; serving is not guaranteed. No official Copilot reporting segment found. Showroom ads and brand agents in pilot via account teams. | [Official, Microsoft Learn "About ads in Copilot"] [Unverified] for pilot status and reporting |
+| AI Max for Search | Generally available (rollout from 2026-08-19, announced 2026-08-27): search term matching, text customization, final URL expansion, brand controls and term exclusions. Microsoft's blog says it is on by default for new Search campaigns (can be turned off); Microsoft's Ads Liaison called it opt-in [Contested]. Predictive matching and auto-generated text assets fold into AI Max automatically. Google Import carries AI Max settings. DSA stays supported until further notice | [Official, 2026-08] |
 | Performance Max | GA since 2024; new customer acquisition goal GA (2026-02); self-serve negative keywords (2026-03, 5,000 terms per list); share of voice metrics (2026-01); landing page report (2026-04); Ad Preview Hub (2026-07); uplift experiments (2026-09) | [Official, 2026-01 to 2026-09] |
 | Experiments | Generally available for Search, Shopping, Audience and PMax with a side by side results page | [Official, 2026-09] |
-| Bidding | Portfolio bid strategies, cross-account portfolios (2026-05), seasonality adjustments for portfolios and shared budgets (2026-05), data-driven attribution to all advertisers (2026-05) | [Official, 2026-04 to 2026-05] |
+| Bidding | Portfolio bid strategies, cross-account portfolios (2026-05), seasonality adjustments for portfolios and shared budgets (2026-05), data-driven attribution to all advertisers (2026-05). From 2026-10-01 new non-portfolio campaigns on Maximize Clicks, Maximize Conversions or Maximize Conversion Value cannot set a Max CPC; portfolios, Enhanced CPC and Target impression share keep it | [Official, 2026-04 to 2026-09] |
 | Import | Import Center for Google, Meta and Pinterest (2026-05); PMax with NCA goals imports from Google (2026-04) | [Official, 2026-04 to 2026-05] |
 | LinkedIn targeting | Company, industry and job function in Search, Shopping, Audience; PMax audience signal; company lists up to 10,000 names (2026-09); excludes EEA, UK and Swiss users | [Official, 2026-09] |
 | Consent | UET consent mode required for EEA, UK, Switzerland since 2025-05-05; Advanced Consent Mode guidance 2026-02-19; modeled conversions since 2025-08 | [Official, 2025-03] [Official, 2026-02] [Contested] on modeling scope |
@@ -85,7 +85,7 @@ Data priority: backend or CRM truth (MEASUREMENT.md) > Microsoft account data (e
 ### By budget and signal tier
 | Tier | Monthly Microsoft spend | Structure | Bidding | Cadence | Creative volume |
 |------|------------------------|-----------|---------|---------|-----------------|
-| Starter | under $3k | Import from Google, keep 2 to 4 campaigns, brand separate, no PMax unless feed and 30+ conversions | Manual CPC, Enhanced CPC or Maximize Clicks with cap | Weekly 30 minutes | 1 RSA per ad group, all assets filled |
+| Starter | under $3k | Import from Google, keep 2 to 4 campaigns, brand separate, no PMax unless feed and 30+ conversions | Enhanced CPC, or Maximize Clicks with a cap through a portfolio strategy (new non-portfolio campaigns lost Max CPC on 2026-10-01) | Weekly 30 minutes | 1 RSA per ad group, all assets filled |
 | Growth | $3k to $30k | Brand, 3 to 8 non-brand, PMax or Shopping, Audience test | Maximize conversions or value, add targets after 30 conversions | Twice weekly checks, weekly optimization | 2 RSAs per key ad group, multimedia ads, image assets |
 | Scale | $30k to $300k | Portfolio bid strategies, shared budgets, AI Max, PMax by margin tier | Portfolios with seasonality adjustments | Daily pacing, weekly optimization, monthly experiments | Asset refresh monthly, Ad Studio, image animation |
 | Enterprise | over $300k | Cross-account portfolios, scripts, API reporting, multi market | Value rules, cross-account portfolios | Automated daily anomaly alerts | Market specific assets, brand kits |
@@ -212,7 +212,7 @@ Before acting on a feature, setting, policy or benchmark:
 6. For Copilot formats and pilots, ask the account team and look for the feature in the UI; third party guides conflict.
 7. Log what changed in a journal entry `YYYY-MM-DD_HHMM_microsoft-ads_freshness.md` with the source URL and date, and flag any reference module that is now wrong.
 
-Priority verification queue (as of 2026-10): Copilot placement reporting labels; whether Search campaigns can opt out of Copilot; Dynamic Search Ads status relative to AI Max; Conversions API availability; HubSpot integration status (beta or GA); modeled conversions scope under Advanced Consent Mode; reports of Max CPC removal for new campaigns; reports of a 7 day gate on offline conversion uploads.
+Priority verification queue (as of 2026-10-08): Copilot placement reporting labels; AI Max default state on new Search campaigns (blog says on, Ads Liaison says opt-in); what happens to Max CPC on existing campaigns after 2026-10-01; Conversions API general availability; HubSpot integration status (beta or GA); modeled conversions scope under Advanced Consent Mode. Settled on 2026-10-08: advertisers cannot opt out of Copilot [Official]; DSA supported until further notice [Official, 2026-08]; Max CPC removed for new non-portfolio campaigns from 2026-10-01 [Official notice via trade press]; no 7 day offline upload gate found in Microsoft docs.
 
 ## Reference index
 - [Account setup and Google import](references/account-setup-and-google-import.md): account hierarchy, Google Import, scheduled syncs, post-import fix list, when to diverge.

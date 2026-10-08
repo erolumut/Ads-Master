@@ -194,8 +194,10 @@ Field names come from `reports.proto` (v1). Confirm query grammar in the Merchan
 | 2024 | Merchant API beta announced as successor to Content API | [Official] |
 | 2025-08 | Merchant API v1 general availability (v1 client libraries published 2025-08-04 and 2025-08-05) | [Official, 2025-08] |
 | 2026-02-28 | Merchant API v1beta retired | [Official per secondary sources, 2026] |
-| 2026-08-18 | Content API for Shopping shut down. Google offered an extended access request form for teams that needed more time. | [Official, 2025] |
-| After 2026-08-18 | Reports of failing Content API calls and full decommission planned for 2027 | [Unverified] |
+| 2026-04-22 | Merchant API available in Google Ads scripts (Advanced APIs), next to the legacy Shopping Content service | [Official, Google Ads Developer Blog 2026-04] |
+| 2026-08-18 | Content API for Shopping shut down. Google offered an extended access request form (deadline choices 2026-10-15 or 2026-12-31) for teams that needed more time. | [Official, 2025; extension dates per SERoundtable 2026] |
+| 2026-09-01 | Content API requests without approved extended access begin progressive errors (release notes) | [Official, 2026] |
+| After extension dates | One vendor reports HTTP 410 responses and full decommission in early 2027 | [Unverified] |
 
 What changed for builders:
 - Sub-APIs: accounts, conversions, datasources, inventories (local and regional), issueresolution, lfp, loyaltycustomers, notifications, ordertracking, products, productstudio (alpha), promotions, quota, reports, reviews, youtube.
@@ -204,7 +206,7 @@ What changed for builders:
 - `version_number` lets you prevent an older update from overwriting a newer one.
 - The `channel` field is gone from v1 names; legacy local-only products use the `local~` prefix.
 - Notifications sub-API can push product status changes instead of polling.
-- Google Ads scripts that read Merchant Center data moved to the Merchant API in 2026 [Unverified exact date: secondary source cites April 22].
+- Google Ads scripts that read Merchant Center data must move to the Merchant API: the service became available in scripts on 2026-04-22 [Official, Google Ads Developer Blog 2026-04]. Link the script to a Google Cloud project registered with the Merchant Center account; identifiers change from numeric IDs to resource names; a script left on the old service can return empty data instead of errors [Secondary, 2026]. File uploads, scheduled fetches and Google Sheets data sources were not affected by the Content API shutdown; platform connectors that use the API behind the scenes were [Secondary, 2026].
 
 Minimal insert (REST, OAuth scope `https://www.googleapis.com/auth/content`):
 

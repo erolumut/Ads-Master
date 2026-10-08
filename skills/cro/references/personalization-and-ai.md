@@ -94,7 +94,7 @@ CRO implications:
 | Consistency | Same facts on page, feed, structured data and policies (agents and assistants cross-check) |
 | Experiments | Exclude bots and agents from test populations; check for SRM caused by bot filtering differences |
 | Analytics | Separate AI referral and agent traffic in reporting (custom channel group) |
-| Checkout | Agentic checkout protocols (for example OpenAI and Stripe's Agentic Commerce Protocol, 2025) let purchases happen off-site; coordinate with `commerce-feeds` [Unverified current scope] |
+| Checkout | Agentic checkout protocols (OpenAI and Stripe's Agentic Commerce Protocol from 2025-09; Google's Universal Commerce Protocol, US early access in 2026) let purchases happen off-site; coordinate with `commerce-feeds` [Official, 2025-09 to 2026-10] |
 
 ## 6. Common personalization plays (with what to measure)
 

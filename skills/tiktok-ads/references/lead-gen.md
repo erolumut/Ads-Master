@@ -10,7 +10,7 @@
 | Website form | Ad sends traffic to a landing page form tracked by pixel and Events API | Higher intent, full control of qualification | Higher CPL, page speed matters | B2B SaaS, high-ticket services |
 | Direct messages (TikTok DM) | Users start a conversation with the business account | Conversational qualification | Needs staffing or automation | Local services, consultations |
 | Instant messaging apps (WhatsApp, Messenger, LINE, Zalo where available) | Click to messaging app | Familiar channel in some regions | Market availability varies [Unverified] | LATAM, SEA, MENA markets |
-| Agentic Leads | AI lead agent in TikTok DM and on advertiser websites that captures and qualifies leads through AI-guided conversations | Automated qualification | New; rollout and markets [Contested] | Test cell only, with human review of transcripts [Official, 2026-10] |
+| Agentic Leads | AI lead agent in TikTok direct messages and in lead forms on advertisers' own websites that captures and qualifies leads through AI-guided conversations | Automated qualification | Announced 2026-10-05; offered through eligibility-based testing, US first per one report, no launch dates announced [Official announcement; availability Contested] | Test cell only, with human review of transcripts [Official, 2026-10] |
 
 Smart+ Lead Generation exists in the upgraded Smart+ flow; Custom Selection controls let you add, exclude or use automated recommendations [Official, 2026]. Auto-selection for Lead Generation was previewed in Q3 2026 [Official, 2026-07].
 

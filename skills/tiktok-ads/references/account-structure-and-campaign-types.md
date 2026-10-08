@@ -52,23 +52,25 @@ Search Ads Campaigns are created from the Traffic or Web Conversion (Sales) obje
 - Smart+ is TikTok's AI-driven campaign type (the successor to Smart Performance Campaign). In the upgraded experience announced on 2025-10-07, one buying flow lets advertisers choose full automation, partial automation or fully manual control, module by module (targeting, budget, placement, creative, catalog) [Official, 2025-10].
 - The upgraded flow supports Sales, Lead Generation and App Promotion for eligible advertisers; Traffic has a separate Smart+ flow [Official, 2026-07]. Availability depends on objective, account and market, and some features need a TikTok rep to enable [Official, 2026].
 - Search Ads Campaign is "powered by Smart+": Smart+ can expand keywords and choose creatives [Official, 2026-08].
-- Rollout dates of the broader upgraded flow are [Contested]: trade posts cite 2025-10-07, 2026-01-21 (Auto-select, previews), May 2026 (tiered SMB controls) and "September 2026" for a further upgrade. Treat the account UI as the truth.
+- Rollout: the upgraded flow was announced 2025-10-07 and has rolled out in stages; the "Smart+ Upgraded Experience" help article was last updated 2026-09 [Official, 2026-09]. Trade posts cite 2026-01-21 (Auto-select, previews), May 2026 (tiered SMB controls) and 2026-09-07 or 2026-09-30 for a further upgrade (creative material ID reporting, paid plus organic signal integration) [Contested dates]. No source confirms rollout to every advertiser; treat the account UI as the truth.
+- Q3 2026 preview: Smart+ capabilities extend to Search Ads; Creator+ was rebuilt as Creative Upgrades for Smart+ Catalog Ads (review assets ranked by predicted performance and exclude any before launch); Symphony generation is being built into the Smart+ workflow [Official, 2026-07].
 
 ### 4.2 Module controls (upgraded flow)
 
 | Module | Automated default | Manual or partial option | Override when |
 |--------|------------------|--------------------------|---------------|
 | Targeting | Automatic targeting finds the audience with minimal input | Audience controls set baseline limits (age, location, language); "Switch to custom targeting" for manual; some settings can be enforced [Official, 2026] | Legal limits (age 18+, 21+ for alcohol), geo restrictions, regulated categories, exclusion of existing customers |
-| Placement | Automatic placement; can extend beyond TikTok to Lemon8 and Pangle / TikTok Ad Network where available | Select specific placements and brand safety settings | Brand safety, off-platform inventory converting poorly, US TikTok Ad Network auto-inclusion (opt-out may need support per one source [Unverified]) |
+| Placement | Automatic placement is the default for Sales, Lead Generation and App Promotion and may include non-TikTok partner surfaces through TikTok Ad Network (Pangle) depending on region; Smart+ Web lists TikTok, Pangle (where available), Search and Lemon8; Smart+ App on iOS is TikTok and Lemon8 only, on Android includes TikTok Ad Network [Official, Help Center] | The upgraded flow allows choosing specific placements in manual mode; older Smart+ Web help says manual placement is not supported and you must build a non-Smart+ campaign to exclude TikTok Ad Network [Official, pages conflict] | Brand safety, off-platform inventory converting poorly, US campaigns now that TikTok Ad Network is generally available in the US (2026-10-05). If the account has no placement module, use a manual campaign or ask the rep; one blog says opt-out goes through support [Unverified] |
 | Budget | Automatic campaign budget | Custom ad group budgets | You must guarantee spend on a market, product line or test cell |
 | Creative | Recommended Creatives, Auto-add (adds fresh creative while live), generation from a product URL | Choose assets, exclude recommended or generated assets, creative combination control | Brand compliance, claims review, regulated categories, likeness rights |
 | Catalog | Catalog products and Catalog Image and Video Auto-Crawl from public landing pages [Official, 2026-07] | Product sets, manual creative | Pricing or claims on crawled pages are not ad-approved |
 
 ### 4.3 Smart+ capacity and creative features (verify per account)
-- Asset groups: help center cites up to 50 asset groups; one trade source cites up to 30 ad groups per campaign, 30 asset groups per ad group and 50 creatives per asset group [Contested].
+- Structure limits: TikTok's Smart+ business blog gives up to 30 ad groups per campaign, 30 asset groups per ad group and 50 creatives per asset group, with text-to-creative pairing and multiple URLs [Official, TikTok business blog]; the help article on Smart+ ads says up to 30 unique ads (asset groups) per ad group, while the upgraded-flow notes say "up to 50 asset groups" [Official pages conflict, Contested]. Plan on 30 per ad group. Account limits outside Smart+: 5,000 campaigns per ad account, 999 ad groups per campaign, 50 ads per ad group [Official, Help Center "About ad account limits"].
+- Creative minimums: TikTok best practice asks for at least 6 creatives at Smart+ Web creation; practitioners use 4 to 6 for Smart+ App and 3 to 4 per ad group at small budgets so each creative gets spend [Official for Web; Practitioner consensus otherwise].
 - Auto-select creative: scans existing ads and eligible TikTok One creator content and recommends the strongest; first for Smart+ App (2026-01), extended to Lead Generation (Q3 2026 preview) [Official, 2026-07].
 - Creative Upgrades (Smart+ Catalog Ads), Asset Manager, AI-generated campaign summaries, Music Autofix (detects music that cannot be used) were announced at TikTok World on 2026-05-13 and in the Q3 2026 preview [Official, 2026-05].
-- Creative-level reporting by individual creative material ID across video, image, catalog and text assets [Unverified, third-party 2026].
+- Creative-level reporting by individual creative material ID across video, image, catalog and text assets, reported with the 2026-09 upgrade [Unverified, single third-party source].
 
 ### 4.4 Decision tree: Smart+ or manual
 
@@ -155,7 +157,7 @@ Use Creative Center Keyword Insights to find terms and phrasing that appear in h
 | MMP | Use the MMP (AppsFlyer, Adjust, Singular, Branch, Kochava) for cohort ROAS and fraud; reconcile MMP vs TikTok SAN numbers weekly |
 | Optimization path | Install -> in-app event (AEO) -> value (VBO). Move one step deeper when the deeper event reaches ~50 per week per ad group |
 | Creative | App store screenshots perform poorly. Use gameplay or real-use screen recordings with a creator voiceover; Symphony Product Avatars can hold an app screen image [Official, 2026-05] |
-| Auto-select | Smart+ App was the first campaign type with Auto-select creative (2026-01) [Unverified, trade press] |
+| Auto-select | Smart+ App was the first campaign type with Auto-select creative (2026-01), extended to Lead Generation in the Q3 2026 preview [Official, 2026-07; January date via trade press] |
 | Off-platform | TikTok Ad Network (formerly Pangle) has playable and rewarded inventory; strong for gaming installs, weaker for subscription quality. Judge on Day 7 retention and ROAS, not CPI |
 
 ## 9. Placements
@@ -166,7 +168,7 @@ Use Creative Center Keyword Insights to find terms and phrasing that appear in h
 | Automatic Search Placement | On by default in most conversion flows | On; review breakdown |
 | Global App Bundle (ByteDance apps such as CapCut) | Availability varies by market [Unverified] | Test, do not assume |
 | Lemon8 | Included by automatic placement where available [Official, 2026] | Test where available |
-| TikTok Ad Network (formerly Pangle) | Nearly 400,000 apps, 48 markets, US opened 2026-10-05; DoubleVerify and IAS brand safety controls [Official, 2026-10] | Off for web sales and lead gen until a split test proves it; on for gaming and app installs as a tested cell |
+| TikTok Ad Network (formerly Pangle) | Nearly 400,000 apps (TikTok said "more than" 400,000 in August); generally available for US campaigns from 2026-10-05 as the 48th market after limited US tests; advertisers see the new name, publishers still see Pangle; DoubleVerify and IAS post-bid brand safety measurement [Official, 2026-10, via Adweek, Marketing Dive, PPC Land] | Off for web sales and lead gen until a split test proves it; on for gaming and app installs as a tested cell |
 
 ## 10. Naming convention (copy and adapt)
 

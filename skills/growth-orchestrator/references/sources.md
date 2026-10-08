@@ -116,8 +116,19 @@ Annotated sources behind this skill. Status column: **S** = surfaced and read th
 - Meta Advantage+ run rate: over $75B (transcript as reported) vs about $60B (other coverage) [Contested].
 - ChatGPT ads country count (47 vs 63) and self serve start date (April, May or July 2026 in different reports) [Contested].
 - Turkey withholding gross-up method and KDV-2 base [Contested among practitioners].
-- Google regulatory operating cost fee in Turkey after the 2026 DST cut [Unverified].
-- UK Data (Use and Access) Act cookie exemptions commencement, EU AI Act Article 50 timing [Unverified].
+
+## Verification pass (2026-10-08, via search)
+| # | Title | Publisher | URL | Date | Supports | Status |
+|---|-------|-----------|-----|------|----------|--------|
+| 83 | Jurisdiction-specific surcharges | Google Ads Help | https://support.google.com/google-ads/answer/9750227 | 2026-01 | Türkiye Regulatory Operating Cost cut from 7% to 4.5% on 2026-01-01 | S |
+| 84 | Dijital hizmet vergisi oranını 2026 ve 2027 yıllarında %5 ve %2,5'e indiren Cumhurbaşkanı Kararı yayımlandı | Vergi Dünyası (vergidegundem) | https://www.vergidegundem.com/sirkuler/136051 | 2025-12 | Decision 10767, DST 5% (2026) and 2.5% (2027) | S |
+| 85 | Google, Instagram ve Facebook Reklamlarında Stopaj ve KDV | İstanbul Mali Müşavirlik | https://www.istanbulmalimusavirlik.net/google-facebook-instagram-reklam-vergi-stopaj-kdv-2026/ | 2026 | 15% withholding unchanged, gross-up and KDV-2 examples | S |
+| 86 | Enflasyon rakamları açıklandı | Anadolu Ajansı | https://www.aa.com.tr/tr/ekonomi/enflasyon-rakamlari-aciklandi/4078027 | 2026-10-05 | TÜİK September 2026 CPI 29.73% | S |
+| 87 | DUAA: The Commencement No. 6 Regulations are now in force | Womble Bond Dickinson | https://www.womblebonddickinson.com/uk/insights/articles-and-briefings/duaa-commencement-no-6-regulations-are-now-force-what-organisations | 2026-02 | PECR changes from 2026-02-05 | S |
+| 88 | Less healthy food ad ban takes effect | Pinsent Masons Out-Law | https://www.pinsentmasons.com/out-law/news/less-healthy-food-ad-ban-takes-effect | 2026-01-05 | HFSS restrictions in force | S |
+| 89 | Regulation (EU) 2026/1744 (Digital Omnibus on AI) | EUR-Lex | https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ%3AL_202601744 | 2026-07-24 | Article 50 dates kept, marking grace to 2026-12-02 | S |
+| 90 | CCPA updates, risk assessments, ADMT regulations | CPPA | https://cppa.ca.gov/regulations/ccpa_updates.html | 2025-09 | California regulation dates | S |
+| 91 | The Multiplier Effect: what we know so far | WARC | https://www.warc.com/en/article/the-multiplier-effect-what-we-know-so-far-1172cd945dd143a3b1eb2bd418e8391b | 2025 | Brand and performance ROI multiplier | S |
 
 ## Internal cross-references (channel dossiers built in parallel, October 2026)
 Facts marked "per research/<slug>.md" in this skill were cross-checked against these dossiers, which carry their own dated primary sources: `research/meta-ads.md` (attribution window changes January and March 2026, Threads and WhatsApp inventory), `research/google-ads.md` (AI Max auto upgrade, AI Mode formats, official Google Ads MCP server), `research/chatgpt-ads.md` (ChatGPT ads timeline, $25 per day minimum, formats), `research/tiktok-ads.md` (joint venture, GMV Max, TikTok Ad Network, official MCP server), `research/measurement.md` (Conversion Lift minimums, Data Manager API, GA4 AI Assistant channel, KVKK transfer regime), `research/microsoft-ads.md`, `research/linkedin-ads.md`, `research/seo.md`, `research/ai-search-optimization.md`, `research/commerce-feeds.md`, `research/cro.md`, `research/creative-strategy.md`.

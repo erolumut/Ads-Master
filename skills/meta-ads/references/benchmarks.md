@@ -29,13 +29,14 @@ Meta-reported numbers come from Meta's own tests and selected segments. Treat th
 | Andromeda retrieval | +6% retrieval recall, +8% ads quality on selected segments | 2024-12 | Meta Engineering blog | [Official, 2024-12] |
 | GEM | About +5% ad conversions on Instagram, +3% on Facebook Feed (Q2 2025) | 2025-11 | Meta Engineering blog | [Official, 2025-11] |
 | Lattice extensions | Nearly 4% more ad conversions on Facebook Feed and Reels (Q2 2025) | 2025 | Earnings commentary via secondary | [Official via secondary] |
+| Andromeda enhancements | Nearly 4% higher conversions on Facebook mobile Feed and Reels (Q2 2025) | 2025-07 | Earnings commentary via secondary | [Official via secondary] |
 | Ranking model consolidation | About 12% ads quality increase tied to consolidating surfaces into the Facebook model (Q4 2025) | 2026-01 | Earnings commentary via secondary | [Unverified] |
 | GEM plus Lattice | More than 6% conversion rate increase on landing page view ads (Q1 2026) | 2026-04 | Earnings commentary via secondary | [Unverified] |
 | Incremental attribution | 46% lift in incremental conversions vs business as usual in Meta tests; earlier tests (Jan to Jun 2024) above 20% | 2025 | Meta via Jon Loomer, Social Media Today | [Official, 2025] |
 | Incremental attribution update | 25% average increase in incremental conversions | 2026-04 | One agency blog (Webtopia); no Meta announcement found in the 2026-10 verification pass | [Unverified] |
 | New user understanding models plus GEM and sequence learning | +8.3% ad clicks and +15.7% conversions on Facebook; first generative model deployed in ads retrieval; LLM-based preference pilots +1% app event conversions on Instagram | 2026-07 | Meta Q2 2026 earnings call (2026-07-29) | [Official, 2026-07]; combined effect of several changes, not one model |
 | Opportunity Score recommendations | Median 12% lower cost per result for advertisers who adopted recommendations | 2024 to 2025 | Meta via Social Media Today and agency blogs | [Official] |
-| Advantage+ sales | 22% higher ROAS often quoted | n/a | Widely repeated, not traced to a primary source in this build | [Unverified] |
+| Advantage+ AI tools (including sales campaigns) | Average 4.52 USD revenue per 1 USD spent, 22% higher ROAS than business-as-usual campaigns | 2025-04 | Meta explainer post "Meta Advantage+ explained in two minutes" (about.fb.com, 2025-04); 22% also cited for US advertisers in Q2 2024 | [Official, 2025-04]; Meta-reported average against an unspecified baseline, not an expected lift |
 | Threads in Advantage+ placements | 11.7% lower CPA claimed | 2026 | Single secondary source | [Unverified] |
 
 ## 4. Independent and vendor studies
