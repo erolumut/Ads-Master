@@ -87,6 +87,12 @@ How the main session conducts the Ads Master team. Every workflow is written as 
 | cro | `_page-audit.md`, `_test-plan.md` | weekly |
 | creative-strategy | `_concept-slate.md`, `_creative-analysis.md` | weekly |
 | market-intel | `_competitive-baseline.md`, `_monthly-movement.md` | monthly, quarterly |
+| mobile-app-growth | `_aso-audit.md`, `_app-growth-plan.md`, `_skan-schema.md` | daily alerts, weekly |
+| site-engineer | `_release-qa.md`, `_launch-qa.md`, `_worst-case-test.md` | on every release |
+| video-studio | `_production-plan.md`, `_render-batch.md` | weekly batch |
+| offer-strategy | `_offer-architecture.md`, `_promo-calendar.md` | monthly |
+| lifecycle-crm | `_lifecycle-audit.md`, `_flow-specs.md`, `_cohort-report.md` | weekly |
+| compliance | `_claims-review.md`, `_policy-check.md` | on every publish |
 
 ## 4. Workflows as delegation plans
 Date placeholders: `<d>` = today's date YYYY-MM-DD. All paths are under `ads-master/outputs/`.
@@ -232,9 +238,43 @@ Weekly flow plus: every agent runs its Freshness Protocol; growth-orchestrator p
 3. Wave 2: Full growth audit (4.1) at reduced depth: top 5 issues per agent.
 4. Synthesis: first STRATEGY.md draft, HEARTBEAT.md activation, PRIORITIES.md for week 1.
 
+### 4.13 Launch readiness (first paid launch)
+Gate order matters: nothing goes live before tracking, site, offer and claims are green.
+| Step | Wave | Agent | Mode | Inputs | Brief | Output | Passes to |
+|------|------|-------|------|--------|-------|--------|-----------|
+| 1 | 1 | measurement | parallel | MEASUREMENT.md, test orders | Verify purchase or lead events end to end, dedup, consent | `measurement/<d>_measurement_launch-tracking.md` | Event verdict |
+| 2 | 1 | site-engineer | parallel | repo or theme, product pages | Purchase path, mobile, speed, worst case data, release state | `site-engineer/<d>_site-engineer_launch-qa.md` | Site verdict |
+| 3 | 1 | offer-strategy | parallel | PROJECT_BRIEF unit economics, prices | Offer and bundle for launch with acquisition investment math | `offer-strategy/<d>_offer-strategy_launch-offer.md` | Offer spec |
+| 4 | 1 | compliance | parallel | PRODUCT_FACTS, CLAIMS, current copy | Clean claims on site and in planned ads | `compliance/<d>_compliance_claims-review.md` | Approved claims |
+| 5 | 2 | creative-strategy | sequential | steps 3 and 4 | 3 to 4 distinct concepts and briefs within budget tier | `creative-strategy/<d>_creative-strategy_launch-briefs.md` | Briefs |
+| 6 | 3 | video-studio | sequential | step 5 | Produce, QA and name the assets | `video-studio/<d>_video-studio_launch-batch.md` | Asset list with IDs |
+| 7 | 4 | channel agent | sequential | steps 1 to 6 | Draft the campaign as PAUSED (stage 2+) or as a change request (stage 1) | `<channel>/<d>_<channel>_launch-plan.md` | Change request |
+| 8 | 5 | site-engineer | sequential | step 7 | Launch QA: URLs, UTMs, pixel firing, status PAUSED, budget within cap | `site-engineer/<d>_site-engineer_ad-launch-qa.md` | Go or no go |
+Synthesis: go live checklist and one change request for the human.
+
+### 4.14 Creative production sprint
+1. creative-strategy: concept slate and briefs from the latest creative analysis and VoC.
+2. video-studio and compliance in parallel: produce assets; claims and disclosure review on scripts and final cuts.
+3. Channel agents: upload plan (PAUSED) and test design; registry rows in `ads-master/creative-library/registry.csv`.
+
+### 4.15 Retention program
+1. lifecycle-crm and measurement in parallel: lifecycle audit and cohort repeat rates (30, 45, 60, 90 days).
+2. offer-strategy and compliance: replenishment and winback offers; consent and claims check.
+3. cro: post purchase and reorder pages. Synthesis: flow specs and a 90 day retention plan.
+
+### 4.16 Offer test
+1. offer-strategy and measurement: hypothesis, economics (acquisition investment per new customer), sample size or duration.
+2. cro and compliance: page variant and price display rules (prior price rule for reductions).
+3. Channel agents and creative-strategy: message alignment in ads. Synthesis: experiment brief in EXPERIMENTS.md.
+
+### 4.17 App growth program
+1. mobile-app-growth and measurement: ASO audit, MMP and SKAN or AdAttributionKit setup, unit economics by cohort.
+2. creative-strategy and video-studio: app ad concepts and store screenshots and previews.
+3. lifecycle-crm: onboarding, push and win back. Synthesis: app growth plan with budget by network.
+
 ## 5. Adding a new agent for a channel without one
 Use when a channel in other-channels-quick-guides.md gets a recurring budget above about 10% of paid media or more than $5k per month.
-1. Copy the closest package (Reddit, Pinterest, Snapchat or X: copy meta-ads; Amazon or retail media: copy google-ads Shopping parts plus commerce-feeds; CTV or programmatic: copy google-ads YouTube parts; email and SMS: new package based on cro and measurement).
+1. Copy the closest package (Reddit, Pinterest, Snapchat or X: copy meta-ads; Amazon or retail media: copy google-ads Shopping parts plus commerce-feeds; CTV or programmatic: copy google-ads YouTube parts).
 2. Rename the slug in four places: `agents/<slug>.md`, `skills/<slug>/`, skill `name`, `research/<slug>.md`.
 3. Rewrite mission, KPIs, intake, adaptation matrix and task router first, then references (audit-checklist.md and sources.md are mandatory).
 4. Add it to the routing table in this skill's SKILL.md, to `AGENT_REGISTRY.md`, to HEARTBEAT.md in the workspace template, and a memory file `memory/<slug>.md`.

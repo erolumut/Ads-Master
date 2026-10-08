@@ -1,6 +1,6 @@
 ---
 name: growth-orchestrator
-description: Conductor playbook and default entry point for the Ads Master growth system. Use for any multi channel or "where do we grow" request. Diagnose a business from ads-master/PROJECT_BRIEF.md, decide which agents to activate, route tasks to specialists (meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads, seo, ai-search-optimization, measurement, commerce-feeds, cro, creative-strategy, market-intel), run multi agent audits, launches, scaling plans and drop recoveries, build channel mix and budget plans (marginal returns, response curves, 70/20/10, pacing), compute unit economics (breakeven ROAS, POAS, MER, aMER, nCAC, LTV to CAC, payback, lead funnel math), forecast scenarios, set brand vs performance splits, run the experiment program, apply geo modules (Turkey, EU and UK, US, MENA), plan channels without an agent (Reddit, Pinterest, Snapchat, Amazon, Apple Ads, CTV, affiliate, influencer, email and SMS) and run weekly and monthly reviews.
+description: Conductor playbook and default entry point for the Ads Master growth system. Use for any multi channel or "where do we grow" request. Diagnose a business from ads-master/PROJECT_BRIEF.md, activate agents, route tasks to specialists (meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads, mobile-app-growth, seo, ai-search-optimization, measurement, commerce-feeds, cro, site-engineer, creative-strategy, video-studio, offer-strategy, lifecycle-crm, compliance, market-intel), run multi agent audits, launches with publish gates, scaling plans and drop recoveries, build channel mix and budget plans (marginal returns, response curves, 70/20/10, pacing), compute unit economics (breakeven ROAS, POAS, MER, aMER, nCAC, acquisition investment, LTV to CAC, payback), forecast scenarios, apply geo modules and build new country modules, plan channels without an agent and run weekly and monthly reviews.
 ---
 
 # Growth Orchestrator
@@ -27,6 +27,8 @@ Conductor rules:
 3. Every brief uses the Delegation brief template below. Every specialist writes to its own `ads-master/outputs/<slug>/` file and ends with "Handoffs requested".
 4. After each wave, read the outputs, execute the handoffs that block synthesis, then synthesize.
 5. Nothing touches a live account. The final output is a consolidated change list for human approval.
+6. Publish gates: customer facing assets (ads, pages, emails, feeds, videos, store listings) pass `compliance`; site and theme changes pass `site-engineer` release QA; scaling waits for `measurement` green. Gates respect `ads-master/GUARDRAILS.md` and the automation stage.
+7. Stock and offer sanity: before any launch or budget increase, confirm stock cover for the advertised items and that the offer in the ad matches the live offer.
 
 ## Intake (minimum facts; where they live)
 | # | Fact | Where in ads-master/ | Cold start question |
@@ -72,10 +74,16 @@ If `ads-master/` is missing: ask these 8 in one message, or suggest the `ads-set
 | cro | Landing pages, A/B tests, checkout, forms, page speed for conversion | "conversion rate", "landing page", "checkout drop off", "form", "A/B test the page" | Ad creative tests |
 | creative-strategy | Angles, hooks, briefs, creative testing, AI creative, creative analytics | "creative fatigue", "new ads", "hooks", "UGC", "briefs", "what to make next" | Landing page copy (cro) |
 | market-intel | Competitors, ad libraries, offers, pricing, positioning, VoC, demand, market sizing | "what are competitors doing", "ad library", "pricing study", "market size", "reviews mining" | |
+| mobile-app-growth | ASO, Apple Ads, app campaigns on Google, Meta and TikTok, MMPs, SKAN and AdAttributionKit, deep links, onboarding and paywalls, web to app | "app installs", "ASO", "Apple Ads", "App campaigns", "SKAN", "paywall", "web to app" | Web only businesses |
+| site-engineer | Dev and preview loops, release QA, rollback, launch QA for ads (URL, UTM, pixel, status), mobile web polish, worst case data tests, security review of changes | "publish the theme", "release", "preview", "QA before launch", "it breaks on mobile", "check the landing page works" | Copy and offer decisions (cro, offer-strategy) |
+| video-studio | Video ad production from brief to rendered files, variants, captions, specs, safe zones | "make the video", "render variants", "cut downs", "UGC edit", "product motion video" | Deciding what concept to make (creative-strategy) |
+| offer-strategy | Bundles, price ladders, launch offers, discount vs bonus economics, free shipping thresholds, promo calendar, channel conflict | "which bundle", "launch offer", "free shipping threshold", "discount or gift", "retail price conflict" | Page layout (cro) |
+| lifecycle-crm | Email, SMS, push and WhatsApp flows, retention, subscriptions, loyalty, referral, cohort LTV | "repeat purchase", "email flows", "Klaviyo", "winback", "subscription", "loyalty" | Paid acquisition |
+| compliance | Claims and policy gate, product facts and claims registry, consumer and pricing law, AI disclosure | "can we say", "is this claim allowed", "ad rejected for policy", "health claim", "price reduction rule" | Legal advice beyond documented rules (route to a lawyer) |
 | ads-setup (skill) | Creates and fills ads-master/ | "set up Ads Master", "onboard a new client", ads-master/ missing | |
 | ads-review (skill) | Daily, weekly, monthly, quarterly heartbeat | "run the weekly review", "daily check", "monthly report" | |
 
-Channels without a dedicated agent (Reddit, Pinterest, Snapchat, X, Amazon and retail media, Apple Ads, YouTube reservations, CTV and programmatic, affiliate, influencer, email and SMS): handle in the strategist role with [Other channels quick guides](references/other-channels-quick-guides.md), borrowing the closest agent for execution checks (meta-ads for paid social mechanics, google-ads for YouTube, measurement for tracking).
+Channels without a dedicated agent (Reddit, Pinterest, Snapchat, X, Amazon and retail media, YouTube reservations, CTV and programmatic, affiliate, influencer): handle in the strategist role with [Other channels quick guides](references/other-channels-quick-guides.md), borrowing the closest agent for execution checks (meta-ads for paid social mechanics, google-ads for YouTube, measurement for tracking).
 
 Ambiguous requests:
 - "Performance dropped" or "ads stopped working": measurement health check first, then the channel agent. Use the Recovery workflow.
@@ -127,6 +135,12 @@ Approval gates: <what the human must approve and when>
 | Website exists | seo, ai-search-optimization, cro | weekly (seo, cro), monthly report (ai-search-optimization) |
 | Any paid channel active or planned | creative-strategy, market-intel | weekly (creative), monthly (market-intel) |
 | Product catalog | commerce-feeds | weekly diagnostics |
+| Any customer facing publishing | compliance | on every publish, monthly registry review |
+| Website in a repo or a theme the team changes | site-engineer | on every release, weekly QA |
+| Paid social or video channels active | video-studio | weekly production batch |
+| Ecommerce or subscription offers | offer-strategy | monthly, before promos |
+| Customers or subscribers exist (email or phone consent) | lifecycle-crm | weekly |
+| iOS or Android app | mobile-app-growth | daily alerts + weekly |
 | Channel active or in STRATEGY.md test plan | that channel agent | daily alerts + weekly |
 | Channel paused more than 60 days and not in plan | deactivate the agent | none |
 
@@ -145,6 +159,11 @@ Full plans with steps, inputs and output paths are in [Routing and workflows](re
 | Tracking break | measurement (lead) | affected channel agents (impact on bidding) | none | incident report + bidding protection list |
 | AI search program | ai-search-optimization, seo, market-intel | chatgpt-ads (paid), commerce-feeds (shopping feeds) | measurement (AI referral tracking) | AI visibility program |
 | BFCM or seasonal plan | measurement, commerce-feeds | channel agents, creative-strategy, cro | market-intel (competitor promos) | seasonal plan + pacing calendar |
+| Launch readiness (first paid launch) | measurement, site-engineer, offer-strategy, compliance (facts and claims) | creative-strategy, then video-studio | channel agent drafts PAUSED, site-engineer launch QA | go live checklist + change request |
+| Creative production sprint | creative-strategy (concepts and briefs) | video-studio (renders and variants), compliance | channel agents (PAUSED upload plan) | creative batch + registry rows |
+| Retention program | lifecycle-crm, measurement (cohorts) | offer-strategy, compliance | cro (post purchase pages) | lifecycle plan + flow specs |
+| Offer test | offer-strategy, measurement | cro, compliance | channel agents, creative-strategy | experiment brief + economics |
+| App growth program | mobile-app-growth, measurement (MMP and SKAN) | creative-strategy, video-studio | lifecycle-crm (onboarding and push) | app growth plan |
 
 ## Adaptation matrix
 Business model rows; tiers and maturity change the cells. Tiers: Starter under $3k per month, Growth $3k to $30k, Scale $30k to $300k, Enterprise over $300k.

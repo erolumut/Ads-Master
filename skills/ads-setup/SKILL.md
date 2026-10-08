@@ -1,6 +1,6 @@
 ---
 name: ads-setup
-description: Install or refresh the Ads Master project workspace (the ads-master/ folder) in the current project. Scans the codebase for site platform, tracking tags, consent, structured data and SEO files, interviews the human for the minimum business facts, fills PROJECT_BRIEF.md and MEASUREMENT.md, activates the right agents in HEARTBEAT.md and links the workspace from CLAUDE.md. Use when the user says set up Ads Master, onboard a new project or client, initialize the growth workspace, or when any Ads Master agent finds ads-master/ missing.
+description: Install or refresh the Ads Master project workspace (the ads-master/ folder) in the current project. Scans the codebase for site platform, tracking tags, consent, structured data, SEO files and app config, interviews the human for the minimum business facts, fills PROJECT_BRIEF.md and MEASUREMENT.md, sets the automation stage and money caps in GUARDRAILS.md and guardrails.json, checks the guard hooks, seeds product facts and claims, activates the right agents in HEARTBEAT.md and links the workspace from CLAUDE.md. Use when the user says set up Ads Master, onboard a new project or client, initialize the growth workspace, or when any Ads Master agent finds ads-master/ missing.
 ---
 
 # Ads Setup
@@ -12,8 +12,10 @@ Creates the per project brain that every Ads Master agent reads. Takes 10 to 20 
 ```
 ads-master/
   PROJECT_BRIEF.md  BRAND.md  AUDIENCE.md  COMPETITORS.md  STRATEGY.md
-  MEASUREMENT.md  PRIORITIES.md  EXPERIMENTS.md  HEARTBEAT.md  README.md
-  memory/<agent>.md   journal/   data/imports/   outputs/   templates/
+  MEASUREMENT.md  METRICS.md  PRIORITIES.md  EXPERIMENTS.md  HEARTBEAT.md
+  GUARDRAILS.md  guardrails.json  DECISIONS.md  INCIDENTS.md  README.md
+  brand/PRODUCT_FACTS.md  brand/CLAIMS.md  creative-library/registry.csv
+  memory/<agent>.md   journal/   data/imports/   outputs/   templates/   logs/
 ```
 
 Template source: `${CLAUDE_SKILL_DIR}/template/`
@@ -30,12 +32,16 @@ mkdir -p ads-master && cp -Rn "${CLAUDE_SKILL_DIR}/template/." ads-master/
 ```
 If the variable did not expand, locate the template with `find / -path "*ads-setup/template/PROJECT_BRIEF.md" 2>/dev/null | head -1` and copy from its folder.
 
-### Step 3. Protect sensitive data
-Customer lists, CRM exports and revenue files must never be committed. Propose adding this to the project `.gitignore` (ask first):
+### Step 3. Protect sensitive data and secrets
+Customer lists, CRM exports and revenue files must never be committed, and neither may tokens. Propose adding this to the project `.gitignore` (ask first):
 ```
 ads-master/data/imports/*
 !ads-master/data/imports/HOW_TO_EXPORT.md
+.env
+.env.*
+!.env.example
 ```
+If the project calls platform APIs, propose a `.env.example` with placeholders only (for example `SHOPIFY_STORE=`, `SHOPIFY_ACCESS_TOKEN=`, `META_ACCESS_TOKEN=`, `META_AD_ACCOUNT_ID=`, `GOOGLE_ADS_CUSTOMER_ID=`). Never ask the human to paste a secret into the chat.
 
 ### Step 4. Scan the codebase (auto discovery)
 Run these checks and record each finding as "detected in code, not verified live". Skip any that do not apply.
@@ -52,6 +58,10 @@ Run these checks and record each finding as "detected in code, not verified live
 | AI crawler access | robots rules for GPTBot, OAI-SearchBot, ChatGPT-User, PerplexityBot, ClaudeBot, Claude-SearchBot, Google-Extended, Bingbot; any `llms.txt` |
 | Feeds and commerce | Merchant Center feed files, product JSON endpoints, Shopify apps for Google and Meta channels |
 | CRM and forms | HubSpot, Salesforce, Pipedrive embeds; form handlers; hidden fields for gclid, fbclid, utm |
+| Email and SMS | Klaviyo, Mailchimp, Braze, Customer.io, Omnisend, Attentive, Postscript snippets or apps; consent checkboxes |
+| Mobile app | `ios/`, `android/`, `app.json` or `app.config.*` (Expo), `pubspec.yaml` (Flutter), `Info.plist` SKAdNetworkItems, MMP SDKs (AppsFlyer, Adjust, Branch, Singular), RevenueCat or Superwall |
+| Deploy and release | `shopify.theme.toml`, Shopify CLI config, `vercel.json`, `netlify.toml`, CI workflows, preview deploy setup |
+| Product facts on the site | Nutrition tables, ingredient lists, certifications, guarantees, review widgets: seed `brand/PRODUCT_FACTS.md` as "pending" rows with the page URL as evidence, and copy any claims found on the site into `brand/CLAIMS.md` under Needs review |
 
 Write results into `ads-master/MEASUREMENT.md` (Tracking stack status) and a short "Technical findings" list at the end of `PROJECT_BRIEF.md` section 7.
 
@@ -68,6 +78,11 @@ Ask only what the code cannot tell you. Use a single message or the question too
 
 Fill `PROJECT_BRIEF.md`. Compute breakeven ROAS (1 divided by contribution margin) and target CPA when the numbers allow, and show the math.
 
+Then set the guardrails (two quick questions):
+- Automation stage. Default 1 (read only) for a new project. Explain stages 1 to 5 in one line each.
+- Money caps: maximum daily budget per campaign and per account, and the maximum budget increase per change.
+Write both into `GUARDRAILS.md` and `guardrails.json` (same values). Record the choice in `DECISIONS.md`.
+
 ### Step 6. Activate agents
 Set the Active column in `HEARTBEAT.md` using these rules, then show the human the list for approval:
 
@@ -79,6 +94,12 @@ Set the Active column in `HEARTBEAT.md` using these rules, then show the human t
 | Ecommerce or product catalog | commerce-feeds |
 | Channel active or planned in the brief | meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads accordingly |
 | B2B with deal size over about $5k | linkedin-ads (consider), microsoft-ads (consider) |
+| Any customer facing publishing (always, in practice) | compliance |
+| Website code or theme in this repo, or a site the team edits | site-engineer |
+| Meta, TikTok, YouTube or other video placements active or planned | video-studio |
+| Ecommerce, subscriptions or a meaningful offer decision | offer-strategy |
+| Existing customers or subscribers with consent | lifecycle-crm |
+| iOS or Android app | mobile-app-growth |
 | Starter tier budget | Max two paid channels. Usually google-ads (demand capture) plus one of meta-ads or the channel where the audience lives |
 
 ### Step 7. Connect the workspace to Claude
@@ -87,15 +108,22 @@ Ask before editing. Append this block to the project `CLAUDE.md` (create the fil
 <!-- ads-master:start -->
 ## Growth agents (Ads Master)
 Project growth state lives in `ads-master/`. Before any marketing, ads, SEO, AI search, tracking or landing page task, read `ads-master/PROJECT_BRIEF.md` and `ads-master/MEASUREMENT.md`.
-For multi channel work, load the `growth-orchestrator` skill and delegate to the specialist agents it names. Specialists: meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads, seo, ai-search-optimization, measurement, cro, creative-strategy, commerce-feeds, market-intel.
-Agents never change live accounts, spend or publish without explicit approval.
+For multi channel work, load the `growth-orchestrator` skill and delegate to the specialist agents it names. Specialists: meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads, mobile-app-growth, seo, ai-search-optimization, measurement, cro, site-engineer, creative-strategy, video-studio, offer-strategy, lifecycle-crm, compliance, commerce-feeds, market-intel.
+Safety policy: `ads-master/GUARDRAILS.md` (automation stage, caps, gates), enforced by the Ads Master guard hooks. Agents never change live accounts, spend, message customers or publish without explicit approval.
 <!-- ads-master:end -->
 ```
 
-### Step 8. Connectors check
-List the MCP servers and connectors available in this session. Recommend, but never install without approval, the ones that unlock live data: Google Ads, Google Analytics, Search Console, Meta Ads, Merchant Center, BigQuery, Ahrefs or Semrush, a rank or AI visibility tracker. Without connectors the agents work from CSV exports in `ads-master/data/imports/` (see HOW_TO_EXPORT.md there).
+### Step 8. Guard hooks check
+The guard hooks make the gates deterministic. Check they are active:
+- Plugin install: `hooks/hooks.json` ships with the plugin; nothing to do.
+- Project install: `.claude/settings.json` should contain hooks that call `.claude/hooks/ads-master-guard.py` (the installer adds them).
+- Run a dry check: `echo '{"tool_name":"mcp__x__delete_campaign","tool_input":{}}' | CLAUDE_PROJECT_DIR="$PWD" python3 <guard path> pre` must print a deny decision.
+If `python3` is missing, tell the human the deterministic layer is off and the agents rely on their written rules only.
 
-### Step 9. Close out
+### Step 9. Connectors check
+List the MCP servers and connectors available in this session. Recommend, but never install without approval, the ones that unlock live data: Google Ads, Google Analytics, Search Console, Meta Ads, TikTok, Merchant Center, Shopify, BigQuery, the ESP (Klaviyo or similar), App Store Connect and the MMP for apps, Ahrefs or Semrush, a rank or AI visibility tracker. Prefer read only scopes first; write scopes only after the automation stage allows them. Without connectors the agents work from CSV exports in `ads-master/data/imports/` (see HOW_TO_EXPORT.md there).
+
+### Step 10. Close out
 1. Write `ads-master/outputs/growth-orchestrator/YYYY-MM-DD_growth-orchestrator_setup-report.md`: what was detected, what was filled, gaps, recommended first three actions.
 2. Write the first journal entry: `ads-master/journal/YYYY-MM-DD_HHMM_growth-orchestrator_workspace-setup.md`.
 3. Recommend the next step. Default: "Run a full growth audit" (growth-orchestrator skill, Full Growth Audit workflow). If tracking looks broken, the measurement audit comes first.

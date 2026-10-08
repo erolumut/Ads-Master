@@ -2,6 +2,8 @@
 
 Channels without a dedicated Ads Master agent yet. The growth-orchestrator handles them in the strategist role: decide if the channel fits, design the first test, define measurement, and borrow the closest agent for mechanics. When a channel becomes a recurring line item (about 10% of paid media or more than $5k per month), create a dedicated agent (section 13).
 
+Since v1.1, email and SMS lifecycle has a dedicated agent (`lifecycle-crm`) and Apple Ads is run by `mobile-app-growth`. The sections below remain as quick context; route execution to those agents.
+
 Verification note: platform minimums and feature names below were not re-checked live in the October 2026 sweep unless dated. Confirm in each platform's help center before launch.
 
 ## 0. Common test template (use for every channel here)
@@ -151,7 +153,7 @@ Verification note: platform minimums and feature names below were not re-checked
 ## 13. Creating a dedicated agent for one of these channels
 Trigger: recurring budget above about 10% of paid media or above $5k per month, or a channel that needs weekly expert operation.
 1. Follow `docs/AUTHORING_SPEC.md` section 9 and routing-and-workflows.md section 5.
-2. Start from the closest package: reddit, pinterest, snapchat, x from meta-ads; amazon or retail media from google-ads plus commerce-feeds; ctv from google-ads (YouTube) plus measurement; lifecycle (email and SMS) as a new package using cro and measurement modules.
+2. Start from the closest package: reddit, pinterest, snapchat, x from meta-ads; amazon or retail media from google-ads plus commerce-feeds; ctv from google-ads (YouTube) plus measurement.
 3. Research the channel with the research dossier format (40+ dated sources) before writing the playbook.
 4. Required files: `agents/<slug>.md`, `skills/<slug>/SKILL.md`, references including `audit-checklist.md` and `sources.md`, `research/<slug>.md`.
 5. Register the slug in the routing table (SKILL.md), AGENT_REGISTRY.md, HEARTBEAT.md template and memory template.
