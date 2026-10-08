@@ -1,6 +1,6 @@
 # Sources
 
-> Compiled 2026-10-08. Build note: during this build, direct page fetching was blocked by the network environment, and web search was capped. Official claims were checked against multiple independent reports of the same announcement where possible. Items that rest on one secondary source are labeled [Unverified] in the modules. Re-open the official URLs below during the Freshness Protocol before acting on any time-sensitive claim. Dates marked "n.d." could not be confirmed; "accessed" means the date the result was seen.
+> Compiled 2026-10-08; verification pass 2026-10-08 (section C2). Build note: direct page fetching was blocked by the network environment, so official claims were checked against Meta pages surfaced in search plus multiple independent reports of the same announcement. Items that rest on one secondary source stay labeled [Unverified] in the modules. Re-open the official URLs below during the Freshness Protocol before acting on any time-sensitive claim. Dates marked "n.d." could not be confirmed; "accessed" means the date the result was seen.
 
 ## A. Official Meta sources (monitor these)
 
@@ -114,6 +114,47 @@
 | 96 | Meta Opportunity Score: what to act on and what to ignore | Hunch | https://www.hunchads.com/blog/meta-opportunity-score-what-to-act-on-and-what-to-ignore | 2025 | Recommendation triage |
 | 97 | Meta Will Use AI Conversations to Personalize Ads | Dataslayer | https://www.dataslayer.ai/blog/meta-will-use-ai-conversations-to-personalize-ads | 2025 | No opt-out reported |
 | 98 | Meta agrees to offer less-personalized ad option for EU users | Anadolu Agency | https://www.aa.com.tr/en/europe/meta-agrees-to-offer-less-personalized-ad-option-for-eu-users/3765367 | 2025-12 | EU LPA |
+
+
+## C2. Added in the 2026-10-08 verification pass
+
+| # | Title | Publisher | URL | Date | Supports |
+|---|-------|-----------|-----|------|----------|
+| 99 | Ads MCP Server overview | Meta for Developers | https://developers.facebook.com/documentation/ads-commerce/ads-ai-connectors/ads-mcp-server/ads-mcp-server-overview | 2026-04 | Official hosted MCP server, OAuth, tools |
+| 100 | Meta's new Ads CLI lets AI agents manage ad campaigns from the command line | PPC Land | https://ppc.land/metas-new-ads-cli-lets-ai-agents-manage-ad-campaigns-from-the-command-line/ | 2026-04 | Ads CLI launch and commands |
+| 101 | Meta Just Launched AI Connectors for Ads | Common Thread Collective | https://commonthreadco.com/blogs/coachs-corner/meta-ai-mcp-cli-ads-connectors-ecommerce | 2026-04 | Launch date 2026-04-29, open beta, write access |
+| 102 | Some Meta advertisers lose placement controls, with bid cuts capped at 90% | PPC Land | https://ppc.land/some-meta-advertisers-lose-placement-controls-with-bid-cuts-capped-at-90/ | 2026-08 | Placement exclusion removal, value rule floor |
+| 103 | Meta Graph API v26.0: One Placement Errors, One Is Silently Stripped | Unalsoft | https://unalsoft.com/blog/2026-07-31-meta-graph-api-v26/en/ | 2026-07-31 | Explore Feed removal, Messenger Stories stripping, 2026-10-27 date |
+| 104 | Meta blocks 47 commerce endpoints as Graph API v26.0 lands today | PPC Land | https://ppc.land/meta-blocks-47-commerce-endpoints-as-graph-api-v26-0-lands-today/ | 2026-07-29 | v26.0 release date |
+| 105 | Meta Launches Creator Marketing Hub, Live Video Ads | MediaPost | https://www.mediapost.com/publications/article/418022/meta-launches-creator-marketing-hub-live-video-ad.html | 2026-09-16 | Creator Marketing Hub, Instagram live partnership ads |
+| 106 | Meta streamlines creator, brand tie-ups with new marketing hub | Marketing Dive | https://www.marketingdive.com/news/meta-streamlines-creator-brand-tie-ups-with-new-marketing-hub/830593/ | 2026-09 | Hub features and APIs |
+| 107 | Meta adds more creator partnership tools | Social Media Today | https://www.socialmediatoday.com/news/meta-adds-more-creator-partnership-tools/830480/ | 2026-09 | Hub features |
+| 108 | Threads advertisers will no longer need an Instagram account | Social Media Today | https://www.socialmediatoday.com/news/threads-advertisers-will-no-longer-need-an-instagram-account/830967/ | 2026-09 | Threads ads from native Threads profiles |
+| 109 | Brand Identity On Threads To Become Independent Of Instagram | MediaPost | https://www.mediapost.com/publications/article/418194/brand-identity-on-threads-to-become-independent-of.html | 2026-09 | Threads naming and access rollout |
+| 110 | Meta's New Creative Diversity Score Is Live in Ads Manager | Common Thread Collective | https://commonthreadco.com/blogs/coachs-corner/metas-new-creative-diversity-score-is-live-in-ads-manager-what-ecommerce-brands-must-act-on-now | 2026-08 | Creative diversity column, Low, Medium, High |
+| 111 | Meta Ads Manager introduces Creative Diversity score: what a Low rating really means | Marketing Concurrent | https://www.marketingconcurrent.nl/en/blog/meta-ads-manager-introduces-creative-diversity-score-what-a-low-rating-really-means | 2026-09 | Help Center description, in development label |
+| 112 | How advertisers are adjusting to Meta's ad creative diversification best practices | Marketing Brew | https://www.marketingbrew.com/stories/meta-ad-creative-diversification-best-practices-advertiser-approach | 2026-09 | Meta statement on Insights API creative metrics tests |
+| 113 | WhatsApp Pricing Change 2026: How to Reduce Costs | respond.io | https://respond.io/blog/whatsapp-pricing-change-2026 | 2026-09 | 7-day free entry point window report [Contested] |
+| 114 | Click-to-WhatsApp Ads (CTWA): How the Free Entry Point Works | Chatbotscape | https://chatbotscape.com/glossary/click-to-whatsapp-ads | 2026-09 | Meta page dated 2026-08-25 still at 72 hours |
+| 115 | Meta to charge advertisers a fee to offset Europe's digital taxes | Reuters via Yahoo Finance | https://finance.yahoo.com/news/meta-charge-advertisers-fee-offset-182506077.html | 2026-03 | Location fees by country from 2026-07-01, VAT on top |
+| 116 | Meta Hikes Fees for Advertisers to Cover Europe's Digital Taxes | Bloomberg Tax | https://news.bloombergtax.com/financial-accounting/meta-hikes-fees-for-advertisers-to-cover-europes-digital-taxes | 2026-03 | Location fees confirmation |
+| 117 | Conversions API for CRM Integration | Meta for Developers | https://developers.facebook.com/documentation/ads-commerce/conversions-api/conversion-leads-integration | 2025-12 | Conversion leads stage rules: 28 days, 1% to 40%, instant forms |
+| 118 | No More Existing Customer Budget Cap | Jon Loomer Digital | https://www.jonloomer.com/qvt/no-more-existing-customer-budget-cap/ | 2025 | Help Center note on removed cap |
+| 119 | Meta Customer Lifecycle Strategy: What to Know 2026 | Foxwell Digital | https://www.foxwelldigital.com/blog/customer-lifecycle-strategy-coming-to-meta-ads-in-2026 | 2026 | New customers only setting |
+| 120 | Meta Advertising Week 2026 Ad Tools: Live vs Testing | Relevant Audience | https://www.relevantaudience.com/meta/meta-advertising-week-new-york-2026-ad-tools/ | 2026-10 | Image to video GA, Customer Lifecycle Strategy for all, MCP expansion, assistant testing |
+| 121 | Meta introduces new AI-powered tools at Advertising Week | Social Media Today | https://socialmediatoday.com/news/meta-introduces-new-ai-powered-tools-at-ad-week-2026/832288 | 2026-10 | Advertising Week announcements |
+| 122 | Meta Unveils Enhanced AI Business Assistant, Automated Ad Tools | MediaPost | https://www.mediapost.com/publications/article/418580/meta-unveils-enhanced-ai-business-assistant-autom.html | 2026-10-08 | Assistant and in-chat checkout trial |
+| 123 | Meta Q2 2026 Earnings Call Transcript | Meta Investor Relations | https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/META-Q2-2026-Earnings-Call-Transcript.pdf | 2026-07-29 | +8.3% clicks, +15.7% conversions on Facebook, generative retrieval, Status expansion |
+| 124 | How AI-generated images in ads are identified and labeled on Meta | Meta Help Center | https://www.meta.com/help/artificial-intelligence/355108217670024/ | 2026 | AI info label, third-party AI detection from 2026-06-01 |
+| 125 | Introducing Muse Image: Image Generation Built for Your World | Meta Newsroom | https://about.fb.com/news/2026/07/introducing-muse-image-meta-ai/ | 2026-07-07 | Muse Image for Advantage+ creative in coming weeks |
+| 126 | California becomes the second state to enact a synthetic performer law | DLA Piper | https://www.dlapiper.com/en-us/insights/publications/2026/09/california-becomes-the-second-state-to-enact-a-synthetic-performer-law | 2026-09 | SB 1050, effective 2027-01-01 |
+| 127 | New York Synthetic Performer Law: What Advertisers Need to Know | Manatt | https://www.manatt.com/insights/newsletters/client-alert/new-york-synthetic-performer-law-what-advertisers-need-to-know | 2026 | GBL 396-b, in force 2026-06-09 |
+| 128 | Is Meta's Incremental Attribution Outperforming Standard Attribution? | Haus | https://www.haus.io/blog/is-metas-incremental-attribution-outperforming-standard-attribution-what-the-data-shows | 2026 | 1.26x pooled result July 2025 to June 2026 |
+| 129 | Meta Incremental Attribution Explained | Webtopia | https://www.webtopia.co/blog/meta-incremental-attribution-explained | 2026 | Only source for the April 2026 25% claim [Unverified] |
+| 130 | Meta drops 250 ad page cap in some accounts | PPC Land | https://ppc.land/meta-drops-250-ad-page-cap-in-some-accounts-as-286-ads-keep-running/ | 2026-09 | Page ad limit enforcement report [Unverified] |
+| 131 | Ad campaign (ad set) reference | Meta for Developers | https://developers.facebook.com/documentation/ads-commerce/marketing-api/reference/ad-campaign | living | 50 non-archived ads per ad set |
+| 132 | Meta Expands WhatsApp Status Ad Options | Social Media Today | https://www.socialmediatoday.com/news/meta-adds-whatsapp-click-to-message-whatsapp-status-ads/760186/ | 2025-09 | Click to message ads in Status |
+| 133 | Meta Ads Safe Zones: A Guide to the 2026 Unified Creative Updates | Billo | https://billo.app/blog/meta-ads-safe-zones | 2026-03 | Unified 9:16 safe zone |
 
 ## D. How to use this list
 

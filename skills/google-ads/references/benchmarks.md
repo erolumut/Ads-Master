@@ -23,6 +23,7 @@
 Do not mix editions in one comparison: methods and samples change between years. Quote the edition and its data window with the figure.
 
 Practitioner data studies (method published, sample is the vendor's customer base):
+
 | Study | Finding | Sample and date | Caveat |
 |---|---|---|---|
 | Optmyzr, State of Google Ads Q1 2026 | PMax campaign volume up 15.7% year over year; PMax CTR rose from 1.29% to 1.68% while CPA rose and ROAS slipped slightly | 21,000+ accounts managed in Optmyzr, Q1 2026 vs Q1 2025 [Study, 2026] | Tool users skew to managed, mid to large accounts |

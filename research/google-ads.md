@@ -8,7 +8,7 @@
 - Verification pass (same day): 50 further searches (extended mode for 2026 items) aimed at every [Unverified] and [Contested] item and at announcements from 2026-06 to 2026-10, plus direct reads of Google's official client library on GitHub (googleads/google-ads-python, release 33.0.0 with v23 to v25 type definitions and changelog) to check every GAQL field name. Google help, policy and developer pages were still read through search summaries, not full page loads. Sources 111 to 190 were added in this pass.
 - Long-standing fundamentals (match type behavior, Quality Score, Ad Rank, budget mechanics, attribution models, policy structure) come from prior knowledge of Google documentation and are labeled [Official] only where the behavior has been stable for years.
 - Evidence labels: [Official, YYYY-MM], [Study, YYYY-MM], [Practitioner report or consensus], [Contested], [Unverified]. "Official via trade press" means a Google statement (help text, notice email, Ads Liaison post) quoted by trade press.
-- Still open after the pass: listed in the watch list. The human should re-check the open items and the four remaining [Unverified] claims when Google publishes help pages for them.
+- Still open after the pass: listed in the watch list. The human should re-check the open items and the remaining [Unverified] claims when Google publishes help pages for them.
 
 ## Executive summary
 
@@ -59,62 +59,92 @@
 | 2025-03 | Demand Gen channel controls (YouTube in-stream, in-feed, Shorts, Gmail, Discover, GDN) | Demand Gen | [Practitioner report] | 96 |
 | 2025-04-30 | PMax channel performance, search terms and asset reporting announced | PMax | [Official, 2025-04] | 16, 54, 55 |
 | 2025-05 | AI Max for Search announced, beta rollout globally | Search | [Official, 2025-05] | 49 |
-| 2025-05 | Smart Bidding Exploration announced | Bidding | [Official, 2025-05] | 19, 56 |
+| 2025-05 | Smart Bidding Exploration announced; Conversion Lift minimum lowered to 5,000 USD with Bayesian methods | Bidding, Measurement | [Official, 2025-05] | 19, 56, 125, 126 |
 | 2025-05 | Google Marketing Live 2025: ads in AI Overviews expansion to desktop and more countries, ads in AI Mode test, Google tag gateway, Data Manager | AI surfaces, Measurement | [Official, 2025-05; details from prior knowledge] | prior knowledge |
+| 2025-05 | PMax performance labels deprecated in favor of asset metrics | PMax | [Practitioner report; field absent from API v23 to v25] | 120 |
 | 2025-06 | Video action campaign migration tool to Demand Gen available | Video | [Practitioner report, 2025-06] | 104 |
 | 2025-07 | Smart Bidding Exploration GA for Search tROAS, campaign and portfolio level | Bidding | [Practitioner report, 2025-07] | 79 |
 | 2025-07 | Brand inclusions and exclusions moved under AI Max for new Search campaigns | Search | [Official via trade press] | 50 |
 | 2025-08 | Google Ads API v21: AI Max ad group controls, AI Max search term ad combination view | API | [Official, 2025-08] | 39 |
 | 2025-08 | PMax shared negative keyword lists fully rolled out | PMax | [Practitioner report] | 15 |
-| 2025-08 | Google help text first signals removal of language targeting in Search (did not happen in 2025) | Search | [Practitioner report] | 62 |
-| 2025-09 | Think Week: Ads Advisor and Analytics Advisor previewed; journey aware bidding pilots discussed | UI, Bidding | [Practitioner reports] | 32, 71 |
+| 2025-09 | Think Week: Ads Advisor and Analytics Advisor previewed; journey aware bidding pilots announced | UI, Bidding | [Practitioner reports] | 32, 71 |
 | 2025-10 | Google open-sources the Google Ads API MCP server (read-only) | Tools | [Official, 2025-10] | 41, 42, 57, 58 |
-| 2025-10 | "Missed growth opportunities" spotted in Labs | Recommendations | [Practitioner report] | 81 |
-| 2025-11 | Ads Advisor and Analytics Advisor announced; channel performance report in all PMax campaigns | UI, PMax | [Official, 2025-11] | 15, 32 |
+| 2025-10 | Call-only ads deprecation announced (creation ends 2026-02, serving ends 2027-02) | Search | [Official] | 127 |
+| 2025-11 | Ads Advisor and Analytics Advisor announced (Ads Advisor applies changes after approval); channel performance report in all PMax campaigns | UI, PMax | [Official, 2025-11] | 15, 32 |
 | 2025-12 | Ads Advisor in all English Google Ads accounts | UI | [Practitioner report] | 32 |
-| 2025-12 | Ads in AI Overviews live in 12 English-language countries | AI surfaces | [Official via trade press, 2025-12] | 67, 78 |
-| 2025-12 | Video action campaign end dates capped at 2026-01-31 ahead of auto-upgrade | Video | [Official] | 29 |
+| 2025-12 | Ads in AI Overviews live in 12 English-language countries | AI surfaces | [Official, Google Ads Help] | 27, 67, 78 |
+| 2025-12 | Customer Match minimum list size 100 active users on Search, YouTube and Display | Audiences | [Practitioner report citing Google help] | 174 |
+| 2025-12-09 | Data Manager API launched | Measurement | [Practitioner report] | 114 |
 | 2026-01 | Direct Offers pilot in AI Mode with select US retailers; Universal Commerce Protocol introduced | AI surfaces, Shopping | [Official via trade press, 2026-01] | 3 |
 | 2026-01-15 | Campaign total budgets open beta for Search, PMax, Shopping | Budgets | [Official, 2026-01] | 20, 21, 22, 66 |
+| 2026-02 | Creation of new call-only ads removed | Search | [Official] | 127 |
 | 2026-03-15 | Demand Gen lookalike segments become AI-powered audience signals | Demand Gen | [Practitioner report] | 96 |
 | 2026-04 | Video action campaigns fully auto-upgraded to Demand Gen | Video | [Official] | 29 |
+| 2026-04 | Enhanced conversions accept tag, Data Manager and API data at once with deduplication | Measurement | [Official] | 26 |
 | 2026-04 | Demand Gen view-through conversion optimization on by default (open beta); Commerce Media Suite | Demand Gen | [Practitioner report, 2026-04] | 96 |
 | 2026-04 | AI Max out of beta for Search; brand inclusion recommendation | Search | [Practitioner report, 2026-04] | 83 |
+| 2026-04-01 | Google Ads API Customer Match uploads limited to tokens active from 2025-10-01 to 2026-03-31; Data Manager API for new integrations | API, Audiences | [Official] | 115, 142 |
 | 2026-04-22 | Ads Advisor adds policy guidance, security monitoring (coming), automated certifications | UI, Policy | [Official, 2026-04] | 33 |
 | 2026-04-30 | AI Max for Shopping and Travel closed betas, AI Brief, text disclaimers | Search, Shopping | [Official, 2026-04] | 12, 51, 52 |
 | 2026-05 | Google Ads API v24.2: ad network type segment for PMax placement view | API | [Practitioner report] | 61 |
-| 2026-05 | Journey aware bidding beta for Search tCPA lead gen (start date reported as 2026-05-07 or GML) | Bidding | [Contested] | 71 |
-| 2026-05-20 | Google Marketing Live 2026: Ask Advisor, Highlighted Answers, Conversational Discovery Ads, ads in AI Mode, Direct Offers expansion with native checkout and travel, Universal Cart, UCP to YouTube Shopping ads and Demand Gen, AI-powered Shopping ads, Asset Studio with Gemini Omni, creator videos in paid campaigns, Demand Gen in Maps, Qualified Future Conversions, Meridian Studio, Business Agent for Leads, Analytics 360 relaunch | All | [Official, 2026-05] | 1, 2, 3, 4, 34, 53, 76, 77 |
-| 2026-06 | Display campaigns to Demand Gen migration tool starts rolling out | Display | [Official] | 97 |
-| 2026-06-01 | Granular reporting history limited to 37 months | Reporting | [Unverified] | 86 |
-| 2026-06-15 | Consent signal changes (ad_storage as deciding signal for ads data), offline and EC for leads uploads moved to the Data Manager API, EC settings merged, product reporting changes | Measurement | [Contested scope; EC merge Official] | 26, 43, 86 |
-| 2026-06 (mid) | DSA auto-migration delayed to 2027-02; Smart Bidding Exploration for PMax without feeds; Promotion Mode beta | Search, Bidding | [Practitioner reports] | 63, 86 |
-| 2026-07 | Ask Advisor rolls out to selected Merchant Center accounts | Tools | [Practitioner report] | 82 |
+| 2026-05-07 | Journey aware bidding beta for Search tCPA (accounts with OCI or EC for leads) | Bidding | [Official via trade press] | 71, 149 |
+| 2026-05-15 | Google announces offline click conversion upload allowlist in the Google Ads API from 2026-06-15 | API, Measurement | [Official] | 111, 140, 141 |
+| 2026-05-20 | Google Marketing Live 2026: Ask Advisor, Highlighted Answers, Conversational Discovery Ads, ads in AI Mode, Direct Offers expansion with native checkout and travel, Universal Cart, UCP to YouTube Shopping ads and Demand Gen, AI-powered Shopping ads, Asset Studio with Gemini Omni, creator videos in paid campaigns, Demand Gen in Maps, Qualified Future Conversions, Meridian Studio, Business Agent for Leads, Analytics 360 relaunch | All | [Official, 2026-05] | 1, 2, 3, 4, 34, 53, 76, 77, 160 |
+| 2026-05-28 | Data Manager API v1.7: IP ingestion for Customer Match, events to Google Marketing Platform | API | [Official] | 113 |
+| 2026-06 | Display campaigns to Demand Gen migration tool (voluntary) | Display | [Official] | 97, 129, 173 |
+| 2026-06 | UI renames "Maximize conversions with a target CPA" to "Target CPA" (and the ROAS equivalent) | Bidding | [Official wording via trade press] | 146 |
+| 2026-06-01 | Granular reporting history limited to 37 months; aggregates 11 years; reach and frequency 3 years | Reporting | [Official] | 116, 117, 171, 172 |
+| 2026-06-11 | DSA auto-migration moved to 2027-02; DSA creation re-enabled 2026-06-15, to end 2027-01 | Search | [Official via Ads Liaison] | 143, 144 |
+| 2026-06-15 | Consent mode (ad_storage) single control for Google tag ads data; offline upload allowlist in effect; EC settings merged; product reporting includes all PMax networks | Measurement | [Official] | 26, 43, 111, 121, 170 |
+| 2026-06 (mid) | Smart Bidding Exploration GA for PMax without feeds; Promotion mode beta for Search and PMax; target-based bidding update announced | Bidding | [Official announcement and Ads Liaison] | 131, 146, 147, 148 |
+| 2026-06 | Ads Liaison: broad match campaigns eligible for AI Overviews and AI Mode without AI Max | AI surfaces | [Official via Ads Liaison] | 159 |
+| 2026-06 | Google to auto-label unclassified conversion-based customer lists from 2026-08-18 | Audiences | [Practitioner report] | 167 |
+| 2026-07 | Ask Advisor closed beta in Merchant Center (selected US merchants) | Tools | [Official] | 82, 124 |
 | 2026-07 | Missed Opportunities moved from Labs into Recommendations (beta) | Recommendations | [Practitioner report] | 81 |
-| 2026-07-15 | Demand Gen with VTC optimization on Discover switches to CPM billing | Demand Gen | [Unverified] | 95 |
+| 2026-07 | PMax "Partners" alpha: exclude Search Partners and Display | PMax | [Practitioner report] | 152 |
+| 2026-07-01 | Call recording defaults to Yes in US and Canada where never set | Measurement | [Google notice via trade press] | 166 |
+| 2026-07-15 | Demand Gen campaigns with VTC optimization billed on CPM on Discover | Demand Gen | [Google notice via trade press] | 95, 164 |
 | 2026-07-21 | In-account appeals unavailable for policy decisions older than 6 months | Policy | [Official, 2026-07] | 64, 65 |
-| 2026-07-22 | Google Ads API v25: lifecycle goal resources replaced by unified Goal and CampaignGoalConfig; YouTube metrics | API | [Official via trade press] | 60 |
+| 2026-07-22 | Google Ads API v25: lifecycle goal resources replaced by unified Goal and CampaignGoalConfig; lift study resources | API | [Official] | 60, 120 |
 | 2026-08 | Limited Ad Serving policy extended to all Google Ads (rollout to 2028); certification process update; gambling, crypto, political content policy updates | Policy | [Official, 2026-08] | 37, 38 |
-| 2026-08 | PMax channel prioritization controls (sliders) alpha | PMax | [Unverified] | 80 |
-| 2026-08 | Local Services Ads management starts moving into Google Ads (select US providers) | Local | [Official, verify] | 84 |
+| 2026-08 | PMax channel prioritization alpha (Lower, Auto, Higher per channel), allowlisted | PMax | [Practitioner reports] | 80, 150, 151 |
+| 2026-08 | Local Services Ads begin migrating to a PMax campaign type with pay-per-lead goals (select US categories first) | Local | [Official] | 128 |
+| 2026-08 | Demand Gen VTC becomes video-first (image VTC not biddable); Display video assets move to CPM | Demand Gen | [Practitioner report citing Google help] | 165 |
 | 2026-08 | Multimodal Video Creation in Asset Studio GA | Creative | [Practitioner report] | 84 |
+| 2026-08-05 | Google Ads API v21 sunset (v20 sunset 2026-06-10) | API | [Official via trade press] | 94 |
 | 2026-08-10 | Gemini-powered AI summaries and prompt dashboards in Google Ads | UI | [Practitioner report] | 84 |
-| 2026-08-17 to 2026-08-27 | Target-based bid strategy update | Bidding | [Official, 2026-07] | 24, 25 |
-| 2026-08-18 | Automatic customer type labeling of unclassified conversion-based customer lists | Audiences | [Unverified] | 84 |
-| 2026-08-19 | Google Ads API v25.1: AI Max migration date fields, text disclaimer assets, loyalty segmentation for value rules | API | [Official via trade press] | 93 |
-| 2026-08-31 | Local inventory ads on by default in Standard Shopping | Shopping | [Practitioner report] | 84 |
+| 2026-08-14 | Ads Liaison announces removal of manual language targeting for Search ads | Search | [Official] | 137, 145 |
+| 2026-08-17 to 2026-08-27 | Target-based bid strategy update for budget-limited tCPA and tROAS | Bidding | [Official] | 24, 25, 146 |
+| 2026-08-18 | Automatic customer type labeling of unclassified conversion-based customer lists | Audiences | [Practitioner report] | 84, 167 |
+| 2026-08-18 | Content API for Shopping sunset; degradation from 2026-09-01; shutdown early 2027 | Shopping | [Official] | 135 |
+| 2026-08-19 | Google Ads API v25.1: AI Max migration timestamp fields, text disclaimer assets, loyalty segmentation for value rules | API | [Official] | 93, 120 |
+| 2026-08-20 | AI Max experiments with brand and location controls; multi-campaign budget and target tests (from 2026-09); Performance Planner one-click apply | Search | [Official] | 186, 187 |
+| 2026-08-24 | Notice: LSA charges for missed calls (20 seconds, business hours) and follow-ups from 2026-10-01 | Local | [Google notice via trade press] | 188, 189 |
+| 2026-08-31 | Local inventory ads on by default in Standard Shopping | Shopping | [Official] | 119, 163 |
 | 2026-09-01 to 2026-09-30 | Auto-upgrade to AI Max of Search campaigns with ACA or campaign-level broad match | Search | [Official, 2026] | 5, 6, 48 |
-| 2026-09 | Book button (Reserve with Google) expands to Search and PMax | Local | [Unverified] | 69, 88 |
-| 2026-09 | AI Brief beta in more languages; new AI Max reporting | Search | [Official, 2026-09] | 13 |
+| 2026-09 | Book button (partner bookings) on Search and PMax for eligible merchants | Local | [Official help] | 69, 122 |
+| 2026-09 | AI Brief audience targeting in 7 more languages; new AI Max reporting; AI Max vs DSA test help article | Search | [Official, 2026-09] | 13, 178 |
+| 2026-09 | Small test: exact and phrase keywords serve text ads in AI Mode for explicit intent | AI surfaces | [Official via Ads Liaison] | 157, 158 |
+| 2026-09-02 | Developer Blog reminder: v22 sunset 2026-10-07 | API | [Official] | 118 |
+| 2026-09-04 | Google Ads Developer Policies updated (own Google Cloud project, no programmatic proxies) | API | [Practitioner report] | 176 |
 | 2026-09-07 | Limited Ad Serving applied to Demand Gen | Policy | [Practitioner report] | 96 |
 | 2026-09-10 | Data Manager in GA and DV360; Data Strength Uplift in Google Ads; Meridian GeoX global | Measurement | [Practitioner reports] | 87, 90 |
+| 2026-09-15 | PMax setting "Where should people go after clicking your ads?" | PMax | [Practitioner report] | 178 |
+| 2026-09-22 | Learning period guidance updated to up to about 50 conversions or 3 cycles (UK page; US page differs) | Bidding | [Contested] | 175, 89 |
 | 2026-09-23 | Google Ads API v25.2: Smart to PMax drafts, asset group tracking controls, percentile benchmarks, bid-too-low recommendations | API | [Official via trade press] | 59 |
 | 2026-09-24 | Demand Gen update: one-tap image ads on Shorts and Gmail, affiliate locations in Maps | Demand Gen | [Unverified] | 89 |
-| 2026-09 (late) | Manual language targeting removed for Search, AI Max and PMax Search inventory | Search | [Official via Google Ads Liaison] | 62 |
-| 2026-10-02 | PMax asset experiments reported available to all advertisers | PMax | [Unverified] | 85 |
-| 2026-10-07 | Google Ads API v22 sunset | API | [Official] | 94 |
-| 2026-10-12 | Automated promotions from advertiser websites on by default for eligible Search and PMax campaigns | Assets | [Unverified] | 70, 91 |
+| 2026-09-25 | Customer Match accepts IP addresses and interaction timestamps (not EEA, UK, Switzerland) | Audiences | [Official] | 113, 132, 169 |
+| 2026-09 (late) | Manual language targeting removed for Search, AI Max and PMax Search inventory | Search | [Official] | 62, 136, 145 |
+| 2026-10-01 | Editorial policy: business name may differ from domain under conditions | Policy | [Official] | 130, 162 |
+| 2026-10-02 | PMax asset A/B experiments rolling out to all advertisers | PMax | [Practitioner report] | 85, 153 |
+| 2026-10-02 | Loyalty member benefits in AI Mode and Gemini apps (US); loyalty program in 13 countries plus Japan points | Shopping | [Official help and trade press] | 134, 168 |
+| 2026-10 (early) | Self-serve Conversion Lift for Search and PMax; AI-generated experiment summaries; AI Max reporting columns; Direct Offer asset test in AI Mode | Measurement, Search | [Practitioner reports] | 154, 155, 156, 179 |
+| 2026-10-07 | Google Ads API v22 sunset | API | [Official] | 94, 118 |
+| 2026-10-12 | Automated promotions from advertiser websites on by default for Search and PMax campaigns with location assets and no manual promotions | Assets | [Google notice via trade press] | 70, 91, 161 |
+| 2026-10-19 | Google Ads Editor 2.10 and earlier no longer supported | Tools | [Practitioner report] | 179 |
 | 2026-10-30 | Alcohol ads permitted on YouTube where locally allowed (personalized advertising policy update) | Policy | [Official, 2026-09] | 36 |
+| 2027-01 (planned) | New DSA and new standalone Display campaign creation end | Search, Display | [Official via Ads Liaison; Display date from trade press] | 143, 173 |
+| 2027-02 (planned) | DSA auto-migration to AI Max; existing call-only ads stop serving | Search | [Official] | 127, 143 |
 
 ## Best practice consensus
 
@@ -136,16 +166,17 @@
 | Topic | Side A | Side B | Package position |
 |---|---|---|---|
 | AI Max adoption | Google: +14% conversions or value at similar efficiency, more coverage of conversational queries | Practitioners: part of AI Max volume is cannibalized from existing keywords; generated copy and URL expansion create brand and compliance risk | Adopt per campaign after an AI Max experiment; controls first |
-| DSA migration timing | Google's 2026 announcement: DSA moves with the September 2026 upgrade and new DSA creation ends | Mid-June 2026 reports: DSA auto-migration delayed to 2027-02, creation removal around 2027-01 | Treat as February 2027 until confirmed; test AI Max now |
-| AI Mode ad eligibility | Only PMax and AI Max qualify | Broad match Search, Shopping and PMax qualify | Run PMax and AI Max or broad with Smart Bidding where AI surfaces matter |
-| AI Mode reporting | No dedicated report exists | Some vendors claim AI Mode data is visible | Assume no segmented reporting; use proxies |
+| DSA migration timing | Google's early 2026 post: DSA moves with the September 2026 upgrade | Ads Liaison 2026-06-11: auto-migration in 2027-02, creation ends 2027-01 | Resolved: 2027-02 (Official via Ads Liaison); test AI Max now |
+| AI Mode ad eligibility | Only PMax and AI Max qualify | Broad match Search, Shopping and PMax qualify | Resolved: broad match qualifies without AI Max (Ads Liaison, 2026-06); exact and phrase only in a 2026-09 test |
+| AI Mode reporting | No dedicated report exists | Some vendors claim AI Mode data is visible | Resolved for practice: no segment in Google Ads reporting as of 2026-10; vendor numbers are estimates |
 | Feed-only PMax | Better Shopping concentration and ROAS control | Google recommends full assets for reach and performance | Test per account |
 | PMax for lead gen | Works with OCI and strong signals | Generates junk leads | Only with OCI and qualified primary |
 | Brand bidding | Protects demand from competitors and is cheap | Often low incrementality | Keep brand, test incrementality with geo or time holdouts |
-| Ask Advisor writes | Earlier Ads Advisor coverage: applies changes with consent | Ask Advisor help: cannot execute account changes | Treat outputs as suggestions; human approval regardless |
-| Learning period length | A few conversion cycles (1 to 2 typical) | Up to about 50 conversions or 3 cycles (another help variant) | Plan 1 to 3 weeks, longer with long lags |
+| Ask Advisor writes | Ads Advisor coverage: applies changes with consent | Ask Advisor FAQ: "cannot execute account changes on your behalf" | Resolved: it applies changes after the user approves (Google FAQ and blog); package rule still requires the change list first |
+| Learning period length | US help page: a few conversion cycles (1 to 2 typical) | UK help page since 2026-09: up to about 50 conversions or 3 cycles | Still Contested; plan 2 to 3 weeks or 50 conversions |
 | Search partners | Adds cheap volume | Lower quality in many verticals | Off at launch; test with segment data |
-| Journey aware bidding start | Beta from 2026-05-07 | Rolled out with GML 2026-05-20 | Beta; check account eligibility |
+| Journey aware bidding start | Beta from 2026-05-07 | Rolled out with GML 2026-05-20 | Resolved: beta announced on Google's blog 2026-05-07, still beta in 2026-07 |
+| Late offline uploads | Trade reports: uploads more than 7 days after the conversion are ignored by data-driven attribution | No Google page found stating it | Unverified; upload within 24 hours anyway |
 
 ## What top operators do differently
 
@@ -173,7 +204,8 @@
 | Auto-apply adding broad keywords and raising budgets | Unapproved spend | Turn off auto-apply for these types |
 | Aggressive targets set from goals, not history | Spend collapse | Start at observed, step 10% to 15% |
 | Ignoring the September 2026 AI Max auto-upgrade | Unplanned query expansion, generated copy, URL expansion to wrong pages | Inventory, controls, experiments |
-| Integrations left on a sunset API version (v22 ended 2026-10-07) | Offline conversions stop, bidding degrades | Upgrade, monitor uploads |
+| Integrations left on a sunset API version (v22 ended 2026-10-07) or a new upload integration built on the Google Ads API after 2026-06-15 | Offline conversions stop silently, bidding degrades | Data Manager API, monitor uploads and the allowlist error |
+| Default-on changes left unreviewed (call recording 2026-07-01, local inventory ads 2026-08-31, automated promotions 2026-10-12, AI Max on new Search campaigns) | Privacy exposure, wrong offers, unplanned traffic | Decide each setting explicitly and log it |
 | Missing the 6-month appeal window | Decisions become non-appealable in-account | Appeal promptly with evidence |
 | Creating new accounts after suspension | Circumventing systems suspensions across linked accounts | Fix and appeal |
 | Not applying data exclusions after tracking outages | Bidding learns from bad data | Data exclusions |
@@ -183,16 +215,18 @@
 
 | Benchmark | Value | Source | Date | Caveat |
 |---|---|---|---|---|
-| Search CTR, all industries | 6.66% | WordStream by LocaliQ | 2025 | US-centric sample; brand mix; [Unverified this session] |
-| Search CPC, all industries | 5.26 USD | WordStream by LocaliQ | 2025 | Varies widely by vertical |
-| Search conversion rate | 7.52% | WordStream by LocaliQ | 2025 | Conversion definitions vary |
-| Cost per lead | 70.11 USD | WordStream by LocaliQ | 2025 | Not qualified leads |
+| Search CTR, all industries | 6.64% (2025 edition: 6.66%) | WordStream by LocaliQ | 2026 (data 2025-04 to 2026-03) | About 13,500 US search campaigns; read from search summaries; average vs median unclear |
+| Search CPC, all industries | 5.42 USD (2025: 5.26 USD) | WordStream by LocaliQ | 2026 | Varies widely by vertical |
+| Search conversion rate | 8.18% (2025: 7.52%) | WordStream by LocaliQ | 2026 | Conversion definitions vary |
+| Cost per lead | 66.69 USD (2025: 70.11 USD) | WordStream by LocaliQ | 2026 | Not qualified leads; first decline in five years per publisher |
+| PMax CTR trend | 1.29% to 1.68% year over year, CPA up, ROAS slightly down | Optmyzr, 21,000+ accounts | Q1 2026 | Tool user base |
 | AI Max uplift | +14% (+27% exact and phrase heavy) | Google | 2025-05 | Vendor claim |
 | Smart Bidding Exploration | +18% converting query categories, +19% conversions | Google internal, 2025-03-11 to 2025-04-11 | 2025-05 | Vendor claim |
-| Enhanced conversions | About +11% Search conversions | Google via trade press | 2026-09 | Vendor claim, partly modeled |
+| Enhanced conversions | 11% more Search conversions vs standard imports | Google | 2026-09 | Vendor claim, partly modeled |
 | Demand Gen H2 2025 improvements | +30% average conversions | Google via trade press | 2026-08 | Vendor claim |
+| Conversion Lift minimums | 1,000 conversions, 5,000 USD | Google Ads Help | 2025 to 2026 | Account availability varies |
 | PMax negative keyword capacity | 10,000 per campaign | Google Ads Help | 2025 | Search and Shopping inventory only |
-| AI Overviews ads markets | 12 countries, English | Trade press citing Google docs | 2025-12 | Check for expansion |
+| AI Overviews ads markets | 12 countries, English | Google Ads Help | 2025-12, unchanged 2026-10 | Check for expansion |
 
 Operating thresholds used by the package (zero-conversion term spend under 15%, brand IS above 90%, lost IS budget under 10% on profitable campaigns, cost-weighted QS 6+) are [Practitioner consensus] decision rules, not industry averages.
 
@@ -200,14 +234,14 @@ Operating thresholds used by the package (zero-conversion term spend under 15%, 
 
 | Tool | Type | Read or write | Notes |
 |---|---|---|---|
-| Google Ads API (v25.x) | Official API | Both | GAQL via GoogleAdsService; v22 sunset 2026-10-07; v25 breaking changes for lifecycle goals |
-| Data Manager API | Official API | Write (data uploads) | Customer Match and conversions; upload consolidation in 2026 [scope Contested] |
+| Google Ads API (v23 to v25) | Official API | Both | GAQL via GoogleAdsService; v22 sunset 2026-10-07; v25 breaking changes for lifecycle goals; field names confirmable from the official client library type files on GitHub |
+| Data Manager API | Official API | Write (data uploads) | Required for new Customer Match (2026-04-01) and offline conversion (2026-06-15) integrations; no developer token, project quotas, IP ingestion (v1.7) |
 | googleads/google-ads-mcp | Official MCP server | Read-only | Apache 2.0, Python, released 2025-10; GAQL search plus account listing or metadata tools |
 | Community MCP servers (cohnen/mcp-google-ads, promobase/google-ads-mcp, getmcpads-com/google-ads-mcp-server) | Open source | Read, some write | Review code and scopes; writes must be approval-gated |
-| Hosted MCPs (Adspirer, Ryze AI) | Vendor | Read, approval-gated writes | Vendor data access |
+| Hosted and vendor MCPs (Adspirer, Ryze AI, Optmyzr MCP) | Vendor | Read, approval-gated writes | Vendor data access |
 | Google Ads Scripts | In-account JavaScript | Both | Alerts, reports, n-grams |
 | Google Ads Editor | Desktop bulk editor | Write by human | CSV change lists |
-| Ask Advisor and Ads Advisor | In-product agents | Suggest (write capability Contested) | English beta |
+| Ask Advisor and Ads Advisor | In-product agents | Suggest, and write after user approval | English beta, not in MCC accounts |
 | BigQuery Data Transfer for Google Ads, Looker Studio | Reporting | Read | Long history and joins |
 | Optmyzr, Adalysis, Opteo | Third-party management | Both | Rules, audits, ad testing |
 | Search Ads 360 | Enterprise platform | Both | Multi-engine |
@@ -229,21 +263,24 @@ Operating thresholds used by the package (zero-conversion term spend under 15%, 
 
 ## Open questions and watch list
 
-1. Exact DSA auto-migration and creation-removal dates (2027-01 and 2027-02 reported).
-2. Whether ads in AI Mode expand beyond the US, and whether any AI Overviews or AI Mode segment appears in reporting.
-3. Eligibility rules for AI Mode ads (PMax and AI Max only, or broad match Search and Shopping too).
-4. Rollout and controls for Highlighted Answers, Conversational Discovery Ads, AI-powered Shopping ads and Direct Offers beyond the pilot.
-5. Scope of the 2026-06-15 changes: which uploads must use the Data Manager API, and how consent signals affect call and conversion attribution.
-6. Journey aware bidding eligibility and GA date.
-7. PMax channel prioritization sliders moving beyond alpha; PMax asset experiments availability.
-8. Ask Advisor ability to execute changes and its availability in other languages.
-9. Display to Demand Gen automatic migration date.
-10. Automated promotions (2026-10-12) eligibility conditions and opt-out path.
-11. Whether reporting history is limited to 37 months from 2026-06-01.
-12. Current Customer Match minimum list sizes and new identifiers (IP address, timestamps).
-13. API v23 and v24 sunset dates and any further breaking changes in v26.
-14. Conversion Lift minimum budgets in 2026.
-15. A 2026 edition of the WordStream by LocaliQ benchmarks.
+Resolved in the 2026-10-08 verification pass: DSA timing (2027-02), Ask Advisor write capability (after approval), AI Mode eligibility for broad match (yes, without AI Max), the 37-month retention limit (Official), scope of the 2026-06-15 upload and consent changes (Official), Conversion Lift minimums (1,000 conversions, 5,000 USD), journey aware bidding start (2026-05-07), Customer Match IP identifiers (Official), Book button and automated promotions defaults (Official notices), the 2026 WordStream benchmark edition, and all GAQL field names in the package.
+
+Still open:
+1. Exact date of the 2027-01 DSA creation cutoff on a Google help page.
+2. Ads in AI Mode beyond the US, ads within AI Overviews beyond the 12 English-language countries, and any reporting segment for either surface.
+3. Scope and duration of the exact and phrase match AI Mode test.
+4. Rollout and controls for Highlighted Answers, Conversational Discovery Ads, AI-powered Shopping ads, Direct Offers and the Direct Offer asset.
+5. End date of the transitional Google Ads API allowlist for offline click uploads and Customer Match (a 2027-03 partner deadline is reported, not confirmed).
+6. Whether uploads more than 7 days after a conversion are excluded from data-driven attribution.
+7. Journey aware bidding GA date and campaign types.
+8. PMax channel prioritization beyond the allowlisted alpha; PMax asset experiments in MCC and the API.
+9. Ask Advisor in other languages and in manager accounts.
+10. Display to Demand Gen automatic migration date in 2027 and the standalone Display creation cutoff.
+11. Campaign total budgets GA for Search, PMax and Shopping.
+12. Learning period guidance (US and UK help pages disagree).
+13. API v23 and v24 sunset dates and breaking changes in v26.
+14. LSA to PMax migration phases outside the US.
+15. Business name policy start date (2026-10-16 or 2026-10-19 reported).
 
 ## Sources
 

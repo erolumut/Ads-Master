@@ -268,6 +268,7 @@ Run monthly and before any task that depends on a feature, setting, policy or be
 Watch list as of 2026-10-08: DSA creation cutoff (2027-01) and auto-migration (2027-02), AI Max for Shopping and Travel betas, AI Brief languages, PMax channel prioritization (alpha, allowlisted), PMax asset experiments reaching MCC and API, AI Mode ads outside the US and the exact and phrase AI Mode test, any AI Overviews or AI Mode reporting segment, Highlighted Answers, Conversational Discovery Ads and Direct Offer asset status, journey aware bidding GA, campaign total budgets GA, end date of the Google Ads API upload allowlist, Ask Advisor languages and MCC access, Limited Ad Serving rollout, Display to Demand Gen automatic migration date (2027), LSA to PMax migration phases, Content API final shutdown (early 2027), API v23 and v24 sunset dates.
 
 Google-initiated changes from 2026-06 to 2026-10 to check in every account (details in the modules):
+
 | Date | Change | Check |
 |---|---|---|
 | 2026-06-01 | Granular reporting history cut to 37 months | Warehouse daily data before it ages out ([tools](references/tools-api-mcp.md)) |

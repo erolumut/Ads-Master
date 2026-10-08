@@ -25,6 +25,7 @@ Sensitive verticals: ads do not appear in AI Overviews for sensitive categories,
 Google's AI Overviews help page: text and Shopping ads from existing Search, Shopping and Performance Max campaigns are eligible to show within AI Overviews. You cannot opt out of serving in AI Overviews and cannot target the placement directly [Official, Google Ads Help "About ads and AI Overviews"]. An ad shows above or below the AI Overview or within it, not both at once [Official via Ads Liaison].
 
 What makes a campaign eligible (status 2026-10):
+
 | Campaign setup | AI Overviews | AI Mode |
 |---|---|---|
 | Search with broad match keywords and Smart Bidding | Eligible | Eligible without AI Max [Official, Ads Liaison after GML, 2026-06] |

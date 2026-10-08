@@ -63,7 +63,7 @@ WHERE segments.date DURING LAST_30_DAYS
 ORDER BY metrics.cost_micros DESC
 LIMIT 10000
 ```
-- `campaign_search_term_view` returns one row per search term per campaign with cost metrics, including Performance Max. Adding keyword-related segments (ad group, keyword, match type) removes PMax rows from the result [Official, API reference v21 to v25].
+- `campaign_search_term_view` returns one row per search term per campaign with cost metrics, including Performance Max. If keyword-related segments are selected, Performance Max rows are excluded from the result [Official, API reference v21 to v25].
 - `segments.search_term_match_source` values in v25: ADVERTISER_PROVIDED_KEYWORD, AI_MAX_KEYWORDLESS, AI_MAX_BROAD_MATCH, DYNAMIC_SEARCH_ADS, PERFORMANCE_MAX, VERTICAL_ADS_DATA_FEED [Official, v25 enum]. Use it to split spend between your keywords, AI Max expansion, DSA and PMax.
 - The combination of this segment with this view was not test-run for this edition. If the API rejects it, drop the segment, keep the view for PMax, and use Q3 with `segments.search_term_match_type` (v25 values include AI_MAX and PERFORMANCE_MAX besides BROAD, EXACT, PHRASE, NEAR_EXACT and NEAR_PHRASE).
 

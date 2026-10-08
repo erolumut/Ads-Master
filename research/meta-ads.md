@@ -2,19 +2,19 @@
 
 Compiled: 2026-10-08. Owner slug: meta-ads.
 
-Method and limitations: web search across official Meta pages, regulators, SEC filings, trade press and practitioner sources, with every claim tagged by evidence label. Constraints during this build: direct page fetching was blocked by the network environment, and the shared web search budget for the session was exhausted after 18 extended searches (the brief asked for 35+). Official claims were therefore confirmed through multiple independent reports of the same announcement where possible; anything resting on a single secondary source is labeled [Unverified]. Long-standing platform mechanics (learning phase, breakdown effect, auction formula, dedup rules) come from Meta Help Center documentation known before this build and are labeled [Official, long-standing]; they should be re-read during the first Freshness check. A follow-up research pass is recommended for items in "Open questions".
+Method and limitations: web search across official Meta pages, regulators, SEC filings, trade press and practitioner sources, with every claim tagged by evidence label. Constraints during this build: direct page fetching was blocked by the network environment, and the shared web search budget for the session was exhausted after 18 extended searches (the brief asked for 35+). Official claims were therefore confirmed through multiple independent reports of the same announcement where possible; anything resting on a single secondary source is labeled [Unverified]. Long-standing platform mechanics (learning phase, breakdown effect, auction formula, dedup rules) come from Meta Help Center documentation known before this build and are labeled [Official, long-standing]; they should be re-read during the first Freshness check. A follow-up verification pass on 2026-10-08 (27 targeted extended searches, sources 79 to 113) confirmed or corrected the mid 2026 items: labels below were upgraded where Meta pages, Meta statements or multiple independent reports now support them, and corrected where facts were wrong (Turkey location fee date, official MCP server, customer controls, conversion leads thresholds).
 
 ## 1. Executive summary
 
 1. Meta's ad stack is now three layers: Andromeda retrieval (2024-12) narrows tens of millions of ads to a few thousand per request, Lattice ranking models predict outcomes across objectives and surfaces, and GEM (detailed 2025-11) is a foundation model whose knowledge is distilled into the ranking fleet. Meta credited GEM with about +5% conversions on Instagram and +3% on Facebook Feed in Q2 2025 [Official].
 2. Because retrieval works on learned representations of the ad itself, creative diversity is the main targeting lever. Practitioners report that similar ads are grouped under one entity, so near-duplicate variations add little reach [Practitioner consensus].
-3. Advantage+ is the default for Sales, App and Leads. Advantage+ shopping became Advantage+ sales in early 2025, the API moved to a unified structure in 2025 with legacy ASC and AAC creation phased out across v24 and v25, and the UI build paths were merged around February 2026 with creative enhancements pre-selected [Official for API; Unverified for UI details].
+3. Advantage+ is the default for Sales, App and Leads. Advantage+ shopping became Advantage+ sales in early 2025, the API moved to a unified structure in 2025 with legacy ASC and AAC creation phased out across v24 and v25, and "Automation Unification" (Meta for Developers, 2026-02-13) merged the UI build paths with creative enhancements on by default [Official for API and developer notice; Practitioner consensus for UI details].
 4. Measurement changed twice in 2026: on 2026-01-12 the Ads Insights API stopped returning 7-day view and 28-day view windows; on 2026-03-03 click-through attribution became link-click-only, with other interactions moved to a 1-day engage-through window and the engaged-view video threshold lowered to 5 seconds [Official via trade coverage]. Vendors report reported-conversion drops of 15 to 40% in some accounts [Unverified].
 5. Incremental attribution (launched in Ads Manager in 2025) lets advertisers optimize and report on modeled incremental conversions; Meta reported a 46% lift in its tests, while independent reads are mixed (Haus: 43% win rate vs standard in early tests) [Official; Study].
-6. Placement control is shrinking: reports from August to September 2026 say ad set level placement exclusions are being removed in many accounts, with placement value rules (down to minus 90%) as the alternative and account-level placement controls as the only true block. No Meta announcement was found as of mid September 2026 [Contested].
+6. Placement control is shrinking: from 2026-08-25 ad set level placement exclusions are being removed account by account (PPC Land, Jon Loomer, Common Thread Collective), with placement value rules (minus 90% floor, never zero) as the alternative and account-level placement controls as the only true block; separately, Graph API v26.0 (2026-07-29) removed the Instagram Explore Feed placement. No Meta announcement of the exclusion removal was found as of 2026-10-08 [Practitioner consensus; scope Contested].
 7. New inventory: Threads ads opened to all users globally from 2026-01-21 (gradual rollout), with image, video, carousel and Advantage+ catalog formats in the Threads feed; WhatsApp Status ads and Promoted Channels (announced 2025-06-16) were reported rolling out globally from February 2026, with the EU lagging [Official].
 8. Signal and privacy: Meta uses Meta AI chat interactions for ad personalization from 2025-12-16 (outside the EU, UK and South Korea at launch); EU users can choose less personalized ads from January 2026 after the DMA decision (EUR 200 million fine in April 2025), and Meta's 2026 filings call that option "less relevant and effective"; health and wellness advertisers lost lower funnel event sharing in tiers from January 2025 [Official].
-9. Meta's stated direction is end-to-end automation: a 2025-06 WSJ report described a goal of AI creating, targeting and budgeting ads by the end of 2026, and 2026 product releases (AI reporting, creative generation, Creator Marketing Hub) follow that path [Official statements via press; 2026 items Unverified].
+9. Meta's stated direction is end-to-end automation: a 2025-06 WSJ report described a goal of AI creating, targeting and budgeting ads by the end of 2026, and 2026 releases follow that path: official Ads AI Connectors (hosted MCP server and Ads CLI, 2026-04-29), Creator Marketing Hub (2026-09-15), image to video GA and agentic Meta AI business assistant tests (Advertising Week, 2026-10-06) [Official, 2026].
 10. Top operators adapt by owning what automation cannot: clean first-party signal (CAPI, CRM stages, values), a high-volume diverse creative pipeline, unit economics-based targets, and a standing incrementality program, while keeping structure simple and edits infrequent [Practitioner consensus].
 
 ## 2. State of the channel in 2026
@@ -25,11 +25,12 @@ Method and limitations: web search across official Meta pages, regulators, SEC f
 | Automation | Advantage+ is the default for Sales, App and Leads; audience inputs are suggestions; enhancements pre-selected | Jon Loomer (2025-02), PPC Land (2025), AdNabu (2026) |
 | Delivery engine | Andromeda retrieval, Lattice ranking, GEM foundation model, continued model consolidation (about 100 ranking models retired since 2023, about 200 more planned, per earnings commentary) | Meta Engineering (2024-12, 2025-11); secondary summaries [Unverified for counts] |
 | Inventory | Facebook, Instagram (Feed, Stories, Reels, Explore, search), Messenger, Audience Network, Threads feed (global since 2026-01), WhatsApp Status and Promoted Channels (global rollout from 2026-02) | CNBC, TechCrunch (2026-01-21); WABetaInfo, BetaNews (2026-02) |
-| Threads scale | Over 400 million monthly users reported in 2025; a 500 million figure for mid June 2026 appears in one guide | [Unverified for 500 million] |
+| Threads scale | Over 400 million monthly users reported in 2025; about 500 million cited in 2026-09 trade coverage of the Threads profile change; since 2026-09 brands can run Threads ads without an Instagram account | [Unverified for 500 million]; profile change [Official, 2026-09] |
 | Measurement | 7-day click plus 1-day view default; engage-through 1 day since March 2026; view windows above 1 day removed from the API since January 2026; incremental attribution model available | Trade coverage of Meta announcements [Official, 2026] |
 | Regulation | EU DMA less personalized ads option (from 2026-01), EU ban on political and social issue ads (from 2025-10, TTPA), AI chat signals outside EU, UK, South Korea | European Commission (2025-12-08), Meta newsroom, EPIC, Visualping |
 | Restricted verticals | Health and wellness data restrictions (Core setup, restricted standard events, full restrictions) since 2025; financial products and services special ad category | Triple Whale, Foley Hoag (2025-01), Twigeo (2025-04), Curve Compliance |
-| Creator economy | Partnership ads mainstream; Creator Marketing Hub reported 2026-09-15; Instagram live partnership ads reported from 2026-09-29 | [Unverified, 2026-09] |
+| Creator economy | Partnership ads mainstream; Creator Marketing Hub launched 2026-09-15; Instagram live video partnership ads scheduled GA from 2026-09-29 | [Official, 2026-09] via MediaPost, Marketing Dive |
+| Agent access | Official hosted MCP server (mcp.facebook.com/ads) and Ads CLI in open beta since 2026-04-29; expanded 2026-10-06 | [Official, 2026-04] |
 
 ### 2.1 How delivery works now and what it implies
 
@@ -67,7 +68,7 @@ Operator response: annotate reports on both dates, rebuild pipelines, compare ba
 | EU | No political, electoral or social issue ads from October 2025 (TTPA) | [Official] |
 | EU | WhatsApp ads delayed (Irish DPC), rolling in later than other regions | [Official via press] |
 | EU, UK, South Korea | AI chat signals for ads not applied at launch | [Official, 2025-10] |
-| Turkey | Location fee for ads delivered to Turkey reported at 5% from 2025 alongside other DST countries; VAT handling depends on business tax setup; KVKK consent and transfer rules; platform access risk (Instagram blocked about 9 days in August 2024, Threads suspended April 2024) | [Unverified for fee and VAT; Official news for 2024 blocks] |
+| Turkey | Location fee of 5% on image and video ads (including click to WhatsApp and marketing messages) delivered to audiences in Turkey from 2026-07-01, announced 2026-03 alongside Austria 5%, France, Italy, Spain 3%, UK 2%; fee follows audience location; VAT calculated on top of delivery plus fee; local VAT treatment depends on business tax setup; KVKK consent and transfer rules; platform access risk (Instagram blocked about 9 days in August 2024, Threads suspended April 2024) | [Official, 2026-03 via Reuters, Bloomberg Tax] for fee; [Unverified] for local VAT treatment; [Official news] for 2024 blocks |
 | Turkey | Messaging-first behavior makes click to WhatsApp and Instagram Direct strong lead paths | [Practitioner consensus] |
 
 ## 3. Timeline of changes, January 2025 to October 2026
@@ -87,7 +88,7 @@ Operator response: annotate reports on both dates, rebuild pipelines, compare ba
 | 2025-07-01 | WhatsApp Business Platform per-message pricing | Meta (pre-build knowledge) | [Official] |
 | 2025-07 to 2025-10 | Q2 and Q3 2025 earnings: GEM, Lattice and Andromeda credited for conversion gains | Earnings releases, Meta Engineering | [Official] |
 | 2025-08-15 | Threads video ads (1.91:1 to 9:16) | Secondary guides | [Unverified exact date] |
-| 2025-09 | Click to message ads in WhatsApp Status | Secondary guides | [Unverified] |
+| 2025-09 | Click to message ads in WhatsApp Status | Social Media Today | [Official via trade press] |
 | 2025-10 | Creative testing tool in Ads Manager (2 to 5 ads, even split) | AdManage, Revel (2025-10-17), Jon Loomer | [Official via practitioners] |
 | 2025-10 | Threads image carousel ads | Secondary guide | [Unverified] |
 | 2025-10-01 to 10-07 | Privacy policy notice: Meta AI interactions to personalize ads from 2025-12-16 | EPIC, Visualping | [Official] |
@@ -99,22 +100,33 @@ Operator response: annotate reports on both dates, rebuild pipelines, compare ba
 | 2026-01-12 | Insights API stops returning 7d_view and 28d_view windows | Dataslayer, Seresa, PPC Land | [Official via secondary] |
 | 2026-01-21 | Threads ads rolling out to all users worldwide | CNBC, TechCrunch | [Official] |
 | 2026-02 | WhatsApp Promoted Channels and Status ads rolling out globally | WABetaInfo, BetaNews | [Official via press] |
-| 2026-02 | Unified Advantage+ creation flow; all creative enhancements pre-selected for new Sales, Leads, App campaigns | AdNabu, 1ClickReport | [Unverified] |
-| 2026-02-13 | Developer announcement on automation-first setup (single secondary source) | Secondary guide | [Unverified] |
-| 2026-03 | Control to cap existing customer budget share (single source) | Secondary guide | [Unverified] |
+| 2026-02 | Unified Advantage+ creation flow; creative enhancements on by default for new Sales, Leads, App campaigns | AdNabu, 1ClickReport, Fyr, Leapbuzz | [Practitioner consensus, 2026-02] |
+| 2026-02-13 | Meta for Developers "Automation Unification": App, Sales and Leads default to automation-first Advantage+ setup | Secondary guides citing Meta for Developers | [Official via secondary] |
+| 2026-03 | Location fees announced for six DST countries, effective 2026-07-01 | Reuters, Bloomberg Tax | [Official] |
+| 2026-03 | Reported reintroduced cap on existing customer budget share | Single secondary guide; contradicted by Help Center note and 2026-08 checks | [Unverified, likely incorrect] |
 | 2026-03-03 | Link-click-only click-through attribution; engage-through 1 day; engaged-view 5s | Leafsignal, Mintec, Digital Applied, Good Morning Co | [Official via trade coverage] |
-| 2026-04 | Updated incremental attribution model, 25% average increase (single source) | Secondary guide | [Unverified] |
+| 2026-04 | Customer Lifecycle Strategy (new customers only) in closed beta | Foxwell Digital, practitioner posts | [Official beta via practitioners] |
+| 2026-04 | Updated incremental attribution model, 25% average increase (single source: Webtopia) | Secondary guide | [Unverified] |
 | 2026-04 to 05 | IAB NewFronts: Reels trending ads, creator discovery tools, Threads video ads | ALM Corp | [Unverified details] |
-| 2026-07 | Instagram Explore and Messenger Stories removed as selectable placements | Secondary guides | [Unverified] |
+| 2026-04-29 | Ads AI Connectors: hosted MCP server and Ads CLI, open beta | Meta for Developers, PPC Land | [Official] |
+| 2026-06-01 | Automated AI info labels for ads made with third-party AI tools (C2PA metadata detection) | Meta Help Center | [Official] |
+| 2026-06-09 | New York synthetic performer ad disclosure law in force | Manatt, Honigman | [Official law] |
+| 2026-07-01 | Location fees take effect (Turkey and Austria 5%) | Reuters | [Official] |
+| 2026-07-07 | Muse Image announced; Advantage+ creative access "in the coming weeks" (not confirmed live by 2026-10-08) | Meta Newsroom | [Official]; availability [Unverified] |
+| 2026-07-29 | Graph API v26.0: Instagram Explore Feed placement removed, Messenger Stories stripped; applies to all versions from 2026-10-27 | PPC Land, Unalsoft citing changelog | [Official via secondary] |
+| 2026-07-29 | Q2 2026 earnings: +8.3% ad clicks and +15.7% conversions on Facebook from new models; first generative model in ads retrieval | Earnings call transcript | [Official] |
 | 2026-07 | Q2 2026 10-Q repeats that EU less personalized ads are "less relevant and effective" | SEC EDGAR, Cittago | [Official] |
-| 2026-08 | WhatsApp campaign management inside Ads Manager, Status placement (single source) | Secondary guide | [Unverified] |
+| 2026-08 | Dedicated WhatsApp campaign management area inside Ads Manager (single source); Status placement itself is bought in Ads Manager | Secondary guide | [Unverified] for dedicated area |
 | 2026-08-03 | GEM training infrastructure follow-up (MFU 20 to 25%, training FLOPs 4x in 12 months) | AI wiki citing Meta | [Unverified] |
-| 2026-08-21 to 08-25 | Ad set placement exclusions removed in many accounts; value rules suggested | Jon Loomer, Common Thread Collective, AdRise Lab, Blackfire | [Contested] |
-| 2026-09 | Creative Diversity rating in Ads Manager; Meta AI recurring reports into Google Workspace; click to WhatsApp 7-day free window | AdsUploader, Franklin Marketing, Good Morning Co | [Unverified] |
-| 2026-09-15 | Creator Marketing Hub (Creator Marketplace plus Partnership Ads Hub) | AdsUploader | [Unverified] |
-| 2026-09-16 | California synthetic performer disclosure law signed | AdsUploader | [Unverified details] |
-| 2026-09-22 | Threads ads no longer require matching Instagram username; Meta status page Ads Delivery incident | Melissa newsletter, AdsUploader | [Unverified] |
-| 2026-09-29 | Instagram live video partnership ads generally available | AdsUploader | [Unverified] |
+| 2026-08 (late) | Creative diversity column (Low, Medium, High) in Ads Manager, marked in development | Common Thread Collective, Marketing Concurrent citing Help Center | [Official] |
+| 2026-08-20 to 08-25 | Ad set placement exclusions removed in many accounts (notice seen 08-20, reports from 08-25); value rules suggested | Jon Loomer, PPC Land, Common Thread Collective, AdRise Lab, Blackfire | [Practitioner consensus]; no Meta announcement, scope [Contested] |
+| 2026-09 | Meta AI recurring reports into Google Workspace | AdsUploader, Franklin Marketing | [Unverified] |
+| 2026-09-15 | Creator Marketing Hub (Creator Marketplace plus Partnership Ads Hub), Creator Marketplace API for Facebook creators, Messaging API | MediaPost, Marketing Dive, Social Media Today | [Official] |
+| 2026-09-16 | California SB 1050 synthetic performer disclosure law signed (effective 2027-01-01) | DLA Piper, Davis+Gilbert | [Official law] |
+| 2026-09-21 to 09-26 | Threads ads from native Threads profiles without an Instagram account; Threads-specific business access | Social Media Today, MediaPost | [Official] |
+| 2026-09-28 | WhatsApp Business Platform changelog reportedly extends click to WhatsApp free entry point window to up to 7 days | respond.io, 360dialog | [Contested]; an earlier Meta page still said 72 hours |
+| 2026-09-29 | Instagram live video partnership ads scheduled GA (beta label still on Meta's page 2026-10-01) | MediaPost, Common Thread Collective | [Official]; availability varies |
+| 2026-10-06 | Advertising Week: image to video GA in Advantage+ creative, Customer Lifecycle Strategy for all advertisers, Ads Creative Studio wider access, MCP server expanded, agentic business assistant and in-chat checkout in testing, AI audience discovery due end of 2026 | Relevant Audience, Social Media Today, MediaPost | [Official] |
 
 ## 4. Best practice consensus
 
@@ -136,9 +148,10 @@ Operator response: annotate reports on both dates, rebuild pipelines, compare ba
 |-------|--------|--------|----------------|
 | Full Advantage+ vs manual control | Automation wins on liquidity and learning; manual setups underperform at most budgets | Manual controls protect brand, regulated targeting and lead quality; Advantage+ over-serves existing customers and cheap placements | Advantage+ on by default; turn off a lever only with a documented reason; validate with A/B tests and backend |
 | Testing in separate campaigns vs in the scaling ad set | Separate tests give fair spend and clean reads | Tests outside the main auction context do not predict scaling performance and cost learning | Use the creative testing tool when available; BAU testing at Starter |
-| Incremental attribution | Meta reports 46% lift; aligns delivery with causal value | Haus early tests show a 43% win rate; fewer reported conversions confuse stakeholders; tracking gaps bias it | Test via A/B on mature accounts, judge on backend |
+| Incremental attribution | Meta reports 46% lift; Haus pooled tests July 2025 to June 2026 favor it (1.26x, DTC 1.38x) | Haus early tests showed a 43% win rate; omnichannel parity (1.02x); fewer reported conversions confuse stakeholders; tracking gaps bias it | Test via A/B on mature accounts, judge on backend |
 | Engage-through window | Fixed 1-day window (Mintec) | Toggleable (Seresa) | Check the account's attribution settings |
-| Placement exclusions removal | Announced on 2026-08-21 (one source) | Observed from 2026-08-25 without announcement; Help Center still described manual placements as of 2026-09-17 | Treat as rolling account-level change; use account-level controls for hard blocks |
+| Placement exclusions removal | Announced on 2026-08-21 (one source); in-product notice seen 2026-08-20 | Observed from 2026-08-25 without a newsroom or Help Center announcement (still none found 2026-10-08); some accounts lost controls earlier, others still have them | Treat as rolling account-level change; use account-level controls for hard blocks, value rules for soft preferences |
+| Click to WhatsApp free window | Up to 7 days per WhatsApp Business Platform changelog update of 2026-09-28 (vendor reports) | 72 hours per a Meta page stamped 2026-08-25 | Plan follow-ups inside 72 hours until account billing confirms 7 days |
 | Health category workarounds | Custom events with different names keep optimization | Renaming restricted events violates policy | Do not rename; appeal misclassification; adapt plan |
 | Value of lookalikes and interests | Still useful as suggestions for new accounts | Irrelevant after learning; noise | Use only as early suggestions |
 | Frequency thresholds | Hard caps (e.g. 3) prevent fatigue | Frequency alone is not a problem without CTR and CPA decline | Use frequency with trend signals |
@@ -185,7 +198,10 @@ Operator response: annotate reports on both dates, rebuild pipelines, compare ba
 | Opportunity Score adopters | Median 12% lower cost per result | Meta via Social Media Today | 2024 to 2025 | Meta analysis | [Official] |
 | March 2026 click attribution change | Reported click-through conversions down 15 to 40% | Vendor blogs | 2026-03 | WooCommerce samples | [Unverified] |
 | January 2026 view window removal | Reported conversions down 15 to 30% for 7-day view users | Vendor blogs | 2026-01 | Estimates | [Unverified] |
-| Threads CPM | 30 to 40% below Instagram | Single guide | 2026 | Unclear sample | [Unverified] |
+| Threads CPM | 30 to 50% below Instagram Feed | Agency commentary in 2026-09 coverage | 2026 | Unclear sample | [Unverified] |
+| Ad impressions and price per ad YoY | +14% and +12% (Q2 2026) | Meta Q2 2026 results | 2026-07 | Global | [Official] |
+| New user understanding models plus GEM | +8.3% ad clicks, +15.7% conversions on Facebook | Meta Q2 2026 earnings call | 2026-07 | Meta internal, several changes combined | [Official] |
+| Incremental vs standard attribution | Pooled 1.26x (DTC 1.38x, omnichannel 1.02x) | Haus | 2026 | Vendor geo tests July 2025 to June 2026 | [Study, vendor] |
 | Threads in Advantage+ placements | 11.7% lower CPA | Single guide | 2026 | Unclear source | [Unverified] |
 | Advantage+ sales ROAS | +22% often quoted | Many blogs | n/a | Not traced to primary | [Unverified] |
 Caveat for all: benchmarks vary by vertical, geo, season and attribution setting; compare against the account's own history first.
@@ -199,6 +215,7 @@ Caveat for all: benchmarks vary by vertical, geo, season and attribution setting
 | Ads Library and Ads Library API (`ads_archive`) | Official | Competitive research; political and social issue ads globally; EU ads with DSA fields | Identity confirmation needed for API |
 | Facebook Business SDKs (Python, Node, PHP, Java, Ruby) | Official | Scripts | github.com/facebook/facebook-python-business-sdk |
 | Robyn, GeoLift | Official open source | MMM and geo experiments | GitHub facebookexperimental and facebookincubator |
+| Meta Ads AI Connectors: hosted MCP server (https://mcp.facebook.com/ads) and Ads CLI | Official, open beta since 2026-04-29 | About 29 tools for reporting, campaign management, catalogs, signal diagnostics; Meta Business OAuth with read or write scope; objects created land paused (reported) | [Official, 2026-04]; expanded 2026-10-06 |
 | Pipeboard Meta Ads MCP | Community MCP | Read insights and objects, some writes | Verify current features and auth model |
 | GoMarble facebook-ads-mcp-server | Community MCP | Read-focused | Verify |
 | Connectors (Supermetrics, Funnel, Windsor.ai, Porter Metrics, Fivetran, Airbyte) | Vendor | ETL to warehouse or sheets | Read only |
@@ -206,6 +223,7 @@ Caveat for all: benchmarks vary by vertical, geo, season and attribution setting
 | Attribution and incrementality (Northbeam, Triple Whale, Rockerbox, Haus, Measured, Recast, WorkMagic) | Vendor | Cross-channel truth, lift tests | Owned by measurement agent |
 | Automation (Ads Manager rules, Birch, Madgicx) | Native and vendor | Alerts and rules | Rules are standing changes requiring approval |
 | Meta AI reporting into Google Workspace | Official (reported) | Recurring analysis | [Unverified, 2026-09] |
+| Meta AI business assistant agentic actions | Official, testing | Campaign setup, targeting and budget changes, scheduled tasks | [Official, 2026-10, testing]; treat as write-capable |
 
 ## 10. Official sources to monitor
 
@@ -224,15 +242,15 @@ Caveat for all: benchmarks vary by vertical, geo, season and attribution setting
 
 ## 11. Open questions and watch list
 
-1. Scope and permanence of ad set placement exclusion removal (2026-08); whether Meta documents it and whether value rules gain a zero-bid option.
-2. Exact current labels and mechanics of new customer controls (existing customer budget cap vs new customer goals) after the 2026 unification.
-3. Conversion leads optimization eligibility thresholds in 2026.
-4. Whether the April 2026 incremental attribution update exists as described and how it changes eligibility (cost goals).
-5. WhatsApp Status ads availability by country, especially EU and Turkey, and the reported Ads Manager integration (2026-08).
-6. Threads ad formats (video carousels, catalog video) and the September 2026 username rule change.
-7. Creator Marketing Hub features and partnership ads API support.
-8. Whether Meta ships an official MCP server or agent API for ad accounts (reported Meta AI reporting connections in 2026-09).
-9. Turkey: location fee rate, VAT handling, Threads availability status.
+1. Scope and permanence of ad set placement exclusion removal (2026-08); whether Meta documents it and whether value rules gain a zero-bid option. Still open on 2026-10-08.
+2. Customer Lifecycle Strategy labels and whether it reaches Advantage+ sales structures beyond manual Sales ad sets (opened to all 2026-10-06).
+3. Conversion leads: developer docs give the 28-day and 1% to 40% stage rules; confirm whether any minimum lead volume still applies in the Help Center.
+4. Whether the April 2026 incremental attribution update exists as described (only one agency source) and how it changes eligibility (cost goals).
+5. WhatsApp Status ads availability by country, especially EU and Turkey; whether the 7-day free entry point window is live for all accounts.
+6. Threads ad formats (video carousels, catalog video) and the rollout of Threads ads from native Threads profiles.
+7. Muse Image availability in Advantage+ creative (announced 2026-07-07, not confirmed live).
+8. Official MCP server: final tool list, rate limits after beta, and whether agentic assistant actions reach general availability.
+9. Turkey: local VAT treatment of Meta invoices plus the 5% location fee; Threads availability status.
 10. Meta's end-of-2026 automation goal: whether Advantage+ will remove more manual levers (audience, budget split, creative control) in Q4 2026 or Q1 2027.
 11. Q3 2026 earnings (late October 2026) for impressions, price per ad and automation commentary.
 12. Learning phase thresholds: whether Meta has lowered event requirements for some campaign types.

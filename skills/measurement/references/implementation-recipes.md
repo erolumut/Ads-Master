@@ -148,7 +148,7 @@ Consent note: click ID storage for measurement may require consent in opt-in reg
 
 ## Recipe 5: Shopify (Customer events custom pixel plus webhook)
 
-Context: Shopify checkout extensibility replaced checkout.liquid and Additional scripts. The Thank you and Order status page upgrade deadlines were 2025-08-28 for Plus and 2026-08-26 for non-Plus stores [Official per Shopify; verify in Shopify changelog]. Tracking now runs through app pixels (Google and YouTube app, Facebook and Instagram app, TikTok app) and custom pixels in Settings > Customer events, which run in a sandbox without access to the storefront DOM.
+Context: Shopify checkout extensibility replaced checkout.liquid and Additional scripts. The Thank you and Order status page upgrade deadlines were 2025-08-28 for Plus (remaining Plus stores auto-upgraded from January 2026) and 2026-08-26 for non-Plus stores, when script tags and Additional scripts stopped running on those pages [Official, shopify.dev 2026; whether every unupgraded store was auto-upgraded on the day is reported inconsistently]. After the deadline, place a test order and confirm GA4, Google Ads and Meta purchases fire. Tracking now runs through app pixels (Google and YouTube app, Facebook and Instagram app, TikTok app) and custom pixels in Settings > Customer events, which run in a sandbox without access to the storefront DOM.
 
 Prefer native app pixels for GA4, Google Ads (with enhanced conversions) and Meta (Facebook and Instagram app, data sharing "Maximum" for CAPI). Use a custom pixel for platforms without a good app or when you need control.
 

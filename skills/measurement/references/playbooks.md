@@ -34,7 +34,7 @@ Trigger: new theme, framework migration (for example to Next.js), domain change,
 
 ## P3. Shopify checkout extensibility and pixel migration
 
-Trigger: Additional scripts or checkout.liquid tracking still present, Thank you page upgrade, duplicate or missing purchases after upgrade. Deadlines: Plus 2025-08-28, non-Plus 2026-08-26 [Official per Shopify; verify].
+Trigger: Additional scripts or checkout.liquid tracking still present, Thank you page upgrade, duplicate or missing purchases after upgrade. Deadlines: Plus 2025-08-28, non-Plus 2026-08-26 (both passed) [Official, shopify.dev]. A conversion drop starting late August 2026 on a non-Plus store points here first.
 
 1. List what Additional scripts and theme code did (GA4, Ads, Meta, TikTok, affiliates, surveys).
 2. Replace with app pixels first (Google and YouTube, Facebook and Instagram with Maximum data sharing, TikTok), then custom pixels for the rest ([Implementation recipes](implementation-recipes.md) recipe 5).
