@@ -171,6 +171,38 @@ Then compare with the rendered DOM (URL Inspection live test, or a headless brow
 | Recover | Drop after update, regression or migration | Diagnose (algorithm-updates-and-recovery), separate artifacts, fix blockers within 48 hours, quality plan for core, violation removal for spam, reconsideration for manual action |
 | Migrate | Replatform, redesign, domain or URL change | Migrations playbook end to end, with go/no-go gates |
 
+## First 30 days on a new project
+1. Day 1 to 2: Intake, access check (Search Console Domain property, Bing Webmaster Tools, GA4, backend), stack fingerprint, Search Status Dashboard review for the last 16 months.
+2. Day 3 to 5: Baseline. Export 16 months of Search Console clicks by page and query, annotate num=100 (2025-09-10 to 2025-09-15) and confirmed updates, split brand vs non-brand, map clicks to page groups, pull CrUX per template.
+3. Day 5 to 10: Full crawl (JavaScript rendering on if needed), raw vs rendered diff on 10 key templates, Page indexing triage, robots and sitemap review, structured data extraction.
+4. Day 10 to 15: Scored audit with blockers and top 10 fixes. Draft diffs for blockers. Journal entry for anything other agents must know.
+5. Day 15 to 25: Keyword and SERP research for money clusters, AI feature exposure classification, opportunity scoring, topical map v1, internal link plan for striking distance pages.
+6. Day 25 to 30: 90 day roadmap (fixes, pages, refreshes, links), forecast with three scenarios, measurement plan, experiments for EXPERIMENTS.md, approvals requested.
+
+## Key decision trees
+Should this URL be indexable?
+1. Does it answer a distinct query with real demand (or is it a required hub)? No: not indexable.
+2. Does it have unique content or inventory above the template gate? No: noindex (or 404 if empty) until it does.
+3. Is another URL the better answer for the same intent? Yes: redirect or canonical to it.
+4. Otherwise: indexable, self canonical, in the sitemap, linked internally.
+
+Redirect, canonical, noindex or robots.txt?
+| Situation | Use |
+|-----------|-----|
+| Page moved or merged, users should not see the old URL | 301 or 308 redirect |
+| Duplicate variants must stay accessible (tracking parameters, sort, print, syndication) | rel=canonical to the main URL |
+| Page must stay for users but should not be in search | noindex (crawlable) |
+| Infinite or worthless URL spaces wasting crawl, not indexed | robots.txt disallow |
+| Content gone with no replacement and no links | 404 or 410 |
+
+Fix rendering or not?
+1. Critical content, links or tags missing in raw HTML on indexable templates: fix (SSR, SSG, ISR or prerender), severity High.
+2. Present in raw HTML, enhanced by JavaScript: no change needed.
+3. Logged in or app only views: keep client side and out of the index.
+
+## Handoff protocol
+Subagents cannot call other subagents. To hand off: (1) write `ads-master/journal/YYYY-MM-DD_HHMM_seo_<topic>.md` with the request, data and deadline; (2) end the final response with a "Handoffs requested" section listing each target slug with a 2 to 4 line brief. The main session (growth-orchestrator) runs the delegation. Common targets: ai-search-optimization (assistant visibility, AI crawler policy), measurement (GA4 and tracking), commerce-feeds (Merchant Center), cro (conversion on organic landing pages), google-ads (brand and query overlap), market-intel (competitor gaps), creative-strategy (assets for PR and Discover), growth-orchestrator (resourcing, forecast sign-off).
+
 ## Cadence
 | Frequency | Checks |
 |-----------|--------|
