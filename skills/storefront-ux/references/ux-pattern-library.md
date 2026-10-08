@@ -6,10 +6,7 @@ Evidence labels follow the spec: `[Official, YYYY-MM]`, `[Study, YYYY or YYYY-MM
 
 Lane key: **TS** = table stakes, implement directly as a diff after approval, measure before/after. **TF** = test first, hand to `cro` with a hypothesis. **TS/TF** = the defect fix is TS, the design variant is TF.
 
----
-
 ## A. Navigation and homepage
-
 ### P01 Category-first main navigation (TS)
 - Job: let shoppers reach any product family in one or two steps using the words they use.
 - Evidence: 58% of desktop and 67% of mobile leading sites are mediocre or worse on homepage and category navigation [Study, 2025]; 33% of mobile sites do not make product categories the top level items [Study, older Baymard article].
@@ -92,7 +89,6 @@ Lane key: **TS** = table stakes, implement directly as a diff after approval, me
 - Repos: Horizon `sections/footer.liquid`, `blocks/footer-policy-list.liquid`.
 
 ## B. On-site search
-
 ### P10 Visible search field (TS)
 - Job: give high-intent users the fastest path; searchers convert higher in most stores [Practitioner consensus, vendor claims vary].
 - Evidence: 46% of desktop, 58% of mobile and 64% of app sites are mediocre or worse on search [Study, 2026].
@@ -157,7 +153,6 @@ Lane key: **TS** = table stakes, implement directly as a diff after approval, me
 - Repos: Horizon `sections/quick-order-list.liquid`, `assets/quick-order-list.js`.
 
 ## C. Collection and category pages (PLP)
-
 ### P17 Category-specific filters (TS)
 - Job: let users narrow by the attributes that matter in that category.
 - Evidence: 58% of desktop and 78% of mobile sites mediocre or worse on product lists and filtering (21,000+ scored parameters, 170+ sites) [Study, 2025-09]; 34% had poor filtering in an earlier benchmark [Study, older].
@@ -240,7 +235,6 @@ Lane key: **TS** = table stakes, implement directly as a diff after approval, me
 - Repos: Horizon `snippets/product-badges-styles.liquid` and badges logic in `snippets/product-card.liquid`.
 
 ## D. Product detail page (PDP)
-
 ### P26 Gallery with scale, zoom and video (TS)
 - Job: let users judge appearance, size and quality.
 - Evidence: only 55% of sites decent or better on product images; 91% do not provide in-scale images [Study, 2025].
@@ -368,7 +362,6 @@ Lane key: **TS** = table stakes, implement directly as a diff after approval, me
 - Repos: Horizon `blocks/product-custom-property.liquid` pattern for metafield-driven rows.
 
 ## E. Cart and cart drawer
-
 ### P40 Cart drawer vs cart page decision (TS)
 - Job: confirm, edit and route to checkout with the fewest steps.
 - Evidence: [Practitioner consensus]; Horizon offers a slide-out cart and a cart page [Official, 2025].
@@ -424,7 +417,6 @@ Lane key: **TS** = table stakes, implement directly as a diff after approval, me
 - Repos: Horizon `assets/cart-discount.js`.
 
 ## F. Checkout and payments
-
 ### P46 Guest checkout most prominent (TS)
 - Job: let first-time buyers pay without an account.
 - Evidence: 62% of sites do not make guest checkout the most prominent option [Study, Baymard checkout benchmark].
@@ -480,7 +472,6 @@ Lane key: **TS** = table stakes, implement directly as a diff after approval, me
 - Repos: Medusa starter `src/modules/checkout`; Saleor Paper URL steps `?step=contact|shipping|payment`.
 
 ## G. Post-purchase and accounts
-
 ### P52 Thank you page with next steps (TS)
 - Job: confirm, set expectations, offer account creation and one relevant action.
 - Evidence: non-Plus Shopify stores were auto-upgraded on 2026-08-26 and additional scripts stopped [Official, 2026-08].
@@ -518,7 +509,6 @@ Lane key: **TS** = table stakes, implement directly as a diff after approval, me
 - Repos: Horizon `assets/recently-viewed-products.js` shows the local storage pattern for viewed items.
 
 ## H. Feedback, motion and notifications
-
 ### P56 Inline first, toast second (TS)
 - Job: put feedback where the user is looking and keep errors persistent.
 - Evidence: GitHub Primer does not recommend toasts; Adobe Spectrum requires at least 6 seconds; auto-dismissal conflicts with WCAG 2.2.1 debates [Official design systems; Contested].
@@ -547,7 +537,6 @@ Lane key: **TS** = table stakes, implement directly as a diff after approval, me
 - Repos: emilkowalski/skills `skills/emil-design-eng`, `skills/mobile-native`; Horizon `assets/view-transitions.js`.
 
 ## I. Accessibility, international and performance
-
 ### P59 Accessible overlays (dialogs and drawers) (TS)
 - Job: overlays that keyboard and screen reader users can enter and leave.
 - Evidence: ACM found consumers with disabilities could not order on most of about 100 large Dutch webshops (order buttons, CAPTCHA) [Official, 2026-03].
@@ -583,8 +572,6 @@ Lane key: **TS** = table stakes, implement directly as a diff after approval, me
 - Build: LCP image `fetchpriority="high"`, responsive `srcset`, width and height; defer non-critical apps; speculation rules for PLP to PDP; JS budget per template (see [Audit method](storefront-audit-method.md)).
 - A11y: performance work must not remove focus styles or labels.
 - Repos: Horizon `assets/performance.js`, `assets/section-hydration.js`, `snippets/scripts.liquid` (import maps, module preloads); Shopify speculation rules docs.
-
----
 
 ## Pattern selection by catalog size
 

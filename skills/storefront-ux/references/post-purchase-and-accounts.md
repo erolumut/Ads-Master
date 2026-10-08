@@ -78,6 +78,45 @@ Reorder patterns:
 - On Shopify, post-purchase offers run through apps on supported surfaces; confirm plan support and payment method compatibility before proposing [Unverified on current plan limits].
 - Economics from `offer-strategy`; test with `cro`.
 
-## 8. Measurement
+## 8. Returns flow specification
+
+| Step | Screen content | Rules |
+|------|----------------|-------|
+| 1. Find order | Order list in account, or guest lookup with order number plus email | No login wall for guests; rate-limit lookups |
+| 2. Select items | Line items with quantity selectors and eligibility (window, final sale, hygiene) | Show why an item is not eligible |
+| 3. Reason | Reason codes (too small, too large, not as described, damaged, changed mind, other) plus optional comment | Reason codes feed PDP fixes monthly |
+| 4. Resolution | Refund, exchange (size swap with stock check), store credit | Show refund amount, method and timing |
+| 5. Method | Label download, QR code drop-off, pickup | Carrier per market; cost stated before confirm |
+| 6. Confirm | Summary, then confirmation page and email | Withdrawal (EU) can be the same flow if the legal steps in section 4 are met |
+
+Exchange first for size issues: offer the other size in stock as the first option, with the price difference shown. Measure exchange share vs refunds with ops.
+
+## 9. Subscription management (account)
+
+- List subscriptions with product, frequency, next charge date and price.
+- Actions: skip next, change date, change frequency, change quantity, swap variant, pause, cancel. Cancellation is as easy as signup (EU and US click-to-cancel rules; wording with `compliance`).
+- Show savings vs one-time price honestly; no hidden retention mazes (one optional offer at most).
+- Shopify: subscription apps render through customer account extensions (`customer-account.page.render` or order action targets); selling plans power the PDP option.
+
+## 10. B2B accounts
+
+- Company and location switcher in the header for multi-location buyers.
+- Catalog-specific prices and quantity rules visible on PDP and in quick order lists (Shopify B2B catalogs, `quantity_rule`, `quantity_price_break`).
+- Reorder from past orders and saved lists; CSV upload for large orders.
+- Payment terms (net 30) and purchase order fields at checkout; invoice downloads in account.
+- Customer account targets for company details and locations: `customer-account.profile.company-details.render-after`, `customer-account.profile.company-location-addresses.render-after`, `customer-account.profile.company-location-payment.render-after`, `customer-account.profile.company-location-staff.render-after`.
+
+## 11. Copy templates (adapt and route to `compliance`)
+
+| Surface | Template |
+|---------|----------|
+| Thank you heading | "Thank you, {first_name}. Order {number} is confirmed." |
+| Delivery expectation | "Estimated delivery {date_range} with {carrier}. We will email tracking when it ships." |
+| Account offer | "Track this order and reorder faster: create your account with one code, no password." |
+| Withdrawal entry | "Withdraw from contract here" (or the national equivalent) |
+| Withdrawal acknowledgment email subject | "We received your withdrawal for order {number}" |
+| Buy again partial | "{n} items added. {m} are no longer available." |
+
+## 12. Measurement
 
 Events: `purchase` (verified by `measurement`), `sign_up` after purchase, `reorder_click`, `withdrawal_start`, `withdrawal_confirm`, `return_request`, `wishlist_add`, `wishlist_to_cart`. KPIs: account creation rate after purchase, repeat purchase rate (owned by `lifecycle-crm`), reorder share, return rate by reason, withdrawal completion time, support tickets per 100 orders ("where is my order" should fall after tracking improvements).

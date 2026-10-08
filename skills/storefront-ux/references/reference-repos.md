@@ -52,7 +52,54 @@ Not inspected in this research (check before relying on them): Shopify/skeleton-
 | P61 Locale routing | Medusa middleware, Saleor Paper routes, Horizon `assets/localization.js` | Country decides currency | IP-forced redirects |
 | P62 Performance | Horizon `snippets/scripts.liquid` (import maps, module preloads), `assets/section-hydration.js` | Load JS only when the feature is enabled (Quick Add since 4.2.0) | |
 
-## 3. License rules for client work
+## 3. How to read each repo quickly
+
+| Repo | Start here | Then | Skip |
+|------|-----------|------|------|
+| Horizon | `release-notes.md`, `templates/product.json`, `templates/collection.json` | The block files those templates reference, then the matching `assets/*.js` component | Locale schema files unless you work on translations |
+| Dawn | `sections/main-product.liquid`, `sections/main-collection-product-grid.liquid` | `assets/global.js` for shared behavior | Legacy patterns already replaced in Horizon |
+| Hydrogen skeleton | `app/routes/products.$handle.tsx`, `app/routes/collections.$handle.tsx`, `app/components/CartMain.tsx` | `app/lib/` fragments and context | Mock shop notice and scaffolding |
+| theme-liquid-docs | `data/objects.json` for an object's properties | `schemas/theme/setting.json` for setting types | Test fixtures |
+| ui-extensions | `src/surfaces/checkout/extension-targets.ts` | Component `.d.ts` files for props | Admin and POS surfaces |
+| Next.js Commerce | `components/cart/`, `components/product/` | `lib/shopify/index.ts` for data fetching and cache tags | OG image routes |
+| Saleor Paper | README checkout section, `src/app/(checkout)/` | `skills/saleor-paper-storefront/rules/` | Provider-specific payment code |
+| WooCommerce blocks | `block.json` of each block for attributes | `frontend.ts` for Interactivity API stores | Editor-only `edit.tsx` |
+| Base UI, Radix, React Aria | The component folder's root and popup parts | Tests for keyboard behavior expectations | Docs site code |
+| sonner | `src/index.tsx` (Toaster and Toast) | `src/styles.css` for motion and reduced motion | Website code |
+
+## 4. Library selection decision tree
+
+```
+Need an overlay (dialog, drawer, sheet)?
+  Native <dialog> covers it (simple modal, no swipe)? -> native dialog
+  Need swipe-to-dismiss sheet on mobile? -> Base UI Drawer (not vaul)
+  Already on Radix or React Aria? -> stay with that family
+Need a combobox or autocomplete? -> React Aria Autocomplete or ComboBox, Base UI Autocomplete; never hand-roll for production
+Need toasts? -> sonner, configured per the notifications rules
+Need a carousel? -> CSS scroll snap plus buttons; Embla with the accessibility plugin when you need loop, autoplay control or complex sync
+Need a command palette (B2B quick order, internal search)? -> cmdk
+Need styled components fast? -> shadcn/ui on Radix or Base UI, then audit each copied file
+```
+
+Maintenance risk signals (check before adopting): no release in 12 months, README notices, unanswered security issues, a single maintainer with no organization behind it, open issues about React or browser version support. vaul shows the first two; cmdk shows a slow cadence (last commit 2025-10) but is stable.
+
+## 5. Known gaps and weak spots in the references
+
+| Reference | Weak spot found on 2026-10-08 | What to do instead |
+|-----------|-------------------------------|--------------------|
+| Hydrogen skeleton `Aside.tsx` | `role="dialog"` with `aria-modal` on an always-rendered overlay, no focus trap or focus return, unlabeled backdrop button | Use Base UI, Radix or React Aria dialogs, or native `<dialog>` |
+| Next.js Commerce variant selector | Sold-out combinations are `disabled`, so users cannot select them or request back in stock, and screen readers skip them | Keep options focusable with a "sold out" label (Horizon pattern) |
+| Next.js Commerce filters | Sort and collections only; no attribute facets | Build facets from product attributes (H5 recipe) |
+| Horizon PLP | Infinite auto-load is the default | Decide per store; load more on search results |
+| Horizon cart | No free shipping progress block in the theme | Add a market-aware block (Shopify recipe R5) |
+| sonner defaults | 4,000 ms lifetime | Set 6,000 ms or more for text toasts |
+| shadcn/ui Drawer | Wraps unmaintained vaul | Swap the primitive for Base UI Drawer |
+| All inspected repos | No EU withdrawal function, no installment table (Turkey), no GPSR block, no unit price on cards outside Horizon | Use the specs in the PDP, checkout and post-purchase references |
+| Medusa starter | Slower cadence (last commit 2026-04) | Check dependencies before forking |
+
+Not covered by any inspected repo: free shipping progress, withdrawal flow, size guide metaobject pattern, Turkish installment tables, RTL Arabic product data examples, accessibility statement pages. These are specified from law and research in the other modules.
+
+## 6. License rules for client work
 
 | License | You may | You may not |
 |---------|---------|-------------|
@@ -63,10 +110,12 @@ Not inspected in this research (check before relying on them): Shopify/skeleton-
 | GPL-2.0-or-later (WooCommerce) | Extend within WordPress and GPL terms | Relicense derived code as proprietary when distributing |
 | FSL-1.1-ALv2 (Saleor Paper) | Use for your own store | Offer a competing commercial product or service built on it (until the Apache 2.0 date) |
 
-## 4. Refresh procedure (quarterly or before a build)
+## 7. Refresh procedure (quarterly or before a build)
 
 1. Clone read-only with depth 1 into a scratch directory; never into the client repo.
 2. Record the last commit date, version file (Horizon and Dawn `config/settings_schema.json` theme_version; package.json versions), and license.
 3. Read release notes (Horizon `release-notes.md`, Base UI `CHANGELOG.md`, Hydrogen skeleton `CHANGELOG.md`, ui-extensions `CHANGELOG.md`).
 4. Re-check maintenance flags (vaul, cmdk, Next.js Commerce cadence).
 5. Update this table and log changes in a journal entry.
+6. Re-check the best implementation map (section 2) and the weak spots table (section 5); remove rows a repo has fixed.
+7. Never run install scripts or build commands inside a cloned reference repo; read files only.
