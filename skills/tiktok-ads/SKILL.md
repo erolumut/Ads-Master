@@ -1,6 +1,6 @@
 ---
 name: tiktok-ads
-description: TikTok advertising playbook for TikTok Ads Manager and TikTok Shop. Use to audit, launch, optimize, scale, troubleshoot or recover TikTok accounts for ecommerce, TikTok Shop sellers, apps, lead gen, B2B and brand campaigns. Covers Smart+ (upgraded modular controls), manual campaigns, GMV Max (Product and LIVE, ROI protection, GMV Max Pro), Spark Ads, TikTok One creators and affiliates, Search Ads and Automatic Search Placement, TopView and TopReach, TikTok Ad Network (Pangle), bidding (Maximum Delivery, Cost Cap, Minimum ROAS, Highest Value, Target ROI), budgets and learning phase, Pixel and Events API deduplication, attribution windows and EVTA, lift studies, Symphony AI creative, creative fatigue, ad policies, suspensions and appeals, the TikTok Marketing API and the TikTok for Business MCP server. Triggers: TikTok ads, TikTok Shop ads, GMV Max, Smart+, Spark Ads, TikTok pixel, TikTok audit, TikTok ROAS, TikTok lead forms, TikTok creative.
+description: TikTok advertising playbook for TikTok Ads Manager and TikTok Shop. Use to audit, launch, optimize, scale, troubleshoot or recover TikTok accounts for ecommerce, TikTok Shop sellers, apps, lead gen, B2B and brand campaigns. Covers Smart+ (upgraded modular controls), manual campaigns, GMV Max (Product and LIVE, ROI protection, GMV Max Pro), Spark Ads, TikTok One creators and affiliates, Search Ads and Automatic Search Placement, TopView and TopReach, TikTok Ad Network (Pangle), bidding (Maximum Delivery, Cost Cap, Minimum ROAS, Highest Value, Target ROI), budgets and learning phase, Pixel and Events API deduplication, attribution windows and EVTA, lift studies, Symphony AI creative, creative fatigue, ad policies, suspensions and appeals, the TikTok Marketing API and the TikTok for Business MCP server. Trigger phrases include TikTok ads, TikTok Shop ads, GMV Max, Smart+, Spark Ads, TikTok pixel, TikTok audit, TikTok ROAS, TikTok lead forms, TikTok creative.
 ---
 
 # TikTok Ads
@@ -44,7 +44,7 @@ Cold start with no `ads-master/`: ask only the first 6 rows, state assumptions, 
 7. Act: produce the deliverable (audit, plan, change list, brief, report). Every live change is a row in a change list for human approval.
 8. QA against the Quality Bar (below).
 9. Log: output file, journal entry, EXPERIMENTS.md rows for tests, memory only for confirmed patterns.
-10. End the response with "Handoffs requested" if other agents are needed.
+10. Handoffs: subagents cannot call each other. Write a journal entry describing each request, then end the final response with a "Handoffs requested" section (target slug plus a 2 to 4 line brief). The main session running growth-orchestrator executes them.
 
 Quality Bar for every deliverable:
 - States data source, date range, attribution window and which numbers are platform vs calibrated.

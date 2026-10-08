@@ -18,11 +18,11 @@
 
 | Category | Typical status | Common conditions | Label |
 |----------|---------------|-------------------|-------|
-| Political ads (candidates, parties, elections, issue ads) | Prohibited | No paid political ads; political creators cannot monetize via branded content | [Official, long-standing] |
+| Political ads (candidates, parties, elections, issue ads) | Prohibited | No paid political ads; paid political content by creators is also barred under the Branded Content Policy [Unverified wording] | [Official, 2019-10; re-verify per market] |
 | Weapons, explosives, illegal drugs | Prohibited | n/a | [Official] |
 | Tobacco, e-cigarettes, vapes | Prohibited | n/a | [Official] |
 | Adult content and sexual services | Prohibited; some sexual wellness products restricted | Strict creative rules | [Unverified details] |
-| Weight management | Restricted | 18+ targeting, no before/after or body-shaming, no unrealistic claims; weight loss supplements and fasting apps barred since 2020 | [Official, 2020-09; verify current] |
+| Weight management | Restricted | 18+ targeting, no before/after or body-shaming, no unrealistic claims; weight loss supplements and fasting apps barred since 2020 | [Unverified this cycle; TikTok policy announcement 2020-09] |
 | Alcohol | Restricted, market-specific | Legal drinking age targeting, licenses, some markets prohibited | [Unverified per market] |
 | Gambling and gaming with real money | Restricted | Licenses, approved markets, pre-approval | [Unverified per market] |
 | Financial services, credit, insurance, crypto | Restricted | Licensing, disclaimers, market lists; crypto heavily limited | [Unverified per market] |
