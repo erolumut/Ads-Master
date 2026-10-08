@@ -114,6 +114,15 @@
 | 83 | Next.js generateMetadata reference | Vercel | https://nextjs.org/docs/app/api-reference/functions/generate-metadata | Ongoing | Metadata API, canonical, alternates |
 | 84 | Customize robots.txt (Shopify themes) | Shopify | https://shopify.dev/docs/storefronts/themes/seo/robots-txt | Ongoing | robots.txt.liquid pattern |
 
+## Source reliability tiers (how to weigh conflicting claims)
+| Tier | Examples | How to use |
+|------|----------|-----------|
+| 1. Platform primary | Search Status Dashboard, Search Central docs and blog, Bing Webmaster blog, IndexNow docs | Treat as fact for how the platform says it works; still verify behavior in your own data |
+| 2. Studies with method | Pew, Seer, Ahrefs, Amsive, Similarweb, num=100 analysis | Directional ranges with sample, period and caveat; never present as universal |
+| 3. Industry press | Search Engine Land, Search Engine Journal, Search Engine Roundtable, PPC Land | Dates and early detection; confirm against tier 1 |
+| 4. Vendor blogs and practitioner posts | Agency and tool blogs | Hypotheses; label [Practitioner consensus] only when widely repeated by credible operators |
+| 5. Communities | Reddit, forums, social threads | Sentiment and edge cases only |
+
 ## Research limits for this version
 - The October 2026 research pass ran 19 web searches before a shared search budget was exhausted, and direct page fetching was unavailable. Items without "checked 2026-10" rely on long standing official documentation or on prior knowledge, and items labeled [Unverified] in the references need confirmation before high stakes use.
 - Highest priority re-checks: Search Console Generative AI report fields and API status; whether AI Mode and AI Overview impressions are separated; AI features opt-out rollout by country; structured data deprecations after June 2025; Googlebot file size documentation changes in 2026; Bing AI Performance features after June 2026; official MCP servers for Search Console, Ahrefs and Semrush.
