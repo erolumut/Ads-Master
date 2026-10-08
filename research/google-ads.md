@@ -256,6 +256,10 @@ Operating thresholds used by the package (zero-conversion term spend under 15%, 
 | Advertising Policies Help and change log | https://support.google.com/adspolicy | Monthly |
 | Google Ads API release notes | https://developers.google.com/google-ads/api/docs/release-notes | Each release |
 | Google Ads API sunset dates | https://developers.google.com/google-ads/api/docs/sunset-dates | Quarterly |
+| Google Ads API deprecations and unversioned changes | https://developers.google.com/google-ads/api/docs/deprecations | Monthly |
+| Data Manager API guides | https://developers.google.com/data-manager/api/devguides/events/google-ads/offline/upgrade | Each upload change |
+| Official Python client library (type files and changelog, fetchable from GitHub raw) | https://github.com/googleads/google-ads-python | Each API release |
+| Google Ads Help announcements feed | https://support.google.com/google-ads/announcements/9048695 | Weekly |
 | Google Ads Developer Blog | https://ads-developers.googleblog.com/ | Weekly |
 | Official Google Ads MCP server | https://github.com/googleads/google-ads-mcp | Monthly |
 | Google Ads Status Dashboard | https://ads.google.com/status/publisher/ | On incidents |
