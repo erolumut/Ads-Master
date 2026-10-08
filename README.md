@@ -7,8 +7,8 @@ Install once, drop into any project, and get a senior growth team that audits, p
 | At a glance | |
 |---|---|
 | Agents | 14 specialists plus 2 utility skills |
-| Playbook depth | 205 reference modules, about 43,000 lines of procedures, audits, settings, formulas, queries and scripts |
-| Research | 15 dossiers with dated timelines of platform changes (January 2025 to October 2026) and about 1,900 cited URLs |
+| Playbook depth | 205 reference modules, about 45,000 lines of procedures, audits, settings, formulas, queries and scripts |
+| Research | 15 dossiers with dated timelines of platform changes (January 2025 to October 2026) and about 2,600 cited URLs, every package verified in a second live research pass |
 | Install | Claude Code plugin, project copy script, or open this repo directly |
 
 ---

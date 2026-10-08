@@ -45,4 +45,4 @@ Master list of every agent and utility skill in Ads Master. Knowledge as of 2026
 
 | Version | Date | Notes |
 |---------|------|-------|
-| 1.0.0 | 2026-10-08 | First release. 14 agents, 16 skills. Research sweep with verification passes on the 2026 platform changes. |
+| 1.0.0 | 2026-10-08 | First release. 14 agents, 16 skills. Research sweep plus a second live verification pass on every package (about 380 searches in total). |
