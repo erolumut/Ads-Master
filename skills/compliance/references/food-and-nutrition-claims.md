@@ -169,7 +169,7 @@ EFSA opinions are not authorisations: a positive EFSA opinion (for example the 2
 |------|--------|---------|------|-----|
 | "High protein bar" (14% energy) | EU | APPROVED WITH EDITS | FOOD-EU-02 | "Source of protein" |
 | "No added sugar" on fruit juice | EU | BLOCKED | FOOD-EU-19 | Remove; say "100% juice" if true |
-| "No added sugar" on a cereal with dates | EU | APPROVED WITH EDITS? | FOOD-EU-02 | Dates are a food used for sweetening: claim not allowed. BLOCKED unless dates are not used for sweetness (counsel) |
+| "No added sugar" on a cereal sweetened with dates | EU | BLOCKED | FOOD-EU-02 | Dates are a food used for its sweetening properties, so the claim fails; if dates are there for texture only, NEEDS HUMAN OR LEGAL REVIEW |
 | "Şeker ilavesiz" with pekmez | TR | BLOCKED | FOOD-TR-03 | Remove |
 | "Supports your immune system" on a juice with 20% NRV vitamin C per 100 ml | EU | APPROVED WITH EDITS | FOOD-EU-05 | Add "Vitamin C contributes to the normal function of the immune system" plus Art 10(2) statement |
 | "Probiotic yoghurt" | DE | NEEDS HUMAN OR LEGAL REVIEW | FOOD-EU-10 | Default: "with live cultures (L. casei, 10^8 CFU per pot)" if true |
