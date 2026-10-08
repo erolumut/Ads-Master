@@ -82,6 +82,29 @@
 | Strategy | 8, 23, 24, 25 | None (stable research) |
 | Tools | 4, 18 to 22, 29 to 43 | API version support window, MCP maintenance |
 
+## Verification plan (run in the next research pass)
+| Priority | Claim to verify | Where | Suggested query or path |
+|----------|----------------|-------|-------------------------|
+| 1 | LinkedIn ad product launches June to October 2026 | Marketing Blog, Help Center release notes | "LinkedIn Ads new features 2026", Campaign Manager announcements |
+| 2 | Accelerate objective coverage and thresholds | Help Center | "Accelerate campaigns LinkedIn objectives" |
+| 3 | Thought Leader Ads formats and objectives | Help Center, Ads Guide | "Thought Leader Ads supported formats" |
+| 4 | BrandLink and CTV availability | Marketing Blog | "LinkedIn BrandLink 2026", "LinkedIn CTV ads" |
+| 5 | Budget minimums and overspend rules | Help Center | "LinkedIn ads minimum daily budget", "daily budget overspend" |
+| 6 | CAPI identifiers and lookback | API docs | Conversions API pages under learn.microsoft.com/linkedin/marketing |
+| 7 | RAR supported CRMs and model | Help Center | "revenue attribution report LinkedIn HubSpot" |
+| 8 | Lead gen form limits and retention | Help Center | "lead gen form custom questions limit", "download leads 90 days" |
+| 9 | Predictive audiences seed rules | Help Center | "predictive audiences LinkedIn requirements" |
+| 10 | EU targeting and data sharing changes | Help Center, privacy policy, press | "LinkedIn EU ad targeting restrictions", "LinkedIn data Microsoft ads 2025" |
+| 11 | Message and Conversation ads regional rules | Help Center | "Sponsored Messaging availability countries" |
+| 12 | Current LinkedIn benchmark figures | Marketing Solutions, B2B Institute | "LinkedIn ads benchmarks CTR 2026" |
+After each check, update the label in the module and add a row to the freshness log.
+
+## How to verify a claim quickly
+1. Search the LinkedIn Help Center for the exact feature name.
+2. Open Campaign Manager and look for the setting in the relevant step (objective, audience, budget and schedule, ads).
+3. If the UI and help page disagree, trust the UI for this account and note the discrepancy in the journal.
+4. For API claims, check the docs for the API version the project pins.
+
 ## Freshness log
 | Date | Checked | Change found | Module updated |
 |------|---------|--------------|----------------|

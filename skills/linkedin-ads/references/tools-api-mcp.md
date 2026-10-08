@@ -105,6 +105,11 @@ Evaluation checklist before connecting:
 - Use: competitor messaging, offers, formats and Thought Leader usage. For EU, additional targeting and reach transparency is shown under the Digital Services Act [Unverified] for fields.
 - Hand off systematic competitor analysis to market-intel.
 
+### Rate limits, data delays and versions
+- The Marketing API enforces daily application and member level rate limits; batch reporting requests by account and date range [Official] [Unverified] for current values.
+- Analytics data can change for several days after the date (late conversions, invalid traffic adjustments); re-pull the trailing 7 to 14 days on each refresh.
+- Pin the LinkedIn-Version header and track the sunset date of that version in the journal; upgrade before it sunsets.
+
 ## 6. Connectors and BI
 - ETL tools (for example Supermetrics, Funnel, Windsor, Dataslayer) can move LinkedIn data to a warehouse or spreadsheet.
 - Keep campaign, creative and demographic pivots daily; join with CRM on campaign codes from hidden fields and UTMs.

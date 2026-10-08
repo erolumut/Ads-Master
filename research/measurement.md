@@ -34,6 +34,32 @@
 | MMM | Open-source Bayesian MMM mainstream (Meridian GA January 2025, Robyn, PyMC-Marketing) | Data rule of thumb 2 years weekly [Practitioner consensus] |
 | Privacy law | US state patchwork growing; EU reform stalled; KVKK enforcement on transfers | About 19 US states with comprehensive laws in force by January 2026 [Practitioner consensus, verify]; Digital Omnibus 1,750+ committee amendments by 2026-07-15 [Press, 2026] |
 
+### 2a. Server-side and conversion API landscape (October 2026)
+
+| Platform | Server route | Dedup | Key match keys | Status notes | Label |
+|----------|-------------|-------|----------------|--------------|-------|
+| Meta | Conversions API, CAPI Gateway, Signals Gateway, partner apps | event_id plus event_name, 48 hours | em, ph, external_id, fbc, fbp, IP, UA | EMQ per event; sensitive category restrictions since 2025; attribution changes 2026 | [Official] |
+| Google Ads | Enhanced conversions (tag), Data Manager UI and API, legacy Google Ads API for allowlisted tokens | order_id per conversion action | Hashed email, phone, address; gclid, gbraid, wbraid | Uploads moved to Data Manager API from 2026-06-15; web and leads settings combined in 2026 | [Official] |
+| GA4 | Measurement Protocol (EU endpoint available), sGTM | transaction_id (prevent at source) | client_id, session_id, user_id | Data Manager recommended for new server-to-server integrations into Google Ads | [Official] |
+| TikTok | Events API (v1.3), Events API Gateway, partner apps | event_id | email, phone (E.164 before hashing), external_id, ttclid, ttp | Check version sunset dates | [Official, verify] |
+| LinkedIn | Conversions API (versioned headers), CRM integrations | eventId | SHA256 email, li_fat_id, name and company | B2B pipeline loops | [Official, verify] |
+| Microsoft | UET with enhanced conversions, offline import by MSCLKID, Conversions API | Varies | Hashed email and phone, msclkid | Conversions API in pilot or rollout as of 2026-10; consent mode required for EEA, UK, CH | [Official via microsoft-ads notes; Unverified details] |
+| Pinterest | Conversions API v5 | event_id | em, ph, epik, IP, UA | | [Official, verify] |
+| Snap | Conversions API v3 | event_id | em, ph, ScCid, _scid, IP, UA | | [Official, verify] |
+| Reddit | Conversions API (Ads API) | conversion_id | rdt_cid, email, IP, UA, _rdt_uuid | v3 API paths introduced | [Official, verify] |
+| ChatGPT Ads | Pixel plus CAPI, Shopify app, MMPs | event ID, first event wins | oppref click parameter, hashed form data | Launched with self-serve beta around 2026-05-05 | [Secondary, Unverified details] |
+
+### 2b. Consent and privacy landscape by region (October 2026)
+
+| Region | Regime | Practical default for tags | Open items |
+|--------|--------|----------------------------|-----------|
+| EEA | GDPR plus ePrivacy national laws; DMA for gatekeepers; Google EU user consent policy | Opt-in: consent mode v2 defaults denied, certified CMP, TCF v2.3 if TCF is used | Digital Omnibus outcome |
+| UK | UK GDPR plus PECR; Data (Use and Access) Act 2025 | Opt-in for advertising; analytics exemption once in force and guided by ICO | Commencement and ICO guidance |
+| Switzerland | revFADP | Treat as opt-in for Google ad products (EU user consent policy covers CH) | |
+| Turkey | KVKK; cookie guideline; Article 9 transfer regime (Law 7499) | Opt-in for non-essential cookies; transfer safeguards for vendors abroad | Adequacy decisions; vendor standard contracts |
+| United States | About 19 state comprehensive laws; GPC honoring in many; sector rules (health) and litigation (CIPA, VPPA) | Notice plus opt-out, GPC honored, restricted processing for opted-out users; no pixels on sensitive health pages | New state laws, California browser signal law |
+| Rest of world | Varies (Brazil LGPD, India DPDP rules phasing in, others) | Follow CMP region rules; counsel review for large markets | Track per project |
+
 ## 3. Timeline of changes, January 2025 to October 2026
 
 | Date | Change | Impact on measurement | Label |

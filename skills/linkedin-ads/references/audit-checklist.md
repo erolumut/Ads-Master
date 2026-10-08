@@ -96,6 +96,20 @@
 
 Override rule: any failed Critical item caps the grade at C; a failed A2, A3 or E4 caps it at D until fixed.
 
+## Quick audit (20 minutes, when time or access is limited)
+Check these 10 items first; they catch most of the waste:
+1. A2 Insight Tag active.
+2. A4 Qualified lead definition exists.
+3. A5 Lead sync to CRM working.
+4. B4 Audience expansion off for lead gen and ABM.
+5. B5 LinkedIn Audience Network off for lead gen and ABM.
+6. C1 ICP match from the Demographics report.
+7. C2 Exclusions in place.
+8. D2 Fatigued ads still running.
+9. F1 Bidding fits audience size.
+10. G1 Monthly pipeline report exists.
+Report the quick audit as "partial" and schedule the full audit.
+
 ## Audit report template
 ```
 # LinkedIn Ads audit: <account>

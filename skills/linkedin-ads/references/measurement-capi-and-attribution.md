@@ -103,7 +103,14 @@ Account holdout design for ABM:
 | RAR influenced revenue vs CRM sourced revenue | RAR much higher | Influence vs source |
 Write the reconciliation into MEASUREMENT.md via the measurement agent so every agent uses the same truth.
 
-## 10. Measurement health checklist
+## 10. Consent and privacy
+- Insight Tag sets cookies and processes personal data; in the EEA, UK and other consent regimes, fire it only after marketing consent through the CMP.
+- CAPI events with hashed identifiers still require a lawful basis; document the basis in MEASUREMENT.md.
+- Contact list uploads and CRM sync need a lawful basis and must respect opt-outs; remove opted out contacts from matched audiences monthly.
+- Lead gen form consent checkboxes must match the privacy policy and be stored with timestamps in the CRM.
+- Expect lower observed conversion counts where consent rates are low; do not compare raw LinkedIn conversion counts across regions with different consent rates.
+
+## 11. Measurement health checklist
 - [ ] Insight Tag active, firing on all pages, consent compliant.
 - [ ] Event conversion rules for forms; URL rules only where events are impossible.
 - [ ] Primary rule attached to every relevant campaign.

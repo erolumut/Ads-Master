@@ -99,7 +99,26 @@ Fatigue signals and actions:
 
 Refresh cadence: every 4 to 8 weeks for small audiences and ABM, 8 to 12 weeks for broad audiences [Practitioner consensus].
 
-## 8. Creative brief template (hand to creative-strategy)
+## 8. Copy templates (fill with sourced facts only)
+Single image or document intro text (keep the hook within the first 150 characters):
+```
+<Role>s: <specific problem in their words>.
+We analyzed <data source> and found <specific finding>.
+<Offer>: <what they get> in <time>.
+```
+Conversation ad opening message:
+```
+Hi %FIRSTNAME%, I lead <function> at <company>. Teams like yours tell us <pain>.
+Would one of these help?
+[See the 6 minute demo] [Get the benchmark report] [Talk to a specialist]
+```
+Thought Leader post prompt (for the member to write in their own voice):
+```
+A lesson from <experience>, the mistake most <role>s make, what we do instead, one question for readers.
+```
+Check personalization macros and character limits in the current Ads Guide [Unverified].
+
+## 9. Creative brief template (hand to creative-strategy)
 ```
 Campaign: <name> | Stage: <cold, warm, hot> | Audience: <roles, firmographics>
 Objective and KPI:

@@ -54,7 +54,41 @@ Worked example: first year gross profit $30,000, SQL to won 20%, payback share 4
 | Company list match rate | Per upload | ABM quality |
 | Time to opportunity from first LinkedIn touch | 12 months CRM | Patience for demand creation |
 
-## 6. Benchmark hygiene
+## 6. Forecasting a LinkedIn program
+
+Inputs: ICP audience size (forecast panel), expected CPM range for that audience (start from the forecast panel and replace with account data), CTR baseline, form completion or landing page conversion rate, lead to SQL rate, SQL to won rate.
+
+```
+impressions     = budget / CPM x 1000
+clicks          = impressions x CTR
+leads           = clicks x completion rate (lead gen forms) or landing page CVR
+SQLs            = leads x lead to SQL rate
+won deals       = SQLs x SQL to won rate
+reach check     = impressions / (audience size x target frequency) should be near 1 or below
+```
+Worked example (illustrative): $15,000 per month, CPM $60, CTR 0.5%, completion 12%, lead to SQL 15%, SQL to won 20%.
+Impressions 250,000; clicks 1,250; leads 150; SQLs 22.5; won deals 4.5. With an ICP of 60,000 members at a target 30 day frequency of 4, capacity is 240,000 impressions, so the plan is near saturation; adding budget needs a larger audience or more creative.
+
+Present forecasts as low, mid and high cases by varying CPM (plus or minus 30%) and CTR (plus or minus 30%).
+
+## 7. Seasonality and timing notes for B2B
+| Period | Typical effect | Practice |
+|--------|---------------|----------|
+| Late December and early January | Lower engagement and lead volume, sometimes cheaper CPMs [Practitioner consensus] | Lean into awareness, pause aggressive lead targets |
+| Summer holiday weeks (region specific) | Lower response in Europe [Practitioner consensus] | Lower budgets or shift to evergreen content |
+| Quarter and fiscal year ends | Budget deadlines can raise buyer activity in some categories; competition for attention rises | Time demo offers; watch CPMs |
+| Major industry events | Attention spikes on event topics | Event ads and Thought Leader posts around the event |
+Validate with the account's own weekly history before building a seasonal plan.
+
+## 8. What good looks like (internal trend tests)
+| Program | Healthy trend over 90 days |
+|---------|----------------------------|
+| Demand creation | ICP reach rising, engager pools growing, branded search stable or rising, pipeline from engaged accounts rising |
+| Retargeting | Stable or falling cost per qualified lead as pools grow |
+| Lead capture | SQL rate stable or rising while cost per SQL stays under ceiling |
+| ABM | Share of target accounts reached and engaged rising, opportunities in target accounts rising vs holdout |
+
+## 9. Benchmark hygiene
 1. Every external figure in a deliverable shows source, date, sample and caveat.
 2. Figures older than 24 months are context only.
 3. Platform authored figures are labeled as such.
@@ -63,7 +97,7 @@ Worked example: first year gross profit $30,000, SQL to won 20%, payback share 4
 6. When the account differs from a benchmark, explain with account facts (audience size, seniority, offer, creative).
 7. Replace each placeholder in section 2 with account data within 60 days and log the replacement in the journal.
 
-## 7. Quick significance check for CTR or conversion rate tests
+## 10. Quick significance check for CTR or conversion rate tests
 ```python
 from math import sqrt
 def z(conv_a, n_a, conv_b, n_b):

@@ -302,7 +302,7 @@ add_action( 'woocommerce_thankyou', function ( $order_id ) {
 
 // Capture browser identifiers at checkout for server events
 add_action( 'woocommerce_checkout_create_order', function ( $order ) {
-    foreach ( array( '_fbp', '_fbc', '_ttp', 'am_ttclid', 'am_gclid', 'am_msclkid', '_ga' ) as $c ) {
+    foreach ( array( '_fbp', '_fbc', 'am_fbc', '_ttp', 'am_ttclid', 'am_gclid', 'am_msclkid', '_ga' ) as $c ) {
         if ( isset( $_COOKIE[ $c ] ) ) { $order->update_meta_data( '_am_' . $c, sanitize_text_field( wp_unslash( $_COOKIE[ $c ] ) ) ); }
     }
     $order->update_meta_data( '_am_ip', WC_Geolocation::get_ip_address() );
@@ -330,7 +330,7 @@ add_action( 'am_send_capi_purchase', function ( $order_id ) {
             'client_ip_address' => $order->get_meta( '_am_ip' ),
             'client_user_agent' => $order->get_meta( '_am_ua' ),
             'fbp'               => $order->get_meta( '_am__fbp' ),
-            'fbc'               => $order->get_meta( '_am__fbc' ),
+            'fbc'               => $order->get_meta( '_am__fbc' ) ? $order->get_meta( '_am__fbc' ) : $order->get_meta( '_am_am_fbc' ),
         ) ),
         'custom_data'      => array( 'currency' => $order->get_currency(), 'value' => (float) $order->get_subtotal(), 'order_id' => (string) $order->get_id() ),
     ) ) );

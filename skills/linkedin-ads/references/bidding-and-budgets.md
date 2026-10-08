@@ -91,7 +91,26 @@ Frequency planning rule of thumb [Practitioner consensus]:
 | CTR below own baseline by 30% | Creative refresh before budget changes |
 | Demand creation campaign with rising engager pools and pipeline influence | Hold budget through at least one sales cycle before judging |
 
-## 9. Common bidding and budget mistakes
+## 9. Worked budget plan (Growth tier, illustrative)
+
+Monthly LinkedIn budget $20,000; target cost per SQL $1,500; observed CPL $180 under Maximum delivery; lead to SQL 12%.
+
+| Program | Campaigns | Budget | Bidding | KPI and ceiling |
+|---------|-----------|--------|---------|-----------------|
+| Demand creation | 2 (Thought Leader to ICP, document ungated to ICP) | $7,000 | Maximum delivery, then Cost cap per engagement | ICP reach, engager pool, pipeline influence |
+| ABM tier 1 | 1 (company list x buying committee) | $4,000 | Manual CPM | Account reach 80%+, engaged accounts |
+| Retargeting | 1 (engagers and visitors to demo offer) | $4,000 | Cost cap at $160 per lead | Cost per SQL under $1,500 |
+| Lead capture | 1 (ICP to assessment offer with qualifying question) | $5,000 | Cost cap at $180 per lead | Cost per SQL under $1,500 |
+Check: lead capture plus retargeting $9,000 at about $170 per lead gives about 53 leads and about 6 SQLs at a 12% rate, roughly $1,500 per SQL. If the SQL rate drops below 10%, cost per SQL breaks the ceiling; fix quality before adding budget.
+
+## 10. Flights, campaign groups and schedules
+- Use lifetime budgets with start and end dates for events, launches and tests so spend cannot run past the window.
+- Use campaign group budgets or schedules to cap a program when several campaigns share an allocation [Unverified] for current group budget behavior.
+- For always on programs, use daily budgets and review pacing weekly.
+- Before holidays, decide per program: hold, reduce or pause; record in the journal.
+- After any pause longer than 2 weeks, expect a short relearning period; avoid judging the first week.
+
+## 11. Common bidding and budget mistakes
 | Mistake | Effect | Fix |
 |---------|--------|-----|
 | Maximum delivery on a 2,000 member ABM list | Very high CPMs | Manual CPM |

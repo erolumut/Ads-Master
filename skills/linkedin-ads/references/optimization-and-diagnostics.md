@@ -112,7 +112,17 @@ High value test backlog:
 9. Audience expansion on vs off (expect cheaper leads, check SQL rate).
 10. Account holdout test for ABM influence.
 
-## 7. Change discipline
+## 7. Monthly deep dive (adds to the weekly routine)
+1. CRM join: leads, SQLs, opportunities and pipeline by campaign, ad code, audience code and offer for the last 90 days.
+2. Cost per SQL and pipeline per dollar by program; compare with ceilings from PROJECT_BRIEF.md economics.
+3. ICP match score per campaign from the Demographics report.
+4. Engager pool sizes (video, document, Thought Leader engagers) and their conversion into pipeline.
+5. ABM: account reach, engaged accounts, opportunities in target accounts vs holdout if any.
+6. Creative: angles that won across more than one audience; candidates for memory.
+7. Budget reallocation proposal for growth-orchestrator.
+8. Save as `YYYY-MM-DD_linkedin-ads_monthly-pipeline-report.md`.
+
+## 8. Change discipline
 - One meaningful change per campaign per 7 to 14 days.
 - Every change goes into the weekly deliverable change list with approval status.
 - Keep a simple change log in the journal for audits and diagnosis.

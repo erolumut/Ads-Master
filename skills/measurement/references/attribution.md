@@ -105,3 +105,27 @@ App checklist: MMP or Firebase installed with consent handling; SKAN or AdAttrib
 3. When a platform changes attribution definitions, rebaseline targets with the channel agent within 2 weeks.
 4. Report view-through and engage-through separately from click-through in every dashboard.
 5. Brand search and retargeting get the most inflated attribution; test them first.
+
+## 10. Choosing attribution settings per platform
+
+| Platform | Recommended starting setting | Change it when | Watch out |
+|----------|------------------------------|----------------|-----------|
+| Google Ads | Data-driven, 30-day click for purchases; 90-day click for long B2B cycles; engaged-view default for YouTube | Purchase lag analysis (time to conversion report) shows most conversions outside the window | Changing windows changes reported history going forward, not backward; tell google-ads |
+| Meta | 7-day click and 1-day view for ecommerce; 1-day click for impulse or when view inflation is a concern; compare with incremental attribution in a split before adopting | Lift tests show view-through conversions are not incremental for the account | Setting affects optimization, not only reporting; switching resets comparisons |
+| TikTok | 7-day click, 1-day view | Same logic as Meta | View-through heavy for upper funnel video |
+| LinkedIn | 30-day click, 7-day view for B2B; tie to CRM outcomes | Sales cycle analysis | Long windows overlap with other B2B channels |
+| Microsoft | 30-day click, DDA where available | As Google | Imported Google settings may not match |
+| GA4 | Data-driven with default lookbacks; compare against paid and organic last click in the model comparison report | Never change just to make a channel look better | Model changes apply to historical reports (no locked history) |
+
+## 11. Worked reconciliation example (September 2026, ecommerce)
+
+| Source | Purchases | Ratio to backend | August ratio | Note |
+|--------|-----------|------------------|--------------|------|
+| Backend (net of cancellations) | 2,140 | 1.00 | 1.00 | Shopify |
+| GA4 (all channels) | 1,862 | 0.87 | 0.88 | Stable; EEA capture 0.71, rest 0.93 |
+| Google Ads (DDA, 30d click) | 905 | 0.42 | 0.41 | Stable |
+| Meta (7d click 1d view) | 1,120 | 0.52 | 0.61 | Dropped after engage-through split; annotate, not a performance change |
+| TikTok (7d click 1d view) | 210 | 0.10 | 0.09 | Stable |
+| Sum of platforms | 2,235 | 1.04 | 1.11 | Overlap fell with Meta change |
+
+Reading: GA4 capture is stable, so on-site tracking is healthy. Meta's ratio change is explained by the March 2026 definition change being applied to a new reporting connector this month; rebaseline Meta targets with meta-ads. Next step: geo test on Meta (largest spend) to replace ratios with an incrementality factor. Numbers in this table are illustrative, not benchmarks.

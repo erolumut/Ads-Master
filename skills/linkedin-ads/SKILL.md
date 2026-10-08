@@ -41,6 +41,17 @@ Out of scope (hand off): CAPI and CRM engineering (measurement), creative produc
 9. EU targeting restrictions (Digital Services Act related changes) and any data sharing changes with Microsoft.
 10. Message and Conversation ads delivery restrictions by region.
 
+### Evidence and data rules
+| Label | Meaning in this skill |
+|-------|----------------------|
+| [Official, YYYY] or [Official, YYYY-MM] | LinkedIn documentation or announcement; date is when the mechanic was established or announced |
+| [Study, YYYY] | Published research with a method (B2B Institute, Ehrenberg-Bass, Gartner) |
+| [Practitioner consensus] | Widely repeated by credible operators, no hard data |
+| [Contested] | Credible sources disagree; both sides in the reference |
+| [Unverified] | Not confirmed in the 2026-10 build; verify before it drives a decision |
+
+Data priority: CRM truth (MEASUREMENT.md) > Campaign Manager data (export, API, MCP) > revenue attribution report (influence) > external benchmarks.
+
 ## Intake (minimum facts needed)
 | Fact | Where to find it | Cold start question |
 |------|------------------|--------------------|

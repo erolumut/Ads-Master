@@ -94,3 +94,39 @@ Annotated source list for the measurement skill. Dates are publication dates whe
 - Safari 26 and iOS 26 privacy changes; AdAttributionKit additions after iOS 18.4.
 - GA4 limits and modeling thresholds (long standing values; confirm no change).
 - ChatGPT Ads pixel cookie names and CAPI endpoint (community notes only).
+
+## Additional secondary sources (context and corroboration)
+
+| Title | Publisher | URL | Date | Supports |
+|-------|-----------|-----|------|----------|
+| Google's Privacy Sandbox elimination ends the quest for a cookieless Chrome | eMarketer | https://www.emarketer.com/content/google-s-privacy-sandbox-elimination-ends-quest-cookieless-chrome | 2025-10 | Market reaction to retirement |
+| Google Retires Privacy Sandbox APIs, Keeps Third-Party Cookies | Windows Report | https://windowsreport.com/google-is-scrapping-privacy-sandbox-apis-as-chrome-keeps-third-party-cookies-after-all/ | 2025-10 | Chrome 144 deprecation, Chrome 150 removal target |
+| Google Privacy Sandbox officially shuts down | Usercentrics | https://usercentrics.com/knowledge-hub/what-is-google-privacy-sandbox/ | 2025 to 2026 | Retained components (CHIPS, FedCM, Private State Tokens) |
+| Meta Attribution 2026: 1-Day vs 7-Day (Jan 12 Update) | JetFuel | https://jetfuel.agency/meta-ads-attribution-settings-2026/ | 2026 | Default settings after January change |
+| What Meta's March 2026 attribution update means | Leafsignal | https://www.leafsignal.com/blog/meta-march-2026-attribution-update | 2026-03 | Reporting impact |
+| Drive Social Media update on 2026 Meta attribution changes | Business Wire | https://www.businesswire.com/news/home/20260610201735/en/Drive-Social-Media-Offers-an-Update-to-Clients-Regarding-the-2026-Meta-Ads-Attribution-Window-Changes | 2026-06-10 | Agency communication of changes |
+| Google lowers incrementality testing threshold to $5,000 | PPC Land | https://ppc.land/google-lowers-incrementality-testing-threshold-to-5-000-for-advertisers/ | 2025 | Alternative date (GML 2025) for threshold change |
+| Google Ads Conversion Lift Measurement Now Self-Service | Search Engine Roundtable | https://www.seroundtable.com/google-ads-conversion-lift-measurement-self-service-42250.html | n.d. | Self-serve lift |
+| Google Moves Lift Studies to the Experiments Section | ALM Corp | https://almcorp.com/blog/google-moves-lift-studies-to-experiments-google-ads/ | 2026 | UI location of lift studies |
+| Google Marketing Live 2025 roundup | Google | https://support.google.com/google-ads/answer/16290177 | 2025-05 | Cross-channel measurement announcements |
+| Google Ads Highlights of 2025 | Google | https://support.google.com/google-ads/answer/16756291 | 2025-12 | 2025 recap |
+| How to Set Up Google Tag Gateway with Cloudflare | Loves Data | https://www.lovesdata.com/blog/google-tag-gateway/ | 2025 | Step by step practitioner guide |
+| Track Google Ads Conversions: Data Manager API Guide | Stape | https://stape.io/blog/google-ads-conversions-tracking-with-data-manager-api | 2026 | sGTM to Data Manager API |
+| Google's Data Manager API wants to kill your three-pipeline headache | PPC Land | https://ppc.land/googles-data-manager-api-wants-to-kill-your-three-pipeline-headache/ | 2025 to 2026 | Data Manager scope |
+| Google shuts down session tracking for new advertisers in Ads API | PPC Land | https://ppc.land/google-shuts-down-session-tracking-for-new-advertisers-in-ads-api/ | 2026 | 2026-02-02 change |
+| Google mandates TCF v2.3 migration by February 2026 | PPC Land | https://ppc.land/google-mandates-tcf-v2-3-migration-by-february-2026/ | 2025 | Google enforcement of TCF v2.3 |
+| KVKK grants first approval for cross-border transfer | DT Law | https://dtlaw.com.tr/en/kvkk-grants-first-approval-for-cross-border-data-transfer-based-on-a-non-international-agreement/ | 2025-11 | First Article 9 authorization |
+| The long awaited amendments in Turkish data protection law | Gün + Partners | https://gun.av.tr/insights/updates/the-long-awaited-amendments-in-turkish-data-protection-law | 2024 | Law No. 7499 summary |
+| Digital Omnibus reshapes EU cookie rules | Osborne Clarke | https://www.osborneclarke.com/insights/digital-omnibus-reshapes-eu-cookie-rules-leaves-banner-fatigue-largely-intact | 2025 to 2026 | Proposal analysis |
+| How the Digital Omnibus could reshape cookie compliance | Freshfields | https://www.freshfields.com/en/our-thinking/blogs/technology-quotient/how-the-eu-commissions-digital-omnibus-could-reshape-cookie-compliance-in-europe-102m196 | 2025 | Article 88a and 88b design |
+| The Digital Omnibus: cookies, consent and digital advertising | Taylor Wessing | https://www.taylorwessing.com/en/global-data-hub/2026/the-digital-omnibus-proposal/gdh---the-digital-omnibus---cookies | 2026 | Advertising impact |
+| EU drops browser-based cookie consent proposal | Digital Watch | https://dig.watch/updates/eu-cookie-banners-digital-omnibus | 2026 | Council removal of browser signals |
+| Industry coalition on the digital omnibus | FEDMA | https://www.fedma.org/2026/06/24/ahead-of-the-coreper-meeting-industry-coalition-calls-for-meaningful-simplification-in-the-digital-omnibus/ | 2026-06-24 | Industry position |
+| Performance Max updates and other product news for January 2026 | Microsoft Advertising | https://about.ads.microsoft.com/en/blog/post/january-2026/performance-max-updates-and-other-product-news-for-january-2026 | 2026-01 | PMax new customer acquisition goal (via microsoft-ads builder notes) |
+
+## How to weigh these sources
+
+1. Official help pages, developer docs and release notes decide current settings and deadlines. Re-check them before acting; this list records what they said when checked.
+2. Platform blog posts describe intent and dates but can change after rollout; confirm in the account.
+3. Agency and vendor blogs corroborate and add practical detail; several sell attribution or tracking products, so treat impact numbers as unaudited.
+4. Law firm summaries help with KVKK and EU process; legal decisions need the client's counsel and the official texts (Official Gazette, EUR-Lex, kvkk.gov.tr).

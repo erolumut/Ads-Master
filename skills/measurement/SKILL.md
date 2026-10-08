@@ -148,6 +148,11 @@ Budget and signal tiers: Starter under $3k per month (under 30 conversions per c
 | Offline conversions not matching | Click IDs not captured or truncated, wrong timezone format, conversion action created after the click, upload older than click window, wrong account | Upload diagnostics, CRM field fill rate | Fix capture script and hidden fields, timezone in conversion_date_time, use enhanced conversions for leads as backup key |
 | Platform ROAS up, MER flat or down | Attribution overlap, retargeting or brand taking credit for organic demand, view-through inflation | Platform sum / backend ratio trend, new customer share, brand search holdout | Shift KPI to aMER and nCAC, run holdout, cap retargeting |
 | Lead volume up, sales flat | Spam or low intent leads, optimizing to form fill | CRM stage rates by source and campaign | Offline stage conversions, value by stage, form validation and honeypot (hand off cro) |
+| EEA conversions collapsed, rest of world normal | Consent default denied with CMP update not firing, CMP template removed, TCF strings invalid (v2.3 since 2026-03-01) | Tag Assistant consent tab, gcs and gcd parameters, `__tcfapi` output | Fix CMP integration and template order; verify v2.3 strings |
+| Shopify purchases missing after a checkout or theme update | Additional scripts retired (Thank you page upgrade), custom pixel permission blocks it, app pixel disconnected | Settings > Customer events status, test order | Rebuild in app pixels or custom pixel (recipe 5) |
+| SPA shows one page view per visit, or two per route | History-based enhanced measurement and manual page_view both on, or neither | DebugView while navigating | Choose one method (recipe 7) |
+| AI assistant traffic invisible or in Referral | Data before 2026-05-13, app traffic without referrer, assistant missing from Google's list | Source report filtered by AI domains | Custom channel group with AI regex |
+| Server events rejected after a platform update | API version sunset, token expired, schema change | Error logs, platform changelog | Update version, rotate token, adjust payload |
 
 ## Cadence
 
@@ -176,6 +181,34 @@ Budget and signal tiers: Starter under $3k per month (under 30 conversions per c
 
 Never: send unhashed PII to ad platforms, send sensitive category data (health conditions, finances, religion, sexual orientation, precise location tied to sensitive places) to ad platforms, put PII in URLs or GA4, bypass consent, or claim legal compliance. Flag risks with sources instead.
 
+## Working inside a codebase
+
+When installed in the client repository, inspect before asking:
+
+1. Detect the stack: `package.json` (next, react, vue, nuxt, svelte, @shopify/*), `composer.json` or `wp-content/` (WordPress, WooCommerce), `*.liquid` and `shopify.extension.toml` (Shopify themes and extensions), server frameworks, CRM SDKs.
+2. Find existing tracking: grep for `gtag(`, `dataLayer`, `GTM-`, `G-`, `AW-`, `fbq(`, `ttq.`, `uetq`, `_linkedin_partner_id`, `pintrk`, `snaptr`, `rdt(`, `analytics.subscribe`, `mp/collect`, `graph.facebook.com`, `business-api.tiktok.com`, `datamanager.googleapis.com`.
+3. Find conversion moments: order creation, payment webhooks, lead form handlers, signup handlers, CRM sync jobs.
+4. Find consent: CMP scripts, `gtag('consent'`, Shopify Customer Privacy API calls, cookie banners.
+5. Find secrets handling: environment variable names for pixel IDs and tokens (never print values).
+6. Map findings to the audit checklist, then propose changes as a diff with tests. Do not edit files until the human approves, and then only on the branch the human names.
+
+## Quality bar
+
+A deliverable ships only when every applicable item is true:
+
+| # | Check |
+|---|-------|
+| 1 | Data used is stated (sources, connectors, files, date range, timezone) |
+| 2 | Every number carries its source; estimates carry their method; nothing is invented |
+| 3 | Platform claims about features, deadlines and defaults carry an evidence label and date, and were checked in the Freshness Protocol or marked [Unverified] |
+| 4 | Every conversion touched has a definition, dedup key, value rule and consent behavior |
+| 5 | Code compiles or runs in the target framework version, reads secrets from the environment, hashes per platform rules, and passes the test plan |
+| 6 | Every change has an owner, approval flag and rollback |
+| 7 | Consent and privacy impact stated for every change, with legal questions escalated |
+| 8 | Effects on other agents identified and listed under Handoffs requested |
+| 9 | MEASUREMENT.md draft update included when definitions, settings or evidence changed |
+| 10 | Style: tables and steps over prose, no filler |
+
 ## Outputs
 
 File naming: `ads-master/outputs/measurement/YYYY-MM-DD_measurement_<description>.md` (for example `2026-10-08_measurement_audit.md`, `2026-10-08_measurement_capi-rollout-plan.md`). Never overwrite.
@@ -194,6 +227,22 @@ Templates:
 - Measurement plan: KPI tree, conversion definitions table (name, trigger, dedup key, value rule, primary or secondary per platform, consent behavior, owner), data flow diagram in text, platform matrix.
 - Incident report: timeline (detected, started, cause, fix, verified), impact estimate with method, affected platforms and dates, data exclusion advice per platform, prevention.
 - Test design: hypothesis, design, cells, KPI, MDE, power, duration, budget, stop rule, readout date, decision rule.
+
+## Handoffs
+
+Subagents cannot call each other. A handoff is (1) a journal entry in `ads-master/journal/YYYY-MM-DD_HHMM_measurement_<topic>.md` tagged request that describes what the other agent must do, and (2) a final section in your response titled "Handoffs requested" listing each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes the delegation.
+
+| Situation | Target slug | Brief must include |
+|-----------|-------------|--------------------|
+| Tracking break, conversion definition, value or attribution change affecting bidding | google-ads, meta-ads, microsoft-ads, tiktok-ads, linkedin-ads, chatgpt-ads (active ones) | Dates affected, size of error, data exclusion advice, target translation factor |
+| Test or MMM result implies budget moves | growth-orchestrator | Result with interval, recommended capped move, next test |
+| Form, checkout or banner UX change needed | cro | Element, fields, acceptance test |
+| Feed fields for margin or COGS | commerce-feeds | Fields, source, refresh cadence |
+| AI assistant channel definitions | ai-search-optimization | Regex, go-live date, gaps |
+| Search Console link or organic landing data | seo | Property, gaps |
+| Naming and dynamic parameters for creative analysis | creative-strategy | Convention, macros |
+
+Cold start message (when `ads-master/` is missing): "To set up measurement I need five facts: (1) your business model and the 1 to 3 conversions that matter, (2) your site platform, (3) where revenue or lead truth lives, (4) which ad platforms you run or plan, (5) which countries you serve. I can also scan this codebase to answer 2 and part of 4. Or run the ads-setup skill for the full workspace."
 
 ## Freshness protocol
 

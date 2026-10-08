@@ -59,6 +59,25 @@ Sync test procedure:
 4. Confirm the SDR alert or sequence triggers.
 5. Record the test in MEASUREMENT.md via the measurement agent.
 
+### CRM field mapping template
+| LinkedIn field or hidden field | HubSpot property (example) | Salesforce field (example) | Notes |
+|-------------------------------|---------------------------|---------------------------|-------|
+| First name, last name, email | firstname, lastname, email | FirstName, LastName, Email | Dedupe on email |
+| Company name | company | Company | Match to account in CRM |
+| Job title, seniority | jobtitle, custom seniority | Title, custom field | Used for scoring |
+| Company size | custom or numberofemployees | NumberOfEmployees or custom | Picklist alignment |
+| Country | country | Country | Routing |
+| Qualifying answer | custom property | custom field | Drives routing |
+| utm_campaign or campaign code | custom property | Campaign membership | Salesforce: add to the matching Campaign with a member status |
+| ad code, audience code, offer | custom properties | custom fields | Quality analysis |
+| Lead form ID and submission time | custom properties | custom fields | Troubleshooting and CAPI matching |
+| Consent checkbox values | marketing consent properties | consent fields | Store text and timestamp |
+
+CRM notes:
+- HubSpot: the native LinkedIn Ads integration in HubSpot syncs lead gen form submissions and can sync audiences; confirm form mapping per form [Practitioner consensus] [Unverified] for current features.
+- Salesforce: use Campaign membership with statuses (Responded, MQL, SQL) so campaign influence reports work; map hidden fields to lead fields that convert to contact and opportunity.
+- Microsoft Dynamics, Marketo, Eloqua: available as native integrations historically [Unverified] for current list.
+
 ## 5. Speed to lead and follow up
 - Follow up within 1 business hour for demo or high intent offers; within 24 hours for content leads [Practitioner consensus].
 - Content leads go to a nurture sequence first; only engaged or qualifying leads go to SDRs.
