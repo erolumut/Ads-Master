@@ -1,0 +1,149 @@
+# Compliance and Disclosure
+
+> Purpose: keep creative legal, policy compliant and honest. This is practical guidance, not legal advice. Escalate regulated claims, comparative claims naming competitors, and anything uncertain to the human for legal review. Rules here change: verify current text at the official sources in the Freshness Protocol before relying on dates or thresholds.
+
+## 1. AI labeling and disclosure by platform
+
+| Platform | What happens | Advertiser action | Status |
+|----------|--------------|------------------|--------|
+| Meta (commercial ads) | "AI info" label applied to ads whose images were created or significantly edited with Meta's generative AI creative features (for example background or image generation). Label appears in the three dot menu ("About this ad") and sometimes next to the Sponsored label. Minor edits (resizing, color correction) are not labeled | No action needed for Meta tools; expect labels | [Official, 2025-02 announcement; Meta Help Center] |
+| Meta (third-party AI) | From June 1, 2026 Meta also detects ad media created or edited with third-party generative AI tools using industry signals such as C2PA metadata and labels it | Do not strip provenance metadata to avoid labels; plan for labels on AI media | [Official per Meta help and trade press, 2026-06] |
+| Meta (social issue, election, political ads) | Advertisers must disclose when image, video or audio is digitally created or altered in specified ways (realistic people or events) | Use the disclosure option during ad creation | [Official, since 2024; verify] |
+| TikTok | Requires labeling of realistic AI-generated content; auto-labels content carrying C2PA Content Credentials; Symphony generated outputs carry AI labels; ad policies restrict misleading synthetic media | Use the AIGC disclosure setting where offered; keep labels; never depict real people or fake endorsements | [Official, 2023 to 2025; verify current ad policy text] |
+| Google Ads | Generated images in Google's tools carry provenance marks; election ads need disclosure of synthetic content; 2026 trade press reports broader AI disclosure requirements for AI-generated content | Verify current Google Ads policy on synthetic content before launch | [Official for election ads; 2026 changes Unverified] |
+| YouTube | Creators must disclose realistic altered or synthetic content in uploads (creator policy) | For creator content and organic videos; ads follow Google Ads policy | [Official, 2024] |
+| LinkedIn | Follows C2PA content credentials display for some AI images | Keep provenance; no deceptive synthetic people | [Verify] |
+
+Creative stance: assume AI media will be labeled. Use AI where a label does not undermine the message (backgrounds, b-roll, animation), not where authenticity is the message (testimonials, demos of results).
+
+## 2. United States: FTC
+
+**Endorsement Guides (16 CFR Part 255, revised June 2023)**
+- Disclose any material connection (payment, free product, affiliate commission, employment, family) clearly and conspicuously, in the endorsement itself, so it is hard to miss. Platform disclosure tools may not be sufficient alone.
+- For video: disclose in the video (on screen and ideally spoken), not only in the caption.
+- Endorsements must reflect honest opinions and actual experience of the endorser.
+- Results claims: if not typical, the advertiser must clearly disclose generally expected results (and must substantiate claims either way).
+- Virtual influencers are covered as endorsers under the revised Guides.
+- Advertisers are expected to train and monitor endorsers.
+
+**Rule on the Use of Consumer Reviews and Testimonials (16 CFR Part 465; announced August 14, 2024, effective October 21, 2024)**
+- Prohibits fake reviews and testimonials, including those attributed to people who do not exist (for example AI generated) or who did not have the experience represented.
+- Prohibits buying positive or negative reviews conditioned on sentiment, undisclosed insider reviews, company controlled review sites posing as independent, review suppression, and fake social media indicators.
+- Civil penalties per violation are available.
+- Creative implications: no AI "customers" giving testimonials; no paid reviews conditioned on positive sentiment; no fabricated review counts or star ratings.
+
+**Substantiation:** objective claims (numbers, "clinically proven", comparisons) need competent and reliable evidence before they run. Health claims need competent and reliable scientific evidence.
+
+**State laws:** several US states passed or proposed laws on AI disclosure in ads and synthetic performers (for example New York legislation on synthetic performers in advertising reported in 2025 to 2026) [Unverified details; check with counsel for each target state].
+
+## 3. European Union
+
+**EU AI Act (Regulation (EU) 2024/1689), Article 50 transparency obligations**
+- Providers of AI systems that generate synthetic audio, image, video or text must mark outputs in a machine-readable format and make them detectable as artificially generated.
+- Deployers of AI systems that generate or manipulate image, audio or video content constituting a deep fake must disclose that the content has been artificially generated or manipulated. For evidently artistic, creative, satirical or fictional work, the obligation is limited to disclosure in a way that does not hamper enjoyment of the work.
+- People interacting with an AI system (for example a chatbot) must be informed, unless obvious.
+- Application date: August 2, 2026 for Article 50 under the Act's timeline [Official text]. The European Commission's November 2025 simplification ("digital omnibus") proposals included timing changes for parts of the Act, and a code of practice on marking and labeling AI-generated content was being drafted in 2025 to 2026 [Unverified status as of 2026-10]. Verify current status before relying on dates.
+- Creative implications for advertisers in the EU: an AI avatar or synthetic person presented realistically, or AI-altered footage of real people, places or events, is likely a deep fake requiring disclosure. Disclose visibly in the ad ("AI-generated presenter", "Scene created with AI"), in addition to platform labels.
+- Penalties for transparency violations can be significant (percent of global turnover caps) [Official text; verify amounts].
+
+**Other EU rules:** Unfair Commercial Practices Directive (misleading actions, hidden advertising), Digital Services Act ad transparency (ad libraries), national influencer marketing rules (for example France's 2023 influencer law requiring labeling of retouched or AI-generated images in commercial influencer content) [verify].
+
+## 4. United Kingdom
+
+- CAP Code (ASA): ads must be obviously identifiable as ads; influencer content must use "#ad" or equivalent upfront; claims must be substantiated; AI-generated content must not mislead (for example exaggerating product efficacy with AI imagery). ASA has ruled against filtered beauty images that exaggerate product effects.
+- CMA guidance on fake reviews and the Digital Markets, Competition and Consumers Act 2024 (fake reviews banned) [verify commencement dates].
+
+## 5. Other markets
+
+- China: Measures for Labeling AI-Generated Synthetic Content took effect September 1, 2025 (explicit and implicit labels) [Official; verify for campaigns targeting China].
+- Always check the target market's ad regulator (for example Turkey's Advertising Board, Australia's AANA and ACCC, Canada's Competition Bureau) for influencer and AI disclosure rules.
+
+## 6. Platform ad policy traps for creative
+
+| Trap | Platforms | Safer approach |
+|------|-----------|----------------|
+| Personal attributes ("Are you overweight?", "Other singles in your area") | Meta | Speak to the situation or the product, not the person's attribute |
+| Before and after images (weight loss, skin, health) | Meta, TikTok, Google | Avoid or follow policy precisely; show product use, not body comparison |
+| Unrealistic or guaranteed results | All | Qualified, substantiated claims |
+| Health and medical claims | All, stricter in many markets | Approved claims only; certification and legal review |
+| Financial claims (income, credit, crypto) | All, special ad categories | Special ad category settings via channel agent; no income claims |
+| Fake UI elements (fake play buttons, notifications, system dialogs) | All | Remove; native looking is fine, deceptive UI is not |
+| Sensational or shocking imagery | All | Pattern interrupts that are not shocking or misleading |
+| Copyrighted music, footage, logos | All | Commercial libraries, licensed assets |
+| Comparative claims naming competitors | All, plus law | Substantiate; legal approval; consider category comparison |
+| Political or social issue content | Meta, Google, TikTok (TikTok prohibits political ads) | Route to the human; authorization and disclaimers |
+| Special ad categories (housing, employment, financial products and services on Meta; personalized ads restrictions on Google) | Meta, Google | Channel agent sets categories; creative must avoid discriminatory language |
+| Alcohol, gambling, dating, supplements | All with restrictions | Market by market rules; age gating |
+
+## 7. Likeness, voice and consent
+
+- Written consent for any real person's face, voice or name in ads, including employees and customers.
+- Separate explicit consent and compensation for AI cloning of a person's voice or face, with limits on use and duration.
+- Never use celebrity likeness, sound-alike voices or lookalikes without a license.
+- Children: avoid featuring minors in ads unless policy and law allow and guardians consent; never target minors with restricted categories.
+
+## 8. Music and assets
+
+- Use platform commercial libraries (Meta Sound Collection, TikTok Commercial Music Library) or licensed stock with ad usage rights.
+- Trending songs used organically are usually not licensed for ads.
+- Stock footage and images: check license covers paid advertising and the territories.
+- Fonts: check commercial license.
+
+## 9. Pre-launch compliance checklist
+
+| # | Check | Pass |
+|---|-------|------|
+| 1 | Every claim on the approved list or substantiated in writing | |
+| 2 | Numbers have a source and date (reviews count, survey stats) | |
+| 3 | Testimonials are real, from real customers, with consent, and typical or qualified | |
+| 4 | No AI-generated testimonials, customers or experts | |
+| 5 | Material connections disclosed (creator ads, partnership label, #ad, spoken or on-screen in video) | |
+| 6 | AI media: platform label expected; extra disclosure added where the content is realistic synthetic people or events (EU deep fake rule) | |
+| 7 | No personal attribute phrasing; no prohibited before and after | |
+| 8 | Urgency and scarcity are true | |
+| 9 | Music, footage, fonts licensed for ads in target markets | |
+| 10 | Creator usage rights valid through the planned flight | |
+| 11 | Regulated category reviewed by the human or counsel | |
+| 12 | Landing page matches the ad's claims and offer | |
+
+Record the checklist result in the deliverable. Any "no" blocks the change list.
+
+## 10. Decision tree: does this AI use need extra disclosure beyond platform labels?
+
+```
+1. Does the ad show a realistic person, voice, place or event that was generated or materially altered by AI?
+   no  -> 2
+   yes -> Is it presented as real (a customer, an expert, a real event, a real result)?
+          yes -> Do not run. Replace with real footage and real people.
+          no  -> Add a visible disclosure in the ad (for example "AI-generated presenter") in the EU and wherever local law or platform policy requires it; keep platform labels.
+2. Is AI used only for backgrounds, b-roll, textures, animation of real product photos, resizing or captions?
+   yes -> Platform label behavior applies; no extra disclosure usually needed; keep the product depiction accurate.
+   no  -> 3
+3. Is the voice synthetic?
+   yes -> Consent if cloned from a real person; disclose synthetic voice where it could be mistaken for a real endorser.
+   no  -> Standard checks.
+4. Is it a social issue, election or political ad?
+   yes -> Use the platform's digital alteration disclosure; route to the human.
+```
+
+## 11. Disclosure wording templates
+
+| Situation | On-screen text | Caption or primary text |
+|-----------|---------------|------------------------|
+| Paid creator (US) | "Paid partnership with [Brand]" or "#ad" in the first seconds | "#ad" at the start of the caption; platform paid partnership label on |
+| Gifted product | "Gifted by [Brand]" | "#gifted #ad" |
+| Employee | "[Name], [role] at [Brand]" | "I work at [Brand]" |
+| AI presenter | "AI-generated presenter" | "This video uses an AI-generated presenter." |
+| AI scene or reconstruction | "Scene created with AI" | "Visuals created with AI for illustration." |
+| Dramatization with actors | "Dramatization" or "Actor portrayal" | Same |
+| Results not typical | "Results vary. Typical result: [x]" | Same, substantiated |
+
+Make disclosures legible (size, contrast, duration long enough to read, inside safe zones) and in the language of the ad.
+
+## 12. Claims substantiation log (keep with the human)
+
+| Claim (exact words) | Type (objective, comparative, health, environmental, testimonial) | Evidence (document, study, data, date) | Approved by | Approval date | Markets | Expiry or review date |
+|---------------------|---------------------------------------------------------------|----------------------------------------|-------------|---------------|---------|----------------------|
+| "3,400+ five star reviews" | Objective | Review platform export 2026-09-30 | Human | 2026-10-02 | US, UK | Monthly refresh |
+
+Agents may propose new claims through a journal entry; only the human adds rows.
