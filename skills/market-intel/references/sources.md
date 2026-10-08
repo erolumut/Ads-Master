@@ -84,3 +84,42 @@ Annotated sources behind this skill. Status: **S** = surfaced through live web s
 - Current availability and scope of Semrush, Similarweb and Ahrefs MCP servers.
 - Google Trends API access status.
 - Meta v. Bright Data (2024) case status and implications; consult counsel before any automated collection.
+
+## Additional tools and references (re-check before use)
+| # | Title | Publisher | URL | Supports | Status |
+|---|-------|-----------|-----|----------|--------|
+| 52 | Pinterest Trends | Pinterest | https://trends.pinterest.com/ | Seasonal planning demand | K |
+| 53 | Keepa | Keepa | https://keepa.com/ | Amazon price history | K |
+| 54 | Visualping | Visualping | https://visualping.io/ | Page change alerts | K |
+| 55 | Capterra | Gartner Digital Markets | https://www.capterra.com/ | Software reviews | K |
+| 56 | TrustRadius | TrustRadius | https://www.trustradius.com/ | B2B reviews | K |
+| 57 | Apify | Apify | https://apify.com/ | Actors and MCP server; terms of target sites apply | K |
+| 58 | Playwright MCP | Microsoft | https://github.com/microsoft/playwright-mcp | Browser automation for manual style browsing | K |
+| 59 | Exploding Topics | Exploding Topics | https://explodingtopics.com/ | Trend discovery estimates | K |
+| 60 | Google Play Developer API (reviews) | Google | https://developers.google.com/android-publisher | Own app reviews | K |
+| 61 | Amazon Brand Analytics | Amazon | https://sellercentral.amazon.com/ | Search terms for brand owners | K |
+| 62 | Google Merchant Center Help (price competitiveness, market insights) | Google | https://support.google.com/merchants/ | Shopping price benchmarks | K |
+| 63 | Trade Regulation Rule on the Use of Consumer Reviews and Testimonials | FTC | https://www.ftc.gov/ | Fake reviews prohibited (effective October 2024) | K |
+| 64 | IAB Raises 2026 U.S. Ad Spend Forecast | IAB | https://www.iab.com/news/iab-raises-2026-u-s-ad-spend-forecast/ | Market context for channel shifts | S |
+| 65 | Ad Spend Growth Is Projected to Slow to 5.0% in 2026 | dentsu | https://www.dentsu.com/news-releases/ad-spend-growth-is-projected-to-slow-to-5-percent-in-2026-still-outpacing-economic-growth | Search fragmentation into AI, retail and social search | S |
+| 66 | OpenAI Opens Ad Platform To CPC Bidding, Self-Serve Buys | MediaPost | https://www.mediapost.com/publications/article/414857/openai-opens-ad-platform-to-cpc-bidding-self-serv.html | ChatGPT ads self serve (May 2026) | S |
+| 67 | Meta commits to give EU users choice on personalised ads under DMA | EU Reporter | https://www.eureporter.co/business/digital-economy/2025/12/09/meta-commits-to-give-eu-users-choice-on-personalised-ads-under-dma/ | EU ad environment context | S |
+| 68 | Profound | Profound | https://www.tryprofound.com/ | AI visibility tracking platform | K [Unverified features] |
+| 69 | Peec AI | Peec AI | https://peec.ai/ | AI visibility tracking platform | K [Unverified features] |
+| 70 | Otterly.AI | Otterly | https://otterly.ai/ | AI visibility tracking platform | K [Unverified features] |
+| 71 | Ahrefs Brand Radar | Ahrefs | https://ahrefs.com/brand-radar | AI mention tracking | K [Unverified scope] |
+| 72 | The deal to secure TikTok's future in the US has finally closed | CNN | https://www.cnn.com/2026/01/22/tech/tiktok-us-deal-closes | TikTok US joint venture (2026-01-22) | S |
+| 73 | Meta Reports Second Quarter 2026 Results | Meta | https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx | Platform scale context (2026-07-29) | S |
+| 74 | How Meta's AI push is changing ad creation | Marketing Brew | https://www.marketingbrew.com/stories/2026/04/07/meta-ai-ad-creation | AI generated creative trends visible in libraries (2026-04-07) | S |
+| 75 | Google Expands Ads In AI Overviews To More Countries | Search Engine Roundtable | https://www.seroundtable.com/google-expands-ads-in-ai-overviews-40629.html | Ads inside AI Overviews in 12 markets (2025-12) | S |
+
+## How evidence labels map to these sources
+| Label | Typical source type here |
+|-------|--------------------------|
+| [Official, YYYY-MM] | Platform libraries, help centers, API docs, regulators (1 to 18, 30, 31) |
+| [Study, YYYY-MM] | SparkToro, Pew, Seer, Ahrefs studies, IAB, WPP, dentsu (19 to 22, 33, 47, 64, 65) |
+| [Practitioner consensus] | Repeated operator practice without a single study (longevity heuristic, sampling counts) |
+| [Unverified] | Field lists, MCP availability and tool features not re-checked in this sweep |
+
+## Internal cross-references
+AI visibility, measurement and platform facts marked "per research/<slug>.md" were cross-checked against the channel dossiers built in parallel: `research/ai-search-optimization.md` (answer variability study, Bing AI Performance, Search Console Generative AI report, ChatGPT retrieval sources), `research/seo.md`, `research/chatgpt-ads.md` (ChatGPT ad formats and eligibility), `research/google-ads.md` (official Google Ads MCP server), `research/tiktok-ads.md` (official TikTok MCP server, TikTok Ad Network), `research/linkedin-ads.md` (LinkedIn Ad Library MCP), `research/measurement.md`.

@@ -214,6 +214,7 @@ Maturity overlay:
 | Organic and AI traffic down while paid steady | AI Overviews and zero click, ranking loss, AI assistants recommending competitors | GSC impressions vs clicks, AI share of voice | seo + ai-search-optimization |
 | Forecast missed by 20% or more | Wrong curve, seasonality, tracking, macro | Forecast log vs actuals by driver | Refit curve, update seasonality index, log learning |
 | Good unit economics, no growth | Under investment, cash limits, channel count too low | Marginal CPA vs target headroom, payback vs cash | Budget step test, financing or payback based limits |
+| Meta reported conversions dropped in 2026 with stable backend sales | Attribution change: view windows removed from the Insights API (2026-01-12), click attribution limited to link clicks (2026-03) | Compare backend orders and MER for the same dates | Rebaseline targets and dashboards; no budget cuts on reported data alone (measurement, meta-ads) |
 | Turkey account: CPC up 40% year over year, ROAS flat | Inflation passes through to auctions and AOV | Real (CPI adjusted) CPC and AOV, USD equivalents | Re-base targets monthly, judge in real terms (geo module) |
 
 ## Cadence (the heartbeat)

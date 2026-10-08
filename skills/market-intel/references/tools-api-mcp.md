@@ -13,7 +13,7 @@ Catalog of data sources Claude can use for market intelligence, how to call them
 | Source | Endpoint or access | What you get | Access requirements | Status |
 |--------|--------------------|--------------|---------------------|--------|
 | Meta Ad Library API | `GET https://graph.facebook.com/v<version>/ads_archive` | EU delivered ads (all categories) and political or issue ads: creative text, dates, platforms, EU reach, targeting summaries, payer and beneficiary | Meta developer account, identity confirmation, access token | [Official, K] |
-| Google Ads API | Auction Insights is not available in the API; use reports or UI exports. KeywordPlanIdeaService and keyword historical metrics for volumes | Keyword ideas, volumes, competition, bid ranges | Developer token, account access | [K] |
+| Google Ads API | Auction Insights metrics are not generally available through the API (access has been restricted) [Unverified current status]; use UI or report exports. KeywordPlanIdeaService and keyword historical metrics for volumes | Keyword ideas, volumes, competition, bid ranges | Developer token, account access | [K] |
 | Google Search Console API | Search Analytics query | Our queries, clicks, impressions, positions | Property access | [K] |
 | Google Trends | UI exports; Trends API alpha announced in 2025 | Relative interest; API gives consistently scaled data | Alpha access [Unverified current status] | [K] |
 | Google political ads transparency data | Public datasets (for example BigQuery public data) | Political ad spend where Google serves political ads | Google Cloud account | [K] |
@@ -62,7 +62,9 @@ Accounts without meaningful spend may see ranges rather than exact volumes [K].
 | Firecrawl MCP, Bright Data MCP | Vendors | Page crawling and extraction | [K]; terms and robots apply |
 | Playwright MCP | Microsoft (official, open source) | Browser automation | [K]; manual style browsing only; no login bypass |
 | Google Search Console MCP servers | Community | GSC data for own properties | [K; review code and permissions] |
-| Google Ads MCP server | Google (official, open source) | Read Google Ads data for own accounts | [K; Unverified current scope] |
+| Google Ads MCP server | Google (official, open source, read only, released 2025-10) | Read Google Ads data for own accounts (Auction Insights still comes from UI or report exports [Unverified API coverage]) | [K, per research/google-ads.md] |
+| TikTok for Business MCP server | TikTok (official, announced May 2026) | TikTok Ads API endpoints for own accounts | [K, per research/tiktok-ads.md] |
+| LinkedIn Ad Library MCP | Community | Query the LinkedIn Ad Library | [K, per research/linkedin-ads.md; review code and terms] |
 Rules for MCP use: install only servers the human approves; prefer official servers; review scopes; read only; store keys outside the repo; log which server produced which data.
 
 ## 5. Legal and ethical limits
@@ -101,3 +103,41 @@ Rules for MCP use: install only servers the human approves; prefer official serv
 | Growth | Plus one SEO suite (Semrush or Ahrefs), page change monitor, AI visibility tool or structured manual panel |
 | Scale | Plus Similarweb or equivalent, price tracker (ecommerce), listening tool, Meta Ad Library API for EU |
 | Enterprise | Plus data APIs into a warehouse, automated monthly dashboards, win and loss program, licensed review data |
+
+## 8. More example calls (public, documented endpoints; verify before use)
+Wayback Machine snapshots of a competitor pricing page (CDX API):
+```bash
+curl -s "https://web.archive.org/cdx/search/cdx?url=competitor.com/pricing&output=json&from=2025&to=2026&filter=statuscode:200&collapse=digest" | head -50
+# then open https://web.archive.org/web/<timestamp>/competitor.com/pricing for each changed version
+```
+Public App Store reviews for any app (Apple customer reviews RSS feed, JSON):
+```bash
+curl -s "https://itunes.apple.com/us/rss/customerreviews/page=1/id=<APP_ID>/sortby=mostrecent/json"
+```
+YouTube comments on a public video (YouTube Data API v3, API key, quota applies):
+```bash
+curl -s "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=<VIDEO_ID>&maxResults=100&key=${YT_KEY}"
+```
+Strip author names and channel IDs before storing.
+
+## 9. Decision tree: may I automate this collection?
+```
+Is there an official API or licensed tool for this data?
+  yes -> Use it within its terms and quotas.
+  no  -> Is the page public without login, and do robots rules and the site terms allow automated access?
+          no  -> Manual review only (human speed, small samples), or ask the human to license a tool.
+          yes -> Does the data include personal data?
+                  yes -> Collect the minimum, anonymize, document the lawful basis (GDPR, KVKK); get human approval.
+                  no  -> Low frequency automated checks are acceptable; log source and capture time.
+Never: bypass logins, CAPTCHAs or blocks; use fake accounts; resell or publish collected data.
+```
+
+## 10. Costs and approvals
+| Item | Typical pricing model | Approval |
+|------|-----------------------|----------|
+| SEO suites | Monthly subscription plus API units | Human, within tool budget |
+| Data APIs (SERP, keywords) | Per request | Human sets a monthly cap |
+| AI visibility platforms | Per prompt and engine volume | Human |
+| Listening tools | Annual contracts | Human |
+| Panels for surveys | Per complete | Human |
+Record which paid sources were used in each output's Data used table.

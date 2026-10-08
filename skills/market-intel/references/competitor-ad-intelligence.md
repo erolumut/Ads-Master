@@ -18,7 +18,7 @@ Verification note: library behaviors below reflect official documentation as kno
 | LinkedIn Ad Library | https://www.linkedin.com/ad-library/ | Ads run on LinkedIn in the past year, by advertiser, keyword, country and date; EU served ads add targeting and impression information | No API | Public |
 | Microsoft Ad Library | https://adlibrary.ads.microsoft.com/ | Ads served in the EU on Microsoft surfaces with advertiser and date details [Unverified current fields] | EU focus | Public |
 | Other DSA repositories | X Ads Repository, Pinterest, Snapchat, Amazon and app store repositories in the EU [Unverified URLs and fields] | EU served ads | EU only | Public |
-| AI assistant ads (ChatGPT, AI Mode, AI Overviews) | No public library known [Unverified] | Manual observation as a normal user | Ads in ChatGPT show only to Free and Go users in eligible markets (2026) | Manual |
+| AI assistant ads (ChatGPT, AI Mode, AI Overviews) | No public library known [Unverified] | Manual observation as a normal user: ChatGPT chat cards, product feed ads and carousels, visual ads near image generation (US test from October 2026); Google ads in AI Overviews (12 English markets) and AI Mode (US) | ChatGPT ads show only to Free and Go users in eligible markets, never near sensitive topics (research/chatgpt-ads.md) | Manual |
 
 ## 2. Meta Ad Library: step by step
 1. Open the library, choose the country (the market you compete in), Ad category "All ads".

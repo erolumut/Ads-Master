@@ -35,7 +35,7 @@ RICE = (Reach x Impact x Confidence %) / Effort (person weeks). Reach = users or
 | Design | Use when | Tools | Pitfalls |
 |--------|---------|-------|----------|
 | Platform A/B (split test) | Creative, audience, bidding, landing page within one platform | Meta A/B test, Google Ads Experiments (campaign experiments), TikTok Split Test, LinkedIn A/B test | Measures relative performance within the platform's attribution, not incrementality |
-| Conversion lift (holdout at user level) | Is this channel or campaign incremental? | Meta Conversion Lift, Google Conversion Lift, TikTok lift studies (eligibility and minimums apply; verify current thresholds) | Needs enough conversions; platform runs it |
+| Conversion lift (holdout at user level) | Is this channel or campaign incremental? | Meta Conversion Lift, Google Conversion Lift (help page lists a $5,000 minimum budget plus a conversion volume requirement, per research/measurement.md), TikTok lift studies (eligibility and minimums apply; verify current thresholds) | Needs enough conversions; platform runs it |
 | Geo test (matched markets or synthetic control) | Channel incrementality, budget steps, brand spend, offline effects | GeoLift (open source), Google Meridian geo, custom | Needs geo level sales data and enough regions; contamination across borders |
 | Holdout (business level) | Email or SMS flows, retargeting, loyalty | ESP holdout groups, audience exclusions | Keep holdout untouched for the whole window |
 | Pre/post with control | When randomization is impossible | Time series models (CausalImpact) | Weakest design; seasonality and other changes confound |

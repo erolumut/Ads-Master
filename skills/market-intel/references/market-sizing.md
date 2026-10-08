@@ -101,3 +101,21 @@ Statista and similar aggregators: use only to find the original source; cite the
 - Ignoring capacity and cash constraints in SOM.
 - Using search volume as the whole market for categories bought offline or through marketplaces.
 - Mixing currencies or years.
+
+## 11. Ranges and sensitivity (always present low, base, high)
+| Input | Low | Base | High | Why the range |
+|-------|-----|------|------|---------------|
+| Number of buyers | minus 20% | source value | +10% | Counting method and definitions |
+| Adoption or fit share | minus 15 points | estimate | +10 points | Survey uncertainty |
+| Price or ACV | discounted price | list price | list price + add ons | Mix and discounts |
+| Purchase frequency | minus 25% | estimate | +15% | Behavior variability |
+Show which input moves SOM the most; validate that input first (survey, test campaign, sales data).
+
+## 12. Survey based sizing (when no data exists)
+1. Survey a representative sample of the target population (panel providers) with screening questions for need, current solution, spend and willingness to pay.
+2. Incidence = share who have the need; spend = reported annual spend (cap outliers).
+3. TAM = population x incidence x average spend; apply a stated vs actual discount (people overstate intent; a 30% to 50% haircut on purchase intent is common practice) [Practitioner consensus].
+4. Report confidence intervals from the sample size.
+
+## 13. Test campaign sizing (digital first)
+Run a small paid test (with growth-orchestrator approval) to measure click through and conversion on a landing page for the new segment; combine with platform audience size: obtainable customers ~ reachable audience x expected reach share x CTR x CVR. Use as a lower bound for SOM in the segment.

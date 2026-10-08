@@ -96,3 +96,31 @@ Four weeks before and during BFCM, Ramadan, 11.11 or the category's peak:
 - Thresholds never tuned, so the team stops reading alerts.
 - Automated collection that breaks platform terms.
 - Treating a single day's change as a trend outside peak periods.
+
+## 8. Monitoring plan template (store as an output and refresh quarterly)
+```
+# Monitoring plan: <project>, <quarter>
+| Signal | Competitors or terms | Source or tool | Frequency | Threshold | Alert owner | Response owner |
+|--------|----------------------|----------------|-----------|-----------|-------------|----------------|
+| Brand bidding | brand terms list | Auction Insights, SERP checks (3 cities, mobile and desktop) | weekly | any new competitor | market-intel | google-ads |
+| Hero SKU prices | 10 SKUs x 4 competitors | manual capture or tracker | weekly (daily in peaks) | 10% undercut | market-intel | growth-orchestrator |
+| Pricing pages | 5 competitor URLs | page monitor | daily | any change | market-intel | growth-orchestrator |
+| Ad volume | top 5 competitors | Meta Ad Library, TikTok, LinkedIn | monthly | 2x new ads vs 4 week average | market-intel | creative-strategy |
+| AI visibility | 40 prompts | AI visibility tool | monthly | minus 10 points | market-intel | ai-search-optimization |
+Peak mode dates: <start> to <end>
+```
+
+## 9. Example: one month of alerts and outcomes (illustrative, not real data)
+| Date | Alert | Severity | Action | Outcome | Threshold change |
+|------|-------|----------|--------|---------|------------------|
+| 2026-09-03 | New competitor in brand Auction Insights (overlap 14%) | High | Brand campaign impression share raised; trademark ad text complaint filed | Overlap fell to 4% in 2 weeks | none |
+| 2026-09-10 | Competitor A new ads 3x average | Medium | Teardown; 2 new angles found | Angles briefed to creative-strategy | none |
+| 2026-09-17 | Competitor B pricing page change | High | Plan comparison updated | No conversion impact | none |
+| 2026-09-24 | Review rating dip 0.1 | Low | No action | Recovered | raise threshold to 0.2 (already default) |
+Use the outcome column to prune alerts that never lead to action.
+
+## 10. Scheduling safely
+- Scheduled checks only read data and write journal entries and outputs; they never change accounts.
+- Keep API keys in the environment or a secrets manager, never in `ads-master/`.
+- Rate limit automated checks (at most daily for page monitors, weekly for most others).
+- A failed scheduled check writes a journal entry tagged `alert` with the failure reason, so silence is never mistaken for "no change".

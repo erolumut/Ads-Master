@@ -87,3 +87,39 @@ Scores how well the project's intelligence program supports decisions. Run at on
 | under 50 | Flying blind | Baseline first; no major positioning or pricing decisions without it |
 
 Override rule: any Fail on a Critical item (F4, H3, H5) is reported first and fixed before other work.
+
+## Audit procedure
+1. Collect evidence: COMPETITORS.md, AUDIENCE.md, last 3 market-intel outputs, monitoring plan, journal alerts of the last 90 days, list of tools and methods used.
+2. Score each item with evidence notes (file name and date).
+3. List Critical fails first, then High items by expected impact on decisions in PRIORITIES.md.
+4. Propose fixes as plays (playbooks.md) with time estimates.
+5. Deliver with AUDIT_REPORT.md; add EXPERIMENTS.md rows for any research test (for example a survey or test campaign).
+
+## Evidence to collect per section
+| Section | Evidence |
+|---------|----------|
+| A | COMPETITORS.md version, profile card dates |
+| B | Teardown outputs, swipe file sample |
+| C | Auction Insights exports or google-ads reports, alert log |
+| D | Prompt set file, method section, benchmark outputs |
+| E | Offer matrix, price index, promo calendar, win and loss or survey outputs |
+| F | VoC outputs, language bank, AUDIENCE.md history, storage location of raw samples |
+| G | Share of search series, seasonality index, market sizing |
+| H | Monitoring plan, alert outcomes, adoption log, method notes on legality |
+
+## Common findings and fixes
+| Finding | Fix | Effort |
+|---------|-----|--------|
+| Competitor list is only "direct" brands | Add search, AI and alternative lists | 1 session |
+| VoC is paraphrased, no sources | Redo with verbatims and source metadata | 1 to 2 sessions |
+| Third party traffic numbers quoted as facts | Add confidence labels, triangulate | Ongoing |
+| No AI visibility baseline | Quick check, then a stable prompt set | 1 session |
+| Raw review exports with names stored in the repo | Anonymize, delete raw, update .gitignore (ads-setup step 3) | Immediate |
+| Alerts ignored | Tune thresholds using outcomes | 1 session |
+
+## Severity definitions
+| Severity | Meaning |
+|----------|---------|
+| Critical | Legal, privacy or policy exposure, or a gap that makes decisions unsafe |
+| High | Gap that regularly leads to wrong or late decisions on budget, creative, pricing or search |
+| Medium | Gap that reduces quality or speed of decisions |

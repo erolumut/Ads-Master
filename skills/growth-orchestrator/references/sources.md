@@ -118,3 +118,6 @@ Annotated sources behind this skill. Status column: **S** = surfaced and read th
 - Turkey withholding gross-up method and KDV-2 base [Contested among practitioners].
 - Google regulatory operating cost fee in Turkey after the 2026 DST cut [Unverified].
 - UK Data (Use and Access) Act cookie exemptions commencement, EU AI Act Article 50 timing [Unverified].
+
+## Internal cross-references (channel dossiers built in parallel, October 2026)
+Facts marked "per research/<slug>.md" in this skill were cross-checked against these dossiers, which carry their own dated primary sources: `research/meta-ads.md` (attribution window changes January and March 2026, Threads and WhatsApp inventory), `research/google-ads.md` (AI Max auto upgrade, AI Mode formats, official Google Ads MCP server), `research/chatgpt-ads.md` (ChatGPT ads timeline, $25 per day minimum, formats), `research/tiktok-ads.md` (joint venture, GMV Max, TikTok Ad Network, official MCP server), `research/measurement.md` (Conversion Lift minimums, Data Manager API, GA4 AI Assistant channel, KVKK transfer regime), `research/microsoft-ads.md`, `research/linkedin-ads.md`, `research/seo.md`, `research/ai-search-optimization.md`, `research/commerce-feeds.md`, `research/cro.md`, `research/creative-strategy.md`.

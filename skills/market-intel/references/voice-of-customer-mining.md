@@ -96,3 +96,34 @@ Rules:
 - Over weighting one loud Reddit thread.
 - Mixing segments, then writing generic angles.
 - Leaving personal data in shared files.
+
+## 11. Survey question bank (first-party VoC)
+| Moment | Question | Type |
+|--------|----------|------|
+| Post purchase | What almost stopped you from buying today? | Open |
+| Post purchase | Which other options did you consider? | Multi select + other |
+| Post purchase | How did you first hear about us? (include "AI assistant such as ChatGPT", "Reddit or forum", "Creator or influencer") | Single select + other |
+| Post purchase | What is the main thing you hope this will do for you? | Open |
+| Onboarding (SaaS) | What were you using before, and why did you switch? | Open |
+| Cart or exit | What is stopping you from completing your order? | Single select + open |
+| Churn | What is the main reason you are leaving? | Single select + open |
+| NPS follow up | What is the one thing we could do better? | Open |
+Keep surveys to 1 to 3 questions; open questions produce the language bank.
+
+## 12. JTBD switch interview guide (30 to 45 minutes)
+1. First thought: when did you first realize you needed something different? What was happening?
+2. Passive looking: what did you notice or try before actively searching?
+3. Active looking: where did you look (search, AI assistants, friends, reviews, communities)? What did you compare?
+4. Deciding: what made you choose? What nearly made you choose something else?
+5. Anxieties: what worried you about switching?
+6. First use: what happened in the first week? Did it match expectations?
+Code answers to the four forces (push, pull, anxiety, habit) and the timeline.
+
+## 13. Worked coding example (illustrative verbatims written for this guide, not real customer quotes)
+| Verbatim (anonymized) | Source | Codes |
+|-----------------------|--------|-------|
+| "We were losing two hours every Monday reconciling bookings across three calendars" | G2 review of competitor, 2026-08 | Pain, exact phrase, segment signal (multi location) |
+| "Switched after the third double booking in a week" | Reddit thread, 2026-07 | Trigger, alternative (implied) |
+| "I worried our patient data would not import cleanly" | Sales call note, 2026-09 | Anxiety, objection |
+| "Support answered in five minutes on a Saturday" | Our Trustpilot, 2026-09 | Decision criterion, delight |
+Resulting angle for creative-strategy: "Get your Mondays back" (pain plus outcome), proof needed: time saved data; objection block for cro: data import guarantee.

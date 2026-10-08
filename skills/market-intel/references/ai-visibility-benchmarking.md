@@ -6,7 +6,8 @@ Measure how often AI assistants mention, recommend and cite us versus competitor
 - AI surfaces now sit between buyers and websites: zero click searches reached about 68% of US Google searches in early 2026 (SparkToro) and AI Overviews reduce clicks to organic results (Pew 2025, Seer 2025 to 2026, Ahrefs 2025) [Study].
 - Google reported large AI Overviews and AI Mode audiences; WPP counts generative search as a $5.1 billion ad market in 2026 heading to over $100 billion by 2030 [Study, 2026-06].
 - ChatGPT added ads in 2026 (self serve in May, 60+ countries by October) [Official and secondary reports], so organic and paid presence in assistants both matter.
-- What assistants say about a category is shaped by the sources they retrieve: review sites, community threads, comparison articles, publisher lists and brand pages [Practitioner consensus].
+- What assistants say about a category is shaped by the sources they retrieve: review sites, community threads, comparison articles, publisher lists and brand pages [Practitioner consensus]. Off-site branded mentions were the strongest measured correlate of brand visibility in AI Overviews in a 2025 study of about 75,000 brands (correlation, not proof) [Study, 2025, per research/ai-search-optimization.md].
+- Retrieval sources differ by engine and tier: a 2026 analysis reported that ChatGPT free tier answers drew mostly on an internal OpenAI index rather than Bing [Study, 2026-07, per research/ai-search-optimization.md]. Benchmark each engine separately.
 
 ## 2. Engines to cover
 | Engine | Surface | Notes for sampling |
@@ -35,7 +36,7 @@ Size: 20 to 50 prompts for Starter and Growth, 100 to 300 for Scale and Enterpri
 
 ## 4. Sampling protocol
 1. Fix market, language and location (VPN or tool location settings where allowed).
-2. Run each prompt at least 3 times per engine per measurement period (answers are probabilistic; repeated runs reduce noise) [Practitioner consensus].
+2. Run each prompt at least 3 times per engine per measurement period. Answers are probabilistic: a SparkToro and Gumshoe study of 2,961 responses found under a 1 in 100 chance of getting the same brand list twice for the same prompt [Study, 2026, per research/ai-search-optimization.md]. Report rates across runs, never single answers.
 3. Use fresh sessions without memory or personalization when possible; record account state.
 4. Record the full answer text, brands mentioned in order, whether each is recommended (positive framing, top pick), sentiment, and every cited URL.
 5. Store raw answers with date, engine, model label shown, location.
@@ -74,7 +75,8 @@ Plus per engine breakdown and per prompt type breakdown (category, comparison, p
 | Manual panel (spreadsheet + this protocol) | Small prompt sets, high control | Time consuming; good for Starter |
 | Profound, Peec AI, Otterly.AI, Scrunch, Evertune and similar AI visibility platforms | Automated prompt tracking across engines, share of voice, citations | Methods differ (API vs interface sampling, locations); compare like with like [Unverified current feature sets] |
 | Semrush AI visibility features, Ahrefs Brand Radar | AI mention and citation tracking inside SEO suites | Database driven; check engines and markets covered [Unverified current scope] |
-| Bing Webmaster Tools AI performance reporting | Microsoft surfaced citation data for your own site | First-party, own site only [Unverified details] |
+| Bing Webmaster Tools AI Performance (public preview since 2026-02-10; intents, topics, citation share and compare added 2026-06-16) | Citations of your pages in Copilot and Bing AI answers, grounding queries | First-party, own site only; no clicks [Official, per research/ai-search-optimization.md] |
+| Search Console Generative AI performance report (launched 2026-06-03, all sites by 2026-08-31) | Impressions in AI Overviews and AI Mode by page, country, device, date | First-party, impressions only, no queries or clicks [Official, per research/seo.md] |
 | GA4 AI referral channel group | Sessions from chatgpt.com, perplexity.ai, gemini.google.com, copilot | Own site only; measurement agent sets it up |
 Prompt volume: no official prompt volume data exists from assistants; some tools estimate it. Label such numbers low confidence.
 
@@ -123,5 +125,5 @@ for b, m in mention.most_common():
     print(f"{b}: mention {m/n:.0%}, recommend {recommend[b]/n:.0%}, avg pos {sum(pos[b])/len(pos[b]):.1f}, SOV {m/total_mentions:.0%}")
 ```
 
-## 13. Worked example
+## 13. Worked example (illustrative numbers)
 40 prompts x 3 runs x 3 engines = 360 answers. We are mentioned in 126 (35%), recommended in 54 (15%), average position 3.2. Competitor A: mentioned in 252 (70%), recommended in 151 (42%), average position 1.6. Top cited domains when A is recommended: a review platform (88 citations), Reddit (61), a publisher listicle (40). We have 37 reviews on that platform vs A's 1,900. Recommendation to ai-search-optimization and growth-orchestrator: review generation program and inclusion pitches to the cited listicles, then re-measure in 60 days.

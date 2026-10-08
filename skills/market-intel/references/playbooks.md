@@ -93,3 +93,44 @@ Handoffs: growth-orchestrator (launch plan), measurement (consent rules), seo (i
 3. During: daily alert digest to the daily check.
 4. After: post peak report of competitor tactics and our relative performance; update the promo calendar and memory if patterns repeat.
 Handoffs: growth-orchestrator (peak budget), creative-strategy, channel agents, commerce-feeds.
+
+## Play 11: Review and reputation gap
+Trigger: competitors have far more or better reviews on the platforms buyers and AI assistants use.
+1. Inventory review presence for us and the top 3 competitors: platform, count, average rating, recency (reviews in the last 90 days), response rate.
+2. Map which platforms are cited by AI assistants and shown in search (review stars in Shopping, Google Business Profile, G2 badges).
+3. Mine competitor reviews for the strengths buyers praise; check whether our product delivers them and whether our reviews say so.
+4. Output: review gap table and a compliant review generation plan (ask all customers, no incentives tied to positive ratings, no gating where prohibited, platform rules respected).
+Handoffs: growth-orchestrator (program owner and budget), cro (post purchase request flow), ai-search-optimization (cited platforms), seo (review schema where allowed).
+
+## Play 12: New segment or use case discovery
+Trigger: plateau, or growth-orchestrator looks for adjacent demand.
+1. Mine reviews, Reddit and support tickets for unexpected use cases and segment signals ("as a teacher", "for my food truck").
+2. Size each candidate with search demand (keyword clusters), community size and platform audience estimates.
+3. Check competitor coverage in ads and content for each use case.
+4. Score candidates: demand x fit x competitive gap x ease of reaching.
+5. Output: ranked segment list with test ideas (landing page per use case, creative angle, keyword cluster).
+Handoffs: growth-orchestrator (prioritization), creative-strategy, cro, seo.
+
+## Play selection table
+| Situation | Play |
+|-----------|------|
+| New client or new workspace | 1 |
+| Channel test planned | 2 |
+| Competitor promotion detected | 3 |
+| New auction competitor or brand bidding | 4 |
+| Losing in AI assistant answers | 5 |
+| Price pressure or price decision | 6 |
+| B2B or lead gen without win and loss data | 7 |
+| Quarterly reset | 8 |
+| New market | 9 |
+| Peak season approaching | 10 |
+| Review gap vs competitors | 11 |
+| Growth plateau, looking for new demand | 12 |
+
+## Time and depth by tier
+| Tier | Play 1 depth | Ongoing |
+|------|--------------|---------|
+| Starter | Top 3 competitors, 100 reviews, 10 prompts | Quarterly refresh |
+| Growth | Top 5, 200+ reviews, 20 to 40 prompts | Monthly movement summary |
+| Scale | Top 8, 500+ reviews, 100 prompts, API pulls | Weekly alerts, monthly summary |
+| Enterprise | Full set per market | Continuous monitoring with dashboards |

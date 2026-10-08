@@ -100,3 +100,28 @@ Share of search = brand's branded search volume / sum of branded search volume f
 - Comparing data from different country databases.
 - Reacting to a competitor's paid keyword list without checking overlap in our own auctions.
 - Measuring SEO competition without AI Overview and zero click context.
+
+## 10. SERP sampling protocol
+1. Pick 30 to 50 money queries across intent types and the top 10 brand related queries.
+2. Fix location (city or country), language, device (mobile and desktop) and use a clean browser session or a SERP API with location parameters.
+3. Record per query: ads (top and bottom, advertisers, headlines), Shopping units, AI Overview (present, cited domains, brands named), AI Mode availability, local pack, organic top 10, People Also Ask, video and forum results.
+4. Repeat monthly on the same day of week; in peaks, weekly.
+5. Summarize: share of SERPs where each competitor appears in paid, organic, AI Overview citations and local pack.
+
+## 11. Worked example: reading Auction Insights (illustrative numbers)
+| Domain | Impression share | Overlap rate | Position above rate | Top of page rate | Outranking share |
+|--------|------------------|--------------|---------------------|------------------|------------------|
+| You | 52% | n/a | n/a | 71% | n/a |
+| competitor-a.com | 61% | 68% | 55% | 83% | 38% |
+| competitor-b.com | 24% | 30% | 22% | 64% | 61% |
+| newentrant.com | 18% | 15% | 47% | 79% | 52% |
+Read: competitor A overlaps on two thirds of our auctions and usually ranks above us, a strong and aggressive rival on these terms; the new entrant already ranks above us in nearly half of shared auctions despite low impression share, likely bidding high on a narrow set of terms. Actions: Transparency Center check of the new entrant's copy and offer; google-ads reviews which terms they hit (segment Auction Insights by campaign and ad group); growth-orchestrator decides whether to defend on profitability grounds.
+
+## 12. Brand bidding evidence checklist
+- [ ] Auction Insights on brand campaign shows the domain (date range).
+- [ ] Screenshots of the SERP with the ad, query, location, device, date and time.
+- [ ] Ad text captured (does it use our trademark in headline or description?).
+- [ ] Landing page captured.
+- [ ] Advertiser identity from the Transparency Center (name and verification).
+- [ ] Affiliate or reseller relationship checked.
+Pass the package to google-ads and to the human for any trademark complaint.

@@ -104,7 +104,7 @@ Worked example: Meta, target CPA $40, about 50 optimization events per ad set pe
 | TikTok | $50 per day campaign, $20 per day ad group | About 50 conversions per ad group per week | $3k to $5k | [Official, TikTok Ads Help] |
 | LinkedIn | $10 per day campaign | High CPCs (often $5 to $15+ in competitive B2B) need budget for statistical reads | $3k to $5k | [Official minimum]; CPC range [Practitioner consensus] |
 | Microsoft Ads | Low | Imports Google structure; smaller volume | 10 to 20% of Google Search budget | [Practitioner consensus] |
-| ChatGPT ads | No minimum since self serve beta (May 2026, reported); pilot launched with reported $200k minimum (Feb 2026) | CPC and CPM buying; OpenAI suggested $3 to $5 starting max CPC (reported) | $2k to $5k test | [Unverified secondary reports, 2026-05]; chatgpt-ads agent verifies |
+| ChatGPT ads | $25 per day minimum daily budget in self serve (OpenAI help as of 2026-09, per research/chatgpt-ads.md); pilot launched with reported $200k minimum (Feb 2026) | CPM, CPC and conversion bidding; OpenAI suggests $3 to $5 starting CPC bids | $2k to $5k test | [Official, 2026-09 via chatgpt-ads dossier]; chatgpt-ads agent verifies |
 | Reddit | Low daily minimum per ad group [Unverified exact value] | Conversion optimization needs pixel + CAPI | $2k to $5k | [Practitioner consensus] |
 | Pinterest | Low | Performance+ automation; long consideration | $2k to $5k | [Practitioner consensus] |
 | Snapchat | About $5 per day per ad set [Unverified current value] | Pixel + CAPI; young audience | $2k to $5k | [Practitioner consensus] |
