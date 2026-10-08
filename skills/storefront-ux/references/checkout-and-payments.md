@@ -91,7 +91,38 @@ Use `autocomplete` tokens (`given-name`, `family-name`, `email`, `tel`, `postal-
 - Timeouts warn and allow extension (WCAG 2.2.1).
 - Platform checkouts (Shopify, Woo Checkout block) handle most semantics; your extensions and custom fields must match.
 
-## 8. Checkout change protocol
+## 8. Checkout walk script (per market, per device)
+
+| Step | Check | Pass when |
+|------|-------|-----------|
+| Entry | From drawer and cart page, with and without an express wallet | Checkout opens in under about 2 s on mobile; cart contents and totals match |
+| Contact | Email first, account optional, marketing consent unticked | No password field; consent text approved |
+| Delivery address | Country first, autocomplete, local format | Fields match the market table in section 6 |
+| Delivery method | Names, dates, costs; pickup points where expected | Cheapest and fastest are clear; no hidden fees |
+| Payment | Method order, icons, installments or BNPL presentation | Market's top method first; BNPL not preselected; TROY and installment table in TR |
+| Review and pay | Total, taxes, duties, legal acknowledgments, button label | DE button wording; TR pre-information and contract acknowledgment |
+| Errors | Invalid card, expired code, out-of-stock during checkout | Inline message, data preserved, way forward offered |
+| Confirmation | Thank you page and email | Order number, delivery estimate, purchase event verified by `measurement` |
+| Accessibility | Keyboard only and VoiceOver on iOS through all steps | Order placed without a mouse or sight; no CAPTCHA wall |
+
+## 9. Payment customization specification (Shopify Function)
+
+Write the spec, let a developer or app implement it, and keep it in the change request:
+
+| Field | Example |
+|-------|---------|
+| Market or country | NL |
+| Condition | Cart total under EUR 1,000 and no subscription lines |
+| Reorder | iDEAL \| Wero first, then cards, Apple Pay, Klarna, PayPal |
+| Hide | Bank transfer for orders under EUR 50 |
+| Rename (where allowed) | Not used; keep provider names |
+| Rationale | Gateway data: iDEAL share and success rate by market, last 90 days |
+| Guardrail | Checkout completion and payment failure rate by method for 14 days |
+| Rollback | Disable the customization in Settings, Payments |
+
+Delivery customization follows the same table (order delivery options, hide express for oversized items, rename to include dates). Validation Functions block impossible carts (quantity rules, restricted shipping) with clear messages rather than failing at payment.
+
+## 10. Checkout change protocol
 
 1. Snapshot current settings (screenshots of checkout editor, payment method order per market, apps with extensions).
 2. Draft the change request (`ads-master/templates/CHANGE_REQUEST.md`) with rollback steps.
@@ -100,6 +131,6 @@ Use `autocomplete` tokens (`given-name`, `family-name`, `email`, `tel`, `postal-
 5. Place a test order (test mode or Bogus gateway on a dev store) per market and payment method; `measurement` verifies purchase events and values on every ad platform.
 6. Monitor checkout completion by market and method for 7 days; roll back on a drop beyond the agreed guardrail.
 
-## 9. KPIs
+## 11. KPIs
 
 Checkout start to completion by step, device, market and payment method; payment failure rate by method; share of orders by method vs market expectation; express checkout share; error rate per field; time to complete; COD refusal rate (GCC, TR).

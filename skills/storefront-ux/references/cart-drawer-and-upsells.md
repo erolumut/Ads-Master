@@ -54,7 +54,7 @@ Repos: Horizon `snippets/cart-drawer.liquid` (`<dialog>`, `aria-labelledby`), `a
 
 Rules:
 - Only in markets where a free shipping threshold exists; the threshold per market comes from `offer-strategy` and the platform shipping settings (single source of truth).
-- Compute in presentment currency after discounts: `remaining = threshold_market - cart_subtotal_after_discounts`.
+- Compute in presentment currency after discounts: remaining amount equals the market threshold minus the cart subtotal after discounts (never below zero).
 - Copy: "Add EUR 12.50 for free delivery" then "You get free delivery". No exclamation storms, no guilt copy.
 - Text carries the meaning; the bar is decoration with `role="progressbar"` (or `<progress>`) and `aria-valuetext` equal to the text.
 - Announce the crossing ("Free delivery unlocked") once in the polite region.

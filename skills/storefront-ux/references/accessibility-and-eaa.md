@@ -104,7 +104,30 @@ Record results in the audit checklist section K and log defects with severity:
 - WooCommerce blocks and Checkout block: maintained with accessibility work upstream; classic extensions may inject inaccessible markup.
 - Checkout on Shopify is platform-controlled; your checkout UI extensions must use the provided components correctly (labels, headings).
 
-## 6. Accessibility in the change lanes
+## 6. EAA scoping questions (answer with `compliance`)
+
+1. Do we sell to consumers in the EU (any member state), including from outside the EU? If no, EAA does not apply; ADA and national rules may.
+2. Are we a microenterprise for services (under 10 staff and EUR 2 million or less turnover or balance sheet)? If yes, exempt for services, but large partners and platforms may still require conformance.
+3. Which surfaces are in scope: website, mobile apps, checkout, account, customer service channels, emails with order information?
+4. Which national law and authority apply (BFSG in Germany, ACM in the Netherlands, PTS in Sweden, French RGAA-based rules)?
+5. Is an accessibility statement published and reachable from every page, with a feedback route and a response time?
+
+## 7. Accessibility statement outline
+
+- Scope (which sites, apps and markets) and the date of the last assessment.
+- Standard and version tested (WCAG 2.2 AA; EN 301 549 v3.2.1 until v4.1.1 is cited).
+- Method (automated plus manual, assistive technologies used).
+- Known limitations with planned fix dates (no vague promises).
+- Third-party content and its status (reviews, chat, payment widgets).
+- Contact for accessibility feedback and alternative ordering route.
+- Enforcement or complaint body for the market.
+
+## 8. Defect report format
+
+| ID | Template | Component | WCAG SC | Severity | Steps to reproduce | Expected | Actual | AT and browser | Fix (pattern) | Status |
+|----|----------|-----------|---------|----------|-------------------|----------|--------|----------------|---------------|--------|
+
+## 9. Accessibility in the change lanes
 
 - Every accessibility defect is TS: fix, verify, log. No A/B test of accessibility fixes.
 - Design changes that carry accessibility risk (sticky bars, auto-rotation, swipe-only UI) are TF and must pass this protocol in every variant.

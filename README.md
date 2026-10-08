@@ -7,8 +7,8 @@ Install once, drop into any project, and get a senior growth team that audits, p
 | At a glance | |
 |---|---|
 | Agents | 21 specialists plus 2 utility skills (`ads-setup`, `ads-review`) |
-| Playbook depth | STATS_REFS reference modules, about STATS_LINES lines of procedures, audits, settings, formulas, queries and scripts |
-| Research | STATS_DOSSIERS dossiers with dated timelines of platform changes (January 2025 to October 2026) and about STATS_URLS cited URLs |
+| Playbook depth | 316 reference modules, about 68,000 lines of procedures, audits, settings, formulas, queries and scripts |
+| Research | 22 dossiers with dated timelines of platform changes (January 2025 to October 2026) and about 3,700 cited URLs |
 | Safety | Gates G0 to G4, automation stages 1 to 5, guard hooks with tests, claims registry, incident runbook |
 | Tools | SEO preflight crawler, daily report builder, claims checker, FFmpeg delivery, variant planner, URL and injection checkers |
 | Install | Claude Code plugin, project copy script, or open this repo directly |

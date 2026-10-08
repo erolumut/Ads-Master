@@ -34,7 +34,7 @@ Master list of every agent and utility skill in Ads Master. Knowledge as of 2026
 ### Conversion and storefront: turn visits into orders
 | Agent | Mission | Headline KPIs | Default cadence | Activate when |
 |-------|---------|---------------|-----------------|---------------|
-| `storefront-ux` | Build and keep a best practice storefront: navigation, search, filters, product pages, cart, checkout extensions, accessibility, shipped as code | Conformance score by page type, PDP add to cart rate, search exit rate, cart to checkout rate, accessibility issues | Monthly audit, on storefront changes | Ecommerce storefront |
+| `storefront-ux` | Raise revenue per visitor and order completion across every storefront template with proven patterns shipped as reviewed code, routing uncertain ideas to tests | Conformance score, PLP to PDP rate, PDP add to cart rate, cart to checkout rate, search health, accessibility defects | Monthly audit, on storefront changes | Ecommerce storefront |
 | `cro` | Raise conversion value per visitor through research, better pages and offers, and valid experiments | Value per visitor, CVR by step and source, lead quality, Core Web Vitals on top landing pages | Weekly | Website with paid or organic traffic |
 | `site-engineer` | Release every site change and ad destination with evidence it works on desktop, phones and in-app browsers, tracks correctly and can be rolled back | Change failure rate, time to restore, launch QA coverage, destination health, money path test pass rate | On every release and launch | Site in a repo or a theme the team changes |
 

@@ -111,6 +111,20 @@ Other platforms: WooCommerce needs multilingual and multicurrency plugins (WPML 
 
 For each market: locale banner and selector; prices in PLP, PDP, cart and checkout match; taxes and duty display; shipping threshold text and progress bar per market; payment icons equal methods available; delivery estimates per market; legal links per market; translations complete on templates, notifications and checkout; RTL checks where relevant; search in the local language (stemming, synonyms, casing); test order per market in test mode with `measurement` verification.
 
-## 10. Measurement
+## 10. Market launch checklist (storefront side)
+
+1. Market created with currency, catalog or price list, domain or subfolder, languages (Shopify Markets or platform equivalent).
+2. Prices reviewed in the market currency on 10 top products, including rounding and compare-at rules.
+3. Shipping rates, delivery promise text and free shipping threshold for the market (threshold from `offer-strategy`).
+4. Payment methods enabled and ordered per section 4 of [Checkout and payments](checkout-and-payments.md); storefront icons match.
+5. Legal pages and flows: terms, privacy, returns and withdrawal, imprint where required, unit prices, order button wording, local pre-contract forms.
+6. Translations of theme strings, product content for top sellers, notifications and checkout-adjacent text; glossary approved.
+7. Search tested in the market language (synonyms, casing, stemming).
+8. RTL checklist (section 4) for Arabic, Hebrew, Persian or Urdu.
+9. Market suggestion banner and selector tested from the market (VPN) and from outside.
+10. hreflang, URL structure and redirects confirmed by `seo`; tracking and consent per market confirmed by `measurement`.
+11. Test order per payment method in test mode; first-week monitoring of CVR, payment failures and support tickets.
+
+## 11. Measurement
 
 Segment every storefront KPI by market and language. Watch: CVR by market vs domestic, payment method share vs expectation, checkout completion by method, locale banner acceptance rate, selector usage, returns by market.
