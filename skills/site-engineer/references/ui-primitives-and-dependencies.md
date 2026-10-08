@@ -86,3 +86,63 @@ Decision: any Red on 1, 6 or 7 blocks adoption. Two or more Yellows need a writt
 | Whether the change needs a test | `cro` |
 | Copy in toasts and messages (claims, urgency) | `compliance` |
 | Events fired by cart and drawer interactions | `measurement` |
+
+## 7. Code sketches
+
+Persistent polite live region (render once in the layout; update text to announce):
+
+```html
+<div id="sr-status" role="status" aria-live="polite" aria-atomic="true" class="visually-hidden"></div>
+<script>
+  function announce(message) {
+    const region = document.getElementById('sr-status');
+    region.textContent = '';
+    // a short delay lets screen readers register the change when the same text repeats
+    setTimeout(() => { region.textContent = message; }, 50);
+  }
+  // after a successful add to cart: announce('Added to cart: Organic Cotton Tee, size M. Cart has 2 items.');
+</script>
+```
+
+Inline field error wiring (the error is part of the field, not a toast):
+
+```html
+<label for="email">Email</label>
+<input id="email" name="email" type="email" autocomplete="email" aria-describedby="email-error" aria-invalid="true">
+<p id="email-error" class="field-error">Enter an email address like name@example.com.</p>
+```
+
+Bottom sheet QA as a Playwright check (keyboard and focus behavior):
+
+```ts
+import { test, expect } from '../fixtures';
+
+test('cart drawer: focus trap, Escape closes, focus returns', async ({ page }) => {
+  await page.goto(process.env.QA_PDP_PATH ?? '/products/qa-test-product');
+  const trigger = page.getByRole('button', { name: /add to cart|add to bag/i }).first();
+  await trigger.click();
+  const dialog = page.getByRole('dialog').first();
+  await expect(dialog).toBeVisible();
+  for (let i = 0; i < 15; i++) {
+    await page.keyboard.press('Tab');
+    const inside = await dialog.evaluate((d) => d.contains(document.activeElement));
+    expect(inside, 'focus escaped the drawer').toBeTruthy();
+  }
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeHidden();
+  const focusedIsTrigger = await trigger.evaluate((el) => el === document.activeElement);
+  expect(focusedIsTrigger, 'focus returned to the trigger').toBeTruthy();
+});
+```
+
+Dependency check commands (read only):
+
+```bash
+PKG=vaul
+npm view $PKG time --json | tail -5          # last publish dates
+npm view $PKG version license repository.url
+npm view $PKG scripts                         # install scripts present?
+npm view $PKG dist.attestations --json        # provenance attestations if published
+npm audit --omit=dev --json | jq '.metadata.vulnerabilities'
+osv-scanner --lockfile=package-lock.json
+```

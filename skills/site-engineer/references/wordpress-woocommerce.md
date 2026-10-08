@@ -118,3 +118,20 @@ Use a vulnerability feed (Patchstack, Wordfence Intelligence, WPScan) or the hos
 | `xmlrpc.php` disabled or rate limited if unused; `wp-login.php` protected | Security review |
 | No staging URL or `noindex` leaked into production after a push | View source, `wp option get blog_public` |
 | Builder CSS regenerated and cached assets refreshed | Visual diff |
+
+## 10. Release loop example (child theme plus one plugin update)
+
+```bash
+# G0: inventory and snapshot facts
+wp @prod core version && wp @prod plugin list --fields=name,status,version,update_version --format=table
+# G2: refresh staging files from git, keep staging data recent (host tool, files only to production later)
+wp @staging db export "backups/pre-release-$(date +%F_%H%M).sql"
+wp @staging plugin update woocommerce-gateway-stripe
+wp @staging cache flush
+# G0: QA on staging
+BASE_URL=https://staging.example.com npx playwright test -c qa/playwright.config.ts
+# G3 (human approval): deploy child theme tag v2026.10.08 to production, then
+#   wp @prod db export "backups/pre-release-$(date +%F_%H%M).sql"
+#   wp @prod plugin update woocommerce-gateway-stripe
+# G0: post release checks on production (read only smoke suite, PHP error log, test order with approval)
+```

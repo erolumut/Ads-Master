@@ -118,3 +118,22 @@ Server side: process App Store Server Notifications V2 and Google RTDN (through 
 | Claims on the paywall (results, health, finance) | compliance |
 | Web paywall pages, checkout speed, form UX | cro, site-engineer |
 | Subscription events in the MMP and ad platforms | measurement |
+
+## 9. Paywall test idea bank
+
+| Idea | Hypothesis | Primary metric | Typical risk |
+|------|-----------|----------------|--------------|
+| Annual preselected vs weekly preselected | Annual default raises net revenue per install at D60 | Net revenue per install D60 | Lower D7 cash |
+| 3 plans vs 2 plans | A decoy plan moves choice to annual | Plan mix, revenue per paywall view | Choice overload |
+| Trial toggle vs always on trial | Toggle raises direct purchases with similar total revenue | Revenue per paywall view | Lower trial starts |
+| Personalized headline from onboarding answers | Relevance lifts conversion | Trial start rate | None material |
+| Timeline graphic for trial terms | Clarity lowers day 0 cancellations and refunds | Trial to paid, refund rate | Slightly lower trial starts |
+| Paywall after first activation vs end of onboarding | Value first raises paid conversion | Install to paid D35 | Fewer paywall views |
+| Localized price points per storefront tier | Price fit raises revenue in mid income markets | Revenue per install by country | Arbitrage across storefronts is limited, low risk |
+
+## 10. Price localization procedure
+
+1. Group storefronts into tiers by purchasing power and current conversion (for example tier 1: US, UK, CH, Nordics; tier 2: Western Europe, Japan, Korea, Australia; tier 3: Türkiye, Brazil, Mexico, India, Indonesia) [Practitioner grouping].
+2. Start from Apple's equalized prices and Google's local prices; check after every Apple tax and price notice.
+3. Test lower tier prices in tier 3 first (largest elasticity), one tier at a time, judged on revenue per install.
+4. Apply price changes to new subscribers first; existing subscriber increases follow store consent rules and need lifecycle-crm messaging.

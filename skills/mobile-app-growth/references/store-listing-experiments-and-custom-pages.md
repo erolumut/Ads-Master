@@ -112,3 +112,29 @@ Rules:
 4. Assigning competitor brand keywords to a CPP (trademark and review risk).
 5. Declaring a Play experiment winner on install clicks when D1 retention fell.
 6. Forgetting to apply the winning treatment, so the default page keeps the loser.
+
+## 9. CPP and custom listing registry (CSV header)
+
+Keep it at `ads-master/data/cpp_registry.csv` (project state, not in this skill):
+
+```
+page_id,store,name,url_or_ppid,audience_or_intent,keywords_assigned,deep_link,assets_version,campaigns_using,launch_date,conversion_rate_28d,default_page_cr_28d,status,notes
+CPP-02,ios,Feature receipts,ppid=<id>,feature search,"receipt scanner,scan receipts",app://scan,v3,AA_US_SR_CATEGORY_receipts,2026-09-01,,,live,
+CSL-03,android,Expense tracker,listing=<id>,keyword expense tracker,expense tracker,,v1,ACI_US_AND_tCPA_trialstart_outcome_v2,2026-09-15,,,live,
+```
+
+## 10. Reading a PPO result (worked example)
+
+Illustrative numbers: original conversion 31.0%, treatment B 33.4% after 21 days, about 9,000 impressions per arm, App Store Connect shows B improving conversion with high confidence.
+1. Check traffic stability: no featuring or Apple Ads bursts to the default page during the test window.
+2. Absolute lift 2.4 pp on a 31% base needs about 6,000 visitors per arm by the section 5 formula; 9,000 is enough.
+3. Check the downstream quality signal for the test weeks (D1 retention, trial rate by install week).
+4. Apply B, log it, and plan the next test on the next ranked element.
+
+## 11. Setting up a Play custom store listing (steps)
+
+1. Play Console > Grow > Store presence > Custom store listings > Create listing.
+2. Choose the targeting (country, pre-registration, inactive users, search keyword, Google Ads campaign or URL) [Official].
+3. Enter the title, short and full description and graphics; reuse approved assets.
+4. Save as draft (G2), request approval, publish (G3).
+5. For campaign listings, copy the listing URL into the Google Ads campaign or ad network store link.

@@ -90,3 +90,46 @@ Other Apple requirements:
 4. Appeal only with a clear argument; Apple offers an App Review Board appeal; Google offers an appeal form per policy issue.
 5. Never create a new developer account, rename the app or use another bundle to evade enforcement. That escalates to account termination.
 6. Log the incident and the fix in INCIDENTS.md and update this skill through the journal if the rule changed.
+
+## 7. Category quick rules (route details to compliance)
+
+| Category | Store rules to check | Ad platform rules to check |
+|----------|----------------------|----------------------------|
+| Finance, lending, trading, crypto | Apple 3.2.1(viii) licensing and submitting entity; Google Financial services policy (personal loan disclosures, country specific rules) | Google financial services verification by country, Meta special ad category rules where applicable (credit in some markets), TikTok financial restrictions |
+| Health, fitness, medical | Medical device declaration (EEA, UK, US) [Official, 2026-03]; health claims in metadata; Google Health apps declaration | Personal health attribute language bans (Meta), health claim restrictions by market |
+| Dating and social | 1.2 UGC rules, random chat apps (2026-02), social media capability age question (2026-09), Australia under 16 rules | Dating ads approvals on Google and Meta, age targeting minimums |
+| Gambling and real money games | Licenses per market (Brazil SPA license from 2026-05), age rating 17+ or 18+ | Platform certification per country, strict geo targeting |
+| Kids and families | Kids Category rules (Apple), Families policy (Google), no third party analytics or ads without compliance | Child directed ad restrictions, no personalized ads |
+| VPN, security, cleaner utilities | Accurate functionality claims, no fake system warnings | Misrepresentation and fake alert bans |
+| AI apps and chatbots | 4.7 coverage for chatbots, 5.1.2(i) third party AI data sharing disclosure, age rating considers AI features | AI disclosure rules for synthetic media (EU AI Act transparency from 2026-08-02) |
+
+## 8. Age assurance and minors: status table (as of 2026-10)
+
+| Jurisdiction | Requirement | Platform tooling | Evidence |
+|--------------|-------------|------------------|----------|
+| Texas (SB2420) | Age assurance and parental consent for app distribution; in effect for new Texas Apple Accounts from 2026-06-04 after a 2025-12 injunction pause | Declared Age Range API, Significant Change API, revocation notifications | [Official, 2026-06] |
+| Utah, Louisiana | App store age requirements | Declared Age Range API updates (beta 2026-02) | [Official, 2026-02] |
+| Australia | Social media platforms must prevent under 16 accounts (from 2025-12-10); age rating 15+ replaced by 16+ (2026-06-18) | Declared Age Range API | [Official, 2025-12 and 2026-05] |
+| Brazil, Singapore | Age requirements for apps | Declared Age Range API | [Official, 2026-02] |
+| South Korea | GRAC rating overrides; two descriptors move from All to 12+ from 2026-10 | App Store Connect age rating settings | [Official, 2026-08] |
+| Vietnam | Region specific ratings 00+, 12+, 16+, 18+; games need a license | App Store Connect | [Official, 2026-05] |
+
+Implications for growth: age gates change funnel conversion and audience eligibility; plan onboarding and paid targeting around them and never target minors with restricted categories.
+
+## 9. SDK and privacy declaration map
+
+| SDK type | Apple privacy label and manifest | Google Data safety |
+|----------|----------------------------------|--------------------|
+| MMP (AppsFlyer, Adjust, Branch, Singular, Kochava) | Device ID, usage data, purchases; tracking domains declared; ATT gating for IDFA | Device or other IDs, app activity, purchase history; shared with third parties |
+| Ad network and mediation SDKs | Tracking, advertising data; tracking domains | Advertising, device IDs, shared |
+| Paywall and subscription SDKs (RevenueCat, Superwall, Adapty) | Purchases, identifiers linked to user if accounts exist | Purchase history |
+| Analytics (Firebase, Amplitude, Mixpanel) | Usage data, diagnostics | App activity, diagnostics |
+| Crash reporting | Diagnostics | Crash logs |
+
+Re-check declarations every time an SDK is added, removed or updated; mismatches are a common rejection and enforcement trigger [Practitioner consensus].
+
+## 10. Review timing and expedites
+
+- Plan submissions with buffer: review times vary by season and by account history; avoid shipping critical growth changes in the final days before holidays [Practitioner consensus].
+- Apple offers expedited review requests for critical fixes; use them sparingly and only for real incidents [Official].
+- Google Play reviews can take longer for new developer accounts and for sensitive categories [Practitioner consensus].

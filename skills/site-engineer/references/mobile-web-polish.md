@@ -106,3 +106,44 @@ Pattern guidance (when to use a sheet or a full page, cart drawer anatomy): `sto
 | 14 | Dark mode, if supported, has no invisible logos, borders or text | Low to Medium |
 
 Report what was verified on a real device and what was inferred from code. Never mark a mobile item PASS from emulation alone.
+
+## 8. Real device testing procedure
+
+| Step | iOS (Safari and in-app) | Android (Chrome and in-app) |
+|------|-------------------------|-----------------------------|
+| 1. Connect | Enable Settings > Apps > Safari > Advanced > Web Inspector on the phone; connect by USB to a Mac; Safari > Develop > device name | Enable Developer options and USB debugging; connect; open `chrome://inspect` on the desktop |
+| 2. Reach the build | Preview URL (Shopify `preview_url`, Vercel preview) or the dev server bound to `0.0.0.0` opened by LAN IP | Same; or `adb reverse tcp:9292 tcp:9292` to reach a local dev server as `localhost` |
+| 3. Inspect | Elements, console and network in Web Inspector; in-app WebViews are inspectable only when the app allows it (many do not) | DevTools for Chrome and for debuggable WebViews; Custom Tabs inspect as Chrome |
+| 4. Record | Screenshot or screen recording per finding with device, OS, browser or app version | Same |
+| 5. Keyboard and orientation | Focus every input with the keyboard open; rotate once | Same, plus the system back button |
+| 6. Throttle | Low Power Mode on; test on cellular once | Developer options or DevTools network throttling; an older device |
+
+Keep two real devices in the team (one iPhone on the latest iOS, one mid tier Android) or a device cloud subscription. Note the exact versions in every QA report, because Safari behavior changes with each iOS point release.
+
+## 9. Automated mobile regressions (Playwright, emulated)
+
+These do not replace devices; they stop known regressions from coming back.
+
+```ts
+import { test, expect } from '../fixtures';
+
+test.use({ viewport: { width: 320, height: 640 }, isMobile: true, hasTouch: true });
+
+test('no horizontal scroll and no small inputs at 320 px', async ({ page }) => {
+  for (const path of ['/', process.env.QA_PDP_PATH ?? '/products/qa-test-product', '/cart', process.env.QA_FORM_PATH ?? '/contact']) {
+    await page.goto(path);
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    expect(overflow, `horizontal overflow on ${path}`).toBeLessThanOrEqual(0);
+    const small = await page.$$eval('input:not([type=hidden]):not([type=checkbox]):not([type=radio]), select, textarea',
+      (els) => els.filter((e) => e.getBoundingClientRect().width > 0 && parseFloat(getComputedStyle(e).fontSize) < 16)
+                  .map((e) => e.getAttribute('name') ?? e.id ?? e.tagName));
+    expect(small, `inputs under 16px on ${path} (iOS zoom)`).toEqual([]);
+  }
+});
+
+test('viewport meta allows zoom', async ({ page }) => {
+  await page.goto('/');
+  const content = (await page.locator('meta[name="viewport"]').getAttribute('content')) ?? '';
+  expect(content).not.toMatch(/user-scalable\s*=\s*(no|0)|maximum-scale\s*=\s*1(\.0)?\b/);
+});
+```

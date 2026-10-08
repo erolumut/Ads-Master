@@ -89,3 +89,58 @@ Event strategy:
 3. Contain: pause rating prompts for the affected version; pause campaigns that send traffic to a broken flow (G3 approval), log in INCIDENTS.md.
 4. Fix and reply: ship the fix, reply to affected reviews with the fix version.
 5. Rebuild: re-enable prompts for users who completed the fixed flow; consider an Apple rating summary reset on the fix release if the old rating is unrepresentative (human decision).
+
+## 9. Implementation snippets
+
+iOS (SwiftUI, iOS 16+):
+```swift
+import StoreKit
+import SwiftUI
+
+struct ResultView: View {
+    @Environment(\.requestReview) private var requestReview
+    let didSucceed: Bool
+    var body: some View {
+        Text("Done")
+            .onAppear {
+                // Ask only after a success moment and when local eligibility rules pass
+                if didSucceed && ReviewGate.shouldAsk() { requestReview() }
+            }
+    }
+}
+```
+
+iOS (UIKit, iOS 16+): `if let scene = view.window?.windowScene { AppStore.requestReview(in: scene) }`.
+
+Android (Play In-App Review API, Kotlin):
+```kotlin
+val manager = ReviewManagerFactory.create(context)
+manager.requestReviewFlow().addOnCompleteListener { request ->
+    if (request.isSuccessful) {
+        manager.launchReviewFlow(activity, request.result).addOnCompleteListener {
+            // Continue the normal app flow; the API does not say whether a review was left
+        }
+    }
+}
+```
+
+ReviewGate rules (store in remote config): minimum 3 successful sessions, no crash in 7 days, not in onboarding or checkout, at least 30 days since the last ask, not after a support contact in the last 14 days.
+
+## 10. Review tagging taxonomy
+
+| Tag | Examples | Route |
+|-----|----------|-------|
+| bug_crash | "crashes when I open the camera" | App team, incident if spiking |
+| billing_subscription | "charged after cancelling", "trial not clear" | mobile-app-growth (paywall clarity), support |
+| pricing | "too expensive", "weekly price is a scam" | offer-strategy, paywall tests |
+| feature_request | "need dark mode" | Product |
+| praise_feature | "the scan is so fast" | creative-strategy (angles), CPP copy |
+| competitor | "switched from X" | market-intel |
+| ads_complaint | "ads show something else" | Creative policy review |
+| privacy | "why do you need my location" | Permission timing and copy |
+
+## 11. Event calendar template
+
+| Month | Event name | Type and badge | Platforms | Audience | Deep link | Assets due | Submit by | Featuring nomination | KPI |
+|-------|-----------|----------------|-----------|----------|-----------|-----------|-----------|----------------------|-----|
+| 2026-11 | Black Friday plan sale | Special Event / Now On Sale (Apple Games for games) | iOS, Play promotional content | All, lapsed priority | app://offers/bf | 2026-10-20 | 2026-10-27 | 2026-10-01 | Event downloads and redownloads, paid conversions |

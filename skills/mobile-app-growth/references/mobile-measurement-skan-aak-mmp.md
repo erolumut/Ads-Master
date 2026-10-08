@@ -122,7 +122,7 @@ Timing play:
 EU alternative ATT prompt (iOS 27.2 and iPadOS 27.2):
 - Optional across the EU, mandatory (only version available) for apps distributed in Germany, France, Italy, Poland and Romania [Official, 2026-09-16].
 - Reported design: no word "track", Allow and Reject buttons, optional "Additional Information" text button that returns notDetermined, full page rather than an alert, and the app may ask again one year after the user's last answer whether Allow or Reject [Official developer documentation via coverage, 2026-09]. The Bundeskartellamt commitments (case closed 2026-08-17) also remove the warning hand symbol and give publishers up to 4,000 characters to explain why personalized ads fund the app [Official regulator via coverage].
-- Background: France fined Apple 150 million euros (2025-03-31), Italy about 98.6 million euros (2025-12-22) over ATT; Poland and Romania opened cases [Official regulators via coverage].
+- Background: France fined Apple 150 million euros (2025-03, end of March), Italy about 98.6 million euros (2025-12-22) over ATT; Poland and Romania opened cases [Official regulators via coverage].
 - Action: prepare explanation copy per language, run it through compliance, track opt-in by country after iOS 27.2 release, and update SKAN vs device level weighting in the EU.
 
 Consent beyond ATT: GDPR, ePrivacy and KVKK consent for SDK data collection is separate from ATT. In the EEA, UK and Switzerland, Google requires a Google certified CMP using IAB TCF for ad serving through its publisher products [Official, 2024-01]. Hand CMP work to measurement and compliance.

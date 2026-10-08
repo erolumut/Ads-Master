@@ -117,3 +117,34 @@ Ask the human to export the files listed in `ads-master/data/imports/HOW_TO_EXPO
 | revenuecat_overview_<range>.csv | RevenueCat charts: trials, conversions, revenue, churn |
 | skan_<range>.csv | MMP SKAN report |
 | reviews_<range>.csv | Both stores |
+
+## 7. Configuration templates (read only first)
+
+Store credentials in environment variables; the config only references them. Package names and flags come from each project's README and must be verified before use [Unverified for third party servers].
+
+Claude Code, remote vendor server (example pattern for a vendor that documents an HTTP MCP endpoint):
+```
+claude mcp add --transport http revenuecat https://mcp.revenuecat.ai/mcp --header "Authorization: Bearer ${REVENUECAT_READ_KEY}"
+```
+
+Project `.mcp.json` for a local community server (pattern):
+```json
+{
+  "mcpServers": {
+    "play-console": {
+      "command": "npx",
+      "args": ["-y", "<verified-package-name>"],
+      "env": {
+        "PLAY_READ_ONLY": "true",
+        "GOOGLE_APPLICATION_CREDENTIALS": "${PLAY_SERVICE_ACCOUNT_JSON_PATH}"
+      }
+    }
+  }
+}
+```
+
+Checklist after connecting:
+- [ ] List the tools the server exposes; mark each as read or write.
+- [ ] For write tools, confirm `ads-master/guardrails.json` routes them through confirmation (G2 or G3) or blocks them.
+- [ ] Run one read query and compare a number with the UI.
+- [ ] Record server name, version and scope in MEASUREMENT.md (connectors section) without secrets.

@@ -102,3 +102,35 @@ Paths to this skill's scripts depend on the install (`.claude/skills/site-engine
 3. Does it send data to the vendor (telemetry, prompts, code)? Can it be disabled?
 4. Does it fit the gate model (separate read and write tools, explicit publish)?
 5. Record the decision in `DECISIONS.md` if adopted for a project.
+
+## 6. Adding the browser and platform MCP servers in Claude Code (ask the human first)
+
+Installing an MCP server changes what the agent can do on the machine. Propose the commands; the human runs or approves them. Check each server's README for the current package name and flags before running.
+
+```bash
+# Playwright MCP (browser automation for exploratory QA)
+claude mcp add playwright -- npx @playwright/mcp@latest
+# Chrome DevTools MCP (traces, network, console, Lighthouse); needs Chrome stable
+claude mcp add chrome-devtools -- npx chrome-devtools-mcp@latest
+# Shopify Dev MCP (docs, schemas, validation); opt out of telemetry first
+mkdir -p ~/.config/shopify-ai-toolkit && touch ~/.config/shopify-ai-toolkit/opt-out
+claude mcp add shopify-dev -- npx -y @shopify/dev-mcp@latest
+# Shopify AI Toolkit as a plugin (alternative to the Dev MCP)
+claude plugin install shopify-ai-toolkit@claude-plugins-official
+```
+
+Pin versions instead of `@latest` for repeatable CI and audits once a version is validated.
+
+## 7. Which tool answers which question
+
+| Question | First tool | Second tool |
+|----------|-----------|-------------|
+| Is the destination up, fast enough and keeping parameters? | `url_check.py --mobile --add-click-ids` | Playwright redirect template |
+| Did the release break add to cart or the form? | Playwright smoke suite on preview, then read only on live | Manual device check |
+| Why is LCP or INP bad on this page? | Chrome DevTools MCP performance trace (named insights) | Lighthouse 13 insights, RUM attribution |
+| Which script is slowing the page? | Lighthouse `third-parties-insight`, blocked URL comparison | Tag register review |
+| Is the price on the page the same as in JSON-LD and the cart? | Structured data template | `/cart.js` or Store API check |
+| Does it work in Instagram's browser? | Real phone with the in-app protocol | None (emulation cannot answer) |
+| Is this dependency safe to adopt? | Dependency health check commands | Socket or OpenSSF Scorecard |
+| Does this repo try to instruct the agent? | `scan_injection.py` | Human review of agent instruction files |
+| What changed in the theme since the last release? | `shopify theme pull` into a branch and `git diff` | Theme editor history (admin) |

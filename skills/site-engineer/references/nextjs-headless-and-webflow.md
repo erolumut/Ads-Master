@@ -111,3 +111,24 @@ Webflow specifics:
 | Server Actions require auth and validate input; rate limits on public actions (forms) | Code review, tests |
 | Images: `next/image` with explicit sizes, priority on the LCP image only | Lighthouse LCP discovery insight |
 | Previews protected and noindex | `curl -sI <preview-url>` shows auth or `x-robots-tag` |
+
+## 10. Next.js upgrade procedure (minor, major or security patch)
+
+1. Read the release post and advisories for every version between current and target; list breaking changes and security fixes.
+2. Create `release/YYYY-MM-DD-next-<version>` and upgrade only `next`, `react`, `react-dom` and their peer packages (`npm i next@<version> react@<version> react-dom@<version>`); keep unrelated upgrades out of the branch.
+3. Run the official codemods for majors (`npx @next/codemod@latest upgrade` or the specific codemod named in the upgrade guide) and review every changed file.
+4. Build and compare the route table (static, dynamic, cached) with the previous build output saved in the branch.
+5. Run the full smoke, tracking and visual suites on the preview deployment; check caching on price and stock pages by changing a value in the CMS or commerce backend and watching revalidation.
+6. Check server logs on the preview for new warnings (deprecated `middleware.ts`, caching warnings).
+7. Change request with rollback: the recorded production deployment and Instant Rollback (or the host equivalent).
+8. After publish, confirm the deployed version in build logs and keep the previous deployment unpinned only after T+24 h checks pass.
+
+## 11. Environment variable audit (copy into the security review)
+
+| Check | Command or place |
+|-------|------------------|
+| List variables per environment | Host dashboard or `vercel env ls` (names only; never print values) |
+| Find public variables in code | `grep -rn "NEXT_PUBLIC_" --include=*.ts --include=*.tsx --include=*.js .` |
+| Find variables that look like secrets in public names | Names containing `SECRET`, `TOKEN`, `KEY`, `PASSWORD` with the `NEXT_PUBLIC_` prefix are findings |
+| Confirm previews use test keys | Payment, email, CRM and pixel variables in the Preview scope point to sandboxes or test codes |
+| Confirm `.env*` ignored | `git check-ignore -v .env .env.local` |

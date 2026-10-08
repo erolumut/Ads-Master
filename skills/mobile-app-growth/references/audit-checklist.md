@@ -117,3 +117,18 @@ Change list (approval lines)
 Handoffs requested
 Data gaps and [Unverified] items
 ```
+
+## Quick audit (30 minutes, cold start)
+
+When only store access and one export exist, score these 10 items first and state the rest as data gaps:
+1. A1 revenue truth, 2. A4 SKAN schema, 3. B3 product page conversion vs peers, 4. B10 vitals and crash rate, 5. C1 targets from unit economics, 6. C2 Apple Ads structure, 7. D1 paywall disclosures, 8. D2 paywall tests, 9. E2 rating prompt rules, 10. F4 external links by storefront.
+
+## Evidence log template
+
+| Item | Score | Evidence (file, screen, report) | Date range | Notes |
+|------|-------|----------------------------------|-----------|-------|
+| A1 | 1 | RevenueCat overview vs App Store Connect proceeds, 8% gap | 2026-09-01 to 2026-09-28 | Refund events missing |
+
+## Scoring example
+
+Section D with D1 (Critical, score 2), D2 (High, score 0), D4 (High, score 1), D7 (Medium, score 1): earned = 2x3 + 0x2 + 1x2 + 1x1 = 9; possible = 2x3 + 2x2 + 2x2 + 2x1 = 16; section score 56%.

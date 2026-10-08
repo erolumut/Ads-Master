@@ -88,6 +88,7 @@ Repos: Horizon `snippets/variant-main-picker.liquid`, `assets/variant-picker.js`
 - Collapsible vertical sections (not horizontal tabs): Details and specs (definition list or table), Materials and care, Size and fit, Shipping and returns, Product safety (GPSR: manufacturer name and contact, EU responsible person, warnings), Warranty.
 - Key content expanded by default on desktop when space allows; first section expanded on mobile.
 - Every fact comes from `ads-master/brand/PRODUCT_FACTS.md` or the product data; claims only from `CLAIMS.md`.
+- Sustainability badges and generic environmental claims ("eco", "green", "climate neutral") on cards and PDPs: since 2026-09-27 the EU Empowering Consumers Directive (2024/825) bans sustainability labels not based on a certification scheme or set by public authorities and generic claims that cannot be substantiated by recognized environmental performance; route every such badge through `compliance` [Official, 2026-09].
 
 ## 9. Reviews and UGC
 
