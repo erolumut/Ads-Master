@@ -1,6 +1,6 @@
 ---
 name: ads-review
-description: Run the Ads Master operating rhythm (the heartbeat) for the current project. Modes are daily (the daily report: spend vs plan, platform reported vs backend observed, acquisition investment, stock, tracking and policy alerts), weekly (every active agent scores KPIs, closes experiments and proposes changes, then a cross channel review and priorities), monthly (budget reallocation, platform change check, SEO and AI visibility report) and quarterly (strategy reset and test plan). Use when the user asks to run the daily check, weekly review, monthly report, heartbeat, status update or "how are we doing" across marketing channels.
+description: Run the Ads Master operating rhythm (the heartbeat) for the current project. Modes are daily (the daily report with spend vs plan, platform reported vs backend observed, acquisition investment, stock, tracking and policy alerts), weekly (every active agent scores KPIs, closes experiments and proposes changes, then a cross channel review and priorities), monthly (budget reallocation, platform change check, SEO and AI visibility report) and quarterly (strategy reset and test plan). Use when the user asks to run the daily check, weekly review, monthly report, heartbeat, status update or "how are we doing" across marketing channels.
 ---
 
 # Ads Review (the heartbeat)

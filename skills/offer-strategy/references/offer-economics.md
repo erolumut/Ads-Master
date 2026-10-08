@@ -50,8 +50,8 @@ Rules:
 
 | Question | Formula | Example (m = 53.5%) |
 |----------|---------|---------------------|
-| Extra unit volume a discount needs to keep contribution flat | lift = d / (m - d), where m = contribution per unit / list price before the discount | 20% off: 0.20 / 0.335 = 59.7% more units |
-| Volume you can lose after a price increase before contribution falls | loss = i / (m + i) | +10% price: 0.10 / 0.635 = 15.7% |
+| Extra unit volume a discount needs to keep contribution flat | `lift = d / (m - d)`, where m = contribution per unit / list price before the discount | 20% off: 0.20 / 0.335 = 59.7% more units |
+| Volume you can lose after a price increase before contribution falls | `loss = i / (m + i)` | +10% price: 0.10 / 0.635 = 15.7% |
 | Breakeven ROAS on an offer order | 1 / contribution margin % of the offer order | Offer CM2 43.4%: 2.30 |
 | Breakeven CPA on an offer order | CM2 of the offer order (first order only) | EUR 21.31 |
 | Allowable acquisition investment per new customer | contribution LTV over the payback horizon minus target profit per customer | See section 6 |
@@ -60,7 +60,7 @@ Rules:
 | Discount rate (health metric) | total discounts / gross merchandise sales at list price | Track weekly |
 | Price realization | net revenue per unit / list price | Falling realization with flat volume is margin leakage |
 
-The d / (m - d) shortcut ignores that a lower price also lowers payment fees and refunds, so it overstates the lift needed slightly. Use the calculator (section 8) for the exact number: in the example below the exact breakeven lift for 20% off is 50.7%, not 59.7%.
+The `d / (m - d)` shortcut ignores that a lower price also lowers payment fees and refunds, so it overstates the lift needed slightly. Use the calculator (section 8) for the exact number: in the example below the exact breakeven lift for 20% off is 50.7%, not 59.7%.
 
 ## 4. Worked example: four first order offers on the same product
 

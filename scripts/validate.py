@@ -27,6 +27,32 @@ SKIP_DIRS = {".git", "node_modules"}
 errors, warnings = [], []
 
 
+try:
+    import yaml  # optional: stricter frontmatter check when PyYAML is installed
+except ImportError:
+    yaml = None
+
+
+def yaml_error(path):
+    """Return an error string when the frontmatter is not valid YAML."""
+    with open(path, encoding="utf-8") as fh:
+        text = fh.read()
+    if not text.startswith("---\n") or text.find("\n---", 4) == -1:
+        return None
+    block = text[4:text.find("\n---", 4)]
+    if yaml is not None:
+        try:
+            data = yaml.safe_load(block)
+        except yaml.YAMLError as exc:
+            return str(exc).splitlines()[0]
+        return None if isinstance(data, dict) else "frontmatter is not a mapping"
+    for line in block.splitlines():
+        m = re.match(r"^(name|description):\s*(.*)$", line)
+        if m and not m.group(2).startswith(("'", '"')) and ": " in m.group(2):
+            return f"unquoted ': ' inside {m.group(1)} breaks YAML"
+    return None
+
+
 def frontmatter(path):
     with open(path, encoding="utf-8") as fh:
         text = fh.read()
@@ -63,6 +89,9 @@ skill_slugs = sorted(d for d in os.listdir(skills_dir) if os.path.isdir(os.path.
 
 for slug in agent_slugs:
     path = os.path.join(agents_dir, slug + ".md")
+    err = yaml_error(path)
+    if err:
+        errors.append(f"{rel(path)}: invalid YAML frontmatter ({err})")
     fm, _ = frontmatter(path)
     if fm is None:
         errors.append(f"{rel(path)}: missing frontmatter")
@@ -88,6 +117,9 @@ for slug in skill_slugs:
     if not os.path.isfile(path):
         errors.append(f"skills/{slug}: SKILL.md missing")
         continue
+    err = yaml_error(path)
+    if err:
+        errors.append(f"{rel(path)}: invalid YAML frontmatter ({err})")
     fm, body = frontmatter(path)
     if fm is None or not fm.get("description"):
         errors.append(f"{rel(path)}: missing frontmatter description")

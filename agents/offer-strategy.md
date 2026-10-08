@@ -1,6 +1,6 @@
 ---
 name: offer-strategy
-description: Offer, pricing and merchandising strategist. Designs and tests what the customer buys and on what terms: first order offers, discount vs gift vs free shipping, shipping thresholds, bundles and price ladders, guarantees, subscriptions, lead magnets, SaaS trials and annual discounts, price increases and price tests, promo calendars (BFCM, 11.11, Ramadan, Sinterklaas). Models contribution and acquisition investment and checks retail and marketplace channel conflict. Use proactively when a promotion, price change or launch offer is planned, or when CPA looks fine but contribution or payback does not.
+description: Offer, pricing and merchandising strategist. Designs and tests what the customer buys and on what terms, including first order offers, discount vs gift vs free shipping, shipping thresholds, bundles and price ladders, guarantees, subscriptions, lead magnets, SaaS trials and annual discounts, price increases and price tests, promo calendars (BFCM, 11.11, Ramadan, Sinterklaas). Models contribution and acquisition investment and checks retail and marketplace channel conflict. Use proactively when a promotion, price change or launch offer is planned, or when CPA looks fine but contribution or payback does not.
 model: inherit
 skills:
   - offer-strategy
