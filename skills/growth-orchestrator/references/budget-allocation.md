@@ -34,7 +34,7 @@ x = [math.log(float(r["spend"])) for r in rows]
 y = [float(r["conversions"]) for r in rows]
 n = len(x); mx = sum(x)/n; my = sum(y)/n
 a = sum((xi-mx)*(yi-my) for xi, yi in zip(x, y)) / sum((xi-mx)**2 for xi in x)
-b = my - a*mx
+b = my-a*mx
 ss_res = sum((yi-(a*xi+b))**2 for xi, yi in zip(x, y)); ss_tot = sum((yi-my)**2 for yi in y)
 print(f"a={a:.2f} b={b:.2f} R2={1-ss_res/ss_tot:.2f}")
 for s in [5000, 7500, 10000, 12500, 15000]:
@@ -54,7 +54,7 @@ At the optimum, every channel's marginal CPA (or marginal ROAS) is equal and at 
 ### 2.4 Max acceptable marginal CPA
 ```
 Max marginal CPA (first order economics) = AOV x contribution margin %
-Max marginal CPA (LTV economics) = LTV gross margin in payback window - required profit
+Max marginal CPA (LTV economics) = LTV gross margin in payback window minus required profit
 ```
 Example: AOV $80, contribution margin 45%, max first order marginal CPA = $36. If 6 month gross margin LTV is $70 and the business accepts 6 month payback with no profit target, max marginal CPA = $70.
 
@@ -83,7 +83,7 @@ Platform notes for budget changes:
 ## 5. Budget step tests (when curves are weak)
 1. Pick one channel. Hold creative and targets stable.
 2. Raise budget 20 to 30% for 14 days (or until about 100 conversions at the new level).
-3. Compute marginal CPA = (spend new - spend old) / (conversions new - conversions old), on backend or deduplicated numbers.
+3. Compute marginal CPA = (spend new minus spend old) / (conversions new minus conversions old), on backend or deduplicated numbers.
 4. If marginal CPA is under max acceptable, step again. If over, step back and log the ceiling in memory once confirmed twice.
 For a cleaner read, run the step as a geo test: raise budget in a random half of regions, compare to the other half (measurement agent designs it).
 
@@ -105,7 +105,7 @@ Rules:
 ```
 Expected spend to date = monthly budget x (sum of seasonality weights for days elapsed / sum for the month)
 Pacing % = actual spend to date / expected spend to date
-Daily budget for remaining days = (monthly budget - spend to date) / remaining weighted days x weight of each day
+Daily budget for remaining days = (monthly budget minus spend to date) / remaining weighted days x weight of each day
 ```
 Without a weighting, use days elapsed / days in month. Flag pacing outside 90 to 110% in the daily check; outside 80 to 120% is an alert.
 

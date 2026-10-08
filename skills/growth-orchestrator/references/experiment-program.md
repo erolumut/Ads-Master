@@ -44,7 +44,7 @@ RICE = (Reach x Impact x Confidence %) / Effort (person weeks). Reach = users or
 ## 4. Sample size and duration
 ### 4.1 Conversion rate tests (two proportions, 95% confidence, 80% power)
 ```
-n per variant ~ 16 x p x (1 - p) / delta^2
+n per variant ~ 16 x p x (1-p) / delta^2
 p = baseline conversion rate, delta = absolute difference to detect
 ```
 Example: baseline 3% CVR, detect a 20% relative lift (0.6 points): n = 16 x 0.03 x 0.97 / 0.006^2 = about 12,900 visitors per variant.

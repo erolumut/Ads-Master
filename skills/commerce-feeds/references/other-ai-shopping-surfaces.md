@@ -88,7 +88,7 @@
 | Business | First | Second | Third |
 |----------|-------|--------|-------|
 | Shopify DTC, US | Shopify product data quality (it syndicates to AI channels) | Google free listings and conversational attributes | Decide AI channel toggles and Copilot Checkout with the human |
-| Custom platform DTC, US | Google Merchant Center excellence plus PDP structured data | ChatGPT application with OpenAI-format feed | Microsoft store feed for Copilot; UCP early access if engineering capacity exists |
+| Custom platform DTC, US | Google Merchant Center quality plus PDP structured data | ChatGPT application with OpenAI-format feed | Microsoft store feed for Copilot; UCP early access if engineering capacity exists |
 | Marketplace or multi-seller | `external_seller_id` and seller data in Merchant Center | ACP or UCP only through platform partners | Agent access policy for the site |
 | Non-US merchant | Google free listings (AI Mode is global for discovery) | Watch UCP country rollout (CA, AU, UK announced) | ChatGPT ads countries if paid feeds fit |
 | B2B ecommerce | Complete specs, documents (`document_links`), compatibility in `related_products` | Decimal quantities and B2B carts exist in ACP (2026-04-17) | Pricing visibility rules (login prices block agents) |

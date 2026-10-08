@@ -145,7 +145,7 @@ for name, (cpa_mult, aov_mult) in scen.items():
         cpa = inputs["base_cpa"] * cpa_mult / inputs["season"][i] ** 0.5  # peak months convert better, dampened
         conv = inputs["spend"][i] / cpa
         rev = conv * inputs["aov"] * aov_mult + inputs["returning_rev"][i] + inputs["organic_new_rev"][i]
-        cm3 = rev * inputs["cm_pct"] - inputs["spend"][i]
+        cm3 = rev * inputs["cm_pct"]-inputs["spend"][i]
         print(f"{m}: conv {conv:.0f}, revenue {rev:,.0f}, MER {rev/inputs['spend'][i]:.2f}, CM3 {cm3:,.0f}")
 ```
 The square root dampening of seasonality on CPA is a planning heuristic, not a law. Replace it with the project's own seasonal CPA pattern once two seasons of data exist.

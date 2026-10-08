@@ -96,11 +96,11 @@ Total: <amount> (<change vs last month>) | Bucket split: core <x>%, adjacent <y>
 | Input | Value | Source | Date |
 ## Derived
 | Metric | Value | Formula |
-| CM2 per order | | AOV - COGS - shipping - fees - pick and pack - returns |
+| CM2 per order | | AOV minus COGS, shipping, fees, pick and pack, returns |
 | Contribution margin % | | CM2 / AOV |
 | Breakeven ROAS | | 1 / CM% |
-| Target ROAS (profit p) | | 1 / (CM% - p) |
-| Breakeven and target CPA | | AOV x CM% ; AOV x (CM% - p) |
+| Target ROAS (profit p) | | 1 / (CM% minus p) |
+| Breakeven and target CPA | | AOV x CM% ; AOV x (CM% minus p) |
 | LTV contribution (6, 12 months) | | cohort orders x AOV x CM% |
 | Max nCAC (LTV to CAC 3) | | LTV / 3 |
 | Max nCAC (payback n months) | | contribution in n months |

@@ -122,7 +122,7 @@ Reporting rules:
 ## 9. KPI tree (use to structure reviews)
 ```
 Contribution after marketing (CM3)
-  = Net revenue x CM% - marketing spend
+  = Net revenue x CM% minus marketing spend
 Net revenue
   = New customer revenue + Returning revenue
 New customer revenue
