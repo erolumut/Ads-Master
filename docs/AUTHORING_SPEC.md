@@ -140,7 +140,7 @@ Other modules are domain specific (account structure, bidding, creative, measure
 
 ## 6. Project state contract (what agents read and write)
 
-Agents look for an `ads-master/` folder at the project root. Created by the `ads-setup` skill from `workspace-template/`.
+Agents look for an `ads-master/` folder at the project root. Created by the `ads-setup` skill from `skills/ads-setup/template/`.
 
 | File | Owner | Agents may |
 |------|-------|-----------|

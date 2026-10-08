@@ -86,10 +86,13 @@ done
 
 if [[ $WORKSPACE -eq 1 ]]; then
   TEMPLATE="$SRC/skills/ads-setup/template"
-  if [[ ! -d "$TEMPLATE" ]]; then TEMPLATE="$SRC/workspace-template"; fi
   run "mkdir -p '$TARGET/ads-master'"
-  # -n: never overwrite files the project already has.
-  run "cp -Rn '$TEMPLATE/.' '$TARGET/ads-master/'"
+  # Never overwrite files the project already has.
+  if command -v rsync >/dev/null 2>&1; then
+    run "rsync -a --ignore-existing '$TEMPLATE/' '$TARGET/ads-master/'"
+  else
+    run "cp -Rn '$TEMPLATE/.' '$TARGET/ads-master/' 2>/dev/null || true"
+  fi
   echo "workspace ready: ads-master/ (existing files kept)"
 fi
 

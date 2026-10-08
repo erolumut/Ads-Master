@@ -4,6 +4,13 @@
 
 Install once, drop into any project, and get a senior growth team that audits, plans, builds and reviews, while you keep the final say on every dollar spent and every word published.
 
+| At a glance | |
+|---|---|
+| Agents | 14 specialists plus 2 utility skills |
+| Playbook depth | 205 reference modules, about 43,000 lines of procedures, audits, settings, formulas, queries and scripts |
+| Research | 15 dossiers with dated timelines of platform changes (January 2025 to October 2026) and about 1,900 cited URLs |
+| Install | Claude Code plugin, project copy script, or open this repo directly |
+
 ---
 
 ## The team
@@ -131,6 +138,7 @@ docs/AUTHORING_SPEC.md   the contract for adding or editing agents
 scripts/install.sh       project installer
 scripts/validate.py      structure and style validator
 AGENT_REGISTRY.md        roster, KPIs, cadences, handoffs
+.claude/                 CLAUDE.md for working in this repo, symlinks that load agents and skills
 ```
 
 ## Research library
@@ -139,7 +147,7 @@ Every playbook is backed by a dossier in `research/` with a dated timeline of pl
 
 ## Keeping it current
 
-Platforms change monthly. Each skill carries a "Knowledge as of" date and a Freshness Protocol. Recommended maintenance: every quarter, re-run the research for each agent, update the references and research dossiers, bump the version in `.claude-plugin/plugin.json`, and run `python3 scripts/validate.py`.
+Platforms change monthly. Each skill carries a "Knowledge as of" date and a Freshness Protocol. Every claim carries an evidence label: `[Official]`, `[Study]`, `[Practitioner consensus]`, `[Contested]` or `[Unverified]`. Agents treat `[Unverified]` and `[Contested]` items as hypotheses and confirm them in the live account or an official source before they drive spend. Recommended maintenance: every quarter, re-run the research for each agent, update the references and research dossiers, bump the version in `.claude-plugin/plugin.json`, and run `python3 scripts/validate.py`.
 
 ## Adding an agent
 
