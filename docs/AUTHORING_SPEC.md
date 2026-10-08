@@ -198,5 +198,6 @@ Benchmarks always carry source, date, sample and the caveat that they vary by ve
 1. Copy an existing package of the closest domain.
 2. Rename the slug in all four places (agent, skill folder, skill `name`, research file).
 3. Rewrite the mission, KPIs, intake, adaptation matrix and task router first. Then the references.
-4. Add it to `AGENT_REGISTRY.md` and to the routing table in `skills/growth-orchestrator/SKILL.md`.
-5. Run `scripts/validate.sh`.
+4. Add it to `AGENT_REGISTRY.md`, the routing table and activation rules in `skills/growth-orchestrator/SKILL.md`, the roster in `skills/growth-orchestrator/references/routing-and-workflows.md`, `skills/ads-setup/template/HEARTBEAT.md`, and create `skills/ads-setup/template/memory/<slug>.md`.
+5. Add handoff rows in the agents that should route to it.
+6. Run `python3 scripts/validate.py` (structure, YAML, links, style) and `python3 scripts/test_guard.py` if you touched the guard.

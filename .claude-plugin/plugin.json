@@ -1,24 +1,32 @@
 {
   "name": "ads-master",
-  "version": "1.0.0",
-  "description": "Plug and play growth agents for Claude Code: Meta Ads, Google Ads, ChatGPT Ads, Microsoft Ads, TikTok Ads, LinkedIn Ads, SEO, AI search optimization (GEO/AEO), measurement, CRO, creative strategy, product feeds, market intelligence and a growth orchestrator. Research backed, adaptive per project.",
+  "version": "1.1.0",
+  "description": "Plug and play growth agents for Claude Code: Meta, Google, Microsoft, ChatGPT, TikTok and LinkedIn ads, app growth, SEO, AI search optimization (GEO/AEO), storefront UX, CRO, site engineering, offers, product feeds, creative strategy, video production, lifecycle CRM, measurement, compliance, market intelligence and a growth orchestrator, with deterministic guardrail hooks. Research backed, adaptive per project.",
   "author": {
     "name": "erolumut"
   },
   "homepage": "https://github.com/erolumut/Ads-Master",
   "repository": "https://github.com/erolumut/Ads-Master",
   "keywords": [
-    "meta-ads",
-    "google-ads",
-    "chatgpt-ads",
-    "seo",
-    "geo",
     "aeo",
     "ai-search",
-    "ppc",
-    "paid-social",
+    "aso",
+    "chatgpt-ads",
+    "compliance",
     "cro",
+    "ecommerce",
+    "email-marketing",
+    "geo",
+    "google-ads",
+    "guardrails",
+    "lifecycle",
+    "marketing-agents",
     "measurement",
-    "marketing-agents"
+    "meta-ads",
+    "paid-social",
+    "ppc",
+    "seo",
+    "storefront",
+    "video-ads"
   ]
 }

@@ -1,10 +1,10 @@
 # Ads Master
 
-Research backed growth agents for Claude Code: paid media (Meta, Google, Microsoft, ChatGPT, TikTok, LinkedIn), SEO, AI search optimization, measurement, CRO, creative strategy, product feeds and market intelligence, coordinated by a growth orchestrator.
+Research backed growth agents for Claude Code: paid media (Meta, Google, Microsoft, ChatGPT, TikTok, LinkedIn), app growth, SEO, AI search optimization, storefront UX, CRO, site engineering, offers, product feeds, creative strategy, video production, lifecycle CRM, measurement, compliance and market intelligence, coordinated by a growth orchestrator and protected by deterministic guardrail hooks.
 
 ## Two ways this repo is used
 
-1. **As the source of the agents** (developing or improving them). Follow `docs/AUTHORING_SPEC.md`. Run `python3 scripts/validate.py` before committing.
+1. **As the source of the agents** (developing or improving them). Follow `docs/AUTHORING_SPEC.md` and `docs/GUARDRAILS_MODEL.md`. Run `python3 scripts/validate.py` and `python3 scripts/test_guard.py` before committing.
 2. **As a workspace for one business.** The agents load from `.claude/agents` and `.claude/skills` (symlinks to `agents/` and `skills/`). Run `/ads-setup` to create `ads-master/` here, then work as you would in any installed project.
 
 ## Map
@@ -18,8 +18,9 @@ Research backed growth agents for Claude Code: paid media (Meta, Google, Microso
 | `skills/ads-review/` | The heartbeat: daily, weekly, monthly, quarterly cycles |
 | `research/` | Market research dossiers (October 2026) behind every playbook |
 | `AGENT_REGISTRY.md` | Roster, KPIs, cadences, handoffs |
-| `scripts/install.sh` | Copy agents and skills into another project |
-| `scripts/validate.py` | Structure and style checks |
+| `scripts/install.sh` | Copy agents, skills and the guard hook into another project |
+| `scripts/guard.py`, `hooks/hooks.json` | Deterministic guardrails (gates G0 to G4, automation stages) |
+| `scripts/validate.py` | Structure, YAML and style checks |
 
 ## How work flows
 
@@ -29,7 +30,8 @@ Research backed growth agents for Claude Code: paid media (Meta, Google, Microso
 
 ## Non-negotiables
 
-- No spend, launch, bid, budget, publishing or live account change without explicit human approval. Agents draft change requests.
+- No spend, launch, bid, budget, publishing, customer messaging or live account change without explicit human approval. Agents draft change requests; the guard hook enforces `ads-master/guardrails.json`.
+- Customer facing copy passes the compliance agent; site changes pass site-engineer release QA.
 - No invented numbers. Every figure names its source and date range.
 - Platform features change monthly. Run the skill's Freshness Protocol before acting on settings, policies or benchmarks.
 
