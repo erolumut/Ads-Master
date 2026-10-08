@@ -67,7 +67,7 @@
 - Instant Buy with PayPal (and Venmo, cards) for US users; expanded to free users in late November 2025; merchant network about 5,000 PayPal merchants with more via BigCommerce, Shopware and Wix reported [Official per coverage, 2025-11; counts Unverified].
 - Shopify notes that Instant Buy orders may not appear in Shopify admin; fulfillment stays with the merchant [Official per Shopify blog].
 - No paid placement in shopping results per Perplexity statements [Official per coverage].
-- Legal risk: Amazon sued Perplexity in November 2025 over its Comet browser agent shopping on Amazon [Unverified current status].
+- Legal risk: Amazon sued Perplexity in November 2025 over its Comet browser agent shopping on Amazon. A March 2026 preliminary injunction barred Comet from password-protected Amazon areas; the Ninth Circuit vacated it on 2026-08-04, holding that the user, not the agent developer, accesses the site under the CFAA, while noting Amazon can still restrict agents through its terms of service. The case is back in district court (Perplexity moved to dismiss the CFAA and CDAFA claims on 2026-09-11) [Official, Ninth Circuit opinion 2026-08; later steps via coverage]. Merchants can still set agent access rules in their own terms and bot controls.
 - Feed work: apply to the merchant program, keep Shopify product data complete, ensure PerplexityBot can crawl PDPs.
 
 ## 5. Amazon (Rufus, Buy for Me)

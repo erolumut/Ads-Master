@@ -88,17 +88,17 @@
 | 2025-03-17 | Notice: UET consent mode required for EEA, UK, Swiss users by 2025-05-05 | Measurement | [Official, 2025-03] |
 | 2025-04 | Test feed in Merchant Center; primary feed for local inventory ads | Commerce | [Official, 2025-04] |
 | 2025-04-08 | Optimization score retirement begins | Platform | [Official, 2025-04] |
-| 2025-05-05 | Consent mode deadline | Measurement | [Official, 2025-03] |
 | 2025-05 | Ads Studio GA in Editor; PMax scripts and automated rules; asset and audience reporting; LinkedIn audience signal; brand list import and NCA goal announced as coming | Tools, PMax | [Official, 2025-05] |
 | 2025-05 | Auction change: PMax and Standard Shopping on the same products compete | Shopping | [Official, 2025-06] |
 | 2025-05 | Trade press: Microsoft Invest DSP to wind down by early 2026 | Programmatic | [Practitioner consensus] |
+| 2025-05-05 | Consent mode deadline | Measurement | [Official, 2025-03] |
 | 2025-06 | Custom report builder | Reporting | [Official, 2025-06] |
 | 2025-07 | API: annotation opt-out operations, new reports | API | [Official, 2025-07] |
 | 2025-08 | Modeled conversions for UET consent mode (EEA, CH, GB); impression based remarketing from up to 20 campaigns or ad groups | Measurement, audiences | [Official, 2025-08] |
 | 2025-09 | Supplemental feeds GA; PMax budget suggestions and estimates for non-feed; asset group reporting; share of voice | Commerce, PMax | [Official, 2025-09] |
 | 2025-10-07 | Amazon DSP named preferred partner as Microsoft exits DSP | Programmatic | [Practitioner consensus] |
-| 2025-11-18 | Asset level editorial review with per asset appeals; Copilot image animation | Policy, creative | [Official, 2025-11] |
 | 2025-11 | Publisher: new Microsoft Prebid adapter replaces AppNexus adapter | Sell side | [Official, 2025-11] |
+| 2025-11-18 | Asset level editorial review with per asset appeals; Copilot image animation | Policy, creative | [Official, 2025-11] |
 | 2025-12 | Ads for Social Impact grant program ends | Nonprofits | Trade press [Unverified] |
 | 2025-12 | API: GetAudienceBreakdown, TopicCriterion, multi entity impression based remarketing | API | [Official, 2025-12] |
 | 2026-01 | PMax NCA open beta; PMax share of voice (search and shopping, data from 2025-11-10); asset group tracking template and custom parameters | PMax | [Official, 2026-01] |
@@ -112,17 +112,17 @@
 | 2026-05-19 | Activate 2026: AI Max, PMax search insights, custom columns with LTV and AOV, Merchant Center self-serve, UCP and Copilot Checkout, Ad Studio brand kits, shareable previews | Multiple | [Official, 2026-06] |
 | 2026-06 | Product explorer in Merchant Center (under 100,000 SKUs); ad disclaimers guidance | Commerce | [Official, 2026-06] |
 | 2026-06 | BingAds PHP REST SDK repository active (created 2025-06) | API | GitHub |
-| 2026-07-27 | Ad Preview Hub extended to PMax (MSN, Bing Search, Outlook) | PMax | [Official, 2026-07] |
 | 2026-07 | Copilot in Monetize and Curate open beta (MCP backed, publisher side) | Sell side | [Official, 2026-07] |
+| 2026-07-27 | Ad Preview Hub extended to PMax (MSN, Bing Search, Outlook) | PMax | [Official, 2026-07] |
+| 2026-08 | First monthly product newsletter on LinkedIn | Comms | Trade press |
+| 2026-08 (headline) | Reports of a 7 day gate on offline conversion uploads; no matching rule found in Microsoft docs on 2026-10-08 | Measurement | [Unverified] |
 | 2026-08-04 | Conversions API documentation published (updated 2026-08-15); beta, per account enrollment | Measurement | [Official, 2026-08] |
 | 2026-08-11 | Bulk edit tool for disapproved assets | Policy | [Official, 2026-08] |
 | 2026-08-12 | Clarity AI Visibility reporting expanded (Topic Insights, grounding queries, citation share, Share of Authority) | Analytics | [Official, 2026-08] |
-| 2026-08 | First monthly product newsletter on LinkedIn | Comms | Trade press |
 | 2026-08-19 to 08-27 | AI Max for Search GA (rollout from 2026-08-19, announcement 2026-08-27); default on for new Search campaigns per Microsoft's blog [Contested]; DSA supported until further notice | Search | [Official, 2026-08] |
 | 2026-09-08 | PMax uplift experiments GA (as announced in August) | PMax | [Official, 2026-08] |
 | 2026-09-30 | Experiments GA across Search, Shopping, Audience, PMax; HubSpot integration; LinkedIn company lists 10,000; SOAP retirement 2027-01-31 | Multiple | [Official, 2026-09] |
 | 2026-10-01 | Max CPC no longer available when creating new non-portfolio campaigns on Maximize Clicks, Maximize Conversions or Maximize Conversion Value; portfolios, Enhanced CPC and Target impression share keep caps | Bidding | [Official notice via trade press, 2026-09] |
-| 2026-08 (headline) | Reports of a 7 day gate on offline conversion uploads; no matching rule found in Microsoft docs on 2026-10-08 | Measurement | [Unverified] |
 
 ## 4. Best practice consensus
 

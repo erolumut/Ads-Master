@@ -24,7 +24,7 @@ Implication: audience research shifts from "which interests" to "which personas 
 | Original audience options with detailed targeting and Advantage detailed targeting | Rarely; very niche offers where expansion wastes spend in tests | Advantage detailed targeting expands anyway when it predicts better results for conversion goals |
 | Original audience options with custom audience, no expansion | Retention offers, existing customer upsell, event attendees | The only true "retargeting only" setup |
 
-Detailed targeting changes to know: sensitive detailed targeting options were removed in 2022; detailed targeting exclusions were removed in early 2025 [Unverified exact date]; Meta continues to merge low-use interest options. Do not build strategies on specific interest IDs; they may disappear.
+Detailed targeting changes to know: sensitive detailed targeting options were removed in 2022; detailed targeting exclusions were removed for new ad sets from 2024-07-29 and stopped delivering in existing ad sets from early 2025 (2025-01-31 per Meta's notice) [Official, 2024-07]; Meta continues to merge low-use interest options. Do not build strategies on specific interest IDs; they may disappear.
 
 ## 3. Custom audiences
 

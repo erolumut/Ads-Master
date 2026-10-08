@@ -35,10 +35,12 @@ Creative stance: assume AI media will be labeled. Use AI where a label does not 
 **Substantiation:** objective claims (numbers, "clinically proven", comparisons) need competent and reliable evidence before they run. Health claims need competent and reliable scientific evidence.
 
 **State laws: synthetic performers in ads**
+
 | State | Law | Effective | Rule | Label |
 |-------|-----|-----------|------|-------|
 | New York | General Business Law 396-b (signed 2025-12-11) | 2026-06-09 | Whoever produces or creates an ad must conspicuously disclose a synthetic performer when it has actual knowledge of its use; applies where the ad is seen, not where the advertiser sits; fines 1,000 USD first violation, 5,000 USD after; narrow exemptions for expressive works and audio-only ads; "conspicuous" not defined | [Official law, via Manatt and Honigman] |
 | California | SB 1050, Business and Professions Code 17610 (signed 2026-09-16) | 2027-01-01 | Unlawful to publish an ad that prominently includes a synthetic performer without a clear and conspicuous disclosure near the performer, shown long enough to understand, with wording substantially similar to "this performance features a synthetic digital performer"; covers audio-visual and audio-only ads; possible private right of action; violating ads must stop running | [Official law, via DLA Piper and Davis+Gilbert] |
+
 Working rule: build every AI avatar or synthetic voice ad to the California standard now (visible text near the performer plus spoken line in audio-only ads). A December 2025 federal executive order seeks to pause conflicting state AI laws; no court has suspended these laws as of 2026-10 [Unverified status, check with counsel].
 
 ## 3. European Union

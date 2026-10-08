@@ -72,21 +72,21 @@
 | 2025-10-06 | Google | Merchant API adds `carrier_shipping` | [Official] |
 | 2025-10-28 | OpenAI | PayPal joins as ACP payment provider | [Official per coverage] |
 | 2025-10-31 | Google | Merchant API removes `contains_custom_rules` from primary data sources (breaking) | [Official] |
+| 2025-11 (late) | Perplexity | Instant Buy with PayPal expands to free US users | [Official per coverage] |
 | 2025-11-11 | Google | Merchant API accepts base64url encoded product IDs | [Official] |
 | 2025-11-13 | Google | Agentic checkout ("buy for me" with price tracking) live in US with Wayfair, Chewy, Quince, select Shopify merchants | [Official per coverage] |
-| 2025-11 (late) | Perplexity | Instant Buy with PayPal expands to free US users | [Official per coverage] |
 | 2025-12-10 | Shopify | Winter '26 Edition announces Agentic Storefronts | [Official per coverage] |
 | 2025-12-11/12 | Stripe, ACP | Agentic Commerce Suite; ACP fulfillment enhancements | [Official] |
 | 2026-01-08 | Microsoft | Copilot Checkout and Brand Agents (US, Copilot.com) | [Official] |
 | 2026-01-11 | Google | UCP announced (NRF) with Shopify, Etsy, Wayfair, Target, Walmart; checkout in AI Mode and Gemini; Business Agent; Direct Offers; new conversational attributes promised | [Official] |
 | 2026-01-16/30 | ACP | Capability negotiation; extensions, discounts, payment handlers | [Official] |
 | 2026-02-28 | Google | Merchant API v1beta retired | [Official per secondary] |
-| 2026-03-06 to 03-24 | OpenAI | Standalone Instant Checkout retired; merchant-owned checkout; discovery focus | [Official] |
 | 2026-03 | Google | Simplified UCP onboarding through Merchant Center announced, phased | [Official per coverage] |
+| 2026-03-06 to 03-24 | OpenAI | Standalone Instant Checkout retired; merchant-owned checkout; discovery focus | [Official] |
 | 2026-03-11 | Google | Merchant API: `handling_cutoff_timezone`, shipping business days | [Official] |
-| 2026-03-25 | Meta | One-tap checkout in Facebook ads with Stripe and PayPal (Adyen and Shopify payments to follow; Instagram announced) | [Official per TechCrunch] |
 | 2026-03-19 | schema.org | v30.0: GS1 equivalences, EU DPP examples | [Official] |
 | 2026-03-24 | Shopify | Agentic Storefronts at scale | [Official per coverage] |
+| 2026-03-25 | Meta | One-tap checkout in Facebook ads with Stripe and PayPal (Adyen and Shopify payments to follow; Instagram announced) | [Official per TechCrunch] |
 | 2026-04 | Google | AP2 v0.2 contributed to FIDO Alliance | [Official] |
 | 2026-04 | Microsoft | Copilot Checkout in mobile app; 500,000+ merchant catalog | [Official per coverage] |
 | 2026-04-09 | Google | Merchant API `base64_encoded_name` output field | [Official] |
@@ -103,9 +103,9 @@
 | 2026-07-10 | OpenAI | Feed retrieval overtakes web retrieval in ChatGPT shopping (observed) | [Study] |
 | 2026-07-13 | Google | Merchant API: Q&A, popularity rank, item group title, document links, variant options, related products, short title, vehicle and property attributes, loyalty in shipping, PickupCost, minimum order value; `archived` product flag | [Official] |
 | 2026-08-18 | Google | Content API for Shopping shut down | [Official] |
-| 2026-09-01 | Google | Content API requests without approved extended access begin progressive errors | [Official, release notes] |
 | 2026-08-25 | UCP | Protocol version 2026-08-25 | [Official] |
 | 2026-08-31 and 09-16 | OpenAI | ChatGPT Ads self-serve beta expands to more countries | [Official per coverage] |
+| 2026-09-01 | Google | Content API requests without approved extended access begin progressive errors | [Official, release notes] |
 | 2026-09-09 | Industry | SEJ publishes Profound's feed retrieval analysis | [Study] |
 | 2026-09-16 | schema.org | v30.1: retail feed vocabulary and EU Digital Product Passport | [Official] |
 | 2026-09-24 to 10-07 | UCP | Lodging booking draft, media variants, `ask` capability for natural-language Q&A | [Official] |
@@ -229,7 +229,7 @@ No credible public benchmark for title optimization lift was verified in this re
 5. Meta: whether one-tap ad checkout reaches Instagram and which markets beyond the initial launch (7 new markets were reported for spring 2026) [Unverified].
 6. TikTok Shop: official GMV Max thresholds (creative minimums and daily budget floors differ by source: 10 or 20 videos per product, $50 or $100 per day) [Contested].
 7. Copilot Checkout expansion to Bing, Edge, MSN, Windows and to non-US markets.
-8. Perplexity merchant terms and the outcome of Amazon's lawsuit over agentic shopping.
+8. Perplexity merchant terms and the remanded Amazon v. Perplexity case (Ninth Circuit vacated the Comet injunction on 2026-08-04; motion to dismiss filed 2026-09-11).
 9. Content API full decommission timing (early 2027 reported by one vendor) and HTTP 410 behavior after extension dates lapse [Unverified].
 10. Merchant Center enforcement of separate online and in-store IDs when attributes differ.
 
@@ -335,3 +335,5 @@ No credible public benchmark for title optimization lift was verified in this re
 90. Import from Google Merchant Center. Microsoft Advertising Help. https://help.ads.microsoft.com/apex/index/3/en/56870. Checked 2026-10 (via search).
 91. Microsoft Advertising simplifies Google Merchant Center import. PPC News Feed. https://ppcnewsfeed.com/ppc-news/2024-09/microsoft-advertising-simplifies-google-merchant-center-import/. 2024-09.
 92. Feed: How to submit my GoDataFeed feed to ChatGPT Ads? GoDataFeed Help. https://help.godatafeed.com/hc/en-us/articles/51837706971675-Feed-How-to-submit-my-GoDataFeed-feed-to-ChatGPT-Ads. 2026.
+93. Amazon.com Services, LLC v. Perplexity AI, Inc. (No. 26-1444). US Court of Appeals for the Ninth Circuit. https://cdn.ca9.uscourts.gov/datastore/opinions/2026/08/04/26-1444.pdf. 2026-08-04.
+94. Amazon wins court order to block Perplexity's AI shopping agent. CNBC. https://www.cnbc.com/2026/03/10/amazon-wins-court-order-to-block-perplexitys-ai-shopping-agent.html. 2026-03-10.

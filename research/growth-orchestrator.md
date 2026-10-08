@@ -75,30 +75,30 @@ Implication for channel mix: social and CTV take the largest share of incrementa
 | 2025-06 | Magna summer update: 2025 global ad revenue +4.9% to $979 billion; digital pure players about 73% | Baseline | S |
 | 2025-06 | Reports that Meta aims to fully automate ad creation by end of 2026 | Automation roadmap | S |
 | 2025-07 | Pew study: link clicks 8% with AI summary vs 15% without (March 2025 data) | Organic demand capture weakens | S |
-| 2025-07-25 | Meta announces end of political, electoral and social issue ads in the EU from October 2025 | Category restrictions EU | S |
 | 2025-07 to 2025-09 | TikTok GMV Max becomes mandatory for TikTok Shop ads (July 15 or September 1 depending on source) | Commerce automation | S [Contested date] |
+| 2025-07-25 | Meta announces end of political, electoral and social issue ads in the EU from October 2025 | Category restrictions EU | S |
 | 2025-10-10 | EU TTPA (Regulation 2024/900) applies | Political ads rules | S |
 | 2025-10-17 | Google retires remaining Privacy Sandbox APIs | Measurement stays on cookies, first-party and modeled signals | S |
+| 2025-12 | Ahrefs: AI Overviews reduce position one CTR by 58% (300,000 keywords) | Organic forecast | S |
 | 2025-12-08 | European Commission announces Meta commitment to a less personalized ads choice from January 2026 | EU targeting | S |
 | 2025-12-18 | TikTok signs US joint venture agreement | US platform risk falls | S |
 | 2025-12-19 | Google expands ads in AI Overviews to 11 more English markets (12 total) | AI surface ads | S |
 | 2025-12-25 | Turkey cuts DST to 5% from 2026 and 2.5% from 2027 (Decision No. 10767) | Turkey true media cost | S |
+| 2026-01 | Meta revised EU choice flows (full vs less personalized ads) roll out | EU signal | S |
+| 2026-01 | IAB 2026 Outlook: US ad spend +9.5% | Planning baseline | S |
 | 2026-01-01 | Google cuts the Türkiye regulatory operating cost from 7% to 4.5% | Turkey true media cost | S [Official, Google Ads Help] |
 | 2026-01-05 | UK HFSS paid online advertising ban in force (voluntary from 2025-10-01) | Food and drink plans in the UK | S [Official] |
-| 2026-02-05 | UK DUAA PECR changes in force (statistical cookie exception, higher fines) | UK consent and analytics | S [Official via law firm] |
-| 2025-12 | Ahrefs: AI Overviews reduce position one CTR by 58% (300,000 keywords) | Organic forecast | S |
-| 2026-01 | Meta revised EU choice flows (full vs less personalized ads) roll out | EU signal | S |
 | 2026-01-12 | Meta removes 7-day and 28-day view windows from the Ads Insights API | Reported conversions drop without real change; rebaseline targets | K (cross-checked with research/meta-ads.md, research/measurement.md) |
 | 2026-01-16 | OpenAI announces ads testing in ChatGPT | New channel on the horizon | K (research/chatgpt-ads.md) |
 | 2026-01-22 | TikTok US joint venture deal closes | US TikTok planning | S |
-| 2026-01 | IAB 2026 Outlook: US ad spend +9.5% | Planning baseline | S |
+| 2026-02-05 | UK DUAA PECR changes in force (statistical cookie exception, higher fines) | UK consent and analytics | S [Official via law firm] |
 | 2026-02-09 | ChatGPT ads US pilot starts (Free and Go users) with reported $60 CPM and $200,000 minimum via agencies | New channel | S [secondary] |
 | 2026-03 | Meta click attribution limited to link clicks; 1-day engage-through window added | Second rebaseline of Meta reported results | K (research/meta-ads.md) |
 | 2026-04 | IAB/PwC full year 2025: $294.6 billion | Channel shares | S |
 | 2026-04 | TikTok Shop Smart Promotion prerequisite (per Seller University) | Commerce | S [Unverified detail] |
 | 2026-05-05 | ChatGPT Ads Manager self serve beta, CPC bidding, no minimum, pixel and Conversions API | Test budget access | S |
-| 2026-05-20 | Google Marketing Live 2026: AI Mode ad formats (US first), Universal Cart | Search plans | S [secondary] |
 | 2026-05-13 | GA4 adds an AI Assistant default channel | AI referrals visible in standard reports | K (research/measurement.md) |
+| 2026-05-20 | Google Marketing Live 2026: AI Mode ad formats (US first), Universal Cart | Search plans | S [secondary] |
 | 2026-05-27 | dentsu midyear: 2026 +5.0%, search +3.4% | Planning | S |
 | 2026-06 | WPP Media midyear: +8.9%, $1.3 trillion, generative search forecasts | Planning | S |
 | 2026-07-27 | EU AI omnibus (Regulation (EU) 2026/1744) in force; Article 50 still applies from 2026-08-02 | AI content disclosure in EU ads | S [Official, EUR-Lex] |
@@ -106,8 +106,8 @@ Implication for channel mix: social and CTV take the largest share of incrementa
 | 2026-08-24 | ChatGPT ads begin serving in 31 European countries | EU AI ads | S [secondary] |
 | 2026-08-31 | OpenAI reports $1 billion annualized ads run rate; self serve opens in Europe, India and MENA | Test availability by geo | S [secondary] |
 | 2026-09 | Google AI Max auto upgrade (automatically created assets and broad match), 1 to 30 September; DSA migration date contested | Search structure | S [secondary; cross-checked with research/google-ads.md] |
-| 2026-09-10 | IAB raises 2026 US forecast to +12.3% | Planning | S |
 | 2026-09 to 2026-10 | ChatGPT ads expand to Southeast Asia and Taiwan; "more than 60 countries" | Geo availability | S |
+| 2026-09-10 | IAB raises 2026 US forecast to +12.3% | Planning | S |
 | 2026-10-05 | OpenAI announces visual ads next to image generation results (US test); TikTok Ad Network opens to US advertisers; TÜİK reports September CPI at 29.73% | New formats and inventory; Turkey re-basing | S |
 
 ## 4. Best practice consensus

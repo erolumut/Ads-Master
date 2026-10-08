@@ -125,6 +125,8 @@ Annotated sources behind this skill. Status: **S** = surfaced through live web s
 | 82 | Semrush MCP | Semrush Developer | https://developer.semrush.com/api/v4/introduction/semrush-mcp/ | Official remote MCP, auth, units | S |
 | 83 | Announcing Similarweb MCP Server | Similarweb | https://www.similarweb.com/blog/updates/announcements/mcp-server-launch/ | Official MCP launch 2025-09-25 | S |
 | 84 | Similarweb MCP Server | Similarweb Developers | https://developers.similarweb.com/docs/similarweb-mcp | Endpoint, plan and credit rules | S |
+| 85 | Google opens alpha testing for new Trends API | PPC Land | https://ppc.land/google-opens-alpha-testing-for-new-trends-api-targeting-developers-and-journalists/ | Trends API alpha (2025-07) | S |
+| 86 | Public Availability of Auction Insights Metrics via Google Ads API | Google Ads API Forum | https://groups.google.com/g/adwords-api/c/30s21wGZkOU | Auction insights allowlist only (2025) | S |
 
 ## How evidence labels map to these sources
 | Label | Typical source type here |

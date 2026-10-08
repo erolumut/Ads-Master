@@ -130,10 +130,12 @@
 | 81 | Datadog acquires Eppo, a feature flagging and experimentation platform | Seeking Alpha | https://seekingalpha.com/news/4440981-datadog-acquires-experiment-platform-provider-eppo | 2025-05-05 | Eppo acquisition date |
 | 82 | Give your AI eyes: Introducing Chrome DevTools MCP | Addy Osmani (Google) | https://addyosmani.com/blog/devtools-mcp/ | 2025-09 | Chrome DevTools MCP launch |
 | 83 | Shopify Dev MCP server | Shopify | https://shopify.dev/apps/build/devmcp | 2026 | @shopify/dev-mcp tools |
+| 84 | Direct consumer enforcement: one year on | CMA blog | https://competitionandmarkets.blog.gov.uk/2026/04/17/direct-consumer-enforcement-one-year-on/ | 2026-04-17 | DMCC enforcement from 6 April 2025 |
+| 85 | FTC finalizes junk fees rule; new pricing disclosure requirements take effect May 12, 2025 | Barnes and Thornburg | https://btlaw.com/en/insights/alerts/2025/ftc-finalizes-junk-fees-rule-new-pricing-disclosure-requirements-take-effect-may-12-2025 | 2025 | Fees rule effective date |
+| 86 | Eleventh Circuit Vacates FCC's TCPA One-to-One Consent Rule | Morrison Foerster | https://www.mofo.com/resources/insights/250130-eleventh-circuit-vacates-fcc-s-tcpa-one-to-one-consent-rule | 2025-01-30 | One-to-one rule vacated 2025-01-24 |
 
 ## Items still needing primary-source confirmation
 - FTC consumer reviews and testimonials rule details (final rule August 2024, effective 21 October 2024).
-- UK DMCC Act consumer enforcement start date (April 2025) and drip pricing provisions.
 - Exact Clarity Data Export API endpoint (limit reported as about 10 requests per project per day).
 - Shopify Rollouts plan availability (Grow vs Advanced), reported metrics, and the 2026-10-02 discount testing entry.
 - Shopify behavior after the 2026-08-26 non-Plus deadline (auto-upgrade reports conflict).

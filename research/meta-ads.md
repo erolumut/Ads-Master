@@ -2,7 +2,7 @@
 
 Compiled: 2026-10-08. Owner slug: meta-ads.
 
-Method and limitations: web search across official Meta pages, regulators, SEC filings, trade press and practitioner sources, with every claim tagged by evidence label. Constraints during this build: direct page fetching was blocked by the network environment, and the shared web search budget for the session was exhausted after 18 extended searches (the brief asked for 35+). Official claims were therefore confirmed through multiple independent reports of the same announcement where possible; anything resting on a single secondary source is labeled [Unverified]. Long-standing platform mechanics (learning phase, breakdown effect, auction formula, dedup rules) come from Meta Help Center documentation known before this build and are labeled [Official, long-standing]; they should be re-read during the first Freshness check. A follow-up verification pass on 2026-10-08 (a shared pass of about 50 targeted searches across meta-ads, creative-strategy and tiktok-ads; sources 79 to 117) confirmed or corrected the mid 2026 items: labels below were upgraded where Meta pages, Meta statements or multiple independent reports now support them, and corrected where facts were wrong (Turkey location fee date, official MCP server, customer controls, conversion leads thresholds).
+Method and limitations: web search across official Meta pages, regulators, SEC filings, trade press and practitioner sources, with every claim tagged by evidence label. Constraints during this build: direct page fetching was blocked by the network environment, and the shared web search budget for the session was exhausted after 18 extended searches (the brief asked for 35+). Official claims were therefore confirmed through multiple independent reports of the same announcement where possible; anything resting on a single secondary source is labeled [Unverified]. Long-standing platform mechanics (learning phase, breakdown effect, auction formula, dedup rules) come from Meta Help Center documentation known before this build and are labeled [Official, long-standing]; they should be re-read during the first Freshness check. A follow-up verification pass on 2026-10-08 (a shared pass of about 50 targeted searches across meta-ads, creative-strategy and tiktok-ads; sources 79 to 120) confirmed or corrected the mid 2026 items: labels below were upgraded where Meta pages, Meta statements or multiple independent reports now support them, and corrected where facts were wrong (Turkey location fee date, official MCP server, customer controls, conversion leads thresholds).
 
 ## 1. Executive summary
 
@@ -77,10 +77,12 @@ Operator response: annotate reports on both dates, rebuild pipelines, compare ba
 |------|--------|--------|-------|
 | 2025-01 | Health and wellness data restrictions begin (lower funnel events, URL parameters) | Foley Hoag, Triple Whale | [Official] |
 | 2025-01 | "Credit" special ad category broadened to financial products and services | Meta Help Center (pre-build knowledge) | [Unverified exact scope] |
-| 2025 (early) | Detailed targeting exclusions removed | Secondary 2026 guides | [Unverified exact date] |
+| 2025-01-31 | Ad sets still using detailed targeting exclusions stop delivering (removal for new ad sets began 2024-07-29) | Jon Loomer, Social Media Today, Wicked Reports | [Official, 2024-07 notice] |
 | 2025-02 | Advantage+ shopping renamed Advantage+ sales; streamlined creation test with Advantage+ on by default for Sales, App, Leads | Jon Loomer, Meta business page | [Official] |
+| 2025-03 | Daily budget flexibility raised from 25% to up to 75% over daily budget; weekly cap 7 x daily | Jon Loomer, Meta support text | [Official in-account notice] |
 | 2025-04 | Threads ads opened to advertisers globally (low delivery) | PPC Land, Social Media Today | [Official] |
 | 2025 (H1) | Incremental attribution reaches Ads Manager; Meta reports 46% lift in tests | Jon Loomer, Social Media Today, Birch | [Official] |
+| 2025-05 | Offline Conversions API discontinued with Graph API v16.0 expiry; offline events go through Conversions API | Graph API changelog | [Official] |
 | 2025-05-29 | Marketing API unified Advantage+ structure announced | PPC Land | [Official] |
 | 2025-06 (early) | WSJ reports Meta aims to fully automate ad creation and targeting by end of 2026 | WSJ via secondary | [Official statement reported by press] |
 | 2025-06-16 | WhatsApp Updates tab: Status ads, Promoted Channels, channel subscriptions announced | Meta Newsroom | [Official] |
@@ -376,3 +378,6 @@ Caveat for all: benchmarks vary by vertical, geo, season and attribution setting
 115. Upcoming pricing updates for Meta Business Agent, service and utility messages. Meta for Developers. https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing/non-template-messages (2026)
 116. WhatsApp Business API Pricing: Complete Guide (2026). Spur. https://www.spurnow.com/en/blogs/whatsapp-business-api-pricing-explained (2026-09)
 117. Meta Q2 2026 Earnings Call Transcript. The Motley Fool. https://www.fool.com/earnings/call-transcripts/2026/08/07/meta-meta-q2-2026-earnings-call-transcript/ (2026-07-29)
+118. It's Official: No More Detailed Targeting Exclusions. Jon Loomer Digital. https://www.jonloomer.com/qvt/detailed-targeting-exclusions/ (2024-07)
+119. Increased Budget Flexibility. Jon Loomer Digital. https://www.jonloomer.com/qvt/increased-budget-flexibility/ (2025)
+120. Graph API changelog, version 20.0. Meta for Developers. https://developers.facebook.com/docs/graph-api/changelog/version20.0 (2024-05-21)

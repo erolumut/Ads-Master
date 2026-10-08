@@ -447,14 +447,14 @@ import crypto from 'node:crypto';
 const sha = (v?: string) => (v ? crypto.createHash('sha256').update(v, 'utf8').digest('hex') : undefined);
 const normEmail = (e?: string) => (e ? e.trim().toLowerCase() : undefined);
 // Digits only, with country code. Configure the default country code for local numbers.
-const normPhoneDigits = (p?: string, defaultCc = process.env.DEFAULT_CC || '') => {
+const normTelDigits = (p?: string, defaultCc = process.env.DEFAULT_CC || '') => {
   if (!p) return undefined;
   let d = p.replace(/\D+/g, '');
   if (d.startsWith('00')) d = d.slice(2);
   else if (d.startsWith('0') && defaultCc) d = defaultCc + d.slice(1);
   return d || undefined;
 };
-const e164 = (p?: string) => { const d = normPhoneDigits(p); return d ? '+' + d : undefined; };
+const e164 = (p?: string) => { const d = normTelDigits(p); return d ? '+' + d : undefined; };
 const normName = (s?: string) => (s ? s.trim().toLowerCase().replace(/[^\p{L}\p{N}]/gu, '') : undefined);
 
 type Item = { id: string; quantity: number; price: number };
@@ -478,7 +478,7 @@ async function post(url: string, body: unknown, headers: Record<string, string> 
 function metaUserData(e: ConvEvent) {
   const ud: Record<string, unknown> = {
     em: e.email ? [sha(normEmail(e.email))] : undefined,
-    ph: e.phone ? [sha(normPhoneDigits(e.phone))] : undefined,
+    ph: e.phone ? [sha(normTelDigits(e.phone))] : undefined,
     fn: e.firstName ? [sha(normName(e.firstName))] : undefined,
     ln: e.lastName ? [sha(normName(e.lastName))] : undefined,
     ct: e.city ? [sha(normName(e.city))] : undefined,

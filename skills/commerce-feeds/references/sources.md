@@ -108,9 +108,10 @@
 | 80 | Import from Google Merchant Center | Microsoft Advertising Help | https://help.ads.microsoft.com/apex/index/3/en/56870 | Checked 2026-10 | Import tool, schedules, approved offers only |
 | 81 | Feed: How to submit my GoDataFeed feed to ChatGPT Ads? | GoDataFeed Help | https://help.godatafeed.com/hc/en-us/articles/51837706971675-Feed-How-to-submit-my-GoDataFeed-feed-to-ChatGPT-Ads | 2026 | 1,000 minimum and 2 million maximum claim |
 | 82 | OpenAI makes it easier to run shopping ads in ChatGPT | Digiday | https://digiday.com/marketing/openai-makes-it-easier-to-run-shopping-ads-in-chatgpt/ | 2026-06 | 100-product sample and 1 million SKU claim |
+| 83 | Amazon.com Services, LLC v. Perplexity AI, Inc. (No. 26-1444) | US Court of Appeals for the Ninth Circuit | https://cdn.ca9.uscourts.gov/datastore/opinions/2026/08/04/26-1444.pdf | 2026-08-04 | Comet injunction vacated |
 
 ## Recheck list (sources read only via search)
-Items 8, 9, 10, 22, 23, 24, 25, 26, 34, 36, 43, 44, 45, 59, 65 and 71 to 82: open the live page before quoting in a client deliverable.
+Items 8, 9, 10, 22, 23, 24, 25, 26, 34, 36, 43, 44, 45, 59, 65 and 71 to 83: open the live page before quoting in a client deliverable.
 
 ## Monitoring list (what to check, how often)
 

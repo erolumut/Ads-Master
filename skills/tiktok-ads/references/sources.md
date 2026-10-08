@@ -1,6 +1,6 @@
 # Sources (annotated)
 
-> Compiled 2026-10-08. Numbering matches `research/tiktok-ads.md`. "Accessed" means the page was located in this research cycle but carries no visible publish date; check the page's "last updated" line before relying on it. Research limits this cycle: direct page fetching was blocked by network policy and the first pass ran out of search budget after 21 searches, so findings come from search-indexed page content. A verification pass on 2026-10-08 added sources 88 to 123 (section D2). Re-verify Official items in the live help center before acting.
+> Compiled 2026-10-08. Numbering matches `research/tiktok-ads.md`. "Accessed" means the page was located in this research cycle but carries no visible publish date; check the page's "last updated" line before relying on it. Research limits this cycle: direct page fetching was blocked by network policy and the first pass ran out of search budget after 21 searches, so findings come from search-indexed page content. A verification pass on 2026-10-08 added sources 88 to 125 (section D2). Re-verify Official items in the live help center before acting.
 
 ## A. TikTok official: announcements and blogs
 
@@ -150,6 +150,8 @@
 | 121 | Misleading and false content (advertising policy) | TikTok Ads Help Center | https://ads.tiktok.com/help/article/tiktok-ads-policy-misleading-and-false-content | 2026 | AIGC label or clear disclaimer on AI ad content |
 | 122 | TikTok AI Content Disclosure Rules for Advertisers (2026) | UGCVids | https://ugcvids.ai/blog/tiktok-ai-content-disclosure-rules-2026 | 2026-08 | Policy text summary; changelog has no 2026 AIGC change |
 | 123 | TikTok's New AI Ad Disclosure Rules | Common Thread Collective | https://commonthreadco.com/blogs/coachs-corner/tiktok-ai-ad-disclosure-rules-ecommerce-2026 | 2026-07 | Source of the 2026-07-21 date [Contested] |
+| 124 | How to create Spark Ads for Smart+ Campaigns in TikTok Ads Manager | TikTok Ads Help Center | https://ads.tiktok.com/help/article/how-to-create-spark-ads-for-smart-campaigns-on-tiktok-ads-manager | Accessed 2026-10 | Spark authorization durations 7, 30, 60 or 365 days |
+| 125 | TikTok Extends Options For The Ad Authorization Period | Lindsey Gamble | https://www.lindseygamble.com/blog/tiktok-extends-options-for-the-ad-authorization-period | n.d. | 365-day authorization added |
 
 ## E. How to extend this list
 When the Freshness Protocol finds a new change, add a row with the next number, the official URL first, and update `research/tiktok-ads.md` timeline. Remove nothing; mark superseded items "superseded by #N".

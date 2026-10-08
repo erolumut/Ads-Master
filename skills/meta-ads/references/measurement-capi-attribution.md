@@ -13,7 +13,7 @@
 | Conversions API Gateway | Meta-provided gateway you host in your own cloud (AWS or GCP) or via a partner; mirrors Pixel events server-side | Gateway health in Events Manager |
 | Signals Gateway | Meta first-party data pipeline (2024) that routes events to Meta and other destinations | Optional; for complex stacks |
 | App events | Meta SDK or MMP (AppsFlyer, Adjust, Branch, Singular, Kochava) | Events Manager app dataset; SKAdNetwork configuration |
-| Offline / CRM events | Conversions API with action_source physical_store or system_generated; the separate Offline Conversions API was retired in 2025 [Unverified exact date] | Offline events visible in dataset |
+| Offline / CRM events | Conversions API with action_source physical_store or system_generated; the separate Offline Conversions API was discontinued in May 2025 with the expiry of Graph API v16.0, the last version supporting offline event sets [Official, Graph API changelog v20.0] | Offline events visible in dataset |
 | Business messaging events | Conversions API for business messaging (events from Messenger, Instagram, WhatsApp chats) | Needed to optimize chats for leads or purchases |
 
 ## 2. Implementation standard (what "done" looks like)

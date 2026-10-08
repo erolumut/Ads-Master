@@ -177,7 +177,7 @@ Never push field values (personal data) to analytics. Fire the conversion only o
 
 ## 10. Consent and compliance on forms
 - GDPR and UK GDPR: separate marketing consent from the request; unticked; link privacy policy; state purpose.
-- US TCPA for calls and texts: consent language for automated calls or texts. The FCC one-to-one consent rule was vacated by a federal court in January 2025 [Unverified, verify], but express written consent rules still apply. Get legal review for lead gen in insurance, finance, solar, home services.
+- US TCPA for calls and texts: consent language for automated calls or texts. The FCC one-to-one consent rule was vacated by the Eleventh Circuit on 24 January 2025 (Insurance Marketing Coalition v. FCC), days before it would have taken effect [Official, court ruling 2025-01], but prior express written consent rules still apply. Get legal review for lead gen in insurance, finance, solar, home services.
 - Health data: HIPAA in the US; do not pass form contents or health conditions to ad pixels.
 - Accessibility: labels, error identification, keyboard operation (see [Audit checklist](audit-checklist.md) section K).
 

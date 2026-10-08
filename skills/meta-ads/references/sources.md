@@ -159,6 +159,9 @@
 | 135 | Upcoming pricing updates for Meta Business Agent, service and utility messages | Meta for Developers | https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing/non-template-messages | 2026 | Service messages billed from 2026-10-01 |
 | 136 | WhatsApp Business API Pricing: Complete Guide (2026) | Spur | https://www.spurnow.com/en/blogs/whatsapp-business-api-pricing-explained | 2026-09 | 7-day free entry point window dated 2026-09-28 [Contested] |
 | 137 | Meta Q2 2026 Earnings Call Transcript | The Motley Fool | https://www.fool.com/earnings/call-transcripts/2026/08/07/meta-meta-q2-2026-earnings-call-transcript/ | 2026-07-29 | Threads 500 million monthly actives; Threads ads global |
+| 138 | It's Official: No More Detailed Targeting Exclusions | Jon Loomer Digital | https://www.jonloomer.com/qvt/detailed-targeting-exclusions/ | 2024-07 | Removal from 2024-07-29; existing ad sets stop 2025-01-31 |
+| 139 | Increased Budget Flexibility | Jon Loomer Digital | https://www.jonloomer.com/qvt/increased-budget-flexibility/ | 2025 | Daily flex from 25% to 75%, weekly cap 7 x daily |
+| 140 | Graph API changelog, version 20.0 | Meta for Developers | https://developers.facebook.com/docs/graph-api/changelog/version20.0 | 2024-05-21 | Offline Conversions API discontinued May 2025 |
 
 ## D. How to use this list
 

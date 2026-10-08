@@ -18,7 +18,7 @@ Default: run winning creator and organic content as Spark Ads; use non-Spark for
 
 ## 2. Authorization workflow
 
-1. Creator (or brand account) opens the post's settings and turns on ad authorization, choosing a duration (commonly 7, 30, 60 or 365 days [Unverified for current options]), then generates the video code.
+1. Creator (or brand account) opens the post's settings and turns on ad authorization, choosing a duration of 7, 30, 60 or 365 days [Official, Help Center "How to create Spark Ads for Smart+ Campaigns"; 365 days added later per Lindsey Gamble]. When the code expires, ads using it stop and the code cannot be reactivated; request a new code before expiry, then generates the video code.
 2. The code is sent to the advertiser, who adds it in Ads Manager (Creative or Assets > TikTok Posts > Apply for authorization or Add by code).
 3. Alternatively, request authorization through TikTok One or the account-linking flow so posts can be selected without manual codes.
 4. Record each code in the creator register: post URL, creator, code, start date, expiry, usage terms, fee.
@@ -58,7 +58,7 @@ Creator types:
 ```
 - Deliverables: number of videos, hooks, raw footage, revisions
 - Posting: on creator account? date window? caption approval?
-- Spark Ads authorization: duration (30, 60 or 365 days), renewal fee
+- Spark Ads authorization: duration (7, 30, 60 or 365 days in the TikTok app; contract for 60 or 365), renewal fee
 - Paid usage outside TikTok (Meta, YouTube): term and territories
 - Exclusivity: category and term (price it explicitly)
 - Edit rights: brand may cut, re-hook, caption, dub, translate

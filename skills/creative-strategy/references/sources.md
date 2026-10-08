@@ -26,6 +26,8 @@
 | Veo in Google Ads (announcement page) | Google Ads | https://business.google.com/en-all/accelerate/announcements/veo-google-ads/ | 2026-03 | Veo image to video in Asset Studio | Seen 2026-10-08 |
 | Multimodal Video Creation in Asset Studio | Google Ads | https://business.google.com/us/accelerate/announcements/multimodal-video-creation-in-asset-studio/ | 2026 | Asset Studio video generation | Seen 2026-10-08 |
 | Asset Studio: your creative home in Google Ads (GML 2026) | Google Ads on X | https://x.com/GoogleAds/status/2057148459497746590 | 2026-05-20 | Gemini, Veo, Nano Banana in Asset Studio; Gemini Omni for summer | Seen 2026-10-08 |
+| Google brings Gemini Omni video creation to Google Ads | Search Engine Land | https://searchengineland.com/google-brings-gemini-omni-video-creation-to-google-ads-485814 | 2026-08 | Gemini Omni launch in Asset Studio about 2026-08-26 | Seen 2026-10-08 |
+| Google Ads Enhances Creative Insights With A/B Testing | PPC News Feed | https://ppcnewsfeed.com/ppc-news/2026-08/google-ads-creative-insights-ab-testing/ | 2026-08-29 | One-click Save and Set Experiment for PMax | Seen 2026-10-08 |
 | Transforming Video Creation With TikTok Symphony And Dreamina Seedance 2.5 | TikTok for Business | https://ads.tiktok.com/business/en/blog/transforming-video-creation-tiktok-symphony-dreamina-seedance | 2026-08-03 | 30-second AI video, labels, watermark, C2PA | Seen 2026-10-08 |
 | Misleading and false content (advertising policy) | TikTok Ads Help Center | https://ads.tiktok.com/help/article/tiktok-ads-policy-misleading-and-false-content | 2026 | AIGC label or clear disclaimer required on AI ad content | Section list seen; text via secondary |
 | Integrity and Authenticity | TikTok Community Guidelines | https://www.tiktok.com/community-guidelines/en/integrity-authenticity | current | Labels on realistic AI content | Seen 2026-10-08 |
@@ -144,11 +146,11 @@
 
 ## Re-verification queue (highest priority first)
 
-Verified on 2026-10-08 (see research dossier sources 68 to 97): Creative diversity rating definition, Advantage+ enhancement default date (2026-02), TikTok Symphony and AIGC ad rule, Google AI labeling update and Asset Studio, ChatGPT ad formats, EU Article 50 status after the omnibus, New York and California laws, ABCD figures and method. Still open:
+Verified on 2026-10-08 (see research dossier sources 68 to 100): Creative diversity rating definition, Advantage+ enhancement default date (2026-02), TikTok Symphony and AIGC ad rule, Google AI labeling update and Asset Studio, ChatGPT ad formats, EU Article 50 status after the omnibus, New York and California laws, ABCD figures and method. Still open:
 
 1. Meta Help Center: creative fatigue label thresholds; Creative Testing tool limits (variants, budget, duration, bid strategies) in Meta's own words.
 2. Meta: Muse Image availability in Advantage+ creative; whether Creative diversity is exposed in the API or the official MCP server.
 3. TikTok: Spark Ads authorization options; free vs paid Seedance access; date of the AIGC ad rule (2026-07-21 claim).
-4. Google: whether Gemini Omni and one-click creative testing in Asset Studio are live.
+4. Google: Gemini Omni rollout coverage by account (launched about 2026-08-26) and whether one-click testing extends beyond Performance Max.
 5. EU: final Commission code of practice on AI content labeling.
 6. LinkedIn 2026 formats (not re-verified).

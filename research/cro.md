@@ -50,61 +50,64 @@
 
 | Date | Change | Impact on CRO | Evidence |
 |------|--------|---------------|----------|
-| 2025-03 | Adobe: AI referrals to US retail convert 38% worse than non-AI traffic | Baseline for AI traffic reversal | [Study, Adobe] |
-| 2025-05 | Contentsquare launches Sense AI agent | AI summaries for replay and zoning | [press, 2025-05] |
 | 2025-01 to 2025-04 | FTC proposes (January) then finalizes (April, 3-0 vote) the accessiBe order: $1 million, no unsubstantiated WCAG compliance claims for automated overlays | Overlays are not a compliance fix | [Official, FTC 2025-04] |
+| 2025-01-24 | Eleventh Circuit vacates the FCC one-to-one TCPA consent rule | Lead gen consent language keeps multi-seller forms legal; express written consent still required | [Official, court ruling] |
+| 2025-03 | Adobe: AI referrals to US retail convert 38% worse than non-AI traffic | Baseline for AI traffic reversal | [Study, Adobe] |
+| 2025-04-06 | UK DMCC Act consumer enforcement begins: drip pricing and fake reviews banned, CMA fines directly up to 10% of turnover | UK pricing and review display | [Official, 2025-04] |
+| 2025-05 | Contentsquare launches Sense AI agent | AI summaries for replay and zoning | [press, 2025-05] |
 | 2025-05-05 | Datadog announces acquisition of Eppo ("Eppo by Datadog") | Warehouse-native experimentation consolidates | [press, 2025-05] |
+| 2025-05-12 | FTC fees rule for live-event tickets and short-term lodging takes effect (total price upfront) | Price display for covered sellers | [Official, 2025-05] |
 | 2025-06-28 | European Accessibility Act applies | Accessible ecommerce and forms required for EU consumers | [Official, Directive 2019/882] |
-| 2025-07-01 | Hotjar merged into Contentsquare Group | Pricing and plan changes; Sense features by plan | [secondary, 2026] |
 | 2025-07 | CrUX: mobile good LCP about 62%, INP 77%, CLS 81% | LCP still the main failure | [Study, secondary] |
 | 2025-07 | Amazon Prime Day: AI traffic converts 23% worse than non-AI (avg of 4 days) | Pre-reversal baseline | [Study, Adobe via CMSWire] |
+| 2025-07-01 | Hotjar merged into Contentsquare Group | Pricing and plan changes; Sense features by plan | [secondary, 2026] |
 | 2025-07-08 | Eighth Circuit vacates the FTC click to cancel rule (procedural grounds) | ROSCA and state laws still apply | [Official, court ruling 2025-07] |
 | 2025-08-28 | Shopify Plus deadline: Thank you and Order status pages to checkout extensibility | Legacy scripts removed on upgrade | [Official, shopify.dev] |
-| 2025-09-02 | OpenAI acquires Statsig ($1.1B stock) | Vendor risk for Statsig users | [press, TechCrunch] |
 | 2025-09 | Sense Analyst first beta customers | Agentic analytics | [Official, Contentsquare] |
-| 2025-09-29 | ChatGPT Instant Checkout and Agentic Commerce Protocol announced (OpenAI later moved away from standalone Instant Checkout in March 2026) | Purchases inside assistants; data consistency matters | [Official, 2025-09] |
+| 2025-09-02 | OpenAI acquires Statsig ($1.1B stock) | Vendor risk for Statsig users | [press, TechCrunch] |
 | 2025-09-22 | Baymard cart abandonment list update (70.22%, 50 studies) | Current reference | [Study, Baymard] |
+| 2025-09-29 | ChatGPT Instant Checkout and Agentic Commerce Protocol announced (OpenAI later moved away from standalone Instant Checkout in March 2026) | Purchases inside assistants; data consistency matters | [Official, 2025-09] |
 | 2025-11 | Baymard checkout benchmark update: 64% desktop, 63% mobile mediocre or worse | Checkout still the main leak | [Study, Baymard] |
 | 2025 | Web Almanac 2025: INP switch lowered mobile CWV pass rates about 5 points | INP needs attention | [Study, HTTP Archive] |
+| 2026-01 | Shopify Winter '26 Edition introduces Rollouts (early access) | Native theme A/B testing | [Secondary, 2026] |
 | 2026-01-20 | VWO and AB Tasty agree to combine | Vendor consolidation | [press, GlobeNewswire] |
 | 2026-01-22 | Optimizely Experimentation Program Overview agent | AI program reporting | [Official, release notes] |
-| 2026-01 | Shopify Winter '26 Edition introduces Rollouts (early access) | Native theme A/B testing | [Secondary, 2026] |
 | 2026-03 | Adobe: AI referrals convert 42% better than non-AI | Reversal | [Study, Adobe] |
 | 2026-03 | Netherlands ACM: 61% of about 100 large online stores not accessible | EAA enforcement | [secondary] |
 | 2026-03 | Sweden PTS: 28 supervision cases against online shops | EAA enforcement | [secondary] |
 | 2026-03 | Contentsquare introduces Sense Analyst | AI analyst for experience data | [Official, Contentsquare] |
 | 2026-03 (11 or 13 March by source) | FTC publishes an advance notice of proposed rulemaking on negative option marketing (comments closed 2026-04-13) | Click to cancel may return | [Official, 2026-03] |
+| 2026-Q1 | AI traffic to US retail +393% YoY | Growing segment | [Study, Adobe] |
 | 2026-04 | Optimizely Idea builder for Web Experimentation | AI test ideation from page, goal, heatmaps | [Official, release notes] |
 | 2026-04 | Microsoft Advertising announces expansion of Clarity AI Visibility | AI citation reporting | [secondary] |
 | 2026-04-28 | Optimizely contextual multi-armed bandits | Segment-level allocation | [Official, release notes] |
-| 2026-Q1 | AI traffic to US retail +393% YoY | Growing segment | [Study, Adobe] |
-| 2026-05-05 | Amplitude takes over Statsig brand, platform and customers | Customers face renewal changes | [press/Official] |
-| 2026-05-06 | OpenAI opens ChatGPT ads to CPC bidding and self-serve | More advertisers need ChatGPT-ready LPs | [press, MediaPost] |
 | 2026-05 | Adobe: AI-referred retail visitors convert 54% higher | Reversal widens | [Study, Adobe] |
 | 2026-05 | Clarity AI citation tracking reported generally available | AI visibility data in Clarity | [Unverified, secondary] |
 | 2026-05 | Auchan accessibility claim dismissed in Lille (appealed) | Legal uncertainty | [secondary] |
+| 2026-05-05 | Amplitude takes over Statsig brand, platform and customers | Customers face renewal changes | [press/Official] |
+| 2026-05-06 | OpenAI opens ChatGPT ads to CPC bidding and self-serve | More advertisers need ChatGPT-ready LPs | [press, MediaPost] |
+| 2026-06 | Clarity content recommendations for AI visibility | AI search actions | [secondary] |
 | 2026-06-04 | Caen court orders Carrefour site and app accessibility within 6 months, EUR 500 per day | Private enforcement risk | [secondary] |
 | 2026-06-05 | Shopify Rollouts expanded to whole themes plus checkout and customer account configurations | Broader native testing | [Secondary, multiple 2026] |
 | 2026-06-13 | VWO app moves to app.wingify.com (log in again; campaigns and SmartCode unchanged) | Account admin change | [Official, Wingify 2026-06] |
 | 2026-06-17 | Shopify Summer '26 Edition (naming contested) | Rollouts GA reported | [Contested] |
 | 2026-06-22 | Optimizely Idea builder for Feature Experimentation | AI ideation server side | [Official] |
-| 2026-06 | Clarity content recommendations for AI visibility | AI search actions | [secondary] |
 | 2026-07 | Prime Day 2026: AI traffic +98.3% YoY, 50.7% conversion advantage on day 1 | Peak event confirms trend | [Study, Adobe via CMSWire] |
 | 2026-07-07 | Contentsquare Sense Analyst open beta for new Growth customers | AI analysis for smaller plans | [Official, Contentsquare] |
 | 2026-08 | ChatGPT ads add oCPC bidding and carousel formats | Product LP readiness | [secondary] |
+| 2026-08 | Adobe: AI traffic +127% YoY | Continued growth | [Study, Adobe via Bloomberg] |
 | 2026-08-25 | Optimizely CRO Manager virtual teammate | Agent stages experiments | [Official] |
 | 2026-08-26 | Shopify non-Plus deadline for Thank you and Order status upgrade (passed; no extension announced) | Tracking breaks for unprepared stores | [Official, shopify.dev; day-of auto-upgrade Contested] |
-| 2026-08 | Adobe: AI traffic +127% YoY | Continued growth | [Study, Adobe via Bloomberg] |
-| 2026-09-01 | Optimizely Opal renamed Optimizely Agent Platform | Naming in docs and UI | [Official] |
-| 2026-09-02 to 03 | Optimizely governance agent and flag implementation agent that outputs a SKILL.md file | Agents integrate with coding tools | [Official] |
 | 2026-09 | Optimizely Build agent turns ideas into draft A/B tests | AI-built variants | [Official] |
 | 2026-09 | OpenAI tests Sponsored Agents (ad click opens a brand agent) | Potential "agent as landing page" | [Unverified, secondary] |
+| 2026-09 to 11 | EN 301 549 update incorporating WCAG 2.2 published or expected in the EU Official Journal | Accessibility standard tightening | [Contested dates] |
+| 2026-09-01 | Optimizely Opal renamed Optimizely Agent Platform | Naming in docs and UI | [Official] |
+| 2026-09-02 to 03 | Optimizely governance agent and flag implementation agent that outputs a SKILL.md file | Agents integrate with coding tools | [Official] |
 | 2026-09-16 | VWO and AB Tasty unveiled as Wingify ("Agentic Experience Optimization Platform") with Wingz AI; products remain separate suites during integration | Rebrand, migration | [Official, press release 2026-09] |
 | 2026-09-17 | Optimizely sub-agents and retrieval over artifacts | Agent platform maturity | [Official] |
 | 2026-09-28 | Adobe forecasts AI-assisted shopping +130% for holidays | Prepare AI referral pages before peak | [Study, Adobe via Bloomberg] |
 | 2026-10-02 | Shopify changelog entry: coordinate discounts with theme and checkout changes and test offers on a share of traffic (Rollouts) | Native offer testing | [Unverified, single secondary source] |
 | 2026-Q4 (planned) | European Commission Digital Fairness Act proposal (dark patterns, unfair personalization); not yet proposed as of early October 2026 | Subscription and interface rules | [Official, work programme 2026] |
-| 2026-09 to 11 | EN 301 549 update incorporating WCAG 2.2 published or expected in the EU Official Journal | Accessibility standard tightening | [Contested dates] |
 
 ## 4. Best practice consensus
 
@@ -359,3 +362,6 @@ Compliance:
 93. EU proposal on Digital Fairness Act expected by the end of 2026. Privacy Laws and Business. https://www.privacylaws.com/news/eu-proposal-on-digital-fairness-act-expected-by-the-end-of-2026/. 2026-05.
 94. FTC Issues New Advance Notice of Proposed Rulemaking on Negative Option Marketing. Cooley. https://www.cooley.com/news/insight/2026/2026-03-19-ftc-issues-new-advance-notice-of-proposed-rulemaking-on-negative-option-marketing. 2026-03-19.
 95. Datadog acquires experiment platform provider Eppo. Seeking Alpha. https://seekingalpha.com/news/4440981-datadog-acquires-experiment-platform-provider-eppo. 2025-05-05.
+96. Direct consumer enforcement: one year on. CMA blog. https://competitionandmarkets.blog.gov.uk/2026/04/17/direct-consumer-enforcement-one-year-on/. 2026-04-17.
+97. FTC finalizes junk fees rule; new pricing disclosure requirements take effect May 12, 2025. Barnes and Thornburg. https://btlaw.com/en/insights/alerts/2025/ftc-finalizes-junk-fees-rule-new-pricing-disclosure-requirements-take-effect-may-12-2025. 2025.
+98. Eleventh Circuit Vacates FCC's TCPA One-to-One Consent Rule. Morrison Foerster. https://www.mofo.com/resources/insights/250130-eleventh-circuit-vacates-fcc-s-tcpa-one-to-one-consent-rule. 2025-01-30.

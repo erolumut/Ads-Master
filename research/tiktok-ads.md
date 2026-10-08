@@ -6,7 +6,7 @@
 
 - 21 web searches (extended mode for 2025 and 2026 items) were run before the shared search budget for this build was exhausted. Direct page fetching (WebFetch, curl) was blocked by network egress policy, so primary pages were read through search-indexed content rather than opened in full.
 - Consequences: official Help Center facts below are taken from indexed page text with their "last updated" dates where visible. Items without a second confirming source or an official page are labeled [Unverified]. Vertical CPM, CPC and CVR benchmarks could not be verified and are deliberately not quoted.
-- Verification pass 2026-10-08: targeted extended searches (sources 88 to 123) confirmed or corrected the learning phase signal, attribution options, Smart+ limits and placements, TikTok Ad Network US status, GMV Max Pro, Buy Direct and Agentic Leads status, custom audience minimums, the official MCP server, the US JV commercial split, EU DSA status and the Canada outcome. Labels below reflect that pass.
+- Verification pass 2026-10-08: targeted extended searches (sources 88 to 125) confirmed or corrected the learning phase signal, attribution options, Smart+ limits and placements, TikTok Ad Network US status, GMV Max Pro, Buy Direct and Agentic Leads status, custom audience minimums, the official MCP server, the US JV commercial split, EU DSA status and the Canada outcome. Labels below reflect that pass.
 - Priority for re-verification is listed in "Open questions and watch list".
 
 ## 1. Executive summary
@@ -355,3 +355,5 @@ Interpretation: TikTok in 2026 is a mature, automation-first ad platform with a 
 121. Misleading and false content (advertising policy). TikTok Ads Help Center. https://ads.tiktok.com/help/article/tiktok-ads-policy-misleading-and-false-content. 2026.
 122. TikTok AI Content Disclosure Rules for Advertisers (2026). UGCVids. https://ugcvids.ai/blog/tiktok-ai-content-disclosure-rules-2026. 2026-08.
 123. TikTok's New AI Ad Disclosure Rules. Common Thread Collective. https://commonthreadco.com/blogs/coachs-corner/tiktok-ai-ad-disclosure-rules-ecommerce-2026. 2026-07.
+124. How to create Spark Ads for Smart+ Campaigns in TikTok Ads Manager. TikTok Ads Help Center. https://ads.tiktok.com/help/article/how-to-create-spark-ads-for-smart-campaigns-on-tiktok-ads-manager. Accessed 2026-10.
+125. TikTok Extends Options For The Ad Authorization Period. Lindsey Gamble. https://www.lindseygamble.com/blog/tiktok-extends-options-for-the-ad-authorization-period. n.d..

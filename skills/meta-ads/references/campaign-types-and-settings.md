@@ -65,7 +65,7 @@ When a manual (lever off) setup is still justified:
 | Excluded custom audiences | Control (hard) | Purchasers, current customers, employees |
 | Age range maximum, gender | Suggestion | The system may go beyond |
 | Custom audiences, lookalikes | Suggestion | Seed the model early; low value once the campaign has conversion history |
-| Detailed targeting (interests, behaviors) | Suggestion | Detailed targeting exclusions were removed in early 2025 [Unverified exact date]. AI audience discovery inside Detailed Targeting announced for the end of 2026 [Official, 2026-10, not yet live] |
+| Detailed targeting (interests, behaviors) | Suggestion | Detailed targeting exclusions were removed for new ad sets from 2024-07-29, and existing ad sets using them stopped delivering from early 2025 (2025-01-31 per Meta's notice; one guide says 2025-03-31) [Official, 2024-07, via Jon Loomer and Social Media Today]; custom audience exclusions remain. AI audience discovery inside Detailed Targeting announced for the end of 2026 [Official, 2026-10, not yet live] |
 
 Account-level audience controls (Advertising settings) apply to every campaign in the account. Use them for legal minimum age, excluded locations, and employee exclusions.
 
@@ -77,7 +77,7 @@ Account-level audience controls (Advertising settings) apply to every campaign i
 | Budget type | Daily or lifetime | Daily for always-on; lifetime for flights, sales events and ad scheduling (dayparting) |
 | Ad set spend limits (under campaign budget) | Minimum and maximum daily or lifetime spend | Use sparingly. Minimums force spend into weak ad sets; use only to guarantee new concept exposure |
 | Budget scheduling | Increase budget by an amount or percentage for chosen time windows | Use for sales events and known high-intent windows (payday, BFCM, launch days) |
-| Daily budget flexibility | Meta may spend more than the daily budget on high-opportunity days, while keeping weekly spend within 7 x daily budget | Reported increase of daily flex from 25% to 75% in 2025 [Unverified exact date]. Plan pacing with weekly totals, not daily totals |
+| Daily budget flexibility | Meta may spend more than the daily budget on high-opportunity days, while keeping weekly spend within 7 x daily budget | Daily flex raised from 25% to up to 75% above the daily budget in early 2025, shown first as an in-account message in some accounts [Official in-account notice via Jon Loomer and Meta support text, 2025-03]. Plan pacing with weekly totals, not daily totals |
 
 Minimum budgets: Meta enforces minimum daily budgets that depend on currency and the billing or optimization event (historically about USD 1 per day for impression billing, about USD 5 per day for click or engagement optimization, and higher for low-frequency events) [Official, long-standing, verify in UI]. The practical minimum for conversion optimization is far higher: about 7 x target CPA per day per ad set to reach the learning threshold.
 

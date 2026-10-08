@@ -80,7 +80,7 @@ What changed for intelligence teams:
 | 2025-05 | Google brings AI Mode to all US users; ads in AI Mode tests announced | Paid and organic AI surface monitoring | K |
 | 2025-06 | Magna: digital pure players about 73% of global ad revenue | Context for where competitors spend | S |
 | 2025-07 | Pew study on AI summaries and clicks | Evidence for zero click effects | S |
-| 2025-07 | Google Trends API alpha announced | Consistent scaled trend data for approved users | K [Unverified status] |
+| 2025-07-24 | Google Trends API alpha announced at Search Central Live; still alpha with tester applications as of 2026-08 | Consistent scaled trend data for approved users | S |
 | 2025-07-25 | Meta announces end of EU political, electoral and social issue ads | EU political ad library data stops growing | S |
 | 2025-09 (about 09-28) | Google stops EU political ads and removes EU political ad history from the Transparency Center and its BigQuery dataset | Historic EU political research needs other archives | S [secondary] |
 | 2025-09 | Semrush adds MCP support (2025-09-10) and Similarweb launches its MCP server (2025-09-25) | Claude can query both directly | S |
@@ -98,9 +98,9 @@ What changed for intelligence teams:
 | 2026-05-27 | dentsu: search growth 3.4% in 2026 | Search fragmentation | S |
 | 2026-06 | WPP Media: generative search forecasts | Size of AI search ad market | S |
 | 2026 (first half) | SparkToro: 68.01% zero click | Organic competition context | S |
+| 2026-07 | Google "How this ad was made" panel discloses generative AI use in ads (My Ad Center on Search, YouTube, Discover) | AI creative becomes visible in competitor research | S |
 | 2026-08-24 | ChatGPT ads in 31 European countries | EU competitor monitoring in ChatGPT | S [secondary] |
 | 2026-08-31 | ChatGPT self serve opens in Europe, India and MENA | Same | S [secondary] |
-| 2026-07 | Google "How this ad was made" panel discloses generative AI use in ads (My Ad Center on Search, YouTube, Discover) | AI creative becomes visible in competitor research | S |
 | 2026-09-01 | TikTok updates Commercial Content API documentation | Check field changes before building pulls | S |
 | 2026-10-05 | OpenAI visual ads next to image generation (US test) | New format to observe | S |
 
@@ -312,3 +312,5 @@ Usage rules: read only, official or licensed sources, human approved keys, prove
 67. Semrush MCP. Semrush Developer. https://developer.semrush.com/api/v4/introduction/semrush-mcp/ (2026) (S)
 68. Announcing Similarweb MCP Server. Similarweb. https://www.similarweb.com/blog/updates/announcements/mcp-server-launch/ (2025-09-25) (S)
 69. Similarweb MCP Server. Similarweb Developers. https://developers.similarweb.com/docs/similarweb-mcp (2026) (S)
+70. Google opens alpha testing for new Trends API targeting developers and journalists. PPC Land. https://ppc.land/google-opens-alpha-testing-for-new-trends-api-targeting-developers-and-journalists/ (2025-07) (S)
+71. Feature Request and Inquiry: Public Availability of Auction Insights Metrics via Google Ads API. Google Ads API Forum. https://groups.google.com/g/adwords-api/c/30s21wGZkOU (2025) (S)

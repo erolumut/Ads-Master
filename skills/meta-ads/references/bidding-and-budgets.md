@@ -102,7 +102,7 @@ Budget change rules [Practitioner consensus]:
 | Sale event | Use budget scheduling instead of manual edits | Planned in advance |
 
 Daily versus lifetime budgets:
-- Daily budgets can overspend on high-opportunity days with weekly spend capped at about 7 x daily budget (daily flex reported up to 75% since 2025) [Unverified exact rule date].
+- Daily budgets can overspend on high-opportunity days by up to 75% (raised from 25% in early 2025), with weekly spend (Sunday to Saturday) capped at 7 x daily budget [Official in-account notice and support text, 2025-03, via Jon Loomer].
 - Lifetime budgets are required for ad scheduling (dayparting). Dayparting is rarely worth it except for call centers and businesses with staffed hours (messaging, calls).
 
 Campaign budget versus ad set budgets:
