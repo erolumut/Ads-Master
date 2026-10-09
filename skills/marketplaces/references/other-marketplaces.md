@@ -21,7 +21,7 @@ First 5 moves: Polish listings with full parameters; Smart! eligibility; price w
 | Topic | Detail | Label |
 |-------|--------|-------|
 | Fit | Fashion, shoes, sports, beauty; brand-led; 25 partner program markets reported | [Secondary, 2026] |
-| Fees | From 2026-01-01 the fee structure has four parts: base fee, Marketplace Service fee (commission), Payment Service fee and a Convenience Incentive; amounts published only inside Partner University | [Secondary, 2026; Unverified details] |
+| Fees | The 2026 fee structure has four parts: base fee, Marketplace Service fee (commission), Payment Service fee and a Convenience Incentive; amounts sit only inside Partner University (login). The 2026-01-01 start date is inferred, not confirmed. From September 2026 the same standard Marketplace Service fees apply to all partners as Connected Retail is folded into the partner program, with a 2 point reduction for retailers until the end of 2027 | [Reported, 2026-10] for the four parts; [Unverified] for the start date and the September 2026 change (single source, FashionUnited 2026-04) |
 | Commission | Reported 5% to 25%, fashion often 20% to 25% | [Contested] |
 | ZEOS | Zalando's logistics and multi-channel fulfillment services (ZEOS fee summary in Partner University) | [Official page title, 2026] |
 | Ads | Zalando Marketing Services (sponsored products and brand media), optional | [Secondary] |
@@ -84,7 +84,7 @@ First 5 moves: check category gating and conformity; Arabic content; FBN or FBA 
 
 | Topic | Detail | Label |
 |-------|--------|-------|
-| EU footprint | Spain and Ireland (late 2024), Germany, France, Italy (2025-03), Austria, Belgium, Netherlands, Poland (2026-06-15); Portugal reported 2026-06-22; "Sell Across Europe" single registration for multiple EU markets announced 2026-05 | [Official newsroom 2026-06; Portugal and timing details Unverified] |
+| EU footprint | Spain and Ireland (late 2024), Germany, France, Italy (2025-03), Austria, Belgium, Netherlands, Poland (2026-06-15). Portugal reported live from late June 2026 by Portuguese press (The Portugal News 2026-06-23, NiT, Portugal Resident), with no official TikTok notice found. "Sell Across Europe" (one registration, sell into several EU markets) announced around 2026-05-28 to follow the 2026-06-15 launches "shortly after"; no activation date published; a UK to EU cross-border pilot from 2026-09-21 rests on one source | [Official newsroom 2026-06 for the 2026-06-15 markets; Portugal and Sell Across Europe timing Unverified] |
 | Seller base | More than 100,000 European sellers signed up since the 2024 launch | [Secondary, 2026] |
 | Fees | Commission per category plus payment fees; affiliate creator commissions on top | [Unverified per market] |
 | Ads | GMV Max (Product and LIVE) and other Shop ads | Handoff to `tiktok-ads` |

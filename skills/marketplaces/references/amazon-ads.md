@@ -21,7 +21,7 @@
 | 2026-01-01 | View attribution moved to "shopping-signal enhanced last-touch" for view-based (vCPM) ads; "all views" metrics keep the old method for comparison | Compare SB vCPM, display and DSP year over year only on the same method | [Secondary, multiple, 2026-01] |
 | 2026-02-02 | Amazon Ads MCP Server open beta (closed beta from 2025-11) | Read only use first; writes behind the guard hook | [Secondary, 2026-02] |
 | 2026-03-25 | Sponsored Prompts in Rufus paid (CPC) GA in US | Expect new spend in existing SP and SB campaigns; reporting is blended | [Secondary, 2026-03] |
-| 2026-05-13 | Rufus renamed Alexa for Shopping in the US | Update naming in reports | [Secondary, multiple] |
+| 2026-05-13 | Rufus renamed Alexa for Shopping in the US | Update naming in reports | [Reported, 2026-10] |
 | 2026 | Sponsored Display renamed display ads; existing campaigns continue | New display campaigns via Display flow | [Official page, 2026] |
 | Through 2026-12-31 | AMC first-party paid features (Amazon Shopping Insights, Retail Purchases and others) free to query | Opt out before 2027 if not needed or budget for fees | [Secondary citing Official, 2026] |
 

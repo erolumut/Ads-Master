@@ -45,7 +45,8 @@ If no offer meets Amazon's pricing expectations (for example, price far above re
 - Low-Price FBA rates apply automatically to items priced under USD 10.
 - Amazon ended US FBA prep and labeling services from 2026-01-01: every unit must arrive prepped and labeled. Inbound defects now cost more.
 - Low inventory level fee extended to Small Bulky and Large Bulky (per FNSKU; grocery exempt) [Secondary].
-- A 3.5% fuel and logistics surcharge on US FBA fees from 2026-04-17 is reported by one third-party source only [Unverified].
+- Fuel and logistics surcharge (US and CA): 3.5% on FBA fulfillment fees from 2026-04-17, also on Remote Fulfillment with FBA from the US into CA, MX and BR; Buy with Prime (US) and Multi-Channel Fulfillment (US, CA) from 2026-05-02. Charged on the fulfillment fee, not the sale price; Amazon estimates about USD 0.17 per unit on average for US FBA and calls the surcharge temporary, with no end date [Reported, 2026-10]. Add it to every fulfillment fee in the model.
+- US peak fulfillment fees run 2026-10-15 to 2027-01-14, with the surcharge on top [Unverified]; read the peak fee table in Seller Central.
 
 ### 3.2 Europe 2026 [Official, aboutamazon.eu, 2025-12]
 - Average fee reduction of GBP 0.15 or EUR 0.17 per unit sold, described as Amazon's largest European fee cut.
@@ -54,6 +55,7 @@ If no offer meets Amazon's pricing expectations (for example, price far above re
 - Effective 2026-01-05 (brought forward from 2026-02-01), with some FBA parcel and clothing changes from 2025-12-15 [Contested dates; check the dated notice per store].
 - Offsetting increases on storage, return to seller and liquidation fees and some FBA changes in smaller stores (net about EUR 0.02 per FBA unit from those lines).
 - Digital services fee surcharge passes local digital services tax rates through on some fees (for example France) [Unverified detail].
+- Fuel and logistics surcharge (EU and UK): 1.5% on FBA fulfilment fees from 2026-04-17 in UK, FR, DE, IT, ES, PL, SE, NL, IE and BE; Multi-Channel Fulfilment from 2026-05-02 in UK, FR, DE, IT and ES. Charged on the fulfilment fee, not the sale price; Amazon estimates about GBP 0.05 or EUR 0.05 per unit on average and calls it temporary [Reported, 2026-10]. It eats part of the 2026-01-05 fee cut on low price items.
 
 ### 3.3 Gulf and Turkey
 Amazon.ae, Amazon.sa and Amazon.com.tr publish their own fee schedules. No 2026 change was confirmed in research. Pull the live rate card per category before modeling [Unverified].
@@ -82,7 +84,10 @@ Target: 4 to 8 weeks of cover in FBA plus a buffer in a 3PL or Amazon Warehousin
 | Valid Tracking Rate (FBM) | Over 95% | Per category rules |
 | Policy compliance | Zero open violations | IP complaints, product authenticity, safety, restricted products, listing policy |
 
-2026 operational changes reported for US FBM sellers (verify): SAFE-T claim window shortened to 30 days on 2026-01-21; refunds to be issued within 4 calendar days from 2026-01-26; Amazon sets minimum order handling capacity; custom return instructions field removed in August 2026 [Secondary, 2026; Unverified].
+2026 operational changes for US FBM sellers:
+- SAFE-T claim filing window cut from 60 to 30 days, announced 2026-01-21 and effective 2026-02-16 [Reported, 2026-10]. File claims weekly, not monthly.
+- Refunds must be issued within 4 calendar days of receiving the return from 2026-01-26 (was 2 business days). If the deadline is missed, Amazon may refund automatically and the seller generally loses SAFE-T eligibility for that return; sources describe the exceptions (for example Refund at First Scan returns) inconsistently [Reported, 2026-10].
+- Amazon sets minimum order handling capacity; custom return instructions field removed in August 2026 [Secondary, 2026; Unverified].
 
 Appeals procedure: [Operations](operations-fulfillment-and-account-health.md) section 6.
 

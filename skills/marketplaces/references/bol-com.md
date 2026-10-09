@@ -24,7 +24,8 @@ The buy block ("koopblok") is bol's featured offer. Only the offer in the buy bl
 | Fee | Structure | Source and label |
 |-----|-----------|------------------|
 | Commission | Fixed amount per item plus a percentage of the sales price (incl. VAT), by product category; published under "Tarieven en vergoedingen" and updated periodically | [Official structure; exact rates per account] |
-| Reported commission ranges | Third-party sources disagree (for example fixed EUR 0.20 to 2.48 plus 4.1% to 20.7%; others quote 7% to 17%) | [Contested, 2026] Use the account rate card |
+| Reported commission ranges | Third-party sources disagree (for example fixed EUR 0.20 to 2.48 plus 4.1% to 20.7%; others quote 7% to 17%). The fixed fee is set by product type and by sale price incl. VAT | [Contested, 2026] Use the account rate card |
+| Food and 2026 promotions | Food variable commission 4.0% to 6.0% (one 2026 source); a temporary 25% discount on variable commission for items newly added to selected categories from 2026-07-20 to 2026-12-31 (one snippet); bol may adjust category rates twice a year | [Unverified]; the binding rates are in the seller account and the partner platform commission page |
 | Logistiek via bol (LVB) | Per order fulfillment fee by size class (3XS, XXS, XS, S and up) plus storage and inbound | New tariffs for 3XS and XXS from 2026-09-09 reported [Secondary, 2026-09]; amounts per rate card |
 | Verzenden via bol (VVB) | bol shipping labels for self-fulfilled orders at contracted rates | Peak surcharge in November and December reported (about 40%) [Secondary, 2026] |
 | Sponsored Products | CPC, auction | [Official] |
@@ -94,7 +95,7 @@ Practice:
 - Because the 2026-08-27 change added mobile positions, compare mobile performance before and after that date separately.
 
 ### 7.3 Advertising API
-bol offers an advertising API for Sponsored Products campaign management and reporting alongside the Retailer API [Unverified; check developers.bol.com for the current version and scopes].
+bol's Advertising API manages Sponsored Products campaigns, budgets and performance reports. Its documentation sits in the Retailer API v11 tree (`advertising-api/aapi-overview`) and it uses the same client credentials (JWT) flow as the Retailer API. Reported versions: 11.0 (2023-12-20) and 11.1 (2025-09-03), with v9 and v10 removed [Unverified: official docs seen only in search summaries; read the release notes on api.bol.com before building].
 
 ## 8. Retailer API (v10)
 

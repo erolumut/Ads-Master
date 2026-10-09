@@ -30,9 +30,9 @@ Never in this system: free products in exchange for reviews outside an official 
 |------|--------|-------|
 | Eligibility | Brand Registry brand owners; FBA offers in new condition; fewer than 30 reviews on the parent ASIN; buyable with an image and description; not adult products [Official, prior knowledge] | |
 | Units | Up to 30 units per parent ASIN | [Secondary, 2026] |
-| Enrollment fee (US) | Tiers per parent ASIN since 2023-10-19: 1 to 2 units USD 0, 3 to 10 units USD 75, 11 to 30 units USD 200 | [Secondary quoting Official rate card] |
-| 2026 change | One source reports USD 0 for products under USD 100 from March 2026 | [Unverified] |
-| Billing | Billed after 30 days if at least one Vine review exists, otherwise at first review | [Secondary quoting Official, Contested timing] |
+| Enrollment fee (US) | Tiers per parent ASIN since 2023-10-19: 1 to 2 units USD 0, 3 to 10 units USD 75, 11 to 30 units USD 200 | [Reported, 2026-10] (official program page and two 2026 guides agree) |
+| Price based free tier | None. The USD 0 tier depends on the number of units enrolled, not on product price. A single 2026 source's "USD 0 for products under USD 100 from March 2026" is contradicted by the official program page; do not model it | [Reported, 2026-10] |
+| Billing | Fee only after the first Vine review posts; no fee if no review arrives within 90 days of enrollment [Unverified, official page via search summary only]. Billing lag conflicts: 30 days after enrollment vs 7 days after the first review | [Contested] lag; check the enrollment page |
 | Other costs | Free units, FBA fees on each Vine order | |
 | Reviews | Vine reviews are labeled; reviewers are free to be negative | |
 

@@ -82,7 +82,7 @@ Brand Store: one page per category and a bestsellers page; use Store insights (s
 
 ## 8. AI shopping assistant readiness (Alexa for Shopping and others)
 
-Alexa for Shopping (formerly Rufus, renamed in the US on 2026-05-13 [Secondary, multiple]) answers questions using listing content, reviews, Q&A and other signals, and shows Sponsored Prompts since 2026-03-25.
+Alexa for Shopping (formerly Rufus, renamed in the US on 2026-05-13 [Reported, 2026-10]) answers questions using listing content, reviews, Q&A and other signals, and shows Sponsored Prompts since 2026-03-25.
 
 Checklist:
 - Every common question answered in listing text with a fact: dimensions, compatibility, materials, certifications, age range, care, use cases, who it is not for.

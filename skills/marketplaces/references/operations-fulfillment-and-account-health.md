@@ -7,7 +7,7 @@
 | Option | Marketplace | Pros | Cons | Use for |
 |--------|-------------|------|------|---------|
 | FBA (Fulfillment by Amazon) | Amazon | Prime badge, featured offer advantage, returns and customer service handled | Fees, capacity limits, storage and aged inventory fees, prep must be done by you in the US since 2026-01-01 | Fast moving small and standard size SKUs |
-| FBM (merchant fulfilled) | Amazon | Control, no FBA storage | Must meet late shipment, cancellation and tracking metrics; refunds in 4 calendar days (US, from 2026-01-26 [Unverified]) | Bulky, slow, custom or high value items |
+| FBM (merchant fulfilled) | Amazon | Control, no FBA storage | Must meet late shipment, cancellation and tracking metrics; refunds within 4 calendar days of receiving the return (US, from 2026-01-26 [Reported, 2026-10]) | Bulky, slow, custom or high value items |
 | Seller Fulfilled Prime | Amazon | Prime badge with own warehouse | Strict delivery performance | Strong 3PL with weekend coverage |
 | Multi-Channel Fulfillment (MCF) | Amazon inventory for other channels | One stock pool | Amazon branded packaging options vary; some marketplaces forbid Amazon delivery | DTC overflow; check other marketplace rules |
 | Amazon Warehousing and Distribution (AWD) | Upstream storage | Cheaper bulk storage, auto replenishment to FBA | Another fee layer | Brands with capacity limits |
@@ -43,9 +43,9 @@ Stockout protocol: (1) pause ads on the SKU when cover drops under 14 days or lo
 
 | Marketplace | Return rules | Cost lines |
 |-------------|--------------|-----------|
-| Amazon | Amazon return policy; FBA returns processed by Amazon; Returns processing fee in some categories above a return rate threshold [Official, 2024, prior knowledge]; SAFE-T claims for FBM (US claim window 30 days from 2026-01-21 [Unverified]) | Refund, return shipping, processing fee, unsellable units |
+| Amazon | Amazon return policy; FBA returns processed by Amazon; Returns processing fee in some categories above a return rate threshold [Official, 2024, prior knowledge]; SAFE-T claims for FBM (US filing window cut from 60 to 30 days, effective 2026-02-16 [Reported, 2026-10]) | Refund, return shipping, processing fee, unsellable units |
 | bol | Statutory 14 day withdrawal plus bol policy (bol often 30 days) [Practitioner consensus] | Return handling, LVB return fees |
-| Turkey | 14 day withdrawal; return shipping cost borne by the seller per the Ministry's 2025 decision [Contested]; Distance Contracts Regulation amendment in force 2026-01-01 | Return cargo by desi, commission refunded on return (Hepsiburada) |
+| Turkey | 14 day withdrawal; return shipping cost stays with the seller: a plan to shift it to consumers was reported and withdrawn, and the Ministry's consumer page says a consumer returning through the carrier the seller named pays nothing [Unverified, direction supported; read the Official Gazette text with `compliance`]; Distance Contracts Regulation amendment in force 2026-01-01 | Return cargo by desi, commission refunded on return (Hepsiburada) |
 | EU generally | 14 day withdrawal right; an online withdrawal function (withdrawal button) for distance contracts concluded online applies from 2026-06-19 under Directive (EU) 2023/2673 [Official, prior knowledge]; marketplaces implement it in their own flows, so check how each one handles it with `compliance` | |
 
 Return rate guardrail: track return rate by SKU and reason monthly. A return rate rising 3 or more points above baseline is a listing, sizing or quality problem to fix before scaling ads.

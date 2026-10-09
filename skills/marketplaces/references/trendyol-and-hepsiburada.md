@@ -17,11 +17,11 @@
 | Item | 2026 state | Label |
 |------|-----------|-------|
 | Category commission | About 5% (digital gift cards) to 27% (phone spare parts); phones about 7%; shoes about 21.5% to 23.5% | [Secondary, Sentos 2026-07 and Dopigo; Contested ranges] |
-| Commission base | Contested: some sources say commission is on the VAT-exclusive price with VAT invoiced on the commission, others say VAT-inclusive | [Contested] Check "Anlaşma Bilgileri" in the panel |
-| Dynamic commission | Reported in some subcategories from 2026, with short-term changes during campaigns | [Unverified] |
+| Commission base | Trendyol's seller academy (official, seen in search summaries) says commission = category rate x current sale price and that commission invoices are calculated on VAT-inclusive figures; IdeaSoft agrees. Paraşüt and other third parties say the base is the VAT-exclusive price with VAT invoiced on the commission. Model both until checked | [Contested] Check a real commission invoice and "Anlaşma Bilgileri" in the panel |
+| Dynamic commission | Per product, price dependent commission tariffs on products Trendyol suggests: a lower sale price earns a lower rate (the seller academy example: 20% at TRY 100, 11% at TRY 73); tariffs are updated periodically | [Unverified, single official source via search summary] |
 | Cargo (Trendyol Express) | Charged by desi (volumetric weight); for example 0 to 2 desi TRY 81.95 plus VAT, 5 desi TRY 114.10, 10 desi TRY 164.18 per a 2026-09-08 list | [Secondary, 2026-09; other sources quote lower, older tariffs] |
-| Barem (low basket shipping contribution) | Orders under a basket threshold (reported bands 0 to 199.99 and 200 to 349.99 TRY) pay a fixed cargo amount instead of the desi tariff | [Secondary, 2026; Unverified] |
-| Service and platform fees | Per order service fee and other deductions per contract | [Unverified] |
+| Barem (low basket shipping contribution) | Orders under a basket threshold (reported bands 0 to 199.99 and 200 to 349.99 TRY) pay a fixed cargo amount instead of the desi tariff; reported to apply to parcels of 5 desi and under | [Secondary, 2026; Unverified] |
+| Service and platform fees | Platform service fee reported at TRY 10.99 + VAT per shipment (one snippet; older sources describe a percentage or TRY 6.99); other deductions per contract | [Unverified]; read the panel |
 | Withholding | 1% e-commerce income tax withholding (stopaj) on seller payouts, in force since 2025-01-01 | [Official, 2024-12; verify current rate] |
 
 ### 2.2 Hepsiburada
@@ -106,9 +106,9 @@ Price display rules: since 2026-08-01, discount advertising must use the lowest 
 | Administrative fines | Fines under Article 12 raised 25.49% for 2026 | 2025-12-25 communique | [Official, 2025-12] |
 | Seller identity | Sellers' KEP (registered email) requirement removed; platforms must verify seller identity | 2025-03-08 | [Secondary, 2025] |
 | Constitutional Court decision E.2024/187, K.2026/42 | Annulled the intermediary non-liability rule (Article 9/1) as it applies to consumer contracts and a related consumer law exception; marketplaces become liable alongside sellers for defective goods claims | Decided 2026-02-12, published 2026-06-02 (Official Gazette 33268), effective 2027-03-02 | [Secondary, multiple law firms; Official Gazette not read directly] |
-| Distance Contracts Regulation amendment | Reshaped withdrawal right and return shipping rules; Ministry kept return shipping cost on the seller after review | Published 2025-05-24, in force 2026-01-01 | [Contested: sources disagree on return cost; verify] |
+| Distance Contracts Regulation amendment | Reshaped withdrawal right and return shipping rules. Direction supported: return shipping stays with the seller; a plan to shift it to consumers was reported and then withdrawn; the Ministry's consumer page says a consumer who returns through the carrier the seller named pays nothing | Published 2025-05-24 (Official Gazette No. 32909 per a law firm), in force 2026-01-01 | [Unverified]: read the Official Gazette text on mevzuat.gov.tr with `compliance` |
 | Commercial Advertising Regulation amendment | 10 day prior price for discount ads (same channel, including loyalty and conditional prices), influencer and consumer review definitions, transparency for targeted ads by intermediaries | Published 2026-07-01, mostly in force 2026-08-01 | [Official Gazette, via secondary] |
-| Draft regulation on cargo liability | Loss and damage responsibility in contracts; marketplaces to set compensation rules between seller and carrier; reported limits on competitor brand use in search and free data portability for sellers | Draft around 2026-08 | [Unverified, single source] |
+| Ministry of Trade draft regulation (not law) | Reported content: where a marketplace mediates the seller and carrier contract, loss and damage liability and compensation must be stated; medium, large and very large marketplaces must transfer a seller's data (sales, returns, product data, images, Q&A, reviews, scores) to another marketplace free of charge on request; limits on using another business's registered trademark in search ads without permission | Draft reported around 2026-08; not in the Official Gazette | [Reported, 2026-10] for the draft's content; final text and dates unknown |
 
 What changes after 2027-03-02: marketplaces will likely tighten seller onboarding, product documentation and defect handling because they share liability [Practitioner expectation; Unverified]. Prepare: product conformity documents, warranty certificates, clear defect and return handling SLAs.
 
@@ -130,7 +130,7 @@ Commercial messages to customers in Turkey need IYS registration and consent; ma
 ## 8. APIs and tools
 
 - Trendyol: seller integration APIs (product, order, returns, finance, Q&A), credentials from the panel's integration page; official developer documentation at developers.trendyol.com; Trendyol published an official Claude Code plugin (`Trendyol/trendyol-integration-developer-tool`) that uses a Trendyol Developer Tools MCP server for API contracts [Official GitHub, 2026].
-- Hepsiburada: merchant integration APIs (listing, order, finance) with merchant ID and API credentials [Unverified docs URL].
+- Hepsiburada: merchant integration APIs (listing, order, finance, returns) with merchant ID and API credentials; the official developer portal is developers.hepsiburada.com [Reported, 2026-10]. The API name, authentication method (third-party guides disagree: OAuth2 bearer token vs HTTP Basic) and rate limits are not confirmed [Unverified]; read the portal, or ask Merchant Support to activate API access.
 - Integrators: Sentos, Dopigo, ikas, Ticimax and others sync stock, price and orders across Turkish marketplaces.
 - MCP options and safety: [Tools, APIs and MCP](tools-api-mcp.md).
 
