@@ -299,7 +299,7 @@ How to log: if a check changes a recommendation, write `YYYY-MM-DD_HHMM_pricing-
 
 - [Commercial pricing method](references/commercial-pricing-method.md): phases from frame to report, intake, quality bar, seven plays.
 - [Commercial Pricing Report template](references/commercial-pricing-report-template.md): the deliverable, Amara pattern skeleton, review checklist.
-- [Competitive price benchmarking](references/competitive-price-benchmarking.md): comparison set, normalization, shelf vs online, promo depth and frequency, price index, data sources.
+- [Competitive price benchmarking](references/competitive-price-benchmarking.md): comparison set, normalization, shelf vs online, promo depth and frequency, price index, data sources, cross channel price divergence monitor.
 - [Cost to serve and margin waterfall](references/cost-to-serve-and-margin-waterfall.md): waterfall, costing conventions, formulas, NL and TR carrier, payment, marketplace and VAT references, worked example, retail waterfall, script usage.
 - [Price architecture and pack sizes](references/price-architecture-and-pack-sizes.md): rungs, pack sizing, ladder methods, good better best, endings evidence, unit price and surcharges, shrinkflation rules.
 - [Minimum basket and delivery policy](references/minimum-basket-and-delivery-policy.md): procedure, evidence, dead zone, fee design, C-62/25, templates, tests.

@@ -243,7 +243,7 @@ Check before relying on a feature or source; log changes in the monthly movement
 - [Demand and trend research](references/demand-and-trend-research.md): Google Trends, keyword volumes, seasonality index, share of search, trend validation.
 - [Market sizing](references/market-sizing.md): TAM, SAM, SOM top down and bottom up, worked examples, channel headroom.
 - [Monitoring cadence and alerts](references/monitoring-cadence-and-alerts.md): what to monitor, thresholds, tooling, monthly summary.
-- [Tools, APIs and MCP](references/tools-api-mcp.md): tool and API catalog, example calls, MCP servers, legal and ethical limits.
+- [Tools, APIs and MCP](references/tools-api-mcp.md): tool and API catalog, example calls, MCP servers, legal and ethical limits, resilient and polite collection (challenge detection, request budgets, source lineage).
 - [Output templates](references/output-templates.md): templates for every deliverable.
 - [Playbooks](references/playbooks.md): end to end plays.
 - [Audit checklist](references/audit-checklist.md): scored audit of the intelligence program.

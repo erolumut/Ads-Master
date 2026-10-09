@@ -279,7 +279,7 @@ How to log: write a journal entry `YYYY-MM-DD_HHMM_measurement_freshness.md` lis
 - [Attribution](references/attribution.md): platform windows and 2026 changes, DDA, why numbers disagree, self-reported attribution, app attribution.
 - [Incrementality testing](references/incrementality-testing.md): conversion lift, geo tests, holdouts, small budget designs, vendors, reading results.
 - [MMM](references/mmm.md): readiness, data, Meridian, Robyn, PyMC-Marketing, calibration, using outputs.
-- [Dashboards and reporting](references/dashboards-and-reporting.md): MER, aMER, nCAC, contribution margin, BigQuery models, Looker Studio, alerts.
+- [Dashboards and reporting](references/dashboards-and-reporting.md): MER, aMER, nCAC, contribution margin, BigQuery models, Looker Studio, alerts, drift sentinel for ad data (PSI and KS, transition alerts in alerts.csv, sync health).
 - [Unified metrics and daily report](references/unified-metrics-and-daily-report.md): daily fact table, formulas (nCAC, aMER, POAS, acquisition investment), platform vs backend, decision windows, status from target CPA, report template, `scripts/daily_report.py`.
 - [Implementation recipes](references/implementation-recipes.md): code for consent, data layer, Shopify Web Pixels, WooCommerce, Next.js, SPAs, click ID capture, server-side sender.
 - [Tracking plan as code](references/tracking-plan-as-code.md): allowlisted events and typed properties, PII policy, route folding, dedup keys, `scripts/tracking_plan_check.py` for payloads and code parity.

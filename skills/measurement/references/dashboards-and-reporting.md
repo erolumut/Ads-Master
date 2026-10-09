@@ -214,3 +214,50 @@ Data used: backend (Shopify) to YYYY-MM-DD, GA4 export, platform APIs (list), ti
 - Incrementality evidence table and factors in use.
 - MEASUREMENT.md proposed updates.
 - Freshness Protocol findings.
+
+## 8. Drift sentinel for ad data
+
+Section 5 catches a break in one metric. The drift sentinel watches the distribution of the inputs that budgets, bids and models rely on, and alerts only when the picture shifts as a whole or one critical input breaks, which keeps alert fatigue down. Pattern proven in production data pipelines, generalized here [Practitioner consensus].
+
+### 8.1 Inputs, windows and tests
+
+| Input | Values compared | Test |
+|-------|-----------------|------|
+| Spend share by channel | Spend per channel, summed per window | PSI over channels |
+| CPC | CPC per campaign and day | KS (PSI on 10 baseline decile bins only with 100 or more rows in the current window) |
+| AOV | Order values | KS |
+| Conversion rate | Daily value per channel (backend conversions / clicks or sessions) | KS on daily values |
+| New customer share | Daily value (new customer orders / orders) | KS on daily values |
+
+Baseline = the 28 days ending 7 days ago (the gap keeps a slow drift out of its own baseline); current = the last 7 days. Days marked in the promo calendar are excluded or compared with the same event last year, and the row's `note` says so.
+
+```
+PSI = sum over bins of (cur_i minus base_i) x ln(cur_i / base_i)        (shares per bin, floored at 0.0001)
+KS  = max over x of |F_base(x) minus F_cur(x)|                            (two sample)
+drifted(input) = PSI over 0.25, or KS with p under 0.01 and statistic over 0.1
+```
+
+PSI under 0.1 reads as stable, 0.1 to 0.25 as moderate, over 0.25 as a major shift [Practitioner consensus, credit risk convention]. PSI needs volume: about 10 or more observations per bin in the current window [Practitioner consensus]. On a handful of values (7 daily values, or 21 campaign days on 10 bins) empty bins dominate and a no change simulation flags most weeks. On a binary rate it fails the other way: a CVR drop from 3% to 2% scores about 0.004. Large samples make tiny KS gaps significant, so the rule needs the statistic and the p value.
+
+### 8.2 When to alert
+
+| Rule | Fires when |
+|------|-----------|
+| `drift_multi` | 3 or more inputs drifted on the same run for the same entity (account, channel or market) |
+| `drift_hard_<input>` | One critical input crosses its hard threshold on its own. Defaults [Practitioner consensus], kept in MEASUREMENT.md: conversion rate more than 50% below the baseline median (the ads-review daily rule), one channel's spend share up 20 points or more, AOV moved 30% or more, new customer share down 15 points or more |
+
+Alerts are transitions, not states: one row per rule and entity in `ads-master/logs/alerts.csv` (`rule,entity,alert_from,last_seen,status,ack_by,note`), the queue the `ads-review` daily report reads.
+
+```
+for each (rule, entity) evaluated on this run:
+  row = the open row for (rule, entity)                       # status is not closed
+  condition true,  row exists -> set last_seen = today        # status and ack_by stay as they are
+  condition true,  no row     -> append rule, entity, alert_from = today, last_seen = today, status = open
+  condition false, row exists -> set status = closed          # a recurrence later opens a new row
+```
+
+### 8.3 Sync health check (run first)
+
+Per source, the job counts rows per day at the source (platform report rows, backend orders) and in the warehouse, and reads the latest timestamp on both sides. `sync_rows` fires when any of the last 7 days differs by more than 1% or a day is missing in the warehouse while the source has rows; `sync_stale` fires when the warehouse is more than 26 hours behind the source for a daily load (2x the interval otherwise) [Practitioner consensus]. Both write to the same queue. While a source is unhealthy, the drift rules that read it stay silent and the `note` says why: drift on a half loaded table is noise.
+
+Handoffs: `growth-orchestrator` when `drift_multi` is open (response curves, targets and MMM priors fitted on the baseline may no longer hold, so model driven budget shifts wait for review), the channel agent whose channel drifted, `offer-strategy` for AOV drift tied to promotions, `site-engineer` for a conversion rate drop with healthy sync and a stable traffic mix.

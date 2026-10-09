@@ -237,3 +237,53 @@ Date range of data: | Data sources used (with export dates):
 ## Recommended actions: just do it | test backlog | research next
 ## Open questions and data gaps
 ```
+
+## 12. Engaged time and frustration signals
+
+First-party signals that show where visitors struggle, captured by the site itself so they survive tool changes and replay sampling. They locate friction; recordings and user tests (sections 4 and 6) explain it. Pattern proven in production apps, generalized here [Practitioner consensus].
+
+### 12.1 Definitions
+
+| Signal | Definition (default) | Event and props |
+|--------|---------------------|-----------------|
+| Engaged time | Time when the page is visible (`document.visibilityState` is `visible`) AND the visitor gave input (pointer, touch, key, scroll) within the last 30 seconds | `engaged_time`: `route`, `engaged_ms`; sent on `pagehide` or when the page turns hidden |
+| Rage tap | 3 or more taps within about 1 second in one small area (same tracked element, or within about 30 px) | `rage_tap`: `target`, `route`, `taps` |
+| Dead tap | Tap on a non interactive element (not a link, button, form control, label or `[role=button]`) followed by no DOM change and no navigation within about 1 second | `dead_tap`: `target`, `route` |
+
+GA4 engagement time counts foreground time even after the visitor walks away, and a GA4 engaged session is any session over 10 seconds (default), with a key event, or with 2 or more page views [Official, Google Analytics Help]. The 30 second input window drops idle tabs, so the two numbers differ; every report says which one it uses.
+
+### 12.2 Capture rules (privacy first)
+
+- Label elements once: `data-track="pdp.size_selector"`. `target` is the label of the tapped element or its nearest labeled ancestor, else `unlabeled`. Never send text content, input values, other attributes, raw URLs or tap coordinates.
+- Declare the three events with `id` or `enum` targets and `route` types in [Tracking plan as code](../../measurement/references/tracking-plan-as-code.md); undeclared props are dropped at ingest.
+- Same consent as other analytics: in the EEA, UK and Switzerland, fire only after consent (section 4.1).
+- Mark repeat by design controls (quantity steppers, carousels, image zoom) with `data-track-repeat` and skip them for rage taps. Double tap to zoom is 2 taps, which is why the floor is 3.
+- Passive listeners, no layout reads in the tap handler, and a `MutationObserver` armed only for the second after a candidate dead tap, so the listener never hurts INP ([Speed and Core Web Vitals](speed-and-core-web-vitals.md)).
+
+### 12.3 Metrics and starting thresholds
+
+```
+rage_rate(target, route) = sessions with a rage_tap on target / engaged sessions on route
+dead_rate(target, route) = sessions with a dead_tap on target / engaged sessions on route
+engaged_time(route)      = median engaged_ms per page view (median, never mean)
+conversion_gap(target)   = CVR of engaged sessions on the route without the signal minus CVR of those with it
+value_at_stake(target)   = affected sessions per month x conversion_gap x AOV x 0.3   (section 3.3 haircut)
+```
+
+| Condition | Starting threshold [Practitioner consensus] | Action |
+|-----------|---------------------------------------------|--------|
+| rage_rate on one target | Over 2% of engaged sessions, or 2x its own 28 day baseline | Watch 10 recordings filtered on the target; check INP and loading states |
+| dead_rate on one target | Over 5% of engaged sessions | Make the element do what people expect, or remove its link look |
+| Median engaged time on a paid landing page | Under 10 seconds | Message match review ([Message match](message-match-by-channel.md)) |
+| Signal appears after a release | Target was near zero before | Treat as a bug; hand to `site-engineer` |
+
+Read a rate only with 200 or more engaged sessions on the route, and replace the thresholds with the project's own baseline after 4 weeks. `conversion_gap` is correlational (frustrated visitors are often the most motivated ones), so use it to rank, never as the forecast lift.
+
+### 12.4 How the agent uses them
+
+1. Weekly, rank targets by `value_at_stake` and take the top 10.
+2. Confirm the cause in a second stream (recordings, a device repro, user testing) before writing a hypothesis. A signal is an observation, not a cause (section 1).
+3. Clear defects go to the fix lane; the rest enter the insight grid (section 10) and score the analytics and recordings points of PXL-lite ([Prioritization and playbooks](prioritization-and-playbooks.md) section 2.1).
+4. After a fix, the target's rate returns to its baseline within 2 weeks, or the item reopens.
+
+Handoffs: `measurement` (tracking plan entries, ingest, bot and internal traffic filters), `site-engineer` (listener code, labels, release QA), `storefront-ux` (affordance fixes on dead tap targets), `compliance` (consent category for the events).

@@ -143,3 +143,41 @@ P_A and P_B are placeholders. Replace them with dated captures from `market-inte
 5. Using undated screenshots; prices in Turkey move monthly.
 6. Comparing per unit when the shelf shows per 100 g.
 7. Treating marketplace reseller prices as the brand's price.
+
+## 12. Cross channel price divergence monitor
+
+Watches the same SKU across DTC, marketplaces and retailers so the brand sees corridor breaks, promo collisions and market tension early. It informs the brand's own prices, packs, promotions and listings only; it is never used to pressure a reseller or retailer (section 7, [Channel price corridors](channel-price-corridors.md) section 3). Pattern proven in production monitors, generalized here [Practitioner consensus].
+
+### 12.1 Data and formulas
+
+One row per SKU, channel, seller and capture date, normalized per unit with section 3 (same VAT basis, delivery stated, regular and promo flagged), with lineage from `market-intel` ([Tools, APIs and MCP](../../market-intel/references/tools-api-mcp.md) section 11). Compare the same pack, or per unit with the pack difference flagged.
+
+```
+reference price  = the brand's own regular DTC price per unit for the same pack
+                   (no DTC: median retail shelf price per unit; the report states which)
+divergence %     = (channel price per unit minus reference price per unit) / reference price per unit x 100
+move label       = down, up or flat vs the same SKU and seller at the previous capture (flat within 1%)
+down share       = downs / (downs + ups), per market and week, across sellers and channels
+withdrawal rate  = listings live last week that are delisted or out of stock this week / listings live last week
+```
+
+| Signal | Reading |
+|--------|---------|
+| Down share over 0.6 for 2 weeks | Price pressure: sellers chase volume or clear stock, or demand is softening |
+| Down share under 0.4 for 2 weeks | Firming market: cost pass through or strong demand; read it before any own increase ([Price changes](price-changes-and-inflation.md)) |
+| Withdrawal rate at 2x its 8 week median | Market tension: shortage, sellers leaving on thin margins, or platform delisting |
+| One seller far below the reference | Clearance, short dated stock, grey import or a promo; read the mechanic before reacting |
+
+### 12.2 Alert thresholds [Practitioner consensus]
+
+| Alert | Starting threshold | Goes to |
+|-------|--------------------|---------|
+| Featured Offer risk | Our own marketplace listing per unit more than 5% above the lowest public price per unit for the same item elsewhere, or above it by any amount during our own DTC promo (Amazon publishes the policy but no threshold, so 5% is a starting point [Unverified]) | `marketplaces` ([Channel conflict with DTC](../../marketplaces/references/channel-conflict-with-dtc.md) section 5) |
+| Promo conflict | A planned or live own promo takes a channel below its corridor floor, or overlaps a partner channel's event on the same pack | `offer-strategy` ([Channel conflict and price parity](../../offer-strategy/references/channel-conflict-and-price-parity.md)) |
+| Reference undercut | Any channel below minus 10% for 3 or more days on a hero SKU (same 10% as the market-intel price undercut alert) | Own corridor and pack review (this skill); `marketplaces` if a listing looks counterfeit or unauthorized |
+| Shelf above DTC | Retail shelf per unit more than 15% above our DTC hero per unit | Corridor review (section 9, retailer conflict) |
+| Market tension | Down share over 0.6 for 2 weeks, or withdrawal rate at 2x its baseline | Price level review (this skill); `market-intel` to explain the cause |
+
+Alerts follow the transition rule of the alert queue: one row per rule and entity (a SKU, or a SKU and channel) with an `alert_from` date, so an acknowledged alert stays acknowledged ([Dashboards and reporting](../../measurement/references/dashboards-and-reporting.md) section 8). Every response is a decision about the brand's own channels (price, pack, promo timing, listing), never a message to a reseller about their price; anything near that line goes to `compliance` first.
+
+Handoffs: `marketplaces` (Featured Offer risk, unauthorized sellers), `offer-strategy` (promo conflict, promo calendar), `market-intel` (collection, lineage, cadence), `compliance` (MAP, RPM and any partner communication), `growth-orchestrator` (market tension that changes the plan).

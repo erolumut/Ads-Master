@@ -51,12 +51,12 @@ Status: **Adopted** (shipped in this repo), **Kit** (shipped in `kits/workflow-k
 | Pattern | What it does | Seen in | Status | Where |
 |---------|--------------|---------|--------|-------|
 | Allowlisted event catalog | Undeclared events and props dropped, hashed ids, route folding, bot and internal flags, server clock | therapist portal, medicine cabinet app | Adopted | measurement `tracking-plan-as-code.md`, `tracking_plan_check.py` |
-| Engaged time, rage and dead taps | Active time definition and frustration signals from first-party taps | therapist portal | Noted | cro research inputs |
-| Lifecycle states | new, active, returning, at risk, dormant, churned from events | medicine cabinet app | Noted | lifecycle-crm segment source |
-| Virality metrics | Invites per user, invite to join rate, k-factor, share channels | daily games app | Noted | mobile-app-growth and lifecycle-crm referral |
-| Cross platform price divergence | Price gap of the same item between two platforms | housing tracker | Noted | pricing-strategy and marketplaces monitoring |
-| Drift sentinel | Alerts only when several inputs drift at once (PSI or KS) | housing tracker | Noted | measurement anomaly design |
-| Scraper resilience | Detects anti-bot pages, scores profile health, budgeted requests | housing tracker | Noted | market-intel collection base |
+| Engaged time, rage and dead taps | Active time definition and frustration signals from first-party taps | therapist portal | Adopted | `cro/references/research-methods.md` section 12 |
+| Lifecycle states | new, active, returning, at risk, dormant, churned from events | medicine cabinet app | Adopted | `lifecycle-crm/references/segmentation-and-personalization.md` section 10 |
+| Virality metrics | Invites per user, invite to join rate, k-factor, share channels | daily games app | Adopted | `mobile-app-growth/references/app-growth-model-and-unit-economics.md` section 10 |
+| Cross platform price divergence | Price gap of the same item between two platforms | housing tracker | Adopted | `pricing-strategy/references/competitive-price-benchmarking.md` section 12 |
+| Drift sentinel | Alerts only when several inputs drift at once (PSI or KS) | housing tracker | Adopted | `measurement/references/dashboards-and-reporting.md` section 8 |
+| Scraper resilience | Detects anti-bot pages, scores profile health, budgeted requests | housing tracker | Adopted | `market-intel/references/tools-api-mcp.md` section 11 (a challenge page stops collection; blocks are never bypassed) |
 | Post-deploy smoke scripts | Dependency free checks that run locally and against production via `BASE_URL`; health route returns the commit SHA | social game PWA, board game app | Adopted | `site-engineer/scripts/smoke_check.py` (pixel exactly once, health SHA) |
 | Approved copy snapshot tests | Sensitive copy must stay byte identical to the approved version | social game PWA | Adopted | `compliance/scripts/approved_copy.py` and `brand/approved-copy.json` |
 | Risk register | Risk, early warning, ready solution; reviewed each sprint | social game PWA | Adopted | Risk register in `template/INCIDENTS.md`, reviewed weekly by ads-review |

@@ -182,3 +182,50 @@ Target CPI / cost per trial start / cost per payer by channel
 Sensitivity: +/-10% on trial start, trial to paid, price, fee
 Decisions requested: <list, each with approval line>
 ```
+
+## 10. Virality and referral metrics
+
+Measures the product virality loop (section 1) as a funnel, so it can be improved, credited in CAC math and kept honest. Pattern proven in production apps, generalized here [Practitioner consensus].
+
+### 10.1 Metric dictionary
+
+| Metric | Definition | Notes |
+|--------|------------|-------|
+| Invites per active user (i) | Invites sent / active users, same period | Count a completed share or a sent invite, not a tap on "Invite" |
+| Inviter rate | Users with 1 or more invites / active users | Shows whether a few power users carry the loop |
+| Invite to join conversion (c) | Invitees who install and reach the activation event within 14 days / invites sent | Name the activation event; installs alone inflate c |
+| k-factor | i x c | Per weekly cohort, with i and c over the same window |
+| Viral cycle time | Median days from an inviter's own join to their invitees' joins | At equal k, shorter cycles compound faster |
+| Share channel split | Invites, joins and c by channel (messaging app, SMS, copy link, social story, email) | 1:1 channels usually convert above broadcast posts; confirm with your own data |
+
+### 10.2 What k does to CAC
+
+```
+users per paid user, all generations = 1 + k + k^2 + ... = 1 / (1 minus k)         (k under 1)
+users per paid user inside horizon H = 1 + k + ... + k^g,  g = floor(H / viral cycle time)
+blended CAC = acquisition investment / (paid users x users per paid user inside H)
+```
+
+Acquisition investment includes referral rewards (section 2). At k = 0.25 each paid user brings 1.33 users over all generations, so blended CAC is 25% below paid CAC (paid CAC x (1 minus k)). With a 14 day cycle and a D30 payback horizon, g = 2 and users per paid user inside H is 1.31. A k under 1 means virality cannot carry growth alone, not that it is worthless: it is a standing discount on every paid user. Credit invitees in target CPI (section 5) as value, not as users, because they join later and mature less inside H: add k x LTV(H minus cycle time) + k^2 x LTV(H minus 2 cycle times) + ... per paid install. Do it only after a holdout of the invite feature (by user cohort or by geo) shows the joins are incremental ([Mobile measurement](mobile-measurement-skan-aak-mmp.md) section 11); some invitees would have installed anyway.
+
+### 10.3 Invite link attribution and share cards
+
+- Link shape: `https://<link domain>/i/<invite_id>?ch=<channel>&v=<card variant>`. `invite_id` is random and opaque; the server maps it to inviter, channel and time. Never put an email, phone number or user ID in the link.
+- Universal links and App Links open the app when installed; otherwise the web page routes to the store and a deferred deep link carries `invite_id` through the install (Play Install Referrer on Android, MMP or link provider on iOS); see [Deep linking](deep-linking-and-web-to-app.md) sections 2.1 to 2.4.
+- Use the MMP or link provider's own invite or referral link type, so joins land under a referral source instead of organic [Official vendor docs; verify current parameter names].
+- The OS share sheet reports the chosen target (iOS activity type in the completion handler, Android chooser callback with the chosen component) [Official, Apple and Android developer docs]. Treat it as intent, not delivery; the `ch` value on the opened link confirms the click side.
+- Dynamic share card: each invite URL serves Open Graph tags (`og:title`, `og:description`, `og:image`) with an image rendered for that invite or the shared object (a result, a plan, a list), 1200 x 630 [Official, Meta sharing best practices; verify current size]. Show the inviter's name only if they opted in. Messaging apps cache previews per URL, so version the image URL, and compare c by `v` like an ad test.
+- Reward only after activation and the fraud controls in [Loyalty, referral and reviews](../../lifecycle-crm/references/loyalty-referral-and-reviews.md) section 6 (self invites, shared device or payment method, emulators). Store rules forbid manipulating referrals ([Policies](policies-and-store-compliance.md)); never upload a contact book without explicit consent.
+
+### 10.4 Starting thresholds [Practitioner consensus]
+
+| Incremental k (30 days) | Read |
+|-------------------------|------|
+| Under 0.05 | Noise; leave it out of CAC math |
+| 0.05 to 0.3 | A real CAC discount; model it and improve the invite flow like a funnel |
+| 0.3 to 1 | A core loop; give it a roadmap and a weekly metric |
+| Over 1 for 2 or more cycles | Rare; rule out fraud, reward farming and attribution errors before believing it |
+
+A viral cycle time longer than the payback horizon means the loop pays outside the window: report both multipliers.
+
+Handoffs: `lifecycle-crm` (program mechanics, rewards, fraud rules, invite email and push), `measurement` (link attribution, server events, holdout design), `site-engineer` and `cro` (invite landing page and share card endpoint), `creative-strategy` (card design), `compliance` (reward terms, incentive disclosure, consent), `growth-orchestrator` (blended CAC in budget plans).

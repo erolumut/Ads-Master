@@ -139,3 +139,49 @@ Guardrails for every AI feature: keep it in draft or suggestion mode at automati
 - Time zones stored for SMS quiet hours (from phone country and area code, or shipping address).
 - Test and employee profiles excluded by a property, not by memory.
 - Suppressed profiles retained (to keep suppression), never re-imported as subscribed.
+
+## 10. Lifecycle states from events
+
+Every customer holds exactly one state per weekly snapshot, derived from purchase or usage events and measured against the customer's own rhythm. A weekly buyer who goes quiet turns At risk long before a twice a year buyer with the same silence. Pattern proven in production apps, generalized here [Practitioner consensus]. It refines the stage model in [Strategy and metrics](lifecycle-strategy-and-metrics.md) section 1: At risk keeps its 1.5x to 3x band, and Lapsed splits into Dormant and Churned.
+
+### 10.1 Cadence and states
+
+Event = a paid order net of full refunds (ecommerce), or the core usage event for apps and SaaS (never a bare app open). Cadence blends the customer's own median gap with the store median reorder interval ([Cohort and LTV analysis](cohort-and-ltv-analysis.md) section 4), so a customer with few events leans on the store figure:
+
+```
+cadence = (n_gaps x own_median_gap + 2 x store_median) / (n_gaps + 2)     -- n_gaps = events minus 1
+r       = days since last event / cadence
+```
+
+| State | Rule at each weekly snapshot (first match wins) |
+|-------|--------------------------------------------------|
+| Churned | Explicit end (subscription cancelled with no one time order since, or account deleted) OR r over 6 OR 730 days without an event |
+| Dormant | r over 3, up to 6 |
+| At risk | r over 1.5, up to 3 |
+| New | Exactly 1 event, r up to 1.5 |
+| Returning | Last event ended a gap over 1.5 x cadence (the customer had been At risk or worse), r up to 1.5 |
+| Active | 2 or more events, last gap within 1.5 x cadence, r up to 1.5 |
+
+The multipliers 1.5, 3 and 6, the shrink weight 2 and the 730 day cap are starting points [Practitioner consensus]; check them against the project's repeat curve before use. With 1 or 2 gaps the blend leans on the store median, so a slow but steady buyer can read as At risk or Returning until a few more gaps exist; that is intended, since 1 or 2 gaps are weak evidence. In SQL: join events to `GENERATE_DATE_ARRAY(start, CURRENT_DATE(), INTERVAL 1 WEEK)` keeping events before each snapshot, take `APPROX_QUANTILES(gap, 2)[SAFE_OFFSET(1)]` as the own median (`IFNULL` to 0 when n_gaps is 0) and `ARRAY_AGG(gap IGNORE NULLS ORDER BY event_date DESC LIMIT 1)[SAFE_OFFSET(0)]` as the last gap, then apply the table as a `CASE`.
+
+### 10.2 Weekly cohort table
+
+| First event week | Customers | Active or Returning at W4 | W8 | W12 | W26 | Churned at W26 |
+|------------------|-----------|---------------------------|----|-----|-----|----------------|
+
+Under it, one flow line per week: counts per state, save rate (At risk last week that are Returning this week / At risk last week), revival rate (the same from Dormant) and slip rate (Active or Returning last week that are At risk this week / Active or Returning last week). A rising slip rate is the earliest retention warning; compare it with its own 8 week median.
+
+### 10.3 State to flow, suppression and paid media
+
+| State | Flow ([Core flows](core-flows.md)) | Suppression rule | Paid media use (through `measurement`) |
+|-------|------------------------------------|------------------|----------------------------------------|
+| New | Post purchase, first time buyer branch (section 6) | Out of welcome discounts, first order offers and winback | Excluded from acquisition; existing customer list |
+| Active | Replenishment ([Replenishment and subscriptions](replenishment-and-subscriptions.md)), cross sell and VIP (sections 7 and 11) | Out of winback and discount led campaigns | Excluded from acquisition; cross sell audiences for high value only |
+| Returning | Repeat buyer branch with a welcome back note, no new incentive | Out of winback for one cadence | Existing customer list; out of reactivation ads |
+| At risk | Winback W1 to W2 (section 8) and the "why did you stop?" survey | Out of generic campaigns while in winback (one stream at a time) | Paid winback only after 21 days of email and SMS non response |
+| Dormant | Winback W3 to W4 with a tested incentive inside offer-strategy bounds | Campaign frequency cut to the E3 cadence (engagement tiers, section 1 of this file) | Reactivation audience with a spend cap |
+| Churned | Sunset (section 9) for email non engagers; one churn survey | Out of all promotional sends after sunset; never re-subscribed by import | Existing customer list only if METRICS.md defines new customers as first order ever (under a 365 day rule they count as new again); reactivation spend only as a test |
+
+Write the state to the profile as a property (G2) daily or weekly; the ESP's native ad syncs or the `measurement` pipeline build one audience per state. Every upload is G3 with the lawful basis check and an audience register row ([Lifecycle and paid media](lifecycle-and-paid-media.md) sections 1 and 3).
+
+Handoffs: `measurement` (state pipeline, audience syncs, the existing customer list behind new customer goals), channel agents through the main session (exclusions and reactivation audiences), `offer-strategy` (incentive bounds for Dormant), `compliance` (consent for advertising use), `growth-orchestrator` (weekly state counts and slip rate).

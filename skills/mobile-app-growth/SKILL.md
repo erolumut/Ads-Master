@@ -263,7 +263,7 @@ Known items to re-verify first (after the 2026-10-08 pass): US Apple link out fe
 
 ## Reference index
 
-- [Growth model and unit economics](references/app-growth-model-and-unit-economics.md): loops, metric dictionary, fee table by market, LTV curves, payback, target CPI, budget floors, benchmarks.
+- [Growth model and unit economics](references/app-growth-model-and-unit-economics.md): loops, metric dictionary, fee table by market, LTV curves, payback, target CPI, budget floors, benchmarks, virality and referral metrics (k-factor, blended CAC, invite link attribution, share cards).
 - [ASO for the App Store](references/aso-app-store.md): fields and limits, keyword procedure, ranking evidence, screenshots and new assets, localization, analytics, featuring.
 - [ASO for Google Play](references/aso-google-play.md): listing fields and policy, Gemini tools, vitals and target API, custom store listings, new 2026 surfaces, pre-registration.
 - [Store listing experiments and custom pages](references/store-listing-experiments-and-custom-pages.md): PPO, CPPs, Play experiments and custom listings, sizing and reading tests.

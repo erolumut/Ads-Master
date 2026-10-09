@@ -142,3 +142,47 @@ Never: bypass logins, CAPTCHAs or blocks; use fake accounts; resell or publish c
 | Listening tools | Annual contracts | Human |
 | Panels for surveys | Per complete | Human |
 Record which paid sources were used in each output's Data used table.
+
+## 11. Resilient, polite collection
+For the automated checks the decision tree in section 9 allows (public pages, no personal data, low frequency). Resilient means noticing failure and stopping cleanly so no bad value enters a report; it never means getting around a "no". Prefer official APIs and ad libraries (section 2, [Competitor ad intelligence](competitor-ad-intelligence.md)) over page collection every time. Pattern proven in production collectors, generalized here [Practitioner consensus].
+
+### 11.1 Detect a challenge or block instead of data
+Validate every response against what was expected before parsing:
+
+| Check | Signal of a challenge, block or broken page |
+|-------|---------------------------------------------|
+| Status | 403 is a block. 429 (slow down) and 503 (overloaded) may carry `Retry-After` [Official, RFC 6585 and RFC 9110]; without challenge markers they are retried per 11.3, with markers they are a challenge |
+| Content type | `text/html` when JSON was expected |
+| Known markers | Header `cf-mitigated: challenge` [Official, Cloudflare docs]; body text such as "verify you are human", "unusual traffic", "access denied", captcha widgets [Practitioner consensus; keep the list in config, markers change] |
+| Shape | JSON without the expected keys; a product page without price, title or SKU; a body far smaller than the domain's median |
+| Redirect | Landed on a login, a consent wall or another domain |
+
+A detected challenge is never parsed as data and never retried through another profile or IP. It pauses the domain (11.3).
+
+### 11.2 Profile health and rotation
+A collection profile is one configuration: client, egress (own server, cloud region or a licensed provider used for a market's local view), headers with an honest user agent and a contact URL, and the API key if any.
+
+```
+health(profile) = successful responses / requests over its last 50 requests
+                  (success = expected status, content type and shape)
+```
+
+- Below 80% on at least 20 requests: retire the profile from the pool and investigate (timeouts, DNS, TLS, parser drift). Rotation replaces broken infrastructure.
+- Challenges and blocks count against the domain, not the profile. Switching identities or IPs to pass a challenge, CAPTCHA or block is circumvention and is banned (section 5.1).
+
+### 11.3 Request budget per domain
+| Policy | Default [Practitioner consensus] |
+|--------|----------------------------------|
+| robots.txt | Read before the first request and daily, and obey it (RFC 9309) [Official, IETF 2022-09]; honor `Crawl-delay` when present (not part of the RFC, still a clear request); site terms that forbid automated access end automation (section 5.1) |
+| Rate | 1 request at a time per domain, at least 5 to 10 seconds apart |
+| Daily cap | 200 requests per domain, from a fixed URL list (no open crawling) |
+| Frequency | Page monitors at most daily, most others weekly ([Monitoring](monitoring-cadence-and-alerts.md) section 10) |
+| Retries | At most 3, only for timeouts, 429 and 5xx; wait = max(Retry-After, random(0, min(5 min, 2 s x 2^attempt))) (exponential backoff with full jitter, AWS Architecture Blog 2015) |
+| Circuit breaker | Challenge, 403, or a 429 that survives 3 retries: pause the domain 24 hours. 3 pauses in 14 days: stop automation, switch to the official API, a licensed tool or manual review, and tell the human |
+| Cost | Paid API calls stay inside the monthly cap (section 10) |
+
+### 11.4 Lineage and personal data
+- Every stored value carries `source_type` (official_api, licensed_tool, public_page, manual), `source_name`, `url` (no session or user query parameters), `fetched_at` (UTC, ISO 8601), `http_status`, `profile_id`, `parser_version`, `content_sha256` of the raw body, `market` and `language`. A value without lineage is not used in any output. This extends the capture metadata in section 6.
+- Parsers allowlist fields (price, availability, title, SKU, pack size, seller ID) and drop the rest at parse time. Reviewer names, profile URLs, emails and phone numbers never reach storage; a sole trader's shop name can be personal data, so store the seller ID when that is enough (section 5.2).
+
+Handoffs: `pricing-strategy` (dated price series for benchmarking and the cross channel divergence monitor), `marketplaces` (Featured Offer and seller monitoring), `measurement` (warehouse loads and the sync health check in [Dashboards and reporting](../../measurement/references/dashboards-and-reporting.md) section 8), `compliance` (terms and personal data questions), the human (licensing a tool when a domain leaves automation).

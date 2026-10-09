@@ -255,7 +255,7 @@ How to log: if a check changes a recommendation, write a journal entry `YYYY-MM-
 
 ## Reference index
 
-- [Research methods](references/research-methods.md): ResearchXL streams, GA4 funnels and BigQuery, Clarity and Contentsquare, surveys, VOC, interviews, user testing, LIFT, insight grid.
+- [Research methods](references/research-methods.md): ResearchXL streams, GA4 funnels and BigQuery, Clarity and Contentsquare, surveys, VOC, interviews, user testing, LIFT, insight grid, engaged time and frustration signals (rage and dead taps) to rank hypotheses.
 - [Landing page anatomy](references/landing-page-anatomy.md): awareness levels, page type decision tree, section anatomy, first screen rules, page types, wireframes, pre-launch checklist.
 - [Message match by channel](references/message-match-by-channel.md): four-layer scoring, channel playbooks (Google, PMax, Meta, TikTok, LinkedIn, ChatGPT ads, AI referrals), dynamic message match.
 - [Offer and copy](references/offer-and-copy.md): offer architecture, value proposition, headlines, frameworks, risk reversal, social proof law, urgency without dark patterns, copy deck.
