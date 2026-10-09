@@ -162,7 +162,7 @@ Agents look for an `ads-master/` folder at the project root. Created by the `ads
 | `DECISIONS.md` | Human with growth-orchestrator | Read before proposing strategy changes. Orchestrator appends drafts. |
 | `INCIDENTS.md` | All agents | Read stop conditions. Append incident rows. |
 | `VERIFIED.md` | Agents via the ads-verify skill | Read before relying on an Unverified or Contested claim. Append verified rows with level, evidence and expiry. |
-| `brand/PRODUCT_FACTS.md`, `brand/CLAIMS.md` | Human with compliance | Read. Compliance maintains with approval. |
+| `brand/PRODUCT_FACTS.md`, `brand/CLAIMS.md`, `brand/approved-copy.json` | Human with compliance | Read. Compliance maintains with approval; approved copy is recorded only through `approved_copy.py add`. |
 | `creative-library/registry.csv` | creative-strategy, video-studio, channel agents | Append rows; update status and learnings of own rows. |
 | `logs/actions.jsonl`, `logs/session-reports/` | Guard hook, agents | Hook appends; agents write session reports when asked. |
 

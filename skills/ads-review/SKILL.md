@@ -29,7 +29,7 @@ Goal: numbers every day, decisions on 3 and 7 day windows. One bad day is not a 
 ## Mode: weekly (the learning loop)
 1. **Fan out.** Delegate to every active specialist in parallel (paid channels, mobile-app-growth, seo, ai-search-optimization, cro, storefront-ux, site-engineer, commerce-feeds, creative-strategy, video-studio, offer-strategy, lifecycle-crm, measurement; compliance reviews anything due to publish). Brief for each:
    > Weekly review for <project>, week of <date>. Follow the weekly Cadence section of your skill. Use data from <sources and date range>. Deliver: (1) KPI scorecard vs targets in STRATEGY.md and your memory baselines, (2) wins and misses with the evidence, (3) experiments to close or launch (update EXPERIMENTS.md rows you own), (4) a change list for approval using ads-master/templates/CHANGE_REQUEST.md, (5) memory updates only for confirmed patterns, (6) a journal entry. Save to ads-master/outputs/<slug>/<date>_<slug>_weekly-review.md. End with "Handoffs requested" if you need another agent.
-2. **Execute handoffs.** Collect each response. Run any requested handoffs that are needed before the synthesis (for example a tracking fix).
+2. **Execute handoffs.** Collect each response. Review the risk register in `ads-master/INCIDENTS.md`: check each early warning against this week's data, update Last reviewed, and turn any fired risk into an incident row. Run any requested handoffs that are needed before the synthesis (for example a tracking fix).
 3. **Synthesize.** Delegate to the `growth-orchestrator` agent (or follow the growth-orchestrator skill in this session) to write `ads-master/outputs/growth-orchestrator/<date>_growth-orchestrator_weekly-review.md` using `ads-master/templates/WEEKLY_REVIEW.md`: business KPIs, channel scorecard, cross channel insights, budget shifts within guardrails, experiment decisions, and an updated `PRIORITIES.md` (max 5 items).
 4. **Present to the human.** A short summary: the headline, red items, decisions needed (with a recommendation each), and the consolidated change list. Nothing is executed until approved.
 
@@ -46,7 +46,7 @@ Everything in weekly, plus:
 - `compliance`: claims registry review (expired evidence, new claims found in live copy).
 - `storefront-ux`: conformance audit delta on the top templates (homepage, collection, PDP, cart).
 - `site-engineer`: release log review and a worst case data pass on the top landing pages.
-- Verification pass (`ads-verify` skill): expire old rows in `ads-master/VERIFIED.md`, re-verify those still used, and clear the 10 open claims that block decisions this month.
+- Verification pass (`ads-verify` skill, starting with `verified_check.py`): expire old rows in `ads-master/VERIFIED.md`, re-verify those still used, and clear the 10 open claims that block decisions this month.
 
 ## Mode: quarterly
 - `growth-orchestrator`: strategy reset (draft STRATEGY.md for approval), channel mix review, incrementality and MMM plan with `measurement`.

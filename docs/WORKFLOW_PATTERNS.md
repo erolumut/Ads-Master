@@ -15,11 +15,11 @@ Status: **Adopted** (shipped in this repo), **Kit** (shipped in `kits/workflow-k
 | Workflow YAML lint | Duplicate keys, missing `on` or `jobs`, missing `permissions`, untrusted input inside `run:`, unpinned actions, status functions outside `if:` | board game app, holiday park pricing tool | Kit | `check_workflows.py` |
 | Exit code convention | 0 pass, 1 fail, 2 could not run. A skipped check is never reported as ok. Every summary ends with what the gate cannot cover | board game app, holiday park pricing tool | Adopted and Kit | `tracking_plan_check.py`, kit scripts, ads-review rules |
 | Two way parity checks | Code vs catalog both ways: undocumented items fail and orphan catalog rows fail | board game app, recipe app | Adopted | `tracking_plan_check.py --code`, `build_docs.py --check`, `validate.py` packs coverage |
-| Every exception needs a reason | Each ignore or allowlist entry needs a written reason, and each reason needs an entry | board game app | Planned | validate.py for `[Unverified]` labels without a VERIFIED.md row |
+| Every exception needs a reason | Each ignore or allowlist entry needs a written reason, and each reason needs an entry | board game app | Adopted | `ads-verify/scripts/verified_check.py`: every VERIFIED.md row needs level, evidence and expiry; expired rows fail |
 | Dry run by default | Destructive scripts need `--apply --yes` | board game app | Kit | kit script convention |
-| Local gate in a clean clone, cleared commits ledger, CI parity test | The local gate is the authority, CI cannot have a step the gate lacks, deploys ship only cleared SHAs | holiday park pricing tool | Noted | candidate for kit v2 |
+| Local gate in a clean clone, cleared commits ledger, CI parity test | The local gate is the authority, CI cannot have a step the gate lacks, deploys ship only cleared SHAs | holiday park pricing tool | Kit | `gate.py` (clean clone, `--record` to `gate/cleared.txt`, `--parity` against CI) |
 | Budget gates with warn soak | JSON thresholds, baseline seeded on first run, warn for two weeks then fail | board game app, recipe app | Adopted (rule) | tracking plan rollout step 5 |
-| Self-hosted runner fallback, off the hour cron, SHA pinned actions | Keeps CI alive when hosted minutes run out | board game app, holiday park pricing tool | Noted | CI starter pack candidate |
+| Self-hosted runner fallback, off the hour cron, SHA pinned actions | Keeps CI alive when hosted minutes run out | board game app, holiday park pricing tool | Kit | `templates/ci/ci.yml`, `templates/ci/dependabot.yml` |
 
 ## 2. Reviewers and agents (prose, applied as gates)
 
@@ -30,7 +30,7 @@ Status: **Adopted** (shipped in this repo), **Kit** (shipped in `kits/workflow-k
 | Mission fence | "The model proposes, a human decides": no automated path may approve, pay, publish prices or spend | costing tool, holiday park pricing tool | Adopted | G3 gate, pricing-strategy hard rules |
 | Log triage agent | Cheap model turns long CI or test output into exact facts, no diagnosis | board game app | Kit | `agents/log-triage.md` |
 | Routing audit | Compares the model each subagent was asked for with the model that actually ran | board game app | Kit | `agent_models.py` |
-| Hook nudges a guardian | Changed paths suggest which reviewer to run | recipe app | Planned | Stop hook hint in guard.py |
+| Hook nudges a guardian | Changed paths suggest which reviewer to run | recipe app | Adopted | `guard.py` PostToolUse review hints (once per reviewer per session, rules overridable in guardrails.json) |
 | Path scoped rules with hidden provenance | `paths:` frontmatter, source kept in HTML comments | board game app | Kit | rules template |
 
 ## 3. Numbers you can trust (the answer to "how do we make uncertain certain")
@@ -57,9 +57,9 @@ Status: **Adopted** (shipped in this repo), **Kit** (shipped in `kits/workflow-k
 | Cross platform price divergence | Price gap of the same item between two platforms | housing tracker | Noted | pricing-strategy and marketplaces monitoring |
 | Drift sentinel | Alerts only when several inputs drift at once (PSI or KS) | housing tracker | Noted | measurement anomaly design |
 | Scraper resilience | Detects anti-bot pages, scores profile health, budgeted requests | housing tracker | Noted | market-intel collection base |
-| Post-deploy smoke scripts | Dependency free checks that run locally and against production via `BASE_URL`; health route returns the commit SHA | social game PWA, board game app | Planned | site-engineer launch QA |
-| Approved copy snapshot tests | Sensitive copy must stay byte identical to the approved version | social game PWA | Planned | compliance, approved claims |
-| Risk register | Risk, early warning, ready solution; reviewed each sprint | social game PWA | Planned | growth risk rows in `INCIDENTS.md` |
+| Post-deploy smoke scripts | Dependency free checks that run locally and against production via `BASE_URL`; health route returns the commit SHA | social game PWA, board game app | Adopted | `site-engineer/scripts/smoke_check.py` (pixel exactly once, health SHA) |
+| Approved copy snapshot tests | Sensitive copy must stay byte identical to the approved version | social game PWA | Adopted | `compliance/scripts/approved_copy.py` and `brand/approved-copy.json` |
+| Risk register | Risk, early warning, ready solution; reviewed each sprint | social game PWA | Adopted | Risk register in `template/INCIDENTS.md`, reviewed weekly by ads-review |
 | Snapshot before change | Export settings before any bulk edit; kept out of automation | costing tool | Adopted | gate model: snapshot, change, read back, log |
 
 ## Maintenance

@@ -1,0 +1,41 @@
+# Workflow Kit CI starter. Copy to .github/workflows/ci.yml and replace the <placeholders>.
+# Hardened defaults: read only token, no untrusted input in run:, actions pinned to a commit SHA,
+# docs only pushes skipped, one run per branch, and a self hosted runner fallback through the
+# CI_RUNNER repository variable (set it to a runner label when hosted minutes run out).
+# Keep every command here also listed in workflow-kit.json gate.steps: `gate.py --parity` fails otherwise.
+name: ci
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["**/*.md", "docs/**"]
+  pull_request:
+    paths-ignore: ["**/*.md", "docs/**"]
+  schedule:
+    - cron: "17 5 * * 1"   # weekly full run, off the hour so it does not queue behind everyone else
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}
+    timeout-minutes: 30
+    steps:
+      # Pin third party and first party actions to a full commit SHA; the comment keeps the version readable.
+      - uses: actions/checkout@<FULL_40_CHAR_SHA> # v4
+      - name: install
+        run: <INSTALL_COMMAND>
+      - name: typecheck
+        run: <TYPECHECK_COMMAND>
+      - name: lint
+        run: <LINT_COMMAND>
+      - name: test
+        run: <TEST_COMMAND>
+      - name: build
+        run: <BUILD_COMMAND>

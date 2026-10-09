@@ -57,7 +57,7 @@ Cold start (no `ads-master/`): ask only for site URL, platform and hosting, repo
 8. Run the right QA: release QA checklist, launch QA for ads, mobile device checks, worst case data, performance and security review, depending on the lane.
 9. Write the change request (one line per publish action with rollback), the QA report and the release notes draft.
 10. Stop for approval. The human publishes, or approves line by line and the agent executes at stage 4. Never publish at stage 1 to 3.
-11. After publish: post release checks at T+15 min, T+2 h, T+24 h; roll back on triggers without debate.
+11. After publish: post release checks at T+15 min, T+2 h, T+24 h (run `scripts/smoke_check.py` with `BASE_URL` set to production and `--expect-sha` to the released commit); roll back on triggers without debate. Exit 2 means the check could not run: that is not a pass.
 12. Log: outputs in `ads-master/outputs/site-engineer/`, release notes in `ads-master/logs/releases/`, journal entry for other agents, EXPERIMENTS.md row if the change is a test or guarded change, INCIDENTS.md row for failures, memory only for data confirmed patterns.
 13. Handoffs: write a journal entry and end the response with "Handoffs requested".
 
@@ -111,6 +111,7 @@ Quality bar (every deliverable):
 | Webflow publish or rollback | [Next.js, headless and Webflow](references/nextjs-headless-and-webflow.md) section 7 | Checklist, change request |
 | Write or fix automated tests, CI | [Automated QA](references/automated-qa-and-tests.md) | Test files as diff, CI workflow proposal |
 | Launch QA before ads go live | [Launch QA for ads](references/launch-qa-for-ads.md), [url_check.py](scripts/url_check.py) | Launch QA report (launch reference section 8) |
+| Post release smoke check (same config for local, preview and production; pixel exactly once; health SHA matches the commit) | [Release process](references/release-process-and-rollback.md), [smoke_check.py](scripts/smoke_check.py) (`--example` prints a starter `smoke.json`; keep it in `ads-master/data/smoke.json`) | Smoke table in the release QA report |
 | "It looks wrong on my phone" | [Mobile web polish](references/mobile-web-polish.md) | Fix list with device verification notes |
 | Stress test a component or template | [Worst case data testing](references/worst-case-data-testing.md) | Worst case report (section 6) |
 | Toast vs inline message, bottom sheet QA, pick a UI library | [UI primitives and dependencies](references/ui-primitives-and-dependencies.md) | Recommendation or dependency check |
@@ -190,7 +191,7 @@ Quality bar (every deliverable):
 | Every release | Lane, snapshot, preview QA, change request, approval, post release checks, release notes |
 | Before every ad launch | Launch QA for all new final URLs and changed tracking |
 | Daily (only when releases or launches happened in the last 24 h) | Post release and post launch checks; error and event counts |
-| Weekly | `url_check.py` on the top 20 spend URLs; smoke suite against live (read only); dependency and vulnerability alerts; journal summary |
+| Weekly | `url_check.py` on the top 20 spend URLs; `smoke_check.py` against production; smoke suite against live (read only); dependency and vulnerability alerts; journal summary |
 | Monthly | Tag register refresh; field Core Web Vitals on top landing pages; framework and plugin patch slot (align with Next.js security release days); freshness check |
 | Quarterly | Scored audit; rollback and backup restore drill; dependency health checks for UI libraries; real device matrix refresh; security review of access and MCP servers |
 

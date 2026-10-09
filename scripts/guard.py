@@ -43,7 +43,25 @@ DEFAULT_POLICY = {
     "extra_ask_bash_patterns": [],
     "log_actions": True,
     "log_path": "ads-master/logs/actions.jsonl",
+    "review_hints": True,
 }
+
+# Path pattern -> (reviewer, why). Advisory only: a PostToolUse hint, once per reviewer per session.
+# Override or extend per project with "review_hint_rules": [[regex, reviewer, why], ...] in guardrails.json.
+REVIEW_HINT_RULES = [
+    (r"\.(liquid|tsx|jsx|vue|svelte|php|astro)$|/(templates|sections|snippets|layout|theme)/",
+     "site-engineer", "site or theme code changed: release QA on desktop, phones and in-app browsers before it goes live"),
+    (r"(gtm|datalayer|data-layer|pixel|capi|conversion|analytics|tracking|consent)[^/]*$",
+     "measurement", "tracking code changed: check events, dedup keys and consent before release"),
+    (r"ads-master/outputs/.*(copy|ad|ads|email|sms|landing|listing|creative|script|offer|price)[^/]*\.md$|ads-master/brand/",
+     "compliance", "customer facing copy or claims changed: compliance review before publishing"),
+    (r"(robots\.txt|sitemap|schema|json-?ld|metadata|hreflang|canonical)",
+     "seo", "crawl or structured data files changed: SEO preflight before release"),
+    (r"(feed|merchant|catalog)[^/]*\.(xml|csv|tsv|json|txt)$",
+     "commerce-feeds", "product feed changed: feed QA and price and availability parity"),
+    (r"(price|pricing|tarif)[^/]*\.(csv|json|xlsx|md)$",
+     "pricing-strategy", "price file changed: parity check (ad, page, structured data, feed, checkout) and compliance on displayed prices"),
+]
 
 # ---------------------------------------------------------------- vocabulary
 
@@ -426,9 +444,58 @@ def cmd_pre(event, root, policy):
     emit("PreToolUse", decision, f"{gate} ({reason}).{stage_hint(gate, policy)}")
 
 
+def review_hints(event, root, policy, path):
+    if not policy.get("review_hints", True) or not path:
+        return None
+    rel = os.path.relpath(os.path.abspath(path), root) if os.path.isabs(path) else path
+    rel = rel.replace(os.sep, "/")
+    if rel.startswith("..") or re.search(r"ads-master/(logs|journal|memory)/", rel):
+        return None
+    rules = list(REVIEW_HINT_RULES)
+    for r in policy.get("review_hint_rules", []) or []:
+        if isinstance(r, (list, tuple)) and len(r) == 3:
+            rules.append(tuple(r))
+    matched = []
+    for pattern, reviewer, why in rules:
+        try:
+            if re.search(pattern, rel, re.I) and reviewer not in [m[0] for m in matched]:
+                matched.append((reviewer, why))
+        except re.error:
+            continue
+    if not matched:
+        return None
+    session = event.get("session_id") or ""
+    seen = set()
+    logp = os.path.join(root, policy.get("log_path") or DEFAULT_POLICY["log_path"])
+    try:
+        with open(logp, encoding="utf-8") as fh:
+            for line in fh:
+                if '"hint"' in line and session and session in line:
+                    try:
+                        seen.add(json.loads(line).get("reviewer"))
+                    except ValueError:
+                        pass
+    except OSError:
+        pass
+    fresh = [(r, w) for r, w in matched if r not in seen]
+    if not fresh:
+        return None
+    for r, _ in fresh:
+        log(root, policy, {"ts": now(), "session": session, "event": "hint", "reviewer": r, "target": short(rel)})
+    lines = "; ".join(f"`{r}` ({w})" for r, w in fresh)
+    return (f"Ads Master review hint for {rel}: before calling this done, run {lines}. "
+            "Advisory only; shown once per reviewer per session.")
+
+
 def cmd_post(event, root, policy):
     tool = event.get("tool_name", "")
     tinput = event.get("tool_input", {}) or {}
+    if tool in ("Write", "Edit", "MultiEdit", "NotebookEdit"):
+        hint = review_hints(event, root, policy, tinput.get("file_path") or tinput.get("notebook_path") or "")
+        if hint:
+            sys.stdout.write(json.dumps({"hookSpecificOutput": {"hookEventName": "PostToolUse",
+                                                                 "additionalContext": hint}}))
+        return
     if tool == "Bash":
         gate, _ = classify_bash(tinput.get("command", ""), policy)
     elif tool.startswith("mcp__"):

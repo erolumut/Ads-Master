@@ -128,6 +128,48 @@ for kit in $KITS; do
       copy_item "$KDIR/$extra" "$TARGET/.claude/$(basename "$KDIR")/$extra"
     fi
   done
+  if [[ -f "$KDIR/templates/workflow-kit.json" && ! -f "$TARGET/workflow-kit.json" ]]; then
+    copy_item "$KDIR/templates/workflow-kit.json" "$TARGET/workflow-kit.json"
+  fi
+  if [[ -f "$KDIR/templates/settings-snippet.json" ]]; then
+    if [[ $DRY -eq 1 ]]; then
+      echo "[dry-run] merge $(basename "$KDIR") settings snippet into .claude/settings.json (missing keys only)"
+    else
+      python3 - "$KDIR/templates/settings-snippet.json" "$TARGET/.claude/settings.json" <<'PY'
+import json, os, sys
+snippet_path, path = sys.argv[1], sys.argv[2]
+with open(snippet_path, encoding="utf-8") as fh:
+    snippet = json.load(fh)
+try:
+    with open(path, encoding="utf-8") as fh:
+        settings = json.load(fh)
+except FileNotFoundError:
+    settings = {}
+added = []
+for key, val in snippet.items():
+    if key.startswith("//"):
+        continue
+    if isinstance(val, dict):
+        cur = settings.setdefault(key, {})
+        for k, v in val.items():
+            if isinstance(v, str) and "<" in v:
+                continue  # placeholder: the project decides
+            if k not in cur:
+                cur[k] = v
+                added.append(f"{key}.{k}")
+        if not cur:
+            settings.pop(key)
+    elif key not in settings:
+        settings[key] = val
+        added.append(key)
+os.makedirs(os.path.dirname(path), exist_ok=True)
+with open(path, "w", encoding="utf-8") as fh:
+    json.dump(settings, fh, indent=2)
+    fh.write("\n")
+print("settings: added " + (", ".join(added) if added else "nothing (keys already set)"))
+PY
+    fi
+  fi
   echo "kit installed: $(basename "$KDIR")"
 done
 
@@ -161,13 +203,17 @@ guard = 'python3 "${CLAUDE_PROJECT_DIR}/.claude/hooks/ads-master-guard.py"'
 wanted = {
     "SessionStart": ("startup|resume|clear|compact", "session-start"),
     "PreToolUse": ("^(Bash|Write|Edit|MultiEdit|NotebookEdit)$|^mcp__.*", "pre"),
-    "PostToolUse": ("^Bash$|^mcp__.*", "post"),
+    "PostToolUse": ("^(Bash|Write|Edit|MultiEdit|NotebookEdit)$|^mcp__.*", "post"),
     "Stop": (None, "stop"),
 }
 hooks = settings.setdefault("hooks", {})
 for event, (matcher, sub) in wanted.items():
     groups = hooks.setdefault(event, [])
-    if any("ads-master-guard.py" in h.get("command", "") for g in groups for h in g.get("hooks", [])):
+    existing = [g for g in groups if any("ads-master-guard.py" in h.get("command", "") for h in g.get("hooks", []))]
+    if existing:
+        for g in existing:
+            if matcher:
+                g["matcher"] = matcher
         continue
     group = {"hooks": [{"type": "command", "command": f"{guard} {sub}", "timeout": 10}]}
     if matcher:

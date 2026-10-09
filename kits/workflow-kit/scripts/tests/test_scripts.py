@@ -392,5 +392,56 @@ class PrecommitDispatchTest(Base):
         self.assertEqual(r.returncode, 2, r.stdout)
 
 
+class GateTest(Base):
+    def gate(self, *args):
+        return subprocess.run([sys.executable, "-I", str(SCRIPTS / "gate.py"), "--root", str(self.root), *args],
+                              capture_output=True, text=True, timeout=120)
+
+    def init(self, steps, ci=None):
+        g = ["git", "-C", str(self.root)]
+        subprocess.run(g + ["init", "-q"], check=True)
+        subprocess.run(g + ["config", "user.email", "t@t"], check=True)
+        subprocess.run(g + ["config", "user.name", "t"], check=True)
+        cfg = {"gate": {"steps": steps, "ledger": "gate/cleared.txt"}}
+        self.write("workflow-kit.json", json.dumps(cfg))
+        self.write("ok.txt", "committed")
+        if ci:
+            self.write(".github/workflows/ci.yml", ci)
+        subprocess.run(g + ["add", "-A"], check=True)
+        subprocess.run(g + ["commit", "-q", "-m", "init"], check=True)
+
+    def test_pass_records_cleared_sha(self):
+        self.init([{"name": "file", "run": "test -f ok.txt"}])
+        self.write("dirty.txt", "uncommitted")  # must not reach the clean clone
+        r = self.gate("--record")
+        self.assertEqual(r.returncode, 0, r.stdout)
+        self.assertIn("This gate cannot cover:", r.stdout)
+        sha = subprocess.run(["git", "-C", str(self.root), "rev-parse", "HEAD"], capture_output=True,
+                             text=True).stdout.strip()
+        self.assertIn(sha, (self.root / "gate" / "cleared.txt").read_text())
+
+    def test_clean_clone_ignores_uncommitted_files(self):
+        self.init([{"name": "dirty", "run": "test -f dirty.txt"}])
+        self.write("dirty.txt", "uncommitted")
+        self.assertEqual(self.gate().returncode, 1)
+
+    def test_placeholder_and_missing_tool_could_not_run(self):
+        self.init([{"name": "lint", "run": "<LINT_COMMAND>"}])
+        r = self.gate("--record")
+        self.assertEqual(r.returncode, 2, r.stdout)
+        self.assertIn("COULD NOT RUN", r.stdout)
+        self.assertFalse((self.root / "gate" / "cleared.txt").exists())
+
+    def test_parity_fails_when_ci_has_extra_step(self):
+        ci = "on: push\njobs:\n  a:\n    steps:\n      - run: test -f ok.txt\n      - run: |\n          make secret-check\n"
+        self.init([{"name": "file", "run": "test -f ok.txt"}], ci=ci)
+        r = self.gate("--parity")
+        self.assertEqual(r.returncode, 1, r.stdout)
+        self.assertIn("make secret-check", r.stdout)
+
+    def test_not_a_repo(self):
+        self.assertEqual(self.gate().returncode, 2)
+
+
 if __name__ == "__main__":
     unittest.main()

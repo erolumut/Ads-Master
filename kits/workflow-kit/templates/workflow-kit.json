@@ -35,10 +35,21 @@
     "regressionLibrary": "docs/review/REGRESSIONS.md"
   },
   "decisions": {
-    "files": ["DECISIONS.md"],
-    "ruleFiles": ["docs/review/REGRESSIONS.md"],
-    "scan": ["**/*.md"],
-    "exclude": ["node_modules/**", ".git/**", "dist/**", "build/**"]
+    "files": [
+      "DECISIONS.md"
+    ],
+    "ruleFiles": [
+      "docs/review/REGRESSIONS.md"
+    ],
+    "scan": [
+      "**/*.md"
+    ],
+    "exclude": [
+      "node_modules/**",
+      ".git/**",
+      "dist/**",
+      "build/**"
+    ]
   },
   "instructions": {
     "claudeMd": "CLAUDE.md",
@@ -53,5 +64,30 @@
   "handover": {
     "pointer": "NEXT-SESSION-PROMPT.md",
     "promptsDir": "docs/prompts"
+  },
+  "gate": {
+    "$comment": "gate.py runs these on a clean clone of HEAD. Keep CI commands listed here too (gate.py --parity).",
+    "install": "<INSTALL_COMMAND>",
+    "steps": [
+      {
+        "name": "typecheck",
+        "run": "<TYPECHECK_COMMAND>"
+      },
+      {
+        "name": "lint",
+        "run": "<LINT_COMMAND>"
+      },
+      {
+        "name": "test",
+        "run": "<TEST_COMMAND>"
+      },
+      {
+        "name": "build",
+        "run": "<BUILD_COMMAND>"
+      }
+    ],
+    "ledger": "gate/cleared.txt",
+    "ci": ".github/workflows/ci.yml",
+    "timeout": 1800
   }
 }

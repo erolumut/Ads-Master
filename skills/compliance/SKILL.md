@@ -42,6 +42,7 @@ If `ads-master/` is missing, review against the rule packs only, mark every clai
 5. **Check the frame.** Disclosures (ad label, creator label, AI label), price display, terms next to claims, landing page parity, audience constraints (age, special ad category, geography).
 6. **Decide verdicts** per line and per market: APPROVED, APPROVED WITH EDITS (write the exact edit), NEEDS HUMAN OR LEGAL REVIEW (write the question), BLOCKED (cite the rule). Asset verdict is the worst line verdict.
 7. **Write the output** to `ads-master/outputs/compliance/` (Outputs section), append the review log row, propose registry changes as a diff for human approval.
+7b. **Lock what was approved.** After the human confirms an APPROVED line that will be reused (hero claims, price statements, disclaimers), record it with `python3 <skill>/scripts/approved_copy.py add --id <id> --text "<exact text>" --by "<approver>" --expires <evidence expiry> --claim-ref <CLAIMS row>`. Reused copy is wrapped as `<!-- approved:<id> -->text<!-- /approved -->`, and `approved_copy.py check <paths>` fails when it drifts, is unknown or has expired. Run it before every publish and in the monthly registry review.
 8. **Escalate and hand off.** Journal anything other agents must know (blocked claims in shared assets, rule changes, incidents). End with Handoffs requested when other agents must act.
 9. **Learn.** Recurring rejections and decisions become registry rows; data confirmed patterns (for example a platform keeps rejecting a wording that law allows) go to `memory/compliance.md`.
 
@@ -262,4 +263,4 @@ How to log: when a check changes a rule, write a journal entry `YYYY-MM-DD_HHMM_
 - [Audit checklist](references/audit-checklist.md): scored audit sections A to J with rubric and template.
 - [Sources](references/sources.md): 142 annotated sources with dates and verification status.
 
-Scripts: `scripts/claims_check.py` (screen) and `scripts/test_claims_check.py` (tests; run `python3 -m unittest test_claims_check` inside `scripts/`).
+Scripts: `scripts/claims_check.py` (screen), `scripts/approved_copy.py` (approved copy lock, registry in `ads-master/brand/approved-copy.json`) and their tests `scripts/test_claims_check.py` and `scripts/test_approved_copy.py` (run `python3 -m unittest` inside `scripts/`).

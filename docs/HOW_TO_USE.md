@@ -198,7 +198,7 @@ Install the Workflow Kit on its own in any project, Ads Master or not:
 
 - As a plugin: `/plugin marketplace add erolumut/Ads-Master`, then `/plugin install workflow-kit@ads-master`. Agents are namespaced (`workflow-kit:scout`).
 - By copy: `scripts/install.sh <project> --kit workflow --no-workspace --no-hooks`. Agents and skills land in `.claude/agents` and `.claude/skills`, scripts and templates in `.claude/workflow-kit/`.
-- Then paste `templates/CLAUDE-snippet.md` into the project CLAUDE.md, merge `templates/settings-snippet.json` into `.claude/settings.json` by hand, and, if you want git hooks, copy `templates/githooks/` to `.githooks/` and run `git config core.hooksPath .githooks`.
+- The copy route also adds `workflow-kit.json` (project config) and merges the kit settings into `.claude/settings.json` (missing keys only; your values are never overwritten; placeholder pins are skipped). Then paste `templates/CLAUDE-snippet.md` into the project CLAUDE.md and, if you want git hooks, copy `templates/githooks/` to `.githooks/` and run `git config core.hooksPath .githooks`.
 
 What it gives you: model routing (scout, data-extractor and log-triage on `haiku`; researcher and mechanic on `sonnet`; verifier and reviewer on `opus`; fable-advisor on `fable`), a parallel sessions ledger, sprint and delegation prompts, a plan first session, session start and handover rituals, a decision log with placeholder numbering, a CLAUDE.md budget check, review guardians, validate only git hooks, a workflow YAML linter and a commit time invariants check. Every script exits 0 pass, 1 fail, 2 could not run, and names what it cannot cover.
 

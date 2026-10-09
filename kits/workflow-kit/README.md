@@ -23,7 +23,7 @@ workflow-kit/
 ├── skills/          model-routing, session-start, parallel-sessions, sprint-prompt, planner-session,
 │                    handover, decision-log, instructions-budget, review-gates
 ├── scripts/         doc_numbers.py, check_instructions.py, ledger.py, agent_models.py, invariants_check.py,
-│                    check_workflows.py, precommit_dispatch.sh (+ tests/)
+│                    check_workflows.py, gate.py, precommit_dispatch.sh (+ tests/)
 └── templates/       workflow-kit.json, CLAUDE-snippet.md, settings-snippet.json, PARALLEL-SESSIONS.md,
                      SPRINT-PROMPT.md, DELEGATION-PROMPT.md, HANDOVER.md, NEXT-SESSION-PROMPT.md,
                      DECISIONS.md, REVIEW-CHECKLIST.md, GUARDIAN-TEMPLATE.md, STALE-GUARDS.md,
@@ -104,6 +104,7 @@ Run from the project root (add `--help` for options). Python scripts use the sta
 | `ledger.py` | `init`, `checkin`, `progress`, `msg`, `signoff` (moves the block to ARCHIVE), `show` |
 | `agent_models.py` | Lists agents with pinned model and effort, flags full model ids, unpinned agents and agents that can spawn. `--audit` reads local transcripts and reports, per subagent, the model requested at spawn, configured in frontmatter and actually served, plus effort |
 | `invariants_check.py` | Project invariants from `invariants.json` on staged files (trigger globs to `must_contain` / `must_not_contain` regexes); `--hook` mode for a PreToolUse hook on `git commit` |
+| `gate.py` | Local gate: runs `gate.steps` (or `project.checks`) on a clean clone of HEAD; PASS, FAIL or COULD NOT RUN per step; `--record` appends cleared SHAs to `gate/cleared.txt`; `--parity` fails when CI runs a command the gate lacks |
 | `check_workflows.py` | GitHub workflow lint: duplicate keys, `on`, non-empty `jobs`, `permissions:`, injection through `${{ github.event.* }}` or `${{ inputs.* }}` in `run:`, status functions outside `if:`, unpinned third party actions (warning). Structure checks need PyYAML and report "could not run" without it |
 | `precommit_dispatch.sh` | Pre-commit dispatcher: maps staged paths to checks from `precommit.json`, validate only, refuses staged `.env` files except `*.example` |
 
@@ -115,7 +116,7 @@ Tests: `python3 -m unittest discover -s scripts/tests`.
 |---|---|
 | `workflow-kit.json` | project root, as `workflow-kit.json` |
 | `CLAUDE-snippet.md` | paste into your CLAUDE.md |
-| `settings-snippet.json` | merge into `.claude/settings.json` by hand. Not a drop-in file: its `"//"` key is a note for you; delete it after merging |
+| `settings-snippet.json` | merged automatically by `install.sh --kit workflow` (missing keys only, placeholders skipped). Plugin users merge it into `.claude/settings.json` by hand; its `"//"` key is a note, not a setting |
 | `PARALLEL-SESSIONS.md` | created by `ledger.py init` |
 | `DECISIONS.md` | project root (or merge into your existing LEARNINGS or DECISIONS file) |
 | `SPRINT-PROMPT.md`, `DELEGATION-PROMPT.md` | your prompts folder, one per sprint or phase |
@@ -141,7 +142,7 @@ Each step pays off on its own. Stop wherever the pain stops; add a step when its
 7. **Parallel sessions.** When you first run two sessions at once: ledger, then isolation (clone or worktree).
 8. **Instruction budget.** When CLAUDE.md passes about 150 lines: move area rules into `.claude/rules/`, wire `check_instructions.py` into a pre-commit hook or CI.
 9. **Mechanic and implementer fan out.** Once checklists and gates exist, delegate edits: `mechanic` inside its fence, `implementer` per lane with disjoint ownership.
-10. **Gates in hooks or CI.** Git hooks from `templates/githooks/` (pre-commit validates only and never auto-fixes; pre-push blocks when behind the remote and never force pushes; agents never use `--no-verify`). `invariants.json` for project rules, `check_workflows.py` for CI files, `check_instructions.py --strict` and `agent_models.py --strict` in CI, `agent_models.py --audit` at sign-off.
+10. **Gates in hooks or CI.** Git hooks from `templates/githooks/` (pre-commit validates only and never auto-fixes; pre-push blocks when behind the remote and never force pushes; agents never use `--no-verify`). `invariants.json` for project rules, `check_workflows.py` for CI files, `gate.py --record` before every push and `templates/ci/` as the hardened CI starter, `check_instructions.py --strict` and `agent_models.py --strict` in CI, `agent_models.py --audit` at sign-off.
 
 ## Customize
 

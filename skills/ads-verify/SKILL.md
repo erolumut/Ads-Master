@@ -32,7 +32,7 @@ Rules:
    - L3: delegate to the `researcher` agent (Workflow Kit, one question per agent, cited and dated) when available; otherwise search yourself. Two independent sources, not two copies of the same press release.
    - L4: if the claim is about this business's response (price, threshold, creative, offer), design a test with the `EXPERIMENTS.md` row instead of guessing.
 4. **Have the result checked** when it carries a money decision: the `verifier` agent (Workflow Kit) or a second read of the source by the main session.
-5. **Record** a row in `ads-master/VERIFIED.md` (template below). Contradictions with the playbook go to the journal as a `learning` entry so the playbook can be fixed upstream.
+5. **Record** a row in `ads-master/VERIFIED.md` (template below), then run `python3 <skill>/scripts/verified_check.py` (`<skill>` is `skills/ads-verify` in this repo or `.claude/skills/ads-verify` in a project install) (exit 0 pass, 1 fail, 2 could not run): it fails rows without level, evidence or expiry, and expired rows. Contradictions with the playbook go to the journal as a `learning` entry so the playbook can be fixed upstream.
 6. **Report** in the deliverable: each claim, the level reached, the date, and what remains uncertain. Never round an L3 up to "confirmed".
 
 ## Procedure (maintenance, in the Ads Master repo)

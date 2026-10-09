@@ -1,0 +1,9 @@
+# Workflow Kit: keep pinned action SHAs fresh without a flood of PRs.
+# Copy to .github/dependabot.yml. Package ecosystems are left to the project's own policy.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3

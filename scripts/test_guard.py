@@ -144,6 +144,22 @@ class GuardTest(unittest.TestCase):
             fh.write("session abc")
         self.assertIsNone(run("stop", {"session_id": "abc", "stop_hook_active": False}, self.root))
 
+    def test_review_hint_once_per_reviewer(self):
+        ev = {"session_id": "s1", "tool_name": "Edit",
+              "tool_input": {"file_path": os.path.join(self.root, "sections", "main-product.liquid")}}
+        out = run("post", ev, self.root)
+        ctx = out["hookSpecificOutput"]["additionalContext"]
+        self.assertIn("site-engineer", ctx)
+        self.assertIsNone(run("post", ev, self.root))
+        out = run("post", {"session_id": "s1", "tool_name": "Write",
+                           "tool_input": {"file_path": "ads-master/outputs/meta-ads/2026-10-09_meta-ads_ad-copy.md"}}, self.root)
+        self.assertIn("compliance", out["hookSpecificOutput"]["additionalContext"])
+        self.assertIsNone(run("post", {"session_id": "s1", "tool_name": "Write",
+                                       "tool_input": {"file_path": "ads-master/journal/2026-10-09_0900_seo_note.md"}}, self.root))
+        self.policy["review_hints"] = False
+        self.assertIsNone(run("post", {"session_id": "s2", "tool_name": "Edit",
+                                       "tool_input": {"file_path": "sections/x.liquid"}}, self.root, self.policy))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=1)
