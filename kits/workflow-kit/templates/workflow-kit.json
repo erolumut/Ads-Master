@@ -1,0 +1,57 @@
+{
+  "$comment": "Workflow Kit project config. Copy to the project root as workflow-kit.json and replace every <placeholder>. Keys you do not use can be deleted.",
+  "project": {
+    "name": "<PROJECT_NAME>",
+    "checks": {
+      "typecheck": "<TYPECHECK_COMMAND>",
+      "lint": "<LINT_COMMAND>",
+      "test": "<TEST_COMMAND>",
+      "build": "<BUILD_COMMAND>"
+    }
+  },
+  "language": {
+    "human": "English",
+    "artifacts": "English"
+  },
+  "models": {
+    "main": "opus",
+    "advisor": "fable"
+  },
+  "mechanic": {
+    "allow": [
+      "scripts/**",
+      "<CONFIG_FILES_THE_MECHANIC_MAY_EDIT>",
+      "<NON_UI_TEST_GLOB>"
+    ],
+    "deny": [
+      "<RED_LINE_DIR>/**",
+      "DECISIONS.md"
+    ],
+    "oracle": "<TEST_COMMAND_FOR_ONE_FILE>"
+  },
+  "reviewers": {
+    "default": "docs/review/CHECKLIST.md",
+    "<area>": "docs/review/<AREA>-CHECKLIST.md",
+    "regressionLibrary": "docs/review/REGRESSIONS.md"
+  },
+  "decisions": {
+    "files": ["DECISIONS.md"],
+    "ruleFiles": ["docs/review/REGRESSIONS.md"],
+    "scan": ["**/*.md"],
+    "exclude": ["node_modules/**", ".git/**", "dist/**", "build/**"]
+  },
+  "instructions": {
+    "claudeMd": "CLAUDE.md",
+    "maxLines": 200,
+    "rulesDir": ".claude/rules",
+    "staleGuards": "AGENTS.md",
+    "ignorePaths": []
+  },
+  "ledger": {
+    "path": "PARALLEL-SESSIONS.md"
+  },
+  "handover": {
+    "pointer": "NEXT-SESSION-PROMPT.md",
+    "promptsDir": "docs/prompts"
+  }
+}
