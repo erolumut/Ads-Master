@@ -31,6 +31,21 @@ Rules:
 - Returns allowance is category specific: under 1% for food and consumables, 5 to 15% for beauty and home, 20 to 50% for fashion [Practitioner consensus; use own data].
 - Marketing is NOT inside CM2. Price level decisions are made on CM2; the growth plan is made on CM3. State both when the recommendation changes acquisition economics.
 
+## 1b. Costing conventions (follow these in every sheet and report)
+
+These conventions match the owner's costing tool, so numbers move between that tool and the pricing reports without translation.
+
+| Convention | Rule | Why |
+|-----------|------|-----|
+| Three margin layers | (1) Variable unit cost: landed COGS plus per unit variable costs. (2) Contribution margin: price ex VAT minus all variable costs to serve the order (CM2 above). (3) Fully loaded margin: contribution minus allocated fixed costs (rent, staff, software, overhead); computed only at month close, from actuals | Price level and basket decisions run on contribution; fully loaded margin is a month close control, never an input for a single price point |
+| Margin vs markup | `margin_on_price = (price ex VAT - cost) / price ex VAT`; `markup_on_cost = (price ex VAT - cost) / cost`. Two named formulas. Never mix them; label every percentage with which one it is | 35% margin_on_price equals 53.8% markup_on_cost; confusing them misprices by a third |
+| Effective dated costs | Every cost carries an "as of" date ("COGS EUR 0.85 as of 2026-09-01"). The report states the cost date used. When a cost changes, add a new dated value; never overwrite history | Prices are reviewed against the cost that was true when they were set; reconstructing why a price was chosen needs the dated cost |
+| Inheritance of overrides | Values inherit product -> brand -> company. A product level value overrides the brand, the brand overrides the company default. An empty value means inherit, not zero | A blank packaging cost on one SKU must take the brand default, not EUR 0 |
+| Incomplete, not zero | When a required input is missing after inheritance, the result status is INCOMPLETE and the report lists the missing inputs. Never compute with zero in place of a missing cost | A margin computed with a missing carrier cost looks healthy and is wrong |
+| Recommend, never publish | The agent recommends prices. Publishing a price, threshold or price list anywhere (store, marketplace, feed, retailer price file, billing system) is G3 and needs explicit human approval | Fence from GUARDRAILS.md |
+
+Report header line (required): `Cost basis: <cost sheet name or tool>, costs as of YYYY-MM-DD; status COMPLETE | INCOMPLETE (missing: ...)`.
+
 ## 2. Input sheet (copy into the output)
 
 | Input | Value | Unit | Source | Date range | Confidence |
@@ -197,7 +212,7 @@ python3 skills/pricing-strategy/scripts/basket_economics.py --print-template > a
 python3 skills/pricing-strategy/scripts/basket_economics.py --config ads-master/data/imports/basket_inputs.json --csv ads-master/outputs/pricing-strategy/basket_scan.csv
 ```
 
-Inputs: prices incl VAT; costs ex VAT; carrier bands by `max_units` (size limited formats such as letterbox) or `max_kg`; floor as amount and percent; optional `retail` block. Output: ladder table with a monotonic check, single unit scan with minimum viable basket (charged and free delivery), free delivery threshold candidates, retail vs DTC per unit comparison. Paste the tables into the report with the input sheet beside them.
+Inputs: prices incl VAT; costs ex VAT; `cost_as_of` date; null for any unknown cost (the run then stops with status INCOMPLETE and lists the missing inputs instead of computing with zero); carrier bands by `max_units` (size limited formats such as letterbox) or `max_kg`; floor as amount and percent; optional `retail` block. Output: ladder table with a monotonic check, single unit scan with minimum viable basket (charged and free delivery), free delivery threshold candidates, retail vs DTC per unit comparison. Paste the tables into the report with the input sheet beside them.
 
 ## 8. Sensitivity (always include)
 

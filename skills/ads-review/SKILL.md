@@ -22,8 +22,9 @@ Goal: numbers every day, decisions on 3 and 7 day windows. One bad day is not a 
    - **FACTS:** spend yesterday and month to date vs ceiling; orders or leads (backend observed); revenue; new customers; AOV; platform reported conversions and value next to backend observed (never hide the gap); blended CAC and nCAC; acquisition investment and blended first order acquisition cost when offers subsidize; product or bundle mix; best and worst creative by ID; stock cover of advertised items.
    - **INTERPRETATION:** what changed and the most likely reason, with a confidence level (low, medium, high).
    - **RECOMMENDATION:** one action or "no change", with the decision window it is based on. Status green, amber or red against the target logic in STRATEGY.md.
-4. **Incidents:** if a stop condition from `ads-master/INCIDENTS.md` appears, put it at the top, delegate to `measurement` (tracking), `site-engineer` (site), `commerce-feeds` or `offer-strategy` (stock, price), `compliance` (claims) immediately, and log it.
-5. Write a journal entry only when there are exceptions or a decision.
+4. **Alert queue.** Keep open exceptions in `ads-master/logs/alerts.csv` with one row per rule and entity: `rule,entity,alert_from,last_seen,status,ack_by,note`. `alert_from` is the date the condition started. A condition that is still true updates `last_seen` instead of adding a row, so an acknowledged alert stays acknowledged and the queue can reach zero. Close a row when the condition clears. The report lists new rows first, then open unacknowledged rows.
+5. **Incidents:** if a stop condition from `ads-master/INCIDENTS.md` appears, put it at the top, delegate to `measurement` (tracking), `site-engineer` (site), `commerce-feeds` or `offer-strategy` (stock, price), `compliance` (claims) immediately, and log it.
+6. Write a journal entry only when there are exceptions or a decision.
 
 ## Mode: weekly (the learning loop)
 1. **Fan out.** Delegate to every active specialist in parallel (paid channels, mobile-app-growth, seo, ai-search-optimization, cro, storefront-ux, site-engineer, commerce-feeds, creative-strategy, video-studio, offer-strategy, lifecycle-crm, measurement; compliance reviews anything due to publish). Brief for each:
@@ -63,4 +64,6 @@ Pick what fits the team:
 - Reviews never change live accounts. They produce change lists for approval, within the gates and automation stage in `ads-master/GUARDRAILS.md`.
 - Every report separates FACTS, INTERPRETATION and RECOMMENDATION and shows platform reported next to backend observed.
 - Missing data is reported as missing. No estimates presented as facts.
+- Measure before quote: every number in a report is computed from the named source for that report's date range, never copied from notes, memory or an earlier report. Ratios are recomputed from summed numerators and denominators, never averaged (see `METRICS.md`).
+- A check that could not run (no export, connector down, script missing) is reported as "could not run" with the reason, never as green.
 - One review document per period. Never overwrite a previous review.

@@ -1,10 +1,10 @@
 ---
 name: data-extractor
 description: >
-  Read-only fact extractor for long machine output. Use to pull exact facts from CI
-  logs, test and build output, CSV exports, API or CLI dumps, health endpoints and
-  analytics exports: failing test names, first error with file:line, exit codes,
-  counts, totals, timestamps. Returns facts and verbatim quotes only. Diagnosis and
+  Read-only fact extractor for data dumps. Use to pull exact facts and numbers from
+  CSV and spreadsheet exports, API or CLI JSON dumps, health endpoints and
+  analytics exports: rows, totals, counts, distinct values, timestamps. For CI, test
+  and build logs use log-triage. Returns facts and verbatim quotes only. Diagnosis and
   fixes belong to the main session.
 model: haiku
 effort: medium

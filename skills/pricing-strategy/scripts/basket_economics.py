@@ -29,16 +29,17 @@ import json
 import sys
 
 TEMPLATE = {
-    "_note": "Prices incl VAT; costs excl VAT. Replace every value with sourced figures.",
+    "_note": "Prices incl VAT; costs excl VAT. null = missing (run reports INCOMPLETE). Write 0 only when the cost is truly zero.",
+    "cost_as_of": None,
     "currency": "EUR",
     "vat_rate": 0.09,
     "shipping_vat_rate": 0.09,
     "unit_name": "bar",
     "unit_weight_kg": 0.06,
-    "cogs_per_unit": 0.0,
-    "packaging_per_order": 0.0,
+    "cogs_per_unit": None,
+    "packaging_per_order": None,
     "packaging_per_unit": 0.0,
-    "pick_pack_per_order": 0.0,
+    "pick_pack_per_order": None,
     "pick_pack_per_unit": 0.0,
     "carrier_bands": [
         {"max_kg": 2.0, "cost": 0.0, "label": "letterbox parcel"},
@@ -47,12 +48,12 @@ TEMPLATE = {
     ],
     "carrier_surcharge_pct": 0.0,
     "order_tare_kg": 0.15,
-    "payment_fee_pct": 0.0,
-    "payment_fee_fixed": 0.0,
+    "payment_fee_pct": None,
+    "payment_fee_fixed": None,
     "channel_fee_pct": 0.0,
     "channel_fee_fixed": 0.0,
-    "returns_allowance_pct": 0.0,
-    "shipping_charged_incl_vat": 0.0,
+    "returns_allowance_pct": None,
+    "shipping_charged_incl_vat": None,
     "free_shipping_threshold_incl_vat": None,
     "contribution_floor_amount": 0.0,
     "contribution_floor_pct": 0.0,
@@ -74,6 +75,7 @@ TEMPLATE = {
 # method can be shown end to end. Replace every value before any decision.
 DEMO = {
     "_note": "ILLUSTRATIVE DEMO INPUTS. Not real data for any brand.",
+    "cost_as_of": "illustrative",
     "currency": "EUR",
     "vat_rate": 0.09,
     "shipping_vat_rate": 0.09,
@@ -116,6 +118,20 @@ DEMO = {
         "logistics_per_unit": 0.08,
     },
 }
+
+
+REQUIRED = ["vat_rate", "cogs_per_unit", "packaging_per_order", "pick_pack_per_order",
+            "carrier_bands", "payment_fee_pct", "payment_fee_fixed", "returns_allowance_pct",
+            "shipping_charged_incl_vat", "cost_as_of"]
+
+
+def missing_inputs(cfg):
+    """Incomplete, not zero: a missing or null required input is reported, never replaced by 0."""
+    miss = [k for k in REQUIRED if cfg.get(k) is None or cfg.get(k) == []]
+    for i, b in enumerate(cfg.get("baskets") or []):
+        if b.get("price_incl_vat") in (None, 0, 0.0):
+            miss.append(f"baskets[{i}].price_incl_vat")
+    return miss
 
 
 def carrier_cost(cfg, units):
@@ -219,6 +235,11 @@ def run(cfg, csv_path=None):
     print(f"# Basket economics ({cur}, prices incl VAT, costs and contribution excl VAT)")
     if cfg.get("_note"):
         print(f"\nNote: {cfg['_note']}")
+    miss = missing_inputs(cfg)
+    if miss:
+        print("\nStatus: INCOMPLETE. Missing inputs (not computed as zero): " + ", ".join(miss))
+        return 3
+    print(f"\nStatus: COMPLETE. Costs as of {cfg['cost_as_of']}. Percentages are margin_on_price (CM2 / net revenue).")
 
     main_cols = ["basket", "units", "price_incl_vat", "price_per_unit_incl_vat",
                  "shipping_charged_incl_vat", "net_revenue", "cogs", "cm1", "packaging",
@@ -303,6 +324,7 @@ def run(cfg, csv_path=None):
                 w.writeheader()
                 w.writerows(rows)
             print(f"\nCSV written: {csv_path}")
+    return 0
 
 
 def main():
@@ -323,8 +345,7 @@ def main():
     else:
         ap.print_help()
         return 2
-    run(cfg, args.csv)
-    return 0
+    return run(cfg, args.csv)
 
 
 if __name__ == "__main__":

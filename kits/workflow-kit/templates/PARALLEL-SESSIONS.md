@@ -7,15 +7,15 @@
 
 _(empty)_
 
-<!-- CHECK-IN template:
-### @handle · YYYY-MM-DD HH:MM
-- branch: <branch>
-- working dir: <absolute path or clone>
-- scope: <files or dirs you own>
-- intent: <one line>
-- risky ops: none | push | migration | number assignment | shared doc
-- ETA: ~<hours>h
-- PROGRESS: <one line per phase boundary>
+<!-- CHECK-IN template (ledger.py checkin writes it for you):
+  ### @handle · YYYY-MM-DD HH:MM
+  - branch: <branch>
+  - working dir: <absolute path or clone>
+  - scope: <files or dirs you own>
+  - intent: <one line>
+  - risky ops: none | push | migration | number assignment | shared doc
+  - ETA: ~<hours>h
+  - PROGRESS YYYY-MM-DD HH:MM: <one line per phase boundary>
 -->
 
 ## MSG

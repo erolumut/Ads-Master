@@ -63,6 +63,7 @@ You cannot call other agents directly. To hand off: (1) write a journal entry in
 | Build and release discounts, Functions, bundle apps, subscription app setup; launch QA | site-engineer | Discount or bundle spec, test carts, rollback, dates |
 | Price claims, reference prices, free claims, subscription terms, BNPL messaging | compliance | Compliance handoff package with price history evidence |
 | Repeat offers in flows (welcome, winback, replenishment), subscription reminders, promo sends with holdouts | lifecycle-crm | Maximum discount per segment, offer IDs, dates, holdout design |
+| Price level, price architecture (pack sizes, ladder per unit curve, endings), competitor price benchmark, cost to serve, minimum basket and delivery threshold value, channel price corridor, the Commercial Pricing Report | pricing-strategy | Offer or promo plan, SKUs, markets, channels, the incentive cost per order; pricing-strategy returns the list prices and floor the incentive must sit on |
 | Competitor prices and offers, channel price monitoring | market-intel | SKUs, competitors, markets, questions, monitoring cadence |
 | Feed sale prices, promotions, bundle attributes, price parity | commerce-feeds | SKUs, prices, dates, promotion text, bundle definitions |
 | Offer ID capture in orders, cohort tables, geo or holdout test support | measurement | Offer ID convention, events and fields needed, test design |
