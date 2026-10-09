@@ -72,7 +72,7 @@ Feed quality back to ad platforms: offline conversion import or CRM-based conver
 - [ ] Phone: accept any format, normalize server side; default country from geo; do not force a format mask that rejects valid input.
 - [ ] Mark optional fields "(optional)" rather than marking required ones with asterisks only.
 - [ ] Button copy states the outcome ("Get my quote"); disable double submit; show a loading state.
-- [ ] No CAPTCHA puzzles. Use a honeypot field, time-to-submit check and an invisible challenge (for example Cloudflare Turnstile).
+- [ ] No CAPTCHA puzzles. Use a honeypot field, time-to-submit check and an invisible challenge (for example Cloudflare Turnstile); challenge only on risk (section 9).
 - [ ] Privacy line under the button: what happens next, response time, no spam promise.
 - [ ] Marketing consent checkbox unticked by default where GDPR or similar applies.
 - [ ] Tap targets at least 44 x 44 px (WCAG 2.2 minimum is 24 x 24 CSS px).
@@ -167,13 +167,59 @@ Never push field values (personal data) to analytics. Fire the conversion only o
 - Deliver instantly on the thank you page and by email.
 - Track lead magnet to SQL rate; many lead magnets produce leads that never buy.
 
-## 9. Spam and validation
-- Honeypot field hidden with CSS (not `type=hidden`), rejected server side if filled.
-- Minimum time to submit (for example 3 seconds).
-- Invisible challenge (Turnstile, reCAPTCHA v3) with server verification.
-- Email validation: syntax plus MX check server side; optional real-time verification for paid lead gen.
-- Block disposable domains for B2B trials if abuse appears.
-- Spam leads inflate CPL math and train ad algorithms on junk. Exclude spam before sending conversions to platforms.
+## 9. Form spam and bot protection without killing conversion
+
+Goal: stop bots and junk before they reach the CRM, the sales team and the ad platforms, without adding a step a real visitor notices. Paid traffic brings bots with it (form fillers, click farms, low quality placements), so protection belongs in launch readiness, not in a later fix [Practitioner consensus]. Build order: invisible checks first, a visible challenge only on risk, a hard block only for clear abuse. Implementation detail and the reCAPTCHA quota trap: `site-engineer` [Security review](../../site-engineer/references/security-review.md) section 10; the pre-spend gate that checks these layers: [Launch QA for ads](../../site-engineer/references/launch-qa-for-ads.md) section 11.
+
+### 9.1 Layers (cheapest and least visible first)
+
+| # | Layer | How | Cost to real visitors | Watch |
+|---|-------|-----|-----------------------|-------|
+| 1 | Honeypot field | A normal looking text input hidden with CSS (not `type="hidden"`, which simple bots skip), with `tabindex="-1"`, `autocomplete="off"`, `aria-hidden="true"` and a name autofill does not recognize; rejected server side when filled | None | Browser autofill and password managers can fill fields named like real ones (`email2`, `address`); keyboard and screen reader users must never reach it |
+| 2 | Minimum time to submit | The server signs the render time into a hidden token; submissions faster than the threshold (start at 2 to 3 seconds) go to layer 6, not to a silent drop | Low when the threshold comes from your own timing data | Autofill makes humans fast on 1 to 3 field forms; look at the timing of real leads before choosing the threshold |
+| 3 | Server side validation | Required fields, max lengths, email syntax plus MX lookup, phone normalized to E.164, no URLs or markup in name fields, the same value in every field rejected; client side validation is for UX only | None when errors are inline and say how to fix them | Over strict rules (apostrophes, accents, long names, plus addresses) reject real people; test with worst case names |
+| 4 | Rate limits | Per IP (start at 5 submissions per 10 minutes per form) and per email address (start at 3 per day), plus per account on signup, login and password reset; at the edge or in the app | None below the limit | Offices, schools and mobile carriers share IPs (carrier grade NAT): step up to a challenge near the limit before blocking |
+| 5 | Invisible challenge | Cloudflare Turnstile (invisible or managed mode) or reCAPTCHA v3 (score only); verify every token server side, once, right after submit | None in the common case | A token that is never verified server side protects nothing |
+| 6 | Step up on risk | Low score, fast submit, close to the rate limit or a junk pattern: show an interactive challenge (Turnstile managed, reCAPTCHA v2 checkbox) or an email or SMS code before the lead is accepted | Only risky submissions see it | Track how often humans see it (`form_challenge_shown`, `form_challenge_failed`) |
+| 7 | Disposable and junk checks | A maintained open source disposable domain list (refresh monthly); flag keyboard mash, `test@test`, links in the message, identical text across submissions; flag role addresses (`info@`, `sales@`) for B2B rather than blocking them | None | Send suspects to a review queue instead of deleting them, so false positives are recoverable |
+
+The thresholds are starting points [Practitioner consensus]: tune them on the project's own spam and lead data. Ship any new visible layer as a guarded change with an `EXPERIMENTS.md` row (completion rate and qualified lead rate before and after).
+
+Answer a dropped submission with the normal success state so bots cannot learn which check fired, but do not fire the conversion event, write to the CRM or send emails for it [Practitioner consensus].
+
+### 9.2 Turnstile or reCAPTCHA v3
+
+| Option | What the visitor sees | Server side | Tradeoffs |
+|--------|----------------------|-------------|-----------|
+| Cloudflare Turnstile | Invisible mode: nothing; managed mode: a checkbox only when Cloudflare is unsure | Token valid for 300 seconds and verifiable once through `siteverify`; expired or replayed tokens fail with `timeout-or-duplicate` [Official, Cloudflare docs 2026] | Free tier; no Google dependency; still a third party script for the privacy notice and the CMP review |
+| reCAPTCHA v3 | Nothing: it returns a score from 0.0 (likely a bot) to 1.0 (likely a human) and you decide the action per score; Google suggests starting the threshold at 0.5 and tuning it in the admin console [Official, Google reCAPTCHA docs] | Verify the token as soon as the form is submitted; tokens are short lived [Unverified for the exact lifetime] | Google advises running it on more pages than the form for better scoring context, which adds script weight to paid landing pages [Official, Google reCAPTCHA docs]; the free Essentials tier errors beyond its monthly quota unless billing is enabled (security review section 10); VPN and privacy browser users score lower |
+| reCAPTCHA v2 checkbox or image puzzle | Visible friction | Same | Use only as the step up in layer 6, never on every submission |
+
+Rules:
+- Invisible first, challenge only on risk. A puzzle on every submission taxes every real lead to stop a few bots [Practitioner consensus].
+- Test the widget inside Instagram, Facebook and TikTok in-app browsers on real phones ([Mobile and in-app browsers](mobile-and-in-app-browsers.md) section 3): a challenge that fails or loops there blocks the traffic you pay for most.
+- Whether a bot protection script needs consent under GDPR depends on the setup and is debated [Contested]; route the classification to `compliance`.
+- Decide the fail mode before launch: when the challenge provider is down or the quota is spent, accept submissions into the review queue (fail open into quarantine). Never drop every lead silently and never pass them straight to the CRM.
+
+### 9.3 Keep spam out of the ad platforms
+
+- Never send unqualified or spam leads to ad platforms as conversions. Bidding learns from what you send, so junk conversions teach it to buy more junk [Practitioner consensus].
+- Fire the platform conversion (pixel and server event) only after the server accepted the lead (layers 1 to 7 passed). Never fire it on a submit attempt or on the success state shown to a dropped submission.
+- Send quality as values: qualified stages and lead quality values through offline conversion import or CRM events, with spam and disqualified leads at zero value or not sent. The design belongs to `measurement` ([Offline and CRM conversions](../../measurement/references/offline-and-crm-conversions.md) section 4, [Value and profit optimization](../../measurement/references/value-and-profit-optimization.md) section 7).
+- Native lead forms (Meta Instant Forms, Google lead form assets, TikTok instant forms) cannot carry a honeypot: use the higher intent form type, validate in the CRM sync, and feed CRM quality back (section 5).
+
+### 9.4 Monitor spam rate per traffic source
+
+Store `utm_source`, `utm_medium`, `utm_campaign`, the click ID and the placement (Meta `{{placement}}` and `{{site_source_name}}`) as hidden fields with every submission, including rejected ones. For rejected submissions keep the source, the time and the reason code, not the personal data.
+
+| Metric | Formula | Alert (starting point, tune per project) | Action |
+|--------|---------|------------------------------------------|--------|
+| Spam rate by source | rejected or junk submissions / all submissions, per source, campaign and placement | Sustained rise above the source's own baseline (start with 2 times its 4 week median) | Hand to the channel agent: exclude bot heavy placements (Audience Network, display and partner placements, PMax placement exclusions) and check for a click or bot attack |
+| Challenge rate | submissions shown a challenge / all submissions | Rising while the spam rate is flat | Thresholds are too strict: real visitors are paying the cost |
+| False positives | real leads found in the review queue, weekly sample | Any | Loosen or fix the rule that caught them |
+| Qualified rate by source | qualified leads / accepted leads, from the CRM | Falling while lead volume rises | Junk is passing the filters: add a layer or tighten one |
+
+A source whose leads are mostly junk is a media problem as much as a form problem: report it in the weekly review so budget moves away from it.
 
 ## 10. Consent and compliance on forms
 - GDPR and UK GDPR: separate marketing consent from the request; unticked; link privacy policy; state purpose.
@@ -201,6 +247,6 @@ Success state copy and next step:
 Events: form_view, form_start_custom, form_field_complete, form_field_error, form_submit_attempt, generate_lead (server confirmed)
 CRM mapping: field -> CRM property; source and UTM fields captured as hidden inputs
 Consent text:
-Spam protection:
-QA: devices, in-app browsers, CRM receipt, conversion fires once
+Spam protection (section 9): layers used, thresholds, step up challenge, fail mode, spam rate by source
+QA: devices, in-app browsers, CRM receipt, conversion fires once (and never for a rejected submission)
 ```

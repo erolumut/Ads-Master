@@ -259,7 +259,7 @@ How to log: if a check changes a recommendation, write a journal entry `YYYY-MM-
 - [Landing page anatomy](references/landing-page-anatomy.md): awareness levels, page type decision tree, section anatomy, first screen rules, page types, wireframes, pre-launch checklist.
 - [Message match by channel](references/message-match-by-channel.md): four-layer scoring, channel playbooks (Google, PMax, Meta, TikTok, LinkedIn, ChatGPT ads, AI referrals), dynamic message match.
 - [Offer and copy](references/offer-and-copy.md): offer architecture, value proposition, headlines, frameworks, risk reversal, social proof law, urgency without dark patterns, copy deck.
-- [Forms and lead capture](references/forms-and-lead-capture.md): field audit, multi-step, qualification, form UX, native lead forms, form analytics code, booking and demo flows.
+- [Forms and lead capture](references/forms-and-lead-capture.md): field audit, multi-step, qualification, form UX, native lead forms, form analytics code, booking and demo flows, form spam and bot protection without killing conversion (layers, Turnstile or reCAPTCHA v3, keeping spam out of ad platforms, spam rate by source).
 - [Ecommerce PDP, cart and checkout](references/ecommerce-pdp-cart-checkout.md): Baymard evidence, PDP, cart and checkout checklists, payment methods by market, Shopify constraints 2026.
 - [Mobile and in-app browsers](references/mobile-and-in-app-browsers.md): Instagram, Facebook, TikTok, LinkedIn and Snapchat IAB quirks (cookies, wallets, OAuth, redirects), test matrix, mobile form and checkout code, worst case content checks, real device testing.
 - [SaaS and pricing pages](references/saas-and-pricing-pages.md): funnel metrics, pricing page anatomy, signup flows, trial models, activation.

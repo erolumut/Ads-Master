@@ -242,18 +242,21 @@ Weekly flow plus: every agent runs its Freshness Protocol; growth-orchestrator p
 4. Synthesis: first STRATEGY.md draft, HEARTBEAT.md activation, PRIORITIES.md for week 1.
 
 ### 4.13 Launch readiness (first paid launch)
-Gate order matters: nothing goes live before tracking, site, offer and claims are green.
+Gate order matters: nothing goes live before pre-spend readiness, tracking, site, offer and claims are green.
 | Step | Wave | Agent | Mode | Inputs | Brief | Output | Passes to |
 |------|------|-------|------|--------|-------|--------|-----------|
-| 1 | 1 | measurement | parallel | MEASUREMENT.md, test orders | Verify purchase or lead events end to end, dedup, consent | `measurement/<d>_measurement_launch-tracking.md` | Event verdict |
-| 2 | 1 | site-engineer | parallel | repo or theme, product pages | Purchase path, mobile, speed, worst case data, release state | `site-engineer/<d>_site-engineer_launch-qa.md` | Site verdict |
-| 3 | 1 | offer-strategy | parallel | PROJECT_BRIEF unit economics, prices | Offer and bundle for launch with acquisition investment math | `offer-strategy/<d>_offer-strategy_launch-offer.md` | Offer spec |
-| 4 | 1 | compliance | parallel | PRODUCT_FACTS, CLAIMS, current copy | Clean claims on site and in planned ads | `compliance/<d>_compliance_claims-review.md` | Approved claims |
-| 5 | 2 | creative-strategy | sequential | steps 3 and 4 | 3 to 4 distinct concepts and briefs within budget tier | `creative-strategy/<d>_creative-strategy_launch-briefs.md` | Briefs |
-| 6 | 3 | video-studio | sequential | step 5 | Produce, QA and name the assets | `video-studio/<d>_video-studio_launch-batch.md` | Asset list with IDs |
-| 7 | 4 | channel agent | sequential | steps 1 to 6 | Draft the campaign as PAUSED (stage 2+) or as a change request (stage 1) | `<channel>/<d>_<channel>_launch-plan.md` | Change request |
-| 8 | 5 | site-engineer | sequential | step 7 | Launch QA: URLs, UTMs, pixel firing, status PAUSED, budget within cap | `site-engineer/<d>_site-engineer_ad-launch-qa.md` | Go or no go |
-Synthesis: go live checklist and one change request for the human.
+| 1 | 1 | site-engineer | parallel (gate for steps 8 and 9) | repo or theme, live site, provider console screenshots from the human, `docs/LAUNCH-READINESS.md` when the Workflow Kit is installed | Pre-spend go or no-go: the spend gates in [Launch QA for ads](../../site-engineer/references/launch-qa-for-ads.md) section 11 (secrets, rate limits, auth, validation, provider spend caps, account flows, email, rollback); with the Workflow Kit installed, also its `launch-readiness` skill and the `launch_check.py` output | `site-engineer/<d>_site-engineer_launch-qa-pre-spend.md` | GO or NO-GO, open Blockers with owners |
+| 2 | 1 | measurement | parallel | MEASUREMENT.md, test orders | Verify purchase or lead events end to end, dedup, consent | `measurement/<d>_measurement_launch-tracking.md` | Event verdict |
+| 3 | 1 | site-engineer | parallel | repo or theme, product pages | Purchase path, mobile, speed, worst case data, release state | `site-engineer/<d>_site-engineer_launch-qa.md` | Site verdict |
+| 4 | 1 | offer-strategy | parallel | PROJECT_BRIEF unit economics, prices | Offer and bundle for launch with acquisition investment math | `offer-strategy/<d>_offer-strategy_launch-offer.md` | Offer spec |
+| 5 | 1 | compliance | parallel | PRODUCT_FACTS, CLAIMS, current copy | Clean claims on site and in planned ads | `compliance/<d>_compliance_claims-review.md` | Approved claims |
+| 6 | 2 | creative-strategy | sequential | steps 4 and 5 | 3 to 4 distinct concepts and briefs within budget tier | `creative-strategy/<d>_creative-strategy_launch-briefs.md` | Briefs |
+| 7 | 3 | video-studio | sequential | step 6 | Produce, QA and name the assets | `video-studio/<d>_video-studio_launch-batch.md` | Asset list with IDs |
+| 8 | 4 | channel agent | sequential | steps 1 to 7 | Draft the campaign as PAUSED (stage 2+) or as a change request (stage 1); no activation change request while step 1 has an open Blocker | `<channel>/<d>_<channel>_launch-plan.md` | Change request |
+| 9 | 5 | site-engineer | sequential | steps 1 and 8 | Launch QA: URLs, UTMs, pixel firing, status PAUSED, budget within cap | `site-engineer/<d>_site-engineer_ad-launch-qa.md` | Go or no go |
+
+Rule: while any pre-spend Blocker from step 1 is open (FAIL, OPEN, NA without a reason, or the kit's `launch_check.py` exiting 1 or 2), no campaign activation change request is drafted. Channel agents may still prepare PAUSED drafts; step 9 is no go until step 1 is GO. Route each open Blocker to its owner as a handoff and rerun step 1 after the fixes.
+Synthesis: go live checklist with the pre-spend verdict first, and one activation change request for the human, drafted only after step 1 is GO.
 
 ### 4.13b Storefront optimization
 1. Wave 1 (parallel): storefront-ux runs the conformance audit page by page; cro pulls funnel data, recordings and survey insights; measurement confirms funnel events are trustworthy.

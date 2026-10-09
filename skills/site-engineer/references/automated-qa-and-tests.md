@@ -8,7 +8,7 @@
 |-------|------|------|---------------------|
 | Static | `shopify theme check --fail-level error`, ESLint, Stylelint, `tsc --noEmit`, PHP lint (`php -l`), PHPCS for WordPress | Every commit | Any error |
 | Build | `next build`, theme push with `--strict`, `npm ci --ignore-scripts` then build | Every PR | Build fails |
-| Smoke e2e | Playwright: home, collection, PDP, add to cart, cart, checkout handoff, lead form | Every preview, before every publish, after publish (read only) | Any failure on desktop or mobile project |
+| Smoke e2e | Playwright: home, collection, PDP, add to cart, cart, checkout handoff, lead form; account flows (signup, login, logout, password reset, test mode payment) on staging or preview with a mail catcher | Every preview, before every publish, after publish (read only); account flows before the first paid launch and on every auth, email or payment change | Any failure on desktop or mobile project |
 | Tracking | Playwright network assertions for pixel and analytics events, consent states | Every L2 and L3 release | Missing, duplicated or wrong value events |
 | Visual | Playwright `toHaveScreenshot` or a visual service (Percy, Chromatic, Argos, Applitools) | Every L1 to L4 release | Unexplained diff |
 | Accessibility | `@axe-core/playwright` on changed templates | Every L1 to L4 release | New serious or critical violations |
@@ -33,6 +33,7 @@ qa/
   helpers/price.ts
   tests/smoke.ecommerce.spec.ts
   tests/smoke.leadgen.spec.ts
+  tests/smoke.account.spec.ts
   tests/tracking.spec.ts
   tests/utm-redirects.spec.ts
   tests/visual.spec.ts
@@ -252,6 +253,144 @@ test('validation errors are inline and announced', async ({ page }) => {
 ```
 
 Hashed identifiers for enhanced conversions or CAPI are allowed in outbound requests by design; this test only flags raw addresses. Coordinate the rule set with `measurement`.
+
+## 7b. Account flow smoke tests (`smoke.account.spec.ts`)
+
+A paid click that cannot sign up, log in, pay or reset a password is spend with no way back. Run these flows on staging or on a preview whose email goes to a mail catcher and whose payments run in test mode. On production run only read only checks (pages render, forms load) unless the human approves a test account: creating accounts and sending emails on production are writes. These tests are the proof for the pre-spend gate in [Launch QA for ads](launch-qa-for-ads.md) section 11.
+
+| Flow | Assert | Common breakage |
+|------|--------|-----------------|
+| Signup with email verification | Verification email arrives within 60 s; its link points at this environment and works once; the unverified state behaves as designed; resend works and is rate limited; signing up again with the same address shows a neutral message | Email never sent or sent from an unauthenticated domain; link points at localhost or a preview host; signup started in an in-app browser but the link opens the default browser, so the session lands elsewhere |
+| Login | Right password logs in; a wrong password shows one generic message (never "no account with this email"); repeated failures hit the rate limit or a challenge | Account enumeration; no rate limit on login |
+| Logout | Session cookie cleared and the server session revoked; back button and reload do not show account pages; the old session token is rejected by the API | Client only logout that leaves the server session valid |
+| Password reset | Request shows the same neutral message for known and unknown addresses; the email arrives; the link works once and expires; the old password is rejected and the new one works; other sessions are signed out where the product promises it | Token consumed when the link is opened, so mail scanners burn it (rules below); link never expires; old password still accepted |
+| Magic link (if used) | Works once, expires, signs in the device that asked for it; a typed code fallback exists | Opens in the default browser instead of the in-app browser where the user started, so the visitor never gets signed in where they were [Practitioner consensus] |
+| Account deletion (if offered) | Confirmation step; login fails afterwards; personal data removed or anonymized as the privacy policy says; confirmation email sent; active subscriptions cancelled | Deleted user still gets marketing email; subscription keeps billing |
+| Payment in test mode | Success; a declined card shows a clear inline error and keeps the cart; a 3DS challenge completes, and a failed challenge returns to checkout with a message; the order or subscription record and the purchase event exist exactly once | Decline clears the form; the 3DS frame is blocked by CSP or breaks inside in-app browsers; purchase event fires on a decline |
+
+Test data and safety rules:
+- Mail goes to a catcher, never to a real inbox: Mailpit (SMTP on port 1025, web UI and API on 8025 by default) when the app sends over SMTP, or the email provider's sandbox or test inbox, read through its API, when the app sends through an API. Use reserved domains (`example.com`, `.test`) and never a real customer address.
+- Payments use the provider's test mode and test cards, on staging or a development store. Stripe, for example, documents `4242 4242 4242 4242` (succeeds), `4000 0000 0000 0002` (generic decline) and `4000 0027 6000 3184` (requires 3DS authentication on every payment) [Official, verify on the provider's testing page]; Adyen, Mollie, iyzico and PayTR publish their own. Never switch a live store's payments to test mode while it takes traffic: real customers' orders fail.
+- One time tokens (verification, reset, magic link) are consumed by a POST after a user action, never by the GET or HEAD that opens the link. Corporate mail scanners such as Microsoft Defender Safe Links open links before the user does, and products that consume tokens on open report "invalid or expired link" for those users [Practitioner consensus, multiple vendor reports].
+- Prove expiry where time is cheap: a server unit test on the token lifetime, or staging with a short lifetime and the expiry test below. Never wait out a production lifetime in e2e.
+
+Minimal outline for password reset (it signs up a fresh account first, so the old password is known on every run):
+
+```ts
+import { randomUUID } from 'node:crypto';
+import type { APIRequestContext, Page } from '@playwright/test';
+import { test, expect } from '../fixtures';
+
+// Staging or preview only, with the app's SMTP pointed at Mailpit. API schema of your version: <MAILPIT_URL>/api/v1/
+const MAILPIT = process.env.MAILPIT_URL ?? 'http://127.0.0.1:8025';
+const ORIGIN = new URL(process.env.BASE_URL ?? 'http://127.0.0.1:3000').origin;
+const PATH = {
+  signup: process.env.QA_SIGNUP_PATH ?? '/signup',
+  login: process.env.QA_LOGIN_PATH ?? '/login',
+  forgot: process.env.QA_FORGOT_PATH ?? '/forgot-password',
+};
+const VERIFY_LINK = /https?:\/\/[^\s"'<>]*verif[^\s"'<>]*/i;
+const RESET_LINK = /https?:\/\/[^\s"'<>]*reset[^\s"'<>]*/i;
+
+// One fresh account per worker: reserved domain, caught by Mailpit, never a real customer
+const email = `qa.account+${Date.now()}-${process.pid}@example.test`;
+const oldPassword = `Qa-old-${randomUUID()}`;
+const newPassword = `Qa-new-${randomUUID()}`;
+
+test.describe.configure({ mode: 'serial' });
+
+// First link matching `pattern` in an email to `to` received after `since` (runner and Mailpit share a clock)
+async function mailLink(request: APIRequestContext, to: string, since: number, pattern: RegExp): Promise<string> {
+  let link = '';
+  await expect.poll(async () => {
+    const res = await request.get(`${MAILPIT}/api/v1/search`, { params: { query: `to:"${to}"` } });
+    const { messages = [] } = (await res.json()) as { messages?: Array<{ ID: string; Created: string }> };
+    for (const m of messages.filter((x) => Date.parse(x.Created) >= since)) {
+      const msg = await (await request.get(`${MAILPIT}/api/v1/message/${m.ID}`)).json();
+      link = `${msg.HTML ?? ''} ${msg.Text ?? ''}`.replace(/&amp;/g, '&').match(pattern)?.[0] ?? '';
+      if (link) break;
+    }
+    return link;
+  }, { message: `email to ${to} with a link matching ${pattern}`, timeout: 60_000 }).not.toBe('');
+  expect(new URL(link).origin, 'link points at this environment, not localhost or another host').toBe(ORIGIN);
+  return link;
+}
+
+async function requestReset(page: Page, address = email): Promise<void> {
+  await page.goto(PATH.forgot);
+  await page.getByLabel(/e-?mail/i).first().fill(address);
+  await page.getByRole('button', { name: /reset|send/i }).click();
+}
+
+async function logIn(page: Page, password: string): Promise<void> {
+  await page.goto(PATH.login);
+  await page.getByLabel(/e-?mail/i).first().fill(email);
+  await page.locator('input[type="password"]').first().fill(password);
+  await page.getByRole('button', { name: /log ?in|sign ?in/i }).click();
+}
+
+test('signup: verification email arrives and its link works', async ({ page, request }) => {
+  const since = Date.now();
+  await page.goto(PATH.signup);
+  await page.getByLabel(/e-?mail/i).first().fill(email);
+  for (const field of await page.locator('input[type="password"]').all()) await field.fill(oldPassword);
+  await page.getByRole('button', { name: /sign ?up|create account|register/i }).click();
+  await page.goto(await mailLink(request, email, since, VERIFY_LINK));
+  await expect(page.getByText(/verified|confirmed/i).first()).toBeVisible();
+});
+
+test('password reset: neutral message, link works once, old password rejected', async ({ page, request }) => {
+  // Same message for an unknown and a known address (typed address masked): no account enumeration
+  const neutral = page.getByText(/if an account exists|check your (e-?mail|inbox)/i).first();
+  const masked = async (): Promise<string> => (await neutral.innerText()).replace(/\S+@\S+/g, '<email>');
+  await requestReset(page, `qa.nobody+${Date.now()}@example.test`);
+  await expect(neutral).toBeVisible();
+  const unknownText = await masked();
+  const since = Date.now();
+  await requestReset(page);
+  await expect.poll(masked).toBe(unknownText);
+  const link = await mailLink(request, email, since, RESET_LINK);
+  expect(link, 'no email address in the reset URL').not.toMatch(/%40|@/);
+
+  // Opening the link must not burn the token: mail scanners send HEAD and GET before the user clicks
+  await request.fetch(link, { method: 'HEAD' });
+  await page.goto(link);
+  await page.goto(link);
+  const fields = page.locator('input[type="password"]'); // new password and its confirmation; a "Show password" button can match getByLabel
+  await expect(fields.first()).toBeVisible();
+  for (const field of await fields.all()) await field.fill(newPassword);
+  await page.getByRole('button', { name: /reset|save|update|change/i }).click();
+  await expect(page.getByText(/password (has been )?(reset|updated|changed)/i).first()).toBeVisible();
+
+  // Single use: the same link must not open a working form again
+  await page.goto(link);
+  await expect(page.getByText(/expired|invalid|already used/i).first()).toBeVisible();
+  await expect(page.locator('input[type="password"]')).toHaveCount(0);
+
+  await logIn(page, oldPassword);
+  await expect(page.getByText(/incorrect|invalid|wrong/i).first()).toBeVisible();
+  await logIn(page, newPassword);
+  await expect(page).not.toHaveURL(new RegExp(PATH.login));
+});
+
+test('password reset link expires', async ({ page, request }) => {
+  const ttl = Number(process.env.QA_RESET_TTL_SECONDS ?? 0); // staging only, a short lifetime such as 60
+  test.skip(!ttl, 'set a short reset token lifetime on staging and QA_RESET_TTL_SECONDS');
+  test.setTimeout((ttl + 120) * 1_000);
+  const since = Date.now();
+  await requestReset(page);
+  const link = await mailLink(request, email, since, RESET_LINK);
+  await page.waitForTimeout((ttl + 5) * 1_000); // allowed exception (section 17): server time cannot be faked from the browser
+  await page.goto(link);
+  await expect(page.getByText(/expired|invalid/i).first()).toBeVisible();
+  await expect(page.locator('input[type="password"]')).toHaveCount(0);
+});
+```
+
+Notes:
+- If a rejected login answers with HTTP 401, Chromium logs "Failed to load resource" as a console error and the auto `errors` fixture (section 4) fails the test. Allow that one message in the fixture for this spec instead of switching the fixture off.
+- Run the file on one desktop and one mobile project, not all three: each worker creates an account. Replace the copy regexes with `data-qa` attributes as soon as the product has them (section 17).
+- Logout, magic link, deletion and payment follow the same pattern: act in the page, read the mail catcher or the payment provider's test dashboard, assert the record and the event exist exactly once.
 
 ## 8. Template: tracking assertions (`tracking.spec.ts`)
 
@@ -520,6 +659,6 @@ Pin action versions to commit SHAs in high security repos, and keep `--ignore-sc
 |------|-----|
 | A flaky smoke test is a failing smoke test until fixed or quarantined with an owner and date | Ignored flakes hide real breakage |
 | Prefer role and label locators (`getByRole`, `getByLabel`) and `data-qa` attributes over CSS classes | Theme updates rename classes |
-| Wait for responses or states, not timeouts; the only `waitForTimeout` allowed is the beacon flush in tracking tests | Timing based tests flake |
+| Wait for responses or states, not timeouts; the only `waitForTimeout` calls allowed are the beacon flush in tracking tests and the token lifetime wait in the reset expiry test (section 7b) | Timing based tests flake |
 | Third party widgets (reviews, chat, upsell apps) are masked or excluded from assertions | Vendors change without notice |
 | Run against preview and live separately; live runs are read only | Avoid side effects on production |
