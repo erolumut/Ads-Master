@@ -38,3 +38,10 @@ Research backed growth agents for Claude Code: paid media (Meta, Google, Microso
 ## Writing style for this repo
 
 English, direct, practitioner grade. No em dashes or en dashes. Banned words and other rules: `docs/AUTHORING_SPEC.md` section 8.
+
+## How we work on this repo (Workflow Kit, loaded via `scripts/link_dev.py`)
+
+- Plan first for anything beyond a small fix (`planner-session`). Route work with `model-routing`: `scout`, `data-extractor`, `log-triage` on haiku; `researcher`, `mechanic` on sonnet; `verifier` before a claim counts; `fable-advisor` only at critical points.
+- Several sessions on this repo: `parallel-sessions` and its ledger. Stage paths explicitly.
+- Done means reviewed (`review-gates`): evidence for every PASS, and a check that could not run is never a pass.
+- Before committing: `python3 scripts/validate.py`, `python3 scripts/test_guard.py`, and `python3 scripts/build_docs.py` if agents, skills, packs or kits changed.

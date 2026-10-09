@@ -135,7 +135,7 @@ Budget and signal tiers used across all agents:
 Each reference file is a self-contained deep module: procedures, checklists, settings tables, formulas, worked examples, queries or scripts, and benchmarks. Every package must include:
 
 - `audit-checklist.md`: a scored audit (each item: check, why, how to verify, severity, fix). Ends with a scoring rubric.
-- `playbooks.md` or several playbook files: step by step plays for launch, optimize, scale, recover.
+- `playbooks.md`, several playbook files, or a Playbooks section in SKILL.md that links plays kept inside named references: step by step plays for launch, optimize, scale, recover.
 - `sources.md`: annotated source list (title, publisher, URL, date, what it supports).
 
 Other modules are domain specific (account structure, bidding, creative, measurement, policies, tools and APIs, benchmarks, etc.).
