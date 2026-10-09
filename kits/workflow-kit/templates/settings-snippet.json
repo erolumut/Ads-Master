@@ -1,0 +1,8 @@
+{
+  "//": "Workflow Kit settings snippet. Merge these keys into .claude/settings.json by hand and delete this line. Keep model aliases everywhere (fable, opus, sonnet, haiku). Add an env pin below only when an alias still resolves to an older model than you want, record why in the decision log, and drop the pin when agent_models.py shows the alias caught up.",
+  "advisorModel": "fable",
+  "autoCompactWindow": 800000,
+  "env": {
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "<optional full model id; delete the line to follow the alias>"
+  }
+}
