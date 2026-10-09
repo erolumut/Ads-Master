@@ -6,7 +6,7 @@ How the main session conducts the Ads Master team. Every workflow is written as 
 
 | Fact | Consequence |
 |------|-------------|
-| In Claude Code a subagent cannot spawn other subagents | Only the main session delegates. Specialists, including the growth-orchestrator subagent, return "Handoffs requested" or a "Delegation plan" |
+| Ads Master agents run with nested subagents disabled (`disallowedTools: Agent`) | Only the main session delegates. Specialists, including the growth-orchestrator subagent, return "Handoffs requested" or a "Delegation plan" |
 | Subagents start with a fresh context | Every brief must name the files to read and the output path. Never assume a specialist "knows" what another said |
 | Specialists share state only through `ads-master/` | Outputs go to `ads-master/outputs/<slug>/`, events to `ads-master/journal/`. The next wave reads those files |
 | Parallel delegation is possible from the main session | Put independent steps in the same wave and send them in one message |

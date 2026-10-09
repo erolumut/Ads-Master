@@ -12,8 +12,10 @@ with one number, and (with --no-placeholders) any placeholder at all.
 
   python3 doc_numbers.py --check                    check (default)
   python3 doc_numbers.py --check --no-placeholders  also refuse placeholders (pre-push, CI)
-  python3 doc_numbers.py --assign                   number the placeholders
-  python3 doc_numbers.py --assign --dry-run         show what --assign would do
+  python3 doc_numbers.py --assign                   show what would be numbered (dry run)
+  python3 doc_numbers.py --assign --apply --yes     number the placeholders (writes files)
+
+Exit codes: 0 pass, 1 fail, 2 could not run (no decision file found, bad config).
 
 Config (workflow-kit.json at the project root, all optional):
   decisions.files      files holding ADR entries and the index   (default: DECISIONS.md)
@@ -40,6 +42,9 @@ ADR_HEADING = re.compile(r"^## ADR-(\d{1,6}|NEW\d+)(?![0-9])", re.M)
 RULE_DEF = re.compile(r"^\s*[-*]\s+\*\*R(\d{1,6}|-NEW\d+)(?![0-9])", re.M)
 INDEX_HEADING = re.compile(r"^## Index\s*$", re.M)
 INDEX_ROW = re.compile(r"^\|\s*(?:ADR-)?(\d{1,6}|NEW\d+)\s*\|", re.M)
+
+CANNOT_COVER = ("This gate cannot cover: numbers taken on the remote after your last fetch, entries "
+                "outside the configured files, and whether a decision is right.")
 
 DEFAULT_EXCLUDE = [
     ".git/**", "node_modules/**", "dist/**", "build/**", ".next/**", ".venv/**", "venv/**",
@@ -125,6 +130,11 @@ def existing_max(texts: list[str], pattern: re.Pattern) -> tuple[int, int]:
 
 def check(root: Path, cfg: dict, files: list[Path], no_placeholders: bool) -> int:
     errors: list[str] = []
+    decision_files = cfg.get("files", ["DECISIONS.md"])
+    if not any((root / n).is_file() for n in decision_files):
+        print(f"COULD NOT RUN: no decision file found ({', '.join(decision_files)}); set decisions.files in workflow-kit.json")
+        print(CANNOT_COVER)
+        return 2
     for name in cfg.get("files", ["DECISIONS.md"]):
         p = root / name
         if not p.is_file():
@@ -161,12 +171,15 @@ def check(root: Path, cfg: dict, files: list[Path], no_placeholders: bool) -> in
             print(f"{label}: placeholder {ph}")
     if errors or (no_placeholders and placeholders):
         print(f"FAIL: {len(errors)} numbering error(s), {len(placeholders)} placeholder(s)")
+        print(CANNOT_COVER)
         return 1
     print(f"OK: no numbering errors; {len(placeholders)} placeholder(s) waiting for --assign")
+    print(CANNOT_COVER)
     return 0
 
 
-def assign(root: Path, cfg: dict, files: list[Path], dry_run: bool) -> int:
+def assign(root: Path, cfg: dict, files: list[Path], apply: bool) -> int:
+    dry_run = not apply
     texts = {p: read(p) for p in files}
     order: dict[str, list[int]] = {"ADR": [], "R": []}
     for t in texts.values():
@@ -176,7 +189,12 @@ def assign(root: Path, cfg: dict, files: list[Path], dry_run: bool) -> int:
                 order[m.group(1)].append(n)
     if not order["ADR"] and not order["R"]:
         print("OK: no placeholders to assign")
+        print(CANNOT_COVER)
         return 0
+    if order["ADR"] and not any((root / f).is_file() for f in cfg.get("files", ["DECISIONS.md"])):
+        print("COULD NOT RUN: no decision file to read the highest ADR number from; set decisions.files")
+        print(CANNOT_COVER)
+        return 2
 
     adr_sources = [read(root / f) for f in cfg.get("files", ["DECISIONS.md"]) if (root / f).is_file()]
     rule_sources = [read(root / f) for f in cfg.get("ruleFiles", []) if (root / f).is_file()]
@@ -204,7 +222,8 @@ def assign(root: Path, cfg: dict, files: list[Path], dry_run: bool) -> int:
             if not dry_run:
                 p.write_text(new_text, encoding="utf-8")
             print(f"{'would update' if dry_run else 'updated'} {p.relative_to(root).as_posix()}")
-    print(f"OK: {len(mapping)} placeholder(s) in {changed} file(s){' (dry run)' if dry_run else ''}")
+    print(f"OK: {len(mapping)} placeholder(s) in {changed} file(s){' (dry run; add --apply --yes to write)' if dry_run else ''}")
+    print(CANNOT_COVER)
     return 0
 
 
@@ -214,7 +233,8 @@ def main(argv: list[str] | None = None) -> int:
     mode.add_argument("--check", action="store_true", help="check numbering (default)")
     mode.add_argument("--assign", action="store_true", help="replace placeholders with the next free numbers")
     ap.add_argument("--no-placeholders", action="store_true", help="with --check: any placeholder fails")
-    ap.add_argument("--dry-run", action="store_true", help="with --assign: print, do not write")
+    ap.add_argument("--apply", action="store_true", help="with --assign: write the files (needs --yes)")
+    ap.add_argument("--yes", action="store_true", help="confirm --apply")
     ap.add_argument("--root", default=".", help="project root (default: current directory)")
     ap.add_argument("paths", nargs="*", help="files to scan instead of decisions.scan")
     args = ap.parse_args(argv)
@@ -226,10 +246,20 @@ def main(argv: list[str] | None = None) -> int:
     else:
         exclude = DEFAULT_EXCLUDE + list(cfg.get("exclude", []))
         files = scan_files(root, cfg.get("scan", ["**/*.md"]), exclude)
+    if args.apply and not args.yes:
+        print("COULD NOT RUN: --apply rewrites files; repeat with --apply --yes")
+        return 2
     if args.assign:
-        return assign(root, cfg, files, args.dry_run)
+        return assign(root, cfg, files, args.apply and args.yes)
     return check(root, cfg, files, args.no_placeholders)
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except SystemExit:
+        raise
+    except Exception as exc:  # noqa: BLE001 (an unexpected crash is "could not run", never "fail")
+        print(f"COULD NOT RUN: unexpected error: {exc!r}")
+        print(CANNOT_COVER)
+        sys.exit(2)

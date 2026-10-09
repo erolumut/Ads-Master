@@ -5,6 +5,9 @@ description: Routing policy for models and subagents. Use before spawning any su
 
 # Model routing
 
+> **Kit path.** `<kit>` below is `${CLAUDE_PLUGIN_ROOT}` when the kit runs as a plugin, or `.claude/workflow-kit` when it was installed by copy. Every kit script exits 0 pass, 1 fail, 2 could not run; treat 2 as not passed.
+
+
 The main session is the conductor. It plans, decides, synthesizes, writes decisions and reports, integrates and ships. Workers do bounded pieces and return evidence. This skill says who does what, on which model, and when their output counts.
 
 The kit's agents are namespaced when installed as a plugin (`workflow-kit:scout`); when copied into `.claude/agents/` they keep the bare name.
@@ -28,7 +31,8 @@ Fill the "Project specifics" column once in your CLAUDE.md snippet; keep the res
 | Bounded non-design edits with a mechanical oracle, inside the allow list | `mechanic` | `sonnet` | `mechanic.allow` in `workflow-kit.json` |
 | Web research, one cited question per worker | `researcher` x N | `sonnet` | |
 | Locating code, files, call sites | `scout` | `haiku` | |
-| Facts and numbers from logs, CI output, CSV exports, API dumps | `data-extractor` | `haiku` | |
+| Facts from CI, test, build and deploy logs | `log-triage` | `haiku` | |
+| Facts and numbers from CSV exports, API dumps, analytics exports | `data-extractor` | `haiku` | |
 | Second opinion at critical points | `fable-advisor` | `fable` | <your critical points> |
 
 Critical points for `fable-advisor`: direction before signature or hard-to-reverse work and a polish pass after; alternatives before they go to the human; a decision that supersedes a locked rule; a change to a contract others keep reading (shared schema, public API, protocol version); a problem the main session failed twice. One consult at a time, never fanned out.
@@ -36,7 +40,7 @@ Critical points for `fable-advisor`: direction before signature or hard-to-rever
 ## 3. When cheap output counts
 
 - Output from `haiku` or `sonnet` counts only after a **mechanical gate** (an exit code: tests, typecheck, lint, a script) or **verification** by the main session or `verifier`.
-- "Not found" from `scout`, `data-extractor` or `researcher` is never the final word on absence. It goes to `verifier`, never to another locator.
+- "Not found" from `scout`, `log-triage`, `data-extractor` or `researcher` is never the final word on absence. It goes to `verifier`, never to another locator.
 - The main session reads the full diff of every `mechanic` change before staging it.
 - A researcher's claim that a decision rests on is re-verified at the source by the main session.
 
@@ -46,7 +50,7 @@ Critical points for `fable-advisor`: direction before signature or hard-to-rever
 |---|---|
 | `mechanic` fails twice | task returns to the main session (or an `implementer`) |
 | `implementer` fails twice on the same problem | one `fable-advisor` consult with the failed attempts attached |
-| `scout` or `data-extractor` says "not found" | `verifier` |
+| `scout`, `log-triage` or `data-extractor` says "not found" | `verifier` |
 | `reviewer` FAIL | `implementer` fixes, `reviewer` re-runs on the new diff |
 | Main session stuck on the same failure twice | `fable-advisor`, or the advisor tool if enabled |
 
@@ -63,7 +67,7 @@ Critical points for `fable-advisor`: direction before signature or hard-to-rever
 ## 6. Fan out
 
 - Fan out only genuinely independent work. Write **disjoint file ownership** into each brief: one owner per file. A worker that needs another's file stops and asks.
-- Read-only workers (scout, data-extractor, researcher, verifier, reviewer) can run in parallel freely. Editing workers (mechanic, implementer) run in parallel only with disjoint ownership.
+- Read-only workers (scout, log-triage, data-extractor, researcher, verifier, reviewer, guardians) can run in parallel freely. Editing workers (mechanic, implementer) run in parallel only with disjoint ownership.
 - Workers never commit, push, stash or reset. The main session stages paths explicitly, never `git add -A` while another session shares the tree.
 - A cut worker (usage limit, crash) resumes where it stopped: its brief and ownership let a new spawn continue. Resume in small waves; never restart a batch blind.
 - Long batches: three to five parallel workers is a sane ceiling; more increases merge and review cost faster than it saves time.
@@ -72,7 +76,7 @@ Critical points for `fable-advisor`: direction before signature or hard-to-rever
 
 Silent substitution happens: a missing alias, a stale pin, a parameter that overrode the frontmatter, a usage limit fallback.
 
-- At session sign-off, and whenever a result looks cheaper than its tier, run `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/agent_models.py"` (or the copied path) to list each agent's configured model and effort and flag full ids.
+- At session sign-off, and whenever a result looks cheaper than its tier, run `python3 <kit>/scripts/agent_models.py` to list each agent's configured model and effort and flag full ids, and `python3 <kit>/scripts/agent_models.py --audit` to compare, per subagent of the latest session, the model requested at spawn, the model configured in frontmatter and the model actually served (read from the local transcripts in `~/.claude/projects/`).
 - Compare that with what the session actually used: the model named in the subagent's result or transcript, `/status` for the main session. A mismatch is a finding: record it in the ledger PROGRESS line and fix the cause.
 
 ## 8. Advisor tool

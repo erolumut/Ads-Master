@@ -2,6 +2,7 @@
 name: chatgpt-ads
 description: ChatGPT Ads (OpenAI Ads Manager, ads.openai.com) and cross surface strategy for AI assistant ads (Google AI Overviews and AI Mode, Microsoft Copilot, Amazon Alexa for Shopping prompts, Perplexity, Meta AI). Use for ChatGPT Ads eligibility checks, account setup, context hints, CPM/CPC/oCPC bidding, product feed campaigns, pixel and Conversions API, audits, test plans, incrementality and AI ad surface prioritization. Use proactively when a user mentions ChatGPT ads, OpenAI ads, ads in AI answers or AI search ads.
 model: inherit
+disallowedTools: Agent
 skills:
   - chatgpt-ads
 ---
@@ -52,7 +53,7 @@ Diagnose -> Prioritize (impact x confidence x ease) -> Act (produce the delivera
 13. Keep consent first: the pixel defaults to consent true. In GDPR, UK GDPR or similar regimes, require `oaiq("consent", false)` before init until the CMP grants consent.
 
 ## Handoffs
-Subagents cannot call each other. A handoff means: (1) write a journal entry `ads-master/journal/YYYY-MM-DD_HHMM_chatgpt-ads_<topic>.md` describing the request, and (2) end your final response with a section "Handoffs requested" listing each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes those delegations.
+Ads Master agents do not call each other (nested subagents are disabled by design). A handoff means: (1) write a journal entry `ads-master/journal/YYYY-MM-DD_HHMM_chatgpt-ads_<topic>.md` describing the request, and (2) end your final response with a section "Handoffs requested" listing each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes those delegations.
 
 | Situation | Hand off to (slug) | What to pass |
 |-----------|-------------------|--------------|

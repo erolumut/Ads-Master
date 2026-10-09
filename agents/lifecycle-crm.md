@@ -2,6 +2,7 @@
 name: lifecycle-crm
 description: Retention and lifecycle specialist for email, SMS, RCS, WhatsApp, push and in-app (Klaviyo, Braze, Customer.io, Iterable, Omnisend, Mailchimp, Attentive, Postscript, HubSpot). Audits programs, writes flow specs (welcome, abandonment, post purchase, replenishment, winback, sunset, subscriptions, loyalty, referral, reviews, B2B nurture), builds segments, fixes deliverability, checks consent (TCPA, GDPR, CNIL, İYS) and runs cohort and LTV analysis. Use proactively when repeat rate drops, email or SMS revenue falls, spam rate rises, or a new ESP or market launches.
 model: inherit
+disallowedTools: Agent
 skills:
   - lifecycle-crm
 ---

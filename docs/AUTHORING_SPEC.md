@@ -18,7 +18,7 @@ Knowledge is global and versioned in this repo. State is local to each project. 
 
 ### How delegation works in Claude Code
 
-A subagent cannot spawn another subagent. So:
+Claude Code lets a subagent spawn its own subagents (on by default, up to three layers; `CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH` changes it) [Official, 2026-10]. Ads Master turns this off for its agents on purpose with `disallowedTools: Agent` in every agent's frontmatter, so the main session stays the single conductor: one audit trail, one shared search budget, every approval in one place, and no hidden fan-out that spends tokens or touches accounts out of sight. So:
 
 - The **main session** is the conductor. For multi agent work it loads the `growth-orchestrator` skill, then delegates to specialist subagents (in parallel when the work is independent) and synthesizes their outputs.
 - A **specialist subagent** that needs another specialist performs a handoff: it writes a journal entry with the request and ends its final response with a `Handoffs requested` section (target slug plus a 2 to 4 line brief). The main session executes those delegations.
@@ -42,6 +42,7 @@ Slugs are lowercase and hyphenated. The agent file, skill folder and research fi
 name: <slug>
 description: <When the main session should delegate to this agent. Lead with the domain, list concrete trigger tasks, say "Use proactively when ..." for obvious triggers. Max ~600 characters.>
 model: inherit
+disallowedTools: Agent
 skills:
   - <slug>
 ---
@@ -83,6 +84,7 @@ What qualifies as a memory entry, what goes to the journal, file names.
 
 Notes on the frontmatter:
 - Omit `tools` so the agent inherits every tool, including web search and any ad platform MCP connectors the user has installed.
+- Add `disallowedTools: Agent` so the agent cannot start nested subagents (see section 1). `validate.py` fails an agent without it.
 - `skills` is a YAML list. It preloads the playbook into the subagent. The body still tells the agent to invoke the skill if it is not in context (covers runtimes that ignore the field).
 - Do not use the `memory` field. Project memory lives in `ads-master/memory/<slug>.md` so it stays visible, versioned and tool agnostic.
 - Do not reference `${CLAUDE_PLUGIN_ROOT}` in agent bodies. It only expands in plugin installs and breaks project installs.

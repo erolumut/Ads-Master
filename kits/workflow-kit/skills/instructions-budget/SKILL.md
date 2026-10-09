@@ -5,6 +5,9 @@ description: Keep CLAUDE.md lean and instructions effective. Use when CLAUDE.md 
 
 # Instructions budget
 
+> **Kit path.** `<kit>` below is `${CLAUDE_PLUGIN_ROOT}` when the kit runs as a plugin, or `.claude/workflow-kit` when it was installed by copy. Every kit script exits 0 pass, 1 fail, 2 could not run; treat 2 as not passed.
+
+
 Every line of CLAUDE.md loads into every session and every subagent. Long files cost context and reduce adherence. The docs recommend under 200 lines per CLAUDE.md; Claude Code warns at startup when a file, or the combined set, runs long.
 
 ## Where an instruction belongs
@@ -55,8 +58,8 @@ A short file of "your training data is out of date here" warnings, one bullet ea
 ## The check script
 
 ```bash
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_instructions.py"            # report, exit 1 on errors
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check_instructions.py" --strict   # warnings fail too
+python3 <kit>/scripts/check_instructions.py            # report, exit 1 on errors
+python3 <kit>/scripts/check_instructions.py --strict   # warnings fail too
 ```
 
 It checks: the CLAUDE.md line budget (`instructions.maxLines`, default 200, counted without block HTML comments), that every referenced path (backtick spans and `@imports` that look like paths) exists, and that every `.claude/rules/*.md` has valid frontmatter with valid globs. A glob that matches no file is a warning (an error with `--strict`). Paths to ignore go in `instructions.ignorePaths`.

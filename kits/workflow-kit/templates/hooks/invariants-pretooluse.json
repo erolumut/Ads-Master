@@ -1,0 +1,18 @@
+{
+  "//": "Workflow Kit invariants hook. Copy invariants.json to the repo root first: without it every git commit is denied with could not run. Merge the hooks key into .claude/settings.json (installed mode path shown) and delete this line. In plugin mode, replace the script path with the absolute path of the installed kit. The if filter limits the hook to git commit; the script checks again and stays silent for every other command.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(git commit*)",
+            "command": "python3 \"${CLAUDE_PROJECT_DIR}/.claude/workflow-kit/scripts/invariants_check.py\" --hook --root \"${CLAUDE_PROJECT_DIR}\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

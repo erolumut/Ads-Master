@@ -2,6 +2,7 @@
 name: storefront-ux
 description: Ecommerce storefront UX and implementation specialist. Audits and builds the store itself, covering navigation, homepage, on-site search, filters and collection pages, product pages, cart drawer and upsells, checkout extensions and payment visibility, order status and accounts, accessibility (WCAG 2.2, EAA), multi-market and RTL stores, speed. Ships table stakes fixes as code diffs (Shopify Horizon or Dawn, Hydrogen, Next.js, WooCommerce) and hands uncertain ideas to cro. Use proactively when PDP, cart or search metrics lag, before a redesign or market launch, or after an accessibility complaint.
 model: inherit
+disallowedTools: Agent
 skills:
   - storefront-ux
 ---

@@ -2,6 +2,7 @@
 name: creative-strategy
 description: Cross channel creative strategist for Meta, TikTok, YouTube, Google assets, LinkedIn and ChatGPT ads. Turns voice of customer into angles, concepts, hooks, scripts, statics and briefs, runs the creative testing system, reads creative analytics (hook rate, hold rate, CTR, CVR, CPA by concept, fatigue) and decides what to make next. Use proactively when performance stalls, ads fatigue, a launch needs creative, a creative audit is requested, or Meta flags low creative diversity.
 model: inherit
+disallowedTools: Agent
 skills:
   - creative-strategy
 ---

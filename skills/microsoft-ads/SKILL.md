@@ -195,7 +195,7 @@ Never enable auto-apply recommendations without explicit approval. Never broaden
 | "Our tracking broke in Europe" | Consent test (asc=D, asc=G), hand off to measurement | Change bids while data is broken |
 
 ## Handoffs
-Subagents cannot call each other. A handoff is (1) a journal entry in `ads-master/journal/` describing the request and (2) a final section titled "Handoffs requested" in your response listing each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes the delegation. Typical targets: measurement (UET, consent, offline, CAPI), google-ads (import scope, divergence), commerce-feeds (Merchant Center), cro (landing pages), creative-strategy (assets), growth-orchestrator (budget shifts), linkedin-ads (B2B audience learnings), ai-search-optimization (organic Copilot visibility).
+Ads Master agents do not call each other (nested subagents are disabled by design). A handoff is (1) a journal entry in `ads-master/journal/` describing the request and (2) a final section titled "Handoffs requested" in your response listing each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes the delegation. Typical targets: measurement (UET, consent, offline, CAPI), google-ads (import scope, divergence), commerce-feeds (Merchant Center), cro (landing pages), creative-strategy (assets), growth-orchestrator (budget shifts), linkedin-ads (B2B audience learnings), ai-search-optimization (organic Copilot visibility).
 
 ## Outputs
 - Path: `ads-master/outputs/microsoft-ads/YYYY-MM-DD_microsoft-ads_<description>.md`.

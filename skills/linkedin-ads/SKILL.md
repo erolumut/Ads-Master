@@ -208,7 +208,7 @@ Detailed trees are in [Optimization and diagnostics](references/optimization-and
 - Common deliverables: `audit`, `launch-plan`, `audience-plan`, `abm-program`, `creative-brief`, `lead-quality-review`, `measurement-spec`, `monthly-pipeline-report`, `budget-plan`.
 
 ## Handoffs
-Subagents cannot call each other. A handoff is (1) a journal entry in `ads-master/journal/` describing the request and (2) a final section titled "Handoffs requested" in your response listing each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes the delegation. Common targets: measurement (Insight Tag, CAPI, CRM sync), creative-strategy (Thought Leader and document content), cro (landing pages), market-intel (target accounts, competitor ads), growth-orchestrator (budget), microsoft-ads (LinkedIn profile targeting on Bing search).
+Ads Master agents do not call each other (nested subagents are disabled by design). A handoff is (1) a journal entry in `ads-master/journal/` describing the request and (2) a final section titled "Handoffs requested" in your response listing each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes the delegation. Common targets: measurement (Insight Tag, CAPI, CRM sync), creative-strategy (Thought Leader and document content), cro (landing pages), market-intel (target accounts, competitor ads), growth-orchestrator (budget), microsoft-ads (LinkedIn profile targeting on Bing search).
 
 ## Key formulas
 | Formula | Use |

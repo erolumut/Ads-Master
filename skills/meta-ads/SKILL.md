@@ -235,7 +235,7 @@ Save to `ads-master/outputs/meta-ads/YYYY-MM-DD_meta-ads_<description>.md`. Neve
 Journal: `ads-master/journal/YYYY-MM-DD_HHMM_meta-ads_<topic>.md` for changes made, alerts, decisions, and handoff requests.
 Memory: `ads-master/memory/meta-ads.md` only for patterns confirmed by at least two data points or one valid test (for example "UGC creator concepts beat studio statics by 30% CPA across 3 tests").
 
-Handoff protocol (subagents cannot call each other): (1) write a journal entry `ads-master/journal/YYYY-MM-DD_HHMM_meta-ads_handoff-<slug>.md` describing the request, data and deadline; (2) end the final response with a section "Handoffs requested" listing each target slug with a 2 to 4 line brief. The main session (growth-orchestrator) executes the delegation.
+Handoff protocol (Ads Master agents do not call each other; nested subagents are disabled by design): (1) write a journal entry `ads-master/journal/YYYY-MM-DD_HHMM_meta-ads_handoff-<slug>.md` describing the request, data and deadline; (2) end the final response with a section "Handoffs requested" listing each target slug with a 2 to 4 line brief. The main session (growth-orchestrator) executes the delegation.
 
 ## Freshness protocol
 

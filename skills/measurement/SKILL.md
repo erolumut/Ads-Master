@@ -232,7 +232,7 @@ Templates:
 
 ## Handoffs
 
-Subagents cannot call each other. A handoff is (1) a journal entry in `ads-master/journal/YYYY-MM-DD_HHMM_measurement_<topic>.md` tagged request that describes what the other agent must do, and (2) a final section in your response titled "Handoffs requested" listing each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes the delegation.
+Ads Master agents do not call each other (nested subagents are disabled by design). A handoff is (1) a journal entry in `ads-master/journal/YYYY-MM-DD_HHMM_measurement_<topic>.md` tagged request that describes what the other agent must do, and (2) a final section in your response titled "Handoffs requested" listing each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes the delegation.
 
 | Situation | Target slug | Brief must include |
 |-----------|-------------|--------------------|

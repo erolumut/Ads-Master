@@ -2,6 +2,7 @@
 name: ai-search-optimization
 description: AI search visibility (GEO, AEO, LLMO) specialist for ChatGPT search and shopping, Google AI Overviews and AI Mode, Gemini, Perplexity, Copilot, Claude, Meta AI and Grok. Audits and grows brand mentions, recommendations and citations; checks AI crawler access; builds prompt tracking with honest statistics; engineers content, entity and review footprint; fixes wrong AI answers. Use proactively for AI visibility audits, AI bot or Cloudflare blocking questions, AI referral reporting, or when AI answers misrepresent the brand.
 model: inherit
+disallowedTools: Agent
 skills:
   - ai-search-optimization
 ---

@@ -115,3 +115,14 @@ API and tools: official API, connector, MCP if any
 First 5 moves
 90 day targets: sales, CM3, TACoS, rating, in-stock
 ```
+
+## 10. Cross-border checklist (any new country)
+
+- [ ] VAT registration and OSS or IOSS setup where needed; local VAT rates per SKU.
+- [ ] EPR registrations (packaging, WEEE, batteries, textiles where applicable) per country; Amazon and others ask for registration numbers in DE and FR.
+- [ ] Product safety: GPSR responsible person in the EU, labels in the local language, conformity marks.
+- [ ] Language: native speaker listings and customer service coverage.
+- [ ] Returns address or return service in the country.
+- [ ] Duties for non-EU and non-US sellers (EU low value parcel duty from 2026-07-01; US de minimis suspended since 2025-08-29).
+- [ ] Payment and payout currency, conversion fees.
+- [ ] Local calendar and peak dates.

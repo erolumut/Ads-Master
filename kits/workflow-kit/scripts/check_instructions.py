@@ -13,6 +13,8 @@ Checks:
   python3 check_instructions.py            errors exit 1, warnings print
   python3 check_instructions.py --strict   warnings exit 1 too
 
+Exit codes: 0 pass, 1 fail, 2 could not run (no CLAUDE.md and no rules to check).
+
 Config (workflow-kit.json at the project root, all optional):
   instructions.claudeMd    default CLAUDE.md
   instructions.maxLines    default 200
@@ -29,6 +31,8 @@ import re
 import sys
 from pathlib import Path
 
+CANNOT_COVER = ("This gate cannot cover: whether the instructions are right or followed, rules in "
+                "~/.claude or managed policy, and the combined size of every file loaded at startup.")
 EXTENSIONS = (
     ".md", ".json", ".yml", ".yaml", ".toml", ".py", ".ts", ".tsx", ".js", ".mjs", ".cjs",
     ".jsx", ".sh", ".sql", ".css", ".html", ".txt", ".env", ".lock", ".cfg", ".ini",
@@ -206,10 +210,13 @@ def main(argv: list[str] | None = None) -> int:
             errors.append(msg + " (over budget)")
         print(("over" if n > max_lines else "ok  ") + f"  {msg}")
         sources.append(claude_md)
-    else:
-        warnings.append(f"{claude_md.relative_to(root)} not found")
-
     rule_files = sorted(rules_dir.glob("**/*.md")) if rules_dir.is_dir() else []
+    if not claude_md.is_file():
+        if not rule_files:
+            print(f"COULD NOT RUN: {claude_md.relative_to(root).as_posix()} and {rules_dir.relative_to(root).as_posix()} not found")
+            print(CANNOT_COVER)
+            return 2
+        warnings.append(f"{claude_md.relative_to(root).as_posix()} not found")
     sources.extend(rule_files)
 
     for src in sources:
@@ -255,8 +262,16 @@ def main(argv: list[str] | None = None) -> int:
         print(f"error {e}")
     failed = bool(errors) or (args.strict and bool(warnings))
     print(f"{'FAIL' if failed else 'OK'}: {len(errors)} error(s), {len(warnings)} warning(s)")
+    print(CANNOT_COVER)
     return 1 if failed else 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except SystemExit:
+        raise
+    except Exception as exc:  # noqa: BLE001 (an unexpected crash is "could not run", never "fail")
+        print(f"COULD NOT RUN: unexpected error: {exc!r}")
+        print(CANNOT_COVER)
+        sys.exit(2)

@@ -22,7 +22,7 @@ _(empty)_
 
 _(empty)_
 
-<!-- MSG format: - YYYY-MM-DD HH:MM · MSG @from -> @to: <what, which files, proposal> -->
+<!-- MSG format (one bullet per message): YYYY-MM-DD HH:MM · MSG @from -> @to: <what, which files, proposal> -->
 
 ## ARCHIVE
 

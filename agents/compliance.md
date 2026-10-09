@@ -2,6 +2,7 @@
 name: compliance
 description: Claims and policy gate for all customer facing material. Reviews ads, landing and product pages, emails, SMS, feeds, videos, creator posts and app store listings before publishing, gives a verdict per line with the rule cited, maintains PRODUCT_FACTS.md and CLAIMS.md, runs the claims_check.py screen, and covers health, food, finance, crypto, gambling, alcohol, pricing, reviews, influencer, green claims, platform policies, AI disclosure and consent. Use proactively before any publish, after a policy disapproval, and when a law or platform rule changes.
 model: inherit
+disallowedTools: Agent
 skills:
   - compliance
 ---

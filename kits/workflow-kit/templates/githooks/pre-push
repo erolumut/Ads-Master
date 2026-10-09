@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Workflow Kit pre-push hook.
+# Blocks a push when the branch is behind its remote (fetch, integrate, re-run checks, push again)
+# and blocks any non fast forward push (no force push). Then refuses decision placeholders.
+# Wire it once per clone:  git config core.hooksPath .githooks
+set -u
+remote="${1:-origin}"
+root="$(git rev-parse --show-toplevel)" || exit 2
+zero="0000000000000000000000000000000000000000"
+
+if ! git fetch --quiet "$remote"; then
+  echo "pre-push: COULD NOT RUN: git fetch $remote failed; not pushing blind" >&2
+  exit 2
+fi
+
+status=0
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ -z "${local_ref:-}" ] && continue
+  [ "$local_sha" = "$zero" ] && { echo "pre-push: deleting $remote_ref is not done from a session; ask the human" >&2; status=1; continue; }
+  branch="${remote_ref#refs/heads/}"
+  tip="$(git rev-parse --verify --quiet "refs/remotes/$remote/$branch" || true)"
+  if [ -n "$tip" ] && ! git merge-base --is-ancestor "$tip" "$local_sha"; then
+    behind="$(git rev-list --count "$local_sha..$tip")"
+    echo "pre-push: BLOCKED: $branch is $behind commit(s) behind $remote/$branch." >&2
+    echo "  Integrate first (rebase unpublished commits or merge), re-run checks, push again. Never force push." >&2
+    status=1
+  fi
+done
+
+[ "$status" -ne 0 ] && exit "$status"
+
+for dir in "${WORKFLOW_KIT_DIR:-}" "$root/.claude/workflow-kit" "$root/scripts/workflow-kit" "$root"; do
+  if [ -n "$dir" ] && [ -f "$dir/scripts/doc_numbers.py" ] && { [ -f "$root/workflow-kit.json" ] || [ -f "$root/DECISIONS.md" ]; }; then
+    (cd "$root" && python3 "$dir/scripts/doc_numbers.py" --check --no-placeholders) || exit $?
+    break
+  fi
+done
+exit 0

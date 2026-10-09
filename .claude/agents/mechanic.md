@@ -1,0 +1,1 @@
+../../kits/workflow-kit/agents/mechanic.md

@@ -80,3 +80,43 @@ Choose the unit the customer pays by so that price grows with value received: se
 4. Ignoring the reference price customers already have (retail shelf price, competitor pack).
 5. Surveying current customers only (they already accepted your price).
 6. Mixing segments with different alternatives in one curve.
+
+## 10. Gabor Granger procedure
+
+1. Choose 5 to 7 price points spanning the plausible range (from Van Westendorp or the benchmark).
+2. Show the product with pack and per unit context; ask purchase likelihood at a randomly chosen starting price; move up if yes, down if no (or ask all in random order with a monadic split to reduce anchoring).
+3. Convert to demand: share "definitely or probably would buy" per price, with a calibration factor (stated intent overstates; many practitioners count "definitely" at a higher weight than "probably") [Practitioner consensus].
+4. Revenue curve = price x demand; contribution curve = (price ex VAT - cost per unit) x demand. Choose on contribution.
+
+## 11. Incentive compatible WTP (BDM)
+
+Becker DeGroot Marschak: respondent states a maximum price; a random price is drawn; if the draw is at or below the stated maximum, the respondent must buy at the drawn price. Truthful bidding is optimal, so stated WTP is closer to real WTP. Use in pilots, events or with existing customers for new products. Needs real product and payment handling; route consent and legal wording to `compliance`.
+
+## 12. Worked EVE (B2B, illustrative)
+
+A scheduling SaaS for clinics. Next best alternative: a receptionist handling phone bookings plus a generic calendar tool at EUR 30 per month.
+
+| Component | Estimate | Basis |
+|-----------|----------|-------|
+| Reference value | EUR 30 per month | Generic tool price |
+| Time saved | 20 hours per month x EUR 25 loaded cost = EUR 500 | Customer interviews (n = 12), labeled estimate |
+| No-show reduction | 8 fewer no-shows x EUR 60 margin = EUR 480 | Pilot data from 3 clinics |
+| Negative: switching effort | EUR 150 one-off, spread over 12 months = EUR 12.50 | Onboarding time |
+| Economic value | about EUR 997 per month | Sum |
+
+Price at a share of differentiation value: keeping 15 to 25% of the EUR 967 differentiation value on top of the EUR 30 reference gives about EUR 175 to 270 per month per clinic. Then check against competitor tiers and conjoint results. Communicate value in hours and no-shows, not features.
+
+## 13. Survey questionnaire skeleton (consumer pack pricing)
+
+```
+Screener: category usage last 3 months, purchase channel, country
+Context: product photo, pack size, ingredients summary, current alternatives shown with per unit prices
+Van Westendorp 4 questions (per bar, then per 24 pack)
+Purchase likelihood at "cheap" and "expensive" answers (NMS)
+Gabor Granger: 5 prices for the 24 pack, monadic
+Attribute importance: 6 attributes, 100 points allocation
+Delivery: acceptable delivery fee and threshold questions
+Demographics and segment questions
+```
+
+Sample: 200 to 300 per segment that matters for the decision. Run with `market-intel` or `cro`; never include personal data in outputs.

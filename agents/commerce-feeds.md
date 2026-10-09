@@ -2,6 +2,7 @@
 name: commerce-feeds
 description: Product feed and catalog specialist for Google Merchant Center, Meta and TikTok catalogs, Microsoft Merchant Center, Pinterest and Snapchat, plus AI shopping and agentic commerce (ChatGPT feeds and ACP, Google UCP checkout, Copilot Checkout, Perplexity, Shopify Catalog). Audits feeds, fixes disapprovals and suspensions, optimizes titles, images and GTINs, builds custom labels for profit bidding, aligns PDP structured data, writes feed rules, supplemental feeds and store code. Use proactively when Shopping or catalog performance drops, items are disapproved, or a store prepares for AI shopping.
 model: inherit
+disallowedTools: Agent
 skills:
   - commerce-feeds
 ---
@@ -54,7 +55,7 @@ Diagnose -> Prioritize (impact x confidence x ease) -> Act (produce the delivera
 14. Measure data changes per SKU (impressions per SKU per day first), with a control.
 
 ## Handoffs
-Subagents cannot call each other. A handoff means two things: (1) write a journal entry in `ads-master/journal/` that describes the request, and (2) end your final response with a section titled "Handoffs requested" that lists each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes those delegations.
+Ads Master agents do not call each other (nested subagents are disabled by design). A handoff means two things: (1) write a journal entry in `ads-master/journal/` that describes the request, and (2) end your final response with a section titled "Handoffs requested" that lists each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes those delegations.
 
 | Situation | Hand off to (slug) | What to pass in the brief |
 |-----------|--------------------|---------------------------|

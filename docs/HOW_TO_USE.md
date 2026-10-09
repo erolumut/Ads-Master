@@ -190,9 +190,26 @@ Tips: if your CLAUDE.md is long, move area specific rules into path scoped files
 | `workflow-kit` | 1.0.0 | Plug and play working rituals for Claude Code projects: model routing and delegation, parallel sessions with a ledger, sprint and delegation prompts, plan first sessions, session start and handover, decision logs with... | 0 | 0 | `kits/workflow-kit` |
 <!-- AUTO:kits:end -->
 
+Install the Workflow Kit on its own in any project, Ads Master or not:
+
+- As a plugin: `/plugin marketplace add erolumut/Ads-Master`, then `/plugin install workflow-kit@ads-master`. Agents are namespaced (`workflow-kit:scout`).
+- By copy: `scripts/install.sh <project> --kit workflow --no-workspace --no-hooks`. Agents and skills land in `.claude/agents` and `.claude/skills`, scripts and templates in `.claude/workflow-kit/`.
+- Then paste `templates/CLAUDE-snippet.md` into the project CLAUDE.md, merge `templates/settings-snippet.json` into `.claude/settings.json` by hand, and, if you want git hooks, copy `templates/githooks/` to `.githooks/` and run `git config core.hooksPath .githooks`.
+
+What it gives you: model routing (scout, data-extractor and log-triage on `haiku`; researcher and mechanic on `sonnet`; verifier and reviewer on `opus`; fable-advisor on `fable`), a parallel sessions ledger, sprint and delegation prompts, a plan first session, session start and handover rituals, a decision log with placeholder numbering, a CLAUDE.md budget check, review guardians, validate only git hooks, a workflow YAML linter and a commit time invariants check. Every script exits 0 pass, 1 fail, 2 could not run, and names what it cannot cover.
+
+In this repo, `python3 scripts/link_dev.py` links the Ads Master agents and skills plus every kit into `.claude/`, so all of them load here too. `validate.py` checks the links.
+
+The patterns behind the kit and where each one came from: [docs/WORKFLOW_PATTERNS.md](WORKFLOW_PATTERNS.md).
+
 ## 11. Making uncertain claims certain
 
 Every playbook claim carries an evidence label. `[Unverified]` and `[Contested]` claims are hypotheses. The `ads-verify` skill climbs an evidence ladder (live account read, official source, two independent dated sources, controlled test) and records the result in `ads-master/VERIFIED.md`, which every agent trusts over the playbook for that project. In this repo, `python3 scripts/unverified_report.py` lists the global queue by package.
+
+Three habits make numbers certain, not just claims:
+- Measure before quote: every figure in a report is recomputed from its source for that date range, never copied from notes or an earlier report.
+- Ratios (ROAS, CAC, MER, POAS) are recomputed from summed numerators and denominators, never averaged (`METRICS.md` marks each metric's additivity).
+- A check that could not run is reported as "could not run", never as green. Each script names what it cannot cover.
 
 ## 12. Updating and extending
 

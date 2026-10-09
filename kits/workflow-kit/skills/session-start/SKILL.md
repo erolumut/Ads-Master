@@ -5,6 +5,9 @@ description: Session start ritual. Use at the start of every new session in a pr
 
 # Session start
 
+> **Kit path.** `<kit>` below is `${CLAUDE_PLUGIN_ROOT}` when the kit runs as a plugin, or `.claude/workflow-kit` when it was installed by copy. Every kit script exits 0 pass, 1 fail, 2 could not run; treat 2 as not passed.
+
+
 Do these steps in order before the first edit. They cost a few minutes and prevent the two expensive failures: working from stale context and colliding with another session.
 
 ## 1. Read order
@@ -48,7 +51,7 @@ git worktree list
 Use the `parallel-sessions` skill. Short version:
 
 ```bash
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/ledger.py" checkin --handle <you> --scope "<files or dirs>" --intent "<one line>" --risky "<none|push|migration|shared doc>" --eta "<~2h>"
+python3 <kit>/scripts/ledger.py checkin --handle <you> --scope "<files or dirs>" --intent "<one line>" --risky "<none|push|migration|shared doc>" --eta "<~2h>"
 ```
 
 The ledger is a git-ignored file at the repo root (`PARALLEL-SESSIONS.md`), not under `.claude/`, which Claude Code treats as protected and may prompt on writes. Cloud sessions in fresh containers have no ledger; they coordinate through the tracker's status instead.

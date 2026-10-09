@@ -18,13 +18,17 @@ Nothing in the kit assumes a language, framework, product or company. Project fa
 ```
 workflow-kit/
 ├── .claude-plugin/plugin.json
-├── agents/          scout, data-extractor, researcher, mechanic, verifier, fable-advisor, implementer, reviewer
+├── agents/          scout, log-triage, data-extractor, researcher, mechanic, verifier, fable-advisor,
+│                    implementer, reviewer
 ├── skills/          model-routing, session-start, parallel-sessions, sprint-prompt, planner-session,
 │                    handover, decision-log, instructions-budget, review-gates
-├── scripts/         doc_numbers.py, check_instructions.py, ledger.py, agent_models.py (+ tests/)
+├── scripts/         doc_numbers.py, check_instructions.py, ledger.py, agent_models.py, invariants_check.py,
+│                    check_workflows.py, precommit_dispatch.sh (+ tests/)
 └── templates/       workflow-kit.json, CLAUDE-snippet.md, settings-snippet.json, PARALLEL-SESSIONS.md,
                      SPRINT-PROMPT.md, DELEGATION-PROMPT.md, HANDOVER.md, NEXT-SESSION-PROMPT.md,
-                     DECISIONS.md, REVIEW-CHECKLIST.md, STALE-GUARDS.md
+                     DECISIONS.md, REVIEW-CHECKLIST.md, GUARDIAN-TEMPLATE.md, STALE-GUARDS.md,
+                     invariants.json, precommit.json, rules/AREA-RULE.md, githooks/{pre-commit,pre-push},
+                     hooks/invariants-pretooluse.json
 ```
 
 ## Install
@@ -40,7 +44,7 @@ Once the Ads Master marketplace lists the kit:
 
 For a local checkout, load it directly: `claude --plugin-dir /path/to/Ads-Master/kits/workflow-kit`.
 
-Plugin components are namespaced: the agents appear as `workflow-kit:scout`, `workflow-kit:verifier` and so on. Skills and agents can reference kit files through `${CLAUDE_PLUGIN_ROOT}`. That variable is not set inside Bash tool commands, so when you run a script by hand, use the installed path (shown by `/plugin`) or a copy.
+Plugin components are namespaced: the agents appear as `workflow-kit:scout`, `workflow-kit:verifier` and so on. Skills write script paths as `<kit>/scripts/...` and say what `<kit>` is: Claude Code substitutes `${CLAUDE_PLUGIN_ROOT}` in skill text with the installed plugin path, so in plugin mode the skill shows the real path. That variable is not set inside Bash tool commands or git hooks, so git hooks and project settings use the installed mode path below.
 
 ### By copy (the Ads Master installer)
 
@@ -48,7 +52,7 @@ Plugin components are namespaced: the agents appear as `workflow-kit:scout`, `wo
 scripts/install.sh --kit workflow /path/to/your-project
 ```
 
-This copies agents into `.claude/agents/`, skills into `.claude/skills/`, and scripts and templates into the project, where agents keep their bare names (`scout`, `verifier`). Check the installer's help for the exact target folders. Use the copy route when you want to edit the agents per project, or when your agents need `hooks`, `mcpServers` or `permissionMode` frontmatter, which Claude Code ignores for plugin agents.
+This copies agents into `.claude/agents/`, skills into `.claude/skills/`, and scripts and templates into `.claude/workflow-kit/` (so `<kit>` is `.claude/workflow-kit`), where agents keep their bare names (`scout`, `verifier`). Check the installer's help for the exact target folders. Git hooks and the invariants hook look for the kit in `$WORKFLOW_KIT_DIR`, then `.claude/workflow-kit`, then `scripts/workflow-kit`; plugin users who want the git hooks copy `scripts/` there as well. Use the copy route when you want to edit the agents per project, or when your agents need `hooks`, `mcpServers` or `permissionMode` frontmatter, which Claude Code ignores for plugin agents.
 
 ### Requirements
 
@@ -62,7 +66,8 @@ This copies agents into `.claude/agents/`, skills into `.claude/skills/`, and sc
 | Agent | Model | Effort | Role | Edits files |
 |---|---|---|---|---|
 | `scout` | haiku | medium | WHERE questions: paths, lines, quotes. Never final on absence | no |
-| `data-extractor` | haiku | medium | Facts and numbers from logs, CI output, CSV exports, API dumps. No diagnosis | no |
+| `log-triage` | haiku | medium | Exact facts from CI, test and build output: exit codes, first failure `file:line`, counts. No diagnosis | no |
+| `data-extractor` | haiku | medium | Facts and numbers from CSV exports, API dumps, analytics exports. No diagnosis | no |
 | `researcher` | sonnet | high | One cited, dated web question per spawn. The main session synthesizes | no |
 | `mechanic` | sonnet | high | Bounded edits inside the `mechanic.allow` fence with a mechanical oracle. Two failures return the task | yes, fenced |
 | `verifier` | opus | xhigh | Adversarial refutation of claims, findings, diffs, "fixed" and "not found" | no |
@@ -88,14 +93,19 @@ Read-only agents carry an explicit `tools` list without `Agent`; editing agents 
 
 ### Scripts
 
-Run from the project root (add `--help` for options). All read `workflow-kit.json` when present.
+Run from the project root (add `--help` for options). Python scripts use the standard library only and read `workflow-kit.json` when present.
+
+**Conventions for every script:** exit code 0 pass, 1 fail, 2 could not run (a skipped check is never reported as ok); every summary ends with a "This gate cannot cover:" line naming what the check is blind to; anything that rewrites files in bulk is dry run by default and writes only with `--apply --yes`.
 
 | Script | Does |
 |---|---|
-| `doc_numbers.py` | `--check` finds duplicate decision numbers, index orphans and duplicate rule numbers; `--no-placeholders` refuses any `ADR-NEW<n>` or `R-NEW<n>`; `--assign` numbers placeholders from the existing max |
+| `doc_numbers.py` | `--check` finds duplicate decision numbers, index orphans and duplicate rule numbers; `--no-placeholders` refuses any `ADR-NEW<n>` or `R-NEW<n>`; `--assign` shows the numbering, `--assign --apply --yes` writes it |
 | `check_instructions.py` | CLAUDE.md line budget, referenced paths exist, `.claude/rules` frontmatter and globs valid |
 | `ledger.py` | `init`, `checkin`, `progress`, `msg`, `signoff` (moves the block to ARCHIVE), `show` |
-| `agent_models.py` | Lists agents with pinned model and effort, flags full model ids, unpinned agents and agents that can spawn, shows model settings and env pins |
+| `agent_models.py` | Lists agents with pinned model and effort, flags full model ids, unpinned agents and agents that can spawn. `--audit` reads local transcripts and reports, per subagent, the model requested at spawn, configured in frontmatter and actually served, plus effort |
+| `invariants_check.py` | Project invariants from `invariants.json` on staged files (trigger globs to `must_contain` / `must_not_contain` regexes); `--hook` mode for a PreToolUse hook on `git commit` |
+| `check_workflows.py` | GitHub workflow lint: duplicate keys, `on`, non-empty `jobs`, `permissions:`, injection through `${{ github.event.* }}` or `${{ inputs.* }}` in `run:`, status functions outside `if:`, unpinned third party actions (warning). Structure checks need PyYAML and report "could not run" without it |
+| `precommit_dispatch.sh` | Pre-commit dispatcher: maps staged paths to checks from `precommit.json`, validate only, refuses staged `.env` files except `*.example` |
 
 Tests: `python3 -m unittest discover -s scripts/tests`.
 
@@ -110,7 +120,12 @@ Tests: `python3 -m unittest discover -s scripts/tests`.
 | `DECISIONS.md` | project root (or merge into your existing LEARNINGS or DECISIONS file) |
 | `SPRINT-PROMPT.md`, `DELEGATION-PROMPT.md` | your prompts folder, one per sprint or phase |
 | `HANDOVER.md`, `NEXT-SESSION-PROMPT.md` | handover folder and project root |
-| `REVIEW-CHECKLIST.md` | `docs/review/<AREA>-CHECKLIST.md`, one per guardian |
+| `REVIEW-CHECKLIST.md` | `docs/review/<AREA>-CHECKLIST.md`, one per guardian built from `reviewer` |
+| `GUARDIAN-TEMPLATE.md` | `.claude/agents/<area>-guardian.md`: a self-contained guardian with a numbered PASS or FAIL checklist |
+| `rules/AREA-RULE.md` | `.claude/rules/<area>.md`: path scoped rule with `paths:` frontmatter and provenance in an HTML comment |
+| `invariants.json`, `precommit.json` | repo root |
+| `githooks/pre-commit`, `githooks/pre-push` | `.githooks/`, then `git config core.hooksPath .githooks` (or a package.json `"prepare": "git config core.hooksPath .githooks"` script). Keep them executable (`chmod +x .githooks/*`); git skips a hook that lost the bit without a warning |
+| `hooks/invariants-pretooluse.json` | merge into `.claude/settings.json` after `invariants.json` exists (without it every commit is denied); fires only on `git commit` |
 | `STALE-GUARDS.md` | `AGENTS.md` or `docs/STALE-GUARDS.md`, imported from CLAUDE.md |
 
 ## Adopt it gradually
@@ -126,7 +141,7 @@ Each step pays off on its own. Stop wherever the pain stops; add a step when its
 7. **Parallel sessions.** When you first run two sessions at once: ledger, then isolation (clone or worktree).
 8. **Instruction budget.** When CLAUDE.md passes about 150 lines: move area rules into `.claude/rules/`, wire `check_instructions.py` into a pre-commit hook or CI.
 9. **Mechanic and implementer fan out.** Once checklists and gates exist, delegate edits: `mechanic` inside its fence, `implementer` per lane with disjoint ownership.
-10. **Gates in hooks or CI.** `doc_numbers.py --check --no-placeholders` before push; `check_instructions.py --strict` and `agent_models.py --strict` in CI.
+10. **Gates in hooks or CI.** Git hooks from `templates/githooks/` (pre-commit validates only and never auto-fixes; pre-push blocks when behind the remote and never force pushes; agents never use `--no-verify`). `invariants.json` for project rules, `check_workflows.py` for CI files, `check_instructions.py --strict` and `agent_models.py --strict` in CI, `agent_models.py --audit` at sign-off.
 
 ## Customize
 
@@ -136,7 +151,9 @@ Each step pays off on its own. Stop wherever the pain stops; add a step when its
 | Model table | the snippet's "Project routing specifics" line and the agents' `model` frontmatter | Aliases only. To run without Fable, set `fable-advisor` to `opus` and drop `advisorModel`. When an alias lags, pin through `env` in settings, record why, and drop the pin later |
 | Effort | agents' `effort` frontmatter | Levels depend on the model; an unsupported level falls back to the highest supported one at or below it |
 | Mechanic fence | `workflow-kit.json` `mechanic.allow` and `mechanic.deny` | Allow list, not deny list: anything not allowed is fenced. Without the key, the fence is exactly the files the brief names |
-| Reviewer checklists | `workflow-kit.json` `reviewers` | `default`, one key per area, and `regressionLibrary`. Copy `agents/reviewer.md` to `<area>-guardian.md` and name its checklist in the description |
+| Reviewer checklists | `workflow-kit.json` `reviewers` | `default`, one key per area, and `regressionLibrary`. Copy `agents/reviewer.md` to `<area>-guardian.md` and name its checklist in the description, or start from `templates/GUARDIAN-TEMPLATE.md` |
+| Invariants | `invariants.json` | One rule per invariant: `id`, `paths`, `exclude`, `must_contain`, `must_not_contain`, `message` |
+| Pre-commit map | `precommit.json` | Glob to command; `{files}` expands to the matching staged files. Validate only commands |
 | Decision files | `workflow-kit.json` `decisions` | `files` for ADR entries and the index, `ruleFiles` for rule definitions, `scan` and `exclude` for placeholders |
 | CLAUDE.md budget | `workflow-kit.json` `instructions.maxLines` | Default 200, the documented recommendation |
 | Ledger location | `workflow-kit.json` `ledger.path` | Keep it out of `.claude/` and git-ignored |

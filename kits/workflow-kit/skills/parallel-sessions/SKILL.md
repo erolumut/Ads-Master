@@ -5,6 +5,9 @@ description: Protocol for running several Claude Code sessions on one repository
 
 # Parallel sessions
 
+> **Kit path.** `<kit>` below is `${CLAUDE_PLUGIN_ROOT}` when the kit runs as a plugin, or `.claude/workflow-kit` when it was installed by copy. Every kit script exits 0 pass, 1 fail, 2 could not run; treat 2 as not passed.
+
+
 Two sessions on one tree collide in quiet ways: one stages the other's files, one stashes the other's work-in-progress, two take the same migration or decision number, one commits on the wrong branch. Detection (`ps`, branch lists) is not enough. Sessions must **talk** through a shared ledger and, when they must not share a tree, **isolate**.
 
 ## 1. The ledger
@@ -26,15 +29,15 @@ Two sessions on one tree collide in quiet ways: one stages the other's files, on
 | **SIGN-OFF** | when you finish | Done, left open, landmines (things the next session must know), clones or ports cleaned up |
 | **ARCHIVE** | right after SIGN-OFF | Move your block from ACTIVE to ARCHIVE |
 
-Commands (`${CLAUDE_PLUGIN_ROOT}/scripts/ledger.py`, or the copied path):
+Commands (`python3 <kit>/scripts/ledger.py ...`):
 
 ```bash
-python3 ledger.py init                     # create from the template if missing, add to .gitignore with --gitignore
-python3 ledger.py checkin --handle api-fix --scope "src/api/**" --intent "fix pagination" --risky push --eta 2h
-python3 ledger.py progress --handle api-fix --note "tests green, docs next"
-python3 ledger.py msg --from api-fix --to ui-pass --text "I own src/api/client.ts until 15:00"
-python3 ledger.py signoff --handle api-fix --done "pagination fixed" --left "none" --landmines "cache key changed"
-python3 ledger.py show
+python3 <kit>/scripts/ledger.py init                     # create from the template if missing, add to .gitignore with --gitignore
+python3 <kit>/scripts/ledger.py checkin --handle api-fix --scope "src/api/**" --intent "fix pagination" --risky push --eta 2h
+python3 <kit>/scripts/ledger.py progress --handle api-fix --note "tests green, docs next"
+python3 <kit>/scripts/ledger.py msg --from api-fix --to ui-pass --text "I own src/api/client.ts until 15:00"
+python3 <kit>/scripts/ledger.py signoff --handle api-fix --done "pagination fixed" --left "none" --landmines "cache key changed"
+python3 <kit>/scripts/ledger.py show
 ```
 
 `signoff` appends the SIGN-OFF lines and moves the block to ARCHIVE in one step.

@@ -206,7 +206,7 @@ Required sections in every deliverable:
 
 Quality Bar before saving: every concept has a source; every concept passes the "new concept" test against live ads; every ad name parses; every claim is approved; specs checked for target placements; test has a stop rule; no banned AI uses.
 
-Handoff mechanics: subagents cannot call each other. Write a journal entry `ads-master/journal/YYYY-MM-DD_HHMM_creative-strategy_<topic>.md` describing the request, and list it under "Handoffs requested" at the end of the final response. The main session executes it.
+Handoff mechanics: Ads Master agents do not call each other (nested subagents are disabled by design). Write a journal entry `ads-master/journal/YYYY-MM-DD_HHMM_creative-strategy_<topic>.md` describing the request, and list it under "Handoffs requested" at the end of the final response. The main session executes it.
 
 ## Worked example: one weekly cycle
 

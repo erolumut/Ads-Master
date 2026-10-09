@@ -135,3 +135,42 @@ Write the Commercial Pricing Report ([template](commercial-pricing-report-templa
 | New market entry | 2 to 3 sessions | Phases 1 to 8 for the new market; VAT, carrier, competitors are new |
 | Price increase program | 1 to 2 sessions plus monitoring | Phases 2, 5, 9, 10 |
 | SaaS packaging review | 2 to 4 sessions | [SaaS and B2B](saas-and-b2b-pricing.md) replaces phases 6 and 7 |
+
+## Plays (launch, optimize, scale, recover)
+
+### Play 1. DTC launch next to an existing retail listing (the Amara pattern)
+1. Intake items 1, 2, 3, 5, 8, 10; shelf checks in 3 stores per retailer (photo, date).
+2. Benchmark 3 to 8 competitors per unit and per 100 g; split performance, natural and own cluster.
+3. Script: MVB charged and free; retail block with sell-in and trade spend.
+4. Ladder: entry, hero, stock up; no single units if MVB says so; exclusive mixed boxes.
+5. Delivery: fee below threshold, threshold aligned under the hero price.
+6. Corridor: three options with per bar gaps and CM per bar by channel.
+7. Launch incentive economics from `offer-strategy` (bonus bars vs discount vs free delivery).
+8. Report with 5 decisions; change request after approval; journal entry for `storefront-ux`, `commerce-feeds`, `compliance`.
+
+### Play 2. Margin rescue (CM2 below floor)
+1. Rerun the waterfall with current dated costs; find the driver (COGS, carrier, payment mix, returns, fees).
+2. Fix cost to serve first (carrier format, packaging, payment method default, minimum order).
+3. Then architecture (remove loss making rungs, re-pack).
+4. Then price (increase with allowable loss check and communication plan).
+5. Track CM2 per order weekly for 8 weeks.
+
+### Play 3. New market entry
+1. VAT, carrier zones, payment methods and marketplaces for the market.
+2. Local benchmark (never convert home prices by FX alone).
+3. Local price points and endings; Shopify Markets rounding or fixed prices.
+4. Zone specific threshold; legal display handoff for the market.
+
+### Play 4. Marketplace entry
+1. Fee model per marketplace (via `marketplaces` for current fees).
+2. Marketplace pack that clears fees and does not undercut DTC or retail per unit.
+3. Corridor rule for the brand's own store price.
+
+### Play 5. Price increase program
+See [Price changes](price-changes-and-inflation.md) sections 2 to 5 and worked examples.
+
+### Play 6. Price level validation after launch
+Monthly benchmark refresh, conversion and CM2 per visitor by rung, retail sell-out where available; pack or switchback tests per [Elasticity and tests](elasticity-and-price-tests.md).
+
+### Play 7. Inflation market operating rhythm (Turkey)
+Monthly cost index, repricing when the band is exceeded, weekly competitor captures, 10 day rule check before any discount communication, evidence file for every change.

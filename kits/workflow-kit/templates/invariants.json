@@ -1,0 +1,21 @@
+{
+  "$comment": "Workflow Kit invariants. Copy to the project root as invariants.json. Each rule: trigger globs -> regexes every triggered staged file must or must not contain. The two rules below are dry examples for a growth codebase; replace them with your own invariants.",
+  "rules": [
+    {
+      "id": "INV-UTM",
+      "description": "UTM parameters are built only through lib/utm",
+      "paths": ["src/**/*.{ts,tsx,js,jsx}"],
+      "exclude": ["src/lib/utm/**", "**/*.test.*"],
+      "must_not_contain": ["[?&]utm_(source|medium|campaign|term|content)="],
+      "message": "build tracking URLs with the helper in src/lib/utm"
+    },
+    {
+      "id": "INV-BUDGET",
+      "description": "No hardcoded campaign budgets or bids in code",
+      "paths": ["src/**/*.{ts,tsx,js,jsx,py}", "scripts/**/*.{ts,js,py}"],
+      "exclude": ["**/*.test.*", "**/fixtures/**"],
+      "must_not_contain": ["(?i)(daily_?budget|budget_?amount|max_?cpc|bid_?amount)\\s*[:=]\\s*[0-9]"],
+      "message": "budgets and bids come from the approved config, never from code"
+    }
+  ]
+}

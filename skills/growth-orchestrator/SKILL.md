@@ -14,7 +14,7 @@ In scope: business diagnosis, agent activation, routing, multi agent workflows, 
 Out of scope: platform level execution (hand to the channel agent), tracking implementation (measurement), page builds (cro), creative production (creative-strategy).
 
 ## Who runs this skill: conductor and strategist
-In Claude Code a subagent cannot spawn other subagents. So this skill has two users:
+Ads Master disables nested subagents (`disallowedTools: Agent` on every agent) so the main session stays the single conductor: one audit trail, one search budget, approvals in one place. So this skill has two users:
 
 | Runner | Role | Does |
 |--------|------|------|
@@ -42,6 +42,8 @@ Specialist agents inherit the session model; run the conductor session on `opus`
 | Bounded edits with a mechanical check (feed rules with a QA script, tracking config with a test, doc bookkeeping) | `mechanic` (`sonnet`) inside its fence; the main session reads the diff |
 | Check a finding, a number, a "fixed" or a "not found" before it counts | `verifier` (`opus`) |
 | Second opinion at critical points: new market entry, price architecture change, budget step above 30 percent, raising the automation stage, a problem that failed twice | `fable-advisor` (`fable`): advises, never implements |
+
+Names: when the kit runs as a plugin its agents are namespaced (`workflow-kit:scout`); when installed by copy they are plain (`scout`). Long CI, test or tool logs go to `log-triage` (`haiku`) for exact facts.
 
 Rules: cheaper model output counts only after a mechanical gate or a verification; a second failure of a cheaper agent returns the task to the main session; name the model explicitly on any unnamed spawn; check what actually ran when a result looks cheaper than its tier.
 

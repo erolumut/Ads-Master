@@ -12,7 +12,8 @@ ledger.path in workflow-kit.json) with three sections: ACTIVE, MSG, ARCHIVE. App
   python3 ledger.py show
 
 signoff appends the SIGN-OFF lines to your ACTIVE block and moves it to ARCHIVE.
-Standard library only.
+Exit codes: 0 done, 1 refused (duplicate check-in, unknown handle), 2 could not run (no ledger,
+broken sections). Standard library only.
 """
 from __future__ import annotations
 
@@ -79,7 +80,8 @@ def split(text: str) -> tuple[str, dict[str, str]]:
         bodies[parts[i]] = parts[i + 1]
     for s in SECTIONS:
         if s not in bodies:
-            raise SystemExit(f"error: ledger has no '## {s}' section; fix it by hand or re-run init on a new file")
+            print(f"COULD NOT RUN: ledger has no '## {s}' section; fix it by hand or re-run init on a new file")
+            raise SystemExit(2)
     return header, bodies
 
 
@@ -107,7 +109,8 @@ def find_block(body: str, handle: str) -> tuple[int, int] | None:
 
 def load(path: Path) -> str:
     if not path.is_file():
-        raise SystemExit(f"error: {path} not found; run: python3 ledger.py init")
+        print(f"COULD NOT RUN: {path} not found; run: python3 ledger.py init")
+        raise SystemExit(2)
     return path.read_text(encoding="utf-8")
 
 
@@ -206,6 +209,8 @@ def cmd_show(root: Path, path: Path, args) -> int:
     msgs = [l for l in bodies["MSG"].splitlines() if l.startswith("- ")]
     print(f"MSG: {len(msgs)} message(s)" + ("; last: " + msgs[-1][2:] if msgs else ""))
     print(f"ARCHIVE: {len(re.findall(r'^### @', bodies['ARCHIVE'], flags=re.M))} block(s)")
+    print("This gate cannot cover: sessions that never checked in, other machines and cloud containers, "
+          "and work in progress that is not written down.")
     return 0
 
 
@@ -261,4 +266,10 @@ def main(argv: list[str] | None = None) -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except SystemExit:
+        raise
+    except Exception as exc:  # noqa: BLE001 (an unexpected crash is "could not run", never "fail")
+        print(f"COULD NOT RUN: unexpected error: {exc!r}")
+        sys.exit(2)

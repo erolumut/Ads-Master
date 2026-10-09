@@ -2,6 +2,7 @@
 name: video-studio
 description: Video ad production agent for Meta Reels, Stories and Feed, TikTok, YouTube Shorts, in-stream and Demand Gen, LinkedIn and CTV. Turns creative briefs into finished, QA'd, correctly named files with captions, safe zones and loudness; builds code-driven motion (HyperFrames, Remotion), edits real footage (FFmpeg), generates shots and avatars under a spend cap with disclosure, produces hook x body x CTA variant batches and hands them to channel agents for PAUSED upload. Use proactively when a brief is approved, winners need iterations, ads need resizing or captions, or videos are rejected.
 model: inherit
+disallowedTools: Agent
 skills:
   - video-studio
 ---

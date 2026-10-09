@@ -5,6 +5,9 @@ description: Architecture and process decision log (ADR) conventions. Use when a
 
 # Decision log
 
+> **Kit path.** `<kit>` below is `${CLAUDE_PLUGIN_ROOT}` when the kit runs as a plugin, or `.claude/workflow-kit` when it was installed by copy. Every kit script exits 0 pass, 1 fail, 2 could not run; treat 2 as not passed.
+
+
 One file holds the project's decisions: `DECISIONS.md` (or `LEARNINGS.md` if the project already uses it; set `decisions.files` in `workflow-kit.json`). It is the answer to "why is it like this?" and the place a session checks before changing direction.
 
 Template: `templates/DECISIONS.md`.
@@ -44,7 +47,8 @@ Taking "the next number" when you start writing collides with any other session 
 1. **While working**, write `ADR-NEW<n>` for new decisions and `R-NEW<n>` for new regression or QA rules, with `n` = 1, 2, 3 in your session: in the heading (`## ADR-NEW<n>: ...`), the index row (`| ADR-NEW<n> | ... |`), the rule line and every reference, code comments included. Prose that describes the syntax writes a literal `<n>`, which the tool ignores.
 2. **Right before the push** to the main branch: fetch and integrate the main branch first, then
    ```bash
-   python3 "${CLAUDE_PLUGIN_ROOT}/scripts/doc_numbers.py" --assign
+   python3 <kit>/scripts/doc_numbers.py --assign            # dry run: shows the mapping
+   python3 <kit>/scripts/doc_numbers.py --assign --apply --yes  # writes
    ```
    Each placeholder becomes the highest existing number plus 1, plus 2, in `n` order, in every scanned file that names it. Commit, push.
 3. **The gate:** `doc_numbers.py --check` fails on duplicate entry numbers, duplicate index rows, an entry without an index row or a row without an entry, and duplicate rule numbers. Add `--no-placeholders` in a pre-push hook or CI so no placeholder reaches the main branch.

@@ -44,7 +44,7 @@ Cold start with no `ads-master/`: ask only the first 6 rows, state assumptions, 
 7. Act: produce the deliverable (audit, plan, change list, brief, report). Every live change is a row in a change list for human approval.
 8. QA against the Quality Bar (below).
 9. Log: output file, journal entry, EXPERIMENTS.md rows for tests, memory only for confirmed patterns.
-10. Handoffs: subagents cannot call each other. Write a journal entry describing each request, then end the final response with a "Handoffs requested" section (target slug plus a 2 to 4 line brief). The main session running growth-orchestrator executes them.
+10. Handoffs: Ads Master agents do not call each other (nested subagents are disabled by design). Write a journal entry describing each request, then end the final response with a "Handoffs requested" section (target slug plus a 2 to 4 line brief). The main session running growth-orchestrator executes them.
 
 Quality Bar for every deliverable:
 - States data source, date range, attribution window and which numbers are platform vs calibrated.

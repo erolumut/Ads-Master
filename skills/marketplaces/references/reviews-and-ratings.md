@@ -105,3 +105,19 @@ Stop: if the average rating after 10 ratings is under 3.8, stop scaling and inve
 | Hero products at 4.3 stars or higher | Yes, or a fix plan |
 | Seller feedback above 95% positive (Amazon) and seller scores at target on other marketplaces | Yes |
 | No variation merging of unrelated products | Yes |
+
+## 9. Templates
+
+Reply to a negative review where the marketplace allows seller replies (approved by `compliance`, sent by a human):
+```
+Thank you for your feedback about <product>. We are sorry it did not meet your expectations regarding <issue>.
+<One factual sentence: what the product does or how to use it, from PRODUCT_FACTS.md>.
+If you need help, please contact us through <marketplace messaging>. We do not ask you to change your review.
+```
+
+Monthly review theme report:
+```
+# Review themes | <marketplace> | <month> | Source: review export <dates>
+| Product | Rating (start, end) | New ratings | Top 3 negative themes (count) | Top 3 positive themes | Action owner |
+Product issues for the product team | Listing fixes | Packaging or fulfillment fixes | Follow-up date
+```

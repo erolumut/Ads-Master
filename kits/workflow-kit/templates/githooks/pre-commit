@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Workflow Kit pre-commit hook. Validate only: never formats, fixes or re-stages files.
+# Wire it once per clone:  git config core.hooksPath .githooks
+# (or add "prepare": "git config core.hooksPath .githooks" to package.json scripts).
+# Agents never pass --no-verify. A failing hook is a finding to fix, not a gate to skip.
+set -u
+root="$(git rev-parse --show-toplevel)" || exit 2
+for dir in "${WORKFLOW_KIT_DIR:-}" "$root/.claude/workflow-kit" "$root/scripts/workflow-kit" "$root"; do
+  if [ -n "$dir" ] && [ -x "$dir/scripts/precommit_dispatch.sh" ]; then
+    exec "$dir/scripts/precommit_dispatch.sh" --config "$root/precommit.json"
+  fi
+done
+echo "pre-commit: COULD NOT RUN: precommit_dispatch.sh not found (set WORKFLOW_KIT_DIR or install the kit to .claude/workflow-kit)" >&2
+exit 2

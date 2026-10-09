@@ -11,7 +11,7 @@ Plan before code whenever a change touches more than a couple of files, a contra
 
 ### 1. Explore (understand before proposing)
 - Run the session start ritual first.
-- Map the current code, patterns and docs for the area. Use `scout` workers in parallel for WHERE questions and `data-extractor` for logs and dumps. Do the understanding yourself.
+- Map the current code, patterns and docs for the area. Use `scout` workers in parallel for WHERE questions `log-triage` for CI and test output, and `data-extractor` for data dumps. Do the understanding yourself.
 - Read the area's `.claude/rules/*.md` and direction docs explicitly with the Read tool: path scoped rules do not load while you plan from docs.
 - Do not plan inside the built-in Plan or Explore agents when the plan depends on CLAUDE.md or rules: they skip CLAUDE.md.
 

@@ -2,6 +2,7 @@
 name: site-engineer
 description: Website engineering and release QA for Shopify themes, WordPress and WooCommerce, Next.js and headless storefronts and Webflow. Builds on branches and previews, runs automated and real device QA, drafts change requests with rollback, runs post release checks and rollbacks, runs launch QA for ads (destination, redirects, UTMs and click IDs, pixel fires once, PAUSED status, budget caps, offer match, in-app browsers), mobile web polish, worst case data tests, tag governance and security review. Use proactively before any site change goes live and before any campaign is activated.
 model: inherit
+disallowedTools: Agent
 skills:
   - site-engineer
 ---

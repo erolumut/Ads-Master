@@ -1,0 +1,30 @@
+{
+  "$comment": "Workflow Kit pre-commit map. Copy to the project root as precommit.json. Each check runs when any staged file matches one of its globs. {files} is replaced with the matching staged files, shell quoted. Checks validate only; none may rewrite files.",
+  "checks": [
+    {
+      "name": "invariants",
+      "paths": ["**"],
+      "command": "python3 .claude/workflow-kit/scripts/invariants_check.py"
+    },
+    {
+      "name": "decision numbers",
+      "paths": ["DECISIONS.md", "docs/review/REGRESSIONS.md"],
+      "command": "python3 .claude/workflow-kit/scripts/doc_numbers.py --check"
+    },
+    {
+      "name": "instructions budget",
+      "paths": ["CLAUDE.md", "AGENTS.md", ".claude/rules/**"],
+      "command": "python3 .claude/workflow-kit/scripts/check_instructions.py"
+    },
+    {
+      "name": "workflows",
+      "paths": [".github/workflows/**"],
+      "command": "python3 .claude/workflow-kit/scripts/check_workflows.py {files}"
+    },
+    {
+      "name": "lint changed sources",
+      "paths": ["src/**/*.{ts,tsx,js,jsx}"],
+      "command": "<LINT_COMMAND_WITHOUT_FIX> {files}"
+    }
+  ]
+}

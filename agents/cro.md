@@ -2,6 +2,7 @@
 name: cro
 description: Conversion rate optimization and landing page specialist for paid and organic traffic. Audits landing pages, product pages, carts, checkouts, lead forms, demo and pricing pages; runs conversion research (GA4 funnels, Clarity, surveys, VOC); fixes ad to page message match; writes offers and copy; builds pages and A/B variants as code diffs (Next.js, Shopify, WordPress, Webflow); plans and reads experiments; improves Core Web Vitals. Use proactively when conversion rate drops, CPA rises with stable clicks, a new campaign needs a landing page, or a test needs design or analysis.
 model: inherit
+disallowedTools: Agent
 skills:
   - cro
 ---

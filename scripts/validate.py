@@ -107,6 +107,8 @@ for slug in agent_slugs:
     for s in skills:
         if s not in skill_slugs:
             errors.append(f"{rel(path)}: preloaded skill '{s}' not found in skills/")
+    if "Agent" not in str(fm.get("disallowedTools", "")):
+        errors.append(f"{rel(path)}: add 'disallowedTools: Agent' (main session is the only conductor)")
     if "tools" in fm:
         warnings.append(f"{rel(path)}: has a tools field (spec says inherit all tools)")
     if not os.path.isfile(os.path.join(research_dir, slug + ".md")):
@@ -182,6 +184,13 @@ if os.path.isfile(packs_path):
             errors.append(f"docs/packs.json: agent '{slug}' is in no pack")
 
 # The living guide must be regenerated whenever agents, skills, packs or kits change.
+link_dev = os.path.join(ROOT, "scripts", "link_dev.py")
+if os.path.isfile(link_dev):
+    import subprocess
+    res = subprocess.run([sys.executable, link_dev, "--check"], capture_output=True, text=True)
+    if res.returncode != 0:
+        errors.append(res.stdout.strip() or "dev links out of date: run python3 scripts/link_dev.py")
+
 build_docs = os.path.join(ROOT, "scripts", "build_docs.py")
 if os.path.isfile(build_docs) and os.path.isfile(os.path.join(ROOT, "docs", "HOW_TO_USE.md")):
     import subprocess

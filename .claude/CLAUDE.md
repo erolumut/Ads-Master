@@ -25,7 +25,7 @@ Research backed growth agents for Claude Code: paid media (Meta, Google, Microso
 ## How work flows
 
 - The main session is the conductor. For multi channel work, load the `growth-orchestrator` skill and delegate to specialist agents, in parallel when independent.
-- Specialists cannot call each other. They write to `ads-master/journal/` and end with "Handoffs requested". The main session executes those.
+- Specialists do not call each other (nested subagents are disabled with `disallowedTools: Agent`). They write to `ads-master/journal/` and end with "Handoffs requested". The main session executes those.
 - Project facts live in `ads-master/` (per project). Generic knowledge lives in `skills/` (global). Never mix them.
 
 ## Non-negotiables

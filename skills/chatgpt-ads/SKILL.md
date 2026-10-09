@@ -223,7 +223,7 @@ Templates:
 - Scored audit: use [Audit checklist](references/audit-checklist.md) scoring.
 
 ## Handoffs
-Subagents cannot call each other. To hand off: (1) write `ads-master/journal/YYYY-MM-DD_HHMM_chatgpt-ads_<topic>.md` describing the request, and (2) end the final response with a section "Handoffs requested" listing each target slug with a 2 to 4 line brief. The main session (growth-orchestrator) executes the delegation.
+Ads Master agents do not call each other (nested subagents are disabled by design). To hand off: (1) write `ads-master/journal/YYYY-MM-DD_HHMM_chatgpt-ads_<topic>.md` describing the request, and (2) end the final response with a section "Handoffs requested" listing each target slug with a 2 to 4 line brief. The main session (growth-orchestrator) executes the delegation.
 
 | Need | Slug |
 |------|------|

@@ -110,3 +110,11 @@ Data: order export <dates>; carrier contract <name, as of date>; script run <dat
 5. Raising the threshold without checking how many hero orders fall below it.
 6. Same threshold across zones with different carrier costs.
 7. Treating free delivery as free: it is a price cut equal to the carrier cost on every qualifying order.
+
+## 10. Worked policy (illustrative, script demo)
+
+- Minimum order: bundle only, no single bars on DTC (1 bar CM2 EUR -0.76 even with EUR 4.95 delivery; MVB charged 8 bars; MVB free 12 bars).
+- Delivery fee below threshold: EUR 4.95 incl VAT (letterbox EUR 4.55 ex VAT up to 6 bars; box EUR 7.00 ex VAT above).
+- Free delivery from EUR 50: economic floor clears at every candidate from EUR 30 (CM2 EUR 8.75 at 11 bars), but EUR 50 sits just under the hero 24 at EUR 59.95, so most free delivery orders are hero orders.
+- Dead zone: top-up orders at 18 bars earn less than 16 bar orders with delivery charged; acceptable because the DTC assortment is pack based (12, 24, 48), so few orders land at 18 bars.
+- Display: fee and threshold visible on PDP and cart (compliance and storefront-ux handoff).

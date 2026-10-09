@@ -83,7 +83,7 @@ def load_rules(path: Path) -> list[dict]:
 
 def git(root: Path, *args: str) -> subprocess.CompletedProcess:
     try:
-        return subprocess.run(["git", "-C", str(root), *args], capture_output=True, text=True, timeout=30)
+        return subprocess.run(["git", "-C", str(root), *args], capture_output=True, timeout=30)
     except (OSError, subprocess.SubprocessError) as exc:
         raise CouldNotRun(f"git failed: {exc}") from exc
 
@@ -91,11 +91,15 @@ def git(root: Path, *args: str) -> subprocess.CompletedProcess:
 def staged(root: Path) -> dict[str, str]:
     out = git(root, "diff", "--cached", "--name-only", "--diff-filter=ACMR")
     if out.returncode != 0:
-        raise CouldNotRun(f"not a git repository or git error: {out.stderr.strip()}")
+        raise CouldNotRun(f"not a git repository or git error: {out.stderr.decode(errors='replace').strip()}")
     files: dict[str, str] = {}
-    for name in [l for l in out.stdout.splitlines() if l.strip()]:
+    for name in [l for l in out.stdout.decode(errors="replace").splitlines() if l.strip()]:
         show = git(root, "show", f":{name}")
-        files[name] = show.stdout if show.returncode == 0 else ""
+        if show.returncode != 0:
+            raise CouldNotRun(f"cannot read staged content of {name}")
+        if b"\0" in show.stdout[:8000]:
+            continue  # binary file: text rules do not apply
+        files[name] = show.stdout.decode("utf-8", errors="replace")
     return files
 
 
@@ -178,4 +182,11 @@ def main(argv: list[str] | None = None) -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except SystemExit:
+        raise
+    except Exception as exc:  # noqa: BLE001 (an unexpected crash is "could not run", never "fail")
+        print(f"COULD NOT RUN: unexpected error: {exc!r}")
+        print(CANNOT_COVER)
+        sys.exit(2)

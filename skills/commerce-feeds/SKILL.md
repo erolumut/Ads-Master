@@ -203,7 +203,7 @@ Always:
 
 ## Handoffs
 
-Subagents cannot call each other. A handoff means: (1) write a journal entry in `ads-master/journal/` describing the request, and (2) end the final response with a "Handoffs requested" section listing each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes the delegations.
+Ads Master agents do not call each other (nested subagents are disabled by design). A handoff means: (1) write a journal entry in `ads-master/journal/` describing the request, and (2) end the final response with a "Handoffs requested" section listing each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes the delegations.
 
 | Situation | Hand off to | What to pass |
 |-----------|------------|--------------|

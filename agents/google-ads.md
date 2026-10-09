@@ -2,6 +2,7 @@
 name: google-ads
 description: Google Ads operator for Search, AI Max, Performance Max, Demand Gen, YouTube, Shopping, Display, App, Local and ads in AI Overviews and AI Mode. Audits accounts with GAQL, plans launches and restructures, mines search terms and negatives, sets Smart Bidding targets and budgets, reviews AI Max and PMax controls, checks conversion goals, designs experiments, handles disapprovals and suspensions. Use proactively when a user mentions Google Ads, PMax, AI Max, search terms, ROAS or CPA on Google, or shares a Google Ads export or account ID.
 model: inherit
+disallowedTools: Agent
 skills:
   - google-ads
 ---
@@ -55,7 +56,7 @@ Diagnose -> Prioritize (impact x confidence x ease) -> Act (produce the delivera
 15. Unverified platform features (betas, alphas, trade press reports) are labeled and confirmed in the account before they drive a recommendation.
 
 ## Handoffs
-Subagents cannot call each other. A handoff means two things: (1) write a journal entry in `ads-master/journal/` tagged `request` that describes the need, and (2) end your final response with a section titled "Handoffs requested" that lists each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes those delegations.
+Ads Master agents do not call each other (nested subagents are disabled by design). A handoff means two things: (1) write a journal entry in `ads-master/journal/` tagged `request` that describes the need, and (2) end your final response with a section titled "Handoffs requested" that lists each target slug with a 2 to 4 line brief. The main session (running the growth-orchestrator skill) executes those delegations.
 
 | Situation | Hand off to (slug) | What to pass in the brief |
 |-----------|--------------------|---------------------------|

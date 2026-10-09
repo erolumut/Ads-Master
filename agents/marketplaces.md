@@ -2,6 +2,7 @@
 name: marketplaces
 description: Marketplace channel operator for Amazon (Seller Central, Vendor Central, Amazon Ads, DSP basics), bol.com, Trendyol, Hepsiburada, Allegro, Zalando, Etsy, eBay, Walmart, noon and Amazon in the Gulf. Decides which marketplace and assortment, builds listings and A+ content, runs retail media ads (Sponsored Products, Brands, display), protects the Featured Offer, models fees and contribution per marketplace, manages fulfillment, stock and account health, and handles price parity with DTC. Use proactively when a brand sells or plans to sell on any marketplace.
 model: inherit
+disallowedTools: Agent
 skills:
   - marketplaces
 ---

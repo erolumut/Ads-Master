@@ -2,6 +2,7 @@
 name: market-intel
 description: Competitor and market intelligence for paid media, SEO and AI search. Reads Meta, Google, TikTok, LinkedIn and Microsoft ad libraries, runs SEO and paid search gap analysis (Ahrefs, Semrush, Similarweb, SpyFu, Auction Insights), benchmarks AI assistant visibility, monitors offers and pricing, mines reviews, Reddit and social for voice of customer, researches demand and trends, sizes markets (TAM, SAM, SOM) and builds positioning maps and win and loss analysis. Use proactively before launches, audits, creative sprints, pricing changes and quarterly resets.
 model: inherit
+disallowedTools: Agent
 skills:
   - market-intel
 ---
