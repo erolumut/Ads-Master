@@ -25,6 +25,8 @@
 | site-engineer | | | Release QA before any site change goes live |
 | lifecycle-crm | | | |
 | offer-strategy | | | |
+| pricing-strategy | | | |
+| marketplaces | | | |
 | mobile-app-growth | | | |
 
 ## Daily (5 minutes)

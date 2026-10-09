@@ -4,9 +4,12 @@
 # ads-master/ workspace. Safe to re-run: the workspace is never overwritten.
 #
 # Usage:
-#   scripts/install.sh <project-dir> [--only slug1,slug2] [--update] [--no-workspace] [--no-hooks] [--dry-run]
+#   scripts/install.sh <project-dir> [--pack name] [--only slug1,slug2] [--kit workflow] [--update] [--no-workspace] [--no-hooks] [--dry-run]
 #
-#   --only          Install a subset of agents (utility skills and the orchestrator are always included).
+#   --pack          Install a pack from docs/packs.json (ecommerce-dtc, marketplace-seller, lead-gen-local,
+#                   b2b-saas, mobile-app, ai-visibility, full). Core is always included.
+#   --only          Install hand picked agents (comma separated). Combines with --pack. Core is always included.
+#   --kit           Also install a kit from kits/ (for example: workflow).
 #   --update        Overwrite existing agent and skill files with this version (workspace untouched).
 #   --no-workspace  Do not create ads-master/ (use when you will run the ads-setup skill later).
 #   --no-hooks      Do not install the guardrail hooks into .claude/settings.json (not recommended).
@@ -17,6 +20,8 @@ set -euo pipefail
 SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TARGET=""
 ONLY=""
+PACK=""
+KITS=""
 UPDATE=0
 WORKSPACE=1
 HOOKS=1
@@ -25,17 +30,19 @@ DRY=0
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --only) ONLY="$2"; shift 2 ;;
+    --pack) PACK="$2"; shift 2 ;;
+    --kit) KITS="$KITS $2"; shift 2 ;;
     --update) UPDATE=1; shift ;;
     --no-workspace) WORKSPACE=0; shift ;;
     --no-hooks) HOOKS=0; shift ;;
     --dry-run) DRY=1; shift ;;
-    -h|--help) sed -n '2,16p' "$0"; exit 0 ;;
+    -h|--help) sed -n '2,19p' "$0"; exit 0 ;;
     *) TARGET="$1"; shift ;;
   esac
 done
 
 if [[ -z "$TARGET" ]]; then
-  echo "Usage: scripts/install.sh <project-dir> [--only a,b] [--update] [--no-workspace] [--dry-run]" >&2
+  echo "Usage: scripts/install.sh <project-dir> [--pack name] [--only a,b] [--kit workflow] [--update] [--no-workspace] [--no-hooks] [--dry-run]" >&2
   exit 1
 fi
 if [[ ! -d "$TARGET" ]]; then
@@ -52,13 +59,31 @@ run() {
   if [[ $DRY -eq 1 ]]; then echo "[dry-run] $*"; else eval "$@"; fi
 }
 
-ALWAYS="growth-orchestrator measurement ads-setup ads-review"
 ALL_AGENTS="$(cd "$SRC/agents" && ls *.md | sed 's/\.md$//')"
+pack_members() {
+  python3 - "$SRC/docs/packs.json" "$1" <<'PY'
+import json, sys
+packs = json.load(open(sys.argv[1]))
+name = sys.argv[2]
+if name not in packs or name.startswith("_"):
+    sys.exit("unknown pack: " + name + " (choose from " + ", ".join(k for k in packs if not k.startswith("_")) + ")")
+core = packs["core"]
+items = core.get("agents", []) + core.get("skills", [])
+if name != "core":
+    items += packs[name].get("agents", [])
+print(" ".join(items))
+PY
+}
+ALWAYS="$(pack_members core)"
 
-if [[ -n "$ONLY" ]]; then
-  SELECTED="$(echo "$ONLY" | tr ',' ' ') $ALWAYS"
+if [[ -n "$PACK" && "$PACK" == "full" ]]; then
+  SELECTED="$ALL_AGENTS $ALWAYS"
+elif [[ -n "$PACK" || -n "$ONLY" ]]; then
+  SELECTED="$ALWAYS"
+  if [[ -n "$PACK" ]]; then SELECTED="$SELECTED $(pack_members "$PACK")"; fi
+  if [[ -n "$ONLY" ]]; then SELECTED="$SELECTED $(echo "$ONLY" | tr ',' ' ')"; fi
 else
-  SELECTED="$ALL_AGENTS ads-setup ads-review"
+  SELECTED="$ALL_AGENTS $ALWAYS"
 fi
 SELECTED="$(echo $SELECTED | tr ' ' '\n' | sort -u | tr '\n' ' ')"
 
@@ -85,6 +110,25 @@ for slug in $SELECTED; do
   if [[ ! -f "$SRC/agents/$slug.md" && ! -d "$SRC/skills/$slug" ]]; then
     echo "warning: unknown slug '$slug'" >&2
   fi
+done
+
+for kit in $KITS; do
+  KDIR="$SRC/kits/$kit"
+  [[ -d "$KDIR" ]] || KDIR="$SRC/kits/$kit-kit"
+  if [[ ! -d "$KDIR" ]]; then echo "warning: unknown kit '$kit'" >&2; continue; fi
+  for f in "$KDIR"/agents/*.md; do
+    [[ -f "$f" ]] && copy_item "$f" "$TARGET/.claude/agents/$(basename "$f")"
+  done
+  for d in "$KDIR"/skills/*/; do
+    [[ -d "$d" ]] && copy_item "${d%/}" "$TARGET/.claude/skills/$(basename "$d")"
+  done
+  for extra in scripts templates; do
+    if [[ -d "$KDIR/$extra" ]]; then
+      run "mkdir -p '$TARGET/.claude/$(basename "$KDIR")'"
+      copy_item "$KDIR/$extra" "$TARGET/.claude/$(basename "$KDIR")/$extra"
+    fi
+  done
+  echo "kit installed: $(basename "$KDIR")"
 done
 
 if [[ $WORKSPACE -eq 1 ]]; then

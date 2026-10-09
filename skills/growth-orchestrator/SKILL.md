@@ -1,6 +1,6 @@
 ---
 name: growth-orchestrator
-description: Conductor playbook and default entry point for the Ads Master growth system. Use for any multi channel or "where do we grow" request. Diagnose a business from ads-master/PROJECT_BRIEF.md, activate agents, route tasks to specialists (meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads, mobile-app-growth, seo, ai-search-optimization, measurement, commerce-feeds, cro, storefront-ux, site-engineer, creative-strategy, video-studio, offer-strategy, lifecycle-crm, compliance, market-intel), run multi agent audits, launches with publish gates, scaling plans and drop recoveries, build channel mix and budget plans (marginal returns, response curves, 70/20/10, pacing), compute unit economics (breakeven ROAS, POAS, MER, aMER, nCAC, acquisition investment, LTV to CAC, payback), forecast scenarios, apply geo modules and build new country modules, plan channels without an agent and run weekly and monthly reviews.
+description: Conductor playbook and default entry point for the Ads Master growth system. Use for any multi channel or "where do we grow" request. Diagnose a business from ads-master/PROJECT_BRIEF.md, activate agents, route tasks to specialists (meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads, mobile-app-growth, seo, ai-search-optimization, measurement, commerce-feeds, cro, storefront-ux, site-engineer, creative-strategy, video-studio, offer-strategy, pricing-strategy, marketplaces, lifecycle-crm, compliance, market-intel), run multi agent audits, launches with publish gates, scaling plans and drop recoveries, build channel mix and budget plans (marginal returns, response curves, 70/20/10, pacing), compute unit economics (breakeven ROAS, POAS, MER, aMER, nCAC, acquisition investment, LTV to CAC, payback), forecast scenarios, apply geo modules and build new country modules, plan channels without an agent and run weekly and monthly reviews.
 ---
 
 # Growth Orchestrator
@@ -29,6 +29,21 @@ Conductor rules:
 5. Nothing touches a live account. The final output is a consolidated change list for human approval.
 6. Publish gates: customer facing assets (ads, pages, emails, feeds, videos, store listings) pass `compliance`; site and theme changes pass `site-engineer` release QA; scaling waits for `measurement` green. Gates respect `ads-master/GUARDRAILS.md` and the automation stage.
 7. Stock and offer sanity: before any launch or budget increase, confirm stock cover for the advertised items and that the offer in the ad matches the live offer.
+
+## Model routing (who does which kind of work)
+Specialist agents inherit the session model; run the conductor session on `opus`. Supporting work goes to the Workflow Kit agents when installed (`kits/workflow-kit`), otherwise do it in the session. Refer to models by alias only (`fable`, `opus`, `sonnet`, `haiku`), never by full id.
+
+| Work | Who |
+|------|-----|
+| Diagnosis, strategy, budget, pricing and claims judgment, synthesis, change requests, anything that moves money or reaches customers | Main session and specialists (`opus` or the session model) |
+| Pull numbers and facts out of exports, CSVs, API dumps, logs, ad library pulls | `data-extractor` (`haiku`): facts and quotes only, no diagnosis |
+| Find where something lives in the project's code (tags, schema, theme files, feeds) | `scout` (`haiku`): paths and quotes, never the final word on absence |
+| One web research question (a platform change, a competitor price, a law) | `researcher` (`sonnet`) x N, one question each; the main session re-verifies any claim a decision rests on |
+| Bounded edits with a mechanical check (feed rules with a QA script, tracking config with a test, doc bookkeeping) | `mechanic` (`sonnet`) inside its fence; the main session reads the diff |
+| Check a finding, a number, a "fixed" or a "not found" before it counts | `verifier` (`opus`) |
+| Second opinion at critical points: new market entry, price architecture change, budget step above 30 percent, raising the automation stage, a problem that failed twice | `fable-advisor` (`fable`): advises, never implements |
+
+Rules: cheaper model output counts only after a mechanical gate or a verification; a second failure of a cheaper agent returns the task to the main session; name the model explicitly on any unnamed spawn; check what actually ran when a result looks cheaper than its tier.
 
 ## Intake (minimum facts; where they live)
 | # | Fact | Where in ads-master/ | Cold start question |
@@ -79,6 +94,8 @@ If `ads-master/` is missing: ask these 8 in one message, or suggest the `ads-set
 | site-engineer | Dev and preview loops, release QA, rollback, launch QA for ads (URL, UTM, pixel, status), mobile web polish, worst case data tests, security review of changes | "publish the theme", "release", "preview", "QA before launch", "it breaks on mobile", "check the landing page works" | Copy and offer decisions (cro, offer-strategy) |
 | video-studio | Video ad production from brief to rendered files, variants, captions, specs, safe zones | "make the video", "render variants", "cut downs", "UGC edit", "product motion video" | Deciding what concept to make (creative-strategy) |
 | offer-strategy | Bundles, price ladders, launch offers, discount vs bonus economics, free shipping thresholds, promo calendar, channel conflict | "which bundle", "launch offer", "free shipping threshold", "discount or gift", "retail price conflict" | Page layout (cro) |
+| pricing-strategy | Price level and architecture: competitor and retail benchmarks, cost to serve and margin waterfall, minimum basket and delivery policy, channel price corridors, price tests, the commercial pricing report | "what should we charge", "price vs competitors", "minimum order", "free delivery threshold", "price increase" | Incentive mechanics and promo calendar (offer-strategy) |
+| marketplaces | Amazon, bol.com, Trendyol, Hepsiburada and other marketplaces: listings, retail media ads, buy box, fees, fulfillment, account health, parity with DTC | "Amazon", "bol.com", "Trendyol", "Hepsiburada", "ACoS", "buy box", "marketplace listing" | DTC storefront work (storefront-ux) |
 | lifecycle-crm | Email, SMS, push and WhatsApp flows, retention, subscriptions, loyalty, referral, cohort LTV | "repeat purchase", "email flows", "Klaviyo", "winback", "subscription", "loyalty" | Paid acquisition |
 | compliance | Claims and policy gate, product facts and claims registry, consumer and pricing law, AI disclosure | "can we say", "is this claim allowed", "ad rejected for policy", "health claim", "price reduction rule" | Legal advice beyond documented rules (route to a lawyer) |
 | ads-setup (skill) | Creates and fills ads-master/ | "set up Ads Master", "onboard a new client", ads-master/ missing | |
@@ -141,6 +158,8 @@ Approval gates: <what the human must approve and when>
 | Website in a repo or a theme the team changes | site-engineer | on every release, weekly QA |
 | Paid social or video channels active | video-studio | weekly production batch |
 | Ecommerce or subscription offers | offer-strategy | monthly, before promos |
+| New product, new market, cost change or margin pressure | pricing-strategy | quarterly, on cost or competitor price moves |
+| Sells or plans to sell on marketplaces | marketplaces | daily alerts + weekly |
 | Customers or subscribers exist (email or phone consent) | lifecycle-crm | weekly |
 | iOS or Android app | mobile-app-growth | daily alerts + weekly |
 | Channel active or in STRATEGY.md test plan | that channel agent | daily alerts + weekly |

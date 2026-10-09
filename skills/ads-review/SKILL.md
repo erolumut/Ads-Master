@@ -45,6 +45,7 @@ Everything in weekly, plus:
 - `compliance`: claims registry review (expired evidence, new claims found in live copy).
 - `storefront-ux`: conformance audit delta on the top templates (homepage, collection, PDP, cart).
 - `site-engineer`: release log review and a worst case data pass on the top landing pages.
+- Verification pass (`ads-verify` skill): expire old rows in `ads-master/VERIFIED.md`, re-verify those still used, and clear the 10 open claims that block decisions this month.
 
 ## Mode: quarterly
 - `growth-orchestrator`: strategy reset (draft STRATEGY.md for approval), channel mix review, incrementality and MMM plan with `measurement`.

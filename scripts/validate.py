@@ -14,7 +14,7 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-UTILITY_SKILLS = {"ads-setup", "ads-review"}
+UTILITY_SKILLS = {"ads-setup", "ads-review", "ads-verify"}
 REQUIRED_REFS = {"audit-checklist.md", "sources.md"}
 BANNED = re.compile(
     r"\b(excel\w*|robust\w*|honed|spearhead\w*|prospect\w*|resonat\w*|thriv\w*)\b",
@@ -162,6 +162,32 @@ for dirpath, dirnames, filenames in os.walk(ROOT):
                 m = BANNED.search(line)
                 if m:
                     errors.append(f"{rel(path)}:{i}: banned word '{m.group(0)}'")
+
+# Packs: every agent belongs to at least one pack, every pack member exists.
+packs_path = os.path.join(ROOT, "docs", "packs.json")
+if os.path.isfile(packs_path):
+    import json
+    with open(packs_path, encoding="utf-8") as fh:
+        packs = {k: v for k, v in json.load(fh).items() if not k.startswith("_")}
+    covered = set()
+    for pname, pack in packs.items():
+        for member in pack.get("agents", []) + pack.get("skills", []):
+            if member == "*":
+                continue
+            covered.add(member)
+            if member not in agent_slugs and member not in skill_slugs:
+                errors.append(f"docs/packs.json: pack '{pname}' lists unknown '{member}'")
+    for slug in agent_slugs:
+        if slug not in covered:
+            errors.append(f"docs/packs.json: agent '{slug}' is in no pack")
+
+# The living guide must be regenerated whenever agents, skills, packs or kits change.
+build_docs = os.path.join(ROOT, "scripts", "build_docs.py")
+if os.path.isfile(build_docs) and os.path.isfile(os.path.join(ROOT, "docs", "HOW_TO_USE.md")):
+    import subprocess
+    res = subprocess.run([sys.executable, build_docs, "--check"], capture_output=True, text=True)
+    if res.returncode != 0:
+        errors.append("docs/HOW_TO_USE.md is out of date: run python3 scripts/build_docs.py")
 
 for w in warnings:
     print("WARN ", w)
