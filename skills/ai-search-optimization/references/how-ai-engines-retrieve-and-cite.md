@@ -45,7 +45,7 @@ Most AI search products follow the same broad steps. Vendors do not publish the 
 | Meta AI | Reported web search partnerships plus Meta crawlers [Unverified] | Meta-ExternalAgent (training and indexing), Meta-ExternalFetcher (user fetch) [Official, verify current names] | Unknown | None | robots.txt per token. Blocking Meta-ExternalAgent may reduce Meta AI visibility [Unverified] |
 | Grok (xAI) | X posts plus web search [Practitioner consensus] | No widely documented crawler token [Unverified] | Unknown | None | Presence on X matters more here than anywhere else |
 | Apple (Siri, Spotlight, Apple Intelligence) | Applebot index. Applebot-Extended controls use for training only [Official] | Applebot, Applebot-Extended | Yes (Applebot renders) [Study, 2024-12] | None | Apple Business Connect for local facts |
-| Amazon (Rufus, Alexa+) | Amazon catalog, reviews, plus web [Practitioner consensus] | Amazonbot | Unknown | None | Amazon listing quality and reviews |
+| Amazon (Alexa for Shopping, formerly Rufus in the US; Alexa+) | Amazon catalog, reviews, plus web [Practitioner consensus] | Amazonbot | Unknown | None | Amazon listing quality and reviews |
 
 ### 3.2 Google AI Overviews and AI Mode
 
@@ -111,7 +111,7 @@ Tier and mode matter: logged-out, free, paid, think mode and agent mode can use 
 | Meta AI (Facebook, Instagram, WhatsApp, meta.ai) | Allow Meta crawlers you want. Strong presence on Facebook and Instagram pages for brand facts. Meta has reported search partnerships | [Unverified] |
 | Grok | Active, factual X account; being discussed on X; web presence for its search | [Practitioner consensus] |
 | Apple Siri and Spotlight | Applebot access; Apple Business Connect for local; App Store listing for apps. Applebot-Extended only governs training | [Official] |
-| Amazon Rufus and Alexa+ | Amazon listing content, Q&A, reviews, A+ content | [Practitioner consensus] |
+| Amazon Alexa for Shopping (formerly Rufus) and Alexa+ | Amazon listing content, Q&A, reviews, A+ content | [Practitioner consensus] |
 | DuckDuckGo DuckAssist | DuckAssistBot; Bing and own sources | [Unverified] |
 | Mistral Le Chat | MistralAI-User fetcher | [Unverified] |
 | You.com, Brave | Own indexes; Brave Search index feeds Brave answers | [Practitioner consensus] |

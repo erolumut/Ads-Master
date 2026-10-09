@@ -11,7 +11,7 @@ Install once, drop into any project, and get a senior growth team that audits, p
 | Playbook depth | 348 reference modules, about 72,000 lines of procedures, audits, settings, formulas, queries and scripts |
 | Research | 24 dossiers with dated timelines of platform changes (January 2025 to October 2026) and about 3,900 unique cited URLs |
 | Safety | Gates G0 to G4, automation stages 1 to 5, guard hooks with tests, claims registry, incident runbook |
-| Tools | SEO preflight crawler, daily report builder, tracking plan checker, basket economics calculator, claims checker, FFmpeg delivery, variant planner, URL and injection checkers |
+| Tools | SEO preflight crawler, daily report builder, tracking plan checker, basket economics calculator, claims checker, approved copy lock, post release smoke check, verified facts check, FFmpeg delivery, variant planner, URL and injection checkers |
 | Install | Claude Code plugin, project copy script, or open this repo directly |
 
 ---

@@ -113,11 +113,11 @@ Takeaways: a Dutch DTC brand under 2,500 parcels per year pays roughly EUR 7 per
 
 | Item | Figure | Source and label |
 |------|--------|------------------|
-| Yurtiçi Kargo list price, 0 to 1 desi, same city | About TRY 154 to 209 (Sentos list); TRY 167 (0 desi) to 226.50 (1 desi) (Kargonomi) | Third party lists, 2026 [Unverified]; VAT inclusion differs by source |
-| Aras Kargo list price, 1 desi | TRY 163.26 (Sentos, updated 2026-07-17); TRY 149.54 ex KDV in city (Kargonomi, from 2026-01-01) | Third party lists [Unverified] |
+| Yurtiçi Kargo list price, 0 to 1 desi, same city | About TRY 154 to 209 (Sentos list); TRY 167 (0 desi) to 226.50 (1 desi) (Kargonomi); no 2026 figure found from Yurtiçi itself | Third party lists, 2026 [Unverified]; VAT inclusion differs by source; the binding rate is a carrier quote or contract |
+| Aras Kargo list price, 1 desi | TRY 163.26 (Sentos, updated 2026-07-17); TRY 149.54 ex KDV in city (Kargonomi, from 2026-01-01). Aras publishes an official Standard Price List 2026 (PDF, valid from 2026-01-01); TRY 149.54 also appears in a search snippet of it, but the bands were not read. The 2025 official list put 1 desi at about TRY 122.44 to 196.83 ex VAT across distance bands | Third party lists and an unread official PDF [Unverified]; the binding rate is a carrier quote or contract |
 | Marketplace contracted rates (Trendyol agreement) | Yurtiçi 1 to 5 desi about TRY 112.77 to 142.91; Aras 1 to 5 desi about TRY 83.93 to 111.70 | Dopigo, Kargo Entegratör, 2026 [Unverified] |
 
-Takeaways: in Turkey, contracted e-commerce and marketplace rates sit 30 to 50% below list prices, list prices move several times per year with inflation (CPI 29.73% year on year in September 2026, TÜİK), and desi (volumetric weight) drives cost. Recompute monthly. Check whether a quote includes KDV.
+Takeaways: in Turkey, contracted e-commerce and marketplace rates sit 30 to 50% below list prices (about half in most comparisons), list prices move several times per year with inflation (CPI 29.73% year on year in September 2026, TÜİK), and desi (volumetric weight) drives cost. Recompute monthly. Check whether a quote includes KDV.
 
 ### Payment fees
 
@@ -126,29 +126,30 @@ Takeaways: in Turkey, contracted e-commerce and marketplace rates sit 30 to 50% 
 | Stripe NL, standard EEA cards | 1.5% + EUR 0.25 | [Official, stripe.com/en-nl/pricing, 2026] |
 | Stripe NL, premium EEA cards | 2.8% + EUR 0.25 | [Official, 2026] |
 | Stripe NL, iDEAL (iDEAL Wero) | EUR 0.29 per payment (+2% if currency conversion) | [Official, 2026]; Wero rollout to Dutch shoppers late 2026, full transition by 2028 per Stripe guide |
-| Mollie, iDEAL | EUR 0.29 in most sources, EUR 0.32 in a June 2026 verified listing | [Contested]; confirm on mollie.com |
-| Mollie, EU consumer cards | 1.8% + EUR 0.25 | [Unverified, third party] |
-| Adyen | Interchange++ with about 0.60% markup plus about EUR 0.11 per transaction; iDEAL about EUR 0.22; minimum invoice reported EUR 100 to 1,000 per month | [Unverified, third party, 2026] |
-| iyzico, single payment (tek çekim) | About 1.95% most cited (range 1.19% to 2.99% + TRY 0.25) | [Unverified, comparison sites, 2026] |
-| PayTR, single payment | Ranges 1.49% to 2.89% most cited; settlement terms (bloke, vade) change effective cost | [Unverified, comparison sites, 2026] |
+| Mollie, iDEAL (iDEAL Wero), NL domestic | EUR 0.32 per successful transaction; EUR 0.29 appears only on third-party and older pages | [Reported, 2026-10]; confirm in the merchant dashboard before a money decision |
+| Mollie, cards (Visa, Mastercard) | EEA consumer 1.80% + EUR 0.25; EEA commercial 2.90% + EUR 0.25; non-EEA 3.25% + EUR 0.25 | [Reported, 2026-10] |
+| Adyen, fee model | Fixed processing fee per transaction plus a payment method fee; cards on interchange++; no setup, monthly or closure fees | [Reported, 2026-10] |
+| Adyen, amounts | Card markup about 0.60% and fixed fee about EUR 0.11 reported; NL iDEAL reported as the fixed processing fee (0.13 in some sources, currency inconsistent) plus about EUR 0.22; a minimum monthly invoice applies and varies by industry (no NL amount published; an Australian page shows AUD 150; third parties report EUR 100 to 1,000) | [Unverified]: quote based; the binding numbers are in the Adyen contract and the Customer Area invoices |
+| iyzico, single payment (tek çekim) | Quote based. iyzico's help pages (search summary) cite offers from 4.29% + TRY 0.25 (corporate) and from 4.49% (individual); comparison sites quote 1.19% to 2.99% + TRY 0.25 (about 1.95% most cited) and starting offers of 2.49% to 2.79% + TRY 0.25 | [Unverified]: the binding rate is the merchant offer and the merchant panel |
+| PayTR, single payment | No public rate card: PayTR prices by quote (sector, volume, basket size, installments; paytr.com virtual POS page). Comparison sites quote 1.49% to 2.89%; settlement terms (bloke, vade) change effective cost | [Unverified]: the binding rate is the merchant offer |
 
-Takeaways: for a Dutch basket where iDEAL dominates, blended payment cost is mostly a fixed EUR 0.22 to 0.32 per order, which penalizes small baskets. In Turkey, installments (taksit) carry much higher rates (12 installments about 3.45% at iyzico per one comparison site [Unverified]); model the installment mix explicitly.
+Takeaways: for a Dutch basket where iDEAL dominates, blended payment cost is mostly a fixed fee of about EUR 0.29 to 0.35 per order (Stripe EUR 0.29, Mollie EUR 0.32, Adyen fixed fee plus about EUR 0.22), which penalizes small baskets. EPI is reported to keep Wero priced like iDEAL until the end of 2028 [Unverified, single source: Accountancy Vanmorgen 2026-01-09]; model a fee change after 2028 as a scenario. In Turkey, installments (taksit) carry much higher rates (12 installments about 3.45% at iyzico per one comparison site [Unverified]); model the installment mix explicitly.
 
 ### Marketplace fees (summary; detail belongs to `marketplaces`)
 
 | Marketplace | Structure | Figure | Label |
 |-------------|-----------|--------|-------|
 | Amazon EU | Referral % by category plus FBA fulfilment fee | From 2026-01-05: grocery and gourmet, and vitamins and supplements, 8% to 5% for items up to EUR 10; Low-Price FBA extended to most categories up to EUR 20; average fee cut about EUR 0.17 per unit across EU stores | aboutamazon.eu [Official, 2025-12] |
-| Amazon EU | FBA fuel and logistics surcharge | Reported 1.5% surcharge on FBA fulfilment fees from 2026-04-17 | [Unverified, third party] |
-| bol.com | Fixed fee per item plus % commission by category (commission ex VAT, 21% VAT on top) | Fixed fee reported EUR 0.20 (under EUR 10), 0.40 (EUR 10 to 20), 0.85 (over EUR 20); category % about 4% to 21%, 12.4% cited as common | Boloo, Zoloo, Winkelfactuur 2026 [Unverified, conflicting]; confirm in Verkoopaccount under Tarieven |
-| Trendyol | Category commission (KDV dahil) plus service fee (hizmet bedeli) | Supermarket and food 10% to 15.25% reported; service fee described either as a percentage or as TRY 6.99 to 10.99 per shipment | Paraşüt (2026-01-14 rates), Sentos, Stokoloji [Unverified, conflicting] |
+| Amazon EU and UK | FBA fuel and logistics surcharge | 1.5% on FBA fulfilment fees from 2026-04-17 in UK, FR, DE, IT, ES, PL, SE, NL, IE and BE; MCF from 2026-05-02 in UK, FR, DE, IT, ES; charged on the fulfilment fee, not the sale price; about EUR 0.05 per unit on average (Amazon estimate); called temporary | [Reported, 2026-10] |
+| bol.com | Fixed fee per item, set by product type and by sale price incl. VAT, plus % commission by category; fees invoiced ex VAT with 21% VAT on top | Fixed fee reported about EUR 0.20 (under EUR 10), 0.40 (EUR 10 to 20), 0.83 or 0.85 (over EUR 20), EUR 2.48 in some categories; category % about 4% to 21%, 12.4% cited as common; food variable commission 4.0% to 6.0% (one 2026 source); a temporary 25% discount on variable commission for items newly added to selected categories, 2026-07-20 to 2026-12-31 (one snippet); bol may adjust category rates twice a year | Boloo, Zoloo, Winkelfactuur, winkelboekje 2026 [Unverified, conflicting]; the binding rates are in the seller account (Verkoopaccount, Tarieven) |
+| Trendyol | Category commission (category rate x current sale price; the official seller academy says commission invoices use VAT-inclusive figures, some third parties say VAT-exclusive) plus platform service fee (hizmet bedeli) | Food and snack rate not confirmed: the 10% to 15% (Paraşüt) and 15.25% (Sentos) figures have no corroboration, other sources range from 5% to 10% up to 12% to 20%, and rates vary by seller level and brand category. Platform service fee reported at TRY 10.99 + VAT per shipment (older sources: a percentage or TRY 6.99) | [Unverified, conflicting]; the binding rates are in the seller panel commission table (Anlaşma Bilgileri) |
 
 ### VAT
 
 | Market | Rates (verify product classification) |
 |--------|----------------------------------------|
 | Netherlands | 21% standard; 9% reduced (most food) [Official, Belastingdienst, prior knowledge] |
-| Turkey | 20% standard, 10% and 1% reduced; basic foods at 1% since 2022; some food groups at higher rates. Classification of snacks and protein bars not confirmed [Unverified]; check the GİB rate lists by product and GTİP code |
+| Turkey | 20% standard, 10% and 1% reduced. Foods in list (I) attached to the VAT rate decision are at 1% since Presidential Decision 5189 (applied from 2022-02-14), except foods subject to ÖTV; chocolate, biscuits, wafers and cakes are reported at 1%; restaurant service 10%; goods not on a list 20%. The rate for snack and protein bars is not confirmed by GTİP code [Unverified]: get a GİB özelge (advance tax ruling) for the product's GTİP before pricing |
 | Other EU | Look up the national rate per product class; never assume the domestic rate applies |
 
 ## 5. Worked example (illustrative, generated by the script)
@@ -200,7 +201,7 @@ Net net sell-in                                      W_nn = W x (1 - t)
 
 Notes:
 - Retailer margin is quoted on the shelf price ex VAT, markup on the sell-in price. 35% margin equals about 54% markup. Always say which one.
-- Conventional grocery retailer margins are often cited at 25 to 35% of shelf price, convenience 35 to 45% [Unverified, agency source attnagency.com]; New Zealand dry grocery suppliers claimed 35 to 41% [Unverified, Newshub 2023]. Use the project's actual sell-in price; ask for it at intake.
+- Conventional grocery retailer margins are often cited at 25 to 35% of shelf price, convenience 35 to 45% [Unverified, agency source attnagency.com]; New Zealand dry grocery suppliers claimed 35 to 41% [Unverified, Newshub 2023]. No credible bar or snack margin was found for Dutch grocery. Whole-supermarket gross margin in the Netherlands is about 28% to 29% across all products (Statista 2020; Firmfocus 2022, an aggregator) [Unverified], which says nothing about one branded bar's front margin. The ACM market study on food prices and margins (ACM/25/197667, started 2025-09-18, results expected end 2026) is the best future source. Treat any retailer margin as an assumption: use the project's actual sell-in price; ask for it at intake.
 - Dutch supermarkets push back on supplier prices hard (delistings during negotiations, buying alliances such as Jumbo's membership in international buying groups) [Press, multiple years]. A DTC price that undercuts shelf price becomes a negotiation weapon for the retailer.
 - Brands cannot set the retailer's shelf price. Recommended retail prices are allowed only as genuine recommendations (see [Channel price corridors](channel-price-corridors.md)).
 

@@ -129,7 +129,7 @@ answer questions. No obligation to include us.
 
 | Surface | Why | Actions |
 |---------|-----|---------|
-| Amazon | Rufus and Alexa+ answers; Amazon pages rank and get cited for product prompts | Complete titles, bullets, A+ content, Q&A, review program via Amazon Vine where eligible |
+| Amazon | Alexa for Shopping (formerly Rufus) and Alexa+ answers; Amazon pages rank and get cited for product prompts | Complete titles, bullets, A+ content, Q&A, review program via Amazon Vine where eligible |
 | App Store and Google Play | App prompts; Siri and Gemini on device | Clear description of use cases, recent reviews, responses to reviews |
 | Etsy, Walmart, other marketplaces | Product prompts in shopping answers | Listing completeness and reviews |
 

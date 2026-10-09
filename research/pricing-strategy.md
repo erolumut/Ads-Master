@@ -1,5 +1,7 @@
 # Research Dossier: Pricing Strategy (Commercial Pricing Consultant)
 
+> Verification pass 2026-10-09: 14 claims re-checked; results labeled; pages were not opened in full, so the best level reached is L3 [Reported]. `[Reported, 2026-10]` marks two or more independent dated sources that agreed in search summaries on 2026-10-09; the month is the check month. Status per item: the Verification queue in `skills/pricing-strategy/references/sources.md`.
+
 > Research date: 2026-10-09. Scope: price level and positioning, competitive price benchmarking, cost to serve and margin waterfall (Netherlands and Turkey focus, EU context), minimum basket and delivery policy, price architecture and pack sizes, value based pricing and willingness to pay, channel price corridors (DTC, retail, marketplace, wholesale) and competition law limits, price changes and inflation pricing, elasticity and price tests, dynamic and personalized pricing rules, SaaS and B2B pricing, pricing tools and APIs.
 >
 > Method and limits: 32 web searches (extended mode for 2026 facts, rates and niche topics; standard mode for established research). Direct page fetching (WebFetch) failed with DNS errors in the research environment, so 2025 to 2026 findings rely on the content of search results from the listed pages (official PDFs and pages where they surfaced, trade bodies, law firms, vendor and press coverage), not full page reads. Classic academic and legal sources are cited from prior knowledge and marked so. Every claim carries an evidence label; anything single sourced or conflicting is marked [Unverified] or [Contested]. The offer-strategy dossier (`research/offer-strategy.md`, 2026-10-08) covers incentive mechanics, promo calendars and much of pricing law; this dossier links to it rather than repeating it.
@@ -37,8 +39,8 @@
 
 | Item | 2026 figure | Source | Label |
 |------|-------------|--------|-------|
-| Yurtiçi Kargo list 0 to 1 desi same city | About TRY 154 to 209 (Sentos); TRY 167 (0 desi) and 226.50 (1 desi) (Kargonomi) | Third party lists | [Unverified, conflicting] |
-| Aras Kargo list 1 desi | TRY 163.26 (Sentos, updated 2026-07-17); TRY 149.54 ex KDV in city from 2026-01-01 (Kargonomi) | Third party lists | [Unverified] |
+| Yurtiçi Kargo list 0 to 1 desi same city | About TRY 154 to 209 (Sentos); TRY 167 (0 desi) and 226.50 (1 desi) (Kargonomi); no 2026 figure from Yurtiçi itself | Third party lists | [Unverified, conflicting]; carrier quote is the source |
+| Aras Kargo list 1 desi | TRY 163.26 (Sentos, updated 2026-07-17); TRY 149.54 ex KDV in city from 2026-01-01 (Kargonomi; the figure also appears in a snippet of Aras's official Standard Price List 2026 PDF, bands not read); 2025 official list about TRY 122.44 to 196.83 ex VAT by distance | Third party lists, unread official PDF | [Unverified]; carrier quote is the source |
 | Trendyol contracted cargo, 1 to 5 desi | Yurtiçi TRY 112.77 to 142.91; Aras TRY 83.93 to 111.70 | Dopigo, Kargo Entegratör | [Unverified] |
 | Reason sources differ | KDV included vs excluded; 2025 vs 2026 lists; contracted vs list | Analysis of sources | [Practitioner consensus] |
 
@@ -48,29 +50,29 @@
 |----------|-------------|-------|
 | Stripe NL | Standard EEA cards 1.5% + EUR 0.25; premium EEA cards 2.8% + EUR 0.25; iDEAL (iDEAL Wero) EUR 0.29, +2% if currency conversion | [Official] |
 | Stripe iDEAL guide | Wero available to Dutch shoppers in late 2026; iDEAL Wero fully transitions to Wero by 2028 | [Official] |
-| Mollie | iDEAL EUR 0.29 (most sources) vs EUR 0.32 (a June 2026 verified listing); EU consumer cards 1.8% + EUR 0.25; commercial EEA 2.9% + EUR 0.25; non-EEA 3.25% + EUR 0.25 | [Contested] |
-| Adyen | Interchange++ with about 0.60% markup and EUR 0.10 to 0.13 per transaction; iDEAL about EUR 0.22; minimum invoice reported EUR 100 to 1,000; chargeback up to EUR 25 | [Unverified] |
-| iyzico | Single payment about 1.95% most cited (range 1.19% to 2.99% + TRY 0.25); 12 installments about 3.45% | [Unverified] |
-| PayTR | Single payment 1.49% to 2.89% most cited; settlement terms change effective cost | [Unverified] |
+| Mollie | iDEAL (iDEAL Wero) EUR 0.32 per successful transaction (EUR 0.29 only on third-party and older pages); EEA consumer cards 1.80% + EUR 0.25; EEA commercial 2.90% + EUR 0.25; non-EEA 3.25% + EUR 0.25 | [Reported, 2026-10] |
+| Adyen | Model: fixed processing fee per transaction plus payment method fee, IC++ for cards, no setup, monthly or closure fees [Reported, 2026-10]. Amounts: about 0.60% markup and EUR 0.10 to 0.13 per transaction; NL iDEAL fixed fee plus about EUR 0.22 (currency inconsistent across sources); minimum invoice varies by industry (no NL amount published; AUD 150 on an Australian page; EUR 100 to 1,000 in third parties); chargeback up to EUR 25 | [Unverified] amounts; quote based |
+| iyzico | Quote based. Help pages (search summary) cite offers from 4.29% + TRY 0.25 (corporate) and 4.49% (individual); comparison sites quote about 1.95% (range 1.19% to 2.99% + TRY 0.25) and starting offers of 2.49% to 2.79% + TRY 0.25; 12 installments about 3.45% | [Unverified]; the merchant offer is the source |
+| PayTR | No public rate card; priced by quote (sector, volume, basket, installments). Comparison sites quote 1.49% to 2.89%; settlement terms change effective cost | [Unverified]; the merchant offer is the source |
 
 ### 2.4 Marketplace fees (summary)
 
 | Marketplace | 2026 change or figure | Label |
 |-------------|----------------------|-------|
 | Amazon EU | From 2026-01-05: grocery and gourmet 8% to 5% up to EUR 10; vitamins and supplements 5% in that tier; Low-Price FBA extended to most categories up to EUR 20 (about EUR 0.45 lower per unit for newly eligible items); home 15% to 8% up to EUR 20; pet 15% to 5% up to EUR 10; clothing 5% up to EUR 15 and 10% EUR 15 to 20 (from 2025-12-15); FBA parcel fees down about EUR 0.32 on average in five markets; average fee cut about EUR 0.17 per unit | [Official] |
-| Amazon EU | 1.5% surcharge on FBA fulfilment fees from 2026-04-17; small increases to storage and returns fees | [Unverified, third party] |
-| bol.com | Fixed fee per item EUR 0.20 (under EUR 10), 0.40 (EUR 10 to 20), 0.85 (over EUR 20), EUR 2.48 for large electronics over EUR 20; category commission about 4% to 21% (12.4% often cited); commission ex VAT with 21% VAT on top | [Unverified, conflicting sources] |
-| Trendyol | Supermarket and food 10% to 15% (Paraşüt, 2026-01-14 rates) or 15.25% for snacks (Sentos, Ideasoft); service fee described as 3.49% or TRY 6.99 to 10.99 per shipment | [Unverified, conflicting] |
+| Amazon EU and UK | 1.5% fuel and logistics surcharge on FBA fulfilment fees from 2026-04-17 in ten stores (MCF from 2026-05-02 in five), on the fee not the sale price, about EUR 0.05 per unit, called temporary; small increases to storage and returns fees | [Reported, 2026-10] surcharge |
+| bol.com | Fixed fee per item set by product type and sale price incl. VAT: about EUR 0.20 (under EUR 10), 0.40 (EUR 10 to 20), 0.83 or 0.85 (over EUR 20), EUR 2.48 in some categories; category commission about 4% to 21% (12.4% often cited); food 4.0% to 6.0% (one 2026 source); temporary 25% discount on variable commission for items newly added to selected categories 2026-07-20 to 2026-12-31 (one snippet); fees ex VAT with 21% VAT on top | [Unverified, conflicting sources]; seller account is the source |
+| Trendyol | Food and snack rate unconfirmed: 10% to 15% (Paraşüt, 2026-01-14 rates) and 15.25% (Sentos, Ideasoft) were not corroborated, other sources range from 5% to 10% up to 12% to 20%, and rates vary by seller level and brand category; platform service fee reported at TRY 10.99 + VAT per shipment (older: 3.49% or TRY 6.99) | [Unverified, conflicting]; seller panel is the source |
 
 ### 2.5 VAT
 
 - Netherlands 21% standard, 9% reduced for most food [Official, prior knowledge].
-- Turkey 20% standard, 10% and 1% reduced; basic food at 1% since 2022; classification of snacks and protein bars not confirmed in this research [Unverified].
+- Turkey 20% standard, 10% and 1% reduced. List (I) food at 1% since Presidential Decision 5189 (applied from 2022-02-14), except ÖTV foods; chocolate, biscuits, wafers and cakes reported at 1%; restaurant service 10%; unlisted goods 20%. The snack and protein bar rate by GTİP is not confirmed [Unverified]; a GİB özelge per GTİP settles it.
 
 ### 2.6 Retail margins
 
 - Agency sources cite conventional grocery retailer margins of 25 to 35% of shelf price, convenience 35 to 45%, mass 20 to 30% [Unverified]. A CPG guide cites 30 to 45% [Unverified]. New Zealand dry grocery suppliers claimed 35 to 41% (2023) [Unverified]. Public grocer gross margins sit at 22 to 28% on total sales (Kroger, Publix, Shoprite) and are not comparable to single branded snack margins [Press and filings].
-- No verified Dutch retailer margin figures were found; Dutch supermarkets are known for hard supplier negotiations and buying alliances [Press]. The method therefore asks the brand for its actual sell-in price.
+- No verified Dutch retailer margin figures for bars or snacks were found; Dutch supermarkets are known for hard supplier negotiations and buying alliances [Press]. Whole-supermarket gross margin is about 28% to 29% across all products (Statista 2020; Firmfocus 2022, an aggregator) [Unverified] and does not transfer to one branded product. The ACM market study on food prices and margins (ACM/25/197667, started 2025-09-18, results expected end 2026) is the best future source. The method therefore asks the brand for its actual sell-in price and treats any margin as an assumption.
 
 ### 2.7 Pricing practice and evidence
 
@@ -122,7 +124,7 @@
 | 2026-04-06 | UK Price Marking Order reforms | Unit pricing scope | [Official, via offer-strategy] |
 | 2026-04-07 | McKinsey "B2B pricing: navigating the next phase of the AI revolution" | AI in pricing | [Study] |
 | 2026-04-09 | CJEU C-62/25 judgment on delivery costs below minimum order | Delivery policy display | [Official via trade body] |
-| 2026-04-17 | Amazon FBA 1.5% fulfilment fee surcharge reported | Fees | [Unverified] |
+| 2026-04-17 | Amazon EU and UK FBA 1.5% fuel and logistics surcharge (US and CA 3.5%; MCF from 2026-05-02) | Fees | [Reported, 2026-10] |
 | 2026-04 to 05 | Growth Unhinged 2026 SaaS monetization survey fielded | SaaS benchmarks | [Study] |
 | 2026-05 | Mondelez Milka shrinkflation ruling reported in Germany | Pack changes | [Press] |
 | 2026-05 | DHL eCommerce NL fuel surcharge 29.50% | Carrier cost | [Official] |
@@ -170,7 +172,7 @@
 | Price monitoring of resellers | Information is lawful and useful | Monitoring has featured in RPM cases (Morellato) | Information only; never linked to supply or pressure |
 | Credits for AI SaaS | Flexible, aligns cost and value | Confusing, bill shock (Zylo report, Unverified), described as a bridge | Hybrid base fee plus credits with clear examples |
 | Usage based adoption rates | 38% to 42% adoption in 2026 | 18% in another report | Definitions differ; use own segment data |
-| Mollie iDEAL fee | EUR 0.29 | EUR 0.32 | Check the live page or dashboard |
+| Mollie iDEAL fee | EUR 0.29 (third-party and older pages) | EUR 0.32 (mollie.com via search summary; paymentgatewaycost.com 2026-06) | Resolved to EUR 0.32 on 2026-10-09; confirm in the dashboard |
 | Dynamic pricing tools for SMB | Automation saves time and margin | Auto-repricing errors and legal display risks | Recommend bounds; human approves any automatic action |
 
 ## 6. What top operators do differently
@@ -239,7 +241,7 @@ No confirmed official MCP server from a price monitoring vendor as of 2026-10.
 
 - PostNL tariffs: postnl.nl/tarieven (business rate PDFs, tariff books).
 - DHL eCommerce NL fuel surcharge index (monthly).
-- Stripe, Mollie, Adyen, iyzico, PayTR pricing pages.
+- Stripe, Mollie, Adyen, iyzico, PayTR pricing pages (Adyen amounts, iyzico and PayTR are quote based: the merchant offer is the source).
 - aboutamazon.eu fee announcements; Seller Central fee pages; bol.com Verkoopaccount Tarieven; Trendyol and Hepsiburada seller panels.
 - curia.europa.eu (C-62/25 and new price indication cases); EUR-Lex; European Commission DFA page.
 - European Commission competition press releases; rekabet.gov.tr; ACM; CMA.
@@ -252,13 +254,13 @@ No confirmed official MCP server from a price monitoring vendor as of 2026-10.
 
 - Digital Fairness Act proposal text (late 2026): personalized pricing restrictions, "from" price bans, drip pricing ban.
 - Whether more EU states adopt shrinkflation disclosure (Italy's rule delayed).
-- Wero rollout effect on Dutch payment fees and checkout mix.
+- Wero rollout effect on Dutch payment fees and checkout mix (EPI price parity with iDEAL until end 2028 reported by one source).
 - PostNL letterbox parcel moving into the parcel network and future pricing.
-- Amazon EU FBA surcharge confirmation; bol.com 2027 fee changes.
+- Amazon fuel and logistics surcharges (confirmed at L3 on 2026-10-09, called temporary): watch for an end date; bol.com 2027 fee changes.
 - Turkish disinflation path and whether the 10 day rule evolves; Competition Board RPM decisions in e-commerce.
 - Agentic pricing tools (Pricefx, Competera) offering official MCP or API access for assistants.
-- Snack and protein bar VAT classification in Turkey.
-- Verified Dutch grocery retailer margins for branded snacks.
+- Snack and protein bar VAT classification in Turkey (GİB özelge per GTİP).
+- Verified Dutch grocery retailer margins for branded snacks (ACM/25/197667 results expected end 2026).
 
 ## 12. Sources
 
@@ -342,5 +344,23 @@ No confirmed official MCP server from a price monitoring vendor as of 2026-10.
 78. 12 Best Prisync Alternatives 2026, Yieldigo, https://www.yieldigo.com/blog/blog-prisync-competitors/, 2026.
 79. Albert Heijn zet leveranciers onder druk, MKB Servicedesk, https://www.mkbservicedesk.nl/juridisch/geschillen-procederen/albert-heijn-zet-leveranciers-onder-druk, older.
 80. Competitor price monitor MCP server, Apify, https://apify.com/gadolinium/competitor-pricing-monitor/api/mcp, 2026.
+
+Added in the verification pass of 2026-10-09 (search summaries; pages not opened in full):
+
+81. Aras Kargo Domestic Standard Price List 2026, Aras Kargo, https://www.araskargo.com.tr/assets/images/pdf/en/aras-cargo-standard-price-list-2026-en.pdf, 2026-01.
+82. Pricing, Mollie, https://www.mollie.com/pricing, 2026.
+83. Paybyrd vs Mollie, Paybyrd, https://www.paybyrd.com/vs/mollie, 2026-04.
+84. Stripe, PayPal, Mollie, Klarna fees 2026: e-commerce comparison, Hayot Expertise, https://hayot-expertise.fr/en/blog/stripe-paypal-mollie-klarna-fees-2026-e-commerce-comparison, 2026.
+85. Van iDEAL naar Wero: wat uw mkb-klanten moeten weten, Accountancy Vanmorgen, https://www.accountancyvanmorgen.nl/2026/01/09/van-ideal-naar-wero-wat-uw-mkb-klanten-moeten-weten/, 2026-01-09.
+86. Pricing, Adyen, https://www.adyen.com/pricing, 2026.
+87. Virtual POS, PayTR, https://www.paytr.com/en/virtual-pos, 2026.
+88. Seller Forums thread: fuel and logistics surcharge (EU and UK), Amazon Seller Forums EU, https://sellercentral-europe.amazon.com/seller-forums/discussions/t/cb3452e9-3803-435b-bfc2-e3b6a10a9e42, 2026-04.
+89. 1.5% Amazon fuel surcharge for FBA and MCF from 17th April, ChannelX, https://channelx.world/2026/04/1-5-amazon-fuel-surcharge-for-fba-mcf-from-17th-april/, 2026-04-08.
+90. Commission, bol Partner Platform, https://partnerplatform.bol.com/en/idp/commission, 2026.
+91. Seller academy: commissions, Trendyol Akademi, https://akademi.trendyol.com/satici-bilgi-merkezi/detay/5, 2026.
+92. Consumer watchdog probes Dutch supermarket prices, DutchNews.nl, https://dutchnews.nl/2025/09/consumer-watchdog-probes-dutch-supermarket-prices, 2025-09.
+93. De ACM onderzoekt supermarktprijzen: wat betekent dit voor de sector?, Loyens & Loeff, https://www.loyensloeff.com/nl/insights/news--events/news/de-acm-onderzoekt-supermarktprijzen-wat-betekent-dit-voor-de-sector/, 2025.
+94. Gıda KDV oranı indirimi (TÜRMOB note), TÜRMOB via Alomaliye, https://alomaliye.com/wp-content/uploads/2022/02/turmob-gida-kdv.pdf, 2022-02.
+95. GİB answers on the food VAT cut, Türkiye Gazetesi, https://www.turkiyegazetesi.com.tr/ekonomi/gelir-idaresi-baskanligi-kdv-indirimine-iliskin-tum-merak-edilenler-cevapladi-828789, 2022.
 
 Prior knowledge (no URL captured): Marn and Rosiello (1992, HBR); Anderson and Simester (2003, QME); Bijmolt, van Heerde and Pieters (2005, JMR); Lewis, Singh and Fay (2006, Marketing Science); Huber, Payne and Puto (1982); Frederick, Lee and Baskin (2014); Yang and Lynn (2014); Scheibehenne et al. (2010); Chernev et al. (2015); Wadhwa and Zhang (2015, JCR); Directive 98/6/EC; Directive 2019/2161; Regulation 2022/720 (VBER).

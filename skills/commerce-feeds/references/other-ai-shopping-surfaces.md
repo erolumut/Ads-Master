@@ -12,7 +12,7 @@
 | Microsoft Copilot | Yes: merchant feeds and web; catalog of more than 500,000 merchants | Copilot Checkout (PayPal, Stripe, Shopify) | Shopify auto-enrolled with opt-out; PayPal and Stripe merchants apply | Live (US, Copilot.com since 2026-01-08; mobile app since 2026-04) |
 | ChatGPT | Yes: feeds dominate retrieval since 2026-07 | Standalone Instant Checkout retired 2026-03 | Shopify and Etsy automatic; others apply | Live (US) for discovery. See [ChatGPT module](chatgpt-shopping-and-agentic-commerce.md) |
 | Perplexity | Yes: merchant program (since 2024-11), Shopify and PayPal integrations | Instant Buy with PayPal; expanded to free US users late 2025 | Free to join per launch messaging; no paid placement | Live (US) |
-| Amazon Rufus and Buy for Me | Amazon catalog; Buy for Me reads brand websites | Buy for Me purchases on third-party brand sites inside the Amazon app | Brands can opt out [Unverified mechanism] | Live in beta since 2025 [Unverified current scope] |
+| Amazon Alexa for Shopping (formerly Rufus) and Buy for Me | Amazon catalog; Buy for Me reads brand websites | Buy for Me purchases on third-party brand sites inside the Amazon app | Brands can opt out [Unverified mechanism] | Live in beta since 2025 [Unverified current scope] |
 | Shopify Agentic Storefronts and Catalog | Shopify Catalog syndicates product data to AI channels | Depends on the channel | On by default for eligible stores; non-Shopify brands via an Agentic plan | Live (launched at scale 2026-03-24 per coverage) |
 
 ## 2. Google: AI Mode, Gemini, UCP
@@ -70,8 +70,8 @@
 - Legal risk: Amazon sued Perplexity in November 2025 over its Comet browser agent shopping on Amazon. A March 2026 preliminary injunction barred Comet from password-protected Amazon areas; the Ninth Circuit vacated it on 2026-08-04, holding that the user, not the agent developer, accesses the site under the CFAA, while noting Amazon can still restrict agents through its terms of service. The case is back in district court (Perplexity moved to dismiss the CFAA and CDAFA claims on 2026-09-11) [Official, Ninth Circuit opinion 2026-08; later steps via coverage]. Merchants can still set agent access rules in their own terms and bot controls.
 - Feed work: apply to the merchant program, keep Shopify product data complete, ensure PerplexityBot can crawl PDPs.
 
-## 5. Amazon (Rufus, Buy for Me)
-- Rufus answers shopping questions from Amazon catalog data and reviews; for brands selling on Amazon, the listing content (titles, bullets, A+ content, Q&A) is the feed equivalent [Practitioner consensus].
+## 5. Amazon (Alexa for Shopping, formerly Rufus; Buy for Me)
+- Alexa for Shopping (Rufus was renamed in the US on 2026-05-13 [Reported, 2026-10]) answers shopping questions from Amazon catalog data and reviews; for brands selling on Amazon, the listing content (titles, bullets, A+ content, Q&A) is the feed equivalent [Practitioner consensus].
 - Buy for Me (beta since 2025) lets Amazon app users buy products from brand websites that Amazon does not sell, with Amazon's agent completing checkout on the brand site [Official at launch, 2025; current scope Unverified].
 - Amazon restricts other companies' shopping agents on Amazon.com (robots rules and litigation) [Practitioner consensus].
 - Implication for DTC brands: your PDP must be machine-readable (server-rendered price, stock, variants, JSON-LD) because agents from several companies read it. Decide with the human whether to allow or block each agent; document the choice.

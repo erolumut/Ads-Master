@@ -1,5 +1,7 @@
 # Research Dossier: Marketplaces (Amazon, bol, Trendyol, Hepsiburada and others)
 
+> Verification pass 2026-10-09: 17 claims re-checked; results labeled; pages were not opened in full, so the best level reached is L3 [Reported]. `[Reported, 2026-10]` marks two or more independent dated sources that agreed in search summaries on 2026-10-09; the month is the check month.
+
 > Research date: 2026-10-08 to 2026-10-09. Scope: selling and advertising on third-party marketplaces: Amazon (Seller Central, Vendor Central, Amazon Ads, DSP basics, Brand Registry, featured offer, FBA, account health, fees, AI shopping), bol.com (Netherlands and Belgium), Trendyol and Hepsiburada (Turkey), and summary coverage of Allegro, Zalando, Etsy, eBay, Walmart Marketplace, noon and Amazon in the Gulf, and TikTok Shop. Topics: channel strategy, listings, reviews, retail media, operations, unit economics, measurement, channel conflict, APIs and MCP servers, and Turkish platform regulation.
 >
 > Method and limits: 42 web searches (extended mode for 2025 to 2026 facts and niche topics, standard for basics). Direct page fetching was not used, so findings rely on the content of search results from the listed pages. Amazon announces most seller changes inside Seller Central behind a login; many 2026 Amazon details therefore come from secondary sources (agencies, tool vendors, trade press) quoting those notices. Turkish commission and cargo rates come from integrator blogs that disagree with each other; binding rates are in the seller panels. Established mechanics (attribution windows, Vine eligibility, title rules, account health thresholds, competition law basics) are cited from prior knowledge and labeled. Every claim carries an evidence label; single-source items are [Unverified].
@@ -8,7 +10,7 @@
 
 1. Amazon reshaped fees in opposite directions for 2026: US FBA fees rose on average about USD 0.08 per unit from 2026-01-15 with referral fees unchanged, and US FBA prep and labeling services ended on 2026-01-01; in Europe Amazon announced its largest fee cut (average GBP 0.15 or EUR 0.17 per unit, deep referral cuts on low price home, pet and grocery items) effective 2026-01-05 [Official and Secondary, 2025-12 to 2026-01]. Fee models older than January 2026 are stale.
 2. The featured offer (Buy Box) lost its performance gate: Amazon removed seller performance as a standalone eligibility requirement from July 2026 (US early July, EU and UK from 2026-07-20, global by end 2026). More offers compete; price, delivery and stock decide more [Secondary, multiple, 2026-07].
-3. AI shopping is now a paid ad surface: Sponsored Prompts inside Rufus became paid CPC placements in the US on 2026-03-25, auto-enrolled from Sponsored Products and Sponsored Brands with no prompt-level targeting; Rufus was renamed Alexa for Shopping in the US on 2026-05-13 [Secondary, multiple, 2026]. Listing content quality now feeds both organic AI answers and ad copy that Amazon writes.
+3. AI shopping is now a paid ad surface: Sponsored Prompts inside Rufus became paid CPC placements in the US on 2026-03-25, auto-enrolled from Sponsored Products and Sponsored Brands with no prompt-level targeting; Rufus was renamed Alexa for Shopping in the US on 2026-05-13 [Secondary, multiple, 2026; rename Reported, 2026-10]. Listing content quality now feeds both organic AI answers and ad copy that Amazon writes.
 4. Amazon Ads moved toward agents and one console: unBoxed 2025 (2025-11-11 to 12) launched Ads Agent, Creative Agent, a unified Campaign Manager for sponsored ads and DSP, Complete TV, and extended AMC lookback from 13 to 25 months; the Amazon Ads MCP Server entered open beta on 2026-02-02 [Official 2025-11; Secondary 2026-02].
 5. Measurement shifted under advertisers: view attribution for vCPM ads moved to a "shopping-signal enhanced last-touch" model on 2026-01-01, lowering reported view-attributed conversions; "all views" metrics keep the old method. Sponsored Products click windows are unchanged (7 days sellers, 14 days vendors) [Secondary, multiple, 2026-01].
 6. Amazon backed off developer fees: the planned SP-API annual fee (USD 1,400 from 2026-01-31) and GET call usage fees were postponed on 2026-03-09 and cancelled on 2026-05-12 [Secondary, ppc.land, 2026-05].
@@ -22,10 +24,11 @@
 ### 2.1 Amazon fees and operations
 - US 2026 fee update effective 2026-01-15: average FBA increase about USD 0.08 per unit (framed by Amazon as under 0.5% of average item price); no new FBA fee types; referral percentages unchanged since January 2024; Low-Price FBA automatic under USD 10; small standard items priced USD 10 to 50 up about USD 0.25 per unit in one analysis [Secondary quoting Official, 2025-12].
 - US FBA prep and labeling services ended 2026-01-01; inbound defect charges consolidated; aged inventory surcharges steeper; low inventory level fee extended to Small Bulky and Large Bulky per FNSKU (grocery exempt) [Secondary, 2026].
-- A 3.5% fuel and logistics surcharge on US FBA fees from 2026-04-17 appears in a single third-party source [Unverified].
+- Fuel and logistics surcharge, US and CA: 3.5% on FBA fulfillment fees from 2026-04-17 (also Remote Fulfillment with FBA from the US into CA, MX and BR); Buy with Prime (US) and MCF (US, CA) from 2026-05-02; charged on the fulfillment fee, not the sale price; Amazon estimates about USD 0.17 per unit for US FBA and calls it temporary [Reported, 2026-10]. US peak fulfillment fees 2026-10-15 to 2027-01-14 apply on top [Unverified].
+- Fuel and logistics surcharge, EU and UK: 1.5% on FBA fulfilment fees from 2026-04-17 in UK, FR, DE, IT, ES, PL, SE, NL, IE and BE; MCF from 2026-05-02 in UK, FR, DE, IT and ES; about GBP 0.05 or EUR 0.05 per unit on average [Reported, 2026-10].
 - Europe 2026: average cut of GBP 0.15 or EUR 0.17 per unit; Home products up to EUR 20 from 15% to 8%, Pet clothing and food up to EUR 10 from 15% to 5%, Grocery and vitamins up to EUR 10 from 8% to 5%; FBA parcel fees down an average GBP 0.26; Low-Price FBA eligibility extended; deal fee caps lowered; effective 2026-01-05 (brought forward from 2026-02-01); offsetting increases in storage, return to seller and liquidation fees (net about EUR 0.02 per FBA unit from those lines) [Official, aboutamazon.eu, 2025-12; Secondary for dates].
 - FBA capacity: dynamic monthly allocation in cubic feet reported from January 2026; IPI below 400 reportedly triggers restrictions [Secondary, 2026; threshold Unverified].
-- US FBM changes reported: SAFE-T claim window 30 days from 2026-01-21; refunds within 4 calendar days from 2026-01-26; custom return instructions field removed August 2026 [Secondary, 2026; Unverified].
+- US FBM changes: SAFE-T claim filing window cut from 60 to 30 days, announced 2026-01-21, effective 2026-02-16; refunds within 4 calendar days of receiving the return from 2026-01-26 (was 2 business days), after which Amazon may refund automatically and SAFE-T eligibility for that return is generally lost; exceptions are described inconsistently [Reported, 2026-10]. Custom return instructions field removed August 2026 [Secondary, 2026; Unverified].
 - Account Health Rating scale 0 to 1,000 with 200 or above healthy [Secondary, 2025-12].
 - Amazon Haul: Amazon said it serves 25 locations with more planned in 2026; invitation only for sellers, mostly factories that hit price points; Amazon Bazaar runs in KSA, UAE and other markets [Official 2025; Secondary 2026].
 - Generative AI listing tools: Enhance My Listing (2025-05); Amazon reported over 900,000 sellers used its gen AI listing tools and over 90% acceptance without edits [Official via TechCrunch, 2025-05].
@@ -34,7 +37,7 @@
 ### 2.2 Amazon Ads
 - unBoxed 2025 (2025-11-11 to 12, Nashville): Ads Agent (plans, launches, optimizes; SQL for AMC), Creative Agent, unified Campaign Manager joining sponsored ads and Amazon DSP, Complete TV (streaming inventory incl. Roku and others through DSP), AMC lookback 25 months (US and CA open beta from 2025-11-11, other locales Q1 2026) [Official, 2025-11]. Netflix inventory named only by one source [Unverified].
 - Sponsored Prompts: paid GA in US 2026-03-25; auto-enrolled; Amazon writes prompts from listing and Brand Store content; no prompt targeting or exclusion; reporting blended [Secondary, multiple].
-- Alexa for Shopping: Rufus renamed in the US 2026-05-13 [Secondary, multiple; Amazon newsroom not read directly].
+- Alexa for Shopping: Rufus renamed in the US 2026-05-13 [Reported, 2026-10; aboutamazon notice, GeekWire and Modern Retail via search summaries].
 - Sponsored Display renamed display ads; new campaigns via the Display flow; existing campaigns continue [Official product page, 2026].
 - View attribution change 2026-01-01; "all views" metrics (one source counts 54) preserve the prior method; one vendor estimates 15% to 30% fewer reported view-attributed conversions [Secondary, 2026-01; estimate Unverified].
 - AMC: 1P paid features (Amazon Shopping Insights, Flexible Shopping Insights, Retail Purchases, Brand Store Insights, Prime Video Insights) free to query through 2026-12-31; fees afterwards unless opted out [Secondary citing Official, 2026].
@@ -50,13 +53,13 @@
 - Display offsite on premium sites and social (Facebook, Instagram, Pinterest) with strict brand rules (no bol logo; "Available at bol" or "Exclusive at bol"; 1080 x 1080 minimum) [Official].
 - Retailer API: v10 live, v8 and v9 removed December 2024; deprecated resources supported at least 12 months; Commission Beta endpoint unsupported from 2026-03-01 [Official].
 - LVB: new tariffs for 3XS and XXS size classes from 2026-09-09 [Secondary, 2026-09].
-- Commission: fixed fee per item plus a category percentage of the VAT-inclusive price; third-party ranges conflict (for example EUR 0.20 to 2.48 plus 4.1% to 20.7% vs 7% to 17%) [Contested, 2026].
+- Commission: fixed fee per item (set by product type and sale price incl. VAT) plus a category percentage of the VAT-inclusive price; third-party ranges conflict (for example EUR 0.20 to 2.48 plus 4.1% to 20.7% vs 7% to 17%) [Contested, 2026]. Food variable commission 4.0% to 6.0% and a temporary 25% discount on variable commission for items newly added to selected categories (2026-07-20 to 2026-12-31) each rest on one source [Unverified]; the seller account holds the binding rates.
 - CPC estimates EUR 0.10 to 1.50+ and EUR 0.30 to 0.60 come from blogs without method [Unverified].
 
 ### 2.5 Turkey
 - Hepsiburada FY2025: GMV TRY 257.5B (IAS 29 restated, up 4.3%; unadjusted TRY 236.5B, up 41.0%); marketplace GMV TRY 176.2B, 68.4% of total; EBITDA down 57.8%; net loss TRY 5.7B; consumer boycotts and lending investments cited [Official, 2026-02-26].
 - Kaspi.kz closed the purchase of 65.41% on 2025-01-29 (about USD 1.127B), later 66.35%, plus a TRY 4.17B injection in December 2025 [Official filings, 2025].
-- Trendyol commissions about 5% (digital gift cards) to 27% (phone spare parts); dynamic commissions reported in some subcategories in 2026 [Secondary, 2026-07; Unverified].
+- Trendyol commissions about 5% (digital gift cards) to 27% (phone spare parts) [Secondary, 2026-07]. Dynamic commission per the Trendyol seller academy: per product, price dependent tariffs on products Trendyol suggests (lower price, lower rate; example 20% at TRY 100, 11% at TRY 73), updated periodically [Unverified, single official source via search summary].
 - Trendyol Express tariffs per a 2026-09-08 list: 0 to 2 desi TRY 81.95 plus VAT, 5 desi TRY 114.10, 10 desi TRY 164.18; older lists lower [Secondary, 2026-09].
 - Trendyol ads: product ads (minimum daily budget TRY 10 per official FAQ), store ads, influencer ads with #işbirliği label, Meta collaboration ads [Official FAQ and Secondary].
 - Competition Board: Trendyol commitments binding since 2024-10-03 (no forced automated pricing, no equivalent incentives); earlier interim measures on self-preferencing (2021) [Official].
@@ -64,12 +67,12 @@
 
 ### 2.6 Other marketplaces
 - Allegro: commission caps in some categories and One Fulfillment storage cuts (2026-03-02); minimum CPC increase for sponsored offers (2026-02-16); additional commission for featuring offers on foreign Allegro sites after 30 free days (2026-09-17); 4.2 million international customers [Official help pages, 2026; Secondary 2025].
-- Zalando: four-part partner fee structure from 2026-01-01 (base fee, Marketplace Service fee, Payment Service fee, Convenience Incentive) [Secondary, Unverified]; ZEOS fee summary in Partner University [Official, login].
+- Zalando: four-part partner fee structure in 2026 (base fee, Marketplace Service fee, Payment Service fee, Convenience Incentive) [Reported, 2026-10]; the 2026-01-01 start date is inferred. From September 2026 the same standard Marketplace Service fees apply to all partners as Connected Retail is folded in, with a 2 point reduction for retailers until end 2027 [Unverified, single source]. ZEOS fee summary in Partner University [Official, login].
 - Etsy: regulatory operating fee increases on 2026-06-22 (France 0.47% to 1.14%); DDP required for non-US sellers shipping to the US from 2026-07-09 [Secondary, 2026].
 - eBay: currency conversion fee 3% to 3.25% for US and Canada from 2026-10-14; UK and EU increases in December 2026 [Official help page, 2026].
 - Walmart: New-Seller Savings window 2026-02-02 to 2027-01-31 with referral discounts and ad credits (USD 1,000 SEM, USD 500 Walmart Connect, conditional) [Official, 2026].
 - noon: UAE referral mostly 10% with AED 1 minimum; FBN storage AED 1.75 per cubic foot in UAE and SAR 2.75 in KSA from 2026-10-01 [Official help, 2026].
-- TikTok Shop: Netherlands, Belgium, Austria and Poland opened 2026-06-15, after Spain and Ireland (late 2024) and Germany, France and Italy (2025-03); more than 100,000 European sellers; Sell Across Europe announced May 2026 [Official newsroom 2026-06; Secondary].
+- TikTok Shop: Netherlands, Belgium, Austria and Poland opened 2026-06-15, after Spain and Ireland (late 2024) and Germany, France and Italy (2025-03); more than 100,000 European sellers; Sell Across Europe announced May 2026, to follow "shortly after" with no activation date published [Official newsroom 2026-06; Secondary]. Portugal reported live from late June 2026 by Portuguese press only (no official notice found).
 
 ## 3. Timeline of changes, January 2025 to October 2026
 
@@ -82,7 +85,7 @@
 | 2025-03-08 | Turkish intermediary regulation amended: sellers' KEP requirement removed, platforms verify seller identity | Onboarding changes | [Secondary] |
 | 2025-05 | Amazon Enhance My Listing (gen AI listing suggestions) | AI listing drafts | [Official via press] |
 | 2025-05-07 | Trendyol Go control transfer notified to the Competition Board | Group restructuring | [Official] |
-| 2025-05-24 | Turkish Distance Contracts Regulation amendment published (in force 2026-01-01) | Withdrawal and return shipping rules | [Secondary, Contested details] |
+| 2025-05-24 | Turkish Distance Contracts Regulation amendment published (in force 2026-01-01) | Withdrawal and return shipping rules; return shipping stays with the seller (direction supported) | [Secondary; return cost Unverified] |
 | 2025 | Turkish ad budget regulation: sponsorship exclusion 25% to 50% for large platforms | Platform ad budgets | [Secondary, Paksoy] |
 | 2025-08-29 | US de minimis suspended for all countries | Cross-border costs | [Official, via offer-strategy research] |
 | 2025-10-11 | Turkey price tag lookback 10 days | Price history rules | [Official, via secondary] |
@@ -92,11 +95,11 @@
 | 2025-12 | Amazon EU fee cuts announced; US 2026 fee update announced | Fee models | [Official] |
 | 2025-12-15 | Some EU FBA parcel and clothing referral cuts start | EU margins | [Secondary, Contested] |
 | 2025-12-25 | Turkish Article 12 administrative fines raised 25.49% for 2026 | Compliance cost | [Official] |
-| 2026-01-01 | US FBA prep and labeling services end; Amazon view attribution change; Turkish Distance Contracts amendment in force; Zalando fee structure change | Operations and reporting | [Secondary; Zalando Unverified] |
+| 2026-01-01 | US FBA prep and labeling services end; Amazon view attribution change; Turkish Distance Contracts amendment in force; Zalando fee structure change (start date inferred) | Operations and reporting | [Secondary; Zalando start date Unverified] |
 | 2026-01-05 | Amazon EU referral and FBA cuts effective | EU margins | [Official] |
 | 2026-01-15 | Amazon US 2026 fees effective | US margins | [Secondary quoting Official] |
-| 2026-01-21 | SAFE-T claim window 30 days (US FBM) | Claims process | [Unverified] |
-| 2026-01-26 | FBM refunds within 4 calendar days (US) | Operations | [Unverified] |
+| 2026-01-21 | SAFE-T filing window cut from 60 to 30 days announced (US FBM), effective 2026-02-16 | Claims process | [Reported, 2026-10] |
+| 2026-01-26 | FBM refunds within 4 calendar days of return receipt (US; was 2 business days) | Operations | [Reported, 2026-10] |
 | 2026-02-02 | Amazon Ads MCP Server open beta | Agent access to ads | [Secondary] |
 | 2026-02-02 | Walmart New-Seller Savings 2026 window opens (to 2027-01-31) | US entry incentives | [Official] |
 | 2026-02-12 | Turkish Constitutional Court decision E.2024/187, K.2026/42 on marketplace liability | Liability from 2027-03-02 | [Secondary, law firms] |
@@ -105,10 +108,10 @@
 | 2026-03-02 | Turkish 6563 thresholds raised 48.07%; Allegro fee changes | Obligations scope; PL fees | [Official] |
 | 2026-03-09 | SP-API fees postponed indefinitely | Developer costs | [Secondary] |
 | 2026-03-25 | Sponsored Prompts paid GA in the US | New CPC surface | [Secondary, multiple] |
-| 2026-04-17 | Reported US FBA fuel and logistics surcharge 3.5% | US margins | [Unverified] |
+| 2026-04-17 | FBA fuel and logistics surcharge: 3.5% US and CA, 1.5% EU and UK (BWP and MCF from 2026-05-02) | US and EU margins | [Reported, 2026-10] |
 | 2026-05 | TikTok Shop "Sell Across Europe" announced | EU cross-border | [Secondary] |
 | 2026-05-12 | SP-API fees cancelled "at this time" | Developer costs | [Secondary] |
-| 2026-05-13 | Rufus renamed Alexa for Shopping (US) | Naming, AI shopping | [Secondary, multiple] |
+| 2026-05-13 | Rufus renamed Alexa for Shopping (US) | Naming, AI shopping | [Reported, 2026-10] |
 | 2026-06-02 | Constitutional Court decision published (Official Gazette 33268) | Effective 2027-03-02 | [Secondary] |
 | 2026-06-15 | TikTok Shop live in Netherlands, Belgium, Austria, Poland | NL and BE competition for bol | [Official] |
 | 2026-06-16 | Allegro cheaper heavy parcel delivery to CZ, SK, HU | Cross-border costs | [Official] |
@@ -119,7 +122,7 @@
 | 2026-07-09 | Etsy DDP for non-US sellers shipping to US | Cross-border | [Secondary] |
 | 2026-07-20 | Featured offer change rollout in EU and UK | EU featured offer | [Secondary] |
 | 2026-08-01 | Turkish discount ad 10 day prior price rule in force | Promotions in TR | [Official, via secondary] |
-| 2026-08 | Turkish draft regulation on cargo liability and seller data portability | Possible new duties | [Unverified] |
+| 2026-08 | Turkish draft regulation on cargo liability, free seller data transfer and trademarks in search ads (draft, not in the Official Gazette) | Possible new duties | [Reported, 2026-10] |
 | 2026-08-27 | bol 6 Sponsored Products positions on mobile | More mobile ad inventory | [Official] |
 | 2026-09-08 | New Trendyol Express tariff list reported | TR shipping costs | [Secondary] |
 | 2026-09-09 | bol LVB tariffs for 3XS and XXS | NL fulfillment costs | [Secondary] |
@@ -154,10 +157,10 @@
 | Does A+ text index for search? | Some sellers report indexing | Others see no effect | Do not rely on A+ for indexing; put Tier 1 terms in title, bullets, backend [Contested] |
 | Value of DSP for mid-size sellers | Upper funnel builds branded search and NTB | Hard to measure, minimums high | Test at scale with AMC or lift reads only |
 | LVB vs own fulfillment for buy block on bol | LVB favored for promise reliability | Strong own logistics matches it | Choose per SKU on economics and promise |
-| Trendyol commission base (VAT-inclusive or exclusive) | Paraşüt: VAT-exclusive base plus VAT on commission | Fenikya: VAT-inclusive | Read the panel's agreement screen; model both |
+| Trendyol commission base (VAT-inclusive or exclusive) | Paraşüt: VAT-exclusive base plus VAT on commission | Fenikya, IdeaSoft and the Trendyol seller academy (official, search summary): VAT-inclusive | Read a real commission invoice and the panel's agreement screen; model both |
 | Amazon EU fee effective dates | 2025-12-15 for some lines | 2026-01-05 and 2026-02-01 in other reports | Use the dated notice per store |
-| Turkish return shipping cost after 2026 | Seller keeps paying (Ministry decision) | Consumer may pay (some blogs) | Seller pays unless counsel confirms otherwise [Contested] |
-| Vine billing timing | After 30 days with at least one review | 7 days after first review | Check the enrollment page |
+| Turkish return shipping cost after 2026 | Seller keeps paying (Ministry decision; the consumer-pays plan was reported withdrawn) | Consumer may pay (some blogs) | Seller pays; a consumer using the carrier the seller named pays nothing per the Ministry page [Unverified, direction supported] |
+| Vine billing timing | After 30 days with at least one review | 7 days after first review | Check the enrollment page; no fee if no review arrives within 90 days (official page via search summary) |
 | Featured offer announcement date | 2026-07-06 | 2026-07-08 | Immaterial; rollout dates matter |
 
 ## 6. What top operators do differently
@@ -217,9 +220,10 @@ Agents compare a project against its own history first; benchmarks second.
 | Amazon Ads MCP Server | Official MCP (open beta) | Since 2026-02-02 | [Secondary] |
 | Amazon Ads Agent | Console AI agent (beta) | Since unBoxed 2025 | [Official] |
 | bol Retailer API v10 | Official API | Current; endpoint deprecations | [Official] |
-| bol Advertising API | Official API | Version to verify | [Unverified] |
+| bol Advertising API | Official API | v11 per docs (11.0 2023-12-20, 11.1 2025-09-03 reported); v9 and v10 removed; same JWT auth as the Retailer API | [Unverified, official docs via search summary only] |
 | Trendyol seller APIs and Developer Tools MCP; official Claude Code plugin | Official | 2026 | [Official GitHub] |
 | Community Trendyol MCPs (koraynar, bevren, gazi060-design) | Community | Varying write scopes | [Secondary] |
+| Hepsiburada merchant APIs | Official API | Docs at developers.hepsiburada.com [Reported, 2026-10]; API name, auth method and rate limits unconfirmed | [Unverified details] |
 | Read-only Trendyol plus Hepsiburada MCP (acar32furkan-glitch) | Community | GET only | [Secondary] |
 | Community SP-API MCPs (ailumia, MarceauSolutions, jay-trivedi, coaxon) | Community | Varying | [Secondary] |
 | Allegro REST API, eBay Sell APIs, Walmart Marketplace APIs, Etsy Open API v3, Zalando zDirect, TikTok Shop Partner API | Official APIs | Current | [Prior knowledge] |
@@ -245,16 +249,16 @@ Agents compare a project against its own history first; benchmarks second.
 - Sponsored Prompts reporting: when will Amazon break out Alexa for Shopping placements and allow prompt-level controls? Expected pattern of 3 to 6 months after commercial launch is a vendor guess [Unverified].
 - Alexa for Shopping outside the US: timing of the rename and Sponsored Prompts in EU stores.
 - Featured offer: measurable effect of the July 2026 gate removal on brand owners' Buy Box share; watch through end of 2026.
-- US FBA 3.5% fuel and logistics surcharge (2026-04-17): confirm or drop.
-- Vine fee change for products under USD 100 (March 2026): confirm or drop.
+- Fuel and logistics surcharges (US 3.5%, EU and UK 1.5%; confirmed at L3 on 2026-10-09): Amazon calls them temporary; watch for an end date.
+- Vine: the "USD 0 for products under USD 100" claim was contradicted on 2026-10-09 (the free tier is by units); dropped.
 - AMC paid features pricing from 2027.
 - Amazon Ads unified Campaign Manager general availability and DSP minimums.
-- bol Advertising API version and any 2026 to 2027 Sponsored Products bidding changes.
+- bol Advertising API release notes (v11 reported; open api.bol.com to confirm) and any 2026 to 2027 Sponsored Products bidding changes.
 - Turkish draft regulation on cargo liability and seller data portability: final text and dates.
 - How Trendyol and Hepsiburada adapt onboarding and seller contracts before marketplace liability starts on 2027-03-02.
-- Trendyol commission base (VAT-inclusive vs exclusive) and dynamic commissions: confirm from a seller panel.
-- Zalando 2026 fee structure details (behind login).
-- TikTok Shop Portugal launch date and Sell Across Europe availability date (2026-10-19 reported by one source).
+- Trendyol commission base (the official seller academy points to VAT-inclusive; third parties disagree) and dynamic commission tariffs: confirm on a real commission invoice and in the seller panel.
+- Zalando 2026 fee amounts and the September 2026 standard fee change (behind login).
+- TikTok Shop Portugal: reported live from late June 2026 by three Portuguese outlets (The Portugal News 2026-06-23, NiT, Portugal Resident), no official TikTok notice found. Sell Across Europe: no activation day published ("shortly after" 2026-06-15); a UK to EU pilot from 2026-09-21 and a 2026-10-19 date each come from one source.
 - Amazon Haul seller access: invitation only vs Seller Central interest form.
 
 ## 12. Sources
@@ -343,3 +347,31 @@ Agents compare a project against its own history first; benchmarks second.
 82. Top Amazon MCP Servers for Ads and Seller Data (2026). Marketplace Ad Pros. https://marketplaceadpros.com/guides/top-amazon-mcp-servers-2026/ (2026)
 83. Hepsiburada BuyBox rules and tips. Sentos. https://www.sentos.com.tr/hepsiburada-buybox-nasil-alinir-kurallar-ve-ipuclari/ (2026)
 84. Trendyol Buybox guide. Sentos. https://www.sentos.com.tr/trendyol-buybox-nedir-nasil-kazanilir/ (2026)
+
+Added in the verification pass of 2026-10-09 (search summaries; pages not opened in full):
+
+85. Seller Forums thread: fuel and logistics surcharge (US and CA). Amazon Seller Forums. https://sellercentral.amazon.com/seller-forums/discussions/t/7cbc0233-ee5b-4359-978a-dee7cad5c6f4 (2026-04)
+86. Amazon to add fuel and logistics surcharges. Digital Commerce 360. https://www.digitalcommerce360.com/2026/04/03/amazon-to-add-fuel-and-logistics-surcharges/ (2026-04-03)
+87. Amazon to issue 3.5% surcharge on fulfillment services as fuel, logistics costs rise. Modern Retail. https://www.modernretail.co/operations/amazon-to-issue-3-5-surcharge-on-fulfillment-services-as-fuel-logistics-costs-rise/ (2026-04-02)
+88. Seller Forums thread: fuel and logistics surcharge (EU and UK). Amazon Seller Forums EU. https://sellercentral-europe.amazon.com/seller-forums/discussions/t/cb3452e9-3803-435b-bfc2-e3b6a10a9e42 (2026-04)
+89. 1.5% Amazon fuel surcharge for FBA and MCF from 17th April. ChannelX. https://channelx.world/2026/04/1-5-amazon-fuel-surcharge-for-fba-mcf-from-17th-april/ (2026-04-08)
+90. Amazon Vine. Amazon. https://sell.amazon.com/programs/vine (2026)
+91. Amazon Vine Program for Sellers: 2026 Eligibility, Costs, and Workflow. SellerSprite. https://www.sellersprite.com/en/blog/amazon-vine-program-sellers (2026)
+92. Amazon to Change Refund Policy for Fulfilled by Merchant Orders. EcommerceBytes. https://ecommercebytes.com/2025/12/23/amazon-to-change-refund-policy-for-fulfilled-by-merchant-orders/ (2025-12-23)
+93. Amazon Updates FBM Refund Rules Effective January 26, 2026. EcomCrew. https://www.ecomcrew.com/amazon-fbm-refund-policy-update-2026/ (2026)
+94. Amazon SAFE-T Claim Filing Window Shrinks to 30 Days for US Sellers. My Amazon Guy. https://myamazonguy.com/news/amazon-safe-t-claim-filing-window/ (2026)
+95. Rufus AI assistant page (rename notice). About Amazon. https://aboutamazon.com/news/retail/amazon-rufus-ai-assistant-personalized-shopping-features (2026)
+96. Marketplace Briefing: Why Amazon discontinued its AI-powered Rufus chatbot for Alexa shopping agent. Modern Retail. https://www.modernretail.co/technology/marketplace-briefing-why-amazon-discontinued-its-ai-powered-rufus-chatbot-for-alexa-shopping-agent/ (2026)
+97. Fees and incentives overview (Partner Program accounting and fees). Zalando Partner University. https://partner.zalando.com/university/pp/accounting-and-fees (2026)
+98. Zalando consolidates partnership models: Connected Retail to be discontinued. FashionUnited. https://fashionunited.com/news/business/zalando-consolidates-partnership-models-connected-retail-to-be-discontinued/2026042371971 (2026-04-23)
+99. Advertising API overview (v11). bol. https://api.bol.com/retailer/public/Retailer-API/v11/functional/advertising-api/aapi-overview.html (2026)
+100. TikTok Shop startet in Portugal. The Portugal News. https://www.theportugalnews.com/de/nachrichten/2026-06-23/tiktok-shop-startet-in-portugal/1044617 (2026-06-23)
+101. TikTok Shop grows to new EU merchant countries. Social Media Today. https://www.socialmediatoday.com/news/tiktok-shop-grows-to-new-eu-merchant-countries/821443/ (2026-06)
+102. Seller academy pages on commissions (detay/5, detay/6) and price dependent commission (detay/366). Trendyol Akademi. https://akademi.trendyol.com/satici-bilgi-merkezi/detay/5 (2026)
+103. Trendyol 2026 Komisyon Oranları. IdeaSoft. https://www.ideasoft.com.tr/trendyol-komisyon-oranlari/ (2026)
+104. Hepsiburada developer portal. Hepsiburada. https://developers.hepsiburada.com (2026)
+105. İnternet alışverişlerinde kargo ve reklam kuralları değişiyor. hisse.net. https://www.hisse.net/haber/internet-alisverislerinde-kargo-ve-reklam-kurallari-degisiyor-89152 (2026)
+106. Ticaret Bakanlığı'ndan e-ticaret taslağı: Yeni kurallar geldi. YatırımX. https://www.yatirimx.com.tr/ekonomi/ticaret-bakanligindan-e-ticaret-taslagi-yeni-kurallar-geldi/23687 (2026)
+107. Mesafeli Sözleşmeler Yönetmeliğinde değişiklik (24.05.2025). Alomaliye. https://www.alomaliye.com/2025/05/24/mesafeli-sozlesmeler-yonetmeliginde-degisiklik-24-05-2025/ (2025-05-24)
+108. İade edilen ürünün kargo ücretini satıcılar ödemeye devam edecek. TRT Haber. https://www.trthaber.com/haber/ekonomi/iade-edilen-urunun-kargo-ucretini-saticilar-odemeye-devam-edecek-908240.html (2025)
+109. Commission. bol Partner Platform. https://partnerplatform.bol.com/en/idp/commission (2026)

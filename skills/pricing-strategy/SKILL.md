@@ -159,7 +159,7 @@ Calculator: `python3 skills/pricing-strategy/scripts/basket_economics.py --demo`
 | Left digit bias | 1 cent over a 99 ending read as 15 to 25 cents | Strulov-Shlain, REStud [Study] | US grocery scanner data |
 | Mean price elasticity | about -2.6 | Bijmolt et al. 2005 [Study, prior knowledge] | Brand level, older |
 | SaaS hybrid pricing | 37% of 230 companies; 29% have AI credits | Growth Unhinged [Study, 2026] | Survey |
-| Grocery retailer margin on shelf | 25 to 35% commonly cited | Agency source [Unverified] | Use actual sell-in |
+| Grocery retailer margin on shelf | 25 to 35% commonly cited; no credible bar level figure found (whole supermarket gross margin about 28 to 29%) | Agency sources [Unverified]; ACM market study ACM/25/197667 results expected end 2026 | Treat as an assumption; use actual sell-in and trade terms |
 
 ## What top consultants do differently
 - They start from the cost to serve per basket, not the cost per unit, because fixed costs per order decide whether small baskets make money.
@@ -283,9 +283,9 @@ Check before relying on an input; record the check date. Use the `ads-verify` sk
 |-------|-------|----------------|
 | Dutch carriers | postnl.nl/tarieven (business rate PDF and tariff book), dhlecommerce.nl fuel surcharge index, DPD and Sendcloud rates | Band prices, letterbox price, monthly surcharge |
 | Turkish carriers | Yurtiçi, Aras, MNG, Sürat official quotes; marketplace cargo tables (Trendyol, Hepsiburada) | Desi bands, KDV inclusion, contracted vs list |
-| Payments | stripe.com/en-nl/pricing, mollie.com pricing, Adyen pricing page, iyzico and PayTR price pages | Method fees, Wero rollout |
-| Marketplaces | aboutamazon.eu and Seller Central fee pages; bol.com Verkoopaccount Tarieven; Trendyol and Hepsiburada seller panels | Referral, fixed and service fees |
-| VAT | Belastingdienst; GİB KDV lists; national tax sites | Product classification |
+| Payments | stripe.com/en-nl/pricing, mollie.com/pricing; merchant offer or quote for Adyen amounts, iyzico and PayTR (PayTR publishes no rates) | Method fees, Wero rollout |
+| Marketplaces | aboutamazon.eu and Seller Central fee pages; partnerplatform.bol.com/en/idp/commission and the bol seller account; Trendyol and Hepsiburada seller panels | Referral, fixed and service fees |
+| VAT | Belastingdienst; GİB KDV lists and a GİB özelge per GTİP for edge products (bars, supplements); national tax sites | Product classification |
 | EU pricing law | EUR-Lex, curia.europa.eu (C-62/25), European Commission DFA page | DFA proposal status (planned late 2026), unit and delivery cost display |
 | Competition law | European Commission competition press releases, rekabet.gov.tr decisions, ACM, CMA | RPM and parity cases |
 | Turkey macro and price rules | TÜİK CPI (monthly, early in the month), TCMB FX, ticaret.gov.tr, Resmî Gazete | Inflation, 10 day rule, unfair price enforcement |

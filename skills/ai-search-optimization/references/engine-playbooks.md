@@ -140,7 +140,7 @@ Plays:
 | Engine | Levers |
 |--------|--------|
 | Siri, Spotlight, Apple Intelligence | Applebot access; Apple Business Connect for local; App Store listing quality |
-| Amazon Rufus, Alexa+ | Amazon listing completeness, Q&A, reviews, A+ content (hand off listing work to `commerce-feeds`) |
+| Amazon Alexa for Shopping (Rufus renamed in the US on 2026-05-13 [Reported, 2026-10]), Alexa+ | Amazon listing completeness, Q&A, reviews, A+ content (hand off listing work to `commerce-feeds`) |
 | DuckDuckGo DuckAssist | Bing health plus own site clarity |
 | Brave | Brave Search indexing |
 | DeepSeek, Mistral and regional engines | Prompt test in the market; usually low priority outside their home markets |

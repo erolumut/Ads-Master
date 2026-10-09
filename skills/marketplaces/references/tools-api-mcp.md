@@ -22,8 +22,8 @@
 
 ## 2. MCP servers
 
-| Server | Owner | Scope | Write capability | Recommendation |
-|--------|-------|-------|------------------|----------------|
+| Server | Owner | Scope | Write capability | Recommendation | Label |
+|--------|-------|-------|------------------|----------------|-------|
 | Amazon Ads MCP Server (open beta) | Amazon Ads | Sponsored Products, Sponsored Brands, display, DSP, reporting, account settings; AMC saved queries reported in 2026 | Yes (create, update, delete reported) | Start read only (reporting). Writes only through narrow approved operations with the guard hook; never delete (G4) | [Secondary, 2026] |
 | SP-API dev MCP (`@amazon-sp-api-release/sp-api-dev-mcp`, in `amzn/selling-partner-api-samples`) | Amazon (samples, MIT-0) | Developer assistant: docs search, live API calls, code samples; workflow builder (AWS Step Functions) | Can call APIs | Use for building integrations; not as a daily operations tool without review | [Official GitHub, via secondary] |
 | Community SP-API MCP servers (for example ailumia SP-API MCP, MarceauSolutions amazon-seller-mcp, jay-trivedi amazon_sp_mcp, coaxon amazon-mcp) | Independent | Orders, inventory, listings, reports; some include Ads API | Varies | Review code, license, maintenance and write scopes before use; read-only credentials where possible | [Secondary listings, Unverified quality] |

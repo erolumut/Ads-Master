@@ -70,8 +70,8 @@ Hard rules for the agent:
 ## 6. Marketplace specifics (summary)
 
 - Amazon: the featured offer (buy box) considers price competitiveness against other places customers can buy, including the brand's own site; DTC promos can suppress the featured offer [Official policy, via offer-strategy research]. Amazon EU fees fell for low price items from 2026-01-05 (grocery 5% referral up to EUR 10) [Official].
-- bol.com: fixed fee per item plus category commission (reported, verify); price competitiveness affects buy box ("koopblok") [Unverified].
-- Trendyol and Hepsiburada: high category commissions (food reported 10 to 15.25% on Trendyol) plus service fees; campaign participation pushes prices down; check fee and campaign terms before setting the marketplace pack price [Unverified].
+- bol.com: fixed fee per item plus category commission (reported, verify in the seller account); price competitiveness affects buy box ("koopblok") [Unverified].
+- Trendyol and Hepsiburada: high category commissions (Trendyol food rates are unconfirmed: sources range from 5% to 20% and vary by seller level and brand category) plus service fees; campaign participation pushes prices down; read the commission table in the seller panel and the campaign terms before setting the marketplace pack price [Unverified].
 - Price the marketplace pack so CM per unit after fees is at or above the DTC CM2 per unit target, or treat marketplace as a reach channel with a lower target agreed by the human.
 
 ## 7. Wholesale and distributor tiers

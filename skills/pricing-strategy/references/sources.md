@@ -17,6 +17,7 @@ Research date: 2026-10-09. Direct page fetching was blocked in the research envi
 | 9 | Aras Kargo Ücretleri 2026 | Sentos | https://www.sentos.com.tr/aras-kargo-ucretleri-guncel-liste/ | 2026-07 | List prices [Unverified] |
 | 10 | 2026 Yurtiçi Kargo Ücretleri | Kargonomi | https://www.kargonomi.com.tr/blog/yurtici-kargo-ucretleri-2026/ | 2026 | List prices [Unverified] |
 | 11 | Trendyol Kargo Ücretleri 2026 | Dopigo | https://www.dopigo.com/trendyol-kargo-ucretleri/ | 2026 | Marketplace contracted rates [Unverified] |
+| 65 | Aras Kargo Domestic Standard Price List 2026 | Aras Kargo (Official) | https://www.araskargo.com.tr/assets/images/pdf/en/aras-cargo-standard-price-list-2026-en.pdf | 2026-01 | Official list exists, valid from 2026-01-01; bands not read (search summary) |
 
 ## Payments
 
@@ -25,11 +26,17 @@ Research date: 2026-10-09. Direct page fetching was blocked in the research envi
 | 12 | Pricing and fees (Netherlands) | Stripe | https://stripe.com/en-nl/pricing | 2026 | 1.5% + EUR 0.25 standard EEA cards; iDEAL EUR 0.29 [Official] |
 | 13 | Local payment methods pricing | Stripe | https://stripe.com/en-nl/pricing/local-payment-methods | 2026 | iDEAL Wero [Official] |
 | 14 | iDEAL payments for businesses | Stripe | https://stripe.com/resources/more/ideal-an-in-depth-guide | 2026 | Wero migration timeline [Official] |
-| 15 | Mollie Pricing 2026 | paymentgatewaycost.com | https://paymentgatewaycost.com/mollie-pricing/ | 2026-06 | iDEAL EUR 0.32 claim [Unverified] |
-| 16 | Mollie Review 2026 | comparepsp.com | https://comparepsp.com/providers/mollie/ | 2026 | iDEAL EUR 0.29, cards [Unverified] |
-| 17 | Guide to Adyen Pricing 2026 | Finexer | https://blog.finexer.com/adyen-pricing/ | 2026 | IC++ markup [Unverified] |
+| 15 | Mollie Pricing 2026 | paymentgatewaycost.com | https://paymentgatewaycost.com/mollie-pricing/ | 2026-06 | iDEAL EUR 0.32 (agrees with row 66) [Reported, 2026-10] |
+| 16 | Mollie Review 2026 | comparepsp.com | https://comparepsp.com/providers/mollie/ | 2026 | iDEAL EUR 0.29 (superseded by row 66), cards [Third party] |
+| 17 | Guide to Adyen Pricing 2026 | Finexer | https://blog.finexer.com/adyen-pricing/ | 2026 | IC++ model (agrees with row 70); markup amount [Unverified] |
 | 18 | Sanal POS Komisyon Oranları 2026 | Moyduz | https://www.moyduz.com/blog/sanal-pos-komisyon-oranlari-2026 | 2026 | iyzico and PayTR ranges [Unverified] |
 | 19 | iyzico POS Komisyon Oranları 2026 | poskomisyonlari.com | https://poskomisyonlari.com/pos-firmalari/iyzico-pos-komisyon-oranlari | 2026 | iyzico single and installment rates [Unverified] |
+| 66 | Pricing | Mollie (Official) | https://www.mollie.com/pricing | 2026 | iDEAL EUR 0.32 per successful transaction; cards 1.80%, 2.90%, 3.25% + EUR 0.25 (search summary) |
+| 67 | Paybyrd vs Mollie | Paybyrd | https://www.paybyrd.com/vs/mollie | 2026-04 | Mollie EEA consumer card rate 1.8% + EUR 0.25 (competitor page; search summary) |
+| 68 | Stripe, PayPal, Mollie, Klarna fees 2026: e-commerce comparison | Hayot Expertise | https://hayot-expertise.fr/en/blog/stripe-paypal-mollie-klarna-fees-2026-e-commerce-comparison | 2026 | Mollie EEA card grid (search summary) |
+| 69 | Van iDEAL naar Wero: wat uw mkb-klanten moeten weten | Accountancy Vanmorgen | https://www.accountancyvanmorgen.nl/2026/01/09/van-ideal-naar-wero-wat-uw-mkb-klanten-moeten-weten/ | 2026-01-09 | EPI keeps Wero priced like iDEAL until end 2028 (search summary, single source) |
+| 70 | Pricing | Adyen (Official) | https://www.adyen.com/pricing | 2026 | Fixed processing fee plus payment method fee; IC++ for cards; no setup or monthly fees (search summary) |
+| 71 | Virtual POS | PayTR (Official) | https://www.paytr.com/en/virtual-pos | 2026 | No public rate card; quote by sector, volume, installments (search summary) |
 
 ## Marketplaces
 
@@ -37,11 +44,15 @@ Research date: 2026-10-09. Direct page fetching was blocked in the research envi
 |---|-------|-----------|-----|------|----------|
 | 20 | Update to European Referral and FBA fees for 2026 | Amazon (About Amazon EU) | https://www.aboutamazon.eu/news/empowering-small-business/update-to-european-referral-and-fulfilment-by-amazon-fees-for-2026 | 2025-12 | Grocery 5% up to EUR 10, Low-Price FBA up to EUR 20 [Official] |
 | 21 | Amazon brings forward EU fee cuts to January 5, 2026 | ChannelMax | https://www.channelmax.net/article/amazon-brings-forward-eu-referral-and-fba-fee-cuts-to-january-5-2026-channelmax | 2025-12 | Effective date [Third party] |
-| 22 | Amazon Seller Fees Europe 2026 | Acumen | https://acumenibc.com/amazon-seller-fees-europe-2026/ | 2026 | FBA surcharge 2026-04-17 [Unverified] |
+| 22 | Amazon Seller Fees Europe 2026 | Acumen | https://acumenibc.com/amazon-seller-fees-europe-2026/ | 2026 | FBA surcharge 2026-04-17 (corroborated by rows 72 and 73) [Reported, 2026-10] |
 | 23 | Commissies Bol.com 2026 | Boloo | https://www.boloo.co/blog/commissies-bol-com | 2026 | Fixed fee tiers, category % [Unverified] |
 | 24 | Bol.com Commissie Tarieven 2026 | Winkelfactuur | https://winkelfactuur.nl/nl/blog/bol-com-commissie-tarieven-2026/ | 2026 | Conflicting category % [Unverified] |
-| 25 | 2026 Trendyol Komisyon Oranları | Paraşüt | https://www.parasut.com/blog/trendyol-magaza-komisyon-oranlari | 2026-01 | Food 10 to 15% [Unverified] |
-| 26 | Trendyol Komisyon Oranları 2026 | Sentos | https://www.sentos.com.tr/trendyol-komisyon-oranlari/ | 2026 | Snacks 15.25% [Unverified] |
+| 25 | 2026 Trendyol Komisyon Oranları | Paraşüt | https://www.parasut.com/blog/trendyol-magaza-komisyon-oranlari | 2026-01 | Food 10 to 15%, uncorroborated on 2026-10-09 [Unverified] |
+| 26 | Trendyol Komisyon Oranları 2026 | Sentos | https://www.sentos.com.tr/trendyol-komisyon-oranlari/ | 2026 | Snacks 15.25%, uncorroborated on 2026-10-09 [Unverified] |
+| 72 | Seller Forums thread: fuel and logistics surcharge (EU and UK) | Amazon Seller Forums EU (Official) | https://sellercentral-europe.amazon.com/seller-forums/discussions/t/cb3452e9-3803-435b-bfc2-e3b6a10a9e42 | 2026-04 | 1.5% FBA surcharge from 2026-04-17, MCF from 2026-05-02 (search summary) |
+| 73 | 1.5% Amazon fuel surcharge for FBA and MCF from 17th April | ChannelX | https://channelx.world/2026/04/1-5-amazon-fuel-surcharge-for-fba-mcf-from-17th-april/ | 2026-04-08 | Countries, dates, about EUR 0.05 per unit (search summary) |
+| 74 | Commission | bol Partner Platform (Official) | https://partnerplatform.bol.com/en/idp/commission | 2026 | Where the binding commission and automatic reductions live (search summary) |
+| 75 | Seller academy: commissions | Trendyol Akademi (Official) | https://akademi.trendyol.com/satici-bilgi-merkezi/detay/5 | 2026 | Commission = category rate x current sale price; VAT-inclusive commission invoices (search summary) |
 
 ## Pricing evidence and practice
 
@@ -63,6 +74,8 @@ Research date: 2026-10-09. Direct page fetching was blocked in the research envi
 | 40 | Food brand pricing strategy | eightx | https://eightx.co/blog/food-brand-pricing-strategy | 2025 to 2026 | Retailer margin ranges [Unverified] |
 | 41 | Scaling retail distribution for snack brands | ATTN Agency | https://www.attnagency.com/blog/food-snack-brand-scaling-retail-distribution | 2025 to 2026 | Grocery 25 to 35% margin [Unverified] |
 | 42 | Supermarket cut has doubled since the 90s, suppliers claim | Newshub | https://newshub.co.nz/home/new-zealand/2023/08/revealed-cut-supermarkets-make-on-products-has-more-than-doubled-since-90s-suppliers-claim.html | 2023-08 | 35 to 41% supplier claim [Unverified] |
+| 76 | Consumer watchdog probes Dutch supermarket prices | DutchNews.nl | https://dutchnews.nl/2025/09/consumer-watchdog-probes-dutch-supermarket-prices | 2025-09 | ACM market study ACM/25/197667 on prices and margins, results expected end 2026 (search summary) |
+| 77 | De ACM onderzoekt supermarktprijzen: wat betekent dit voor de sector? | Loyens & Loeff | https://www.loyensloeff.com/nl/insights/news--events/news/de-acm-onderzoekt-supermarktprijzen-wat-betekent-dit-voor-de-sector/ | 2025 | Scope of the ACM study (search summary) |
 
 ## Law and enforcement
 
@@ -78,6 +91,8 @@ Research date: 2026-10-09. Direct page fetching was blocked in the research envi
 | 50 | Rekabet Kurumu lastik sektörü kararı | Ekovitrin | https://www.ekovitrin.com/rekabet-kurumundan-lastik-sektorune-tarihi-ceza-36-milyar-tl/amp | 2026-06 | Brisa fine, RPM issues [Press] |
 | 51 | Seher Gıda RPM settlement | Sibel Öztürk Law | https://sibelozturk.av.tr/yazi/alicilarin-yeniden-satis-fiyatinin-belirlenmesiyle-ilgili-olarak-rekabet-kurulunun-icim-sut-markasiy | 2025 | Settlement amount [Law firm] |
 | 52 | Fahiş fiyat ve stokçuluğa 9 ayda 2,6 milyar lira ceza | Sanayi Gazetesi | https://sanayigazetesi.com.tr/fahis-fiyat-ve-stokculuga-9-ayda-26-milyar-lira-ceza/ | 2026-10 | Ministry of Trade enforcement [Press] |
+| 78 | Gıda KDV oranı indirimi (TÜRMOB note) | TÜRMOB via Alomaliye | https://alomaliye.com/wp-content/uploads/2022/02/turmob-gida-kdv.pdf | 2022-02 | Decision 5189: list (I) food at 1% from 2022-02-14, ÖTV foods excluded (search summary) |
+| 79 | GİB answers on the food VAT cut | Türkiye Gazetesi | https://www.turkiyegazetesi.com.tr/ekonomi/gelir-idaresi-baskanligi-kdv-indirimine-iliskin-tum-merak-edilenler-cevapladi-828789 | 2022 | GİB questions and answers on the 1% food rate (search summary) |
 
 ## Macro (Turkey)
 
@@ -114,15 +129,17 @@ Research date: 2026-10-09. Direct page fetching was blocked in the research envi
 
 ## Verification queue (clear with the `ads-verify` skill before decisions depend on them)
 
-| Item | Current label | How to verify |
-|------|---------------|---------------|
-| Mollie iDEAL fee (EUR 0.29 vs 0.32) | [Contested] | mollie.com pricing page or merchant dashboard |
-| Adyen base fee, markup and minimum invoice | [Unverified] | Adyen contract or sales quote |
-| iyzico and PayTR single payment and installment rates | [Unverified] | Official price pages or merchant offer |
-| bol.com fixed fee tiers and category commissions | [Unverified, conflicting] | Verkoopaccount, Tarieven page |
-| Trendyol food commission and service fee definition | [Unverified, conflicting] | Trendyol seller panel commission list |
-| Amazon FBA 1.5% surcharge from 2026-04-17 | [Unverified] | Seller Central fee announcements |
-| Turkish VAT class for snack and protein bars | [Unverified] | GİB rate lists by GTİP |
-| Retailer margins in Dutch grocery | [Unverified] | The project's own sell-in price and retail contract |
-| Yurtiçi and Aras list prices 2026 | [Unverified] | Carrier quote or contract |
-| CJEU C-62/25 exact conditions | [Official via trade body] | curia.europa.eu judgment text, with `compliance` |
+Pass of 2026-10-09: every row was re-checked from search result summaries; no page was opened in full, so the best level reached is L3. `[Reported, 2026-10]` means two or more independent dated sources agreed (the month is the check month); it is enough for planning, not for a price, spend or live change (that needs L1, L2 or L4). Rows 65 to 79 above are the new sources.
+
+| Item | Status (checked 2026-10-09) | Label now | How to verify, or where the truth lives |
+|------|-----------------------------|-----------|------------------------------------------|
+| Mollie iDEAL fee (EUR 0.29 vs 0.32) | Corrected: EUR 0.32 per successful transaction (mollie.com and paymentgatewaycost.com agree); EUR 0.29 only on third-party and older pages. Mollie cards confirmed: 1.80%, 2.90% and 3.25% + EUR 0.25 | [Reported, 2026-10] | Merchant dashboard before a money decision (L1) |
+| Adyen base fee, markup and minimum invoice | Fee model confirmed (fixed processing fee plus payment method fee, IC++ for cards, no setup or monthly fees). Amounts, the NL iDEAL fee (0.13 plus 0.22, currency inconsistent) and the NL minimum invoice still unverified | Model [Reported, 2026-10]; amounts [Unverified] | Quote based: Adyen contract or sales quote, Customer Area invoices |
+| iyzico and PayTR single payment and installment rates | Still unverified. iyzico help pages cite offers from 4.29% + TRY 0.25 (corporate) and 4.49% (individual), third parties 2.49% to 2.79% + TRY 0.25; PayTR publishes no rate | [Unverified] | Quote based: the merchant offer and merchant panel |
+| bol.com fixed fee tiers and category commissions | Still unverified. Fixed fee set by product type and price incl. VAT; tiers reported about EUR 0.20, 0.40, 0.83 or 0.85 and 2.48; food 4.0% to 6.0% and a temporary 25% discount (2026-07-20 to 2026-12-31) each from one source | [Unverified, conflicting] | Panel only: seller account (Verkoopaccount, Tarieven) |
+| Trendyol food commission and service fee definition | Base: the official seller academy says rate x current sale price with VAT-inclusive commission invoices, third parties disagree. Dynamic commission corrected to price dependent tariffs on suggested products (one source). Snack rate (10% to 15%, 15.25%) uncorroborated. Service fee TRY 10.99 + VAT per shipment (one snippet) | Base [Contested]; rates [Unverified] | Panel only: seller panel commission table (Anlaşma Bilgileri) and a real commission invoice |
+| Amazon FBA 1.5% surcharge from 2026-04-17 | Confirmed: 1.5% on EU and UK FBA fulfilment fees from 2026-04-17 (MCF from 2026-05-02), on the fee not the price; the US and CA 3.5% surcharge also confirmed | [Reported, 2026-10] | Seller Central fee notice per store (L2) or the fee preview report (L1) |
+| Turkish VAT class for snack and protein bars | Still unverified. List (I) food at 1% since Decision 5189 (2022-02-14), ÖTV foods excluded; chocolate, biscuits, wafers and cakes reported at 1%; bar GTİP not confirmed | [Unverified] | GİB özelge (advance ruling) per GTİP |
+| Retailer margins in Dutch grocery | Still unverified. No credible bar margin; whole-supermarket gross margin about 28% to 29% (Statista 2020, Firmfocus 2022); ACM study ACM/25/197667 results expected end 2026 | [Unverified] | The project's own sell-in price and retail contract; the ACM study when published |
+| Yurtiçi and Aras list prices 2026 | Still unverified. Aras official 2026 list PDF exists (valid 2026-01-01), bands not read; no 2026 figure from Yurtiçi itself; contract and marketplace rates about half of list | [Unverified] | Carrier quote or contract |
+| CJEU C-62/25 exact conditions | Not re-checked in this pass | [Official via trade body] | curia.europa.eu judgment text, with `compliance` |
