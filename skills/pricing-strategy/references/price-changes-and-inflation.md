@@ -4,7 +4,7 @@
 
 ## 1. The price lever
 
-A 1% price increase with stable volume raised operating profit by about 11% on average in the classic McKinsey analysis of large companies (Marn and Rosiello 1992) [Study, prior knowledge]. The lever is still large but realization is hard: Simon-Kucher's Global Pricing Study 2025 (over 2,200 respondents, 28 countries) reported average price realization dropping to 43% of targeted increases; 53% use contract indexation but only about half enforce it consistently [Study, 2025-06, figures from brochure via search]. Bain's 2025 Commercial Excellence Agenda found list price increases matched or exceeded input cost increases in 55% of surveyed companies [Study, 2025].
+A 1% price increase with stable volume raised operating profit by about 11% on average in the classic McKinsey analysis of large companies (Marn and Rosiello 1992) [Study, prior knowledge]. The lever is still large but realization is hard: Simon-Kucher's Global Pricing Study 2025 (over 2,200 respondents, 28 countries) reported average price realization dropping to 43% of targeted increases; 53% use contract indexation but only about half enforce it consistently [Study, 2025-06, figures from brochure via search]. Bain's 2025 commercial and revenue growth agenda found list price increases matched or exceeded input cost increases in 55% of surveyed companies [Study, 2025].
 
 ## 2. Allowable volume loss
 

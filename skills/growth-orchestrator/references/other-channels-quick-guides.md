@@ -66,6 +66,8 @@ Verification note: platform minimums and feature names below were not re-checked
 | Borrow | meta-ads for paid social mechanics |
 
 ## 5. Amazon Ads and retail media networks
+> Now covered in depth by the `marketplaces` agent (Amazon, bol.com, Trendyol, Hepsiburada and more). Use this section only as a quick orientation; delegate real work there.
+
 | Aspect | Guidance |
 |--------|----------|
 | When to use | You sell on Amazon or another marketplace (Walmart, Instacart, Target, Noon; in Turkey Trendyol, Hepsiburada, Amazon.com.tr); you are a brand selling through retailers |

@@ -1,12 +1,13 @@
 # Ads Master
 
-**Plug and play growth agents for Claude Code.** Twenty one specialist agents for paid media, SEO, AI search visibility, the storefront, conversion, offers, creative and video production, retention, apps, measurement and compliance. They are built on a deep market research sweep (October 2026) and designed to adapt to any project: ecommerce, lead gen, B2B SaaS, local services, apps and marketplaces, from a $500 test budget to enterprise scale.
+**Plug and play growth agents for Claude Code.** Twenty three specialist agents for paid media, SEO, AI search visibility, the storefront, conversion, offers, pricing, marketplaces, creative and video production, retention, apps, measurement and compliance. They are built on a deep market research sweep (October 2026) and designed to adapt to any project: ecommerce, lead gen, B2B SaaS, local services, apps and marketplaces, from a $500 test budget to enterprise scale.
 
 Install once, drop into any project, and get a senior growth team that audits, plans, builds and reviews, while you keep the final say on every dollar spent and every word published. Safety is enforced twice: by the agents' rules and by deterministic hooks that block risky actions no matter what a model decides.
 
 | At a glance | |
 |---|---|
-| Agents | 21 specialists plus 2 utility skills (`ads-setup`, `ads-review`) |
+| Agents | 23 specialists plus 3 utility skills (`ads-setup`, `ads-review`, `ads-verify`) |
+| Workflow Kit | A separate plugin for any project: model routing (haiku, sonnet, opus, fable), parallel sessions, sprint prompts, plan first sessions, handover, decision log, review guardians, git hooks and gate scripts |
 | Playbook depth | 316 reference modules, about 68,000 lines of procedures, audits, settings, formulas, queries and scripts |
 | Research | 22 dossiers with dated timelines of platform changes (January 2025 to October 2026) and about 3,700 cited URLs |
 | Safety | Gates G0 to G4, automation stages 1 to 5, guard hooks with tests, claims registry, incident runbook |
@@ -35,7 +36,9 @@ Install once, drop into any project, and get a senior growth team that audits, p
 | Conversion and storefront | `storefront-ux` | The store itself: navigation, homepage, on-site search, filters, product pages, cart drawer, checkout extensions, accessibility. A pattern library drawn from open source commerce repos, shipped as code. |
 | | `cro` | Conversion research, landing pages, experiment statistics, in-app browser and mobile checkout details. |
 | | `site-engineer` | Preview, QA, release and rollback for Shopify, WordPress, Next.js and Webflow; launch QA for every ad destination; worst case data tests; security review of changes. |
-| Offer and commerce | `offer-strategy` | Bundles, price ladders, launch offers, discount vs bonus vs free shipping economics, subscriptions, promo calendar, channel conflict. |
+| Offer and commerce | `offer-strategy` | Incentive mechanics: bundles, launch offers, discount vs bonus vs free shipping economics, subscriptions, promo calendar, channel conflict. |
+| | `pricing-strategy` | The commercial pricing consultant: price level vs competitors, cost to serve and margin waterfall, minimum basket and free delivery threshold, price architecture, willingness to pay, channel price corridors, price increases, the Commercial Pricing Report. |
+| | `marketplaces` | Amazon, bol.com, Trendyol, Hepsiburada, Allegro, Zalando, Etsy, eBay, Walmart, noon: marketplace choice, listings, retail media ads, Featured Offer, fees and contribution, account health, price parity with DTC. |
 | | `commerce-feeds` | Merchant Center, Meta and TikTok catalogs, ChatGPT and AI shopping feeds, agentic commerce readiness, custom labels for profit bidding. |
 | Creative | `creative-strategy` | Customer research to angles, hooks, scripts and briefs; creative testing systems; creative analytics; localization. |
 | | `video-studio` | Briefs to finished video ad files: code driven motion (HyperFrames, Remotion), generative video under a spend cap, avatars with disclosure, FFmpeg editing, captions, safe zones, variant batches. |
@@ -93,7 +96,20 @@ This writes `.claude/agents/`, `.claude/skills/`, the guard hook (`.claude/hooks
 
 ### Option C: use this repo as the workspace
 
-Open the repo in Claude Code. The agents load from `.claude/` (symlinked). Run `/ads-setup`. `ads-master/` is git ignored here by default.
+Open the repo in Claude Code. The agents, skills and kits load from `.claude/` (per file symlinks rebuilt by `python3 scripts/link_dev.py`). Run `/ads-setup`. `ads-master/` is git ignored here by default.
+
+### Pick only what you need
+
+`install.sh <project> --pack ecommerce-dtc` (or `marketplace-seller`, `lead-gen-local`, `b2b-saas`, `mobile-app`, `ai-visibility`, `full`). Core (orchestrator, measurement, compliance and the utility skills) is always included. The full decision guide, the packs and the CLAUDE.md snippet are in [docs/HOW_TO_USE.md](docs/HOW_TO_USE.md), which regenerates itself from the repo.
+
+### Workflow Kit (for any project, ads or not)
+
+```text
+/plugin install workflow-kit@ads-master
+# or: scripts/install.sh /path/to/project --kit workflow --no-workspace --no-hooks
+```
+
+Model routing with cheap scouts and extractors, sonnet researchers and mechanics, opus verifiers and a fable advisor; a parallel sessions ledger; sprint, delegation and next session prompts; plan first sessions; handover; decision log with placeholder numbering; CLAUDE.md budget check; review guardians; validate only git hooks; workflow YAML lint and commit time invariants. Every script exits 0 pass, 1 fail, 2 could not run. The patterns and their origins: [docs/WORKFLOW_PATTERNS.md](docs/WORKFLOW_PATTERNS.md).
 
 ### Option D: other AI tools
 
@@ -121,6 +137,8 @@ Requirements: Claude Code, Python 3 for the guard and scripts, FFmpeg for video-
 - "Can we say 'high protein' and 'healthy' in our Dutch ads?"
 - "Make our product and category pages more likely to be cited by ChatGPT and AI Overviews."
 - "Run the SEO preflight on our staging site before we launch."
+- "Write a commercial pricing report: our prices vs competitors per 100 g, cost to serve, minimum basket and free delivery threshold."
+- "Should we sell on bol.com or Amazon first, and what does each leave us per order after fees and ads?"
 
 ---
 
@@ -142,16 +160,21 @@ Requirements: Claude Code, Python 3 for the guard and scripts, FFmpeg for video-
 
 ```
 .claude-plugin/          plugin.json and marketplace.json
-agents/                  21 subagent definitions
+agents/                  23 subagent definitions
 skills/<agent>/          SKILL.md + references/ (+ scripts/ where useful)
 skills/ads-setup/        workspace installer + template/ (the per project workspace)
 skills/ads-review/       heartbeat runner
+skills/ads-verify/       evidence ladder for Unverified and Contested claims
+kits/workflow-kit/       Workflow Kit plugin: routing agents, ritual skills, gate scripts, templates
 hooks/hooks.json         guard hooks for plugin installs
 scripts/guard.py         the deterministic guard (with scripts/test_guard.py)
 scripts/install.sh       project installer
-scripts/validate.py      structure, YAML and style validator
+scripts/validate.py      structure, YAML, style, packs, links and docs freshness validator
+scripts/build_docs.py    regenerates the AUTO sections of docs/HOW_TO_USE.md
+scripts/link_dev.py      links agents, skills and kits into .claude/ for this repo
+scripts/unverified_report.py  the verification queue of labeled claims
 research/                market research dossiers behind every playbook
-docs/                    AUTHORING_SPEC.md, GUARDRAILS_MODEL.md
+docs/                    HOW_TO_USE.md, AUTHORING_SPEC.md, GUARDRAILS_MODEL.md, WORKFLOW_PATTERNS.md, packs.json
 AGENT_REGISTRY.md        roster, KPIs, cadences, handoffs
 .claude/                 CLAUDE.md for working in this repo, symlinks that load agents and skills
 ```
@@ -166,7 +189,7 @@ Platforms change monthly. Each skill carries a "Knowledge as of" date and a Fres
 
 ## Adding an agent
 
-Copy the closest package, follow `docs/AUTHORING_SPEC.md`, register it in `AGENT_REGISTRY.md`, the growth-orchestrator routing table and the workspace template (HEARTBEAT and memory), then validate. Channels with quick start guides but no dedicated agent yet (Reddit, Pinterest, Snapchat, X, Amazon Ads, CTV, affiliate, influencer) are listed in the growth-orchestrator references.
+Copy the closest package, follow `docs/AUTHORING_SPEC.md`, register it in `AGENT_REGISTRY.md`, the growth-orchestrator routing table and the workspace template (HEARTBEAT and memory), then validate. Channels with quick start guides but no dedicated agent yet (Reddit, Pinterest, Snapchat, X, CTV, affiliate, influencer) are listed in the growth-orchestrator references.
 
 ## Disclaimer
 

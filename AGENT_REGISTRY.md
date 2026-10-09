@@ -4,7 +4,7 @@ Master list of every agent and utility skill in Ads Master. Knowledge as of 2026
 
 ## Agents
 
-21 agents in seven groups. Each group answers one question about the business.
+23 agents in seven groups. Each group answers one question about the business.
 
 ### Strategy and control: where do we grow, and what is true?
 | Agent | Mission | Headline KPIs | Default cadence | Activate when |
@@ -42,6 +42,8 @@ Master list of every agent and utility skill in Ads Master. Knowledge as of 2026
 | Agent | Mission | Headline KPIs | Default cadence | Activate when |
 |-------|---------|---------------|-----------------|---------------|
 | `offer-strategy` | Offers that raise contribution after marketing and win customers worth keeping, without breaking pricing law or channel relationships | Contribution per order by offer, acquisition investment per new customer, discount rate, promo dependency | Monthly, before promos | Ecommerce, subscriptions or a meaningful offer decision |
+| `pricing-strategy` | Prices that maximize contribution at a defensible position: level, architecture, basket and delivery policy, corridors per channel, with a cost model that is never computed on missing inputs | Contribution per order and per basket band, price index vs competitors, price realization, free delivery threshold economics | Monthly price watch, quarterly price review, before any price change | Any decision on what to charge, new product or market, cost shock |
+| `marketplaces` | Profitable marketplace growth with listings, retail media and the Featured Offer, without breaking price parity or account health | Contribution per marketplace after fees and ads, TACoS, Featured Offer share, account health, stock cover | Weekly | Selling or planning to sell on any marketplace |
 | `commerce-feeds` | Every sellable product approved, accurate, findable and profit segmented on every shopping surface, agentic commerce ready | Approval rate, disapproved revenue share, feed to site parity, identifier coverage | Weekly diagnostics | Product catalog |
 
 ### Creative: what we show
@@ -60,7 +62,8 @@ Master list of every agent and utility skill in Ads Master. Knowledge as of 2026
 | Skill | What it does | Invoke |
 |-------|--------------|--------|
 | `ads-setup` | Creates `ads-master/` from the template, scans the codebase, interviews the human, activates agents, links CLAUDE.md | `/ads-setup` (plugin: `/ads-master:ads-setup`) |
-| `ads-review` | Runs the heartbeat: daily report, weekly learning loop, monthly reallocation, quarterly reset | `/ads-review weekly` (plugin: `/ads-master:ads-review weekly`) |
+| `ads-review` | Runs the heartbeat: daily report with the alert queue, weekly learning loop, monthly reallocation, quarterly reset | `/ads-review weekly` (plugin: `/ads-master:ads-review weekly`) |
+| `ads-verify` | Turns Unverified and Contested claims into project facts via the evidence ladder and `VERIFIED.md` | `/ads-verify <claim or package>` |
 
 ## Most common handoffs
 
@@ -79,6 +82,9 @@ Master list of every agent and utility skill in Ads Master. Knowledge as of 2026
 | Channel agents, cro, commerce-feeds | offer-strategy | Offer, bundle, promo and price decisions with full economics |
 | measurement, meta-ads, linkedin-ads | lifecycle-crm | Consent, suppression, customer audiences, LTV values |
 | google-ads, meta-ads, tiktok-ads, measurement | mobile-app-growth | App campaigns, MMP, SKAN and AdAttributionKit |
+| offer-strategy, growth-orchestrator, market-intel | pricing-strategy | Price level, price architecture, basket and delivery thresholds, price changes |
+| pricing-strategy | offer-strategy | Incentive mechanics and promo calendar on top of the base price |
+| Channel agents, commerce-feeds, pricing-strategy | marketplaces | Marketplace listings, retail media, fees and price parity |
 | Any agent | market-intel | Competitor offers, ads, rankings, pricing |
 | Any agent | growth-orchestrator | Budget across channels, priorities, forecasts |
 
@@ -86,5 +92,6 @@ Master list of every agent and utility skill in Ads Master. Knowledge as of 2026
 
 | Version | Date | Notes |
 |---------|------|-------|
+| 1.2.0 | 2026-10-09 | pricing-strategy and marketplaces agents, ads-verify skill and evidence ladder, living HOW_TO_USE guide with packs, model routing, Workflow Kit plugin (routing agents, parallel sessions, prompts, handover, decision log, guardians, git hooks, gate scripts), tracking plan as code, metric additivity, alert queue, nested subagents disabled by design. |
 | 1.1.0 | 2026-10-09 | Seven new agents (compliance, video-studio, site-engineer, storefront-ux, offer-strategy, lifecycle-crm, mobile-app-growth), deterministic guardrail hooks with automation stages, daily report, SEO preflight, unified metrics, claims registry, decision log and incident runbook. |
 | 1.0.0 | 2026-10-08 | First release. 14 agents, 16 skills. Research sweep plus a second live verification pass on every package (about 470 live searches in total). |
