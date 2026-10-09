@@ -132,7 +132,7 @@ Legal and ethical limits: collect public prices only; respect site terms and rob
 | Our bar (retail shelf) | 1 x 40 g | 2.99 (illustrative) | none | 2.99 | 2.99 | 2.74 | 40 | 7.48 |
 | Our bar (DTC hero 24) | 24 x 40 g | 59.95 (illustrative) | none | 59.95 | 2.50 | 2.29 | 40 | 6.24 |
 
-P_A and P_B are placeholders. Replace them with dated captures from `market-intel`. Note how per 100 g changes the story for a lighter bar: a 40 g bar at EUR 2.50 is EUR 6.24 per 100 g, more than a 55 g bar at EUR 2.75 (EUR 5.00 per 100 g). If the shelf shows unit prices per 100 g, the lighter product looks expensive even when the per bar price is lower. Positioning must address that.
+P_A and P_B are placeholders. Replace them with dated captures from `market-intel`. Note how per 100 g changes the story for a lighter bar: a 40 g bar at EUR 2.50 is EUR 6.25 per 100 g (6.24 from the unrounded EUR 59.95 / 24), more than a 55 g bar at EUR 2.75 (EUR 5.00 per 100 g). If the shelf shows unit prices per 100 g, the lighter product looks expensive even when the per bar price is lower. Positioning must address that.
 
 ## 11. Common mistakes
 

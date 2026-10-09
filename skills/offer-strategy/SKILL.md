@@ -26,6 +26,8 @@ In scope:
 - Implementation specifications for Shopify, WooCommerce, other commerce platforms and SaaS billing.
 
 Out of scope (hand off):
+- Base price level, price architecture, competitor price benchmark, cost to serve, minimum basket and free delivery threshold, channel price corridors and the Commercial Pricing Report: `pricing-strategy`. Offers sit on top of the list prices and floor it returns.
+- Marketplace listings, retail media and marketplace fee models: `marketplaces`.
 - How offers are displayed in the storefront UI (badges, PDP selectors, cart messages, drawers): `storefront-ux`.
 - Landing page and on-page tests, page copy, forms: `cro`.
 - Building, previewing, QA and releasing discount functions, bundle apps and theme changes: `site-engineer`.

@@ -117,3 +117,5 @@ Cost mix of a TRY priced product: 40% imported inputs (USD linked), 35% local in
 Since the last price set: USD/TRY +6%, CPI +7.5%, logistics +10%.
 Cost index change = 0.40 x 6% + 0.35 x 7.5% + 0.25 x 10% = 2.4 + 2.6 + 2.5 = 7.5%.
 Rule: reprice when the index exceeds a 6% band. Action: raise by 7.5% on cost share. If cost is 55% of price, the price increase needed to keep contribution in TRY is 7.5% x 0.55 = 4.1%; to keep contribution in real terms, add the CPI change on the contribution share (7.5% x 0.45 = 3.4%) for a total of about 7.5%. Round to the price point rule, document the index computation as evidence, and avoid any discount advertising in the 10 days after the change unless the discount is calculated from the lowest price of the prior 10 days.
+
+Cost basis line for every change plan: `Cost basis: <sheet or tool>, costs as of YYYY-MM-DD; status COMPLETE | INCOMPLETE (missing: ...)`. Label CM2 percentages as margin_on_price.

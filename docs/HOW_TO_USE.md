@@ -139,11 +139,13 @@ Tips: if your CLAUDE.md is long, move area specific rules into path scoped files
 | `lifecycle-crm` | Retention and lifecycle specialist for email, SMS, RCS, WhatsApp, push and in-app (Klaviyo, Braze, Customer.io, Iterable, Omnisend, Mailchimp, Attentive, Postscript, HubSpot). | ecommerce-dtc, lead-gen-local, b2b-saas, mobile-app | inherit |
 | `linkedin-ads` | LinkedIn Ads specialist for B2B paid social in Campaign Manager. | b2b-saas | inherit |
 | `market-intel` | Competitor and market intelligence for paid media, SEO and AI search. | ecommerce-dtc, marketplace-seller, lead-gen-local, b2b-saas, mobile-app, ai-visibility | inherit |
+| `marketplaces` | Marketplace channel operator for Amazon (Seller Central, Vendor Central, Amazon Ads, DSP basics), bol.com, Trendyol, Hepsiburada, Allegro, Zalando, Etsy, eBay, Walmart, noon and Amazon in... | marketplace-seller | inherit |
 | `measurement` | Measurement and tracking engineer for paid media. | core | inherit |
 | `meta-ads` | Meta advertising specialist for Facebook, Instagram, Threads, WhatsApp, Messenger and Audience Network. | ecommerce-dtc, lead-gen-local, mobile-app | inherit |
 | `microsoft-ads` | Microsoft Advertising specialist for Bing, Yahoo, AOL, DuckDuckGo, Edge, Microsoft Copilot and the Microsoft Audience Network. | lead-gen-local, b2b-saas | inherit |
 | `mobile-app-growth` | Mobile app growth specialist for iOS and Android. | mobile-app | inherit |
 | `offer-strategy` | Offer, pricing and merchandising strategist. | ecommerce-dtc, marketplace-seller, b2b-saas | inherit |
+| `pricing-strategy` | Commercial pricing consultant. | ecommerce-dtc, marketplace-seller, b2b-saas, mobile-app | inherit |
 | `seo` | SEO specialist for Google and Bing in the AI Overviews and AI Mode era. | ecommerce-dtc, lead-gen-local, b2b-saas, ai-visibility | inherit |
 | `site-engineer` | Website engineering and release QA for Shopify themes, WordPress and WooCommerce, Next.js and headless storefronts and Webflow. | ecommerce-dtc, lead-gen-local, b2b-saas, ai-visibility | inherit |
 | `storefront-ux` | Ecommerce storefront UX and implementation specialist. | ecommerce-dtc | inherit |
@@ -170,11 +172,13 @@ Tips: if your CLAUDE.md is long, move area specific rules into path scoped files
 | `lifecycle-crm` | Retention and lifecycle marketing (CRM) for email, SMS, RCS, WhatsApp, push and in-app. |
 | `linkedin-ads` | LinkedIn Ads playbook for B2B paid social in Campaign Manager. |
 | `market-intel` | Competitor and market intelligence playbook for paid media, SEO and AI search. |
+| `marketplaces` | Marketplace channel playbook for selling and advertising on Amazon (Seller Central, Vendor Central, Brand Registry, A+, Brand Store, Featured Offer or Buy Box, FBA vs FBM, Vine, Amazon Ads... |
 | `measurement` | Measurement, tracking and attribution playbook for paid media and growth. |
 | `meta-ads` | Meta advertising playbook for Facebook, Instagram, Threads, WhatsApp, Messenger and Audience Network via Ads Manager and the Marketing API. |
 | `microsoft-ads` | Microsoft Advertising (Bing Ads) playbook for Bing, Yahoo, AOL, DuckDuckGo, Edge, Microsoft Copilot ad placements and the Microsoft Audience Network. |
 | `mobile-app-growth` | Mobile app growth playbook for iOS and Android. |
 | `offer-strategy` | Offer strategy, pricing and merchandising economics. |
+| `pricing-strategy` | Commercial pricing consultant playbook. |
 | `seo` | Search engine optimization playbook for Google and Bing in the AI Overviews and AI Mode era. |
 | `site-engineer` | Website engineering, release QA and rollback for the sites and storefronts growth work touches. |
 | `storefront-ux` | Ecommerce storefront UX and implementation playbook. |
@@ -187,7 +191,7 @@ Tips: if your CLAUDE.md is long, move area specific rules into path scoped files
 <!-- AUTO:kits:start -->
 | Kit | Version | What it is | Agents | Skills | Path |
 |-----|---------|-----------|-------:|-------:|------|
-| `workflow-kit` | 1.0.0 | Plug and play working rituals for Claude Code projects: model routing and delegation, parallel sessions with a ledger, sprint and delegation prompts, plan first sessions, session start and handover, decision logs with... | 0 | 0 | `kits/workflow-kit` |
+| `workflow-kit` | 1.0.0 | Plug and play working rituals for Claude Code projects: model routing and delegation, parallel sessions with a ledger, sprint and delegation prompts, plan first sessions, session start and handover, decision logs with... | 9 | 9 | `kits/workflow-kit` |
 <!-- AUTO:kits:end -->
 
 Install the Workflow Kit on its own in any project, Ads Master or not:

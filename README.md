@@ -8,10 +8,10 @@ Install once, drop into any project, and get a senior growth team that audits, p
 |---|---|
 | Agents | 23 specialists plus 3 utility skills (`ads-setup`, `ads-review`, `ads-verify`) |
 | Workflow Kit | A separate plugin for any project: model routing (haiku, sonnet, opus, fable), parallel sessions, sprint prompts, plan first sessions, handover, decision log, review guardians, git hooks and gate scripts |
-| Playbook depth | 316 reference modules, about 68,000 lines of procedures, audits, settings, formulas, queries and scripts |
-| Research | 22 dossiers with dated timelines of platform changes (January 2025 to October 2026) and about 3,700 cited URLs |
+| Playbook depth | 348 reference modules, about 72,000 lines of procedures, audits, settings, formulas, queries and scripts |
+| Research | 24 dossiers with dated timelines of platform changes (January 2025 to October 2026) and about 3,900 unique cited URLs |
 | Safety | Gates G0 to G4, automation stages 1 to 5, guard hooks with tests, claims registry, incident runbook |
-| Tools | SEO preflight crawler, daily report builder, claims checker, FFmpeg delivery, variant planner, URL and injection checkers |
+| Tools | SEO preflight crawler, daily report builder, tracking plan checker, basket economics calculator, claims checker, FFmpeg delivery, variant planner, URL and injection checkers |
 | Install | Claude Code plugin, project copy script, or open this repo directly |
 
 ---

@@ -1,6 +1,6 @@
 # Ads Master
 
-Research backed growth agents for Claude Code: paid media (Meta, Google, Microsoft, ChatGPT, TikTok, LinkedIn), app growth, SEO, AI search optimization, storefront UX, CRO, site engineering, offers, product feeds, creative strategy, video production, lifecycle CRM, measurement, compliance and market intelligence, coordinated by a growth orchestrator and protected by deterministic guardrail hooks.
+Research backed growth agents for Claude Code: paid media (Meta, Google, Microsoft, ChatGPT, TikTok, LinkedIn), marketplaces, app growth, SEO, AI search optimization, storefront UX, CRO, site engineering, pricing, offers, product feeds, creative strategy, video production, lifecycle CRM, measurement, compliance and market intelligence, coordinated by a growth orchestrator and protected by deterministic guardrail hooks.
 
 ## Two ways this repo is used
 

@@ -92,6 +92,8 @@ How the main session conducts the Ads Master team. Every workflow is written as 
 | site-engineer | `_release-qa.md`, `_launch-qa.md`, `_worst-case-test.md` | on every release |
 | video-studio | `_production-plan.md`, `_render-batch.md` | weekly batch |
 | offer-strategy | `_offer-architecture.md`, `_promo-calendar.md` | monthly |
+| pricing-strategy | `_commercial-pricing-report.md`, `_price-watch.md`, `_basket-economics.md` | monthly price watch, quarterly review, before price changes |
+| marketplaces | `_marketplace-audit.md`, `_marketplace-plan.md`, `_retail-media-review.md` | weekly |
 | lifecycle-crm | `_lifecycle-audit.md`, `_flow-specs.md`, `_cohort-report.md` | weekly |
 | compliance | `_claims-review.md`, `_policy-check.md` | on every publish |
 

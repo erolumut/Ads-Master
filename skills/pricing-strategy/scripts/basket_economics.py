@@ -29,11 +29,11 @@ import json
 import sys
 
 TEMPLATE = {
-    "_note": "Prices incl VAT; costs excl VAT. null = missing (run reports INCOMPLETE). Write 0 only when the cost is truly zero.",
+    "_note": "Prices incl VAT; costs excl VAT. null = missing (run reports INCOMPLETE), except free_shipping_threshold_incl_vat where null means no threshold and shipping_vat_rate where null means use vat_rate. Write 0 only when the cost is truly zero.",
     "cost_as_of": None,
     "currency": "EUR",
-    "vat_rate": 0.09,
-    "shipping_vat_rate": 0.09,
+    "vat_rate": None,
+    "shipping_vat_rate": None,
     "unit_name": "bar",
     "unit_weight_kg": 0.06,
     "cogs_per_unit": None,
@@ -170,7 +170,8 @@ def shipping_charged(cfg, price_incl_vat, force_free=None):
 
 def basket_row(cfg, name, units, price_incl_vat, force_free=None):
     vat = cfg["vat_rate"]
-    svat = cfg.get("shipping_vat_rate", vat)
+    svat = cfg.get("shipping_vat_rate")
+    svat = vat if svat is None else svat
     ship_gross = shipping_charged(cfg, price_incl_vat, force_free)
     net_product = price_incl_vat / (1 + vat)
     net_ship = ship_gross / (1 + svat)
