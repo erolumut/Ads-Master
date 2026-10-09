@@ -443,5 +443,73 @@ class GateTest(Base):
         self.assertEqual(self.gate().returncode, 2)
 
 
+class SecretScanTest(Base):
+    FAKE = "AKIA" + "Q" * 16  # built at runtime so the repo never holds a key shaped literal
+
+    def scan(self, *args):
+        return subprocess.run([sys.executable, "-I", str(SCRIPTS / "secret_scan.py"), "--root", str(self.root), *args],
+                              capture_output=True, text=True, timeout=60)
+
+    def git(self, *args):
+        subprocess.run(["git", "-C", str(self.root), *args], check=True, capture_output=True)
+
+    def test_history_finds_removed_key_and_masks_it(self):
+        self.git("init", "-q")
+        self.git("config", "user.email", "t@t")
+        self.git("config", "user.name", "t")
+        self.write("app/config.js", "const k = '" + self.FAKE + "';\n")
+        self.git("add", "-A")
+        self.git("commit", "-q", "-m", "add key")
+        self.write("app/config.js", "const k = process.env.KEY;\n")
+        self.git("commit", "-q", "-am", "remove key")
+        r = self.scan()
+        self.assertEqual(r.returncode, 0, r.stdout)  # clean working tree
+        r = self.scan("--history")
+        self.assertEqual(r.returncode, 1, r.stdout)
+        self.assertIn("rotate", r.stdout)
+        self.assertNotIn(self.FAKE, r.stdout)
+
+    def test_example_env_is_ignored(self):
+        self.git("init", "-q")
+        self.write(".env.example", "KEY=" + self.FAKE + "\n")
+        self.git("add", "-A")
+        self.assertEqual(self.scan().returncode, 0)
+
+    def test_not_a_repo(self):
+        self.assertEqual(self.scan().returncode, 2)
+
+
+class LaunchCheckTest(Base):
+    def check(self, path, *args):
+        return subprocess.run([sys.executable, "-I", str(SCRIPTS / "launch_check.py"), str(path), *args],
+                              capture_output=True, text=True, timeout=30)
+
+    def test_template_is_not_ready(self):
+        r = self.check(KIT / "templates" / "LAUNCH-READINESS.md")
+        self.assertEqual(r.returncode, 1, r.stdout)
+        self.assertIn("NOT READY", r.stdout)
+
+    def test_rules(self):
+        head = "| # | Item | Severity | How to prove it | Status | Evidence | Checked on |\n|---|---|---|---|---|---|---|\n"
+        good = head + ("| 1 | Keys | Blocker | scan | PASS | secret_scan.py exit 0, log docs/qa/scan.txt | 2026-10-08 |\n"
+                       "| 2 | 404 | Warn | url | OPEN | | |\n"
+                       "| 3 | Payments | Blocker | test | NA | No payments in this product | |\n")
+        p = self.write("ok.md", good)
+        r = self.check(p, "--today", "2026-10-09")
+        self.assertEqual(r.returncode, 0, r.stdout)
+        self.assertIn("WARN", r.stdout)
+        bad = head + ("| 1 | Keys | Blocker | scan | PASS | done | 2026-10-08 |\n"
+                      "| 2 | Backup | Blocker | drill | OPEN | | |\n"
+                      "| 3 | Old | Blocker | x | PASS | log file | 2026-01-01 |\n"
+                      "| 4 | Terms | Blocker | x | NA | | |\n")
+        r = self.check(self.write("bad.md", bad), "--today", "2026-10-09")
+        self.assertEqual(r.returncode, 1, r.stdout)
+        for s in ("PASS without evidence", "Blocker is OPEN", "older than", "NA needs a reason"):
+            self.assertIn(s, r.stdout)
+
+    def test_missing_file(self):
+        self.assertEqual(self.check(self.root / "none.md").returncode, 2)
+
+
 if __name__ == "__main__":
     unittest.main()

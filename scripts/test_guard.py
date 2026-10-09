@@ -160,6 +160,17 @@ class GuardTest(unittest.TestCase):
         self.assertIsNone(run("post", {"session_id": "s2", "tool_name": "Edit",
                                        "tool_input": {"file_path": "sections/x.liquid"}}, self.root, self.policy))
 
+    def test_url_slug_is_not_a_secret(self):
+        self.stage(4)
+        slug = "https://blog.google/products/ads/ask-advisor-across-ads-analytics-and-merchant-center-478114"
+        out = run("pre", {"tool_name": "Write", "tool_input": {"file_path": "ads-master/outputs/x.md", "content": slug}},
+                  self.root)
+        self.assertIsNone(out)
+        key = "sk-" + "A1b2C3d4" * 5
+        out = run("pre", {"tool_name": "Write", "tool_input": {"file_path": "ads-master/outputs/x.md", "content": key}},
+                  self.root)
+        self.assertEqual(decision(out), "deny")
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=1)

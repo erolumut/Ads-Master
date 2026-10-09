@@ -21,9 +21,10 @@ workflow-kit/
 ├── agents/          scout, log-triage, data-extractor, researcher, mechanic, verifier, fable-advisor,
 │                    implementer, reviewer
 ├── skills/          model-routing, session-start, parallel-sessions, sprint-prompt, planner-session,
-│                    handover, decision-log, instructions-budget, review-gates
+│                    handover, decision-log, instructions-budget, review-gates, launch-readiness
 ├── scripts/         doc_numbers.py, check_instructions.py, ledger.py, agent_models.py, invariants_check.py,
-│                    check_workflows.py, gate.py, precommit_dispatch.sh (+ tests/)
+│                    check_workflows.py, gate.py, secret_scan.py, launch_check.py,
+│                    precommit_dispatch.sh (+ tests/)
 └── templates/       workflow-kit.json, CLAUDE-snippet.md, settings-snippet.json, PARALLEL-SESSIONS.md,
                      SPRINT-PROMPT.md, DELEGATION-PROMPT.md, HANDOVER.md, NEXT-SESSION-PROMPT.md,
                      DECISIONS.md, REVIEW-CHECKLIST.md, GUARDIAN-TEMPLATE.md, STALE-GUARDS.md,
@@ -90,6 +91,7 @@ Read-only agents carry an explicit `tools` list without `Agent`; editing agents 
 | `decision-log` | Recording or changing a decision; placeholder numbering |
 | `instructions-budget` | CLAUDE.md grows, instructions get ignored, rules move to `.claude/rules/` |
 | `review-gates` | Before "done": guardians, evidence, devil's advocate, regression library |
+| `launch-readiness` | Before a public launch or the first paid traffic: 20 items, each PASS with re-checkable evidence or NA with a reason; a human writes GO |
 
 ### Scripts
 
@@ -104,6 +106,8 @@ Run from the project root (add `--help` for options). Python scripts use the sta
 | `ledger.py` | `init`, `checkin`, `progress`, `msg`, `signoff` (moves the block to ARCHIVE), `show` |
 | `agent_models.py` | Lists agents with pinned model and effort, flags full model ids, unpinned agents and agents that can spawn. `--audit` reads local transcripts and reports, per subagent, the model requested at spawn, configured in frontmatter and actually served, plus effort |
 | `invariants_check.py` | Project invariants from `invariants.json` on staged files (trigger globs to `must_contain` / `must_not_contain` regexes); `--hook` mode for a PreToolUse hook on `git commit` |
+| `secret_scan.py` | Secrets in tracked files and, with `--history`, in every commit ever made; masked output; history findings must be rotated, not just deleted |
+| `launch_check.py` | Checks a filled `LAUNCH-READINESS.md`: Blockers must be PASS or NA, PASS needs re-checkable evidence and a recent date, NA needs a reason |
 | `gate.py` | Local gate: runs `gate.steps` (or `project.checks`) on a clean clone of HEAD; PASS, FAIL or COULD NOT RUN per step; `--record` appends cleared SHAs to `gate/cleared.txt`; `--parity` fails when CI runs a command the gate lacks |
 | `check_workflows.py` | GitHub workflow lint: duplicate keys, `on`, non-empty `jobs`, `permissions:`, injection through `${{ github.event.* }}` or `${{ inputs.* }}` in `run:`, status functions outside `if:`, unpinned third party actions (warning). Structure checks need PyYAML and report "could not run" without it |
 | `precommit_dispatch.sh` | Pre-commit dispatcher: maps staged paths to checks from `precommit.json`, validate only, refuses staged `.env` files except `*.example` |

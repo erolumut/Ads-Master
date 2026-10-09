@@ -1,8 +1,8 @@
 {
   "name": "workflow-kit",
   "displayName": "Workflow Kit",
-  "version": "1.0.0",
-  "description": "Plug and play working rituals for Claude Code projects: model routing and delegation, parallel sessions with a ledger, sprint and delegation prompts, plan first sessions, session start and handover, decision logs with placeholder numbering, a CLAUDE.md instruction budget and evidence based review guardians.",
+  "version": "1.1.0",
+  "description": "Plug and play working rituals for Claude Code projects: model routing and delegation, parallel sessions with a ledger, sprint and delegation prompts, plan first sessions, session start and handover, decision logs with placeholder numbering, a CLAUDE.md instruction budget, evidence based review guardians, a local gate and a launch readiness gate.",
   "author": {
     "name": "erolumut"
   },

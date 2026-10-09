@@ -191,7 +191,7 @@ Tips: if your CLAUDE.md is long, move area specific rules into path scoped files
 <!-- AUTO:kits:start -->
 | Kit | Version | What it is | Agents | Skills | Path |
 |-----|---------|-----------|-------:|-------:|------|
-| `workflow-kit` | 1.0.0 | Plug and play working rituals for Claude Code projects: model routing and delegation, parallel sessions with a ledger, sprint and delegation prompts, plan first sessions, session start and handover, decision logs with... | 9 | 9 | `kits/workflow-kit` |
+| `workflow-kit` | 1.1.0 | Plug and play working rituals for Claude Code projects: model routing and delegation, parallel sessions with a ledger, sprint and delegation prompts, plan first sessions, session start and handover, decision logs with... | 9 | 10 | `kits/workflow-kit` |
 <!-- AUTO:kits:end -->
 
 Install the Workflow Kit on its own in any project, Ads Master or not:

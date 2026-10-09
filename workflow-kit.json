@@ -1,0 +1,23 @@
+{
+  "$comment": "Workflow Kit config for developing Ads Master itself. ads-master/ is created per project by /ads-setup, so its paths never exist in this repo.",
+  "instructions": {
+    "claudeMd": ".claude/CLAUDE.md",
+    "maxLines": 200,
+    "rulesDir": ".claude/rules",
+    "ignorePaths": ["ads-master/", "ads-master/*"]
+  },
+  "gate": {
+    "steps": [
+      {"name": "validate", "run": "python3 scripts/validate.py"},
+      {"name": "guard tests", "run": "python3 scripts/test_guard.py"},
+      {"name": "docs fresh", "run": "python3 scripts/build_docs.py --check"},
+      {"name": "dev links", "run": "python3 scripts/link_dev.py --check"},
+      {"name": "instructions budget", "run": "python3 kits/workflow-kit/scripts/check_instructions.py --strict"},
+      {"name": "kit tests", "run": "cd kits/workflow-kit/scripts && python3 -m unittest discover -s tests"},
+      {"name": "compliance tests", "run": "cd skills/compliance/scripts && python3 -m unittest"},
+      {"name": "secret scan", "run": "python3 kits/workflow-kit/scripts/secret_scan.py --history"}
+    ],
+    "ledger": "gate/cleared.txt",
+    "timeout": 600
+  }
+}

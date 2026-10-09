@@ -104,8 +104,8 @@ BUDGET_KEYS = re.compile(
 SECRET_PATTERNS = [
     re.compile(r"EAA[A-Za-z0-9]{40,}"),                    # Meta access token
     re.compile(r"shp(at|ca|pa|ss)_[a-fA-F0-9]{32}"),       # Shopify
-    re.compile(r"sk-ant-[A-Za-z0-9_\-]{20,}"),             # Anthropic
-    re.compile(r"sk-(proj-)?[A-Za-z0-9_\-]{32,}"),         # OpenAI style
+    re.compile(r"(?<![A-Za-z0-9_\-])sk-ant-[A-Za-z0-9_\-]{20,}"),      # Anthropic
+    re.compile(r"(?<![A-Za-z0-9_\-])sk-(proj-)?[A-Za-z0-9_\-]{32,}"),  # OpenAI style (not URL slugs like ask-...)
     re.compile(r"AIza[0-9A-Za-z_\-]{35}"),                 # Google API key
     re.compile(r"ya29\.[0-9A-Za-z_\-]{30,}"),              # Google OAuth
     re.compile(r"1//0[0-9A-Za-z_\-]{30,}"),                # Google refresh token

@@ -22,8 +22,8 @@
     {
       "name": "workflow-kit",
       "source": "./kits/workflow-kit",
-      "description": "Working rituals for any Claude Code project: model routing and delegation, parallel sessions, sprint and delegation prompts, plan first sessions, handover, decision logs, instruction budget, git hooks and evidence based review guardians.",
-      "version": "1.0.0",
+      "description": "Working rituals for any Claude Code project: model routing and delegation, parallel sessions, sprint and delegation prompts, plan first sessions, handover, decision logs, instruction budget, git hooks, a local gate, a launch readiness gate and evidence based review guardians.",
+      "version": "1.1.0",
       "category": "productivity",
       "tags": [
         "workflow",

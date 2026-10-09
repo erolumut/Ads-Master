@@ -62,6 +62,17 @@ Status: **Adopted** (shipped in this repo), **Kit** (shipped in `kits/workflow-k
 | Risk register | Risk, early warning, ready solution; reviewed each sprint | social game PWA | Adopted | Risk register in `template/INCIDENTS.md`, reviewed weekly by ads-review |
 | Snapshot before change | Export settings before any bulk edit; kept out of automation | costing tool | Adopted | gate model: snapshot, change, read back, log |
 
+## 5. Launch readiness (from a widely shared pre-launch checklist, 2026-10)
+
+| Pattern | What it does | Seen in | Status | Where |
+|---------|--------------|---------|--------|-------|
+| Twenty item pre-launch list with proof per item | Secrets, key rotation, rate limits, server auth, data rules, validation, spend caps, no stack traces, error tracking, restore test, 404 and 500, cheap Android, 3 s loads, OG tags, legal pages, funnel analytics, account flows end to end, deliverability, contact, rollback | public checklist | Kit | `launch-readiness` skill, `templates/LAUNCH-READINESS.md`, `launch_check.py` |
+| Secrets in git history need rotation | Scans every commit, masks findings, says rotate instead of delete | public checklist | Kit | `secret_scan.py --history`; first run on this repo found 0 real secrets and fixed two false positive patterns, also in `guard.py` |
+| Go or no-go before the first paid click | Paid traffic magnifies product gaps, so launch readiness blocks campaign activation | public checklist | Adopted | site-engineer launch QA, growth-orchestrator workflow 4.13 |
+| Form spam and bot protection | Honeypot, time to submit, rate limits, invisible challenge first; spam leads never reach ad platforms as conversions | public checklist | Adopted | cro forms reference |
+| Account flow smoke tests | Signup with verification, failed card and 3DS, password reset link works once and expires | public checklist | Adopted | site-engineer automated QA reference |
+| Repo dogfoods its own gate | This repo's checks run through `gate.py` from `workflow-kit.json`, including the instruction budget and the history secret scan | this repo | Adopted | `workflow-kit.json`, `.claude/CLAUDE.md` |
+
 ## Maintenance
 
 Add a row when a pattern is adopted or rejected. Move Noted rows to Planned only with an owner. Review this file in the quarterly reset.
