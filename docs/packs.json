@@ -3,42 +3,120 @@
   "core": {
     "label": "Core (always installed)",
     "for": "Every project",
-    "agents": ["growth-orchestrator", "measurement", "compliance"],
-    "skills": ["ads-setup", "ads-review", "ads-verify"]
+    "agents": [
+      "growth-orchestrator",
+      "measurement",
+      "compliance"
+    ],
+    "skills": [
+      "ads-setup",
+      "ads-review",
+      "ads-verify"
+    ]
   },
   "ecommerce-dtc": {
     "label": "Ecommerce DTC",
     "for": "Brands selling on their own store (Shopify, WooCommerce, headless)",
-    "agents": ["meta-ads", "google-ads", "tiktok-ads", "storefront-ux", "cro", "site-engineer", "offer-strategy", "pricing-strategy", "commerce-feeds", "creative-strategy", "video-studio", "lifecycle-crm", "seo", "ai-search-optimization", "market-intel"]
+    "agents": [
+      "meta-ads",
+      "google-ads",
+      "tiktok-ads",
+      "storefront-ux",
+      "cro",
+      "site-engineer",
+      "offer-strategy",
+      "pricing-strategy",
+      "commerce-feeds",
+      "creative-strategy",
+      "video-studio",
+      "lifecycle-crm",
+      "seo",
+      "ai-search-optimization",
+      "market-intel"
+    ]
   },
   "marketplace-seller": {
     "label": "Marketplace seller",
     "for": "Brands or resellers selling on Amazon, bol.com, Trendyol, Hepsiburada and similar",
-    "agents": ["marketplaces", "pricing-strategy", "commerce-feeds", "creative-strategy", "market-intel", "offer-strategy"]
+    "agents": [
+      "marketplaces",
+      "pricing-strategy",
+      "commerce-feeds",
+      "creative-strategy",
+      "market-intel",
+      "offer-strategy"
+    ]
   },
   "lead-gen-local": {
     "label": "Lead gen and local services",
     "for": "Clinics, agencies, trades, real estate, education, local businesses",
-    "agents": ["google-ads", "meta-ads", "microsoft-ads", "cro", "site-engineer", "seo", "ai-search-optimization", "creative-strategy", "lifecycle-crm", "market-intel"]
+    "agents": [
+      "google-ads",
+      "meta-ads",
+      "microsoft-ads",
+      "cro",
+      "site-engineer",
+      "seo",
+      "ai-search-optimization",
+      "creative-strategy",
+      "lifecycle-crm",
+      "market-intel"
+    ]
   },
   "b2b-saas": {
     "label": "B2B and SaaS",
     "for": "Software, B2B services and high consideration sales",
-    "agents": ["google-ads", "linkedin-ads", "microsoft-ads", "chatgpt-ads", "seo", "ai-search-optimization", "cro", "site-engineer", "pricing-strategy", "offer-strategy", "lifecycle-crm", "creative-strategy", "market-intel"]
+    "agents": [
+      "google-ads",
+      "linkedin-ads",
+      "microsoft-ads",
+      "chatgpt-ads",
+      "seo",
+      "ai-search-optimization",
+      "cro",
+      "site-engineer",
+      "pricing-strategy",
+      "offer-strategy",
+      "lifecycle-crm",
+      "creative-strategy",
+      "market-intel"
+    ]
   },
   "mobile-app": {
     "label": "Mobile app",
     "for": "iOS and Android apps, subscription and freemium",
-    "agents": ["mobile-app-growth", "meta-ads", "google-ads", "tiktok-ads", "creative-strategy", "video-studio", "lifecycle-crm", "pricing-strategy", "market-intel"]
+    "agents": [
+      "mobile-app-growth",
+      "app-store-optimization",
+      "meta-ads",
+      "google-ads",
+      "tiktok-ads",
+      "creative-strategy",
+      "video-studio",
+      "lifecycle-crm",
+      "pricing-strategy",
+      "market-intel",
+      "ai-search-optimization",
+      "seo"
+    ]
   },
   "ai-visibility": {
     "label": "Organic and AI visibility",
-    "for": "Any business that wants search and AI assistant visibility without paid media first",
-    "agents": ["seo", "ai-search-optimization", "chatgpt-ads", "site-engineer", "market-intel"]
+    "for": "Any business that wants search, AI assistant and app store visibility without paid media first (app-store-optimization only matters if there is an app)",
+    "agents": [
+      "seo",
+      "ai-search-optimization",
+      "chatgpt-ads",
+      "site-engineer",
+      "market-intel",
+      "app-store-optimization"
+    ]
   },
   "full": {
     "label": "Everything",
     "for": "Agencies and teams running many channels",
-    "agents": ["*"]
+    "agents": [
+      "*"
+    ]
   }
 }

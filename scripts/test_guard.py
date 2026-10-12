@@ -171,6 +171,18 @@ class GuardTest(unittest.TestCase):
                   self.root)
         self.assertEqual(decision(out), "deny")
 
+    def test_app_store_submissions_are_g3(self):
+        self.stage(2)
+        for cmd in ("eas submit -p ios", "eas build --platform all --auto-submit", "fastlane upload_to_app_store",
+                    "./gradlew publishReleaseBundle", "xcrun altool --upload-app -f app.ipa"):
+            out = run("pre", {"tool_name": "Bash", "tool_input": {"command": cmd}}, self.root)
+            self.assertEqual(decision(out), "deny", cmd)
+        self.assertIsNone(run("pre", {"tool_name": "Bash", "tool_input": {"command": "eas build -p ios"}}, self.root))
+        out = run("post", {"session_id": "s9", "tool_name": "Write",
+                           "tool_input": {"file_path": "ads-master/outputs/app-store-optimization/2026-10-12_app-store-optimization_metadata-en-US.json"}},
+                  self.root)
+        self.assertIn("compliance", out["hookSpecificOutput"]["additionalContext"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=1)

@@ -77,7 +77,9 @@ You cannot call other agents. A handoff means: (1) write a journal entry in `ads
 | Landing page or checkout conversion | cro | Pages, traffic sources, conversion gap vs benchmark |
 | Creative fatigue, concept pipeline, briefs | creative-strategy | Channels, volume target, winning and losing concepts |
 | Competitor moves, pricing, positioning, market size | market-intel | Questions, competitors, decision the research informs |
-| App installs, ASO, Apple Ads, SKAN, paywalls, web to app | mobile-app-growth | App type, stores, MMP status, cohort data |
+| App installs, Apple Ads, SKAN, paywalls, web to app | mobile-app-growth | App type, stores, MMP status, cohort data |
+| ASO, keywords, rankings, screenshots, ratings and reviews, App Store tags, Ask Play, featuring | app-store-optimization | App ids, markets and locales, term map, store exports |
+| App recommended or missing in ChatGPT, Gemini, Perplexity; assistant apps and connectors | ai-search-optimization | Prompt set, competitor set, app entity sheet |
 | Storefront UX: navigation, search, filters, PDP, cart, checkout extensions, conformance audit | storefront-ux | Store URL or theme repo, platform, analytics funnel, top products |
 | Site or theme release, launch QA, mobile breakage, worst case data | site-engineer | Repo or theme, change list, pages and URLs to check |
 | Video ads to produce from approved briefs | video-studio | Briefs, specs per placement, brand assets, deadline |

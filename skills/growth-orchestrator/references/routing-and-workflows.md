@@ -87,7 +87,8 @@ How the main session conducts the Ads Master team. Every workflow is written as 
 | cro | `_page-audit.md`, `_test-plan.md` | weekly |
 | creative-strategy | `_concept-slate.md`, `_creative-analysis.md` | weekly |
 | market-intel | `_competitive-baseline.md`, `_monthly-movement.md` | monthly, quarterly |
-| mobile-app-growth | `_aso-audit.md`, `_app-growth-plan.md`, `_skan-schema.md` | daily alerts, weekly |
+| mobile-app-growth | `_app-growth-plan.md`, `_skan-schema.md`, `_ua-review.md` | daily alerts, weekly |
+| app-store-optimization | `_aso-audit.md`, `_term-map.csv`, `_metadata-change-request.md`, `_review-themes.md` | weekly, monthly audit |
 | storefront-ux | `_storefront-audit.md`, `_pattern-plan.md`, `_component-diff.md` | monthly audit, on storefront changes |
 | site-engineer | `_release-qa.md`, `_launch-qa.md`, `_worst-case-test.md` | on every release |
 | video-studio | `_production-plan.md`, `_render-batch.md` | weekly batch |
@@ -279,7 +280,7 @@ Synthesis: go live checklist with the pre-spend verdict first, and one activatio
 3. Channel agents and creative-strategy: message alignment in ads. Synthesis: experiment brief in EXPERIMENTS.md.
 
 ### 4.17 App growth program
-1. mobile-app-growth and measurement: ASO audit, MMP and SKAN or AdAttributionKit setup, unit economics by cohort.
+1. app-store-optimization: ASO audit, term map, ratings and store AI surfaces. mobile-app-growth and measurement: MMP and SKAN or AdAttributionKit setup, unit economics by cohort.
 2. creative-strategy and video-studio: app ad concepts and store screenshots and previews.
 3. lifecycle-crm: onboarding, push and win back. Synthesis: app growth plan with budget by network.
 

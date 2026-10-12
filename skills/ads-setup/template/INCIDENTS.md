@@ -12,6 +12,8 @@ Any agent that detects one of these stops automated writes, alerts the human and
 | Advertised product or bundle sold out or below stock cover | commerce-feeds, channel agents |
 | Unverified or prohibited claim published | compliance |
 | Credential suspected exposed | any agent |
+| App removed, listing rejected or suspended, or a store policy warning | app-store-optimization, mobile-app-growth |
+| App rating drops 0.2 or more in 7 days, or a new negative review theme above 5 percent | app-store-optimization (`review_themes.py`) |
 
 ## Runbook
 1. Stop automated writes (set `automation_stage` to 1 in `guardrails.json` if needed).
@@ -34,6 +36,7 @@ Reviewed in every weekly review; a risk that fires becomes an incident row below
 | Price or offer shown differently across channels | Price parity sample (ad, page, JSON-LD, feed, checkout) mismatch | pricing-strategy and offer-strategy correct the source; compliance checks the displayed price | pricing-strategy | |
 | Advertised item goes out of stock | Stock cover of advertised items below 14 days | commerce-feeds excludes the item; channel agents shift budget; lifecycle-crm pauses flows that feature it | commerce-feeds | |
 | Approved claim loses its evidence | Evidence expiry in CLAIMS.md within 30 days; `approved_copy.py verify` fails | compliance re-verifies or retires the claim; channel agents swap the copy | compliance | |
+| App loses visibility after a release (vitals, wake locks, crash spike) | Android vitals above bad behaviour thresholds; keyword ranks drop on many terms at once after a metadata change | app-store-optimization rolls back the metadata change; the app team fixes the vital; mobile-app-growth holds UA spend | app-store-optimization | |
 | Spend runs away on a new campaign or automation | Hourly pacing above 150 percent of plan; guard log shows repeated G3 asks | channel agent recommends a pause; human approves; automation stage drops to 1 | growth-orchestrator | |
 
 ## Incident log

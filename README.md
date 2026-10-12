@@ -30,7 +30,8 @@ Install once, drop into any project, and get a senior growth team that audits, p
 | | `chatgpt-ads` | Ads inside ChatGPT (OpenAI Ads Manager) plus strategy for every other AI assistant ad surface. |
 | | `tiktok-ads` | Smart+, GMV Max and TikTok Shop, Spark Ads, creators, TikTok Ad Network. |
 | | `linkedin-ads` | B2B paid social and ABM: Thought Leader Ads, lead gen forms, CRM sync, pipeline as the KPI. |
-| | `mobile-app-growth` | ASO for both stores, Apple Ads, app campaigns on Google, Meta and TikTok, MMPs, SKAN and AdAttributionKit, paywalls, web to app. |
+| | `mobile-app-growth` | Apple Ads, app campaigns on Google, Meta and TikTok, MMPs, SKAN and AdAttributionKit, paywalls, web to app, app unit economics. |
+| | `app-store-optimization` | App Store and Google Play visibility: keywords and metadata, rankings, screenshots, ratings and AI review summaries, App Store tags, Ask Play, custom product pages, experiments, featuring, on-device assistants, the app entity that AI answers read. |
 | Organic visibility | `seo` | Technical, content, local, ecommerce and international SEO for Google and Bing after AI Overviews. Fixes SEO in your codebase, ships a preflight crawler. |
 | | `ai-search-optimization` | GEO, AEO, LLMO: being mentioned, recommended and cited by ChatGPT, AI Overviews, AI Mode, Gemini, Perplexity, Copilot and Claude. Evidence over folklore. |
 | Conversion and storefront | `storefront-ux` | The store itself: navigation, homepage, on-site search, filters, product pages, cart drawer, checkout extensions, accessibility. A pattern library drawn from open source commerce repos, shipped as code. |
