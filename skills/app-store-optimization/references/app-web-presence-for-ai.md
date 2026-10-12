@@ -156,6 +156,8 @@ One fact, one value everywhere:
 
 The paths an AI-sent install can take, and which ones can be tagged, are in [Measurement and prompt tracking](../../ai-search-optimization/references/measurement-and-prompt-tracking.md) section 11. The key limit: a link from an AI answer straight to a store listing is not taggable by you. Tagging covers only AI visits that reach your website first, so AI-tagged installs are a floor, never the total.
 
+The landing signal: ChatGPT adds `utm_source=chatgpt.com` to the links it sends to websites, while its mobile app often drops the referrer ([Measurement and prompt tracking](../../ai-search-optimization/references/measurement-and-prompt-tracking.md) section 9.2). So read the landing `utm_source` first and the referrer host second; for engines that add no UTM, the referrer host is the only signal and app traffic without one lands in Direct.
+
 ### 6.1 Token registry (ASO owns it)
 
 | Part | Values | Example |
@@ -235,7 +237,7 @@ The machine-readable mirror is `ads-master/data/app-entity.json`, created by `ad
 |-----|------------------------------|-------|
 | `name`, `developer`, `category`, `website` | Yes | Exact strings as published |
 | `ios.app_id`, `android.package` | Yes | Delete a block if the app is not on that store |
-| `prices` | Yes | Written exactly as displayed: "4.99" and "4,99" do not match |
+| `prices` | Yes | Use the same strings as the JSON-LD offer prices, which are compared exactly ("0" is accepted for free); store pages accept "4.99" and "4,99" alike |
 | `currency`, `plans`, `platforms`, `markets`, `languages`, `one_sentence`, `top_jobs`, `not`, `urls`, `claims_ref`, `updated` | No | For people and other agents (store copy, assistant phrases, panel accuracy scoring) |
 
 Update triggers and order:
@@ -259,8 +261,8 @@ python3 -I <skill>/scripts/app_entity_check.py --facts ads-master/data/app-entit
 python3 -I <skill>/scripts/app_entity_check.py --facts ads-master/data/app-entity.json --fetch
 ```
 
-Exit 0 consistent, 1 at least one FAIL, 2 could not run. The check table and known limits are in the entity module. Store side notes, each tested on 2026-10-12:
-1. Save store pages from a browser (G0) for the storefront whose price format matches the fact sheet. A Dutch App Store page shows "4,99 €" and FAILs against "4.99"; keep one fact sheet per number format if you check several storefronts.
+Exit 0 consistent, 1 at least one FAIL, 2 could not run. The check table and known limits are in the entity module. Store side notes, each tested on 2026-10-12 against the current script:
+1. Save store pages from a browser (G0); `--fetch` never reads them. Store page prices match in either decimal format (a Dutch page showing "4,99 €" passes against "4.99"), but each storefront page must show every paid price in `prices`, so keep one fact sheet per currency when markets price differently.
 2. `/go/` badges alone FAIL the store link checks; keep the direct links or `installUrl` (section 5).
 3. Run it after every metadata release, after every website change to app pages, and monthly.
 
@@ -270,11 +272,11 @@ The panel, its JSONL format, config rules and statistics are in [Measurement and
 
 ASO supplies:
 1. The App Store path for each tracked storefront, as it appears in cited URLs (`apps.apple.com/us/app/<slug>`), for the config's owned domains.
-2. Never the Play listing path: the script drops the query string, so `play.google.com/store/apps/details` would count every app's Play page as owned. In a fixture test it raised citation share from a true 50% to 75%.
+2. The Play listing as its exact entry, `play.google.com/store/apps/details?id=<package>`, never the bare path. Tested on 2026-10-12 with a fixture citing both stores and a competitor's Play page: the exact entry gave the true citation share (50%); the bare path counted the competitor's page as owned (75%). Query entries match on parameter values in any order, so `details?hl=en&id=<package>` counts and `id=<package>.pro` does not (fixed in the script on 2026-10-12).
 3. The fact sheet for accuracy scoring.
 
 ASO reads:
-1. Owned citation (App Store paths) plus own Play citations counted by hand. Count the answer lines that cite your Play listing: `grep -c 'details?id=com.acme.habits' ads-master/data/imports/2026-10_app-panel.jsonl` (it also counts a URL that appears in the answer text; spot check).
+1. Owned citation and citation share across the website and both store listings.
 2. How often apps.apple.com and play.google.com appear in the most cited domains: the store share for your category, compared with the study in section 1.
 3. Failures in the `price`, `cancel` and `safe_legit` classes: usually store fixable (section 2).
 4. Any wrong fact traced to a store listing: same week fix as a High severity correction ([Entity and brand authority](../../ai-search-optimization/references/entity-and-brand-authority.md) section 8).
@@ -300,13 +302,13 @@ Handoffs are journal entries plus a "Handoffs requested" section; the main sessi
 
 ## 10. Worked example (illustrative scenario, not data)
 
-Habit tracker, Starter tier, US and NL. The ai-search panel (30 prompts, 3 runs, ChatGPT and Gemini) shows store pages as the most cited domains for `best_app`, wrong prices in 4 of 9 `price` prompts (a 2025 list article cites last year's yearly price), and generic answers for `cancel`.
+Habit tracker, Growth tier, US and NL. The ai-search panel (60 prompts, 3 runs, ChatGPT and Gemini) shows store pages as the most cited domains for `best_app`, wrong prices in 5 of 12 `price` prompts (a 2025 list article cites last year's yearly price), and generic answers for the 6 `cancel` prompts.
 
 1. Store side: description rewritten with the 2.2 template; yearly IAP renamed from "Premium Plus" to "Pro Yearly" to match the website; cancel line added (G3 after `compliance`).
-2. Fact sheet: `prices` corrected for NL in a second facts file using the comma format; `app_entity_check.py` exit 1 (JSON-LD offer still showed the old yearly price), `seo` fixed it, exit 0 on rerun.
+2. Fact sheet: the yearly price corrected; `app_entity_check.py` exit 1 (the JSON-LD offer still showed the old yearly price), `seo` fixed it, exit 0 on rerun for the US and NL store pages.
 3. Link layer: badges moved to `/go/` with `installUrl` added; tokens `ai-chatgpt-pricing` and `ai-gemini-pricing` registered.
 4. Off-site: `ai-search-optimization` sent the list article's publisher the current prices with evidence.
-5. Reads: store conversion at 3 weeks; panel `price` and `cancel` classes at 6 weeks against the untouched `alternatives` class as control; AI-tagged installs reported as a floor next to the onboarding survey share.
+5. Reads: store conversion at 3 weeks; at 6 weeks the `price` and `cancel` prompts read as one 18 prompt treatment cluster (no group under 10 prompts is reported alone) against the untouched `alternatives` class (10 prompts) as control; AI-tagged installs reported as a floor next to the onboarding survey share.
 
 ## 11. Myths
 

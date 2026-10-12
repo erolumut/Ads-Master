@@ -32,7 +32,7 @@ import random
 import re
 import sys
 from collections import Counter, defaultdict
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 RECOMMEND = re.compile(r"\b(recommend|best|top pick|go with|i'?d (?:suggest|choose|pick)|choose|our pick|winner|ideal)\b", re.I)
 NEGATION = re.compile(r"\b(not|n't|never|avoid|worse|instead of)\b", re.I)
@@ -72,8 +72,11 @@ def owned(url, domains):
             continue
         if not er:
             return True
-        if "?" in er:  # query entries (Play listings) match the exact parameter value only
-            if rest == er or rest.startswith(er + "&"):
+        if "?" in er:  # query entries (Play listings): same path, and every entry parameter present with the same value
+            epath, _, eq = er.partition("?")
+            upath, _, uq = rest.partition("?")
+            want, have = parse_qs(eq), parse_qs(uq)
+            if upath == epath and all(have.get(k) == v for k, v in want.items()):
                 return True
         elif rest == er or rest.startswith(er + "/") or rest.startswith(er + "?"):
             return True

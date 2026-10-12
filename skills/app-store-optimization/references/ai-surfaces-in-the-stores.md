@@ -2,7 +2,7 @@
 
 > Knowledge as of 2026-10. Both stores now put model written text between the listing and the user: App Store Tags, Apple's AI review summaries, iOS 27 Personalized Collections with App Notes, Google Play's Ask Play and Highlights, Play "Users are saying" review summaries, and Gemini drafts inside Play Console. Their mechanics are undocumented black boxes. This module separates what is reported from what is guessed and turns it into audits, plays and a monthly routine. Run the Freshness protocol in SKILL.md before acting on any of it.
 
-Evidence note: every 2025 to 2026 finding here was gathered on 2026-10-12 from search result summaries; no official page was read in full, so nothing in this module carries [Official]. `[Reported, 2026-10]` means an official page plus an independent source, or two dated independent sources, agree. `[Unverified]` means one source, even when that source is Apple or Google. `[Unverified: inference]` marks our own reasoning from the evidence. Before a G3 decision rests on any claim, climb the evidence ladder with the `ads-verify` skill; an L1 read of App Store Connect or Play Console settles most of these in minutes.
+Evidence note: every 2025 to 2026 finding here was gathered on 2026-10-12 from search result summaries; no official page was read in full, so no 2025 to 2026 finding carries [Official]. The few [Official] labels mark long standing rules verified in earlier passes (the Play metadata policy, the Android vitals crash and ANR thresholds), as in the sibling modules. `[Reported, 2026-10]` means an official page plus an independent source, or two dated independent sources, agree. `[Unverified]` means one source, even when that source is Apple or Google. `[Unverified: inference]` marks our own reasoning from the evidence. Before a G3 decision rests on any claim, climb the evidence ladder with the `ads-verify` skill; an L1 read of App Store Connect or Play Console settles most of these in minutes.
 
 ## 1. The surfaces at a glance
 
@@ -204,9 +204,9 @@ The full description is indexed by Play search ([Google Play search and listing]
 2. A features block: one line per feature saying what it does and any limit.
 3. Use cases: "Use Acme Habits to ..." lines that mirror the questions users ask.
 4. Limits: state what the app does not do (devices, offline use, regions, languages, age). Questions like "does it work on my watch" get answered from somewhere; give the true answer.
-5. Pricing clarity: free versus paid features, subscription periods, trial length, where to cancel. Never put price or promotion words in the title, icon or developer name: the Play metadata policy restricts them there [Reported, 2026-10].
+5. Pricing clarity: free versus paid features, subscription periods, trial length, where to cancel. Never put price or promotion words in the title, icon or developer name: the Play metadata policy restricts them there [Official] ([Policies and metadata compliance](policies-and-metadata-compliance.md)).
 6. Facts match the website and the App entity fact sheet ([App web presence for AI](app-web-presence-for-ai.md) section 7).
-7. No keyword padding. Play Console Help says repetitive or irrelevant keywords can lead to suspension [Unverified: read as a summary]. `aso_metadata_check.py` warns on repetition.
+7. No keyword padding: repetitive or irrelevant keywords can lead to suspension [Reported, 2026-10]. `aso_metadata_check.py` warns on repetition.
 8. No instructions to models, no competitor names.
 
 Before and after (fictional app; in a real project every line traces to `brand/PRODUCT_FACTS.md` and passes `compliance`):
@@ -295,27 +295,27 @@ Rules:
 
 ## 10. Audit (scored)
 
-Score with the house rubric ([Audit checklist](audit-checklist.md)): Critical 5, High 3, Medium 2, Low 1; Pass full weight, Partial half, Fail 0, N/A excluded. Any Critical fail goes to the top of the change list whatever the total.
+Score with the house rubric ([Audit checklist](audit-checklist.md)): Critical 5, High 3, Medium 2, Low 1; Pass full weight, Partial half, Fail 0, N/A excluded (for example tag items outside the US). These items are section J of the ASO audit. Any Critical fail goes to the top of the change list whatever the total.
 
 | # | Check | Why | How to verify | Severity | Fix |
 |---|-------|-----|---------------|----------|-----|
-| S1 | Tags read from App Store Connect and captured as rendered, dated | No baseline, no read | L1 read plus screenshots | Medium | Section 3.3 steps 1 and 2 |
-| S2 | Every tag classified against the term map | Wrong tags mislead users | Tag log | High | Section 3.3 |
-| S3 | No Wrong tag without a decision | Wrong expectations cost conversion and rating | Tag log | High | Deselection change request (G3) |
-| S4 | Every priority 1 cluster named plainly in metadata | Gaps cannot be fixed any other way | Term map against live metadata | High | Section 3.4 |
-| S5 | Apple summary captured in every storefront that shows one | Baseline | Capture log | Medium | Section 11 |
-| S6 | Summary claims mapped to `review_themes.py` themes | Forecast and priorities | Mapping table | High | Section 4.2 |
-| S7 | Factual errors in summaries reported with evidence | Wrong text keeps converting badly | Journal | High | Section 4.3 (G3) |
-| S8 | Top negative theme has an owner and a fix date | The summary follows the reviews | Change list | Critical for crash, billing or privacy themes; High otherwise | Section 4.4 |
-| S9 | 1 to 2 star reviews replied within the ratings module target | Replies and re-rating move the corpus | `review_themes.py` replies section | High | Ratings module |
-| S10 | Play description opens with what, who and job, then features, limits and price model | Ask Play and Play search read it | Read the live listing | High | Section 6.3 |
-| S11 | Play contact website points to the app's page with matching facts | One test says Ask Play reads the website | Play Console store settings; `app_entity_check.py` | Medium | Section 6.2 |
-| S12 | Ask Play question set run this month with accuracy scored | Wrong answers cost installs and trust | Capture log | Medium | Section 6.4 |
-| S13 | Every published Gemini draft passed the 8.3 checklist | Unreviewed AI copy can publish false claims | Change log, approvals | Critical | Section 8.2 |
-| S14 | Android vitals below thresholds overall and on top device models | Discovery gate | Play Console, Android vitals | Critical | App team incident |
-| S15 | Wake lock metric below the threshold | Discovery gate from 2026-03-01 | Play Console, Android vitals | Critical | App team incident |
-| S16 | No instructions to models anywhere in store text or replies | Manipulation | Read all metadata and reply templates | Critical | Delete |
-| S17 | iOS 27 collections captured monthly in the US | Early signal | Capture log | Low | Section 5.3 |
+| J1 | Tags read from App Store Connect and captured as rendered, dated | No baseline, no read | L1 read plus screenshots | Medium | Section 3.3 steps 1 and 2 |
+| J2 | Every tag classified against the term map | Wrong tags mislead users | Tag log | High | Section 3.3 |
+| J3 | No Wrong tag without a decision | Wrong expectations cost conversion and rating | Tag log | High | Deselection change request (G3) |
+| J4 | Every priority 1 cluster named plainly in metadata | Gaps cannot be fixed any other way | Term map against live metadata | High | Section 3.4 |
+| J5 | Apple summary captured in every storefront that shows one | Baseline | Capture log | Medium | Section 11 |
+| J6 | Summary claims mapped to `review_themes.py` themes | Forecast and priorities | Mapping table | High | Section 4.2 |
+| J7 | Factual errors in summaries reported with evidence | Wrong text keeps converting badly | Journal | High | Section 4.3 (G3) |
+| J8 | Top negative theme has an owner and a fix date | The summary follows the reviews | Change list | Critical for crash, billing or privacy themes; High otherwise | Section 4.4 |
+| J9 | 1 to 2 star reviews replied within the ratings module target | Replies and re-rating move the corpus | `review_themes.py` replies section | High | Ratings module |
+| J10 | Play description opens with what, who and job, then features, limits and price model | Ask Play and Play search read it | Read the live listing | High | Section 6.3 |
+| J11 | Play contact website points to the app's page with matching facts | One test says Ask Play reads the website | Play Console store settings; `app_entity_check.py` | Medium | Section 6.2 |
+| J12 | Ask Play question set run this month with accuracy scored | Wrong answers cost installs and trust | Capture log | Medium | Section 6.4 |
+| J13 | Every published Gemini draft passed the 8.3 checklist | Unreviewed AI copy can publish false claims | Change log, approvals | Critical | Section 8.2 |
+| J14 | Android vitals below thresholds overall and on top device models | Discovery gate | Play Console, Android vitals | Critical | App team incident |
+| J15 | Wake lock metric below the threshold | Discovery gate from 2026-03-01 | Play Console, Android vitals | Critical | App team incident |
+| J16 | No instructions to models anywhere in store text or replies | Manipulation | Read all metadata and reply templates | Critical | Delete |
+| J17 | iOS 27 collections captured monthly in the US | Early signal | Capture log | Low | Section 5.3 |
 
 ## 11. Monthly routine (about 90 minutes per app)
 
@@ -342,7 +342,7 @@ Score with the house rubric ([Audit checklist](audit-checklist.md)): Critical 5,
 | "Deselect tags to focus our ranking" | No evidence tags affect ranking; deselecting all may hurt discoverability |
 | "Pack keywords into the description to earn tags" | No evidence; it degrades the text that people and models read |
 | "We can edit or buy the AI summary" | Report a factual concern (Apple) or fix the product; nothing else is known |
-| "Releasing a new version rewrites the summary" | No evidence; the summary follows the reviews. On Play a new version does not reset the rating [Unverified] |
+| "Releasing a new version rewrites the summary" | No evidence; the summary follows the reviews. On Play a new version does not even reset the rating ([Ratings, reviews and AI summaries](ratings-reviews-and-ai-summaries.md) section 4) |
 | "Gemini drafts are ready to publish" | Every draft is reviewed, fact checked and approved (G3) |
 | "Tell the model what to say in the description" | Manipulation; banned in this system |
 | "Ask happy users to mention our keywords in reviews" | Review manipulation; against store rules and consumer law |

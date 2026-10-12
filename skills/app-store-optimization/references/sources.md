@@ -46,6 +46,8 @@ How to read the "Supports" column: it names the claims a source backs and the la
 | 31 | Brand keyword test with organic rank 1 | SplitMetrics | URL not recorded | 2025 to 2026 | Little harm, little gain from brand ads [Unverified] |
 | 32 | Cross-localization test (9 secondary locales for the US) | AppTweak and Phiture | URL not recorded | 2022 | Storefront to locale mapping [Unverified, stale] |
 | 33 | Mini Apps Partner Program coverage | Apple Developer News via coverage | https://developer.apple.com/news/ | 2025-11 | 15% commission; no discovery effect found [Reported, 2026-10] |
+| 67 | Siri with Apple Intelligence "is here" | Apple Newsroom | URL not recorded | 2026-09 | Siri AI availability, English first, not in the EU at launch [Reported, 2026-10 with 68] (used by [On-device assistants](on-device-assistants.md)) |
+| 68 | WWDC26 Siri and App Intents coverage | MacRumors | URL not recorded | 2026-06-08 | Siri AI introduction; apps take part through App Intents |
 
 ## Google Play: official pages
 

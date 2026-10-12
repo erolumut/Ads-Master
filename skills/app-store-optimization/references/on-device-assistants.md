@@ -18,7 +18,7 @@ Planning rule: sell this to the client as a usage and retention project with a m
 | App profile | Priority | Why (judgement, not evidence) |
 |-------------|----------|-------------------------------|
 | Frequent, short, repeatable tasks (log, start, check status, reorder, navigate, play) | High | Assistant invocation replaces several taps many times a week |
-| Utilities that start from something seen (shopping, plants, translation, recipes, identification) | High for Visual Intelligence | The job begins with the camera or screen |
+| Utilities that start from something seen (shopping, plants, translation, recipes, identification) | High for Visual Intelligence | The job begins with what the user is looking at |
 | Content apps with a library (podcasts, reading, video) | Medium | "Play my show" style actions and Spotlight content search |
 | Long sessions, rare use (most games, tax filing, travel booking) | Low | Little to shorten; spend the effort on the store page instead |
 
@@ -31,7 +31,7 @@ Planning rule: sell this to the client as a usage and retention project with a m
 | App Schemas | WWDC26 sessions 343 and 240 present them, as part of App Intents, as the way apps take part in Siri's Apple Intelligence features | New with WWDC26 | [Unverified] (session pages read as summaries) |
 | Siri with Apple Intelligence | Introduced 2026-06-08; Apple's newsroom said in 2026-09 that it "is here"; English first; not in the EU at launch | Shipping, limited languages and regions | [Reported, 2026-10] (Apple newsroom; MacRumors 2026-06-08) |
 | Model provider | Apple Foundation Models use Gemini models (joint Google and Apple statement 2026-01) | Context only | [Reported, 2026-10] (joint statement; MacRumors 2026-06-08) |
-| Visual Intelligence | Passes what the camera or screen shows to apps through App Intents | Shipping | [Unverified] (Apple Visual Intelligence documentation read as a summary) |
+| Visual Intelligence | Passes the scene the user is looking at to apps through App Intents | Documented by Apple | [Unverified] (Apple Visual Intelligence documentation read as a summary) |
 | Spotlight | Indexes app content and shows App Shortcuts in on-device search | Long established | [Practitioner consensus]; L2: Core Spotlight and App Intents documentation |
 | SiriKit deprecation | Older intent framework reported as deprecated | Unclear | [Unverified] |
 
@@ -74,6 +74,8 @@ Second worked example (food delivery, a Gemini beta category): "Reorder my last 
 
 The ASO agent writes this as a G1 deliverable: `ads-master/outputs/app-store-optimization/YYYY-MM-DD_app-store-optimization_assistant-checklist.md`, then requests the handoff to `site-engineer` or the client's developers. Building it is the app team's release; shipping is a production change on the client's release process (G3).
 
+Scoring inside the ASO audit (section J of [Audit checklist](audit-checklist.md)), once the app team is engaged: P1 items weigh High (3), P2 Medium (2), P3 Low (1); an item counts as Pass only when its "Done when" test passed on a device, with the date recorded. Items for a platform the app does not ship on are N/A.
+
 | Priority | Item | Platform | Why | Done when |
 |----------|------|----------|-----|-----------|
 | P1 | App Intents for the top 3 jobs; each intent completes the job or opens the exact screen | iOS | The base layer for Siri, Shortcuts and Spotlight | Each intent runs from the Shortcuts app on a test device and lands on the right result |
@@ -85,12 +87,12 @@ The ASO agent writes this as a G1 deliverable: `ads-master/outputs/app-store-opt
 | P2 | Spotlight indexing of the content users look for (routines, saved items, documents) | iOS | On-device search reaches content, not only the app icon | Searching an item's name in Spotlight opens it in the app |
 | P2 | App Schemas for intents that match a schema domain | iOS 27 | Reported route into Siri's Apple Intelligence features | The team has read WWDC26 sessions 343 and 240 and the current documentation, and listed which intents match |
 | P2 | Static launcher shortcuts for the top 2 to 4 jobs (shortcuts.xml); dynamic shortcuts for personal items | Android | Dependable, one long press away | Long press on the icon shows them; each opens the right screen with a source tag |
-| P2 | Visual Intelligence integration if the core job starts from something seen | iOS | The camera or screen becomes an entry point | A test image routes to the right result in the app |
+| P2 | Visual Intelligence integration if the core job starts from something seen | iOS | What the user is looking at becomes an entry point | A test scene routes to the right result in the app |
 | P3 | AppFunctions prototype behind a remote config flag | Android 16+ | Only valuable once Gemini calls the app | Prototype passes the team's tests; flag off in production until Gemini access exists |
 | P3 | App Actions capabilities | Android | Value unclear [Unverified] | Keep existing ones working; build new ones only with a reason |
 | P3 | SiriKit inventory and migration plan | iOS | Deprecation [Unverified] | Plan written; migration scheduled once deprecation is confirmed at L2 |
 
-Sketch for the app team (Swift; verify every API against the current App Intents documentation and Xcode before use):
+Sketch for the app team (Swift; verify every API against the current App Intents documentation and Xcode before use). It uses a simpler action than the job map above, with no entity parameter, to keep it short:
 
 ```swift
 import AppIntents
