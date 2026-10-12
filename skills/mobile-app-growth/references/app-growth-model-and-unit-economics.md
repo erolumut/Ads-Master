@@ -9,8 +9,8 @@ An app grows through a small number of loops. Diagnose which loop is broken befo
 | Loop | Input | Output | Owner here | Usual constraint |
 |------|-------|--------|-----------|------------------|
 | Paid acquisition | Media spend on Apple Ads, Google App campaigns, Meta, TikTok, networks | Installs, trials, payers | mobile-app-growth (with meta-ads, google-ads, tiktok-ads for channel depth) | Measurement quality and payback |
-| Store search | Metadata, ratings, conversion rate, download velocity | Organic installs | mobile-app-growth | Keyword relevance and product page conversion |
-| Store browse and featuring | Editorial nominations, in-app events, Today tab stories, Play promotional content | Organic installs and reactivations | mobile-app-growth | Quality bar and event calendar |
+| Store search | Metadata, ratings, conversion rate, download velocity | Organic installs | app-store-optimization | Keyword relevance and product page conversion |
+| Store browse and featuring | Editorial nominations, in-app events, Today tab stories, Play promotional content | Organic installs and reactivations | app-store-optimization | Quality bar and event calendar |
 | Web to app | Ads and SEO to web funnels, web checkout, deep links | Payers acquired outside the store | mobile-app-growth with cro and site-engineer | Funnel friction, account linking |
 | Product virality | Invites, shares, referrals, UGC | New installs | mobile-app-growth with lifecycle-crm | Product hooks |
 | Retention and monetization | Onboarding, paywall, pricing, push, email | Revenue per install, LTV | mobile-app-growth (paywall), lifecycle-crm (flows) | Activation and churn |
@@ -144,8 +144,8 @@ If the budget cannot buy those volumes, optimize to a shallower event (install, 
 
 | Stage | iOS | Android | Organic |
 |-------|-----|---------|---------|
-| Pre-launch | Pre-orders (App Store), waitlist web funnel | Pre-registration campaign (Google ACpre), Play pre-registration rewards | Landing page, ASO baseline, press |
-| Launch to 90 days | Apple Ads brand + category exact, then Meta or TikTok for volume | Google ACi, then Meta or TikTok | ASO iterations weekly, ratings prompt |
+| Pre-launch | Pre-orders (App Store), waitlist web funnel | Pre-registration campaign (Google ACpre), Play pre-registration rewards | Landing page, store baseline (app-store-optimization), press |
+| Launch to 90 days | Apple Ads brand + category exact, then Meta or TikTok for volume | Google ACi, then Meta or TikTok | Store iterations and ratings prompts (app-store-optimization) |
 | Growth | Add Apple Ads discovery and competitor, Today tab tests, CPPs per audience | ACi tCPA, ACe for lapsed, tROAS when eligible | CPP keywords, in-app events, localization |
 | Scale | Networks (AppLovin, Unity, Moloco, Liftoff, Mintegral) as tested cells, web to app | Same plus networks, DSPs | Featuring nominations, localized creative |
 | Enterprise | Geo holdouts per channel, MMM, multi-market CPP and PPO programs | Same | Store experimentation calendar |

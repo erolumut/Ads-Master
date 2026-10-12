@@ -1,5 +1,7 @@
 # Research Dossier: Mobile App Growth (iOS and Android)
 
+> Since 2026-10-12, ASO (store search, metadata, ratings, store AI surfaces, experiments and featuring) is owned by the `app-store-optimization` package and its dossier `research/app-store-optimization.md`; the ASO findings below are kept as history.
+>
 > Research pass completed 2026-10-08. Scope: ASO, store experiments, Apple Ads, Google App campaigns, Meta and TikTok app campaigns, app networks, MMPs, SKAdNetwork and AdAttributionKit, ATT, Android privacy, deep linking, onboarding and paywalls, web to app and external purchase rules, app unit economics, creative and policies. Method: official developer news feeds, help centers and court or regulator records first, then vendor data studies with stated samples, then trade press. Evidence labels follow docs/AUTHORING_SPEC.md section 7. Numbers in brackets refer to the Sources list at the end.
 
 ## 1. Executive summary

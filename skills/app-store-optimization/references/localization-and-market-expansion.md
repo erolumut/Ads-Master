@@ -109,14 +109,14 @@ Illustrative: German (de-DE) L3 launch on the App Store, live 2026-09-01, read o
 | First-time downloads from search | 2,900 | 5,200 | +79% |
 | English control terms ranked 1 to 10 (of 10) | 6 | 6 | none |
 
-Reading: control terms held, so the gain is the localization, not the market. Next: a German custom product page for the top cluster and German review replies. Hand the storefront to `mobile-app-growth` for a paid test now that the page converts.
+Reading: control terms held, so the gain most likely comes from the localization, not the market. Next: a German custom product page for the top cluster and German review replies. Hand the storefront to `mobile-app-growth` for a paid test now that the page converts.
 
 ## 10. Review replies and support in the local language
 
 - Reply in the review's language with an approved, native reviewed template set per locale ([Ratings and AI summaries](ratings-reviews-and-ai-summaries.md) section 5).
 - Machine translation of a reply is a draft; a native speaker or the support team approves the template once.
 - Run `review_themes.py` per locale with a taxonomy that includes local words (the default taxonomy has English and Turkish starter words; extend it in `ads-master/data/aso/review_themes.json`).
-- AI review summaries in each storefront follow the local reviews, so a market with unanswered complaints gets a negative summary in its own language.
+- Where a storefront shows AI review summaries, they likely follow that storefront's reviews [Unverified: inference], so unanswered local complaints can surface in the local summary.
 
 ## 11. Translation QA checklist
 

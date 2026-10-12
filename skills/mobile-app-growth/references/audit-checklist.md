@@ -20,21 +20,19 @@ Severity weights: Critical x3, High x2, Medium x1, Low x0.5.
 | A10 | Weekly data QA table run, with thresholds | Bad data breaks bidding | Journal entries | High | Add to heartbeat |
 | A11 | At least one incrementality read (geo holdout, lift or brand pause test) in the last 12 months for the largest channel | Calibrated targets | MEASUREMENT.md incrementality table | Medium (Growth), High (Scale) | Plan with measurement |
 
-## B. Store presence and ASO (weight: 20%)
+## B. Store readiness for paid traffic (weight: 20%)
+
+Store listing quality itself is audited by `app-store-optimization` ([ASO audit checklist](../../app-store-optimization/references/audit-checklist.md)); this section scores what paid growth depends on.
 
 | # | Check | Why | How to verify | Severity | Fix |
 |---|-------|-----|---------------|----------|-----|
-| B1 | Name, subtitle and keyword field use all available characters with no duplicated words and no competitor names | Search reach, policy | App Store Connect | High | Keyword map |
-| B2 | Google Play title, short and full description optimized without policy violations | Search reach | Play Console | High | Rewrite |
-| B3 | Product page conversion rate at or above peer benchmark in App Store Connect | Multiplier on all traffic | Analytics peer benchmarks | High | Creative program, PPO |
-| B4 | First 3 screenshots communicate outcome; localized for top 5 revenue markets | Conversion | Visual review | High | Redesign |
-| B5 | PPO or store listing experiment run in the last 90 days | Learning velocity | Test history | Medium | Test calendar |
-| B6 | Custom product pages and custom store listings mapped to ad groups, campaigns and keyword clusters | Message match | CPP registry | Medium (Starter), High (Growth+) | Build portfolio |
-| B7 | App Store Tags reviewed (irrelevant tags deselected) | Discovery accuracy | App Store Connect | Low | Review |
-| B8 | New creative assets (header, search result asset) planned or live for iOS 27 | Early mover advantage | Asset Library | Low | Plan with creative |
-| B9 | Localization coverage matches revenue and opportunity (50 Apple languages available) | Market reach | Locale list vs revenue by country | Medium | Locale waves |
-| B10 | Android vitals below bad behavior thresholds; iOS crash rate stable | Visibility and ratings | Vitals, Organizer | Critical if breached | App team fix |
-| B11 | Target API 36 met (or extension) and current Apple SDK minimum met | Ability to ship updates | Play Console, Xcode build settings | Critical | Update build |
+| B1 | A scored ASO audit from `app-store-optimization` in the last 90 days, grade B or better | Paid traffic multiplies store conversion | Latest `app-store-optimization` audit output | High | Request the audit |
+| B2 | Product page conversion at or above the App Store Connect peer benchmark and own trailing 8 weeks | Multiplier on all traffic | `app-store-optimization` weekly report | High | Hand off store fixes |
+| B3 | Custom product pages and custom store listings mapped to ad groups, campaigns and paid concepts | Message match | `data/cpp_registry.csv` | Medium (Starter), High (Growth+) | Request pages from `app-store-optimization`; wire ad groups |
+| B4 | Paid conversion per page reported back to the registry | Page decisions | Registry `paid_cr_28d` column | Medium | Add to the weekly report |
+| B5 | No paid bursts to the default page during store tests in the last 90 days | Clean store reads | Journal vs EXPERIMENTS.md | Low | Coordinate with the store test calendar |
+| B6 | Android vitals below bad behavior thresholds; iOS crash rate stable | Visibility and ratings | Vitals, Organizer | Critical if breached | App team fix |
+| B7 | Target API 36 met (or extension) and current Apple SDK minimum met | Ability to ship updates | Play Console, Xcode build settings | Critical | Update build |
 
 ## C. Paid user acquisition (weight: 20%)
 
@@ -69,11 +67,10 @@ Severity weights: Critical x3, High x2, Medium x1, Low x0.5.
 | # | Check | Why | How to verify | Severity | Fix |
 |---|-------|-----|---------------|----------|-----|
 | E1 | Activation event defined and D1 activation tracked | Retention root | Analytics | High | Define |
-| E2 | Rating prompt uses system APIs, triggered after success moments, never gated by sentiment | Policy and rating | Code and analytics | High | Fix triggers |
-| E3 | 1 to 2 star reviews replied within 72 hours | Ratings and trust | Review tool | Medium | Process |
-| E4 | In-app events and promotional content calendar for the next quarter | Discovery and reactivation | Calendar | Medium | Plan |
-| E5 | Deep links QA matrix passed in the last release | Campaign and CRM continuity | QA log | High | Fix and retest |
-| E6 | Lifecycle flows exist for onboarding, trial end and win-back | Retention | lifecycle-crm handoff | Medium | Handoff |
+| E2 | No open rating incident from `app-store-optimization` before budget increases; paid traffic paused to broken flows during incidents | Paid spend into a falling rating wastes money | INCIDENTS.md, journal | High | Hold scaling, pause affected traffic |
+| E3 | In-app events and promotional content (by `app-store-optimization`) paired with paid re-engagement where relevant | Reactivation | Event calendar vs campaigns | Low | Plan with `app-store-optimization` |
+| E4 | Deep links QA matrix passed in the last release | Campaign and CRM continuity | QA log | High | Fix and retest |
+| E5 | Lifecycle flows exist for onboarding, trial end and win-back | Retention | lifecycle-crm handoff | Medium | Handoff |
 
 ## F. Compliance and policy (weight: 10%)
 
@@ -121,7 +118,7 @@ Data gaps and [Unverified] items
 ## Quick audit (30 minutes, cold start)
 
 When only store access and one export exist, score these 10 items first and state the rest as data gaps:
-1. A1 revenue truth, 2. A4 SKAN schema, 3. B3 product page conversion vs peers, 4. B10 vitals and crash rate, 5. C1 targets from unit economics, 6. C2 Apple Ads structure, 7. D1 paywall disclosures, 8. D2 paywall tests, 9. E2 rating prompt rules, 10. F4 external links by storefront.
+1. A1 revenue truth, 2. A4 SKAN schema, 3. B2 product page conversion vs peers, 4. B6 vitals and crash rate, 5. C1 targets from unit economics, 6. C2 Apple Ads structure, 7. D1 paywall disclosures, 8. D2 paywall tests, 9. E2 rating incidents and paid traffic, 10. F4 external links by storefront.
 
 ## Evidence log template
 

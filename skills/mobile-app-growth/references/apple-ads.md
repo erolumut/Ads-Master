@@ -80,7 +80,7 @@ When to use: CATEGORY campaigns with at least 5 installs per day at a stable CPA
 
 - Each ad group can use the default product page or a custom product page as its ad variation [Official]. CPPs work in search results, Search tab and Today tab [Official].
 - New creative assets (images and videos for headers and search results) can appear in Apple Ads on the Today tab and in search, managed through the App Store Connect Asset Library, which supports pre-approval for future campaigns [Official, 2026-06 WWDC26 guide; shipped in App Store Connect 2026-10-05]. One source says Apple Ads custom creative is not yet part of the release [Contested]; check the Apple Ads UI.
-- Match the CPP to the ad group theme (see [Experiments and custom pages](store-listing-experiments-and-custom-pages.md)).
+- Match the CPP to the ad group theme. Pages are built and tested by `app-store-optimization` ([Store experiments, CPP and CSL](../../app-store-optimization/references/store-experiments-cpp-csl.md)); record the ad group per page in `ads-master/data/cpp_registry.csv`.
 
 ## 7. Audiences and settings
 

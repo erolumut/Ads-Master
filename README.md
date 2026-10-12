@@ -1,17 +1,17 @@
 # Ads Master
 
-**Plug and play growth agents for Claude Code.** Twenty three specialist agents for paid media, SEO, AI search visibility, the storefront, conversion, offers, pricing, marketplaces, creative and video production, retention, apps, measurement and compliance. They are built on a deep market research sweep (October 2026) and designed to adapt to any project: ecommerce, lead gen, B2B SaaS, local services, apps and marketplaces, from a $500 test budget to enterprise scale.
+**Plug and play growth agents for Claude Code.** Twenty four specialist agents for paid media, SEO, AI search visibility, app store optimization, the storefront, conversion, offers, pricing, marketplaces, creative and video production, retention, apps, measurement and compliance. They are built on a deep market research sweep (October 2026) and designed to adapt to any project: ecommerce, lead gen, B2B SaaS, local services, apps and marketplaces, from a $500 test budget to enterprise scale.
 
 Install once, drop into any project, and get a senior growth team that audits, plans, builds and reviews, while you keep the final say on every dollar spent and every word published. Safety is enforced twice: by the agents' rules and by deterministic hooks that block risky actions no matter what a model decides.
 
 | At a glance | |
 |---|---|
-| Agents | 23 specialists plus 3 utility skills (`ads-setup`, `ads-review`, `ads-verify`) |
+| Agents | 24 specialists plus 3 utility skills (`ads-setup`, `ads-review`, `ads-verify`) |
 | Workflow Kit | A separate plugin for any project: model routing (haiku, sonnet, opus, fable), parallel sessions, sprint prompts, plan first sessions, handover, decision log, review guardians, git hooks and gate scripts |
-| Playbook depth | 348 reference modules, about 72,000 lines of procedures, audits, settings, formulas, queries and scripts |
-| Research | 24 dossiers with dated timelines of platform changes (January 2025 to October 2026) and about 3,900 unique cited URLs |
+| Playbook depth | 361 reference modules, about 76,000 lines of procedures, audits, settings, formulas, queries and scripts |
+| Research | 25 dossiers with dated timelines of platform changes (January 2025 to October 2026) and about 4,100 unique cited URLs |
 | Safety | Gates G0 to G4, automation stages 1 to 5, guard hooks with tests, claims registry, incident runbook |
-| Tools | SEO preflight crawler, daily report builder, tracking plan checker, basket economics calculator, claims checker, approved copy lock, post release smoke check, verified facts check, FFmpeg delivery, variant planner, URL and injection checkers |
+| Tools | ASO metadata checker, review themes, AI answer panel, app entity checker, SEO preflight crawler, daily report builder, tracking plan checker, basket economics calculator, claims checker, approved copy lock, post release smoke check, verified facts check, FFmpeg delivery, variant planner, URL and injection checkers |
 | Install | Claude Code plugin, project copy script, or open this repo directly |
 
 ---
@@ -161,7 +161,7 @@ Requirements: Claude Code, Python 3 for the guard and scripts, FFmpeg for video-
 
 ```
 .claude-plugin/          plugin.json and marketplace.json
-agents/                  23 subagent definitions
+agents/                  24 subagent definitions
 skills/<agent>/          SKILL.md + references/ (+ scripts/ where useful)
 skills/ads-setup/        workspace installer + template/ (the per project workspace)
 skills/ads-review/       heartbeat runner

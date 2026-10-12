@@ -75,7 +75,10 @@ def parse_date(s):
 def load(paths):
     rows = []
     for p in paths:
-        with open(p, encoding="utf-8-sig", errors="ignore", newline="") as fh:
+        with open(p, "rb") as fb:
+            head = fb.read(4)
+        enc = "utf-16" if head[:2] in (b"\xff\xfe", b"\xfe\xff") else "utf-8-sig"  # Play reports are often UTF-16
+        with open(p, encoding=enc, errors="ignore", newline="") as fh:
             rd = csv.DictReader(fh)
             if not rd.fieldnames:
                 continue

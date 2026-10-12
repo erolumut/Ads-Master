@@ -116,7 +116,7 @@ Before each change set, pick 5 to 10 control terms: live terms the change does n
 Decision rules:
 - Keep: changed terms improved by at least one bucket on median and control terms did not, and search downloads did not fall.
 - Iterate: mixed result, or ranks improved but search conversion fell (the new words attract the wrong searchers).
-- Revert: changed terms dropped a bucket or more while control terms held, or search downloads fell more than the 8 week weekly variation.
+- Revert: changed terms dropped a bucket or more while control terms held, or weekly search downloads fell below the lowest week of the prior 8 weeks.
 - Extend to day 42: an outside event hit the window, or the storefront has low traffic.
 - Never judge before day 14. Indexing and ranking settle over days to weeks [Practitioner consensus].
 
@@ -125,11 +125,11 @@ Worked read (illustrative):
 | Term | Role | Baseline median rank | Day 28 median rank | Bucket move |
 |------|------|---------------------:|-------------------:|-------------|
 | mood journal | changed | unranked | 24 | over 100 to 11 to 30 |
-| gratitude journal | changed | 140 | 61 | over 100 to 31 to 100 |
+| mood tracker | changed (combines "mood" with "tracker" in the name) | 140 | 61 | over 100 to 31 to 100 |
 | habit tracker | control | 6 | 5 | none |
 | streak | control | 9 | 10 | none |
 
-Search downloads: 1,240 per week baseline, 1,310 per week in weeks 3 and 4 (within normal variation). Decision: keep, and plan a mood themed screenshot test because the new terms now bring views.
+Search downloads: 1,240 per week baseline, 1,310 per week in weeks 3 and 4 (inside the prior 8 week range). Decision: keep, and plan a mood themed screenshot test because the new terms now bring views.
 
 ## 8. Metadata change log
 

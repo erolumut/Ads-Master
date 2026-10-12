@@ -8,7 +8,7 @@
 |-----------|-------------------------------|----------|
 | 1.2 User generated content | Apps with UGC need filtering, reporting and blocking; random or anonymous chat apps fall under 1.2 (2026-02) | [Official, 2026-02] |
 | 1.2.1(a) Creator content | Creator apps need an age restriction mechanism (2025-11) | [Official, 2025-11] |
-| 2.3 Accurate metadata | Screenshots must show the app in use (2.3.3); no irrelevant keywords, competitor names or pricing terms in metadata (2.3.7); metadata must match the app | [Official] |
+| 2.3 Accurate metadata | Store metadata and screenshot rules are owned by `app-store-optimization` ([Policies and metadata compliance](../../app-store-optimization/references/policies-and-metadata-compliance.md)) | [Official] |
 | 3.1.1 In-App Purchase | Digital goods and features unlocked in the app use IAP, except where 3.1.1(a) and regional rules allow other routes | [Official] |
 | 3.1.1(a) and 3.1.3 (US storefront) | No prohibition on buttons, external links or other calls to action to web purchases on the US storefront; no entitlement needed; alternative payment processing inside the app still not allowed (updated 2025-05-01) | [Official, 2025-05] |
 | 3.1.2 Subscriptions | Clear description of what the user gets, price, period and renewal; the billed amount must be clear and prominent; subscriptions must provide ongoing value | [Official] |
@@ -18,7 +18,7 @@
 | 4.8 Login services | Offer an equivalent privacy focused login (for example Sign in with Apple) when third party login is offered | [Official] |
 | 5.1.1 Data collection | Purpose strings, data minimization, in-app account deletion for apps with account creation (5.1.1(v)); do not force consent for unnecessary data | [Official] |
 | 5.1.2 Data use and sharing | Tracking requires ATT permission; disclose sharing personal data with third party AI (5.1.2(i), 2025-11) | [Official, 2025-11] |
-| 5.6.1 App Store reviews | Use the provided API to request reviews; no custom review prompts | [Official] |
+| 5.6.1 App Store reviews | Use the provided API to request reviews; prompts and replies are owned by `app-store-optimization` | [Official] |
 | 5.6.3 Discovery fraud | No manipulation of charts, search, reviews or referrals (no bought installs, review farms, incentivized rank boosting) | [Official] |
 
 Other Apple requirements:
@@ -36,7 +36,7 @@ Other Apple requirements:
 
 | Policy | What it means | Evidence |
 |--------|---------------|----------|
-| Metadata policy | No ranking or performance claims, price or promotion words, emoji or repeated special characters in title, icon or developer name; no misleading or irrelevant keywords | [Official] |
+| Metadata policy | Listing rules owned by `app-store-optimization` (title, icon, developer name restrictions; no keyword padding) | [Official] |
 | Store listing and promotion | No fake or incentivized ratings and reviews, no misleading ads for the app, no deceptive install tactics | [Official] |
 | Payments | Digital goods through Play Billing, or alternative billing and external links under the US, UK and EEA programs | [Official, 2025-12 to 2026-06] |
 | Subscriptions | Clear offer terms: trial length, price after trial, frequency, cancellation; no misleading free trial claims | [Official] |
@@ -71,7 +71,7 @@ Other Apple requirements:
 
 ## 5. Pre-submission checklist for growth changes
 
-- [ ] Metadata and screenshots reviewed against 2.3 (Apple) and the Metadata policy (Google).
+- [ ] Store metadata and screenshots passed `app-store-optimization`'s compliance workflow (2.3 and the Play Metadata policy).
 - [ ] Every claim in screenshots, CPPs, in-app events, promotional text and ads exists in brand/CLAIMS.md as approved.
 - [ ] Paywall shows billed amount, period, trial terms, restore, terms and privacy links.
 - [ ] External purchase links only on storefronts where they are allowed, with the right program enrollment (Google) and current fee assumptions.

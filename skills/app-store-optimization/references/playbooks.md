@@ -49,7 +49,7 @@ Exit: term map stable, conversion by source at or above the first 30 days, ratin
 1. Confirm it is a plateau: year over year, category trend (ASO tool), no measurement break, no lost featuring.
 2. Decompose organic downloads: impressions by source x conversion by source. The constraint is the factor that stopped growing.
 3. If impressions are flat:
-   - Ranks: terms stuck at 11 to 30 with high popularity are the next target (metadata change set, CPP keyword pages for terms already ranked).
+   - Ranks: terms stuck at 11 to 30 with high popularity are the next target (a metadata change set that strengthens them; a keyword linked CPP only where the term also converts below the default page).
    - Coverage: clusters with no term ranked: new terms or new locales.
    - Ad pressure: more Apple Ads slots above you on core terms ([App Store](app-store-search-and-metadata.md) section 7): consider with `mobile-app-growth` whether brand or category defense pays.
    - Browse: events, nominations, promotional content.
@@ -62,7 +62,7 @@ Exit: term map stable, conversion by source at or above the first 30 days, ratin
 
 ## Play 3: Rating crisis
 
-Trigger: rating down 0.2 or more in 7 days, a 1 star surge, or `review_themes.py` exit 1 (a negative theme up 5 points). Both triggers are stop conditions in `ads-master/INCIDENTS.md`.
+Trigger: rating down 0.2 or more in 7 days, a 1 star surge, or `review_themes.py` exit 1 (a negative theme up 5 points). These triggers match the stop conditions in `ads-master/INCIDENTS.md`.
 
 | Step | Time | Action | Owner | Gate |
 |------|------|--------|-------|------|
@@ -140,6 +140,6 @@ Use `ads-master/templates/CHANGE_REQUEST.md`. One line per change:
 |---|----------------------|--------|--------|------|----|----------------------------------|-----------------|------|----------|------|----------|
 | 1 | App Store US en-US | Version 4.13 keyword field | Replace 3 terms | `...,todo,widget,...` | `...,mood,journal,...` | Term map 2026-10-01: mood cluster unranked, popularity 3 of 5 | Mood journal rank 11 to 30 by day 28 | Lose rank on "todo" (rank 64, low value) | Revert to previous text from the change log | G3 | |
 | 2 | Google Play | Custom store listing CSL-03 | Publish keyword listing | none | draft v1 | Search term "expense tracker" conversion 30% below average, 28 days | Conversion +15% relative on the term | None until published | Unpublish | G3 | |
-| 3 | App Store US | Tag "Budgeting" | Deselect | selected | deselected | App has no budgeting feature (PRODUCT_FACTS row 12) | Fewer mismatched searchers | Unknown discoverability effect | Reselect | G3 | |
+| 3 | App Store US | Tag "Budgeting" | Deselect | selected | deselected | App has no budgeting feature (PRODUCT_FACTS row 12) | Fewer mismatched searchers | Unknown discoverability effect | Reselect only if App Store Connect allows it [Unverified]; treat the change as hard to reverse | G3 | |
 
 Read back every executed change and log it with a timestamp in the journal and the metadata change log.

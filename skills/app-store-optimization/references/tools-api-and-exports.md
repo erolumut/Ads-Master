@@ -27,7 +27,7 @@
 |------|-------|------|
 | Keyword popularity, difficulty, ranks, competitor metadata history, featuring tracking | AppTweak, Sensor Tower (includes former data.ai), MobileAction, Appfigures, AppFollow, Asodesk | Scales differ; one tool per term map column |
 | Review management and replies | AppFollow, Appbot, Appfigures | Replies sent through tools are still G3 |
-| Metadata and screenshot automation | fastlane `deliver` (App Store) and `supply` (Google Play) | Download is G0; upload is G3 |
+| Metadata and screenshot automation | fastlane `deliver` (App Store) and `supply` (Google Play) | Download is G0 in effect, but the guard asks for confirmation by command name (section 5); upload is G3 |
 | Screenshot production | Design tools plus device frames; App Store Connect preview tool for checks | Real UI only |
 
 ## 4. Exports and the files the scripts read
@@ -51,11 +51,7 @@ Put every export in `ads-master/data/imports/` with the source and date range in
 
 `review_themes.py` column detection (loose, case insensitive): rating (`Star Rating`, `rating`, `score`, `stars`), text (`Review Text`, `text`, `body`, `content`, `review`), title (`Review Title`, `title`), date (`Review Submit Date and Time`, `Review Last Update Date and Time`, `date`, `created`, `created_at`), reply date (`Developer Reply Date and Time`, `reply_date`, `response date`, `developer response date`). Play's reviews report uses the first names in each list.
 
-Encoding: Play Console CSV reports have commonly been UTF-16 [Practitioner consensus]. The script reads UTF-8 and exits 2 with "need rating and text columns" and garbled names on a UTF-16 file (tested 2026-10-12). Convert first:
-
-```
-iconv -f UTF-16 -t UTF-8 reviews_play_202609.csv > reviews_play_202609_utf8.csv
-```
+Encoding: Play Console CSV reports have commonly been UTF-16 [Practitioner consensus]. The script detects a UTF-16 byte order mark and reads those files directly (fixed and tested 2026-10-12); other files are read as UTF-8. For an unusual encoding, convert first with `iconv -f <encoding> -t UTF-8 in.csv > out.csv`.
 
 `aso_metadata_check.py` input: a JSON list, one entry per store and locale. Apple keys: `name`, `subtitle`, `keywords`, `promotional_text`, `description`, optional `captions`, `target_terms`. Google keys: `title`, `short_description`, `full_description`, optional `captions`, `target_terms`. Optional `--competitors` text file, one name per line (from `ads-master/COMPETITORS.md`). Exit 0 pass, 1 at least one FAIL, 2 could not run.
 

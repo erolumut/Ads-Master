@@ -46,9 +46,9 @@ Policy details carried from 2021 coverage and still applied (no 2025 to 2026 cha
 5. Change one listing element per locale per change set, wait 2 to 4 weeks, read store listing acquisitions and conversion by search term ([Keyword research](keyword-research-and-rank-tracking.md) section 7).
 
 Gemini in Play Console (I/O 2026):
-- Clicking a keyword recommendation on the Grow page lets Gemini draft a custom store listing tailored to that keyword [Reported, 2026-10].
-- Structured CSV or Google Sheet upload, with Gemini pre-populating other languages for review [Reported, 2026-10]. Screenshots are not localized by Gemini [Unverified].
-- Every Gemini draft is a G1 draft: run the checker and compliance, then a G3 change request. Never publish unreviewed AI drafts.
+- Clicking a keyword recommendation on the Grow page lets Gemini draft a custom store listing tailored to that keyword [Unverified: official I/O 2026 post seen via search summary only].
+- Structured CSV or Google Sheet upload, with Gemini pre-populating other languages for review [Unverified: same source]. Screenshots are not localized by Gemini [Unverified].
+- A Gemini draft saved in Play Console is an unpublished platform draft (G2). Copy its text into `ads-master/outputs/`, run the checker and compliance, then publish only through a G3 change request. Never publish unreviewed AI drafts; checklist in [AI surfaces in the stores](ai-surfaces-in-the-stores.md) section 8.
 
 ## 4. Writing the full description for search, people and Ask Play
 
@@ -78,7 +78,7 @@ Rule: an Android vitals breach outranks every listing change. A listing that con
 
 | Surface | What it is | Action | Evidence |
 |---------|-----------|--------|----------|
-| Ask Play | A Gemini overlay in the store with follow ups and Highlights (I/O 2026); an "Ask Play about this app" box below Install was seen in 2025-05 | Answers come from listing text, features, the website and reviews; keep them consistent. Depth in [AI surfaces in the stores](ai-surfaces-in-the-stores.md) | [Reported, 2026-10]; the 2025-05 box [Unverified]; mostly English devices, EEA later [Unverified] |
+| Ask Play | A Gemini overlay in the store with follow ups and Highlights (I/O 2026); an "Ask Play about this app" box below Install was seen in 2025-05 | Vendor tests say answers draw on listing text, features, the website and reviews; keep them consistent. Depth in [AI surfaces in the stores](ai-surfaces-in-the-stores.md) | [Reported, 2026-10]; the 2025-05 box [Unverified]; mostly English devices, EEA later [Unverified] |
 | "Users are saying" review summaries | AI paragraph with topic chips, "Summarised by Google AI", for apps with enough reviews | Manage review themes ([Ratings and AI summaries](ratings-reviews-and-ai-summaries.md)) | [Reported, 2026-10] |
 | Play Shorts | Vertical video feed in the store, US, select developers | Prepare 9:16 videos of real use; reuse winning ad concepts | [Reported, 2026-10] |
 | Apps in the Gemini app | Announced at I/O 2026 for "coming weeks" | Keep App Links and listing facts correct; do not plan on it | [Unverified] rollout |

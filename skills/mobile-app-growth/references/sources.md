@@ -1,6 +1,6 @@
 # Sources (annotated)
 
-> Compiled 2026-10-08. Primary sources first; trade press and vendor research are labeled. Vendor studies have commercial interests and non random samples. Re-check official pages before acting (Freshness Protocol in SKILL.md). The full research narrative is in research/mobile-app-growth.md.
+> Compiled 2026-10-08. Primary sources first; trade press and vendor research are labeled. Vendor studies have commercial interests and non random samples. Re-check official pages before acting (Freshness Protocol in SKILL.md). The full research narrative is in research/mobile-app-growth.md. ASO sources (tags, review summaries, CPP keywords, Play experiments, Ask Play) were re-researched on 2026-10-12 and live in `app-store-optimization` ([Sources](../../app-store-optimization/references/sources.md)); rows below that support store listing work are kept for history.
 
 ## Apple: App Store, App Store Connect, StoreKit, policies
 

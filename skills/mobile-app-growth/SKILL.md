@@ -1,6 +1,6 @@
 ---
 name: mobile-app-growth
-description: Mobile app growth playbook for iOS and Android. Use to audit, launch, optimize, scale or recover app growth across App Store Optimization (App Store and Google Play metadata, keywords, screenshots, App Store Tags, product page headers, custom product pages, Product Page Optimization, store listing experiments, custom store listings, in-app events, promotional content, ratings prompts and review replies, localization), Apple Ads (search results, Search tab, Today tab, product pages, Maximize Conversions, Platform API), Google App campaigns (ACi, ACe, pre-registration, tCPA, tROAS, ICM), Meta Advantage+ app, TikTok Smart+ App and networks (AppLovin, Unity, Mintegral, Liftoff, Moloco), MMPs (AppsFlyer, Adjust, Branch, Singular, Kochava), SKAdNetwork 4, AdAttributionKit, ATT prompts, deep links and Firebase Dynamic Links replacement, onboarding, paywalls and subscriptions (RevenueCat, Superwall, Adapty), web to app and external purchase links, CPI, LTV and payback, app creative and store policies.
+description: Mobile app growth playbook for iOS and Android paid acquisition, measurement and monetization. Use to audit, launch, optimize, scale or recover app growth across Apple Ads (search results, Search tab, Today tab, product pages, Maximize Conversions, Platform API, custom product pages as ad variations), Google App campaigns (ACi, ACe, pre-registration, tCPA, tROAS, ICM), Meta Advantage+ app, TikTok Smart+ App and networks (AppLovin, Unity, Mintegral, Liftoff, Moloco), MMPs (AppsFlyer, Adjust, Branch, Singular, Kochava), SKAdNetwork 4, AdAttributionKit, ATT prompts, deep links and Firebase Dynamic Links replacement, onboarding, paywalls and subscriptions (RevenueCat, Superwall, Adapty), web to app and external purchase links, CPI, LTV and payback, app ad creative and store payment policies.
 ---
 
 # Mobile App Growth
@@ -9,20 +9,23 @@ description: Mobile app growth playbook for iOS and Android. Use to audit, launc
 
 ## Mission and scope
 
-Grow profitable, retained users for iOS and Android apps: make the store page convert, make every paid dollar pay back on net proceeds, keep iOS and Android measurement honest under privacy rules, and turn installs into payers through onboarding and paywalls.
+Grow profitable, retained users for iOS and Android apps: make every paid dollar pay back on net proceeds, keep iOS and Android measurement honest under privacy rules, turn installs into payers through onboarding and paywalls, and buy traffic only into store pages that convert (built with `app-store-optimization`).
 
 In scope:
-- ASO for the App Store and Google Play, store experiments, custom product pages and custom store listings, in-app events and promotional content, ratings and reviews, localization.
 - App campaigns: Apple Ads (all placements), Google App campaigns (ACi, ACe, ACpre), the app layer of Meta and TikTok campaigns, app networks and DSPs at a high level.
 - App measurement requirements: MMP choice and setup review, SKAdNetwork and AdAttributionKit schemas, ATT prompt strategy, Android signals, data QA, reading incrementality for apps.
 - Deep links, deferred deep links, web to app funnels and external purchase routes by market.
 - Onboarding, paywalls, pricing tests, store offer types, subscription churn levers.
 - App unit economics: CPI, cost per trial start, cost per payer, retention, LTV curves, payback.
-- App creative requirements and store policy compliance for growth work.
+- Using custom product pages and custom store listings in campaigns (ad variations, ad group listings, `ppid` links), and reporting paid conversion per page back to the shared registry.
+- App ad creative requirements and store payment and privacy policy compliance for growth work.
+
+Store listing work (ASO) belongs to `app-store-optimization`: keywords and rank tracking, metadata, store creative, creating CPPs and CSLs, PPO and store listing experiments, ratings, review replies and AI review summaries, App Store tags, featuring, in-app events, promotional content and localization.
 
 Out of scope (hand off):
 | Work | Slug |
 |------|------|
+| ASO: keywords, metadata, store creative, CPP and CSL creation, store experiments, ratings and reviews, events, featuring, localization | app-store-optimization |
 | Building tracking stacks, server events, CAPI, consent, lift test design, MMM | measurement |
 | Meta account structure, bids and creative system beyond the app layer | meta-ads |
 | Google Ads accounts beyond App campaigns (brand Search, PMax for web) | google-ads |
@@ -60,8 +63,8 @@ Cold start without `ads-master/`: ask the first 6 rows, state assumptions, and s
 2. Freshness check when the task touches features, fees, policies, defaults or benchmarks (section Freshness protocol).
 3. Data: connect read only (MCP, API) or read CSVs in `data/imports/`. Record source, date range, attribution source (MMP, SAN, SKAN or AAK, AdServices, store) and OS split.
 4. Measurement gate: run the weekly QA table in [Measurement](references/mobile-measurement-skan-aak-mmp.md) section 10. If bid events are broken, stop optimization, write a journal alert and hand off to measurement.
-5. Diagnose with the funnel chain: impressions to product page views (store reach), product page conversion, install to activation, activation to trial or first purchase, trial to paid, renewal, net proceeds. Find the weakest link against own history first, benchmarks second.
-6. Prioritize actions by impact x confidence x ease (1 to 5 each). Store conversion, measurement and paywall fixes usually outrank bid changes.
+5. Diagnose with the funnel chain: impressions to product page views (store reach), product page conversion (both read from `app-store-optimization` outputs for organic traffic), install to activation, activation to trial or first purchase, trial to paid, renewal, net proceeds. Find the weakest link against own history first, benchmarks second.
+6. Prioritize actions by impact x confidence x ease (1 to 5 each). Store conversion (handed to `app-store-optimization`), measurement and paywall fixes usually outrank bid changes.
 7. Act: produce the deliverable (audit, plan, change list, schema, brief, report). Every live change is a change list row.
 8. QA against the Quality Bar.
 9. Log: output file, journal entry, EXPERIMENTS.md rows, memory only for confirmed patterns.
@@ -80,11 +83,11 @@ Quality Bar for every deliverable:
 
 | App type | Starter (under $3k/mo) | Growth ($3k to $30k) | Scale ($30k to $300k) | Enterprise (over $300k) |
 |----------|------------------------|----------------------|------------------------|-------------------------|
-| Subscription (consumer, AI, health, education, B2C SaaS) | ASO first; Apple Ads BRAND + CATEGORY exact; RevenueCat as revenue truth; onboarding paywall test; KPI cost per trial start and D35 install to paid | Apple Ads full structure with CPPs; Meta and Google on trial start; SKAN schema on trial and paid; paywall and trial length tests; web funnel test if US heavy; KPI cost per payer and D30 net revenue per install | Web to app at scale, link out vs IAP tests, TikTok AEO, one network test cell, geo holdout; pLTV values; KPI payback on net proceeds | Multi market pricing, MMM calibrated by tests, Retention Messaging and win-back programs, portfolio by OS and market |
-| Game (casual, hybrid, mid-core) | Soft launch in 1 to 3 test markets; Google ACi installs, Meta installs; KPI D1, D7 retention and CPI | ACi tCPA on progression or purchase events, Meta app events, Apple Ads CATEGORY; playables; KPI D7 ROAS vs curve target | AppLovin, Unity, Mintegral, Moloco, Liftoff with playables; tROAS and VBO; ad revenue in SKAN values; KPI D7 to D180 ROAS curve | LiveOps calendar with in-app events, per genre portfolios, incrementality by network, MMM |
+| Subscription (consumer, AI, health, education, B2C SaaS) | Store page by `app-store-optimization` first; Apple Ads BRAND + CATEGORY exact; RevenueCat as revenue truth; onboarding paywall test; KPI cost per trial start and D35 install to paid | Apple Ads full structure with CPPs; Meta and Google on trial start; SKAN schema on trial and paid; paywall and trial length tests; web funnel test if US heavy; KPI cost per payer and D30 net revenue per install | Web to app at scale, link out vs IAP tests, TikTok AEO, one network test cell, geo holdout; pLTV values; KPI payback on net proceeds | Multi market pricing, MMM calibrated by tests, Retention Messaging and win-back programs, portfolio by OS and market |
+| Game (casual, hybrid, mid-core) | Soft launch in 1 to 3 test markets; Google ACi installs, Meta installs; KPI D1, D7 retention and CPI | ACi tCPA on progression or purchase events, Meta app events, Apple Ads CATEGORY; playables; KPI D7 ROAS vs curve target | AppLovin, Unity, Mintegral, Moloco, Liftoff with playables; tROAS and VBO; ad revenue in SKAN values; KPI D7 to D180 ROAS curve | LiveOps calendar (events by `app-store-optimization`), per genre portfolios, incrementality by network, MMM |
 | Ecommerce or marketplace app | Store page and deep links from web and CRM; Apple Ads BRAND; KPI app first purchase and repeat rate | ACe and Apple Ads returning users for retention; ACi on first purchase; Web to App Connect; KPI incremental orders per app user | Supply and demand campaigns split for marketplaces, value bidding on order value, geo holdouts; KPI contribution per app user | Multi market, MMM, app vs web incrementality |
 | Fintech (banking, trading, payments, crypto) | Compliance gate first (licensing, Guideline 3.2.1(viii), Play financial services); Apple Ads BRAND + CATEGORY; KPI cost per verified or funded account | Meta and Google on KYC passed or funded events; referral program with lifecycle-crm; KPI cost per funded account | Network tests only with strict fraud rules; incrementality; KPI 12 month contribution | Market by market regulation, MMM |
-| Utility (scanner, VPN, cleaner, keyboard, AI tool) | ASO heavy, hard paywall or weekly plans tested; Apple Ads CATEGORY; KPI D35 install to paid | Paywall and weekly vs annual tests; Meta and TikTok on trial start; KPI net revenue per install D30 | Global localization, networks for Android, web checkout where it pays; KPI payback | Portfolio of apps and markets |
+| Utility (scanner, VPN, cleaner, keyboard, AI tool) | Store page work heavy (`app-store-optimization`), hard paywall or weekly plans tested; Apple Ads CATEGORY; KPI D35 install to paid | Paywall and weekly vs annual tests; Meta and TikTok on trial start; KPI net revenue per install D30 | Global localization, networks for Android, web checkout where it pays; KPI payback | Portfolio of apps and markets |
 | B2B or SaaS companion app | Store page that supports sales; Apple Ads BRAND; no install chasing; KPI activated accounts | Deep links from email and web, onboarding into the account; KPI weekly active accounts | Volume Purchasing (Apple, 2026-10-22) and MDM distribution; KPI seats activated | Enterprise distribution programs |
 
 Spec business models map as follows: lead gen apps (quotes, insurance, real estate) follow Fintech rules for compliance and use qualified lead events as bid events; local services and booking apps follow Ecommerce (booking as purchase) with city level Apple Ads; content or publisher apps follow Subscription for paywalls and Game rules for ad revenue values; marketplaces use the Ecommerce row with supply and demand split.
@@ -93,28 +96,26 @@ Spec business models map as follows: lead gen apps (quotes, insurance, real esta
 
 | Maturity | Focus | What changes | Cadence | Tests |
 |----------|-------|--------------|---------|-------|
-| New app | Measurement level 2, ASO baseline, first paid channel | Few campaigns, install or shallow events | Daily checks 14 days, then weekly | PPO screenshots, paywall placement |
+| New app | Measurement level 2, store baseline from `app-store-optimization`, first paid channel | Few campaigns, install or shallow events | Daily checks 14 days, then weekly | Paywall placement (store tests run by `app-store-optimization`) |
 | Running | Unit economics from real cohorts, second and third channels | Deep funnel events, CPPs per theme | Weekly | Paywall, trial length, CPP vs default |
-| Plateau | Find the binding constraint (store conversion, search share, saturation, monetization, retention) | New locales, CPP keywords, new concepts, web to app | Weekly plus monthly deep dive | Pricing, new channel cell, geo holdout |
+| Plateau | Find the binding constraint (store conversion, search share, saturation, monetization, retention) | New concepts, new channels, web to app; store and search share work to `app-store-optimization` | Weekly plus monthly deep dive | Pricing, new channel cell, geo holdout |
 | Scaling | Marginal cost per payer control, incrementality | Budget steps, networks, market expansion | Twice weekly at Scale tier | Budget step tests, holdouts |
 
 ## Task router
 
 | Task | Read these references | Output template |
 |------|----------------------|-----------------|
-| Full app growth audit | [Audit checklist](references/audit-checklist.md), [Measurement](references/mobile-measurement-skan-aak-mmp.md), [ASO App Store](references/aso-app-store.md), [ASO Google Play](references/aso-google-play.md) | Audit report (scored) |
+| Full app growth audit | [Audit checklist](references/audit-checklist.md), [Measurement](references/mobile-measurement-skan-aak-mmp.md); request the store audit from `app-store-optimization` | Audit report (scored) |
 | Unit economics, targets, payback, budget sizing | [Growth model and unit economics](references/app-growth-model-and-unit-economics.md) | Unit economics memo |
-| ASO plan (iOS) | [ASO App Store](references/aso-app-store.md), [Experiments and custom pages](references/store-listing-experiments-and-custom-pages.md) | ASO plan + change list |
-| ASO plan (Android) | [ASO Google Play](references/aso-google-play.md), [Experiments and custom pages](references/store-listing-experiments-and-custom-pages.md) | ASO plan + change list |
-| PPO, store listing experiments, CPP or custom store listing program | [Experiments and custom pages](references/store-listing-experiments-and-custom-pages.md) | Test plan + EXPERIMENTS.md rows |
+| ASO (keywords, metadata, screenshots, PPO, store listing experiments, creating CPPs and CSLs, ratings and replies, events, localization) | Hand off to `app-store-optimization` | Handoff brief |
+| Using CPPs and CSLs in Apple Ads, Google App campaigns and paid social | [Apple Ads](references/apple-ads.md), [Google App campaigns](references/google-app-campaigns.md), [App creative](references/app-creative.md) | Page to ad group map in `data/cpp_registry.csv` |
 | Apple Ads launch, audit, optimization, Maximize Conversions, API migration | [Apple Ads](references/apple-ads.md), [Tools, API and MCP](references/tools-api-mcp.md) | Apple Ads plan + change list |
 | Google App campaigns | [Google App campaigns](references/google-app-campaigns.md) | Campaign plan + change list |
 | Meta, TikTok, networks for apps | [Meta, TikTok and networks](references/meta-tiktok-and-network-app-campaigns.md) | Channel plan + test protocol |
 | MMP choice, SKAN or AAK schema, ATT prompt, data QA | [Measurement](references/mobile-measurement-skan-aak-mmp.md) | Measurement requirements memo (handoff to measurement) |
 | Deep links, FDL replacement, web to app, external purchase links | [Deep linking and web to app](references/deep-linking-and-web-to-app.md), [Policies](references/policies-and-store-compliance.md) | Funnel plan + regional fee table |
 | Onboarding, paywall, pricing, trials, churn | [Onboarding, paywalls and subscriptions](references/onboarding-paywalls-and-subscriptions.md) | Monetization test plan |
-| Ratings, review replies, in-app events, promotional content | [Ratings, reviews and in-app events](references/ratings-reviews-and-in-app-events.md) | Ratings plan, event calendar, reply drafts |
-| App ad creative and store creative | [App creative](references/app-creative.md) | Creative brief + registry rows |
+| App ad creative | [App creative](references/app-creative.md) | Creative brief + registry rows |
 | Rejection, policy strike, age rating, privacy labels | [Policies](references/policies-and-store-compliance.md) | Recovery plan + resubmission notes |
 | Launch, scale, plateau, recovery | [Playbooks](references/playbooks.md) | Plan + change list |
 | Reporting setup, connectors, MCP | [Tools, API and MCP](references/tools-api-mcp.md) | Reporting spec |
@@ -137,8 +138,8 @@ Spec business models map as follows: lead gen apps (quotes, insurance, real esta
 13. Test paywalls on net revenue per install at a fixed horizon, with refunds as a guardrail (conversion rate alone picks losers).
 14. Model web checkout per market and per plan with the current fee table; the in-app sheet often converts better than web (one 2025 controlled test lost 7% net revenue on web).
 15. Deep links are infrastructure: universal links and App Links on your own domain, tested on the QA matrix every release (broken links waste paid and CRM traffic).
-16. Ratings come from success moments through system APIs, never from sentiment gates or incentives (policy, FTC rule, and better ratings).
-17. Change one store variable at a time and wait 2 to 4 weeks for metadata reads (otherwise no cause and effect).
+16. Never buy installs or reviews and never pay for rank (policy, FTC rule); during a rating crisis, pause paid traffic to the broken flow with `app-store-optimization`.
+17. Protect store reads: no paid bursts to the default page during a PPO or Play experiment, and log large budget shifts so `app-store-optimization` can discount them in its keyword reads.
 18. Respect learning: platform targets move 10% to 20% per step; Apple Maximize Conversions gets 2 weeks before a target change.
 19. Calibrate with incrementality: brand keyword tests and geo holdouts before trusting platform ROAS at scale.
 20. Keep store compliance ahead of growth: claims approved, age ratings current, privacy declarations match SDKs, external links only where allowed.
@@ -156,8 +157,8 @@ Spec business models map as follows: lead gen apps (quotes, insurance, real esta
 | Designs SKAN values once | Validates the schema monthly against consented and Android cohorts |
 | Shows ATT on first launch | Tests prompt timing and copy, prepares the EU alternative prompt |
 | Treats web to app as a fee hack | Models fees per market and plan, A/B tests IAP vs link out, measures net revenue |
-| Changes many store elements at once | One variable per release, logged, measured after indexing settles |
-| Asks for reviews randomly | Triggers prompts after success moments and replies to every low rating |
+| Sends paid bursts to the default page during store tests | Coordinates paid bursts with the store test calendar |
+| Keeps scaling through a rating crash | Pauses paid traffic to broken flows until the fix ships |
 
 ## Expensive mistakes to prevent
 
@@ -178,14 +179,14 @@ Spec business models map as follows: lead gen apps (quotes, insurance, real esta
 
 | Symptom | Likely causes | Checks | Fixes |
 |---------|--------------|--------|-------|
-| Organic installs down | Rank loss, metadata change, featuring ended, crash spike, new ad slots in search | Keyword ranks, change log, vitals, source split | Revert or iterate metadata, fix crashes, rebid brand |
-| Product page conversion down | Screenshot or icon change, rating drop, price change, traffic mix shift | App Store Connect conversion by source, ratings trend | Revert, PPO test, ratings recovery |
+| Organic installs down | Rank loss, metadata change, featuring ended, crash spike, new ad slots in search | Ask `app-store-optimization` for its organic drop play; check paid changes on brand terms | Brand defense decision with data; store fixes by `app-store-optimization` |
+| Paid product page conversion down | CPP or listing change, rating drop, price change, ad to page mismatch | Conversion by CPP or CSL, ratings trend | Fix message match; request page changes from `app-store-optimization` |
 | Paid CPI up, quality stable | Auction pressure, seasonality, creative fatigue | CPT, CPM, IPM trends | New concepts, bid discipline, market mix |
 | CPI fine, cost per payer up | Wrong bid event, paywall change, traffic mix to low ARPU markets or networks | Funnel by channel and country, paywall logs | Change bid event, revert paywall, exclude markets |
 | iOS results collapse | SKAN schema change, SDK update, ATT prompt change, ODM missing for Google | MMP SKAN dashboard, release notes | Fix schema, hand off to measurement |
 | Trials up, trial to paid down | Expectation mismatch, billing issues, shorter trial | Cancellation timing, store billing retry stats | Align ad, store and paywall promise; enable grace period |
 | Deep links open the browser | AASA or assetlinks error, wrong signing key, in-app browser | QA matrix, Play Console Deep links | Fix files, add Open in app path |
-| Rating drop | Bad release, outage, paywall change | Reviews by theme, vitals | Rating crash play |
+| Rating drop | Bad release, outage, paywall change | Reviews by theme (`app-store-optimization`), vitals | Pause paid traffic to the broken flow; rating crisis play in `app-store-optimization` |
 | App rejected | Metadata, payments, privacy, age rating | Rejection message and guideline | Rejection play |
 
 ## Cadence
@@ -193,9 +194,9 @@ Spec business models map as follows: lead gen apps (quotes, insurance, real esta
 | When | Checks | Time |
 |------|--------|------|
 | Daily (Growth tier and above) | Spend pacing per channel, zero install or zero event alerts, crash and vitals spikes, review spikes, app availability | 5 to 10 minutes |
-| Weekly | Data QA table, KPI table (platform, MMP, backend), Apple Ads harvest and bids, Google and social targets, creative kill and scale, store funnel and ranks, tests status, review replies, change list | 60 to 90 minutes |
-| Monthly | Unit economics refresh and LTV curves, SKAN schema validation, CPP and custom listing pruning, localization wave, fee and policy changes (Freshness), in-app events calendar, MMP vs store reconciliation | Half day |
-| Quarterly | Full scored audit, incrementality test plan, pricing and paywall roadmap, market expansion review, compliance review of store assets | 1 day |
+| Weekly | Data QA table, KPI table (platform, MMP, backend), Apple Ads harvest and bids, Google and social targets, creative kill and scale, store funnel read from the `app-store-optimization` weekly report, paywall tests status, change list | 60 to 90 minutes |
+| Monthly | Unit economics refresh and LTV curves, SKAN schema validation, CPP and custom listing use in campaigns, fee and policy changes (Freshness), MMP vs store reconciliation | Half day |
+| Quarterly | Full scored audit, incrementality test plan, pricing and paywall roadmap, market expansion review with `app-store-optimization` | 1 day |
 
 At Starter tier, run weekly checks every 2 weeks and skip daily checks except spend, crashes and reviews.
 
@@ -206,9 +207,9 @@ Gate mapping for app work (from docs/GUARDRAILS_MODEL.md):
 | Gate | App examples |
 |------|-------------|
 | G0 Read | Pull analytics, reviews, Apple Ads reports, MMP cohorts, RevenueCat metrics |
-| G1 Draft | Keyword maps, screenshot briefs, SKAN schema drafts, reply drafts, paywall copy, change lists in `ads-master/` |
-| G2 Prepare | Create PAUSED campaigns and ad groups; create unsubmitted CPPs, PPO tests, in-app events, custom store listings, draft offers or paywall variants not yet live |
-| G3 Commit | Activate or pause campaigns; change bids, targets or budgets; submit metadata or app versions for review; publish listings, events or experiments; change prices or offers; publish review replies; enable external purchase links; change paywall live traffic |
+| G1 Draft | Channel plans, SKAN schema drafts, paywall copy, creative briefs, change lists in `ads-master/` |
+| G2 Prepare | Create PAUSED campaigns and ad groups; draft offers or paywall variants not yet live |
+| G3 Commit | Activate or pause campaigns; change bids, targets or budgets; attach a CPP or CSL to live ads; change prices or offers; enable external purchase links; change paywall live traffic (store listing gates live in `app-store-optimization`) |
 | G4 Forbidden | Delete apps, products, subscriptions, campaigns or reviews; change account holder, roles or banking; agreements acceptance; anything above the budget cap |
 
 Hard stops: measurement broken on bid events; app under review hold or account warning; any request to buy installs or reviews, manipulate rankings, fingerprint users, or evade a rejection with a new account; claims without substantiation; external purchase links on a storefront where they are not allowed.
@@ -223,7 +224,6 @@ Path: `ads-master/outputs/mobile-app-growth/YYYY-MM-DD_mobile-app-growth_<descri
 |--------|------------------|
 | Audit | Header (data, ranges, attribution sources, Freshness date), score and grade, top 5 fixes, findings by section, quick wins, 30/60/90 plan, change list, handoffs, data gaps |
 | Unit economics memo | Template in growth model reference section 9 |
-| ASO plan | Template in ASO App Store reference section 10 |
 | Channel plan (Apple Ads, Google, Meta, TikTok, networks) | Objective and KPI, targets from unit economics, structure, budgets and bids, creative and CPPs, measurement gate, timeline, change list, risks |
 | Measurement requirements memo | Current state, gaps, SKAN or AAK schema, ATT plan, QA thresholds, handoff to measurement |
 | Monetization test plan | Hypotheses, metrics, guardrails, sample, schedule, EXPERIMENTS.md rows |
@@ -239,13 +239,13 @@ Check the sources related to the task (5 to 15 minutes) before acting; compare w
 | Source | URL | What to verify |
 |--------|-----|----------------|
 | Apple Developer News | developer.apple.com/news | Guideline updates, fees by region, age rating and age assurance rules, SDK minimums, new App Store Connect features |
-| App Store Connect release notes and Help | developer.apple.com/help/app-store-connect | Asset Library, CPP and PPO limits, in-app event rules, analytics changes |
+| App Store Connect release notes and Help | developer.apple.com/help/app-store-connect | Analytics and subscription changes, CPP use in Apple Ads (store listing items are checked by `app-store-optimization`) |
 | App Review Guidelines | developer.apple.com/app-store/review/guidelines | 2.3, 3.1.x, 4.7, 4.8, 5.1.x, 5.6 text |
 | Apple Ads news, Help and Platform API docs | ads.apple.com/news, ads.apple.com/app-store/help | Placements, bidding (Maximize Conversions, CPA caps), ad positions, API deadlines (v5 off 2027-01-26) |
 | AdAttributionKit and SKAdNetwork docs, WWDC sessions | developer.apple.com/documentation/adattributionkit | New features, windows, postback rules |
 | User Privacy and Data Use (ATT) | developer.apple.com/app-store/user-privacy-and-data-use | EU alternative prompt, iOS 27.2 release status |
 | Android Developers Blog | developer.android.com/blog | Play fees, billing choice, Play Console features |
-| Play Console Help and Policy Center | support.google.com/googleplay/android-developer, play.google.com/about/developer-content-policy | US programs and fees (2026-10-01 reporting), experiments metrics, custom store listings, policy updates, target API, developer verification |
+| Play Console Help and Policy Center | support.google.com/googleplay/android-developer, play.google.com/about/developer-content-policy | US programs and fees (2026-10-01 reporting), payments and subscription policy updates, target API, developer verification |
 | Google Ads Help (App campaigns) and announcements | support.google.com/google-ads, business.google.com announcements | Budget ratios, tROAS rules, ICM, Web to App Connect |
 | Meta for Developers changelog and Business Help | developers.facebook.com/docs/graph-api/changelog | App campaign setup, AEM for apps, AAK support |
 | TikTok Business Help Center | ads.tiktok.com/help | Smart+ App, TikTok Ad Network, SAN windows |
@@ -259,23 +259,20 @@ Procedure:
 2. Propose skill updates through the journal; never edit global knowledge from a project.
 3. If the live UI differs from documentation, the UI wins for that account; record it in `memory/mobile-app-growth.md` under account facts.
 
-Known items to re-verify first (after the 2026-10-08 pass): US Apple link out fee (district court remand and Supreme Court No. 25-1311); whether Google enforces US program fees and reporting from 2026-10-01; Apple EU rate card details (Attachment 14); iOS 27.2 public release date and EU prompt wording; Play store listing experiment metrics and variant limits; whether Apple Ads custom creative assets are live in the Apple Ads UI; Meta and Google AAK support; Adjust MCP status; CPA cap removal date in Apple Ads; Apple Ads Basic budget cap; UK CMA steering decision.
+Known items to re-verify first (after the 2026-10-08 pass): US Apple link out fee (district court remand and Supreme Court No. 25-1311); whether Google enforces US program fees and reporting from 2026-10-01; Apple EU rate card details (Attachment 14); iOS 27.2 public release date and EU prompt wording; whether Apple Ads custom creative assets are live in the Apple Ads UI; Meta and Google AAK support; Adjust MCP status; CPA cap removal date in Apple Ads; Apple Ads Basic budget cap; UK CMA steering decision.
 
 ## Reference index
 
 - [Growth model and unit economics](references/app-growth-model-and-unit-economics.md): loops, metric dictionary, fee table by market, LTV curves, payback, target CPI, budget floors, benchmarks, virality and referral metrics (k-factor, blended CAC, invite link attribution, share cards).
-- [ASO for the App Store](references/aso-app-store.md): fields and limits, keyword procedure, ranking evidence, screenshots and new assets, localization, analytics, featuring.
-- [ASO for Google Play](references/aso-google-play.md): listing fields and policy, Gemini tools, vitals and target API, custom store listings, new 2026 surfaces, pre-registration.
-- [Store listing experiments and custom pages](references/store-listing-experiments-and-custom-pages.md): PPO, CPPs, Play experiments and custom listings, sizing and reading tests.
+- ASO moved to the `app-store-optimization` skill (2026-10-12): App Store and Play metadata, keywords and rank tracking, store creative, PPO and store listing experiments, creating CPPs and CSLs, ratings, review replies and AI summaries, tags, featuring, in-app events, localization.
 - [Apple Ads](references/apple-ads.md): placements and billing, structure, keywords, bidding and Maximize Conversions, CPPs, measurement, loop, benchmarks, plays, API.
 - [Google App campaigns](references/google-app-campaigns.md): subtypes, measurement, bidding path, structure, assets, Web to App Connect, diagnostics.
 - [Meta, TikTok and network app campaigns](references/meta-tiktok-and-network-app-campaigns.md): Meta and TikTok app layer, networks and DSPs, test protocol, reconciliation.
 - [Mobile measurement: MMP, SKAN, AAK, ATT](references/mobile-measurement-skan-aak-mmp.md): stack, MMP choice, SKAN 4, AAK, schemas, ATT strategy, Android, probabilistic limits, QA, incrementality.
 - [Deep linking and web to app](references/deep-linking-and-web-to-app.md): link types, setup, FDL replacement, QA matrix, regional rules and fees, funnel designs, mobile web layer.
 - [Onboarding, paywalls and subscriptions](references/onboarding-paywalls-and-subscriptions.md): activation, models, paywall rules, tests, offer types, churn.
-- [Ratings, reviews and in-app events](references/ratings-reviews-and-in-app-events.md): prompts, replies, review mining, Apple In-App Events, Play promotional content, rating crash play.
-- [App creative](references/app-creative.md): formats, concepts, playables, metrics, policy, store continuity, brief template.
-- [Policies and store compliance](references/policies-and-store-compliance.md): Apple guidelines, Google policies, ad platform rules, consumer themes, pre-submission checklist, rejection play.
+- [App creative](references/app-creative.md): ad formats, concepts, playables, metrics, policy, ad to store continuity, brief template.
+- [Policies and store compliance](references/policies-and-store-compliance.md): Apple guidelines and Google policies for payments, privacy, age and categories, ad platform rules, consumer themes, pre-submission checklist, rejection play.
 - [Tools, API and MCP](references/tools-api-mcp.md): access rules, official APIs, MCP servers, data recipes, exports.
 - [Playbooks](references/playbooks.md): launch, weekly loop, scale, plateau, recover, web to app launch, market expansion, change list.
 - [Audit checklist](references/audit-checklist.md): scored audit with rubric.

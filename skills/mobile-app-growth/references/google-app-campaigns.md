@@ -68,7 +68,7 @@ Rules:
 - Wait 2 to 3 weeks before judging a new asset [Official].
 - Replace "Low" performance assets in batches, not one by one daily.
 - Use AppTopCombinationView (Google Ads API v23.2) to see top asset combinations [Official, 2026].
-- Custom store listings on Play can be tied to App campaigns for message match (see [ASO for Google Play](aso-google-play.md)).
+- Custom store listings on Play can be tied to App campaign ad groups for message match; listings are built by `app-store-optimization` ([Store experiments, CPP and CSL](../../app-store-optimization/references/store-experiments-cpp-csl.md) section 5).
 
 ## 6. Web to App Connect
 

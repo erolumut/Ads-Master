@@ -27,8 +27,8 @@ Core (orchestrator, measurement, compliance and the three utility skills) is alw
 | Marketplace seller | Brands or resellers selling on Amazon, bol.com, Trendyol, Hepsiburada and similar | `marketplaces`, `pricing-strategy`, `commerce-feeds`, `creative-strategy`, `market-intel`, `offer-strategy` | `install.sh <project> --pack marketplace-seller` |
 | Lead gen and local services | Clinics, agencies, trades, real estate, education, local businesses | `google-ads`, `meta-ads`, `microsoft-ads`, `cro`, `site-engineer`, `seo`, `ai-search-optimization`, `creative-strategy`, `lifecycle-crm`, `market-intel` | `install.sh <project> --pack lead-gen-local` |
 | B2B and SaaS | Software, B2B services and high consideration sales | `google-ads`, `linkedin-ads`, `microsoft-ads`, `chatgpt-ads`, `seo`, `ai-search-optimization`, `cro`, `site-engineer`, `pricing-strategy`, `offer-strategy`, `lifecycle-crm`, `creative-strategy`, `market-intel` | `install.sh <project> --pack b2b-saas` |
-| Mobile app | iOS and Android apps, subscription and freemium | `mobile-app-growth`, `meta-ads`, `google-ads`, `tiktok-ads`, `creative-strategy`, `video-studio`, `lifecycle-crm`, `pricing-strategy`, `market-intel` | `install.sh <project> --pack mobile-app` |
-| Organic and AI visibility | Any business that wants search and AI assistant visibility without paid media first | `seo`, `ai-search-optimization`, `chatgpt-ads`, `site-engineer`, `market-intel` | `install.sh <project> --pack ai-visibility` |
+| Mobile app | iOS and Android apps, subscription and freemium | `mobile-app-growth`, `app-store-optimization`, `meta-ads`, `google-ads`, `tiktok-ads`, `creative-strategy`, `video-studio`, `lifecycle-crm`, `pricing-strategy`, `market-intel`, `ai-search-optimization`, `seo` | `install.sh <project> --pack mobile-app` |
+| Organic and AI visibility | Any business that wants search, AI assistant and app store visibility without paid media first (app-store-optimization only matters if there is an app) | `seo`, `ai-search-optimization`, `chatgpt-ads`, `site-engineer`, `market-intel`, `app-store-optimization` | `install.sh <project> --pack ai-visibility` |
 | Everything | Agencies and teams running many channels | all agents | `install.sh <project> --pack full` |
 <!-- AUTO:packs:end -->
 
@@ -128,7 +128,8 @@ Tips: if your CLAUDE.md is long, move area specific rules into path scoped files
 <!-- AUTO:agents:start -->
 | Agent | What it does | Packs | Model |
 |-------|--------------|-------|-------|
-| `ai-search-optimization` | AI search visibility (GEO, AEO, LLMO) specialist for ChatGPT search and shopping, Google AI Overviews and AI Mode, Gemini, Perplexity, Copilot, Claude, Meta AI and Grok. | ecommerce-dtc, lead-gen-local, b2b-saas, ai-visibility | inherit |
+| `ai-search-optimization` | AI search visibility (GEO, AEO, LLMO) specialist for ChatGPT, Google AI Overviews and AI Mode, Gemini, Perplexity, Copilot, Claude, Meta AI and Grok. | ecommerce-dtc, lead-gen-local, b2b-saas, mobile-app, ai-visibility | inherit |
+| `app-store-optimization` | App Store Optimization specialist for the Apple App Store and Google Play. | mobile-app, ai-visibility | inherit |
 | `chatgpt-ads` | ChatGPT Ads (OpenAI Ads Manager, ads.openai.com) and cross surface strategy for AI assistant ads (Google AI Overviews and AI Mode, Microsoft Copilot, Amazon Alexa for Shopping prompts,... | b2b-saas, ai-visibility | inherit |
 | `commerce-feeds` | Product feed and catalog specialist for Google Merchant Center, Meta and TikTok catalogs, Microsoft Merchant Center, Pinterest and Snapchat, plus AI shopping and agentic commerce (ChatGPT... | ecommerce-dtc, marketplace-seller | inherit |
 | `compliance` | Claims and policy gate for all customer facing material. | core | inherit |
@@ -143,10 +144,10 @@ Tips: if your CLAUDE.md is long, move area specific rules into path scoped files
 | `measurement` | Measurement and tracking engineer for paid media. | core | inherit |
 | `meta-ads` | Meta advertising specialist for Facebook, Instagram, Threads, WhatsApp, Messenger and Audience Network. | ecommerce-dtc, lead-gen-local, mobile-app | inherit |
 | `microsoft-ads` | Microsoft Advertising specialist for Bing, Yahoo, AOL, DuckDuckGo, Edge, Microsoft Copilot and the Microsoft Audience Network. | lead-gen-local, b2b-saas | inherit |
-| `mobile-app-growth` | Mobile app growth specialist for iOS and Android. | mobile-app | inherit |
+| `mobile-app-growth` | Mobile app growth specialist for iOS and Android paid acquisition and monetization. | mobile-app | inherit |
 | `offer-strategy` | Offer, pricing and merchandising strategist. | ecommerce-dtc, marketplace-seller, b2b-saas | inherit |
 | `pricing-strategy` | Commercial pricing consultant. | ecommerce-dtc, marketplace-seller, b2b-saas, mobile-app | inherit |
-| `seo` | SEO specialist for Google and Bing in the AI Overviews and AI Mode era. | ecommerce-dtc, lead-gen-local, b2b-saas, ai-visibility | inherit |
+| `seo` | SEO specialist for Google and Bing in the AI Overviews and AI Mode era. | ecommerce-dtc, lead-gen-local, b2b-saas, mobile-app, ai-visibility | inherit |
 | `site-engineer` | Website engineering and release QA for Shopify themes, WordPress and WooCommerce, Next.js and headless storefronts and Webflow. | ecommerce-dtc, lead-gen-local, b2b-saas, ai-visibility | inherit |
 | `storefront-ux` | Ecommerce storefront UX and implementation specialist. | ecommerce-dtc | inherit |
 | `tiktok-ads` | TikTok advertising specialist for TikTok Ads Manager, Smart+, GMV Max and TikTok Shop ads, Spark Ads, TikTok One creators, Search Ads, lead gen and app campaigns. | ecommerce-dtc, mobile-app | inherit |
@@ -161,7 +162,8 @@ Tips: if your CLAUDE.md is long, move area specific rules into path scoped files
 | `ads-review` | Run the Ads Master operating rhythm (the heartbeat) for the current project. |
 | `ads-setup` | Install or refresh the Ads Master project workspace (the ads-master/ folder) in the current project. |
 | `ads-verify` | Turn uncertain claims into certain ones. |
-| `ai-search-optimization` | AI search visibility (GEO, AEO, LLMO, AI SEO) playbook for getting a brand, its products and content mentioned, recommended and cited by ChatGPT search and shopping, Google AI Overviews and... |
+| `ai-search-optimization` | AI search visibility (GEO, AEO, LLMO, AI SEO) playbook for getting a brand, its products, apps and content mentioned, recommended and cited by ChatGPT search and shopping, Google AI... |
+| `app-store-optimization` | App Store Optimization (ASO) playbook for the Apple App Store and Google Play. |
 | `chatgpt-ads` | Run ChatGPT Ads (OpenAI Ads Manager at ads.openai.com, Advertiser API) and plan AI assistant ad surfaces (Google ads in AI Overviews and AI Mode, Microsoft Copilot ads, Amazon Alexa for... |
 | `commerce-feeds` | Product feeds and catalogs as a growth lever. |
 | `compliance` | Claims and policy gate for every customer facing word, image and offer (ads, landing and product pages, emails, SMS, feeds, videos, creator posts, app store listings). |
@@ -176,7 +178,7 @@ Tips: if your CLAUDE.md is long, move area specific rules into path scoped files
 | `measurement` | Measurement, tracking and attribution playbook for paid media and growth. |
 | `meta-ads` | Meta advertising playbook for Facebook, Instagram, Threads, WhatsApp, Messenger and Audience Network via Ads Manager and the Marketing API. |
 | `microsoft-ads` | Microsoft Advertising (Bing Ads) playbook for Bing, Yahoo, AOL, DuckDuckGo, Edge, Microsoft Copilot ad placements and the Microsoft Audience Network. |
-| `mobile-app-growth` | Mobile app growth playbook for iOS and Android. |
+| `mobile-app-growth` | Mobile app growth playbook for iOS and Android paid acquisition, measurement and monetization. |
 | `offer-strategy` | Offer strategy, pricing and merchandising economics. |
 | `pricing-strategy` | Commercial pricing consultant playbook. |
 | `seo` | Search engine optimization playbook for Google and Bing in the AI Overviews and AI Mode era. |

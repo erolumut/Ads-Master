@@ -18,5 +18,7 @@ Drop files here with a date prefix: `YYYY-MM-DD_<source>_<what>.csv`. If a conne
 | lifecycle-crm | Flow and campaign performance, list growth, deliverability, cohort repeat rates | Klaviyo, Braze, Customer.io, Shopify | Last 90 days |
 | offer-strategy | Orders with bundle or SKU group, discount codes, shipping charged, competitor and retail prices | Shopify or backend, price checks | Last 90 days |
 | mobile-app-growth | App Store Connect and Play Console analytics, MMP cohorts (installs, D1, D7, D30, revenue), Apple Ads keywords | App Store Connect, Play Console, MMP | Last 90 days |
+| app-store-optimization | Ratings and reviews (Play Console reviews report CSV, App Store Connect reviews via API or tool export), keyword ranks for the term map, product page views and conversion by source, store listing experiment results | Play Console, App Store Connect, ASO tool | Last 90 days (reviews), weekly ranks |
+| ai-search-optimization (apps) | Collected AI answers as JSONL for `ai_prompt_panel.py`, saved store pages and website HTML for `app_entity_check.py` | Manual capture or tracking tool | Monthly panel |
 | video-studio | Creative performance by creative ID (hook rate, hold rate, CTR, CPA) | Channel exports | Last 30 days |
 | daily report (measurement) | Platform spend CSV (date, channel, spend, impressions, clicks, conversions, conversion_value) and backend orders CSV | Platforms, backend | Last 30 days |

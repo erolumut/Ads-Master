@@ -36,7 +36,7 @@ Procedure:
 | Page count: 70 per app per Apple's 2025-10-29 notice as reported by Adapty and Moburst; some help pages and older guides still say 35 | [Contested]; count the limit shown in App Store Connect before planning past 35 |
 | Each page has its own screenshots, previews, promotional text and the 2026 assets, and a unique URL with the `ppid` parameter | [Official] for screenshots, previews, promotional text and URL; 2026 assets [Reported, 2026-10] |
 | Keyword linked pages can appear in organic search for assigned keywords since 2025-07-30 | [Reported, 2026-10] |
-| The keyword must come from the app's existing keyword space; one page per keyword; the assignment needs review | [Reported, 2026-10] |
+| The keyword must come from the app's existing keyword field (whether name and subtitle words also qualify is not documented); a keyword can be assigned to only one page; the assignment needs review | [Reported, 2026-10] |
 | A page can carry a deep link to matching in-app content for users who have the app (iOS 18 and later) | [Official, 2024-06] (moved) |
 | Apple Ads uses pages as ad variations | [Official] |
 | Pages, in-app events, IAPs and PPO tests can be submitted together (WWDC26) | [Official, 2026-06] (moved) |
@@ -48,7 +48,7 @@ What keyword linked pages do and do not do:
 
 Selecting keywords for pages:
 1. From the term map, take live terms with rank 1 to 30, popularity in the top half, and conversion below the default page average (or a clear intent mismatch with the default screenshots).
-2. Group by cluster; one page per cluster, one keyword per page as Apple requires.
+2. Group by cluster: one page per cluster, each keyword assigned to only one page (Apple allows one page per keyword).
 3. Frame 1 repeats the query's job in plain words.
 4. Read with the protocol in [Keyword research](keyword-research-and-rank-tracking.md) section 7: conversion for that term before vs after, against control terms.
 

@@ -8,21 +8,20 @@
 1. Unit economics draft: price points, expected install to paid, payback target ([Unit economics](app-growth-model-and-unit-economics.md)).
 2. Measurement level 2 ready: MMP or RevenueCat, SKAN or AAK schema, Firebase or AAP linked to Google, Meta SDK or MMP to Meta, AdServices for Apple Ads ([Measurement](mobile-measurement-skan-aak-mmp.md)).
 3. Deep links: universal links and App Links verified; QA matrix passed ([Deep linking](deep-linking-and-web-to-app.md)).
-4. ASO baseline: keyword map, name and subtitle, screenshots v1 and v2 for PPO, localization for the top 3 markets, privacy labels and Data safety accurate.
-5. Pre-orders (App Store) or pre-registration (Play) with a custom store listing; ACpre if budget allows (50x bid daily).
-6. Ratings plan: prompt triggers defined; feedback entry in settings.
+4. Store baseline from `app-store-optimization` (its [Launch play](../../app-store-optimization/references/playbooks.md) Play 1: term map, metadata, screenshots v1 and v2, launch locales, ratings plan); privacy labels and Data safety accurate (app team).
+5. Pre-orders (App Store) or pre-registration (Play) with the pre-registration custom store listing from `app-store-optimization`; ACpre if budget allows (50x bid daily).
+6. Ratings plan agreed between the app team and `app-store-optimization`.
 7. Paywall v1 and v2 in the paywall tool, remote configurable.
-8. Featuring nomination submitted 6 to 8 weeks before launch.
-9. Creative pack: 6 to 10 videos across 3 concepts, store screenshots, playable if gaming.
+8. Featuring nomination by `app-store-optimization` 6 to 8 weeks before launch.
+9. Creative pack: 6 to 10 videos across 3 concepts, playable if gaming (store screenshots via `app-store-optimization`).
 
 ### Days 0 to 14
 1. Launch Apple Ads BRAND and CATEGORY exact (G3 activation), Google ACi Install volume per OS where relevant, one Meta or TikTok app campaign per OS at a budget that can reach about 50 install events per week.
-2. Daily: crashes, spend pacing, tracking sanity (installs in MMP vs store), first reviews.
-3. Reply to all reviews within 72 hours.
-4. No metadata changes in the first 7 days unless there is an error (let indexing settle).
+2. Daily: crashes, spend pacing, tracking sanity (installs in MMP vs store), first reviews (replies by `app-store-optimization`).
+3. No paid bursts that distort the store baseline `app-store-optimization` reads in the first 14 days without telling it.
 
 ### Days 15 to 45
-1. First PPO test on screenshots frame 1.
+1. `app-store-optimization` runs the first PPO or Play experiment; keep paid traffic off the default page or steady during it.
 2. Apple Ads DISCOVERY harvest weekly; add COMPETITOR if approved.
 3. Paywall test 1 (placement or plan default).
 4. Move Meta, TikTok and Google from installs to the bid event when volume allows.
@@ -30,8 +29,8 @@
 
 ### Days 46 to 90
 1. Unit economics refresh from real cohorts; set targets per channel.
-2. Custom product pages for each Apple Ads theme and the top paid social concepts.
-3. Second locale wave.
+2. Custom product pages for each Apple Ads theme and the top paid social concepts (requested from `app-store-optimization`, wired into ad groups here).
+3. Paid tests in the second locale wave once `app-store-optimization` has localized the store pages.
 4. Decide channel 3 or 4 (TikTok, networks, web to app) using payback and measurement readiness.
 5. Write the 90 day review (outputs) and the next quarter test plan.
 
@@ -41,7 +40,7 @@
 |------|------|--------|
 | 1. Data sanity | 10 min | QA table in measurement module; stop if bid events broke |
 | 2. KPI table | 10 min | Spend, installs, cost per bid event, net revenue per install D7, payback progress by channel and OS; platform vs MMP vs backend |
-| 3. Store funnel | 10 min | Conversion rate by source, keyword ranks, ratings, active tests |
+| 3. Store funnel | 10 min | Read the `app-store-optimization` weekly report: conversion by source, ranks, ratings, active store tests; paid conversion per CPP or CSL |
 | 4. Channel actions | 20 min | Apple Ads harvest and bids; Google targets; Meta and TikTok creative kill and scale; networks publisher blocklists |
 | 5. Monetization | 10 min | Paywall test status, trial to paid trend, refunds |
 | 6. Experiments | 5 min | Close, log learnings, launch next |
@@ -52,7 +51,7 @@
 Entry criteria: payback at or better than target for 4+ weeks in the core channel, measurement level 3, creative throughput of at least 5 new concepts per week, paywall tested at least twice.
 
 1. Budget steps: +20% to +30% per week on campaigns with CPA or ROAS within target and budget capped; duplicate for 2x jumps on Meta and TikTok rather than editing a stable campaign.
-2. Expand markets: rank by price parity (store price tiers), ASO opportunity, CPI benchmarks, language support. Launch localized store pages before paid.
+2. Expand markets: rank by price parity (store price tiers), store opportunity (market scores from `app-store-optimization`), CPI benchmarks, language support. Launch localized store pages before paid.
 3. Add channels in order of fit: Apple Ads placements beyond search results, Google tROAS split test, TikTok AEO or VBO, one ML network or DSP as a test cell (protocol in [Meta, TikTok and networks](meta-tiktok-and-network-app-campaigns.md) section 5).
 4. Web to app: for subscription apps with US weight, launch a web funnel test on Meta and an IAP vs link out paywall test.
 5. Incrementality: first geo holdout on the largest channel; set calibration factors in MEASUREMENT.md.
@@ -63,8 +62,7 @@ Entry criteria: payback at or better than target for 4+ weeks in the core channe
 
 1. Confirm it is a plateau, not a measurement break or seasonality (year over year, store downloads trend).
 2. Find the binding constraint:
-   - Store conversion below peer benchmark: creative and PPO program.
-   - Search share stuck: ASO keyword expansion, CPP keywords, new locales.
+   - Store conversion below peer benchmark or search share stuck: hand off to `app-store-optimization` (its Plateau play).
    - Paid saturation (rising marginal CPA): new concepts, new channels, new markets.
    - Monetization: price and plan tests, trial length, web checkout.
    - Retention: onboarding and activation (handoff to lifecycle-crm for flows).
@@ -75,10 +73,9 @@ Entry criteria: payback at or better than target for 4+ weeks in the core channe
 ### 5.1 Installs drop (all sources)
 1. Store status: app available in all storefronts, not removed, no review hold, no OS compatibility issue.
 2. Crash or ANR spike (Xcode Organizer, Android vitals) after a release.
-3. Ranking loss: metadata change, competitor surge, algorithm shift (compare keyword ranks).
-4. Featuring ended (browse traffic drop).
-5. Paid: spend dropped? Disapprovals, payment issues, budget caps.
-6. Act on the cause; log in INCIDENTS.md if a stop condition applies.
+3. Organic loss (ranks, metadata change, featuring ended): `app-store-optimization` runs its organic drop recovery play.
+4. Paid: spend dropped? Disapprovals, payment issues, budget caps.
+5. Act on the cause; log in INCIDENTS.md if a stop condition applies.
 
 ### 5.2 Paid installs stable, revenue per install falls
 1. Paywall or price change, store price tier change, tax change.
@@ -96,7 +93,7 @@ See [Apple Ads](apple-ads.md) section 11 Recover.
 4. Freeze bid changes on iOS campaigns that bid on SKAN values until fixed; hand off to measurement.
 
 ### 5.5 Rating crash
-See [Ratings, reviews and in-app events](ratings-reviews-and-in-app-events.md) section 8.
+Owned by `app-store-optimization` ([Playbooks](../../app-store-optimization/references/playbooks.md) Play 3). This agent pauses paid traffic to the broken flow (G3) and holds scaling until the theme falls.
 
 ### 5.6 App rejection or policy strike
 See [Policies](policies-and-store-compliance.md) section 6.
@@ -113,7 +110,7 @@ See [Policies](policies-and-store-compliance.md) section 6.
 ## Play 7: New market expansion
 
 1. Market sizing: downloads and revenue for the category (Sensor Tower or AppTweak), CPI ranges, language and payment preferences.
-2. Store readiness: localized metadata (50 Apple languages supported), screenshots, prices per storefront, local legal requirements (age ratings, licensing such as Vietnam games, Brazil betting).
+2. Store readiness: localized store pages from `app-store-optimization` ([Localization](../../app-store-optimization/references/localization-and-market-expansion.md)), prices per storefront, local legal requirements (age ratings, licensing such as Vietnam games, Brazil betting).
 3. Measurement: country level cohorts, KVKK or GDPR consent where relevant.
 4. Launch: Apple Ads CATEGORY exact in local language, Google ACi, then paid social.
 5. Review at day 30 with unit economics per country.

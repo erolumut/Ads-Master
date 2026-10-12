@@ -78,7 +78,7 @@ Quality bar for every deliverable:
 
 ### By app type and tier
 
-Tiers follow the spec (paid budget). For ASO the binding constraint is store traffic, which sets what can be tested: under about 3,000 product page views per week, test only big concept changes with one treatment; 3,000 to 30,000, two treatments; above 30,000, three treatments and finer elements (from the sample size table in [Store experiments](references/store-experiments-cpp-csl.md) section 6).
+Tiers follow the spec (paid budget). For ASO the binding constraint is store traffic, which sets what can be tested: under about 3,000 product page views per week, test only big concept changes with one treatment; 3,000 to 30,000, two treatments; above 30,000, three treatments and finer elements [Practitioner heuristic, derived from the sample size table in [Store experiments](references/store-experiments-cpp-csl.md) section 6].
 
 | App type | Starter | Growth | Scale | Enterprise |
 |----------|---------|--------|-------|------------|

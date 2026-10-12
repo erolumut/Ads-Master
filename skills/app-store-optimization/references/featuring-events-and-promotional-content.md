@@ -65,7 +65,7 @@ Event strategy:
 4. Big events get a featuring nomination (section 1) and a seasonal custom product page.
 5. Read events by type after 3 or more of each: which badges and purposes bring downloads and redownloads.
 
-Worked event read (illustrative, three Special Events in one quarter):
+Worked event read (illustrative, three events of different types in one quarter):
 
 | Event | Impressions | Opens | Downloads | Redownloads | Opens / impressions | (Downloads + redownloads) / opens |
 |-------|------------:|------:|----------:|------------:|--------------------:|----------------------------------:|
@@ -85,7 +85,7 @@ Reading: the sale drew the most opens and mostly brought lapsed users back (redo
 
 | Item | Detail | Evidence |
 |------|--------|----------|
-| Featuring | No self nomination; quality, vitals, ratings and engagement drive editorial choices | [Reported, 2026-10] |
+| Featuring | No self nomination | [Reported, 2026-10]; editorial picks favor high quality, well rated apps [Practitioner consensus] |
 | Promotional content (formerly LiveOps) | Cards for events, offers and major updates across Play surfaces and on the listing | [Official] |
 | Promotional content and featuring | Google's engagement page says promotional content increases the chance of featuring | [Unverified] (single page) |
 | Promotional tagline | 80 characters | [Unverified] |

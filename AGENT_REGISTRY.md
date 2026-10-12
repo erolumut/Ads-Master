@@ -4,7 +4,7 @@ Master list of every agent and utility skill in Ads Master. Knowledge as of 2026
 
 ## Agents
 
-23 agents in seven groups. Each group answers one question about the business.
+24 agents in seven groups. Each group answers one question about the business.
 
 ### Strategy and control: where do we grow, and what is true?
 | Agent | Mission | Headline KPIs | Default cadence | Activate when |
@@ -23,13 +23,14 @@ Master list of every agent and utility skill in Ads Master. Knowledge as of 2026
 | `chatgpt-ads` | Make AI assistant ads an incremental, measurable channel, or prove fast and cheaply that they are not | Backend verified CPA or ROAS, incremental CPA, post-click CVR, delivery rate | Daily during tests, weekly | Test planned in STRATEGY.md, eligible market |
 | `tiktok-ads` | Profitable, incremental TikTok growth through a high throughput creative and creator engine | Calibrated CPA or ROAS, GMV Max ROI vs breakeven, creative velocity and hit rate | Daily alerts, weekly optimization | TikTok active or planned, under 45 audience or TikTok Shop |
 | `linkedin-ads` | Measurable qualified pipeline and target account demand at an affordable cost per opportunity | Cost per SQL, pipeline per dollar, target account reach, buying committee coverage | Weekly | B2B, deal size above about $5k |
-| `mobile-app-growth` | Grow retained, paying app users within the payback target: store conversion, trustworthy measurement, efficient app campaigns, tested monetization | Net revenue per install (D7, D30), payback days, cost per payer, product page CVR, D1, D7, D30 retention | Daily alerts, weekly | iOS or Android app |
+| `mobile-app-growth` | Grow retained, paying app users within the payback target: trustworthy measurement, efficient app campaigns, tested monetization | Net revenue per install (D7, D30), payback days, cost per payer, paid page conversion, D1, D7, D30 retention | Daily alerts, weekly | iOS or Android app |
 
 ### Organic visibility: be found and be recommended
 | Agent | Mission | Headline KPIs | Default cadence | Activate when |
 |-------|---------|---------------|-----------------|---------------|
 | `seo` | Grow qualified organic traffic and its revenue from Google and Bing while staying inside spam policies | Non-branded organic clicks, organic conversions, index coverage, Core Web Vitals pass rate | Weekly, monthly report | Website exists |
 | `ai-search-optimization` | Raise accurate mention, recommendation and citation share across AI engines, proven with sound prompt tracking | Mention rate, recommendation rate, citation share, AI referral sessions and conversions | Monthly report, weekly when a program runs | Website exists |
+| `app-store-optimization` | Make the app the one people find, trust and install in the App Store and Google Play, and the one AI answers describe correctly, with every change logged and read | Ranks on the term map, product page conversion by source, rating and reply coverage, tag coverage, store listing citation rate in AI answers | Weekly, monthly audit | iOS or Android app |
 
 ### Conversion and storefront: turn visits into orders
 | Agent | Mission | Headline KPIs | Default cadence | Activate when |
@@ -82,6 +83,8 @@ Master list of every agent and utility skill in Ads Master. Knowledge as of 2026
 | Channel agents, cro, commerce-feeds | offer-strategy | Offer, bundle, promo and price decisions with full economics |
 | measurement, meta-ads, linkedin-ads | lifecycle-crm | Consent, suppression, customer audiences, LTV values |
 | google-ads, meta-ads, tiktok-ads, measurement | mobile-app-growth | App campaigns, MMP, SKAN and AdAttributionKit |
+| mobile-app-growth, ai-search-optimization, market-intel | app-store-optimization | Keywords, metadata, ratings, store AI surfaces, custom product pages, the app entity sheet |
+| app-store-optimization | ai-search-optimization | App prompt panel, source map, assistant apps and connectors |
 | offer-strategy, growth-orchestrator, market-intel | pricing-strategy | Price level, price architecture, basket and delivery thresholds, price changes |
 | pricing-strategy | offer-strategy | Incentive mechanics and promo calendar on top of the base price |
 | Channel agents, commerce-feeds, pricing-strategy | marketplaces | Marketplace listings, retail media, fees and price parity |
@@ -92,6 +95,7 @@ Master list of every agent and utility skill in Ads Master. Knowledge as of 2026
 
 | Version | Date | Notes |
 |---------|------|-------|
+| 1.3.0 | 2026-10-12 | app-store-optimization agent (ASO split from mobile-app-growth: term map and rank reads, store AI surfaces such as App Store tags, review summaries and Ask Play, on-device assistants, the app web presence AI reads), AI visibility for apps (app prompt classes, source map, assistant apps and connectors in ChatGPT, Claude, Gemini, Copilot), scripts aso_metadata_check.py, review_themes.py, ai_prompt_panel.py and app_entity_check.py, app entity sheet, app store submissions gated as G3, launch readiness gate, SEO hypotheses and declined tactics. |
 | 1.2.0 | 2026-10-09 | pricing-strategy and marketplaces agents, ads-verify skill and evidence ladder, living HOW_TO_USE guide with packs, model routing, Workflow Kit plugin (routing agents, parallel sessions, prompts, handover, decision log, guardians, git hooks, gate scripts), tracking plan as code, metric additivity, alert queue, nested subagents disabled by design, guard review hints, post release smoke check, approved copy lock, risk register, VERIFIED.md check, local gate and CI starter in the kit, field patterns in six playbooks, and a verification pass on 31 pricing and marketplace claims. |
 | 1.1.0 | 2026-10-09 | Seven new agents (compliance, video-studio, site-engineer, storefront-ux, offer-strategy, lifecycle-crm, mobile-app-growth), deterministic guardrail hooks with automation stages, daily report, SEO preflight, unified metrics, claims registry, decision log and incident runbook. |
 | 1.0.0 | 2026-10-08 | First release. 14 agents, 16 skills. Research sweep plus a second live verification pass on every package (about 470 live searches in total). |

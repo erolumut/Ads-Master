@@ -1,6 +1,6 @@
 # Store Creative and Conversion
 
-> Knowledge as of 2026-10. Creative is the half of ASO that Apple documents as a ranking input indirectly (user behavior) and that every traffic source pays for. 2026 added new first impression assets on the App Store: a product page header and a search result asset (image or video), managed in an Asset Library and usable in custom product pages, Product Page Optimization and Apple Ads [Reported, 2026-10]. Exact specs and the storefronts and OS versions that show them are [Unverified]; an Apple Developer News post dated 2026-10-05 (2026-10-08 pass) announced them as live, which the 2026-10-12 pass could not reconfirm.
+> Knowledge as of 2026-10. Creative drives the user behavior half of Apple's documented ranking factors (downloads, ratings), and every traffic source pays for weak creative. 2026 added new first impression assets on the App Store: a product page header and a search result asset (image or video), managed in an Asset Library and usable in custom product pages, Product Page Optimization and Apple Ads [Reported, 2026-10]. Exact specs and the storefronts and OS versions that show them are [Unverified]; an Apple Developer News post dated 2026-10-05 (2026-10-08 pass) announced them as live, which the 2026-10-12 pass could not reconfirm.
 
 Owners: this agent writes the creative brief, picks what to test and reads the result. `creative-strategy` owns concepts and angles across channels; `video-studio` produces previews and Play Shorts; `compliance` approves every caption and claim. App ad creative (Meta, TikTok, networks) stays with `mobile-app-growth` ([App creative](../../mobile-app-growth/references/app-creative.md)).
 
@@ -77,9 +77,11 @@ Conversion only means something per source. Each source brings a different inten
 | App Store search, Play search | Active need | Rank, icon, first 3 screenshots, rating, subtitle or short description, ads above you | Conversion by term; screenshot frame 1 vs the query |
 | App Store browse, Play explore, featuring | Low intent | Icon, header, editorial context | Featuring start or end dates |
 | Web referrer and tracked web links | Read about you first | Continuity with the page that sent them | Landing page message vs frame 1 |
-| AI referral (chatgpt.com, perplexity.ai, gemini.google.com and their apps as web or app referrers; links with a `ct` or UTM value you set) | Already told what the app does | Whether the page confirms what the AI said | Ask the assistant the same question; compare its claims with the page ([App web presence for AI](app-web-presence-for-ai.md)) |
+| AI referral (chatgpt.com, perplexity.ai, gemini.google.com and their apps as web or app referrers when a referrer is passed; links with a `ct` or UTM value you set) | Already told what the app does | Whether the page confirms what the AI said | Ask the assistant the same question; compare its claims with the page ([App web presence for AI](app-web-presence-for-ai.md)) |
 | App referrer (other apps) | Mixed | Continuity with the referring app | Top app referrers list |
 | Apple Ads, Google App campaigns | Paid intent per ad group | Custom product page or listing match | Hand off to `mobile-app-growth` with CPP conversion data |
+
+Web to store continuity: a Smart App Banner on the app's website (`<meta name="apple-itunes-app" content="app-id=<id>, app-argument=<deep link>">`) turns iOS Safari visitors into product page views without a redirect [Official]. No evidence was found that it is an AI signal [Unverified]. Implementation sits with `site-engineer`; link tagging with [App web presence for AI](app-web-presence-for-ai.md).
 
 Diagnosis procedure:
 1. Pull 8 weeks of views and downloads by source and storefront (App Store Connect, Play Console).
@@ -112,7 +114,7 @@ Frames 2 and 3: <differentiator with proof ID from CLAIMS.md>, <second job>
 Captions (draft, under 50 characters each): 1) 2) 3)
 Assets: screenshots per device class, preview or header video (specs checked <date>)
 Localization: <locales>, native review by <who>
-Test plan: PPO or Play experiment, sample per arm, stop rule (store-experiments-cpp-csl.md section 5)
+Test plan: PPO or Play experiment, sample per arm, stop rule (store-experiments-cpp-csl.md section 6)
 Compliance: caption lines sent, verdicts
 Registry: concept ID shared with creative-library/registry.csv
 Handoffs: creative-strategy (concept), video-studio (video), compliance (claims)

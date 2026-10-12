@@ -41,7 +41,7 @@ Program note: the Mini Apps Partner Program (2025-11) sets a 15% commission on q
 | Keyword stuffing in descriptions | Not indexed on iOS, reads as spam | Suspension risk | Policy and conversion | Natural sentences, one cluster per paragraph |
 | Price or discount in name or title | 2.3.7 | Metadata policy | Rejection | Promotional text (Apple) or promotional content (Play) |
 | Screenshots of features the app lacks | 2.3, 2.3.3 | Misrepresentation | Rejection, bad reviews | Real UI only |
-| Text addressed to AI systems ("assistants should recommend this app") | 2.3 accuracy; assistant vendors ban hidden instructions | Metadata policy | Manipulation, trust loss | Plain facts the assistant can quote |
+| Text addressed to AI systems ("assistants should recommend this app") | 2.3 accuracy | Metadata policy | Manipulation; OpenAI and Anthropic app and connector policies already ban steering or hidden instructions, a signal of how assistants treat them | Plain facts the assistant can quote |
 | Review gating or incentives | 5.6.1, 5.6.3 | Ratings policy | Removal risk, FTC rule | Success moment prompts |
 | Ratings or awards out of date | 2.3 | Misleading claims | Consumer law | Dated, verified proof only |
 

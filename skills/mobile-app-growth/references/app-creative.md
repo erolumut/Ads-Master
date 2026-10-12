@@ -15,7 +15,7 @@ On Meta, TikTok, Google App campaigns and the ML networks, the algorithm chooses
 | Google App campaigns | Text, images, video (landscape, square, portrait), HTML5 | Up to 5 headlines, 5 descriptions, 20 images, 20 videos per ad group |
 | AppLovin, Unity, Mintegral, Liftoff, Moloco | Rewarded and interstitial video, playables (MRAID HTML5), end cards, banners | Portrait and landscape video 15 to 30 s, playable 15 to 30 s of interaction, end card |
 | Apple Ads | Default page or custom product page assets; new header and search result assets (fall 2026) | CPP screenshots, previews and creative assets |
-| Store pages | Icon, screenshots, previews, headers, feature graphic, Play Shorts video | See ASO references |
+| Store pages | Icon, screenshots, previews, headers, feature graphic, Play Shorts video | Owned by `app-store-optimization` ([Store creative and conversion](../../app-store-optimization/references/store-creative-and-conversion.md)) |
 
 ## 3. Concept library for apps
 
@@ -71,8 +71,7 @@ Test protocol:
 - No fake system alerts, fake notifications or fake close buttons in ads [Official, Google and Meta policies].
 - Health, finance, dating and gambling apps carry category rules on Meta, Google, TikTok and in the stores; route to compliance.
 - AI generated people or testimonials need disclosure where required and must never imply a real user result that did not happen; EU AI Act transparency rules apply to synthetic content from 2026-08-02 [Official, verify scope with compliance].
-- Store screenshots must show the app in use (Apple Guideline 2.3.3) and must not contain misleading claims [Official].
-- Google Play listing experiments reportedly require an AI asset declaration (2026) [Unverified].
+- Store screenshots and listing assets follow the store metadata rules in `app-store-optimization` ([Policies and metadata compliance](../../app-store-optimization/references/policies-and-metadata-compliance.md)).
 
 ## 7. Store continuity
 
@@ -84,7 +83,7 @@ Test protocol:
 | Competitor switch ad (Apple Ads) | Competitor switch CPP |
 | Gameplay hook | Screenshots and preview showing the same mode |
 
-Mismatch shows up as a click to install rate below 30% to 40% of the account median for that channel [Practitioner consensus]; fix the page before the bid.
+Mismatch shows up as a click to install rate below 30% to 40% of the account median for that channel [Practitioner consensus]; fix the page before the bid. Pages are requested from and built by `app-store-optimization`; this agent maps them to ad groups and reports paid conversion per page.
 
 ## 8. Creative brief template (app)
 
