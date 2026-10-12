@@ -33,6 +33,46 @@ Dated, labelled picks for each rung of the ladder. Research date 2026-10-12. Lab
 | Charts | See [Charts](charts.md) | | |
 | Motion | See [Motion without libraries](motion-without-libraries.md) | | |
 
+## 2b. Copy-in registries and galleries (rung 5)
+
+The shadcn CLI is the delivery mechanism for most of these: CLI 3.0 (2025-08-27) added namespaced registries (`@ns/name`) with auth headers and an MCP server, CLI 4.0 (2026-03-06) added `--preset`, `--dry-run`, `--diff` and `--view`, Base UI became the default base in CLI 4.13.0 (2026-07-03) and React Aria a first class base on 2026-07-17 (`--base aria`) [Opened, shadcn changelog]. The official directory (`apps/v4/registry/directory.json`) listed 443 registries on 2026-10-12; there is no central registrar, so a listing is not a review [Opened].
+
+A project that wants its own identity publishes its own namespaced registry (`@yourbrand`) built on Base UI or React Aria and skinned with its tokens. Everything below is then a reference or a one off copy into that registry.
+
+| Source | Licence | Price | Forces | Verdict |
+|---|---|---|---|---|
+| shadcn/ui | MIT, keep the notice in substantial copies [Opened] | Free | Tailwind 4, React 19, the chosen base | Foundation (delivery and starting code) |
+| Ark UI | MIT [Opened]; 5.39.3 (2026-10-05) | Free | Zag state machines | Alternative foundation |
+| Untitled UI React | MIT; Pro under a separate licence [Opened] | Pro reported $349 solo, $2,499 business [Reported] | React Aria, Tailwind 4, Motion | Well maintained, but a recognisable look of its own; not in the shadcn directory |
+| Tailwind Plus | Commercial: unlimited end products, no redistribution, no publishing UI libraries or starter kits [Opened, licence] | Reported $299 personal, $979 team [Reported] | Tailwind, Headless UI | Internal tools and layout reference |
+| coss (formerly Origin UI) | AGPLv3 by default; only `apps/ui` and `apps/origin` are MIT [Opened, README] | Free | Base UI, Tailwind 4 | Reference; copy only from the MIT folders after reading its licensing file |
+| Kibo UI | MIT text, moved to `shadcnblocks/kibo` [Opened] | Free | Headless libs | Internal tools |
+| ReUI (data grid, kanban) | not checked | not checked | | Worth a look for internal tools [Reported] |
+| tweakcn | Apache-2.0 [Opened] | Free, Pro reported [Unverified] | shadcn token model | Theme exploration only |
+| Magic UI | MIT [Opened]; Pro terms forbid redistribution and competing templates, with liquidated damages [Reported] | Free, Pro paid | Motion, Tailwind | Reference for marketing effects |
+| Aceternity UI | Pro: no resale or redistribution [Reported]; free tier terms unclear [Unverified] | Pro reported $199 lifetime [Reported] | Motion, Tailwind | Reference only |
+| Animate UI | LICENSE.md is MIT plus Commons Clause while the README badge says MIT [Opened] | Free | Motion, Radix, Base UI beta | Reference only; licence conflict |
+| React Bits | MIT plus Commons Clause: no reselling or porting the components [Opened] | Free, Pro reported $99 to $299 [Reported] | GSAP, three, ogl, Motion | Reference only; heavy dependencies |
+| motion-primitives | MIT per README, no LICENSE file found [Opened] | Free | Motion 11 | Reference for motion vocabulary |
+| Kokonut UI, Cult UI | MIT [Opened]; Pro tiers paid | Cult Pro reported $199 lifetime [Reported] | Motion, Radix | Reference only |
+| 21st.dev | Community items often show "License: unknown" [Reported]; CLI MIT | Free with limits, paid tiers | API key for installs | Avoid as a code source; unknown means no licence |
+
+### The sites from the viral list (2026-10)
+
+All six are young (2026), MIT for their free tier with a paid Pro tier, and have no independent reviews yet [Opened, repos; Reported, sites].
+
+| Site | Licence | Price | Forces | Verdict |
+|---|---|---|---|---|
+| affectui.com | MIT, 2026 [Opened] | 39 free items, Pro price not found | Nothing: one `.tsx` per item with inline styles | Reference; inline styles must be rewritten to tokens |
+| kobra.systems | Paid, terms not read [Unverified] | Reported $199 solo one time, $150 per seat, $19 per component, about 10 free [Reported] | Base UI [Reported] | Reference; read the terms before any copy |
+| uiarc.dev | MIT, 2026 [Opened] | About 100 free, Pro paid [Reported] | CSS modules, Motion | Reference |
+| beui.dev | MIT, 2026 [Opened] | Free | Motion, Tailwind 4 | Reference; not for CSS only motion projects |
+| boardui.com | MIT free tier, Pro separate licence [Opened] | Pro one off, price not found | React Aria, Tailwind 4, Motion, Recharts | Internal tools; generated repo that takes no contributions |
+| evilcharts.com | MIT, 2026 [Opened] | Free | Recharts 3 or ECharts 6, Base UI, Motion | Internal dashboards; see [Charts](charts.md) |
+| transitions.dev | Recipes free for commercial use, no redistribution as a kit; tooling MIT [Opened] | Free, Pro tier | None (CSS) | Best fit for CSS first projects; see [Motion without libraries](motion-without-libraries.md) |
+
+Licence traps in this space: Commons Clause (fine inside your product, bans reselling or porting), AGPL outside marked folders, paid kits that forbid templates or publishing derived libraries, and "unknown" on gallery mirrors.
+
 ## 3. Mobile web and PWA facts that shape component choices
 
 | Topic | State | Rule |
