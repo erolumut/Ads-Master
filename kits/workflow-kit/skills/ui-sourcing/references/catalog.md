@@ -14,6 +14,28 @@ Dated, labelled picks for each rung of the ladder. Research date 2026-10-12. Lab
 | `field-sizing: content` | n/a | Baseline newly available since June 2026 [Reported] | Auto growing textareas without JavaScript |
 | `interestfor` | n/a | Chromium 142 only [Reported] | Enhancement only |
 
+## 1b. Complete kits (styled systems you install whole)
+
+A kit gives you finished components with its own look. Fast for admin panels and internal tools; on a product with its own identity it either gets re-skinned with your tokens or stays out. Versions and dates from the npm registry, 2026-10-12 [Opened]; prices and Pro terms mostly [Reported], so open the pricing page before buying.
+
+| Kit | Licence and price | Forces | Accessibility base | State | Default look and re-skin | Verdict |
+|---|---|---|---|---|---|---|
+| HeroUI v3 (formerly NextUI) | MIT; Pro is a separate one time purchase, reported about $249 to $799 by seats [Reported] | React 19, Tailwind 4, React Aria Components; no Motion, no CSS in JS | React Aria | 3.2.6 (2026-09-17), 11 releases since April | Soft and rounded, recognisable; re-skin easy through CSS variables | Foundation for Tailwind 4 product and admin UI |
+| HeroUI Native | Apache-2.0 | React Native 0.81+, Reanimated 4 | n/a | 1.0.10 (2026-09-21) | Same look as web | The option here for a native app sharing the web kit |
+| Cloudflare Kumo (`@cloudflare/kumo`) | MIT, free | React 18 or 19, Base UI, `motion`, Tailwind 4; peers zod, ECharts, Phosphor | Base UI | 2.14.0 (2026-09-17); created 2026-02, about 1.5 releases a week | Cloudflare dashboard look; theming docs thin | Internal tools; watch, it is young and moves fast. Not for CSS only motion projects |
+| Mantine 9 | MIT, free | React 19.2+; no Tailwind needed | Own implementation | 9.7.2 (2026-10-11), very active | Recognisable; strong theming (theme object, CSS variables, styles API) | Foundation for admin panels without Tailwind |
+| daisyUI 5 | MIT, free | Tailwind 4 plugin, CSS only, any framework | Native HTML elements; no audit found | 5.7.48 (2026-10-12) | Stock themes make apps look alike; theme variables re-skin easily | Prototypes and internal tools |
+| MUI (Material UI) 9 | MIT core; MUI X Pro and Premium paid | React 17 to 19, Emotion | Own ARIA work | 9.5.0 (2026-10-09), very active | The most recognisable look; re-skin possible but heavy | Internal tools, or a foundation if you accept the Material look |
+| Chakra UI v3 | MIT | Emotion still a peer; built on Ark UI | Ark UI | 3.37.0 (2026-08-28), slowing | Good token system | Internal tools |
+| Flowbite | MIT; Pro price conflicting [Reported] | Tailwind 4, data attribute JS | No audit found | `flowbite` 4.0.2 (2026-05-13); `flowbite-react` stale since 2026-02 | Very recognisable | Internal tools; avoid the React wrapper |
+| Preline UI | "MIT and Preline UI Fair Use License" (not plain open source) [Opened, npm] | Vanilla JS plus several libraries | No audit found | 5.0.0 (2026-08-21) | Recognisable | Reference only; read the licence |
+| HyperUI | MIT, copy paste HTML | None | Varies by snippet | No package | Generic; you own the markup | Reference only |
+| Park UI | MIT | Ark UI with Panda or Tailwind 3 | Ark UI | npm packages stale since 2024 | Minimal | Reference only |
+| Material Web (`@material/web`) | Apache-2.0 | Lit web components | Own | Repository in maintenance mode, no new components [Reported] | Material 3 | Avoid for new work |
+| beUI Pro | Free tier MIT; Pro price conflicts between its own pages ($129 to $179 lifetime, about $109 a year) [Reported] | React, Tailwind, Motion | Not stated | n/a | Animated marketing blocks | Reference only |
+
+Rule of thumb: a kit's default look is the look of every other app built with it in the same month. Pick a kit for speed, then spend the saved time on tokens, type scale and density so it stops looking like the demo.
+
 ## 2. Focused packages (rung 4), mostly mobile first
 
 | Need | Pick | Licence and state | Notes |
@@ -94,11 +116,20 @@ Licence traps in this space: Commons Clause (fine inside your product, bans rese
 | Font Awesome Free | Icons CC BY 4.0, fonts OFL 1.1, code MIT [Reported] | Attribution required; brand icons are trademarks |
 | Google Fonts | Mostly OFL | Self host (for example `next/font`); see the vetting checklist on EU consent |
 
-## 5. Agent skills worth installing for taste
+## 5. Agent skills and directories
 
-| Skill | What | Licence |
-|---|---|---|
-| emilkowalski/skills | Animation judgement (emil-design-eng, animate, review-animations, improve-animations), mobile-native, break-ui, pick-ui-library [Opened] | MIT |
-| transitions.dev skill | CSS transition recipes and a tuning tool [Opened] | Recipes free for commercial use, no redistribution as a kit; tooling MIT |
+A skill is instructions for your agent: it can raise the floor of UI quality, and it can also override your own design rules without anyone noticing. Read it like code before installing, pin or vendor a reviewed copy, and let the project's own direction doc win any conflict. Research date 2026-10-12.
 
-Read a skill like any registry item before installing it: it becomes instructions for your agent.
+| Skill or directory | What it gives | Licence and state | Watch out |
+|---|---|---|---|
+| vercel-labs/agent-skills | Eight skills incl. web-design-guidelines (100+ review rules in 17 categories, findings as `file:line`), react-best-practices (performance rules ranked by impact), react-view-transitions, composition-patterns, react-native-guidelines [Opened, README] | README says MIT; no LICENSE file found [Unverified] | web-design-guidelines fetches its rule list from a remote repository at run time: the rules can change under you; vendor a reviewed copy. Some rules are Vercel house style (curly quotes, ellipsis characters) and can clash with copy and i18n rules |
+| shadcn official skill (`skills/shadcn`) | Auto loads; runs `shadcn info`, teaches the CLI, composition of existing components, `gap-*` over `space-*`, no overriding component colours or type [Opened] | MIT | Assumes shadcn components and default tokens; conflicts with a custom token system or per game theming |
+| emilkowalski/skills | 15 skills: emil-design-eng, animate, review-animations, improve-animations, animation-performance, animation-vocabulary, mobile-native, break-ui, pick-ui-library and more [Opened] | MIT | Concrete timings and curves (UI motion under 300 ms, press `scale(0.97)`) may contradict a project's own motion tokens; its library picks include Motion |
+| transitions.dev skill | CSS transition recipes and a UI generation skill [Opened] | Recipes free for commercial use, no redistribution as a kit; CLI MIT; npm 0.3.0 (2026-09-12) | Pro recipes need a login; do not vendor its CSS into a public template |
+| Anthropic frontend-design (`anthropics/skills`) | Aesthetic direction: subject first, typography carries personality, "spend your boldness in one place", a quality floor for focus, reduced motion and responsiveness [Opened] | Apache 2.0; the repository calls its skills demonstrations | Pushes bold, distinctive choices; on a project with a locked minimal language, the brief must say so explicitly |
+| ui-skills.com | Skills registry for design engineers with a CLI and an MCP endpoint [Opened, README] | MIT, npm 0.2.4 (2026-07-20) | An MCP endpoint is a vendor feeding the agent: see vetting checklist section 2b |
+| skills.sh | Vercel's directory and leaderboard for `npx skills`, ranked by install counts [Reported] | Directory; says it cannot guarantee quality or security | Installs are not reviews; aggregator copies can be stale; install from the canonical repository |
+
+Rules most of these share, worth having even without installing them: never `transition: all`; honour `prefers-reduced-motion`; never remove a focus outline without a visible replacement; icon only buttons get an `aria-label`; dialogs, sheets and drawers get a title; images get width and height; long lists are virtualized; destructive actions get a confirmation or undo; buttons name the action ("Save key", not "Continue"); compose existing components instead of new markup.
+
+Auto loading skills (those not invoked by name) can silently outrank project rules. Keep the number small, and write in the project's CLAUDE.md or area rules which one wins on motion, colour and copy.
