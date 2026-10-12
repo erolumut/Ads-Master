@@ -1,7 +1,8 @@
 {
   "contractVersion": "0.1",
-  "_note": "Example only. Copy to data/monetization-policy.json for a game project and replace every value; check it with monetization_check.py (game-monetization skill). Schema: skills/game-monetization/scripts/monetization-policy.schema.json.",
-  "game": {
+  "policyRevision": 1,
+  "_note": "Example only. Copy to data/monetization-policy.json for a game product and replace every value; check it with monetization_check.py (game-monetization skill). Contract: skills/game-monetization/references/monetization-contract.md.",
+  "product": {
     "id": "example-puzzle",
     "platforms": [
       "ios",
@@ -18,11 +19,23 @@
       "TR"
     ]
   },
+  "stores": [
+    {
+      "id": "apple",
+      "provider": "apple",
+      "platforms": [
+        "ios"
+      ]
+    },
+    {
+      "id": "google",
+      "provider": "google",
+      "platforms": [
+        "android"
+      ]
+    }
+  ],
   "currencies": {
-    "realMoney": [
-      "USD",
-      "EUR"
-    ],
     "virtual": [
       {
         "id": "coins",
@@ -40,7 +53,12 @@
       "id": "weekly_race",
       "kind": "ranked",
       "countedAttemptsPerDay": 1,
-      "boardLabel": "Weekly race: one counted run a day"
+      "boards": [
+        {
+          "id": "race_week",
+          "scope": "everyone"
+        }
+      ]
     }
   ],
   "catalog": [
@@ -48,13 +66,17 @@
       "sku": "coins_small",
       "kind": "consumable",
       "grants": [
-        "coins:1000"
+        {
+          "kind": "currency",
+          "id": "coins",
+          "amount": 1000
+        }
       ],
-      "prices": {
-        "USD": 1.99,
-        "EUR": 1.99
+      "basePrice": {
+        "currency": "USD",
+        "minor": 199
       },
-      "platformIds": {
+      "storeProductIds": {
         "apple": "puzzle.coins.small",
         "google": "coins_small"
       },
@@ -64,33 +86,44 @@
       "sku": "extra_moves",
       "kind": "consumable",
       "grants": [
-        "moves:5"
+        {
+          "kind": "moves",
+          "amount": 5
+        }
       ],
-      "prices": {
-        "USD": 0.99,
-        "EUR": 0.99
+      "basePrice": {
+        "currency": "USD",
+        "minor": 99
       },
-      "platformIds": {
+      "priceInVirtual": {
+        "coins": 900
+      },
+      "storeProductIds": {
         "apple": "puzzle.moves5",
         "google": "moves5"
       },
-      "random": false,
-      "priceInVirtual": {
-        "coins": 900
-      }
+      "random": false
     },
     {
       "sku": "booster_bundle",
       "kind": "consumable",
       "grants": [
-        "booster:rocket:3",
-        "booster:bomb:3"
+        {
+          "kind": "booster",
+          "id": "rocket",
+          "amount": 3
+        },
+        {
+          "kind": "booster",
+          "id": "bomb",
+          "amount": 3
+        }
       ],
-      "prices": {
-        "USD": 2.99,
-        "EUR": 2.99
+      "basePrice": {
+        "currency": "USD",
+        "minor": 299
       },
-      "platformIds": {
+      "storeProductIds": {
         "apple": "puzzle.boosters",
         "google": "boosters"
       },
@@ -100,13 +133,16 @@
       "sku": "race_frame",
       "kind": "non_consumable",
       "grants": [
-        "cosmetic:race_frame"
+        {
+          "kind": "cosmetic",
+          "id": "race_frame"
+        }
       ],
-      "prices": {
-        "USD": 0.99,
-        "EUR": 0.99
+      "basePrice": {
+        "currency": "USD",
+        "minor": 99
       },
-      "platformIds": {
+      "storeProductIds": {
         "apple": "puzzle.frame",
         "google": "frame"
       },
@@ -116,32 +152,39 @@
   "offers": [
     {
       "id": "moves_on_fail",
-      "point": "onFail",
+      "point": "on_fail",
       "mode": "levels",
       "sku": "extra_moves",
-      "affectsRankedResult": false,
       "grantsTo": "buyer",
       "maxPerAttempt": 2,
       "countdown": false,
       "priceEscalation": false
     },
     {
-      "id": "boosters_before_hard_level",
-      "point": "onLevelStart",
+      "id": "boosters_before_level",
+      "point": "on_level_start",
       "mode": "levels",
       "sku": "booster_bundle",
-      "affectsRankedResult": false,
       "grantsTo": "buyer",
       "maxPerAttempt": 1,
       "countdown": false,
       "priceEscalation": false
     },
     {
+      "id": "coins_in_shop",
+      "point": "on_menu",
+      "mode": "levels",
+      "sku": "coins_small",
+      "grantsTo": "buyer",
+      "maxPerDay": 5,
+      "countdown": false,
+      "priceEscalation": false
+    },
+    {
       "id": "frame_in_race",
-      "point": "onMenu",
+      "point": "on_menu",
       "mode": "weekly_race",
       "sku": "race_frame",
-      "affectsRankedResult": false,
       "grantsTo": "buyer",
       "maxPerDay": 1,
       "countdown": false,
@@ -152,9 +195,8 @@
     {
       "id": "level_end_interstitial",
       "format": "interstitial",
-      "point": "onLevelEnd",
+      "point": "on_level_end",
       "mode": "levels",
-      "affectsRankedResult": false,
       "graceLevels": 8,
       "cooldownSeconds": 150,
       "sessionCap": 5,
@@ -163,9 +205,15 @@
     {
       "id": "double_coins",
       "format": "rewarded",
-      "point": "onLevelEnd",
+      "point": "on_level_end",
       "mode": "levels",
-      "affectsRankedResult": false,
+      "grants": [
+        {
+          "kind": "currency",
+          "id": "coins",
+          "amount": 50
+        }
+      ],
       "optIn": true,
       "grantOn": "completed",
       "dailyCap": 5
@@ -173,9 +221,8 @@
     {
       "id": "menu_banner",
       "format": "banner",
-      "point": "onMenu",
-      "mode": "levels",
-      "affectsRankedResult": false
+      "point": "on_menu",
+      "mode": "levels"
     }
   ],
   "consent": {

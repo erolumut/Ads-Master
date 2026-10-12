@@ -1,44 +1,49 @@
 {
   "contractVersion": "0.1",
-  "_note": "Example policy for a level based puzzle game (Royal Match style progression): boosters before a level, extra moves after a fail, coins as a virtual currency with real money prices shown, interstitials held back early, rewarded double coins. Placeholder prices.",
-  "game": {
+  "policyRevision": 1,
+  "_note": "Example policy for a level based puzzle game (Royal Match style progression): boosters before a level, extra moves after a fail, coins with real money prices shown, interstitials held back early, rewarded double coins, and a weekly race whose board nothing can buy into. Placeholder prices.",
+  "product": {
     "id": "example-puzzle",
     "platforms": ["ios", "android"],
     "audience": { "minimumAge": 13, "kidsMode": false },
     "regions": ["US", "GB", "DE", "TR"]
   },
-  "currencies": {
-    "realMoney": ["USD", "EUR"],
-    "virtual": [ { "id": "coins", "purchasable": true, "showRealMoneyPrice": true } ]
-  },
+  "stores": [
+    { "id": "apple", "provider": "apple", "platforms": ["ios"] },
+    { "id": "google", "provider": "google", "platforms": ["android"] }
+  ],
+  "currencies": { "virtual": [ { "id": "coins", "purchasable": true, "showRealMoneyPrice": true } ] },
   "modes": [
     { "id": "levels", "kind": "progression" },
-    { "id": "weekly_race", "kind": "ranked", "countedAttemptsPerDay": 1, "boardLabel": "Weekly race: one counted run a day" }
+    { "id": "weekly_race", "kind": "ranked", "countedAttemptsPerDay": 1, "boards": [ { "id": "race_week", "scope": "everyone" } ] }
   ],
   "catalog": [
-    { "sku": "coins_small", "kind": "consumable", "grants": ["coins:1000"], "prices": { "USD": 1.99, "EUR": 1.99 },
-      "platformIds": { "apple": "puzzle.coins.small", "google": "coins_small" }, "random": false },
-    { "sku": "extra_moves", "kind": "consumable", "grants": ["moves:5"], "prices": { "USD": 0.99, "EUR": 0.99 },
-      "platformIds": { "apple": "puzzle.moves5", "google": "moves5" }, "random": false, "priceInVirtual": { "coins": 900 } },
-    { "sku": "booster_bundle", "kind": "consumable", "grants": ["booster:rocket:3", "booster:bomb:3"], "prices": { "USD": 2.99, "EUR": 2.99 },
-      "platformIds": { "apple": "puzzle.boosters", "google": "boosters" }, "random": false },
-    { "sku": "race_frame", "kind": "non_consumable", "grants": ["cosmetic:race_frame"], "prices": { "USD": 0.99, "EUR": 0.99 },
-      "platformIds": { "apple": "puzzle.frame", "google": "frame" }, "random": false }
+    { "sku": "coins_small", "kind": "consumable", "grants": [ { "kind": "currency", "id": "coins", "amount": 1000 } ],
+      "basePrice": { "currency": "USD", "minor": 199 }, "storeProductIds": { "apple": "puzzle.coins.small", "google": "coins_small" }, "random": false },
+    { "sku": "extra_moves", "kind": "consumable", "grants": [ { "kind": "moves", "amount": 5 } ],
+      "basePrice": { "currency": "USD", "minor": 99 }, "priceInVirtual": { "coins": 900 },
+      "storeProductIds": { "apple": "puzzle.moves5", "google": "moves5" }, "random": false },
+    { "sku": "booster_bundle", "kind": "consumable", "grants": [ { "kind": "booster", "id": "rocket", "amount": 3 }, { "kind": "booster", "id": "bomb", "amount": 3 } ],
+      "basePrice": { "currency": "USD", "minor": 299 }, "storeProductIds": { "apple": "puzzle.boosters", "google": "boosters" }, "random": false },
+    { "sku": "race_frame", "kind": "non_consumable", "grants": [ { "kind": "cosmetic", "id": "race_frame" } ],
+      "basePrice": { "currency": "USD", "minor": 99 }, "storeProductIds": { "apple": "puzzle.frame", "google": "frame" }, "random": false }
   ],
   "offers": [
-    { "id": "moves_on_fail", "point": "onFail", "mode": "levels", "sku": "extra_moves", "affectsRankedResult": false,
+    { "id": "moves_on_fail", "point": "on_fail", "mode": "levels", "sku": "extra_moves",
       "grantsTo": "buyer", "maxPerAttempt": 2, "countdown": false, "priceEscalation": false },
-    { "id": "boosters_before_hard_level", "point": "onLevelStart", "mode": "levels", "sku": "booster_bundle", "affectsRankedResult": false,
+    { "id": "boosters_before_level", "point": "on_level_start", "mode": "levels", "sku": "booster_bundle",
       "grantsTo": "buyer", "maxPerAttempt": 1, "countdown": false, "priceEscalation": false },
-    { "id": "frame_in_race", "point": "onMenu", "mode": "weekly_race", "sku": "race_frame", "affectsRankedResult": false,
+    { "id": "coins_in_shop", "point": "on_menu", "mode": "levels", "sku": "coins_small",
+      "grantsTo": "buyer", "maxPerDay": 5, "countdown": false, "priceEscalation": false },
+    { "id": "frame_in_race", "point": "on_menu", "mode": "weekly_race", "sku": "race_frame",
       "grantsTo": "buyer", "maxPerDay": 1, "countdown": false, "priceEscalation": false }
   ],
   "placements": [
-    { "id": "level_end_interstitial", "format": "interstitial", "point": "onLevelEnd", "mode": "levels", "affectsRankedResult": false,
+    { "id": "level_end_interstitial", "format": "interstitial", "point": "on_level_end", "mode": "levels",
       "graceLevels": 8, "cooldownSeconds": 150, "sessionCap": 5, "resetAfterRewardedSeconds": 600 },
-    { "id": "double_coins", "format": "rewarded", "point": "onLevelEnd", "mode": "levels", "affectsRankedResult": false,
-      "optIn": true, "grantOn": "completed", "dailyCap": 5 },
-    { "id": "menu_banner", "format": "banner", "point": "onMenu", "mode": "levels", "affectsRankedResult": false }
+    { "id": "double_coins", "format": "rewarded", "point": "on_level_end", "mode": "levels",
+      "grants": [ { "kind": "currency", "id": "coins", "amount": 50 } ], "optIn": true, "grantOn": "completed", "dailyCap": 5 },
+    { "id": "menu_banner", "format": "banner", "point": "on_menu", "mode": "levels" }
   ],
   "consent": { "requiredBeforeAds": true, "cmp": "IAB TCF 2.3", "att": true },
   "storeDeclarations": { "containsAds": true, "inAppPurchases": true, "lootBoxes": false },

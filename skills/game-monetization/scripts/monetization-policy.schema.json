@@ -1,13 +1,27 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "ads-master/game-monetization/monetization-policy.schema.json",
-  "title": "Game monetization policy (contract 0.1)",
-  "description": "One file per game. Read by the game's code and by monetization_check.py. The structural rules are here; the fairness and consumer rules are in monetization_check.py.",
+  "title": "Product monetization policy (contract 0.1)",
+  "description": "One file per product (a store listing or web app, which may hold many games). Structure lives here; fairness, consumer and cross reference rules live in monetization_check.py.",
   "type": "object",
-  "required": ["contractVersion", "game", "currencies", "modes", "catalog", "offers", "placements", "consent", "storeDeclarations", "killSwitch"],
+  "required": ["contractVersion", "policyRevision", "product", "stores", "currencies", "modes", "catalog", "offers", "placements", "consent", "storeDeclarations", "killSwitch"],
+  "$defs": {
+    "point": { "type": "string", "pattern": "^(on_[a-z0-9_]+|custom_[a-z0-9_]+)$" },
+    "grant": {
+      "type": "object",
+      "required": ["kind"],
+      "properties": {
+        "kind": { "enum": ["cosmetic", "access", "pass", "round", "attempt", "moves", "time", "booster", "currency", "lives", "streak_protection"] },
+        "id": { "type": "string" },
+        "amount": { "type": "integer", "minimum": 1 },
+        "writesTo": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
   "properties": {
-    "contractVersion": { "type": "string", "pattern": "^0\\.[0-9]+$" },
-    "game": {
+    "contractVersion": { "const": "0.1" },
+    "policyRevision": { "type": "integer", "minimum": 1 },
+    "product": {
       "type": "object",
       "required": ["id", "platforms", "audience"],
       "properties": {
@@ -21,11 +35,17 @@
         "regions": { "type": "array", "items": { "type": "string", "pattern": "^[A-Z]{2}$" } }
       }
     },
+    "stores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "provider", "platforms"],
+        "properties": { "id": { "type": "string" }, "provider": { "type": "string" }, "platforms": { "type": "array", "items": { "type": "string" } } }
+      }
+    },
     "currencies": {
       "type": "object",
-      "required": ["realMoney"],
       "properties": {
-        "realMoney": { "type": "array", "items": { "type": "string", "pattern": "^[A-Z]{3}$" }, "minItems": 1 },
         "virtual": {
           "type": "array",
           "items": {
@@ -43,11 +63,13 @@
         "type": "object",
         "required": ["id", "kind"],
         "properties": {
-          "id": { "type": "string" },
+          "id": { "type": "string", "pattern": "^[a-z0-9_-]+(:[a-z0-9_-]+)?$" },
           "kind": { "enum": ["ranked", "practice", "social", "progression"] },
-          "countedAttemptsPerDay": { "type": "integer", "minimum": 1 },
-          "scope": { "enum": ["group", "everyone"] },
-          "boardLabel": { "type": "string" }
+          "countedAttemptsPerDay": { "oneOf": [ { "type": "integer", "minimum": 1 }, { "const": "unlimited" } ] },
+          "boards": {
+            "type": "array",
+            "items": { "type": "object", "required": ["id", "scope"], "properties": { "id": { "type": "string" }, "scope": { "enum": ["group", "everyone"] } } }
+          }
         }
       }
     },
@@ -55,16 +77,23 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["sku", "kind", "grants", "prices", "platformIds", "random"],
+        "required": ["sku", "kind", "grants", "basePrice", "storeProductIds", "random"],
         "properties": {
           "sku": { "type": "string" },
           "kind": { "enum": ["consumable", "non_consumable", "subscription", "season"] },
-          "grants": { "type": "array", "items": { "type": "string" } },
-          "prices": { "type": "object", "additionalProperties": { "type": "number", "exclusiveMinimum": 0 } },
-          "platformIds": { "type": "object", "properties": { "stripe": { "type": "string" }, "apple": { "type": "string" }, "google": { "type": "string" } } },
+          "grants": { "type": "array", "items": { "$ref": "#/$defs/grant" }, "minItems": 1 },
+          "basePrice": {
+            "type": "object", "required": ["currency", "minor"],
+            "properties": { "currency": { "type": "string", "pattern": "^[A-Z]{3}$" }, "minor": { "type": "integer", "minimum": 1 } }
+          },
+          "platformPrices": { "type": "object", "additionalProperties": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 1 } } },
+          "storeProductIds": { "type": "object", "additionalProperties": { "type": "string" } },
+          "stores": { "type": "array", "items": { "type": "string" } },
+          "period": { "type": "string", "pattern": "^P[0-9]+[DWMY]$" },
+          "trialDays": { "type": "integer", "minimum": 0 },
           "random": { "type": "boolean" },
           "odds": { "type": "object", "additionalProperties": { "type": "number" } },
-          "priceInVirtual": { "type": "object", "additionalProperties": { "type": "number" } }
+          "priceInVirtual": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 1 } }
         }
       }
     },
@@ -72,14 +101,13 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "point", "mode", "sku", "affectsRankedResult", "grantsTo", "countdown", "priceEscalation"],
+        "required": ["id", "point", "mode", "sku", "grantsTo", "countdown", "priceEscalation"],
         "properties": {
           "id": { "type": "string" },
-          "point": { "type": "string" },
+          "point": { "$ref": "#/$defs/point" },
           "mode": { "type": "string" },
           "sku": { "type": "string" },
-          "affectsRankedResult": { "type": "boolean" },
-          "grantsTo": { "enum": ["buyer", "group"] },
+          "grantsTo": { "enum": ["buyer", "group", "everyone"] },
           "maxPerDay": { "type": "integer", "minimum": 1 },
           "maxPerAttempt": { "type": "integer", "minimum": 1 },
           "countdown": { "type": "boolean" },
@@ -91,13 +119,13 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "format", "point", "mode", "affectsRankedResult"],
+        "required": ["id", "format", "point", "mode"],
         "properties": {
           "id": { "type": "string" },
           "format": { "enum": ["rewarded", "interstitial", "banner", "app_open", "native"] },
-          "point": { "type": "string" },
+          "point": { "$ref": "#/$defs/point" },
           "mode": { "type": "string" },
-          "affectsRankedResult": { "type": "boolean" },
+          "grants": { "type": "array", "items": { "$ref": "#/$defs/grant" } },
           "optIn": { "type": "boolean" },
           "grantOn": { "enum": ["completed"] },
           "dailyCap": { "type": "integer", "minimum": 1 },

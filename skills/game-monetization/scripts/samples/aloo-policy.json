@@ -1,93 +1,47 @@
 {
   "contractVersion": "0.1",
-  "_note": "Example policy for a daily social mini game app: two counted tries a day decide group points and the global board; a practice level and replays do not count; a group encore is a bonus round every member receives. Prices are placeholders for the check, not pricing decisions.",
-  "game": {
+  "policyRevision": 1,
+  "_note": "Example policy for a daily social mini game product (many mini games inside): two counted tries a day decide group points and the global board; practice and replays never count; the Encore is a bonus round every group member receives, written only to group boards. Prices are placeholders, not pricing decisions.",
+  "product": {
     "id": "aloo",
     "platforms": ["web", "pwa", "android", "ios"],
     "audience": { "minimumAge": 13, "kidsMode": false },
     "regions": ["TR", "NL", "DE", "GB", "US"]
   },
-  "currencies": {
-    "realMoney": ["EUR", "USD", "TRY", "GBP"],
-    "virtual": []
-  },
+  "stores": [
+    { "id": "web", "provider": "stripe", "platforms": ["web", "pwa"] },
+    { "id": "apple", "provider": "apple", "platforms": ["ios"] },
+    { "id": "google", "provider": "google", "platforms": ["android"] }
+  ],
+  "currencies": { "virtual": [] },
   "modes": [
-    { "id": "daily", "kind": "ranked", "countedAttemptsPerDay": 2 },
+    { "id": "daily", "kind": "ranked", "countedAttemptsPerDay": 2,
+      "boards": [ { "id": "group_day", "scope": "group" }, { "id": "group_season", "scope": "group" }, { "id": "global_day", "scope": "everyone" } ] },
     { "id": "practice", "kind": "practice" },
-    { "id": "encore", "kind": "social", "scope": "group" }
+    { "id": "encore", "kind": "social" }
   ],
   "catalog": [
-    {
-      "sku": "season_pass",
-      "kind": "season",
-      "grants": ["season_pass"],
-      "prices": { "EUR": 2.99, "USD": 2.99, "TRY": 99.99, "GBP": 2.49 },
-      "platformIds": { "stripe": "price_season_pass", "apple": "aloo.season_pass", "google": "season_pass" },
-      "random": false
-    },
-    {
-      "sku": "aloo_plus_monthly",
-      "kind": "subscription",
-      "grants": ["aloo_plus"],
-      "prices": { "EUR": 3.99, "USD": 3.99, "TRY": 129.99, "GBP": 3.49 },
-      "platformIds": { "stripe": "price_aloo_plus_monthly", "apple": "aloo.plus.monthly", "google": "aloo_plus_monthly" },
-      "random": false
-    },
-    {
-      "sku": "encore",
-      "kind": "consumable",
-      "grants": ["encore_round"],
-      "prices": { "EUR": 0.99, "USD": 0.99, "TRY": 34.99, "GBP": 0.89 },
-      "platformIds": { "stripe": "price_encore", "apple": "aloo.encore", "google": "encore" },
-      "random": false
-    }
+    { "sku": "season_pass", "kind": "season", "grants": [ { "kind": "pass", "id": "season_pass" }, { "kind": "cosmetic", "id": "season_frame" } ],
+      "basePrice": { "currency": "EUR", "minor": 299 },
+      "storeProductIds": { "web": "price_season_pass", "apple": "aloo.season_pass", "google": "season_pass" }, "random": false },
+    { "sku": "aloo_plus_monthly", "kind": "subscription", "period": "P1M", "grants": [ { "kind": "access", "id": "archive" }, { "kind": "access", "id": "unlimited_replay" }, { "kind": "access", "id": "stats" } ],
+      "basePrice": { "currency": "EUR", "minor": 399 },
+      "storeProductIds": { "web": "price_aloo_plus_monthly", "apple": "aloo.plus.monthly", "google": "aloo_plus_monthly" }, "random": false },
+    { "sku": "encore", "kind": "consumable", "grants": [ { "kind": "round", "id": "encore_round", "writesTo": ["group_day", "group_season"] } ],
+      "basePrice": { "currency": "EUR", "minor": 99 },
+      "storeProductIds": { "web": "price_encore", "apple": "aloo.encore", "google": "encore" }, "random": false }
   ],
   "offers": [
-    {
-      "id": "encore_at_game_over",
-      "point": "onAttemptsExhausted",
-      "mode": "encore",
-      "sku": "encore",
-      "affectsRankedResult": false,
-      "grantsTo": "group",
-      "maxPerDay": 1,
-      "countdown": false,
-      "priceEscalation": false
-    },
-    {
-      "id": "season_pass_at_season_start",
-      "point": "onSeasonStart",
-      "mode": "daily",
-      "sku": "season_pass",
-      "affectsRankedResult": false,
-      "grantsTo": "buyer",
-      "maxPerDay": 1,
-      "countdown": false,
-      "priceEscalation": false
-    },
-    {
-      "id": "plus_after_practice",
-      "point": "custom:onPracticeDone",
-      "mode": "practice",
-      "sku": "aloo_plus_monthly",
-      "affectsRankedResult": false,
-      "grantsTo": "buyer",
-      "maxPerDay": 1,
-      "countdown": false,
-      "priceEscalation": false
-    }
+    { "id": "encore_at_game_over", "point": "on_attempts_exhausted", "mode": "encore", "sku": "encore",
+      "grantsTo": "group", "maxPerDay": 1, "countdown": false, "priceEscalation": false },
+    { "id": "season_pass_at_season_start", "point": "on_season_start", "mode": "daily", "sku": "season_pass",
+      "grantsTo": "buyer", "maxPerDay": 1, "countdown": false, "priceEscalation": false },
+    { "id": "plus_after_practice", "point": "custom_practice_done", "mode": "practice", "sku": "aloo_plus_monthly",
+      "grantsTo": "buyer", "maxPerDay": 1, "countdown": false, "priceEscalation": false }
   ],
   "placements": [
-    {
-      "id": "rewarded_replay",
-      "format": "rewarded",
-      "point": "onAttemptsExhausted",
-      "mode": "practice",
-      "affectsRankedResult": false,
-      "optIn": true,
-      "grantOn": "completed",
-      "dailyCap": 3
-    }
+    { "id": "rewarded_replay", "format": "rewarded", "point": "on_attempts_exhausted", "mode": "practice",
+      "grants": [ { "kind": "access", "id": "one_replay" } ], "optIn": true, "grantOn": "completed", "dailyCap": 3 }
   ],
   "consent": { "requiredBeforeAds": true, "cmp": "IAB TCF 2.3", "att": true },
   "storeDeclarations": { "containsAds": true, "inAppPurchases": true, "lootBoxes": false },
