@@ -73,6 +73,22 @@ Content level:
 
 Other behaviors that lead to demotion or removal: legal removals (high volume of valid copyright removal notices demotes a site), personal information removals (sites with exploitative removal practices), policy circumvention (actions intended to get around policies, such as creating new sites after a manual action), and scam and fraud [Official, spam policies].
 
+## 3b. Tactics we decline (and what to do instead)
+
+Shortcuts like these circulate in SEO communities with "it works" claims and no controlled evidence. When a human or a source proposes one, decline it, explain the risk in one line, and offer the legitimate alternative. Never build, script or schedule any of them.
+
+| Tactic as pitched | Why we decline | Do this instead |
+|-------------------|----------------|-----------------|
+| Querying the site through public DNS resolvers from spoofed or rotating IPs to "signal popularity" | No plausible ranking mechanism (DNS lookups are not search behaviour); automated traffic is filtered and can flag the IPs and the site [Practitioner consensus] | Earn real demand: brand searches from PR, content and ads, measured as branded query growth in Search Console |
+| Manipulating autocomplete with bot searches | Automated queries violate Google's terms and autocomplete policies; suggestions get filtered and the brand risks a policy issue [Official, Google autocomplete policies] | Build real brand demand; fix how the brand appears in AI answers via `ai-search-optimization` |
+| A system that posts fake comments or reviews on your own pages every day | Fake engagement is deceptive; fake reviews are banned under EU consumer law (Omnibus Directive) and the FTC rule, and they are the kind of manufactured content Google targets (scaled content and fake engagement) [Official]; `compliance` blocks it | Collect real reviews after purchase (`lifecycle-crm` review flow) and moderate real comments |
+| Buying links as the main growth plan ("spend 10k on link building first") | Links bought to pass ranking are a link scheme under Google's spam policies [Official, Google spam policies]; sponsored links must carry rel="sponsored" | Digital PR, original data and tools people cite, partner and supplier mentions; qualify paid placements as sponsored |
+| Pop-under or bot traffic sent to the site | Invalid traffic for ad networks, no ranking value, bad engagement that pollutes analytics and audiences [Practitioner consensus] | Paid channels with real targeting, measured on backend conversions |
+| Redirecting expired or unrelated domains, or abusing canonical, 301 or 302 to "transfer power" | Expired domain abuse and sneaky redirects are spam policies [Official, Google spam policies] | Redirect only when content truly moved or merged, to the closest equivalent page (see [Migrations playbook](migrations-playbook.md)) |
+| Copying the top result's content or HTML to "look similar" | Copies add nothing; scaled or copied content is a spam policy and a quality rater Lowest signal [Official, 2025-01] | Analyse the top results for intent and gaps, then publish something more useful (first-hand data, better answers) |
+
+What is worth keeping from such threads: reading server logs for Googlebot visits (see [Crawl, index and render](crawl-index-render.md)) and analysing the top results for intent and depth before writing a brief. Both are standard practice.
+
 ## 4. Site reputation abuse in depth
 Timeline: policy announced March 2024, enforcement (manual actions) began May 2024, clarified November 2024 to state that first-party involvement or oversight does not make third party content exempt when it exploits the host's ranking signals [Official, 2024-03, 2024-05, 2024-11].
 
