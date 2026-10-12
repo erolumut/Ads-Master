@@ -11,6 +11,24 @@
 
 Practical reading: Google evaluates sites as well as pages. A site with a large share of unhelpful pages can see sitewide suppression, which is why core update impacts often hit entire domains.
 
+## 1b. Leak and trial signals as hypotheses (never as targets)
+
+Practitioners annotate Google's own guides with attribute names from the May 2024 Content Warehouse API leak and with system names from US v. Google trial testimony. Read every row as a hypothesis: the leak shows fields that exist, not their weights, whether they are used today, or how they combine, and Google said the documents lacked context [Contested]. The actions below are worth doing even if a given attribute is never used, which is the only reason they are here.
+
+| Name (source) | Claimed meaning (interpretation) | Action that is sensible anyway | How to measure it | Label |
+|---------------|----------------------------------|--------------------------------|-------------------|-------|
+| `siteAuthority`, `Q*` (leak, trial) | Site level quality or authority | Remove or improve thin and unhelpful sections; earn mentions and links from real sources | Share of indexed pages with clicks in 16 months; referring domains that send visits | [Contested] |
+| `siteFocusScore`, `siteRadius` (leak) | How tightly a site sticks to its core topic, and how far a page drifts from it | Prune or move off-topic content; build topic clusters around what the business sells | Search Console query clusters per directory; share of clicks from core topics | [Contested] |
+| `contentEffort`, `OriginalContentScore` (leak) | Effort and originality of the main content | First-hand data, original photos and tests, named authors with real experience | Share of money pages with unique assets or data; duplicate and near duplicate rate | [Contested] |
+| NavBoost, Glue (trial, leak) | Ranking adjustments from click and interaction data | Titles and snippets that win the click honestly; pages that answer fast; brand demand | CTR by position in Search Console; branded query volume trend; pogo signals in analytics | [Contested] (existence supported by trial testimony; weight unknown) |
+| `hostAge` (leak) | Host or domain age | Nothing to do: Google has publicly denied a new site sandbox; earn quality instead | n/a | [Contested] |
+| `P*`, `T*` (trial) | Popularity and topicality components | Clear topical relevance on the page; real demand and links | Rankings for the core query set; referral and brand traffic | [Contested] |
+
+Rules:
+- Never write a recommendation as "increase siteAuthority" or "raise contentEffort". Write the action and its own metric.
+- An attribute name is not evidence. If a change is justified only by a leak attribute, it goes to EXPERIMENTS.md as a test, not into a fix list.
+- Re-check this table in the monthly Freshness Protocol: new testimony or Google statements can move a row.
+
 ## 2. E-E-A-T implementation checklist
 Site level:
 - [ ] About page that names the company, founders or leadership, history, location, and why it is qualified.

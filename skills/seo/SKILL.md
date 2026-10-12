@@ -268,7 +268,7 @@ How to log: journal entry `YYYY-MM-DD_HHMM_seo_freshness.md` with what changed, 
 - [Site architecture and internal linking](references/site-architecture-and-internal-linking.md): hub and spoke, click depth, URL design, internal link audits and prioritization.
 - [Keyword research and topical maps](references/keyword-research-and-topical-maps.md): intent, SERP clustering, opportunity scoring, cannibalization, topical map template.
 - [On-page and content](references/on-page-and-content.md): titles, headings, briefs, information gain, refresh, pruning, programmatic SEO, AI assisted workflows.
-- [E-E-A-T and quality policies](references/eeat-and-quality-policies.md): spam policies, site reputation abuse, scaled content, AI content guidance, manual actions, YMYL.
+- [E-E-A-T and quality policies](references/eeat-and-quality-policies.md): leak and trial signals as hypotheses (never as targets), spam policies, site reputation abuse, scaled content, AI content guidance, manual actions, YMYL.
 - [Algorithm updates and recovery](references/algorithm-updates-and-recovery.md): update timeline 2025 to 2026, diagnosis procedure, recovery plays.
 - [AI Overviews and SERP changes](references/ai-overviews-and-serp-changes.md): AIO and AI Mode impact data, reporting, opt-out decision, num=100, adaptation.
 - [Structured data](references/structured-data.md): supported and deprecated types, required properties, JSON-LD templates, validation.
