@@ -22,7 +22,7 @@
 | 14 | "Prompt volume from tools equals demand" | No engine publishes prompt volumes; vendor estimates use panels and modeling | [Unverified for all vendors] | Use as directional only |
 | 15 | "AI visitors convert 23x better" | Single-site figure (Ahrefs' own site, small volume) | [Study, 2025-06, single site] | Measure your own AI channel conversion rate |
 | 16 | "One prompt run per week is enough" | Variance is high; small samples produce false trends | [Study, 2026] | 3 to 10 runs per prompt, bootstrap intervals |
-| 17 | "FAQ schema boosts AI visibility" | FAQ rich results limited to authoritative government and health sites since 2023; no proven AI effect | [Official, 2023] | Keep visible FAQs if useful for users |
+| 17 | "FAQ schema boosts AI visibility" | FAQ rich results were limited to authoritative government and health sites in 2023 and stopped appearing on 2026-05-07, with Search Console support dropped after; no proven AI effect | [Official, 2023; Reported, 2026-05] | Keep visible FAQs if useful for users; do not sell FAQ markup as an AI lever |
 | 18 | "Reddit is the #1 source, so post on Reddit" | Reddit's citation share swings by engine and time (ChatGPT drop in 2025-09); manipulation gets removed | [Study, 2025] | Map your own cited sources; participate genuinely |
 | 19 | "The model knows our brand, so we are fine" | Parametric knowledge is dated; live retrieval decides citations and current facts | [Practitioner consensus] | Test with search on and off |
 | 20 | "Statistics boost visibility 40%" | Up to about 40% in a simulated GPT-3.5 engine in 2024; the size of the effect on live 2026 engines is unknown | [Study, 2024] | Add real data for user value; measure the effect |
