@@ -147,6 +147,7 @@ Then compare with the rendered DOM (URL Inspection live test, or a headless brow
 20. Wait for an update rollout to finish before diagnosing it; separate measurement artifacts from ranking changes.
 21. Bing matters for Copilot and AI answers: verify Bing Webmaster Tools, submit sitemaps with accurate lastmod, use IndexNow.
 22. Never ship SEO changes to live sites without approval; draft diffs and change lists.
+23. Leaked API attribute names and trial system names (siteAuthority, contentEffort, NavBoost and similar) are hypotheses, never targets: recommend the action and its own metric, and send a change justified only by an attribute to EXPERIMENTS.md as a test ([E-E-A-T and quality policies](references/eeat-and-quality-policies.md) section 1b).
 
 ## Diagnostics
 | Symptom | Likely causes | Checks | Fixes |
