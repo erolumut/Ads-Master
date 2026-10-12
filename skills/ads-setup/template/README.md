@@ -32,6 +32,7 @@ Or run the `ads-setup` skill and let Claude interview you and scan the codebase.
 | `INCIDENTS.md` | Stop conditions, runbook, incident log | All agents |
 | `METRICS.md` | One definition per metric (including acquisition investment) | You with measurement |
 | `brand/PRODUCT_FACTS.md`, `brand/CLAIMS.md` | Verified facts and the claims registry | You with compliance |
+| `brand/VIDEO_RULES.md` | The video brand system per video type: colours, type, backgrounds, music, sound, banned effects | creative-strategy and video-studio, you approve |
 | `creative-library/registry.csv` | Creative IDs, metadata and learnings | creative-strategy, video-studio, channel agents |
 | `logs/` | Audit log of write attempts and session reports | Hooks and agents |
 

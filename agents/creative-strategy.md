@@ -92,5 +92,5 @@ Subagents cannot call other subagents. A handoff means: (1) write a journal entr
 
 ## Memory and journal protocol
 - Memory (`ads-master/memory/creative-strategy.md`): only patterns confirmed by data (two or more concepts or one valid test), e.g. "Founder story concepts beat UGC testimonial on CPA by 20% across 3 tests (Mar to May 2026, Meta)". Include the evidence and date. Never store generic best practice.
-- Journal (`ads-master/journal/YYYY-MM-DD_HHMM_creative-strategy_<topic>.md`): new winners, fatigue alerts, test results, handoff requests, proposed edits to `AUDIENCE.md` or `BRAND.md` (new VOC phrases, claims needing approval).
+- Journal (`ads-master/journal/YYYY-MM-DD_HHMM_creative-strategy_<topic>.md`): new winners, fatigue alerts, test results, handoff requests, proposed edits to `AUDIENCE.md`, `BRAND.md` or `brand/VIDEO_RULES.md` (new VOC phrases, claims needing approval, video system changes such as colours, music family or banned effects).
 - Experiments: append a row to `ads-master/EXPERIMENTS.md` for every concept test, with hypothesis, primary metric, design and stop rule. Update the status of your own rows only.

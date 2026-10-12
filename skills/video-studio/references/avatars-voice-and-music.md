@@ -95,6 +95,18 @@ Music license log (one row per delivered file, stored in the batch output and th
 - Final loudness per [Platform specs and safe zones](platform-specs-and-safe-zones.md) section 8; true peak at or below -1 dBTP for social.
 - A cut to silence before the reveal is a strong pattern break; once per ad.
 - Silent edits are valid for Feed and LinkedIn-first concepts, but still deliver a sound version for Reels and TikTok.
+- Subtraction pass before export: play the mix once and remove every sound effect that is too loud, out of place, or does not help the viewer understand the product or keep watching. Fewer, deliberate sounds read as premium; a sound on every cut reads as cheap. Log what was cut in the QA report.
+
+Tempo as a starting guess (one production studio's heuristic, 2026-09 [Practitioner, unverified]; test against hook rate and hold rate, never treat as a rule):
+
+| BPM | Feel | Fits |
+|-----|------|------|
+| 60 to 80 | Regal, cinematic, heritage | Brand and launch films, texture macro shots |
+| 90 to 110 | Smooth, cool, effortless | Product detail, retargeting |
+| 115 to 123 | Elite, kinetic, sophisticated | Feature reveals, premium tech |
+| Above 125 | Drive and hype | Offers and promos; can cheapen a premium brand |
+
+The brand's music family and tempo per video type live in `brand/VIDEO_RULES.md`; this table only helps fill it.
 
 ## 8. Avatar production workflow (disclosed presenter)
 

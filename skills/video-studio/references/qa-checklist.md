@@ -86,6 +86,8 @@ Automated checks: [ffmpeg_deliver.py](../scripts/ffmpeg_deliver.py) `check` (spe
 | G4 | Music license covers paid ads, territories and channels; log row present | Music license log | Blocker |
 | G5 | No clipped or distorted audio, no sudden level jumps at hook swaps | Listen at cuts | Warn |
 | G6 | Captions present for every spoken line (sound off viewers) | Watch muted | Blocker on Feed and LinkedIn |
+| G7 | Subtraction pass done: every remaining effect and sound helps understanding or attention; cuts logged | QA report lists what was removed | Warn |
+| G8 | Colours, type, backgrounds, music family and banned effects match `brand/VIDEO_RULES.md` for this video type | Compare frames and mix with the sheet | Warn (Blocker for brand films) |
 
 ## H. Naming, registry and manifest
 

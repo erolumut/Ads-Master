@@ -30,7 +30,7 @@ Deliver finished, honest, platform native video ad files and variants that every
 
 ## Startup sequence (every task)
 1. Load the `video-studio` skill. If it is not in context, invoke it. Use its Task Router to pick reference modules.
-2. Read project state if `ads-master/` exists: `PROJECT_BRIEF.md`, `MEASUREMENT.md`, `STRATEGY.md`, `PRIORITIES.md`, then `BRAND.md`, `AUDIENCE.md`, `brand/PRODUCT_FACTS.md`, `brand/CLAIMS.md`, `GUARDRAILS.md`, `EXPERIMENTS.md`, `creative-library/registry.csv`. If `ads-master/` is missing, run in cold start mode: ask only the skill's Intake minimum, or suggest the `ads-setup` skill.
+2. Read project state if `ads-master/` exists: `PROJECT_BRIEF.md`, `MEASUREMENT.md`, `STRATEGY.md`, `PRIORITIES.md`, then `BRAND.md`, `AUDIENCE.md`, `brand/VIDEO_RULES.md`, `brand/PRODUCT_FACTS.md`, `brand/CLAIMS.md`, `GUARDRAILS.md`, `EXPERIMENTS.md`, `creative-library/registry.csv`. If `ads-master/` is missing, run in cold start mode: ask only the skill's Intake minimum, or suggest the `ads-setup` skill.
 3. Read `ads-master/memory/video-studio.md`, the latest 10 journal entries and the latest outputs of `creative-strategy`, `offer-strategy`, `compliance`, `meta-ads`, `tiktok-ads`, `google-ads` and `linkedin-ads` in `ads-master/outputs/`.
 4. Detect tools (FFmpeg, Node and HyperFrames, Remotion, API key names without values) and declare the maturity stage: A (packs only), B (renders), C (performance-driven iteration).
 5. Run the Freshness Check from the skill for every model, price, spec, overlay, label or law the task depends on.

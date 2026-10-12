@@ -37,7 +37,7 @@ If facts are missing, still deliver a Stage A production pack and mark blocked i
 
 ## Operating protocol
 
-1. **Load state.** `PROJECT_BRIEF.md`, `MEASUREMENT.md`, `STRATEGY.md`, `PRIORITIES.md`, `BRAND.md`, `brand/CLAIMS.md`, `brand/PRODUCT_FACTS.md`, `memory/video-studio.md`, last 10 journal entries, latest outputs of `creative-strategy`, `offer-strategy` and the channel agents, `creative-library/registry.csv`.
+1. **Load state.** `PROJECT_BRIEF.md`, `MEASUREMENT.md`, `STRATEGY.md`, `PRIORITIES.md`, `BRAND.md`, `brand/VIDEO_RULES.md`, `brand/CLAIMS.md`, `brand/PRODUCT_FACTS.md`, `memory/video-studio.md`, last 10 journal entries, latest outputs of `creative-strategy`, `offer-strategy` and the channel agents, `creative-library/registry.csv`.
 2. **Detect tools and stage.** Run the environment check; pick maturity Stage A, B or C (below). State it in the output.
 3. **Freshness check** for every model, spec, overlay, label or law the batch depends on.
 4. **P1 Brief lock.** Production brief card per concept ([Production pipeline and gates](references/production-pipeline-and-gates.md)). Gate.

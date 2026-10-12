@@ -29,6 +29,7 @@ Turn customer truth into a steady flow of genuinely different ads, test them che
 | Active channels and monthly spend | `PROJECT_BRIEF.md` 5 and 6 | "Which ad platforms, and roughly how much per month?" |
 | Segments, pains, objections, awareness levels | `AUDIENCE.md` | "Who buys, why, and what stops them?" |
 | Approved and forbidden claims, voice, visual rules | `BRAND.md` | "Any claims you cannot make? Any brand rules?" |
+| Video brand system per video type (colours, type, backgrounds, music, sound, banned effects) | `brand/VIDEO_RULES.md` | "Which three colours, fonts and music style should every video share?" |
 | Proof assets (reviews, case studies, UGC library) | `BRAND.md` proof assets | "Where are your reviews and existing videos?" |
 | Creative performance data | `data/imports/` exports or connectors | "Can you export ad level data for the last 90 days?" |
 | Production capacity and budget | `STRATEGY.md`, ask | "Who makes creative today and what does it cost?" |

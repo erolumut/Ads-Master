@@ -161,6 +161,10 @@ Rules:
 
 ## 10. One message rule
 
+One shot, one idea, inside one ad, one message: the key object in the centre or on a clear focal point, room to breathe after each key move, and a background that never competes with the product. Eased motion, never linear; transitions where the story turns, hard cuts on action elsewhere.
+
+Premium pacing (slow, long holds, restraint) is a brand film grammar. Apple style films speak to people who already know the brand; a newer brand on cold Reels or TikTok traffic needs clarity in the first second. Use the premium grammar for launch films, texture and product detail, and retargeting; keep hook led pacing (section 4) for cold traffic, and test both.
+
 One ad, one message. If the script needs "and" to state the message, split it into two ads. Variants test different ways of landing the same message (hooks, proof, CTA), not different messages. [saas-motion-kit playbook; Practitioner consensus]
 
 ## 11. Script templates (copy and fill)
