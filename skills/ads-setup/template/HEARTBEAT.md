@@ -29,6 +29,9 @@
 | marketplaces | | | |
 | mobile-app-growth | | | |
 | app-store-optimization | | | Store visibility, ratings and store AI surfaces |
+| game-monetization | | | Games: economy, offers, ad placements, payments (reads monetization-policy.json) |
+| game-liveops | | | Games: daily loop, events, seasons, live ops calendar |
+| store-submission | | on every store submission | First pass review dossier for Apple and Google Play |
 
 ## Daily (5 minutes)
 - Daily report (`/ads-review daily`): spend vs plan, platform reported vs backend observed, acquisition investment, tracking sanity, disapprovals, stock cover of advertised items, incidents. FACTS, INTERPRETATION, RECOMMENDATION. Decide on 3 and 7 day windows, not on one day.

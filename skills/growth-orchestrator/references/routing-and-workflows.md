@@ -89,6 +89,9 @@ How the main session conducts the Ads Master team. Every workflow is written as 
 | market-intel | `_competitive-baseline.md`, `_monthly-movement.md` | monthly, quarterly |
 | mobile-app-growth | `_app-growth-plan.md`, `_skan-schema.md`, `_ua-review.md` | daily alerts, weekly |
 | app-store-optimization | `_aso-audit.md`, `_term-map.csv`, `_metadata-change-request.md`, `_review-themes.md` | weekly, monthly audit |
+| game-monetization | `_monetization-audit.md`, `_economy-review.md`, `_offer-change-request.md` | weekly, monthly economy review |
+| game-liveops | `_liveops-calendar.md`, `_season-plan.md`, `_retention-review.md` | weekly, monthly calendar |
+| store-submission | `_submission-dossier.md`, `_review-notes.md`, `_rejection-reply.md` | on every submission |
 | storefront-ux | `_storefront-audit.md`, `_pattern-plan.md`, `_component-diff.md` | monthly audit, on storefront changes |
 | site-engineer | `_release-qa.md`, `_launch-qa.md`, `_worst-case-test.md` | on every release |
 | video-studio | `_production-plan.md`, `_render-batch.md` | weekly batch |
@@ -283,6 +286,11 @@ Synthesis: go live checklist with the pre-spend verdict first, and one activatio
 1. app-store-optimization: ASO audit, term map, ratings and store AI surfaces. mobile-app-growth and measurement: MMP and SKAN or AdAttributionKit setup, unit economics by cohort.
 2. creative-strategy and video-studio: app ad concepts and store screenshots and previews.
 3. lifecycle-crm: onboarding, push and win back. Synthesis: app growth plan with budget by network.
+
+### 4.18 Game studio program
+1. measurement: game KPI dictionary and event taxonomy (`game-kpis`, `game-tracking`), dashboards and soft launch gates derived from the game's own curve. game-monetization: the policy file (`data/monetization-policy.json`) checked with `monetization_check.py`, the economy and catalog. game-liveops: daily loop, first season and the live ops calendar.
+2. compliance (virtual currencies, minors, loot boxes), app-store-optimization (game store features), store-submission (dossier before any store build), site-engineer (score integrity, wrappers).
+3. mobile-app-growth, creative-strategy and video-studio: soft launch UA, gameplay first ads and playables. Synthesis: game plan with stage (prototype, soft launch, scale, live ops, sunset), gates and the approved policy file (`game-studio-lifecycle`).
 
 ## 5. Adding a new agent for a channel without one
 Use when a channel in other-channels-quick-guides.md gets a recurring budget above about 10% of paid media or more than $5k per month.

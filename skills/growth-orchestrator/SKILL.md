@@ -1,6 +1,6 @@
 ---
 name: growth-orchestrator
-description: Conductor playbook and default entry point for the Ads Master growth system. Use for any multi channel or "where do we grow" request. Diagnose a business from ads-master/PROJECT_BRIEF.md, activate agents, route tasks to specialists (meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads, mobile-app-growth, app-store-optimization, seo, ai-search-optimization, measurement, commerce-feeds, cro, storefront-ux, site-engineer, creative-strategy, video-studio, offer-strategy, pricing-strategy, marketplaces, lifecycle-crm, compliance, market-intel), run multi agent audits, launches with publish gates, scaling plans and drop recoveries, build channel mix and budget plans (marginal returns, response curves, 70/20/10, pacing), compute unit economics (breakeven ROAS, POAS, MER, aMER, nCAC, acquisition investment, LTV to CAC, payback), forecast scenarios, apply geo modules and build new country modules, plan channels without an agent and run weekly and monthly reviews.
+description: Conductor playbook and default entry point for the Ads Master growth system. Use for any multi channel or "where do we grow" request. Diagnose a business from ads-master/PROJECT_BRIEF.md, activate agents, route tasks to specialists (meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads, mobile-app-growth, app-store-optimization, game-monetization, game-liveops, store-submission, seo, ai-search-optimization, measurement, commerce-feeds, cro, storefront-ux, site-engineer, creative-strategy, video-studio, offer-strategy, pricing-strategy, marketplaces, lifecycle-crm, compliance, market-intel), run multi agent audits, launches with publish gates, scaling plans and drop recoveries, build channel mix and budget plans (marginal returns, response curves, pacing), compute unit economics (breakeven ROAS, POAS, MER, aMER, nCAC, acquisition investment, LTV to CAC, payback), forecast scenarios, apply geo modules, plan channels without an agent and run weekly and monthly reviews.
 ---
 
 # Growth Orchestrator
@@ -93,6 +93,9 @@ If `ads-master/` is missing: ask these 8 in one message, or suggest the `ads-set
 | market-intel | Competitors, ad libraries, offers, pricing, positioning, VoC, demand, market sizing | "what are competitors doing", "ad library", "pricing study", "market size", "reviews mining" | |
 | mobile-app-growth | Apple Ads, app campaigns on Google, Meta and TikTok, MMPs, SKAN and AdAttributionKit, deep links, onboarding and paywalls, web to app, app unit economics | "app installs", "Apple Ads", "App campaigns", "SKAN", "paywall", "web to app", "CPI", "payback" | Web only businesses |
 | app-store-optimization | App Store and Google Play visibility and conversion: keywords and metadata, rankings, screenshots and store creative, ratings, reviews and AI review summaries, App Store tags, Ask Play, custom product pages and custom store listings, experiments, featuring and in-app events, localization, on-device assistants (App Intents, AppFunctions), the app entity sheet | "ASO", "keywords", "rankings", "screenshots", "ratings", "reviews", "featuring", "custom product page", "store listing experiment", "App Store tags", "Ask Play" | No app |
+| game-monetization | How a game earns: economy and catalog, offer points (fail moment, attempts exhausted, season start), boosters and continues in progression modes, season pass and subscriptions, ad mediation and placement policy, web game ads and Stripe, payer segmentation, payment ops, the fairness rule for ranked modes, monetization-policy.json | "monetize the game", "rewarded ads", "interstitial", "season pass", "boosters", "extra moves", "IAP", "game economy", "ARPDAU" | No game |
+| game-liveops | Why players come back: daily loop and shared daily, streaks without punishment, events and seasons, teams and leagues, content cadence, live ops calendar with store events, remote config and A/B tests, difficulty flags for the game repo | "live ops", "events", "season", "streaks", "D7 dropping", "leagues", "teams", "content cadence" | No game |
+| store-submission | First pass approval on the App Store and Google Play: submission dossier, review guidelines by number, privacy manifests and App Privacy answers, paywall disclosures, wrapper rules (4.2, 4.7), Play closed test, target API, Data safety, review notes, rejection replies and appeals | "submit to the App Store", "App Review", "rejected", "TestFlight", "Play Console review", "closed test", "privacy manifest" | No app heading to a store |
 | storefront-ux | Ecommerce storefront UX and implementation: navigation, homepage, on-site search, filters, collection pages, PDP, cart drawer, checkout extensions, post purchase; best practice conformance audits; builds components | "optimize the store", "product page", "cart drawer", "site search", "filters", "homepage redesign", "best practices for our shop" | Campaign landing pages and experiment design (cro) |
 | site-engineer | Dev and preview loops, release QA, rollback, launch QA for ads (URL, UTM, pixel, status), mobile web polish, worst case data tests, security review of changes | "publish the theme", "release", "preview", "QA before launch", "it breaks on mobile", "check the landing page works" | Copy and offer decisions (cro, offer-strategy) |
 | video-studio | Video ad production from brief to rendered files, variants, captions, specs, safe zones | "make the video", "render variants", "cut downs", "UGC edit", "product motion video" | Deciding what concept to make (creative-strategy) |
@@ -165,6 +168,8 @@ Approval gates: <what the human must approve and when>
 | Sells or plans to sell on marketplaces | marketplaces | daily alerts + weekly |
 | Customers or subscribers exist (email or phone consent) | lifecycle-crm | weekly |
 | iOS or Android app | mobile-app-growth, app-store-optimization, and ai-search-optimization (app prompts) | daily alerts + weekly; ASO weekly; AI panel monthly |
+| A game on web, PWA or stores | game-monetization, game-liveops; mobile-app-growth and app-store-optimization when in a store | weekly; live ops calendar monthly |
+| A build heading to the App Store or Google Play | store-submission | on every submission |
 | Channel active or in STRATEGY.md test plan | that channel agent | daily alerts + weekly |
 | Channel paused more than 60 days and not in plan | deactivate the agent | none |
 
@@ -190,6 +195,7 @@ Full plans with steps, inputs and output paths are in [Routing and workflows](re
 | Storefront optimization | storefront-ux (conformance audit), cro (funnel research) | storefront-ux builds table stakes fixes, cro designs tests for uncertain changes | site-engineer (preview, QA, release) | ranked change list + release plan |
 | App growth program | mobile-app-growth, measurement (MMP and SKAN) | creative-strategy, video-studio | lifecycle-crm (onboarding and push) | app growth plan |
 | App visibility program (stores and AI answers) | app-store-optimization (term map, metadata, ratings, store AI surfaces), ai-search-optimization (app prompt panel, source map, assistant directories), market-intel (competitor keywords and AI share) | seo (app website), compliance (metadata, captions, claims), creative-strategy (screenshots) | measurement (campaign links, install referrer, AI attribution), site-engineer (App Intents, AppFunctions, AASA and assetlinks) | visibility baseline + 90 day plan |
+| Game studio program (new or existing game) | measurement (game KPIs and tracking), game-monetization (policy file and economy), game-liveops (loop and calendar) | app-store-optimization, store-submission, compliance (virtual currencies, minors) | mobile-app-growth, creative-strategy, video-studio (soft launch UA and playables) | game plan, monetization-policy.json, soft launch gates |
 
 ## Adaptation matrix
 Business model rows; tiers and maturity change the cells. Tiers: Starter under $3k per month, Growth $3k to $30k, Scale $30k to $300k, Enterprise over $300k.
@@ -216,6 +222,7 @@ Maturity overlay:
 |------|----------------------|-----------------|
 | Diagnose a business, activate agents | [Business diagnosis](references/business-diagnosis.md), [Routing and workflows](references/routing-and-workflows.md) | Growth diagnosis (output templates) |
 | Route a request or run a multi agent workflow | [Routing and workflows](references/routing-and-workflows.md) | Delegation plan |
+| Plan a game's stage (prototype, soft launch, scale, live ops, sunset), kill rules, portfolio budget, publishing or portal deals | [Game studio lifecycle](references/game-studio-lifecycle.md), [Routing and workflows](references/routing-and-workflows.md) section 4.18 | Game plan |
 | Choose channels, decide when to add one | [Channel selection](references/channel-selection.md), [Other channels](references/other-channels-quick-guides.md) | Channel mix plan |
 | Build or change the budget split, pacing | [Budget allocation](references/budget-allocation.md) | Budget allocation plan + change request |
 | Unit economics, targets, forecast | [Unit economics and forecasting](references/unit-economics-and-forecasting.md) | Unit economics sheet, forecast |
@@ -317,6 +324,7 @@ Before a plan that depends on platform features, policies, taxes or benchmarks:
 
 ## Reference index
 - [Routing and workflows](references/routing-and-workflows.md): routing table detail, delegation mechanics, 12 multi agent workflows as delegation plans, adding a new agent.
+- [Game studio lifecycle](references/game-studio-lifecycle.md): game stages from prototype to sunset, kill rules, portfolio budget, publishing and portal deals, the Ads Master boundary for games.
 - [Business diagnosis](references/business-diagnosis.md): binding constraint framework, model specific diagnostics, agent activation rules.
 - [Channel selection](references/channel-selection.md): decision trees by model, tier, stage, geo; minimum viable budgets; add or cut a channel.
 - [Budget allocation](references/budget-allocation.md): marginal returns, response curves, 70/20/10, reallocation cadence, MMM and lift inputs, pacing.

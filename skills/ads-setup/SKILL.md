@@ -15,6 +15,7 @@ ads-master/
   MEASUREMENT.md  METRICS.md  PRIORITIES.md  EXPERIMENTS.md  HEARTBEAT.md
   GUARDRAILS.md  guardrails.json  DECISIONS.md  INCIDENTS.md  README.md
   brand/PRODUCT_FACTS.md  brand/CLAIMS.md  creative-library/registry.csv
+  GAME_ECONOMY.md  LIVEOPS_CALENDAR.md  SUBMISSION.md  (games and apps; delete when not relevant)
   memory/<agent>.md   journal/   data/imports/   outputs/   templates/   logs/
 ```
 
@@ -59,6 +60,7 @@ Run these checks and record each finding as "detected in code, not verified live
 | Feeds and commerce | Merchant Center feed files, product JSON endpoints, Shopify apps for Google and Meta channels |
 | CRM and forms | HubSpot, Salesforce, Pipedrive embeds; form handlers; hidden fields for gclid, fbclid, utm |
 | Email and SMS | Klaviyo, Mailchimp, Braze, Customer.io, Omnisend, Attentive, Postscript snippets or apps; consent checkboxes |
+| Game | a game loop or engine folder (`games/`, `engine/`), canvas or WebGL rendering, three.js, Phaser, Pixi, Unity or Godot project files, seeded RNG, leaderboards, Game Center or Play Games Services, ad SDKs (AdMob, AppLovin MAX, LevelPlay, H5 Games Ads), `monetization-policy.json` |
 | Mobile app | `ios/`, `android/`, `app.json` or `app.config.*` (Expo), `pubspec.yaml` (Flutter), `Info.plist` SKAdNetworkItems, MMP SDKs (AppsFlyer, Adjust, Branch, Singular), RevenueCat or Superwall |
 | Deploy and release | `shopify.theme.toml`, Shopify CLI config, `vercel.json`, `netlify.toml`, CI workflows, preview deploy setup |
 | Product facts on the site | Nutrition tables, ingredient lists, certifications, guarantees, review widgets: seed `brand/PRODUCT_FACTS.md` as "pending" rows with the page URL as evidence, and copy any claims found on the site into `brand/CLAIMS.md` under Needs review |
@@ -103,6 +105,8 @@ Set the Active column in `HEARTBEAT.md` using these rules, then show the human t
 | Sells or plans to sell on Amazon, bol.com, Trendyol, Hepsiburada or similar | marketplaces |
 | Existing customers or subscribers with consent | lifecycle-crm |
 | iOS or Android app | mobile-app-growth, app-store-optimization, ai-search-optimization |
+| An app heading to the App Store or Google Play (native, wrapper or PWA wrapper) | store-submission |
+| A game (levels, scores, daily play, ranked boards) on web, PWA or stores | game-monetization, game-liveops, store-submission (and app-store-optimization when in a store) |
 | Starter tier budget | Max two paid channels. Usually google-ads (demand capture) plus one of meta-ads or the channel where the audience lives |
 
 ### Step 7. Connect the workspace to Claude
@@ -111,7 +115,7 @@ Ask before editing. Append this block to the project `CLAUDE.md` (create the fil
 <!-- ads-master:start -->
 ## Growth agents (Ads Master)
 Project growth state lives in `ads-master/`. Before any marketing, ads, SEO, AI search, tracking or landing page task, read `ads-master/PROJECT_BRIEF.md` and `ads-master/MEASUREMENT.md`.
-For multi channel work, load the `growth-orchestrator` skill and delegate to the specialist agents it names. Specialists: meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads, mobile-app-growth, app-store-optimization, seo, ai-search-optimization, measurement, cro, storefront-ux, site-engineer, creative-strategy, video-studio, offer-strategy, pricing-strategy, marketplaces, lifecycle-crm, compliance, commerce-feeds, market-intel.
+For multi channel work, load the `growth-orchestrator` skill and delegate to the specialist agents it names. Specialists: meta-ads, google-ads, microsoft-ads, chatgpt-ads, tiktok-ads, linkedin-ads, mobile-app-growth, app-store-optimization, game-monetization, game-liveops, store-submission, seo, ai-search-optimization, measurement, cro, storefront-ux, site-engineer, creative-strategy, video-studio, offer-strategy, pricing-strategy, marketplaces, lifecycle-crm, compliance, commerce-feeds, market-intel.
 Safety policy: `ads-master/GUARDRAILS.md` (automation stage, caps, gates), enforced by the Ads Master guard hooks. Agents never change live accounts, spend, message customers or publish without explicit approval.
 <!-- ads-master:end -->
 ```

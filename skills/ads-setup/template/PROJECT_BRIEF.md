@@ -89,3 +89,13 @@ YYYY-MM-DD
 - What has been tried and how it went:
 - Best performing campaign / content ever and why we think it worked:
 - Known problems:
+
+## 11. Game (game projects only; delete otherwise)
+- Genre and the core rule in one sentence:
+- Modes (ranked, practice, social, progression) and counted attempts per day on each ranked board:
+- Session length and session count we design for:
+- Platforms (web, PWA, iOS, Android) and where it is live today:
+- Audience age (minimum age, any players under 18, kids mode yes or no):
+- Monetization today and planned (season pass, subscription, consumables, boosters, ads); the policy file is `data/monetization-policy.json`:
+- Analytics tool and where exports land:
+- Store accounts (Apple developer, Google Play console, Stripe) and who owns them:

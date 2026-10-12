@@ -97,7 +97,26 @@
       "pricing-strategy",
       "market-intel",
       "ai-search-optimization",
-      "seo"
+      "seo",
+      "store-submission"
+    ]
+  },
+  "game-studio": {
+    "label": "Game studio",
+    "for": "Mobile, web and PWA games: monetization, live ops, store presence, first pass store review, game UA and creative",
+    "agents": [
+      "game-monetization",
+      "game-liveops",
+      "store-submission",
+      "app-store-optimization",
+      "mobile-app-growth",
+      "creative-strategy",
+      "video-studio",
+      "lifecycle-crm",
+      "pricing-strategy",
+      "site-engineer",
+      "market-intel",
+      "ai-search-optimization"
     ]
   },
   "ai-visibility": {

@@ -33,6 +33,9 @@ Or run the `ads-setup` skill and let Claude interview you and scan the codebase.
 | `METRICS.md` | One definition per metric (including acquisition investment) | You with measurement |
 | `brand/PRODUCT_FACTS.md`, `brand/CLAIMS.md` | Verified facts and the claims registry | You with compliance |
 | `brand/VIDEO_RULES.md` | The video brand system per video type: colours, type, backgrounds, music, sound, banned effects | creative-strategy and video-studio, you approve |
+| `GAME_ECONOMY.md`, `data/monetization-policy.example.json` | Game projects only: currencies, catalog, offers, ad placements and fairness rules; copy the example to `data/monetization-policy.json` | You with game-monetization |
+| `LIVEOPS_CALENDAR.md` | Game projects only: events, seasons and store event submissions | You with game-liveops |
+| `SUBMISSION.md` | Apps and games: the store submission dossier (checklist, review notes, demo account location, SDK data map) | You with store-submission |
 | `creative-library/registry.csv` | Creative IDs, metadata and learnings | creative-strategy, video-studio, channel agents |
 | `logs/` | Audit log of write attempts and session reports | Hooks and agents |
 
