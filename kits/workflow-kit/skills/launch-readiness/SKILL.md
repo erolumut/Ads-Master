@@ -25,7 +25,7 @@ description: Pre-launch go or no-go for any product, site or app. Use before a p
    - Spend caps (7): screenshot the cap and alert settings in each provider console (AI, cloud, ads, SMS).
    - Errors (8, 9): force an error in production mode; the user sees the 500 page with a reference id; the tracker shows it with the release tag.
    - Restore (10): restore last night's backup into a scratch database, compare row counts and a sample, note the time it took. A backup that was never restored is a hope, not a backup.
-   - Phones and speed (12, 13): a low end Android profile (360 px, slow 4G, CPU throttled) through the key flows.
+   - Phones and speed (12, 13): a low end Android profile (360 px, slow 4G, CPU throttled) through the key flows; field data before lab scores, then front end and back end causes with proof per fix ([Speed and performance](references/speed-and-performance.md)).
    - Legal (15): privacy policy and terms live and linked from footer and signup; consent before non essential tags where the law requires it.
    - Account flows (17): signup with verification, payment in test mode including a failed card and a 3DS challenge, password reset link that works once and expires.
    - Email (18): SPF, DKIM and DMARC pass; seed test to Gmail and Outlook; one click unsubscribe on marketing mail.

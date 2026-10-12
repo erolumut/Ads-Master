@@ -21,7 +21,7 @@
 | 10 | Backup exists and a restore was actually tested | Blocker | Last restore drill: backup restored into a scratch database, row counts and a sample compared; date and duration | OPEN | | |
 | 11 | Designed 404 and 500 pages | Warn | Both URLs return the right status and a branded page with a way back | OPEN | | |
 | 12 | Works on a cheap Android phone | Warn | Real device or emulated low end Android (slow 4G, 4x CPU throttle): key flows complete, no layout overflow at 360 px | OPEN | | |
-| 13 | Nothing important takes more than 3 s | Warn | Field data or lab run for the top pages and actions: LCP, INP, slowest API calls listed | OPEN | | |
+| 13 | Nothing important takes more than 3 s | Warn | Field LCP and INP at p75 (lab only if no field data yet, labelled), p95 of the three slowest routes, time to first token for AI features (skill reference speed-and-performance.md) | OPEN | | |
 | 14 | Meta tags and OG image so shared links look right | Warn | Title, description, canonical and OG tags on key pages; a share preview check (1200 x 630 image) | OPEN | | |
 | 15 | Privacy policy and terms published, cookie consent where required | Blocker | URLs live and linked in the footer and signup; consent banner blocks non essential tags until consent where the law requires it | OPEN | | |
 | 16 | Analytics shows where people drop off | Warn | Funnel events from a tracking plan; a test journey appears in the analytics debug view | OPEN | | |
