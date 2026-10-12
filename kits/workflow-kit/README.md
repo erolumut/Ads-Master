@@ -26,7 +26,7 @@ workflow-kit/
 │                    check_workflows.py, gate.py, secret_scan.py, launch_check.py,
 │                    precommit_dispatch.sh (+ tests/)
 └── templates/       workflow-kit.json, CLAUDE-snippet.md, settings-snippet.json, PARALLEL-SESSIONS.md,
-                     SPRINT-PROMPT.md, DELEGATION-PROMPT.md, HANDOVER.md, NEXT-SESSION-PROMPT.md,
+                     SPRINT-PROMPT.md, DELEGATION-PROMPT.md, IMPACT-MAP.md, HANDOVER.md, NEXT-SESSION-PROMPT.md,
                      DECISIONS.md, REVIEW-CHECKLIST.md, GUARDIAN-TEMPLATE.md, STALE-GUARDS.md,
                      invariants.json, precommit.json, rules/AREA-RULE.md, githooks/{pre-commit,pre-push},
                      hooks/invariants-pretooluse.json
@@ -86,7 +86,7 @@ Read-only agents carry an explicit `tools` list without `Agent`; editing agents 
 | `session-start` | Every new session: read order, parallel check, ledger CHECK-IN |
 | `parallel-sessions` | More than one session on a repo; before risky ops; isolating with a clone or worktree |
 | `sprint-prompt` | Writing or finalizing a sprint prompt or per phase delegation prompts |
-| `planner-session` | Any non-trivial change: plan first, then code |
+| `planner-session` | Any non-trivial change: plan first, then code; on legacy or untested code an impact map first (every claim PROVEN with `file:line` or GUESS, guesses become characterization tests or questions, `templates/IMPACT-MAP.md`) |
 | `handover` | Ending a session: handover, next session prompt, pointer, SIGN-OFF |
 | `decision-log` | Recording or changing a decision; placeholder numbering |
 | `instructions-budget` | CLAUDE.md grows, instructions get ignored, rules move to `.claude/rules/` |
@@ -124,6 +124,7 @@ Tests: `python3 -m unittest discover -s scripts/tests`.
 | `PARALLEL-SESSIONS.md` | created by `ledger.py init` |
 | `DECISIONS.md` | project root (or merge into your existing LEARNINGS or DECISIONS file) |
 | `SPRINT-PROMPT.md`, `DELEGATION-PROMPT.md` | your prompts folder, one per sprint or phase |
+| `IMPACT-MAP.md` | `docs/plans/` next to the plan, one per legacy change (planner-session phase 1b) |
 | `HANDOVER.md`, `NEXT-SESSION-PROMPT.md` | handover folder and project root |
 | `REVIEW-CHECKLIST.md` | `docs/review/<AREA>-CHECKLIST.md`, one per guardian built from `reviewer` |
 | `GUARDIAN-TEMPLATE.md` | `.claude/agents/<area>-guardian.md`: a self-contained guardian with a numbered PASS or FAIL checklist |
