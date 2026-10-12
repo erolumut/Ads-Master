@@ -2,6 +2,8 @@
 
 What we learned from a survey of twelve working repositories (product apps, data pipelines, a costing tool, a local travel site, games, PWAs) and where each pattern now lives. The survey read every file type: git hooks, CI workflows, scripts, lint configs, `.claude/` agents, commands, hooks and rules, test harnesses and docs. Source repos are described by kind, not named; nothing was copied verbatim. Findings about individual projects belong in those projects, not here.
 
+How outside ideas get in (posts, skills, kits, other repos): **synthesis, not installation.** We take the rule or the approach, rewrite it in our words and attach it to the skill, gate or template that already owns that area, so our core method stays intact. A third party skill or kit is installed only by an explicit decision. Everything is written for any current or future project, and each project uses only the parts it needs; adopting nothing is a valid outcome when we already cover it.
+
 Status: **Adopted** (shipped in this repo), **Kit** (shipped in `kits/workflow-kit`), **Planned** (agreed, not built), **Noted** (useful, no owner yet).
 
 ## 1. Gates and hooks (deterministic)
