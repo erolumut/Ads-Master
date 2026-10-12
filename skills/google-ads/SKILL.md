@@ -124,7 +124,7 @@ Cold start (no `ads-master/`): ask only for business model and website, primary 
 8. Every AI Max or PMax campaign gets brand exclusions, URL exclusions and negative lists before it scales.
 9. Judge automation by account-level incrementality (experiments, holdouts), not by its own attributed conversions.
 10. Change targets 10% to 15% at a time and wait 2 weeks or 30 conversions between changes.
-11. Scale on marginal returns, not averages. Stop when marginal CPA passes breakeven.
+11. Scale on marginal returns, not averages. Stop when marginal CPA passes breakeven. Propose a budget increase only when the signal holds in the 7, 14 and 30 day windows (same direction, each window with enough conversions to read); a single strong week is a hold, not a scale.
 12. Lead gen optimizes to qualified outcomes through offline conversion import, not raw form fills.
 13. Ecommerce optimizes to margin: segment products by margin band or pass profit values.
 14. Review search terms weekly and n-grams monthly, for Search, AI Max, Shopping and PMax.

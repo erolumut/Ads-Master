@@ -66,4 +66,5 @@ Pick what fits the team:
 - Missing data is reported as missing. No estimates presented as facts.
 - Measure before quote: every number in a report is computed from the named source for that report's date range, never copied from notes, memory or an earlier report. Ratios are recomputed from summed numerators and denominators, never averaged (see `METRICS.md`).
 - A check that could not run (no export, connector down, script missing) is reported as "could not run" with the reason, never as green.
+- Scale only on consistent signals: a budget or target increase in a weekly change list shows the metric for the 7, 14 and 30 day windows side by side, and is proposed only when all three point the same way with enough conversions to read. One strong week is a hold.
 - One review document per period. Never overwrite a previous review.
