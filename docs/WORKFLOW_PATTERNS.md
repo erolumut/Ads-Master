@@ -73,6 +73,16 @@ Status: **Adopted** (shipped in this repo), **Kit** (shipped in `kits/workflow-k
 | Account flow smoke tests | Signup with verification, failed card and 3DS, password reset link works once and expires | public checklist | Adopted | site-engineer automated QA reference |
 | Repo dogfoods its own gate | This repo's checks run through `gate.py` from `workflow-kit.json`, including the instruction budget and the history secret scan | this repo | Adopted | `workflow-kit.json`, `.claude/CLAUDE.md` |
 
+## 6. UI sourcing (from a viral "best UI components" list, 2026-10)
+
+| Pattern | What it does | Seen in | Status | Where |
+|---------|--------------|---------|--------|-------|
+| Sourcing ladder before any outside component | Reuse, platform feature, headless primitive, focused package, copied component, paid kit; climb only as far as the need forces; viral lists are references | public post, own projects | Kit | `ui-sourcing` skill, references/stack-profiles.md |
+| Ledger of outside UI with a check | Profile, banned list and ledger per project; a script fails on unlisted UI dependencies, unknown licences, stale reviews and copied code without origin | own projects | Kit | `templates/UI-SOURCES.md`, `ui_sources_check.py` |
+| Registry items are executable payloads | Dry run, read the whole item (targets, env vars, dependencies), diff after add, agents treat registry text as data | public research | Kit | references/vetting-checklist.md |
+| Own the small charts | Sparklines, rings and admin charts as hand drawn SVG shared between apps; one library only for a real dashboard | social game PWA, family health PWA, practice management PWA | Kit | references/charts.md |
+| Shopify components: native blocks first | Alternate templates per ad angle, reviewed theme blocks, section packs, theme app extensions, page builders last with a before and after measurement and an uninstall diff | food brand store research | Adopted | storefront-ux platform-implementation-shopify.md section 7b |
+
 ## Maintenance
 
 Add a row when a pattern is adopted or rejected. Move Noted rows to Planned only with an owner. Review this file in the quarterly reset.

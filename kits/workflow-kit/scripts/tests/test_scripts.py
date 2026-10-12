@@ -511,5 +511,49 @@ class LaunchCheckTest(Base):
         self.assertEqual(self.check(self.root / "none.md").returncode, 2)
 
 
+class UiSourcesCheckTest(Base):
+    HEAD = ("| Source | Kind | Version | Licence | Origin | Used in | Reviewed on | Reviewer | Notes |\n"
+            "|---|---|---|---|---|---|---|---|---|\n")
+
+    def check(self, ledger, *args):
+        return subprocess.run([sys.executable, "-I", str(SCRIPTS / "ui_sources_check.py"), str(ledger),
+                               "--root", str(self.root), "--today", "2026-10-12", *args],
+                              capture_output=True, text=True, timeout=30)
+
+    def setUp(self):
+        super().setUp()
+        self.write("package.json", json.dumps({"dependencies": {"next": "16", "lucide-react": "1", "zod": "4"}}))
+        self.write("node_modules/x/package.json", json.dumps({"dependencies": {"framer-motion": "1"}}))
+
+    def test_template_and_missing(self):
+        self.assertEqual(self.check(KIT / "templates" / "UI-SOURCES.md").returncode, 1)
+        self.assertEqual(self.check(self.root / "none.md").returncode, 2)
+
+    def test_pass_with_ledger_and_copied_origin(self):
+        self.write("components/sheet.tsx", "// origin: https://example.com/sheet (MIT)\n")
+        led = self.write("UI.md", "## Ledger\n\n" + self.HEAD +
+                         "| lucide-react | package | 1 | ISC | https://lucide.dev | | 2026-09-01 | me | ok |\n"
+                         "| Sheet | copied | abc | MIT | https://example.com/sheet | components/sheet.tsx | 2026-09-01 | me | ok |\n")
+        r = self.check(led)
+        self.assertEqual(r.returncode, 0, r.stdout)
+        self.assertIn("This gate cannot cover:", r.stdout)
+
+    def test_failures(self):
+        self.write("package.json", json.dumps({"dependencies": {"lucide-react": "1", "@mui/material": "7",
+                                                                 "recharts": "3"}}))
+        led = self.write("UI.md", "## Banned\n\n| Package | Why |\n|---|---|\n| @mui/* | identity |\n\n"
+                         "## Ledger\n\n" + self.HEAD +
+                         "| lucide-react | package | 1 | unknown | https://lucide.dev | | 2026-09-01 | me | |\n"
+                         "| recharts | package | 3 | MIT | https://recharts.org | | 2024-01-01 | me | |\n"
+                         "| Card | copied | x | MIT | | gone.tsx | 2026-09-01 | me | |\n"
+                         "| Kit | paid kit | 1 | paid, 1 seat | https://kit.example | | 2026-09-01 | me | |\n")
+        r = self.check(led)
+        self.assertEqual(r.returncode, 1, r.stdout)
+        for s in ("banned package @mui/material", "licence missing or unknown", "older than 365",
+                  "needs an Origin URL", "gone.tsx does not exist", "needs a decision record"):
+            self.assertIn(s, r.stdout)
+        self.assertNotIn("framer-motion", r.stdout)
+
+
 if __name__ == "__main__":
     unittest.main()

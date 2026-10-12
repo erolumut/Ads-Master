@@ -21,12 +21,13 @@ workflow-kit/
 ├── agents/          scout, log-triage, data-extractor, researcher, mechanic, verifier, fable-advisor,
 │                    implementer, reviewer
 ├── skills/          model-routing, session-start, parallel-sessions, sprint-prompt, planner-session,
-│                    handover, decision-log, instructions-budget, review-gates, launch-readiness
+│                    handover, decision-log, instructions-budget, review-gates, launch-readiness,
+│                    ui-sourcing
 ├── scripts/         doc_numbers.py, check_instructions.py, ledger.py, agent_models.py, invariants_check.py,
-│                    check_workflows.py, gate.py, secret_scan.py, launch_check.py,
+│                    check_workflows.py, gate.py, secret_scan.py, launch_check.py, ui_sources_check.py,
 │                    precommit_dispatch.sh (+ tests/)
 └── templates/       workflow-kit.json, CLAUDE-snippet.md, settings-snippet.json, PARALLEL-SESSIONS.md,
-                     SPRINT-PROMPT.md, DELEGATION-PROMPT.md, IMPACT-MAP.md, HANDOVER.md, NEXT-SESSION-PROMPT.md,
+                     SPRINT-PROMPT.md, DELEGATION-PROMPT.md, IMPACT-MAP.md, UI-SOURCES.md, HANDOVER.md, NEXT-SESSION-PROMPT.md,
                      DECISIONS.md, REVIEW-CHECKLIST.md, GUARDIAN-TEMPLATE.md, STALE-GUARDS.md,
                      invariants.json, precommit.json, rules/AREA-RULE.md, githooks/{pre-commit,pre-push},
                      hooks/invariants-pretooluse.json
@@ -92,6 +93,7 @@ Read-only agents carry an explicit `tools` list without `Agent`; editing agents 
 | `instructions-budget` | CLAUDE.md grows, instructions get ignored, rules move to `.claude/rules/` |
 | `review-gates` | Before "done": guardians, evidence, devil's advocate, regression library |
 | `launch-readiness` | Before a public launch or the first paid traffic: 20 items, each PASS with re-checkable evidence or NA with a reason; a human writes GO |
+| `ui-sourcing` | Adding a UI library, copying a registry or gallery component, buying a kit, picking charts, motion, icons, sheets or toasts, choosing a Shopify section or page builder, or reading a "best UI components" list: sourcing ladder, stack profiles, dated catalog, vetting checklist with commands, ledger in `docs/UI-SOURCES.md` |
 
 ### Scripts
 
@@ -107,6 +109,7 @@ Run from the project root (add `--help` for options). Python scripts use the sta
 | `agent_models.py` | Lists agents with pinned model and effort, flags full model ids, unpinned agents and agents that can spawn. `--audit` reads local transcripts and reports, per subagent, the model requested at spawn, configured in frontmatter and actually served, plus effort |
 | `invariants_check.py` | Project invariants from `invariants.json` on staged files (trigger globs to `must_contain` / `must_not_contain` regexes); `--hook` mode for a PreToolUse hook on `git commit` |
 | `secret_scan.py` | Secrets in tracked files and, with `--history`, in every commit ever made; masked output; history findings must be rotated, not just deleted |
+| `ui_sources_check.py` | Checks `docs/UI-SOURCES.md` against every package.json: banned packages, UI dependencies without a ledger row, missing or unknown licences, stale reviews, copied code without an origin URL or with a missing file; warns on copyleft or paid terms that need a decision record |
 | `launch_check.py` | Checks a filled `LAUNCH-READINESS.md`: Blockers must be PASS or NA, PASS needs re-checkable evidence and a recent date, NA needs a reason |
 | `gate.py` | Local gate: runs `gate.steps` (or `project.checks`) on a clean clone of HEAD; PASS, FAIL or COULD NOT RUN per step; `--record` appends cleared SHAs to `gate/cleared.txt`; `--parity` fails when CI runs a command the gate lacks |
 | `check_workflows.py` | GitHub workflow lint: duplicate keys, `on`, non-empty `jobs`, `permissions:`, injection through `${{ github.event.* }}` or `${{ inputs.* }}` in `run:`, status functions outside `if:`, unpinned third party actions (warning). Structure checks need PyYAML and report "could not run" without it |
@@ -124,6 +127,7 @@ Tests: `python3 -m unittest discover -s scripts/tests`.
 | `PARALLEL-SESSIONS.md` | created by `ledger.py init` |
 | `DECISIONS.md` | project root (or merge into your existing LEARNINGS or DECISIONS file) |
 | `SPRINT-PROMPT.md`, `DELEGATION-PROMPT.md` | your prompts folder, one per sprint or phase |
+| `UI-SOURCES.md` | `docs/UI-SOURCES.md`: the project's UI profile, banned list and ledger of outside sources (ui-sourcing skill) |
 | `IMPACT-MAP.md` | `docs/plans/` next to the plan, one per legacy change (planner-session phase 1b) |
 | `HANDOVER.md`, `NEXT-SESSION-PROMPT.md` | handover folder and project root |
 | `REVIEW-CHECKLIST.md` | `docs/review/<AREA>-CHECKLIST.md`, one per guardian built from `reviewer` |

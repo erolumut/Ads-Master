@@ -331,6 +331,33 @@ Change requests use `ads-master/templates/CHANGE_REQUEST.md` with the theme ID, 
 | Stable Dawn store with good metrics | Stay; migrate when a redesign is planned (manual rebuild, no automatic migration) |
 | Premium theme with heavy customization | Audit performance and accessibility first; migration only with a business case |
 
+## 7b. Where sections, blocks and landing pages come from
+
+Viral "best components" lists and app marketplace promises skip the costs that matter on a paid traffic store: extra JavaScript on every page, code left behind after uninstall, and theme updates that stop applying. Research for this section was search result level only (pages not opened), so every row is [Reported, 2026-10]. Verify on shopify.dev and on each vendor's pricing page before acting.
+
+| Source | Money | Speed | Lock in and uninstall | Use it when |
+|--------|-------|-------|-----------------------|-------------|
+| Native theme blocks and alternate templates (`page.<angle>.json`, `product.<angle>.json`) | Free | Liquid only, no app runtime | None | Default for every ad angle and storefront change |
+| AI generated theme block (editor "Generate block", all Theme Store themes since 2025-12) | No price found | Becomes an ordinary Liquid file in `/blocks`; counts toward the reported 300 theme block cap | Shopify Support and theme developers reportedly do not support generated code; it can break on a theme update | Small gaps, after a developer review, accessibility check and a duplicate theme test |
+| Theme Store premium theme | One time, reported about $140 to $500 per store | Theme Store listing reportedly requires an average Lighthouse performance score of 60 or more on home, product and collection | Switching themes means rebuilding layout | Native blocks cannot express the design and a redesign is planned anyway |
+| Section packs (for example Section Store) | Free and one time premium sections reported | Adds Liquid sections to the theme | Vendor says "no lock in" [Unverified]; test removal on a duplicate theme | A specific section is cheaper to buy than to build |
+| Page builders (PageFly, GemPages, Shogun, Replo, Instant, Zipify) | Reported about $19 to $199 per month; prices conflict between sources | Some inject their own JavaScript on every page, others output native sections | Replo documents that published pages stay live, edits stop, leftover `replo*` files and a `theme.liquid` reference need manual removal, and the subscription does not cancel on uninstall; other builders undocumented | Non developers must ship new pages every week and native templates cannot keep up |
+| Apps as theme app extensions (app blocks, app embeds) | Per app | Assets from Shopify CDN; embeds can be scoped to pages; Built for Shopify caps an app's Lighthouse impact at 10 points (weighted mobile: home 17%, product 40%, collection 43%) | Removed from the theme on uninstall | Any app feature; prefer Built for Shopify apps |
+| Checkout and Thank you UI extensions | Per app | Sandboxed; reported 64 KB bundle limit from API 2025-10 (one source; another says no published limit) | Removed with the app; React API versions end at 2025-07, Polaris web components after | Post purchase upsells and trust content |
+| Hydrogen (headless) | Build reported $50k to $250k+ plus monthly maintenance [Unverified, agency blogs] | Depends on the team | Full custom codebase; marketers need a developer | A dedicated developer team and a need Liquid cannot meet |
+
+Decision order: native blocks and an alternate template per ad angle, then a reviewed generated or hand written block, then a one time section or a theme change, then a page builder only with a before and after measurement. Apps only as theme app extensions.
+
+Before adopting any app, builder or section pack (`site-engineer` runs it, results in the change request):
+1. Duplicate the live theme; install on the duplicate only.
+2. Record mobile Lighthouse and field data (CrUX or Shopify Web Performance dashboard) for home, one product, one collection and the landing page, before and after.
+3. List every file the app adds or edits (`theme.liquid`, `snippets/`, `assets/`); any edit to `theme.liquid` or a sitewide script on pages that do not use it is a red flag.
+4. Uninstall on the duplicate and diff the theme again; leftover files go in the change request with a cleanup step.
+5. Check keyboard use, focus order and contrast on the generated markup ([Accessibility](accessibility-and-eaa.md)).
+6. Note the billing behavior on uninstall and the theme update path (code edits in a Theme Store theme reportedly block in place updates).
+
+Ad landing pages: one page or alternate template per message angle (not per ad), the ad's promise in the headline, one call to action, proof above the fold, and claims through `compliance` before launch (food, health and nutrition claims especially). Page anatomy and message match: `cro` (landing-page-anatomy, message-match-by-channel).
+
 ## 8. Mapping to other monolith platforms
 
 | Shopify concept | WooCommerce | Shopware 6 | Adobe Commerce (Magento) |

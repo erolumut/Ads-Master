@@ -158,6 +158,7 @@ Tiers follow the system budget tiers; for storefronts the useful proxy is traffi
 | Accessibility or EAA check | [Accessibility and EAA](references/accessibility-and-eaa.md), [Audit checklist](references/audit-checklist.md) section K | Defect list by severity |
 | New market, language, currency, RTL | [International storefronts](references/international-storefronts.md), [Checkout and payments](references/checkout-and-payments.md) | Market module checklist |
 | Build on Shopify (Liquid, blocks, metaobjects) | [Shopify implementation](references/platform-implementation-shopify.md) | Diff plus change request |
+| Pick a section pack, page builder or app for the store or an ad landing page | [Shopify implementation](references/platform-implementation-shopify.md) section 7b | Sourcing decision with before and after speed numbers and uninstall diff |
 | Build headless (React, Next.js) | [Headless implementation](references/platform-implementation-headless.md) | Diff plus preview link |
 | Pick a reference implementation or library | [Reference repos](references/reference-repos.md) | Recommendation with license and maintenance |
 | Find a source | [Sources](references/sources.md) | |

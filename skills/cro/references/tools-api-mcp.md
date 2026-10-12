@@ -59,7 +59,7 @@ Enterprise program, many teams, governance?                -> Optimizely, Kamele
 UserTesting, Lyssna (five-second, preference, first-click tests), Maze (prototype tests), moderated calls with Zoom or Lookback. Recruit from customer lists where possible.
 
 ### 2.4 Landing page builders
-Unbounce, Instapage, Leadpages, Webflow, Framer, Shopify page builders (PageFly, GemPages, Shogun, Replo). Check each page's weight; builders often add JavaScript. Unbounce's 2024 benchmark (41,000 pages) is useful context for lead gen medians [Study, 2024].
+Unbounce, Instapage, Leadpages, Webflow, Framer, Shopify page builders (PageFly, GemPages, Shogun, Replo). Check each page's weight; builders often add JavaScript. On Shopify, the sourcing order, uninstall residue and the before and after test live in `storefront-ux` references/platform-implementation-shopify.md section 7b. Unbounce's 2024 benchmark (41,000 pages) is useful context for lead gen medians [Study, 2024].
 
 ### 2.5 Speed and accessibility
 PageSpeed Insights (and API), CrUX API and CrUX History API, Search Console CWV report, Lighthouse and Lighthouse CI, WebPageTest, DebugBear, SpeedCurve, RUMvision; axe DevTools, WAVE, Pa11y, Lighthouse accessibility. Do not recommend accessibility overlays as a compliance fix: the US FTC finalized an order against overlay vendor accessiBe in April 2025 (proposed January 2025, approved 3-0) requiring $1 million and barring claims that its automated tool can make or keep a site WCAG compliant without substantiation, plus disclosure of paid reviewer relationships [Official, FTC 2025-04].
