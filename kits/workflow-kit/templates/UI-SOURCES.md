@@ -37,7 +37,7 @@ Extra package patterns that count as UI for this project, on top of the built in
 
 ## Ledger
 
-One row per outside source that shaped shipped UI: an installed package, copied code, a paid kit, or a reference you adapted closely. Kind is `package`, `copied`, `paid kit` or `reference`. Copied code needs an Origin URL, the files it landed in, and an origin comment in each file.
+One row per outside source that shaped shipped UI: an installed package, copied code, a paid kit, or a reference you adapted closely. Kind is `package`, `copied`, `paid kit`, `mcp` (a library served to the agent through an MCP server) or `reference`. Copied code needs an Origin URL, the files it landed in, and an origin comment in each file.
 
 | Source | Kind | Version | Licence | Origin | Used in | Reviewed on | Reviewer | Notes |
 |---|---|---|---|---|---|---|---|---|
