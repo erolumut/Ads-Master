@@ -132,15 +132,139 @@ Regulated services (financial, legal, health): every claim on the site and in pi
 | Content strategy | Original reporting, data, expert analysis, tools; commodity explainers lose the most clicks to AI answers |
 | Measurement | Citation share in your topics, AI impressions in GSC, referral sessions and revenue per AI session |
 
-## 8. Apps
+## 8. Apps (mobile apps and games)
 
-| Lever | Actions |
-|-------|---------|
-| App store listings | Clear use case language, screenshots with captions, recent ratings, responses to reviews |
-| Web presence | Landing pages per use case with server-rendered text; comparison pages |
-| Third-party | "Best apps for X" lists, YouTube reviews, Reddit |
-| Deep links | Ensure links from AI answers open the right screen or store page |
-| Prompts | "best app for <job>", "<app> vs <app>", "is <app> safe" |
+Ownership: `app-store-optimization` owns the store pages (metadata, screenshots, tags, review replies, review summary reports) and the App entity sheet. `mobile-app-growth` owns paid user acquisition, the MMP, deep links and paywalls. This agent owns how AI answers mention, recommend and describe the app: the app prompt panel, the source map, the AI-reader brief for store and website text, the website answer pages, and apps inside assistants ([Assistant apps](assistant-apps-and-connectors.md)).
+
+### 8.1 Prompt classes for apps
+
+| Class | Example prompts | What a good answer needs from you | Share of the app panel (house default) |
+|-------|-----------------|-----------------------------------|----------------------------------------|
+| Best X app for Y | "best habit tracker for iPhone", "best budgeting app for couples", "best offline map app for hiking" | Store listing and website state the job, audience, platforms and standout facts in plain text; presence on the lists engines cite | 30 to 40% |
+| X vs Y | "Acme Habits vs Rival", "is Acme better than Rival on Android" | Honest, dated comparison page; identical prices everywhere | 10 to 15% |
+| Is X safe or legit | "is Acme Habits safe", "does Acme sell my data", "is Acme a scam" | Privacy and security page in HTML that matches the store privacy labels; developer identity; support contact | 10 to 15% |
+| X price | "how much is Acme premium", "is Acme free", "Acme yearly price" | Plans, prices per market and trial terms in HTML and in the store listing | 10% |
+| Cancel X | "how to cancel Acme subscription", "Acme refund" | A help page with exact steps per platform (App Store, Google Play, web) | 5 to 10% |
+| Alternatives to X | "apps like Rival", "free alternative to Rival" | Honest alternatives page; presence on the "alternatives" lists engines cite | 10 to 15% |
+
+Add platform and market qualifiers (iPhone, iPad, Android, Apple Watch, country, language) as variants of a prompt, not as new classes. Games add "games like X", "best offline puzzle game", "is X pay to win".
+
+Accuracy matters most in two classes. A wrong "cancel X" answer creates support load and complaints; a wrong "is X safe" answer (scam, data selling) is a Critical error under [Entity](entity-and-brand-authority.md) section 8.
+
+### 8.2 The app source map
+
+What ChatGPT cites for app prompts, from the only large study found [Study, 2026-05] (AppTweak; 125k+ ChatGPT responses to 9,489 app prompts and about 9k game prompts; US):
+
+| Finding | Value |
+|---------|-------|
+| App Store and Google Play listings | About 47.5% of cited sources for app recommendations |
+| Open web (sites, lists, reviews, forums) | About 27% |
+| Answers with no citation | About 22.6% |
+| By category | Wide spread: store listings about 65.8% of citations in Weather, about 29.3% in Food & Drinks |
+| By list position | Citations fall with position: about 80 to 85% at the top position, under 25% by position 8 |
+
+Caveats: a vendor study by an ASO tool company; US only; ChatGPT only; method partly undisclosed; one period. Use it for direction, then map your own category.
+
+General citation studies disagree on the open web mix and none is app specific: Similarweb (2026-02) found Wikipedia 13.15% and Reddit 11.97% of ChatGPT browsing citations; Peec AI (2026-03) put Reddit, YouTube, LinkedIn and Wikipedia on top; Ahrefs (2025-06) put Wikipedia on top [Study, 2025 to 2026]. For software prompts, one press release says third-party best-of lists dominate and the vendor's own site gets about 12% [Unverified].
+
+What no study shows yet: a link between store rating, review count or review recency and how often AI recommends an app. Do not promise one.
+
+Procedure:
+1. Run the app panel (8.1) and keep the cited URLs; `ai_prompt_panel.py` prints the most cited domains ([Measurement](measurement-and-prompt-tracking.md) section 10).
+2. Classify each citation: our store listing, a competitor's store listing, our website, editorial list or review, Reddit or forum, YouTube, news, other. Count the answers with no citation.
+3. Compare by engine and category with the study above. The class that carries most citations for your prompts gets the first sprint.
+4. Refresh quarterly with the rest of the source map ([Off-site](off-site-and-community-presence.md) section 1).
+
+### 8.3 The store page as a citation lever
+
+Store listings are the largest cited class for ChatGPT app prompts in that study, so the store text is often what the model reads about the app (inference from [Study, 2026-05]). Whether AI crawlers can fetch and render apps.apple.com and play.google.com, and what they keep, is unknown as of 2026-10.
+
+Write store text for two readers: store search (rules owned by `app-store-optimization`) and an AI reader.
+
+| Field | What the AI reader needs |
+|-------|--------------------------|
+| Opening lines of the description | What the app does, for whom and on which platforms, in one or two plain sentences that name the app |
+| Description body | Facts, limits and prices: plans and trial terms, what is free, offline or not, languages, regions, a data use summary, how to cancel. No keyword stuffing, no superlatives without proof |
+| Privacy labels and data safety form | Identical to the website privacy page (the "is X safe" class reads both) |
+| Developer name | The same name as on the website and in the App entity sheet |
+| Review replies | Factual and specific; never text aimed at AI systems |
+| Release notes | Dated, factual changes (prices, platforms, features) |
+
+Handoff: `app-store-optimization` owns every store field, tags, review replies, review summary reports and the App entity sheet. This agent sends an AI-reader brief: the panel prompts where store pages are cited, wrong or missing facts in answers (with engine, date and run counts), the classes where answers fail (price, cancel, safety, platform), competitor facts that answers state and ours do not, and proposed wording from PRODUCT_FACTS.md. Store listing changes are G3 and pass `compliance`.
+
+### 8.4 The app website
+
+The website sits in the open web class (about 27% in the study, shared with lists and forums) and is the source you fully control.
+
+1. One canonical, server-rendered page per app: the one-sentence description, platforms and minimum OS, plans and prices per market with currency and date, trial terms, what is free, links to both store listings, support and privacy links.
+2. Answer pages for the 8.1 classes: pricing, "is <app> safe" (privacy and security facts), "how to cancel" (steps per platform), and honest, dated comparison and alternatives pages ([Content](content-engineering-for-llms.md) sections 5 and 6).
+3. SoftwareApplication or MobileApplication JSON-LD that matches the visible facts. It serves consistency and Bing or Copilot, not citations ([Entity](entity-and-brand-authority.md) section 2.1).
+4. Smart App Banner for mobile visitors: a UX element with no evidence that it is an AI signal.
+5. apple-app-site-association and assetlinks.json reachable, so links open the app when installed.
+6. Store buttons through your own tagged redirects ([Measurement](measurement-and-prompt-tracking.md) section 11).
+7. AI search and user-fetch bots allowed ([Technical](technical-access-and-crawlers.md)).
+8. `app_entity_check.py` passes after every price, name or platform change.
+
+Detail on the app web presence (store page as citation, schema, redirects) and where it ends and this package begins: [App web presence for AI](../../app-store-optimization/references/app-web-presence-for-ai.md) in `app-store-optimization`.
+
+### 8.5 Lists, YouTube, Reddit and reviews, done honestly
+
+| Source | Do | Never |
+|--------|----|-------|
+| "Best apps for X" articles | Pitch with facts, a test account and what changed; correct wrong prices or features with evidence | Pay for undisclosed placement |
+| YouTube | Own tutorials and comparisons with accurate captions; independent creator reviews with disclosure and no script control | Scripted "reviews" without disclosure |
+| Reddit and forums | Staff with disclosed affiliation answer where the app is relevant, including when another app fits better; help with complaints in public | Seed threads, run sock puppets, buy accounts or upvotes |
+| Store reviews | Ask every user at a natural moment through the platform prompts (owned by `app-store-optimization` and `mobile-app-growth`); reply factually | Gate by sentiment, incentivize ratings, post AI-written or fake reviews |
+
+Full red lines: [Off-site](off-site-and-community-presence.md) section 9 and [Myths](myths-and-anti-patterns.md) section 2.
+
+### 8.6 How people use AI to choose apps
+
+AppTweak survey [Study, 2026-09] (1,000 US adults recruited on Prolific; margin of error about 3 points; self-reported):
+
+| Finding | Share |
+|---------|-------|
+| Used AI to find or choose an app | 58% |
+| Do so half the time or more | 21% |
+| Learned about their most recent download from AI | 10% (Google search 10.7%, social media 10.4%) |
+| Check the store after an AI recommendation | 59% |
+| Would consider AI for their next app | 53% |
+
+Caveats: self-reported recall, US only, an online opt-in panel rather than a probability sample, and a vendor with a stake in the topic. Use it to justify measuring AI as a discovery channel, not to forecast installs.
+
+Implication: for most AI-sent users the store page is both a cited source and the landing page, so its first screen must confirm what the answer said (same name, price and platforms).
+
+### 8.7 Measuring app visibility and AI-driven installs
+
+| Metric | Source |
+|--------|--------|
+| Mention, recommendation and top 3 rates by app prompt class and engine | `ai_prompt_panel.py` ([Measurement](measurement-and-prompt-tracking.md) section 10) |
+| Store listing citation rate (answers citing our listing / answers) | Panel cited URLs; list both listing URLs in the config (section 10.2 of the measurement module) |
+| Accuracy on price, cancel, safety and platform facts | Panel answers vs the App entity sheet |
+| Installs through tagged redirects, MMP AI attribution, self-reported "AI assistant" in onboarding | [Measurement](measurement-and-prompt-tracking.md) section 11 |
+
+### 8.8 Apps inside assistants
+
+When users want a task done inside the chat and it needs the app's live data or account, an assistant app or connector can pay. A directory listing alone does not create recommendations in ordinary answers. Decision table, spec, test protocol and the G3 rule: [Assistant apps](assistant-apps-and-connectors.md).
+
+### 8.9 App plays
+
+Launch (no AI program for the app yet):
+1. App entity sheet with `app-store-optimization` (fields in [Entity](entity-and-brand-authority.md) section 2.1) and its JSON mirror for the script.
+2. App panel v1: 25 to 60 prompts across the six classes, platforms and the top market; 3 runs each on ChatGPT and the next engine by GA4 AI referrals; baseline with intervals.
+3. Source map (8.2) and the AI-reader brief to `app-store-optimization` (8.3).
+4. Website app page and answer pages (8.4); `app_entity_check.py` passes.
+5. Tagged store redirects and an "AI assistant" answer in onboarding attribution, via `measurement` and `mobile-app-growth`.
+6. An assistant app decision memo only if the job test in [Assistant apps](assistant-apps-and-connectors.md) section 5 passes.
+
+Optimize: per class, pick the dominant lever (store text, website page, list outreach, YouTube, reviews), change one lever per prompt cluster, read at 4 to 8 weeks with intervals.
+
+Recover (mention rate or accuracy dropped):
+1. Did a store field, price, name or developer name change? Check the App entity sheet date, the store version history and `app_entity_check.py`.
+2. Did an engine or model change? Re-baseline using the Freshness sources.
+3. Did a cited list or thread drop or misstate the app? Diff the source map.
+4. Did new reviews or the store's AI review summary shift sentiment? Hand to `app-store-optimization` (it can report a wrong summary; the fix is the root cause in the app).
+5. Did measurement break, so installs now count as direct? [Measurement](measurement-and-prompt-tracking.md) section 11.
 
 ## 9. Marketplaces
 

@@ -151,6 +151,40 @@
 | 123 | Ahrefs remote MCP server | Ahrefs (via directory listing) | https://mcpservers.org/remote-mcp-servers/ahrefs | 2026 | Official endpoint |
 | 124 | Semrush MCP | Semrush Developer | https://developer.semrush.com/api/basics/semrush-mcp/ | 2026 | Official endpoint and auth |
 
+## Apps and assistant directories pass (2026-10-12)
+
+Every row below was read through search result summaries only; opening pages directly was blocked by the network policy, so no row supports an [Official] label. Titles in parentheses were not captured and are described, not quoted.
+
+| # | Title | Publisher | URL | Date | Supports |
+|---|-------|-----------|-----|------|----------|
+| 125 | (ChatGPT plugins and Plugin Directory help articles 20001256 and 11487775) | OpenAI Help Center | https://help.openai.com/en/articles/20001256 and https://help.openai.com/en/articles/11487775 | Living docs, snippets 2026-10-12 | App Directory replaced by the Plugin Directory on 2026-07-09; plugins bundle skills, apps and app templates; mixed naming [Unverified, official docs via snippet] |
+| 126 | App submission guidelines | OpenAI Developers | https://developers.openai.com/apps-sdk/app-submission-guidelines | Living doc, snippet 2026-10-12 | Test cases, demo video, test account, required URLs, audience 13 to 17, rejections, listing limits, tool annotations, policy, monetization [Unverified, official docs via snippet] |
+| 127 | (Plugin submission) | OpenAI Developers | https://developers.openai.com/plugins/deploy/submission | Living doc, snippet 2026-10-12 | Submission package [Unverified, official docs via snippet] |
+| 128 | (Optimize metadata guide) | OpenAI Developers | https://developers.openai.com/plugins/guides/optimize-metadata | Living doc, snippet 2026-10-12 | Model-driven discovery; "Use this when ..."; direct, indirect and negative test prompts [Unverified, official docs via snippet] |
+| 129 | (Claude connector directory help articles 13145358 and 13145338) | Anthropic Help Center | https://support.claude.com/en/articles/13145358 and https://support.claude.com/en/articles/13145338 | Living docs, snippets 2026-10-12 | One portal, requirements, Community and Verified tiers, suggested connectors, independence from the MCP Registry [Unverified, official docs via snippet] |
+| 130 | (Connector review criteria) | Anthropic | https://claude.com/docs/connectors/building/review-criteria | Living doc, snippet 2026-10-12 | Descriptions match functionality, no hidden instructions, no coercing other tools, no promotion, minimal data [Unverified, official docs via snippet] |
+| 131 | MCP Registry | Model Context Protocol | https://registry.modelcontextprotocol.io | Preview from 2025-09-08 | Metadata-only registry, reverse DNS namespaces, v0.1 API freeze 2025-10, GA unconfirmed [Unverified] |
+| 132 | (Which sources do AI search engines cite when recommending mobile apps) | AppTweak | https://www.apptweak.com/en/aso-blog/which-sources-do-ai-search-engines-cite-when-recommending-mobile-apps | 2026-05 | Store listings about 47.5% of ChatGPT citations for app prompts, open web about 27%, no citation about 22.6%, category spread, position effect [Study, 2026-05; vendor, US, ChatGPT only, method partly undisclosed] |
+| 133 | (AI app discovery survey) | AppTweak | https://www.apptweak.com/en/aso-blog/ai-app-discovery-survey | 2026-09 | 58%, 21%, 10%, 59%, 53% figures [Study, 2026-09; 1,000 US adults, Prolific, self-reported] |
+| 134 | (Software app structured data) | Google Search Central | https://developers.google.com/search/docs/appearance/structured-data/software-app | Living doc, snippet 2026-10-12 | SoftwareApplication still documented [Unverified, official docs via snippet] |
+| 135 | (AI optimization, AIO) | Branch Help Center | https://help.branch.io/docs/ai-optimization-aio | 2026, snippet | Branch AI attribution exists [Unverified, official docs via snippet] |
+
+Captured without a URL (find and record the URL on the next pass before quoting):
+
+| # | Title | Publisher | URL | Date | Supports |
+|---|-------|-----------|-----|------|----------|
+| 136 | Message center post MC1484008 (plugin registry) | Microsoft 365 | Not captured | 2026-09-30 | Plugin registry bundling skills, connectors, agents and MCP servers [Unverified, official docs via snippet] |
+| 137 | Campaign links (App Store Connect Help) | Apple | Not captured | Living doc | apps.apple.com/app/apple-store/id<ID>?pt=<provider>&ct=<campaign>&mt=8; ct limit read as 30 characters [Unverified, official docs via snippet] |
+| 138 | Play Install Referrer library documentation | Android Developers | Not captured | Living doc | URL-encoded referrer parameter, limit read as 512 characters [Unverified, official docs via snippet] |
+| 139 | AppsFlyer AI search attribution coverage | PocketGamer.biz and others | Not captured | 2026 | 8 AI engines covered [Unverified] |
+| 140 | ChatGPT browsing citation study | Similarweb | Not captured | 2026-02 | Wikipedia 13.15%, Reddit 11.97% of ChatGPT browsing citations [Study, 2026-02] |
+| 141 | Citation source study | Peec AI | Not captured | 2026-03 | Reddit, YouTube, LinkedIn, Wikipedia on top [Study, 2026-03] |
+| 142 | Citation source study | Ahrefs | Not captured | 2025-06 | Wikipedia on top [Study, 2025-06] |
+| 143 | Press release on software prompt citations | DerivateX | Not captured | 2026 | Third-party best-of lists dominate software prompts; own site about 12% [Unverified] |
+| 144 | Gemini partner connector launches | Not captured | Not captured | 2026-07-01 (OpenTable), 2026-07-07 (Zillow) | Partner connectors for Gemini [Unverified] |
+| 145 | Perplexity Merchant Program and Instant Buy with PayPal | Not captured | Not captured | 2025-11 | Commerce in Perplexity [Unverified] |
+| 146 | FAQ rich results end | Not captured | Not captured | 2026-05-07 | FAQ rich results ended [Unverified] |
+
 ## Sources by module
 
 | Module | Primary sources (numbers above) |
@@ -158,18 +192,20 @@
 | how-ai-engines-retrieve-and-cite | 1 to 5, 8, 9, 11, 22 to 28, 34, 40 |
 | evidence-and-ranking-factors | 15 to 23, 28 to 37, 41, 52 to 54, 111 to 119 |
 | content-engineering-for-llms | 4, 15, 16, 40 |
-| entity-and-brand-authority | 4, 17, 29 |
+| entity-and-brand-authority | 4, 17, 29, 116, 132, 134, 146 |
 | off-site-and-community-presence | 29 to 32, 86 to 88 |
 | technical-access-and-crawlers | 1 to 4, 8, 10, 11, 13, 14, 38 to 40, 55 to 57, 79 to 85, 96 to 99 |
-| measurement-and-prompt-tracking | 6, 7, 9, 28, 34, 42 to 48, 67 to 69, 100, 118 to 122 |
+| measurement-and-prompt-tracking | 6, 7, 9, 28, 34, 42 to 48, 67 to 69, 100, 118 to 122, 132, 135, 137 to 139 |
 | engine-playbooks | 1 to 9, 24, 25, 29, 33, 65, 107 to 110 |
 | agentic-commerce-visibility | 58 to 62, 91 to 94, 101 to 104 |
-| playbooks-by-business-model | 6, 7, 10, 44, 45, 71, 72, 105, 106 |
-| myths-and-anti-patterns | 1, 4, 8, 13, 15, 28, 52 to 56 |
+| playbooks-by-business-model | 6, 7, 10, 44, 45, 71, 72, 105, 106, 116, 132, 133, 140 to 143 |
+| myths-and-anti-patterns | 1, 4, 8, 13, 15, 28, 52 to 56, 116, 125 to 130, 133 |
 | tools-api-mcp | 6, 9, 24, 32, 65, 123, 124 |
+| assistant-apps-and-connectors | 1, 100, 125 to 131, 136, 144, 145 |
 
 ## Known gaps
 
 1. Kevin Indig (Growth Memo), iPullRank and Conductor 2026 studies were not read in primary form during this research cycle. Semrush, Ahrefs, Profound, SparkToro and BrightEdge 2026 studies were added in the 2026-10-08 verification pass (rows 111 to 119), mostly via their own pages or press releases. Claims attributed to them in this package are labeled [Unverified] or dated 2025 from prior knowledge.
 2. OpenAI help center pages on ChatGPT search, shopping and merchants were not re-read in 2026-10. Verify feed fields and checkout status with `commerce-feeds`.
 3. Cloudflare's 2026-07-01 post and press release were confirmed through search excerpts in the 2026-10-08 pass (rows 96, 97); no Cloudflare post confirming the 2026-09-15 rollout itself was found.
+4. Apps and assistant directories pass (2026-10-12): rows 125 to 146 come from research notes built on search result summaries; direct page fetches were blocked, so nothing from this pass is [Official]. Platform rules for ChatGPT, Claude and Copilot rest on each platform's own pages only (no independent report), hence [Unverified, official docs via snippet]. Rows 136 to 146 lack URLs. No study was found that links store ratings, review counts or recency to AI app recommendations.

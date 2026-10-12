@@ -1,0 +1,46 @@
+{
+  "_comment": "App entity fact sheet: the machine readable mirror of the App entity section in brand/PRODUCT_FACTS.md. The human owns these facts; the compliance agent maintains them with the human; the app-store-optimization agent keeps the store listings in line with them. app_entity_check.py (ai-search-optimization skill) reads name, developer, category, website, ios.app_id, android.package and prices; every other key is for people and agents. Replace every placeholder, delete the ios or android block if the app is not on that store, and write prices exactly as the website and the store page you check display them (4.99 and 4,99 do not match). Facts only, each traceable to a PRODUCT_FACTS.md row; no marketing copy. Guide: skills/app-store-optimization/references/app-web-presence-for-ai.md section 7.",
+  "updated": "YYYY-MM-DD",
+  "name": "Your App Name",
+  "developer": "Your Company Legal Name",
+  "category": "Primary store category, for example Health & Fitness",
+  "website": "https://www.example.com",
+  "ios": {
+    "app_id": "0000000000",
+    "store_url": "https://apps.apple.com/app/id0000000000"
+  },
+  "android": {
+    "package": "com.example.app",
+    "store_url": "https://play.google.com/store/apps/details?id=com.example.app"
+  },
+  "prices": ["Free", "PRICE_MONTHLY", "PRICE_YEARLY"],
+  "currency": "ISO 4217 code, for example EUR",
+  "plans": [
+    {"name": "Free", "price": "Free", "period": null, "trial": null, "includes": "What the free tier includes, in one line"},
+    {"name": "PLAN_NAME Monthly", "price": "PRICE_MONTHLY", "period": "P1M", "trial": "P7D or null", "includes": "What the plan adds"},
+    {"name": "PLAN_NAME Yearly", "price": "PRICE_YEARLY", "period": "P1Y", "trial": "P7D or null", "includes": "What the plan adds"}
+  ],
+  "platforms": ["iPhone", "iPad", "Android phone"],
+  "markets": ["US"],
+  "languages": ["en"],
+  "one_sentence": "Your App Name is a <category noun> for <audience> that <core job>.",
+  "top_jobs": [
+    "Job 1 in the words users use",
+    "Job 2",
+    "Job 3",
+    "Job 4",
+    "Job 5"
+  ],
+  "not": [
+    "What the app is not or does not do, for example: no web version",
+    "Not affiliated with <similarly named company>"
+  ],
+  "urls": {
+    "pricing": "https://www.example.com/pricing",
+    "privacy": "https://www.example.com/privacy",
+    "terms": "https://www.example.com/terms",
+    "support": "https://www.example.com/help",
+    "cancel_help": "https://www.example.com/help/cancel"
+  },
+  "claims_ref": "IDs of the brand/CLAIMS.md rows that store text may use"
+}

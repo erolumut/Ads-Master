@@ -113,30 +113,34 @@ def check_store(facts, page, label, problems):
     if facts.get("developer") and norm(facts["developer"]) not in text:
         problems.append(f"{label}: developer '{facts['developer']}' not found")
     for p in facts.get("prices", []):
-        if str(p).lower() != "free" and str(p) not in text:
+        variants = {str(p), str(p).replace(".", ","), str(p).replace(",", ".")}
+        if str(p).lower() != "free" and not any(v in text for v in variants):
             problems.append(f"{label}: price {p} from the fact sheet not visible")
 
 
 def check_robots(txt, problems):
-    groups, cur = {}, []
+    """Group rules per user agent (RFC 9309): a bot uses its own group, else '*'. For the site root,
+    the longest matching rule wins and Allow wins a tie."""
+    groups, agents, in_rules = {}, [], False
     for line in txt.splitlines():
         line = line.split("#", 1)[0].strip()
-        if not line:
+        if not line or ":" not in line:
             continue
         k, _, v = line.partition(":")
         k, v = k.strip().lower(), v.strip()
         if k == "user-agent":
-            if cur and cur[-1][1] is not None:
-                cur = []
-            cur.append([v.lower(), None])
+            if in_rules:
+                agents, in_rules = [], False
+            agents.append(v.lower())
             groups.setdefault(v.lower(), [])
-        elif k == "disallow":
-            for ua in cur:
-                groups.setdefault(ua[0], []).append(v)
-                ua[1] = v
+        elif k in ("allow", "disallow"):
+            in_rules = True
+            for ua in agents:
+                groups[ua].append((k, v))
     for bot in AI_BOTS:
         rules = groups.get(bot.lower(), groups.get("*", []))
-        if "/" in rules:
+        match = [(len(v), k == "allow") for k, v in rules if v and "/".startswith(v)]
+        if match and not max(match)[1]:
             problems.append(f"robots.txt blocks {bot} from the whole site")
 
 

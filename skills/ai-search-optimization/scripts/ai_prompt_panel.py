@@ -35,6 +35,7 @@ from collections import Counter, defaultdict
 from urllib.parse import urlparse
 
 RECOMMEND = re.compile(r"\b(recommend|best|top pick|go with|i'?d (?:suggest|choose|pick)|choose|our pick|winner|ideal)\b", re.I)
+NEGATION = re.compile(r"\b(not|n't|never|avoid|worse|instead of)\b", re.I)
 SENT_SPLIT = re.compile(r"(?<=[.!?])\s+|\n+")
 
 
@@ -51,9 +52,32 @@ def domain_of(url):
         return ""
 
 
+def _split(url):
+    p = urlparse(url if "://" in url else "https://" + url)
+    host = p.netloc.lower().removeprefix("www.")
+    rest = p.path.rstrip("/") + ("?" + p.query if p.query else "")
+    return host, rest.lower()
+
+
 def owned(url, domains):
-    d = domain_of(url)
-    return any(d.startswith(x.lower().removeprefix("www.").rstrip("/")) for x in domains)
+    """Host match on whole labels (acme.com never matches acme.community); entries with a path or
+    query (apps.apple.com/app/acme, play.google.com/store/apps/details?id=com.acme) must match that too."""
+    try:
+        host, rest = _split(url)
+    except ValueError:
+        return False
+    for entry in domains:
+        eh, er = _split(entry)
+        if not (host == eh or host.endswith("." + eh)):
+            continue
+        if not er:
+            return True
+        if "?" in er:  # query entries (Play listings) match the exact parameter value only
+            if rest == er or rest.startswith(er + "&"):
+                return True
+        elif rest == er or rest.startswith(er + "/") or rest.startswith(er + "?"):
+            return True
+    return False
 
 
 def first_positions(text, entities):
@@ -71,10 +95,11 @@ def score_run(rec, brand_rx, comp_rx, brand_domains):
     order = first_positions(text, {"__brand__": brand_rx, **comp_rx})
     recommended = False
     if mentioned:
-        if order and order[0] == "__brand__" and len(order) > 1:
+        first = next((s for s in SENT_SPLIT.split(text) if brand_rx.search(s)), "")
+        if order and order[0] == "__brand__" and len(order) > 1 and not NEGATION.search(first):
             recommended = True
         for s in SENT_SPLIT.split(text):
-            if brand_rx.search(s) and RECOMMEND.search(s):
+            if brand_rx.search(s) and RECOMMEND.search(s) and not NEGATION.search(s):
                 recommended = True
                 break
     top3 = int("__brand__" in order[:3]) if order else None

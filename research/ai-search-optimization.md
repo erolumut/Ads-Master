@@ -8,6 +8,7 @@
 2. Where a claim rests on secondary coverage, it is marked "secondary". Where it rests on model knowledge from before 2026-06 and could not be re-verified, it is labeled [Unverified] or dated to the original publication.
 3. Not read in primary form this cycle: Kevin Indig (Growth Memo) 2026 studies, iPullRank 2026 material, Conductor 2026 studies, OpenAI help center shopping and merchant pages. These are flagged in the watch list for the next research cycle.
 4. Verification pass (2026-10-08): about 18 additional extended web searches re-checked the Search Console Generative AI report and AI control, the Google AI contribution pilot, the Gemini models in AI Mode, the Merchant Center UCP integration hub, Claude's search provider, Cloudflare's 2026-09-15 defaults and bot classes, google.com/goto links, ChatGPT referral behavior, and new citation studies from Ahrefs, Semrush, Profound, SparkToro, Seer and BrightEdge (2026-03 to 2026-09). Labels below were upgraded or corrected where confirmed.
+5. Apps and assistant directories pass (2026-10-12): research notes on apps inside AI assistants and on how LLMs recommend apps, built from search result summaries only. Opening pages directly was blocked by the network policy (proxy 403), so no finding of this pass carries [Official]. Labels: [Reported, 2026-10] for an official page hit plus an independent source or two dated independent sources; [Study, YYYY-MM] for studies with caveats; [Unverified] for one source; [Unverified, official docs via snippet] where only the platform's own pages were seen. See the section "Apps and assistant directories, 2026-10".
 
 ## Executive summary
 
@@ -250,6 +251,7 @@ All benchmarks vary by vertical, geo, season and method. Compare a project with 
 | Bing Webmaster blog | https://blogs.bing.com/webmaster | Monthly |
 | Cloudflare blog | https://blog.cloudflare.com | Monthly |
 | OpenAI help center and merchants page | help.openai.com; chatgpt.com/merchants | Monthly (with `commerce-feeds`) |
+| Assistant app directories | developers.openai.com (apps SDK, plugins); support.claude.com connector articles; Partner Center and Microsoft 365 message center; registry.modelcontextprotocol.io | Monthly while an assistant app is planned or live |
 | Trade press | Search Engine Land, Search Engine Journal, Search Engine Roundtable | Weekly |
 
 ## Open questions and watch list
@@ -268,6 +270,57 @@ All benchmarks vary by vertical, geo, season and method. Compare a project with 
 12. Bing AI Performance API and click data (Microsoft said API access would come during 2026; not shipped as of 2026-09).
 13. Reddit citation share stability across engines; YouTube's rise.
 14. Primary reads still needed: Kevin Indig Growth Memo 2026 citation studies, iPullRank 2026 relevance engineering material, Conductor 2026 benchmarks, Seer Interactive (no new CTR study found after 2026-04), and the findings of Semrush's 2026-09 YMYL mini study.
+15. Assistant directories: open the ChatGPT Plugin Directory, Claude connector directory and Copilot plugin registry documents in full and confirm names, fields, limits and policy (all [Unverified, official docs via snippet] as of 2026-10-12); find any assistant install or usage analytics for developers.
+16. Whether AI crawlers fetch and render apps.apple.com and play.google.com, and how often each engine cites store listings outside the US and outside ChatGPT.
+17. Any study linking store rating, review count or review recency to AI app recommendation rate (none found as of 2026-10-12).
+18. MCP Registry general availability and whether any consumer assistant starts using it.
+
+## Apps and assistant directories, 2026-10
+
+Compiled 2026-10-12 from two research notes (apps inside AI assistants; how LLMs recommend apps). Snippet only: see Research method item 5. Package changes: new module `assistant-apps-and-connectors.md`; app playbook in `playbooks-by-business-model.md` section 8; panel script and app install measurement in `measurement-and-prompt-tracking.md` sections 10 and 11; App entity in `entity-and-brand-authority.md` section 2.1; myths 31 to 37 and anti-patterns in `myths-and-anti-patterns.md`.
+
+### Findings
+
+1. Store listings dominate ChatGPT's citations for app prompts: App Store and Google Play listings were about 47.5% of cited sources, the open web about 27%, and about 22.6% of answers cited nothing (125k+ ChatGPT responses, 9,489 app prompts plus about 9k game prompts, US). The share varies by category (Weather about 65.8%, Food & Drinks about 29.3%), and citation likelihood falls with list position (about 80 to 85% at the top position, under 25% by position 8) [Study, 2026-05] (S106). Caveats: vendor study, ChatGPT only, US only, method partly undisclosed.
+2. People report using AI to pick apps: 58% of 1,000 US adults said they used AI to find or choose an app, 21% half the time or more, 10% learned of their most recent download from AI (Google search 10.7%, social media 10.4%), 59% check the store after an AI recommendation, 53% would consider AI for their next app [Study, 2026-09] (S107). Caveats: Prolific online panel, margin of error about 3 points, self-reported, vendor.
+3. General citation studies disagree and are not app specific: Similarweb 2026-02 (Wikipedia 13.15%, Reddit 11.97% of ChatGPT browsing citations), Peec AI 2026-03 (Reddit, YouTube, LinkedIn, Wikipedia on top), Ahrefs 2025-06 (Wikipedia on top) [Study, 2025 to 2026] (S114 to S116). For software prompts, third-party best-of lists dominate and the vendor's own site gets about 12% per one press release [Unverified] (S117).
+4. No study found links store rating, review count or recency to AI recommendation rate. That store text matters for AI answers about apps is an inference from finding 1.
+5. ChatGPT's App Directory was replaced by the Plugin Directory on 2026-07-09; plugins bundle skills, apps and app templates; OpenAI's pages mix the names [Unverified, official docs via snippet] (S99). Submission asks for 5 positive and 3 negative test cases, a demo video, a test account without MFA, website, support, privacy and terms URLs, and general audience suitability including ages 13 to 17; copycats, impersonation and implied endorsement are rejected; listing fields are displayName (30), shortDescription (30), longDescription (4,000), logo and screenshots; tool annotations readOnlyHint, destructiveHint and openWorldHint are required [Unverified, official docs via snippet] (S100, S101).
+6. Assistant discovery is model driven: the model reads tool names, descriptions, server instructions and usage; OpenAI asks for "Use this when ..." descriptions and direct, indirect and negative test prompt sets [Unverified, official docs via snippet] (S102). Users reach a ChatGPT app by @mention or the + menu, and ChatGPT may suggest apps in context.
+7. ChatGPT app monetization: external checkout recommended; approval currently for physical goods; digital goods and subscriptions not supported; ACP Instant Checkout in beta for select partners [Unverified, official docs via snippet] (S100). The Instant Checkout mention conflicts with OpenAI's 2026-03 move away from it [Contested].
+8. Claude: one portal for a remote MCP connector or plugin bundle from any paid plan; HTTPS, OAuth 2.0, a title and readOnlyHint or destructiveHint on every tool, privacy policy, docs, icon, support, test account, data handling step; automatic scan, Community by default, possible Verified checkmark; directory entries eligible for in-chat suggested connectors, custom connectors never suggested; the directory is independent of the MCP Registry; policy bans mismatched descriptions, hidden instructions, coercing other tools, product promotion in descriptions, and pulling chat history or memory [Unverified, official docs via snippet] (S103, S104). Desktop extension (MCPB) status [Contested].
+9. Gemini: consumers can add custom MCP apps by URL (US, 18 and over, personal account, English); partner connectors include Canva, Instacart, OpenTable, Dropbox and Zillow; no public self-serve directory found; Gemini Enterprise takes custom MCP servers via Connected apps and partner agents via A2A and Google Cloud Marketplace [Unverified] (S118).
+10. Copilot: Partner Center Microsoft 365 and Copilot program, Agent Store, and a plugin registry announced 2026-09-30 bundling skills, connectors, agents and MCP servers [Unverified, official docs via snippet] (S110).
+11. Perplexity: users add custom remote MCP connectors on Pro, Max and Enterprise; no developer directory; Merchant Program and Instant Buy with PayPal [Unverified] (S119).
+12. MCP Registry: preview from 2025-09-08, metadata only, reverse DNS namespaces, v0.1 API freeze 2025-10, general availability unconfirmed; ChatGPT and Claude do not use it for their directories [Unverified] (S105).
+13. Measurement: ChatGPT's mobile app often loses the referrer; ChatGPT adds utm_source=chatgpt.com to referral links [Official, earlier pass] (S80). Apple campaign links take pt and ct (ct limit read as 30 characters); Play install referrer takes a URL-encoded referrer (limit read as 512 characters) [Unverified, official docs via snippet] (S111, S112). AppsFlyer reportedly covers 8 AI engines in search attribution [Unverified] (S113); Branch documents AI attribution [Unverified, official docs via snippet] (S109).
+14. Schema: Google still documents SoftwareApplication (S108); FAQ rich results reportedly ended 2026-05-07 [Unverified] (S120); the Ahrefs 2026-05 controlled study found no meaningful AI citation change from adding schema [Study, 2026-05] (S88); Bing said in 2025-03 it uses schema for its LLMs [Practitioner report, 2025-03]. Schema is for consistency and Bing or Copilot, not a citation lever. No evidence the Smart App Banner is an AI signal.
+
+### Timeline
+
+| Date | Change | Platform | Evidence |
+|------|--------|----------|----------|
+| 2025-03 | Bing says schema helps its LLMs understand content | Microsoft | [Practitioner report, 2025-03] |
+| 2025-08-25 | Firebase Dynamic Links shut down | Google | See `mobile-app-growth` (sourced there) |
+| 2025-09-08 | MCP Registry preview (metadata only, reverse DNS namespaces) | MCP project | [Unverified] (S105) |
+| 2025-10 | MCP Registry v0.1 API freeze | MCP project | [Unverified] (S105) |
+| 2025-10 | Apps in ChatGPT announced at DevDay | OpenAI | [Official, 2025-10] (earlier pass) |
+| 2025-11 | Perplexity Merchant Program and Instant Buy with PayPal | Perplexity | [Unverified] (S119) |
+| 2026-05 | AppTweak study of ChatGPT citations for app prompts | Study | [Study, 2026-05] (S106) |
+| 2026-05 | Ahrefs controlled schema study: no meaningful AI citation change | Study | [Study, 2026-05] (S88) |
+| 2026-05-07 | FAQ rich results reported ended | Google | [Unverified] (S120) |
+| 2026-07-01 | OpenTable connector in Gemini | Google | [Unverified] (S118) |
+| 2026-07-07 | Zillow connector in Gemini | Google | [Unverified] (S118) |
+| 2026-07-09 | ChatGPT App Directory replaced by the Plugin Directory | OpenAI | [Unverified, official docs via snippet] (S99) |
+| 2026-09 | AppTweak survey of AI app discovery (1,000 US adults) | Study | [Study, 2026-09] (S107) |
+| 2026-09-30 | Microsoft plugin registry announced (MC1484008) | Microsoft | [Unverified, official docs via snippet] (S110) |
+
+### Not used, and why
+
+1. Directory size and usage figures for ChatGPT apps: unverified; never quote.
+2. Partner connector details beyond names and dates for what the notes call Gemini Spark: no source captured.
+3. Store page rendering and robots behavior for AI crawlers: unknown; the notes could not fetch the store domains.
+4. Any claim that store ratings or reviews drive AI recommendations: no study found.
 
 ## Sources
 
@@ -369,5 +422,27 @@ All benchmarks vary by vertical, geo, season and method. Compare a project with 
 96. (S96) Google makes Gemini 3 the default model for AI Overviews globally. Dataconomy. https://dataconomy.com/2026/01/28/google-makes-gemini-3-the-default-model-for-ai-overviews-globally/. 2026-01-28.
 97. (S97) Bing AI dashboard maps grounding queries to cited pages. Search Engine Journal. https://searchenginejournal.com/bing-ai-dashboard-maps-grounding-queries-to-cited-pages/570323/. 2026-03.
 98. (S98) Canada and Australia face 2027 wait for Google's Merchant Center UCP hub. PPC Land. https://ppc.land/canada-and-australia-face-2027-wait-for-googles-merchant-center-ucp-hub/. 2026-10.
+99. (S99) ChatGPT plugins and Plugin Directory help articles 20001256 and 11487775 (titles not captured). OpenAI Help Center. https://help.openai.com/en/articles/20001256 and https://help.openai.com/en/articles/11487775. Snippets 2026-10-12.
+100. (S100) App submission guidelines. OpenAI Developers. https://developers.openai.com/apps-sdk/app-submission-guidelines. Snippet 2026-10-12.
+101. (S101) Plugin submission (title not captured). OpenAI Developers. https://developers.openai.com/plugins/deploy/submission. Snippet 2026-10-12.
+102. (S102) Optimize metadata guide (title not captured). OpenAI Developers. https://developers.openai.com/plugins/guides/optimize-metadata. Snippet 2026-10-12.
+103. (S103) Claude connector directory help articles 13145358 and 13145338 (titles not captured). Anthropic Help Center. https://support.claude.com/en/articles/13145358 and https://support.claude.com/en/articles/13145338. Snippets 2026-10-12.
+104. (S104) Connector review criteria (title not captured). Anthropic. https://claude.com/docs/connectors/building/review-criteria. Snippet 2026-10-12.
+105. (S105) MCP Registry. Model Context Protocol. https://registry.modelcontextprotocol.io. Preview from 2025-09-08.
+106. (S106) Which sources do AI search engines cite when recommending mobile apps (title from URL). AppTweak. https://www.apptweak.com/en/aso-blog/which-sources-do-ai-search-engines-cite-when-recommending-mobile-apps. 2026-05.
+107. (S107) AI app discovery survey (title from URL). AppTweak. https://www.apptweak.com/en/aso-blog/ai-app-discovery-survey. 2026-09.
+108. (S108) Software app structured data (title not captured). Google Search Central. https://developers.google.com/search/docs/appearance/structured-data/software-app. Snippet 2026-10-12.
+109. (S109) AI optimization, AIO (title not captured). Branch Help Center. https://help.branch.io/docs/ai-optimization-aio. 2026.
+110. (S110) Message center post MC1484008 (plugin registry). Microsoft 365. URL not captured. 2026-09-30.
+111. (S111) Campaign links. App Store Connect Help, Apple. URL not captured. Living document.
+112. (S112) Play Install Referrer library documentation. Android Developers. URL not captured. Living document.
+113. (S113) AppsFlyer AI search attribution coverage. PocketGamer.biz and others. URL not captured. 2026.
+114. (S114) ChatGPT browsing citation study. Similarweb. URL not captured. 2026-02.
+115. (S115) Citation source study. Peec AI. URL not captured. 2026-03.
+116. (S116) Citation source study. Ahrefs. URL not captured. 2025-06.
+117. (S117) Press release on software prompt citations. DerivateX. URL not captured. 2026.
+118. (S118) Gemini partner connector launches (OpenTable 2026-07-01, Zillow 2026-07-07). Source not captured.
+119. (S119) Perplexity Merchant Program and Instant Buy with PayPal. Source not captured. 2025-11.
+120. (S120) FAQ rich results end. Source not captured. 2026-05-07.
 
-Note on source numbering: the "Sources by module" table in `skills/ai-search-optimization/references/sources.md` uses that file's own numbering (1 to 124), which extends this list with additional secondary sources and the 2026-10-08 verification pass additions (96 to 124).
+Note on source numbering: the "Sources by module" table in `skills/ai-search-optimization/references/sources.md` uses that file's own numbering (1 to 124), which extends this list with additional secondary sources and the 2026-10-08 verification pass additions (96 to 124). The 2026-10-12 apps and assistant directories pass is S99 to S120 here and rows 125 to 146 there.

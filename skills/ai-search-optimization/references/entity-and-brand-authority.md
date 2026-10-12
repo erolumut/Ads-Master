@@ -31,6 +31,81 @@ Create and maintain `ads-master/outputs/ai-search-optimization/YYYY-MM-DD_ai-sea
 
 Rule: when a fact changes, update the site first, then every profile within 14 days, then log a journal entry.
 
+### 2.1 App entity (apps and games)
+
+An app is an entity of its own. AI answers about it draw on both store listings, the website, review platforms and lists at once, and they drift when those disagree. The App entity sheet is the app's fact sheet. It lives in the App entity section of `ads-master/brand/PRODUCT_FACTS.md`, maintained by `app-store-optimization` with `compliance`. This agent reads it, checks AI answers and the website against it, and proposes corrections through the journal.
+
+| Field | Example | Must match |
+|-------|---------|------------|
+| App name (exact store name) | Acme Habits | App Store, Google Play, website, schema, press kit |
+| Developer (seller name in both stores) | Acme BV | Both stores, website footer, privacy policy |
+| One-sentence description | "Acme Habits is a habit tracker for iPhone and Android that works offline." | Opening line of both store descriptions, website, schema description |
+| Category per store | Health & Fitness | Store categories, schema applicationCategory |
+| Platforms and minimum OS | iPhone and iPad (iOS 17 or later), Android 10 or later, Apple Watch | Store pages, website, schema operatingSystem |
+| Price and plans per market | Free; Premium EUR 4.99 per month or EUR 39.99 per year; 7 day trial; as of date | Store pricing, website pricing page, schema offers |
+| Top 5 jobs, in users' words | "build a morning routine", "track a streak offline" | Store description, website use case pages |
+| Claims allowed | Only rows from `brand/CLAIMS.md` | Every listing and page |
+| Privacy facts | Data collected, data shared, account deletion path | Store privacy labels and data safety form, website privacy page |
+| How to cancel | Steps per platform (App Store, Google Play, web) | Help page, store description |
+| Store IDs | App Store ID 1234567890; Android package com.acme.habits | Website store links, Smart App Banner, campaign links |
+| Website app page | https://acme.com/habits | Store website field, schema url |
+| Things the app is NOT | "Not affiliated with Acme Fitness Clubs" | Website, store description where allowed |
+
+Rule: change the App entity sheet first, then the store listings (through `app-store-optimization`, G3), the website, schema and third-party profiles within 14 days; then re-run `app_entity_check.py` and the price, cancel and safety prompts of the app panel.
+
+Machine-readable mirror for the script, `ads-master/data/app-entity.json`:
+
+```json
+{"name": "Acme Habits", "developer": "Acme BV", "category": "Health & Fitness",
+ "website": "https://acme.com",
+ "ios": {"app_id": "1234567890"}, "android": {"package": "com.acme.habits"},
+ "prices": ["Free", "4.99"], "currency": "EUR"}
+```
+
+Run `<skill>/scripts/app_entity_check.py` (`<skill>` is `skills/ai-search-optimization` in this repo or `.claude/skills/ai-search-optimization` in a project install):
+
+```
+python3 -I <skill>/scripts/app_entity_check.py --facts ads-master/data/app-entity.json \
+  --html site.html --store-page apple.html --store-page play.html --robots robots.txt
+python3 -I <skill>/scripts/app_entity_check.py --facts ads-master/data/app-entity.json --fetch
+```
+
+| Check | A FAIL means |
+|-------|--------------|
+| Website JSON-LD | No SoftwareApplication, MobileApplication or WebApplication node in the raw HTML; the name differs; operatingSystem, applicationCategory or offers missing; an offer price not in the fact sheet (0 is accepted for free) |
+| Smart App Banner | It points to another app ID (a missing banner is only a NOTE) |
+| Store links | No App Store link with `id<app_id>`; no Google Play link with `id=<package>` |
+| Visible name | The app name is not in the page text |
+| Store pages (saved HTML or text) | Name, developer or a paid price from the fact sheet not visible |
+| robots.txt | A whole-site `Disallow: /` for OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User, PerplexityBot, Perplexity-User, Applebot, Bingbot or Googlebot (its own group, else the `*` group) |
+| AASA and assetlinks (`--fetch` only) | `/.well-known/apple-app-site-association` or `/.well-known/assetlinks.json` not reachable as JSON, so universal links and App Links break |
+
+Exit codes: 0 consistent, 1 at least one FAIL, 2 could not run (fact sheet unreadable or nothing to compare). Known limits, each tested on 2026-10-12:
+1. Prices are compared as text in both decimal formats ("4.99" and "4,99"). Use the same price list in the fact sheet and the JSON-LD.
+2. robots.txt: groups are read per user agent (a bot uses its own group, otherwise `*`); for the site root the longest rule wins and Allow wins a tie. Path level rules below the root are not evaluated; review those by hand ([Technical](technical-access-and-crawlers.md) section 12).
+3. `--fetch` reads the website, robots.txt and the two well-known files, never the store pages. Save store pages from a browser (G0) when needed.
+4. It cannot see JavaScript-rendered content, third-party pages or what each engine stored about the app. Use the answer panel for that ([Measurement](measurement-and-prompt-tracking.md) section 10).
+
+Schema for apps: Google still documents SoftwareApplication structured data [Unverified, official docs via snippet, 2026-10]. In a controlled Ahrefs study, 1,885 pages that added JSON-LD showed no meaningful change in AI citations against 4,000 control pages [Study, 2026-05]. Bing said in 2025-03 that it uses schema for its LLMs [Practitioner report, 2025-03]. So app schema is for consistency, rich result eligibility and Bing or Copilot, not a citation lever. Mark up only facts visible on the page:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "@id": "https://acme.com/habits#app",
+  "name": "Acme Habits",
+  "description": "Habit tracker for iPhone and Android that works offline.",
+  "url": "https://acme.com/habits",
+  "operatingSystem": "iOS 17, Android 10",
+  "applicationCategory": "HealthApplication",
+  "publisher": {"@id": "https://acme.com/#organization"},
+  "offers": [
+    {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+    {"@type": "Offer", "price": "4.99", "priceCurrency": "EUR", "description": "Premium, per month"}
+  ]
+}
+```
+
 ## 3. Structured data for entities
 
 Google says structured data is not required for AI features and must match visible content [Official]. Bing has said schema helps its systems understand content [Practitioner report, 2025-03]. Use it for disambiguation and rich results, not as a citation hack.
@@ -81,8 +156,8 @@ Include name, description, brand (reference to Organization), sku or gtin where 
 | LocalBusiness (and subtypes) | Physical locations or service areas | Match NAP exactly with Google Business Profile |
 | Person | Authors and executives quoted as experts | Link to their profiles via sameAs |
 | Article or BlogPosting | Editorial content | author, datePublished, dateModified, publisher reference |
-| SoftwareApplication | SaaS and apps | applicationCategory, operatingSystem, offers |
-| FAQPage | Visible FAQ content | Rich results limited by Google since 2023; keep for clarity only |
+| SoftwareApplication (MobileApplication for apps) | SaaS and apps | applicationCategory, operatingSystem, offers; apps: section 2.1 |
+| FAQPage | Visible FAQ content | Rich results limited by Google since 2023, and reported to have ended on 2026-05-07 [Unverified]; keep for clarity only |
 | Review, AggregateRating | Product reviews shown on page | Follow review snippet policy |
 
 Validate with the Schema Markup Validator and Google's Rich Results Test. Hand off sitewide implementation to `seo`.
@@ -111,7 +186,7 @@ Rule: Wikipedia is earned through independent press coverage. The upstream work 
 | B2C ecommerce | Trustpilot, Google reviews (seller and product), Amazon reviews, Reddit threads, YouTube reviews | Product review volume and recency feed shopping answers |
 | Local services | Google Business Profile, Yelp, Angi, BBB, Nextdoor, TripAdvisor (hospitality), Healthgrades (health) | Review count, rating, recency and responses |
 | B2B services and agencies | Clutch, G2 services, UpCity, Google reviews | Case studies with numbers |
-| Apps | App Store, Google Play | Ratings volume and recent reviews |
+| Apps | App Store, Google Play (store listings were about 47.5% of ChatGPT's cited sources for app prompts in one US study [Study, 2026-05]) | Ratings volume and recent reviews; no study yet links rating, review count or recency to AI recommendation rate |
 
 Verify which platforms are actually cited for your prompts. Do not assume.
 
