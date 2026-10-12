@@ -95,6 +95,23 @@ Fit: mostly B2B, because installs run through Microsoft 365 tenants and their ad
 
 Use: list a public server there for developer discoverability. It puts you in no consumer assistant.
 
+### 3.6b Integration directories (Zapier, Make, n8n and partner marketplaces)
+
+| Topic | What the 2026-10 notes say | Label |
+|-------|----------------------------|-------|
+| Zapier | Public app pages per integration, and per app MCP pages (`zapier.com/mcp/<app>`); a practitioner post (2026-10) reports building a Zapier integration from an existing MCP server, testing every tool call, and a quick review, ending in a dedicated integration page (beta) | [Reported]; Zapier's developer docs not opened |
+| Zapier MCP | A hosted endpoint exposing Zapier's app catalog to assistants; one MCP call uses 2 tasks; connections use the account owner's credentials | [Reported] |
+| Make, n8n | App and node directories; n8n community nodes are published through npm | [Unverified] |
+
+Why it matters: people who automate search these directories for "connect X to Y", and assistants answer "does X integrate with Y" from them. The value is being found and used where work gets wired together; link authority from the page is unconfirmed, so never sell it as an SEO tactic.
+
+Rules:
+1. Only for a product with a stable API or MCP server and real auth. A listing is a product you maintain: a broken integration earns reviews and support tickets in public.
+2. Test every action and trigger before submission, with a dedicated test account (never a customer's data).
+3. Listing copy follows the same rules as store listings: facts from `brand/PRODUCT_FACTS.md`, claims through `compliance`, no competitor names in metadata.
+4. Submission and publishing are G3 (a new public listing); updates to actions or scopes are change requests.
+5. Measure: installs or active connections from the partner dashboard, referral sessions from the directory domain, and sign ups with a source parameter on the integration page links.
+
 ### 3.7 Summary matrix
 
 | Assistant | Public developer directory | Submission path | How users find an app | Commerce inside the chat |

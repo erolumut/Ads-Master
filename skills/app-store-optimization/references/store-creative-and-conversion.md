@@ -83,6 +83,16 @@ Conversion only means something per source. Each source brings a different inten
 
 Web to store continuity: a Smart App Banner on the app's website (`<meta name="apple-itunes-app" content="app-id=<id>, app-argument=<deep link>">`) turns iOS Safari visitors into product page views without a redirect [Official]. No evidence was found that it is an AI signal [Unverified]. Implementation sits with `site-engineer`; link tagging with [App web presence for AI](app-web-presence-for-ai.md).
 
+Desktop to phone handoff (for apps that win visitors through SEO or ads on desktop): a desktop visitor cannot install from the page, so give them a way to move to the phone. Options in order of cost: a QR code next to the store badges, an "email me the link" form, and a "text me the link" form. A practitioner reported first time downloads rising from about 5 to 15 to 20 a day after adding a QR code to the desktop site [Reported, 2026-10, single self reported chart]; the jump in that chart lines up with an app version release on the same day, so treat it as a hypothesis, not a benchmark.
+
+| Option | Build | Measure | Watch out |
+|--------|-------|---------|-----------|
+| QR code per page | A store link with a campaign token per page (App Store `ct=` and `pt=`, Play `referrer=utm_source=...&utm_campaign=...`), rendered as a QR beside the badges; hide it on mobile | Downloads by campaign token in App Store Connect and Play Console; QR scans as a web event | One token per page or page group, or you cannot tell which page converts |
+| Email me the link | A one field form sending the store link | Sends, link clicks, downloads by token | Consent: a transactional send is fine, adding to a marketing list needs its own opt in (`lifecycle-crm`) |
+| Text me the link | SMS with the store link | Sends, clicks, downloads | SMS consent rules (TCPA in the US, national rules in the EU), cost per message, and SMS pumping fraud: rate limit per IP and number, add a challenge, cap daily sends (`site-engineer` security review) |
+
+Test it as an experiment (`EXPERIMENTS.md`): show the handoff to half of desktop visitors, or compare a period with and without, holding releases and campaigns steady.
+
 Diagnosis procedure:
 1. Pull 8 weeks of views and downloads by source and storefront (App Store Connect, Play Console).
 2. Compute conversion per source per week. Flag a source when it falls below its own 8 week low.

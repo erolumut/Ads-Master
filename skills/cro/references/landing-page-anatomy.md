@@ -111,7 +111,7 @@ Click to call button in hero and sticky, service area named in the headline ("Em
 Headline with job outcome, logos of similar companies, product screenshot or 60 to 90 second video, 3 outcomes with numbers, integration logos, security and compliance badges (SOC 2, ISO 27001, GDPR), short form with instant scheduling. See [SaaS and pricing](saas-and-pricing-pages.md).
 
 ### 8.4 App install LP
-Store badges, QR code for desktop visitors, ratings from the store, screenshots, deep link that preserves campaign parameters. Platform store pages are the real landing page for most app campaigns; test custom product pages (App Store) and custom store listings (Google Play).
+Store badges, QR code for desktop visitors (with a campaign token per page; options and pitfalls in `app-store-optimization` references/store-creative-and-conversion.md, desktop to phone handoff), ratings from the store, screenshots, deep link that preserves campaign parameters. Platform store pages are the real landing page for most app campaigns; test custom product pages (App Store) and custom store listings (Google Play).
 
 ### 8.5 Pre-sell page for cold social (advertorial, listicle, quiz)
 Used when cold Meta or TikTok traffic is not ready for a PDP. Must be labeled as advertising where required, contain no fake editorial branding, no fake news site styling, and no claims the brand cannot substantiate. Quiz funnels: 4 to 7 questions, show progress, capture email before the result only if the result is clearly worth it, map each result to a specific product or plan.
