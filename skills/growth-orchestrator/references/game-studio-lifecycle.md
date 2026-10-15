@@ -101,6 +101,8 @@ Watch item: European campaigns on keeping purchased games playable after shutdow
 | TikTok Mini Games | Requires business verification; new growth formats in testing (2026-05) | Verify current availability by market | [Reported, 2026-10] |
 | Google H5 Games Ads | Ad monetization for web games, closed beta | Never plan revenue that depends on admission | [Reported, 2026-10] |
 
+How to build for portals, test a mechanic there and move winners to the stores: [Web portal launch](web-portal-launch.md).
+
 ### 5.3 Never sign without review
 
 Signing a contract is never done by an agent (G4 class: it binds the business): the human signs after counsel reads it. Before that, `growth-orchestrator` writes the deal review below and flags any of these:

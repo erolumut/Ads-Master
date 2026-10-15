@@ -107,6 +107,7 @@ Boundary: Ads Master owns how a game earns, is found, keeps players, is measured
 
 | Version | Date | Notes |
 |---------|------|-------|
+| 1.4.7 | 2026-10-15 | growth-orchestrator: web portal launch (portals as distribution and a near free test market, the portal first path to the stores, idea scouting sheet, submission and QA checklist, CrazyGames, Poki, YouTube Playables, GameDistribution and Coolmath access, tests, ads and exclusivity, relationship log). |
 | 1.4.6 | 2026-10-15 | lifecycle-crm: release notes to marketing (merged changes sorted into what users see, drafts for What's New, changelog, email or in-app, push and social, all through compliance and human approval). |
 | 1.4.5 | 2026-10-15 | store-submission: walk-through video in the App Review Attachment field for every Apple submission (rules in the review notes reference, dossier key, checker WARN), and an AI features line that says "none" too. |
 | 1.4.4 | 2026-10-15 | ai-search-optimization: ai_prompt_panel.py reports a first pick rate and gap pages (cited URLs where a competitor is named and the brand is not); the monthly report keeps the visibility funnel steps apart and adds sources and gaps, and a hand read of attributes and objections. |

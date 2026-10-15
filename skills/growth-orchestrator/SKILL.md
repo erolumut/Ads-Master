@@ -222,6 +222,7 @@ Maturity overlay:
 |------|----------------------|-----------------|
 | Diagnose a business, activate agents | [Business diagnosis](references/business-diagnosis.md), [Routing and workflows](references/routing-and-workflows.md) | Growth diagnosis (output templates) |
 | Route a request or run a multi agent workflow | [Routing and workflows](references/routing-and-workflows.md) | Delegation plan |
+| Launch a web game on portals (CrazyGames, Poki, YouTube Playables, GameDistribution, Coolmath), use portals as a test market, scout ideas, portal QA | [Web portal launch](references/web-portal-launch.md), [Game studio lifecycle](references/game-studio-lifecycle.md) section 5 | Portal plan, submission checklist, idea sheet rows |
 | Plan a game's stage (prototype, soft launch, scale, live ops, sunset), kill rules, portfolio budget, publishing or portal deals | [Game studio lifecycle](references/game-studio-lifecycle.md), [Routing and workflows](references/routing-and-workflows.md) section 4.18 | Game plan |
 | Choose channels, decide when to add one | [Channel selection](references/channel-selection.md), [Other channels](references/other-channels-quick-guides.md) | Channel mix plan |
 | Build or change the budget split, pacing | [Budget allocation](references/budget-allocation.md) | Budget allocation plan + change request |
@@ -324,6 +325,7 @@ Before a plan that depends on platform features, policies, taxes or benchmarks:
 
 ## Reference index
 - [Routing and workflows](references/routing-and-workflows.md): routing table detail, delegation mechanics, 12 multi agent workflows as delegation plans, adding a new agent.
+- [Web portal launch](references/web-portal-launch.md): portals as distribution and as a near free test market, the portal first path to the stores, idea scouting sheet, submission and QA checklist, portal by portal access, tests, ads and exclusivity, the game's home, relationship log, myths.
 - [Game studio lifecycle](references/game-studio-lifecycle.md): game stages from prototype to sunset, kill rules, portfolio budget, publishing and portal deals, the Ads Master boundary for games.
 - [Business diagnosis](references/business-diagnosis.md): binding constraint framework, model specific diagnostics, agent activation rules.
 - [Channel selection](references/channel-selection.md): decision trees by model, tier, stage, geo; minimum viable budgets; add or cut a channel.

@@ -49,6 +49,8 @@ Vendors named in the notes: AppLixir, Playgama, AdinPlay (Venatus), Playwire, ay
 | YouTube Playables | Ads; a revenue share pilot | [Reported, 2026-10] | Eligibility and pilot status |
 | Facebook Instant Games | Monetized through Audience Network; the notes also record "Meta Web Games ended 2026-09-30" after a 2025-07-31 Meta developer post on web and Instant Games changes | [Unverified] | Confirm the current program before planning |
 
+Portal build rules, test stages and the portal first path: `growth-orchestrator` [Web portal launch](../../growth-orchestrator/references/web-portal-launch.md). Note: Poki's web exclusivity is reported to cover Discord and YouTube Playables too [Reported, 2026-10].
+
 Never sign a portal deal from this agent. The "what never to sign" list and the publish or self publish decision live in `growth-orchestrator` (`game-studio-lifecycle`).
 
 ## 4. Platform embeds
