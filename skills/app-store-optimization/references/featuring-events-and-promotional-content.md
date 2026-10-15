@@ -38,7 +38,7 @@ Approval: G3 line in the change request
 | Item | Detail | Evidence |
 |------|--------|----------|
 | Where they show | Product page, search results, Today, Games and Apps tabs, editorial, Apple Games app | [Official] |
-| Capacity | Up to 10 approved events at a time; up to 5 published at once | [Official], verify current limits |
+| Capacity | Up to 15 approved events at a time; up to 10 published at once; each event runs up to 31 days and can be promoted up to 14 days ahead | [Official, 2026-10] |
 | Duration | Up to 31 days per event; promotion can start up to 14 days before the event | [Official], verify |
 | Metadata | Event name 30 characters, short description 50, long description 120, event card media (16:9) and details page media (9:16), badge, deep link, purpose, audience priority | [Official], verify |
 | Badges | Challenge, Competition, Live Event, Major Update, New Season, Premiere, Special Event; plus Apple Games app badges above | [Official] |
@@ -89,8 +89,8 @@ Reading: the sale drew the most opens and mostly brought lapsed users back (redo
 | Promotional content (formerly LiveOps) | Cards for events, offers and major updates across Play surfaces and on the listing | [Official] |
 | Promotional content and featuring | Google's engagement page says promotional content increases the chance of featuring | [Unverified] (single page) |
 | Promotional tagline | 80 characters | [Unverified] |
-| Play Points | Promotions for Play Points members | [Unverified] current eligibility |
-| Play Games Services achievements | Shown in search filters; 15 or more recommended | [Unverified] |
+| Play Points | Promotions for Play Points members; the developer page (updated 2026-10-06) says select developers via an interest form, while some coverage says it opened to all games in 2025-10 | [Contested] |
+| Play Games Services achievements | Shown in search filters; 10 is the baseline, 40 or more recommended, at most 400 and 2,000 points | [Official, 2026-10] |
 | Engage SDK | Collections and Entertainment Space surfaces; content on the listing for existing users | [Official, 2026-05] (moved) |
 
 Eligibility, formats and lead times for promotional content change; read Play Console Help before each quarter's plan.
