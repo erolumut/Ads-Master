@@ -268,7 +268,7 @@ How to log: journal entry `YYYY-MM-DD_HHMM_seo_freshness.md` with what changed, 
 - [Crawl, index, render](references/crawl-index-render.md): rendering modes, JS SEO, indexing statuses triage, canonicalization, faceted navigation, pagination, crawl budget, log file analysis.
 - [AI-built and JS sites](references/ai-built-and-js-sites.md): Lovable, Bolt, v0, Replit, Cursor and SPA failures, fixes per stack, the annotated vibe coding checklist, and how to run `scripts/seo_preflight.py`.
 - [Site architecture and internal linking](references/site-architecture-and-internal-linking.md): hub and spoke, click depth, URL design, internal link audits and prioritization.
-- [Keyword research and topical maps](references/keyword-research-and-topical-maps.md): intent, SERP clustering, opportunity scoring, cannibalization, topical map template.
+- [Keyword research and topical maps](references/keyword-research-and-topical-maps.md): intent, SERP clustering with `scripts/serp_clusters.py` (thresholds 3, 4, 5, keep URL and draft 301s from Search Console), opportunity scoring, cannibalization, topical map template.
 - [On-page and content](references/on-page-and-content.md): titles, headings, briefs, information gain, refresh, pruning, programmatic SEO, AI assisted workflows.
 - [E-E-A-T and quality policies](references/eeat-and-quality-policies.md): leak and trial signals as hypotheses (never as targets), spam policies, tactics we decline, site reputation abuse, scaled content, AI content guidance, manual actions, YMYL.
 - [Algorithm updates and recovery](references/algorithm-updates-and-recovery.md): update timeline 2025 to 2026, diagnosis procedure, recovery plays.

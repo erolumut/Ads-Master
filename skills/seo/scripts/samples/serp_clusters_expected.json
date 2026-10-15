@@ -1,0 +1,217 @@
+{
+  "tool": "serp_clusters.py",
+  "version": "1.0",
+  "inputs": {
+    "keywords": 11,
+    "serp_rows_used": 75,
+    "serp_rows_ignored_outside_top10": 1,
+    "thresholds": [3, 4, 5],
+    "primary_threshold": 4,
+    "our_host": "example-shop.test",
+    "our_host_source": "inferred from Search Console pages",
+    "gsc": {"rows": 16, "has_conversions": false, "queries_outside_serp_file": 1}
+  },
+  "warnings": [
+    "WARN thin SERP: \"descale kettle\" has 4 URL(s) in positions 1 to 10 (fewer than 5); its overlap with other keywords is capped at 4, check the SERP export"
+  ],
+  "sensitivity": [
+    {"threshold": 3, "clusters": 5, "singletons": 1},
+    {"threshold": 4, "clusters": 7, "singletons": 4},
+    {"threshold": 5, "clusters": 9, "singletons": 7}
+  ],
+  "clusters": [
+    {
+      "id": 1,
+      "head": "burr coffee grinder",
+      "keywords": [
+        {"keyword": "burr coffee grinder", "volume": 2900, "serp_urls": 9},
+        {"keyword": "best burr grinder", "volume": 1900, "serp_urls": 6},
+        {"keyword": "coffee grinder burr", "volume": 480, "serp_urls": 9}
+      ],
+      "mixed_intent": false,
+      "intent_counts": {"guide": 1, "commercial": 8, "other": 0},
+      "our_ranking_urls": [
+        {"url": "https://example-shop.test/collections/burr-grinders", "best_position": 3, "keyword": "burr coffee grinder"},
+        {"url": "https://example-shop.test/collections/coffee-grinders", "best_position": 8, "keyword": "burr coffee grinder"}
+      ],
+      "consolidation": {
+        "status": "merge_candidates",
+        "keep_url": "https://example-shop.test/collections/burr-grinders",
+        "keep_reason": "most clicks",
+        "pages": [
+          {"url": "https://example-shop.test/collections/burr-grinders", "clicks": 120, "impressions": 3700, "conversions": null, "best_serp_position": 3},
+          {"url": "https://example-shop.test/products/burr-grinder-pro", "clicks": 25, "impressions": 700, "conversions": null, "best_serp_position": null},
+          {"url": "https://example-shop.test/collections/coffee-grinders", "clicks": 18, "impressions": 850, "conversions": null, "best_serp_position": 8}
+        ],
+        "candidates": [
+          {
+            "url": "https://example-shop.test/products/burr-grinder-pro",
+            "action": "candidate to merge into https://example-shop.test/collections/burr-grinders, then 301 after site-engineer release QA",
+            "warnings": [
+              "WARN candidate has more clicks than the keep URL for the query \"best burr grinder\" (25 vs 10): it may play a different role, review before merging"
+            ]
+          },
+          {
+            "url": "https://example-shop.test/collections/coffee-grinders",
+            "action": "candidate to merge into https://example-shop.test/collections/burr-grinders, then 301 after site-engineer release QA",
+            "warnings": []
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "head": "how to descale a kettle",
+      "keywords": [
+        {"keyword": "how to descale a kettle", "volume": 1600, "serp_urls": 7},
+        {"keyword": "descale kettle", "volume": 210, "serp_urls": 4}
+      ],
+      "mixed_intent": false,
+      "intent_counts": {"guide": 6, "commercial": 0, "other": 0},
+      "our_ranking_urls": [
+        {"url": "https://example-shop.test/blog/descale-kettle-guide", "best_position": 3, "keyword": "how to descale a kettle"}
+      ],
+      "consolidation": {
+        "status": "single_page",
+        "keep_url": null,
+        "keep_reason": "",
+        "pages": [
+          {"url": "https://example-shop.test/blog/descale-kettle-guide", "clicks": 82, "impressions": 3400, "conversions": null, "best_serp_position": 3}
+        ],
+        "candidates": []
+      }
+    },
+    {
+      "id": 3,
+      "head": "trail running shoes",
+      "keywords": [
+        {"keyword": "trail running shoes", "volume": 5400, "serp_urls": 8},
+        {"keyword": "best trail running shoes", "volume": 3600, "serp_urls": 8}
+      ],
+      "mixed_intent": true,
+      "intent_counts": {"guide": 3, "commercial": 3, "other": 0},
+      "our_ranking_urls": [
+        {"url": "https://example-shop.test/collections/trail-running-shoes", "best_position": 2, "keyword": "trail running shoes"},
+        {"url": "https://example-shop.test/blog/trail-shoes-guide", "best_position": 7, "keyword": "best trail running shoes"}
+      ],
+      "consolidation": {
+        "status": "review_mixed_intent",
+        "keep_url": null,
+        "keep_reason": "",
+        "pages": [
+          {"url": "https://example-shop.test/collections/trail-running-shoes", "clicks": 205, "impressions": 5100, "conversions": null, "best_serp_position": 2},
+          {"url": "https://example-shop.test/blog/trail-shoes-guide", "clicks": 65, "impressions": 2400, "conversions": null, "best_serp_position": 7}
+        ],
+        "candidates": []
+      }
+    },
+    {
+      "id": 4,
+      "head": "ceramic knife set",
+      "keywords": [
+        {"keyword": "ceramic knife set", "volume": null, "serp_urls": 6}
+      ],
+      "mixed_intent": false,
+      "intent_counts": {"guide": 0, "commercial": 2, "other": 1},
+      "our_ranking_urls": [],
+      "consolidation": {"status": "no_pages", "keep_url": null, "keep_reason": "", "pages": [], "candidates": []}
+    },
+    {
+      "id": 5,
+      "head": "espresso machine",
+      "keywords": [
+        {"keyword": "espresso machine", "volume": 8100, "serp_urls": 7}
+      ],
+      "mixed_intent": false,
+      "intent_counts": {"guide": 0, "commercial": 3, "other": 0},
+      "our_ranking_urls": [
+        {"url": "https://example-shop.test/collections/espresso-machines", "best_position": 3, "keyword": "espresso machine"}
+      ],
+      "consolidation": {
+        "status": "single_page",
+        "keep_url": null,
+        "keep_reason": "",
+        "pages": [
+          {"url": "https://example-shop.test/collections/espresso-machines", "clicks": 300, "impressions": 9000, "conversions": null, "best_serp_position": 3}
+        ],
+        "candidates": []
+      }
+    },
+    {
+      "id": 6,
+      "head": "home espresso machine",
+      "keywords": [
+        {"keyword": "home espresso machine", "volume": 1000, "serp_urls": 6}
+      ],
+      "mixed_intent": false,
+      "intent_counts": {"guide": 0, "commercial": 2, "other": 1},
+      "our_ranking_urls": [
+        {"url": "https://example-shop.test/collections/espresso-machines", "best_position": 2, "keyword": "home espresso machine"}
+      ],
+      "consolidation": {
+        "status": "single_page",
+        "keep_url": null,
+        "keep_reason": "",
+        "pages": [
+          {"url": "https://example-shop.test/collections/espresso-machines", "clicks": 40, "impressions": 1500, "conversions": null, "best_serp_position": 2}
+        ],
+        "candidates": []
+      }
+    },
+    {
+      "id": 7,
+      "head": "trail shoes for women",
+      "keywords": [
+        {"keyword": "trail shoes for women", "volume": 1300, "serp_urls": 5}
+      ],
+      "mixed_intent": false,
+      "intent_counts": {"guide": 0, "commercial": 3, "other": 0},
+      "our_ranking_urls": [
+        {"url": "https://example-shop.test/collections/trail-running-shoes", "best_position": 2, "keyword": "trail shoes for women"}
+      ],
+      "consolidation": {
+        "status": "single_page",
+        "keep_url": null,
+        "keep_reason": "",
+        "pages": [
+          {"url": "https://example-shop.test/collections/trail-running-shoes", "clicks": 14, "impressions": 400, "conversions": null, "best_serp_position": 2}
+        ],
+        "candidates": []
+      }
+    }
+  ],
+  "note": null,
+  "draft_change_request": {
+    "applied": false,
+    "approval": "Proposal only, nothing has been changed. Content merges and 301 redirects need explicit human approval (gate G3) and site-engineer release QA before anything goes live.",
+    "merges": [
+      {
+        "cluster": 1,
+        "keep_url": "https://example-shop.test/collections/burr-grinders",
+        "merge_url": "https://example-shop.test/products/burr-grinder-pro",
+        "step": "merge useful content into the keep URL, then 301 the merged URL to it after site-engineer release QA",
+        "warnings": [
+          "WARN candidate has more clicks than the keep URL for the query \"best burr grinder\" (25 vs 10): it may play a different role, review before merging"
+        ]
+      },
+      {
+        "cluster": 1,
+        "keep_url": "https://example-shop.test/collections/burr-grinders",
+        "merge_url": "https://example-shop.test/collections/coffee-grinders",
+        "step": "merge useful content into the keep URL, then 301 the merged URL to it after site-engineer release QA",
+        "warnings": []
+      }
+    ],
+    "reviews": [
+      {
+        "cluster": 3,
+        "reason": "review: mixed intent",
+        "pages": [
+          "https://example-shop.test/collections/trail-running-shoes",
+          "https://example-shop.test/blog/trail-shoes-guide"
+        ]
+      }
+    ]
+  },
+  "cannot_cover": "This check cannot cover: SERP volatility, personalization and location, whether pages truly serve the same need, backlinks and conversion value outside the files, and AI Overview features."
+}

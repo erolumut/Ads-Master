@@ -43,27 +43,14 @@ Method:
 3. Group keywords where the overlap is 3 or more of 10 (strict: 4 or more). Use the highest volume or most representative keyword as the cluster head.
 4. Clusters with mixed intent SERPs (half guides, half product pages) often need two pages; check which format dominates the top 3.
 
-Python sketch (input CSV: keyword, volume, url, position):
-```python
-import pandas as pd
-from itertools import combinations
-import networkx as nx
+Script: `scripts/serp_clusters.py` (standard library only). It clusters at thresholds 3, 4 and 5 side by side (primary 4), names a head per cluster, flags mixed intent (guides and commercial pages both at least 30 percent of the top 3), and with a Search Console export lists our pages per cluster, picks the URL to keep (conversions, then clicks, then impressions, then SERP position) and drafts merges and 301s as a change request that is never applied. Without Search Console data (a new site) it still clusters, so each cluster becomes one planned page.
 
-df = pd.read_csv("serps.csv")
-top = df[df.position <= 10].groupby("keyword")["url"].apply(set)
-g = nx.Graph()
-g.add_nodes_from(top.index)
-for a, b in combinations(top.index, 2):
-    if len(top[a] & top[b]) >= 3:
-        g.add_edge(a, b)
-vol = df.groupby("keyword")["volume"].max()
-rows = []
-for i, comp in enumerate(nx.connected_components(g)):
-    head = max(comp, key=lambda k: vol.get(k, 0))
-    for k in comp:
-        rows.append({"cluster": i, "head": head, "keyword": k, "volume": vol.get(k, 0)})
-pd.DataFrame(rows).sort_values(["cluster", "volume"], ascending=[True, False]).to_csv("clusters.csv", index=False)
+```bash
+python3 -I scripts/serp_clusters.py --serp serps.csv                       # clusters only
+python3 -I scripts/serp_clusters.py --serp serps.csv --gsc queries.csv --site example.com
+python3 -I scripts/serp_clusters.py --serp serps.csv --gsc queries.csv --json --out clusters.json
 ```
+Input: `serps.csv` with keyword, url, position and optional volume (top 10 organic, for example from the DataForSEO SERP API; a paid source follows the project's paid data call rules); `queries.csv` is the Search Console query and page export with clicks and impressions (an optional conversions column wins). Read the sensitivity table first: a cluster that only exists at threshold 3 is a weak case for merging.
 Connected components can chain unrelated keywords in very large sets; for over 5,000 keywords, use community detection or require overlap with the head keyword.
 
 ## 5. Opportunity scoring

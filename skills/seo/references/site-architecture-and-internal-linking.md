@@ -119,6 +119,8 @@ Auto linking plugins that insert exact match anchors for keywords across thousan
 ## 8. Consolidation and cannibalization
 Detect: one query with impressions on 2 or more URLs from the same site where the ranking URL flips week to week, or a lower quality URL ranks instead of the intended one. Query in [keyword-research-and-topical-maps.md](keyword-research-and-topical-maps.md).
 
+Find candidates with `scripts/serp_clusters.py` (see [keyword research](keyword-research-and-topical-maps.md) section 4): it proposes a keep URL by conversions and clicks, never merges a mixed intent cluster, and warns when a candidate wins a query on its own. Every merge and 301 is a site change: human approval (G3) and `site-engineer` release QA first.
+
 Resolve:
 | Situation | Action |
 |-----------|--------|

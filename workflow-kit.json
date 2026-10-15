@@ -60,6 +60,10 @@
         "run": "python3 -m unittest discover -s skills/measurement/scripts -p \"test_*.py\""
       },
       {
+        "name": "seo tests",
+        "run": "python3 -m unittest discover -s skills/seo/scripts -p \"test_*.py\""
+      },
+      {
         "name": "secret scan",
         "run": "python3 kits/workflow-kit/scripts/secret_scan.py --history"
       }
