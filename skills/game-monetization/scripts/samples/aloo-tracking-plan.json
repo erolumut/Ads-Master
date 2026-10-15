@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "pii_policy": "no raw email, phone, name, address or free text in any parameter; user and group ids are hashed",
+  "_note": "Example tracking plan for samples/aloo-policy.json, in the measurement tracking plan format (skills/measurement/references/tracking-plan-as-code.md). Monetization events and properties follow the Game Monetization Contract section 6. Identity properties are enums here, so monetization_conformance.py can prove every offer, placement and SKU is covered by value.",
+  "events": {
+    "offer_shown": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["aloo"]},
+        "game": {"type": "id"},
+        "mode_id": {"type": "enum", "values": ["daily", "practice", "encore"]},
+        "point": {"type": "enum", "values": ["on_attempts_exhausted", "on_season_start", "custom_practice_done"]},
+        "offer_id": {"type": "enum", "values": ["encore_at_game_over", "season_pass_at_season_start", "plus_after_practice"]},
+        "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore"]},
+        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "offer_accepted": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["aloo"]},
+        "game": {"type": "id"},
+        "mode_id": {"type": "enum", "values": ["daily", "practice", "encore"]},
+        "point": {"type": "enum", "values": ["on_attempts_exhausted", "on_season_start", "custom_practice_done"]},
+        "offer_id": {"type": "enum", "values": ["encore_at_game_over", "season_pass_at_season_start", "plus_after_practice"]},
+        "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore"]},
+        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "offer_declined": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["aloo"]},
+        "game": {"type": "id"},
+        "mode_id": {"type": "enum", "values": ["daily", "practice", "encore"]},
+        "point": {"type": "enum", "values": ["on_attempts_exhausted", "on_season_start", "custom_practice_done"]},
+        "offer_id": {"type": "enum", "values": ["encore_at_game_over", "season_pass_at_season_start", "plus_after_practice"]},
+        "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore"]},
+        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "purchase_started": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["aloo"]},
+        "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore"]},
+        "store": {"type": "enum", "values": ["web", "apple", "google"]},
+        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "purchase_completed": {
+      "owner": "measurement",
+      "destinations": ["analytics", "mmp"],
+      "conversion": true,
+      "dedup_key": "transaction_key",
+      "props": {
+        "product": {"type": "enum", "values": ["aloo"]},
+        "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore"]},
+        "store": {"type": "enum", "values": ["web", "apple", "google"]},
+        "transaction_key": {"type": "id"},
+        "value": {"type": "num", "min": 0, "max": 1000},
+        "currency": {"type": "enum", "values": ["EUR", "USD", "GBP", "TRY"]},
+        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "purchase_failed": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["aloo"]},
+        "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore"]},
+        "store": {"type": "enum", "values": ["web", "apple", "google"]},
+        "reason": {"type": "enum", "values": ["cancelled", "declined", "pending_timeout", "error"]},
+        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "purchase_refunded": {
+      "owner": "measurement",
+      "destinations": ["analytics", "mmp"],
+      "dedup_key": "transaction_key",
+      "props": {
+        "product": {"type": "enum", "values": ["aloo"]},
+        "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore"]},
+        "store": {"type": "enum", "values": ["web", "apple", "google"]},
+        "transaction_key": {"type": "id"},
+        "reason": {"type": "enum", "values": ["refund", "chargeback", "store_revocation"]},
+        "value": {"type": "num", "min": 0, "max": 1000},
+        "currency": {"type": "enum", "values": ["EUR", "USD", "GBP", "TRY"]},
+        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "entitlement_granted": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["aloo"]},
+        "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore", "admin"]},
+        "owner_type": {"type": "enum", "values": ["user", "group"]},
+        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "entitlement_revoked": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["aloo"]},
+        "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore", "admin"]},
+        "owner_type": {"type": "enum", "values": ["user", "group"]},
+        "reason": {"type": "enum", "values": ["refund", "chargeback", "store_revocation", "expired"]},
+        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "ad_requested": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["aloo"]},
+        "mode_id": {"type": "enum", "values": ["practice"]},
+        "point": {"type": "enum", "values": ["on_attempts_exhausted"]},
+        "placement_id": {"type": "enum", "values": ["rewarded_replay"]},
+        "ad_format": {"type": "enum", "values": ["rewarded"]},
+        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "ad_shown": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["aloo"]},
+        "mode_id": {"type": "enum", "values": ["practice"]},
+        "point": {"type": "enum", "values": ["on_attempts_exhausted"]},
+        "placement_id": {"type": "enum", "values": ["rewarded_replay"]},
+        "ad_format": {"type": "enum", "values": ["rewarded"]},
+        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "ad_rewarded": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["aloo"]},
+        "mode_id": {"type": "enum", "values": ["practice"]},
+        "point": {"type": "enum", "values": ["on_attempts_exhausted"]},
+        "placement_id": {"type": "enum", "values": ["rewarded_replay"]},
+        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "ad_failed": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["aloo"]},
+        "mode_id": {"type": "enum", "values": ["practice"]},
+        "point": {"type": "enum", "values": ["on_attempts_exhausted"]},
+        "placement_id": {"type": "enum", "values": ["rewarded_replay"]},
+        "error": {"type": "enum", "values": ["no_fill", "timeout", "consent_missing", "blocked", "other"]},
+        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "ad_revenue": {
+      "owner": "measurement",
+      "destinations": ["analytics", "mmp"],
+      "props": {
+        "product": {"type": "enum", "values": ["aloo"]},
+        "placement_id": {"type": "enum", "values": ["rewarded_replay"]},
+        "ad_network": {"type": "id"},
+        "value": {"type": "num", "min": 0, "max": 10},
+        "currency": {"type": "enum", "values": ["USD", "EUR"]},
+        "precision": {"type": "enum", "values": ["exact", "publisher_defined", "estimated"]},
+        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "consent_updated": {
+      "owner": "measurement",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["aloo"]},
+        "ads": {"type": "bool"},
+        "personalized_ads": {"type": "bool"},
+        "att": {"type": "enum", "values": ["authorized", "denied", "not_determined", "n_a"]},
+        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    }
+  }
+}

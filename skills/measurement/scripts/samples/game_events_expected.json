@@ -1,0 +1,83 @@
+{
+  "_how_computed": "Hand computed from samples/game_events.csv for: --timezone UTC --as-of 2026-10-10 --min-cohort 5 (no gates). Activity dates per user (UTC): u01 09-01 09-02 09-08 10-01 10-05 10-10; u02 09-01 09-02; u03 09-01; u04 09-01 09-02 09-08 10-04; u05 09-05 09-06 09-12 10-05; u06 09-05 09-12; u07 10-01 10-02 10-08 10-10; u08 10-01 10-03; u09 09-30 10-01 10-07; u10 10-09 (its 10-10 refund is a server event, not activity); u11 10-09 10-10; u12 10-10 (its 10-11 event is after as-of). MAU window 09-11 to 10-10 holds 10 players (not u02, u03); daily DAU in it sums to 20, so average DAU 20/30 and stickiness 0.6667/10. WAU 10-04 to 10-10 holds u01 u04 u05 u07 u09 u10 u11 u12. Wilson 95% intervals use z = 1.96. Window IAP 4.99 + 9.99 + 4.99 + 1.99 + 0.99 - 4.99 = 17.96 (u12's second t12 row is a duplicate); ads 0.02 + 0.03 + 0.05 + 0.01 = 0.11; payers u01 u05 u07 u12 (u10 nets to zero). Churned (last activity 10-03 or earlier): u02 last level 3, u03 level 1, u06 level 2, u08 level 3. Max levels: u01 6, u02 3, u03 1, u04 4, u05 5, u06 2, u07 4, u08 3, u09 2, u10 1, u11 2, u12 1.",
+  "activity": {
+    "avg_dau_30d": 0.666667,
+    "dau": 4,
+    "mau": 10,
+    "stickiness": 0.066667,
+    "wau": 8
+  },
+  "as_of": "2026-10-10",
+  "as_of_source": "argument",
+  "churn_by_level": {
+    "churned_users": 4,
+    "computed": true,
+    "inactive_days": 7,
+    "rows": [
+      {"churned_here": 1, "level": 1, "rate": 0.083333, "reached": 12},
+      {"churned_here": 1, "level": 2, "rate": 0.111111, "reached": 9},
+      {"churned_here": 2, "level": 3, "rate": 0.333333, "reached": 6},
+      {"churned_here": 0, "level": 4, "rate": 0.0, "reached": 4},
+      {"churned_here": 0, "level": 5, "rate": 0.0, "reached": 2},
+      {"churned_here": 0, "level": 6, "rate": 0.0, "reached": 1}
+    ],
+    "users_with_levels": 12
+  },
+  "gates": null,
+  "input": {
+    "cohorts_from": null,
+    "currency": "EUR",
+    "duplicate_iap_rows": 1,
+    "naive_timestamps": 0,
+    "non_activity_rows": 2,
+    "rows": 92,
+    "rows_after_as_of": 1,
+    "users": 12
+  },
+  "min_cohort": 5,
+  "monetization": {
+    "days": [
+      {"ad_revenue": 0.02, "arpdau": 0.02, "arpdau_ad": 0.02, "arpdau_iap": 0.0, "date": "2026-10-04", "dau": 1, "iap_revenue": 0.0, "new_users": 0, "payer_share": 0.0, "payers": 0},
+      {"ad_revenue": 0.03, "arpdau": 7.505, "arpdau_ad": 0.015, "arpdau_iap": 7.49, "date": "2026-10-05", "dau": 2, "iap_revenue": 14.98, "new_users": 0, "payer_share": 1.0, "payers": 2},
+      {"ad_revenue": 0.0, "arpdau": null, "arpdau_ad": null, "arpdau_iap": null, "date": "2026-10-06", "dau": 0, "iap_revenue": 0.0, "new_users": 0, "payer_share": null, "payers": 0},
+      {"ad_revenue": 0.0, "arpdau": 0.0, "arpdau_ad": 0.0, "arpdau_iap": 0.0, "date": "2026-10-07", "dau": 1, "iap_revenue": 0.0, "new_users": 0, "payer_share": 0.0, "payers": 0},
+      {"ad_revenue": 0.05, "arpdau": 0.05, "arpdau_ad": 0.05, "arpdau_iap": 0.0, "date": "2026-10-08", "dau": 1, "iap_revenue": 0.0, "new_users": 0, "payer_share": 0.0, "payers": 0},
+      {"ad_revenue": 0.0, "arpdau": 2.495, "arpdau_ad": 0.0, "arpdau_iap": 2.495, "date": "2026-10-09", "dau": 2, "iap_revenue": 4.99, "new_users": 2, "payer_share": 0.5, "payers": 1},
+      {"ad_revenue": 0.01, "arpdau": -0.5, "arpdau_ad": 0.0025, "arpdau_iap": -0.5025, "date": "2026-10-10", "dau": 4, "iap_revenue": -2.01, "new_users": 1, "payer_share": 0.5, "payers": 2}
+    ],
+    "totals": {
+      "active_users": 8,
+      "ad_revenue": 0.11,
+      "ad_share": 0.006087,
+      "arpdau": 1.642727,
+      "arpdau_ad": 0.01,
+      "arpdau_iap": 1.632727,
+      "arppu": 4.49,
+      "dau_days": 11,
+      "iap_revenue": 17.96,
+      "payer_conversion": 0.5,
+      "payers": 4,
+      "payers_inactive": 0,
+      "revenue": 18.07
+    },
+    "window": ["2026-10-04", "2026-10-10"],
+    "window_days": 7
+  },
+  "retention": {
+    "cohorts": [
+      {"d1": {"rate": 0.75, "retained": 3}, "d30": {"rate": 0.25, "retained": 1}, "d7": {"rate": 0.5, "retained": 2}, "install_date": "2026-09-01", "size": 4},
+      {"d1": {"rate": 0.5, "retained": 1}, "d30": {"rate": 0.5, "retained": 1}, "d7": {"rate": 1.0, "retained": 2}, "install_date": "2026-09-05", "size": 2},
+      {"d1": {"rate": 1.0, "retained": 1}, "d30": null, "d7": {"rate": 1.0, "retained": 1}, "install_date": "2026-09-30", "size": 1},
+      {"d1": {"rate": 0.5, "retained": 1}, "d30": null, "d7": {"rate": 0.5, "retained": 1}, "install_date": "2026-10-01", "size": 2},
+      {"d1": {"rate": 0.5, "retained": 1}, "d30": null, "d7": null, "install_date": "2026-10-09", "size": 2},
+      {"d1": null, "d30": null, "d7": null, "install_date": "2026-10-10", "size": 1}
+    ],
+    "pooled": {
+      "d1": {"below_min_cohort": false, "ci95": [0.3538, 0.8483], "cohort_users": 11, "cohorts": 5, "rate": 0.636364, "retained": 7},
+      "d30": {"below_min_cohort": false, "ci95": [0.0968, 0.7], "cohort_users": 6, "cohorts": 2, "rate": 0.333333, "retained": 2},
+      "d7": {"below_min_cohort": false, "ci95": [0.3542, 0.8794], "cohort_users": 9, "cohorts": 4, "rate": 0.666667, "retained": 6}
+    }
+  },
+  "timezone": "UTC",
+  "verdict": "REPORT"
+}

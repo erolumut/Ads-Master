@@ -1,0 +1,201 @@
+{
+  "version": 1,
+  "pii_policy": "no raw email, phone, name, address or free text in any parameter; user ids are hashed",
+  "_note": "Example tracking plan for samples/progression-policy.json, in the measurement tracking plan format. Unlike the aloo sample, sku and placement_id are opaque id types (any value matching the id pattern passes), so coverage is checked by type rather than by enum value; contract_version is an id so the string 0.1 stays a string.",
+  "events": {
+    "offer_shown": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["example-puzzle"]},
+        "mode_id": {"type": "enum", "values": ["levels", "weekly_race"]},
+        "point": {"type": "enum", "values": ["on_fail", "on_level_start", "on_level_end", "on_menu"]},
+        "sku": {"type": "id"},
+        "level_index": {"type": "num", "min": 0, "max": 100000},
+        "contract_version": {"type": "id"},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "offer_accepted": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["example-puzzle"]},
+        "mode_id": {"type": "enum", "values": ["levels", "weekly_race"]},
+        "point": {"type": "enum", "values": ["on_fail", "on_level_start", "on_level_end", "on_menu"]},
+        "sku": {"type": "id"},
+        "level_index": {"type": "num", "min": 0, "max": 100000},
+        "paid_with": {"type": "enum", "values": ["real_money", "coins"]},
+        "contract_version": {"type": "id"},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "offer_declined": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["example-puzzle"]},
+        "mode_id": {"type": "enum", "values": ["levels", "weekly_race"]},
+        "point": {"type": "enum", "values": ["on_fail", "on_level_start", "on_level_end", "on_menu"]},
+        "sku": {"type": "id"},
+        "level_index": {"type": "num", "min": 0, "max": 100000},
+        "contract_version": {"type": "id"},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "purchase_started": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["example-puzzle"]},
+        "sku": {"type": "id"},
+        "store": {"type": "enum", "values": ["apple", "google"]},
+        "contract_version": {"type": "id"},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "purchase_completed": {
+      "owner": "measurement",
+      "destinations": ["analytics", "mmp"],
+      "conversion": true,
+      "dedup_key": "transaction_key",
+      "props": {
+        "product": {"type": "enum", "values": ["example-puzzle"]},
+        "sku": {"type": "id"},
+        "store": {"type": "enum", "values": ["apple", "google"]},
+        "transaction_key": {"type": "id"},
+        "value": {"type": "num", "min": 0, "max": 1000},
+        "currency": {"type": "enum", "values": ["USD", "GBP", "EUR", "TRY"]},
+        "contract_version": {"type": "id"},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "purchase_failed": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["example-puzzle"]},
+        "sku": {"type": "id"},
+        "store": {"type": "enum", "values": ["apple", "google"]},
+        "reason": {"type": "enum", "values": ["cancelled", "declined", "pending_timeout", "error"]},
+        "contract_version": {"type": "id"},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "purchase_refunded": {
+      "owner": "measurement",
+      "destinations": ["analytics", "mmp"],
+      "dedup_key": "transaction_key",
+      "props": {
+        "product": {"type": "enum", "values": ["example-puzzle"]},
+        "sku": {"type": "id"},
+        "store": {"type": "enum", "values": ["apple", "google"]},
+        "transaction_key": {"type": "id"},
+        "reason": {"type": "enum", "values": ["refund", "chargeback", "store_revocation"]},
+        "value": {"type": "num", "min": 0, "max": 1000},
+        "currency": {"type": "enum", "values": ["USD", "GBP", "EUR", "TRY"]},
+        "contract_version": {"type": "id"},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "entitlement_granted": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["example-puzzle"]},
+        "sku": {"type": "id"},
+        "contract_version": {"type": "id"},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "entitlement_revoked": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["example-puzzle"]},
+        "sku": {"type": "id"},
+        "reason": {"type": "enum", "values": ["refund", "chargeback", "store_revocation", "clawback"]},
+        "contract_version": {"type": "id"},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "ad_requested": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["example-puzzle"]},
+        "mode_id": {"type": "enum", "values": ["levels"]},
+        "point": {"type": "enum", "values": ["on_level_end", "on_menu"]},
+        "placement_id": {"type": "id"},
+        "ad_format": {"type": "enum", "values": ["rewarded", "interstitial", "banner"]},
+        "contract_version": {"type": "id"},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "ad_shown": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["example-puzzle"]},
+        "mode_id": {"type": "enum", "values": ["levels"]},
+        "point": {"type": "enum", "values": ["on_level_end", "on_menu"]},
+        "placement_id": {"type": "id"},
+        "ad_format": {"type": "enum", "values": ["rewarded", "interstitial", "banner"]},
+        "level_index": {"type": "num", "min": 0, "max": 100000},
+        "contract_version": {"type": "id"},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "ad_rewarded": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["example-puzzle"]},
+        "mode_id": {"type": "enum", "values": ["levels"]},
+        "point": {"type": "enum", "values": ["on_level_end"]},
+        "placement_id": {"type": "id"},
+        "contract_version": {"type": "id"},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "ad_failed": {
+      "owner": "game-monetization",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["example-puzzle"]},
+        "mode_id": {"type": "enum", "values": ["levels"]},
+        "point": {"type": "enum", "values": ["on_level_end", "on_menu"]},
+        "placement_id": {"type": "id"},
+        "error": {"type": "enum", "values": ["no_fill", "timeout", "consent_missing", "other"]},
+        "contract_version": {"type": "id"},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "ad_revenue": {
+      "owner": "measurement",
+      "destinations": ["analytics", "mmp"],
+      "props": {
+        "product": {"type": "enum", "values": ["example-puzzle"]},
+        "placement_id": {"type": "id"},
+        "ad_network": {"type": "id"},
+        "value": {"type": "num", "min": 0, "max": 10},
+        "currency": {"type": "enum", "values": ["USD"]},
+        "precision": {"type": "enum", "values": ["exact", "publisher_defined", "estimated"]},
+        "contract_version": {"type": "id"},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    },
+    "consent_updated": {
+      "owner": "measurement",
+      "destinations": ["analytics"],
+      "props": {
+        "product": {"type": "enum", "values": ["example-puzzle"]},
+        "ads": {"type": "bool"},
+        "personalized_ads": {"type": "bool"},
+        "att": {"type": "enum", "values": ["authorized", "denied", "not_determined", "n_a"]},
+        "contract_version": {"type": "id"},
+        "policy_revision": {"type": "num", "min": 1, "max": 10000}
+      }
+    }
+  }
+}

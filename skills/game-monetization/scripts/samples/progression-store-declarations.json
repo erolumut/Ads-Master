@@ -1,0 +1,17 @@
+{
+  "_note": "Example store declarations for samples/progression-policy.json as answered in App Store Connect (age rating questionnaire and the app information the store shows). Copy the answers from the live console; this file is the record the conformance check compares with the policy.",
+  "product": "example-puzzle",
+  "store": "apple",
+  "recordedAt": "2026-10-12",
+  "containsAds": true,
+  "inAppPurchases": true,
+  "lootBoxes": false,
+  "ageRatingInputs": {
+    "advertising": true,
+    "randomItems": false,
+    "digitalPurchases": true,
+    "madeForKids": false,
+    "minimumTargetAge": 13,
+    "simulatedGambling": false
+  }
+}
