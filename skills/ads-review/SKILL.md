@@ -46,6 +46,7 @@ Everything in weekly, plus:
 - `compliance`: claims registry review (expired evidence, new claims found in live copy).
 - `storefront-ux`: conformance audit delta on the top templates (homepage, collection, PDP, cart).
 - `site-engineer`: release log review and a worst case data pass on the top landing pages.
+- Paid data spend: sum `data/paid_data_calls.csv` for the month by source and agent, compare with the monthly data cap in `GUARDRAILS.md`, and flag sources whose answers were never used in an output.
 - Verification pass (`ads-verify` skill, starting with `verified_check.py`): expire old rows in `ads-master/VERIFIED.md`, re-verify those still used, and clear the 10 open claims that block decisions this month.
 
 ## Mode: quarterly

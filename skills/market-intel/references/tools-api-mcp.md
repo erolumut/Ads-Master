@@ -143,6 +143,13 @@ Never: bypass logins, CAPTCHAs or blocks; use fake accounts; resell or publish c
 | Panels for surveys | Per complete | Human |
 Record which paid sources were used in each output's Data used table.
 
+Rules for every per call source (the project's `GUARDRAILS.md` section "Paid data calls" holds the prices and the cap):
+1. No price, no call. A source whose unit price is not written in `GUARDRAILS.md` is not called.
+2. Cheapest first, stop at the first answer that passes the check. Waterfalls across several providers (contact finders, SERP APIs, enrichment) are a common pattern [Practitioner consensus]; each step is logged even when it returns nothing.
+3. One row per call in `data/paid_data_calls.csv` (date, agent, source, endpoint, purpose, unit price, units, cost, result, output file). The monthly review sums it against the cap.
+4. Gateways that resell many tools behind one key are judged like any vendor: where our keys live, who sees the requests, how billing works. Our own keys stay in our secret store.
+5. Contact or people data adds compliance rule PRIV-B2B-01 before the first call.
+
 ## 11. Resilient, polite collection
 For the automated checks the decision tree in section 9 allows (public pages, no personal data, low frequency). Resilient means noticing failure and stopping cleanly so no bad value enters a report; it never means getting around a "no". Prefer official APIs and ad libraries (section 2, [Competitor ad intelligence](competitor-ad-intelligence.md)) over page collection every time. Pattern proven in production collectors, generalized here [Practitioner consensus].
 

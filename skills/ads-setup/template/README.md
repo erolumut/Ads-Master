@@ -25,6 +25,7 @@ Or run the `ads-setup` skill and let Claude interview you and scan the codebase.
 | `memory/<agent>.md` | Learnings confirmed by data | Each agent, own file only |
 | `journal/` | Shared event log between agents | All agents, new files only |
 | `data/imports/` | CSV exports and screenshots you drop in | You or connectors |
+| `data/paid_data_calls.csv` | One row per paid data call (source, price, purpose, result); read in the monthly review | Agents write, you review |
 | `outputs/<agent>/` | Audits, plans, briefs, reports | Each agent |
 | `templates/` | Journal, change request, audit, experiment and review formats | Shared |
 | `GUARDRAILS.md` + `guardrails.json` | Automation stage, money caps, gates, approvers (the hooks enforce the JSON) | You |

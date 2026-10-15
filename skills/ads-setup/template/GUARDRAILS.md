@@ -32,6 +32,18 @@ Raise the stage only after the current one has run cleanly for several weeks. Re
 | Max budget increase per change (percent) | 0 | |
 | Max monthly ceiling (approved, not mandatory) | | |
 
+## Paid data calls
+Any API, MCP tool or gateway that charges per call (SERP and keyword data, enrichment, AI visibility panels, scraping, generation).
+- No price, no call: a paid source is used only when its unit price is written here. Unknown price means the call is not made.
+- Monthly data cap: ____ (currency above). The agent stops and asks when the month's ledger would pass it.
+- Cheapest first: when several sources answer the same question, try them from cheapest to dearest and stop at the first answer that passes the check (a valid email, a parsed SERP, a non empty result).
+- Every paid call writes a row to `data/paid_data_calls.csv`; the monthly review reads it.
+- Our provider keys stay with us: a third party gateway that holds our keys or a prepaid balance needs the approver for media spend.
+
+| Source | Unit | Price | Currency | Approved by |
+|--------|------|-------|----------|-------------|
+| | | | | |
+
 ## Approvers
 | Area | Person | How they approve |
 |------|--------|------------------|
