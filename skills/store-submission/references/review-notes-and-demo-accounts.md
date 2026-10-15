@@ -49,6 +49,18 @@
 7. Stay under 4,000 bytes; count bytes, not characters, when the notes use non Latin scripts.
 8. No instructions that try to steer the review ("please approve quickly", "other apps do this"). Facts only.
 9. Keep each submission's notes in the dossier and archive them; a rejection reply quotes them.
+10. Say whether the app has AI features, also when it has none: "The app has no AI features." Reviewers check third party AI data sharing, and one line saves a question [Practitioner consensus].
+
+### 3.1 Walk-through video (every Apple submission)
+
+A short screen recording in the Attachment field below the Notes in App Review Information shows the reviewer what the notes describe and heads off most Guideline 2.1 information requests [Practitioner consensus, 2026-10].
+1. Record the exact build being submitted, on a real device, 1 to 3 minutes, in the same order as the notes.
+2. Show: sign in with the demo account, the main features, purchase and Restore, account deletion, every permission prompt, and anything hard to find.
+3. No real user data, no passwords or one time codes on screen, no notifications from a personal phone.
+4. Name it plainly (`walk-through.mp4`), mention it in the notes, and record the file, build and date in the dossier.
+5. Re-record for every version whose screens changed; a video of old screens creates a new question.
+6. It never replaces the demo account. Hardware apps still need the video of the device pairing (section 7).
+Attachment size and format limits: check App Store Connect Help before upload [Unverified].
 
 ## 4. Templates
 

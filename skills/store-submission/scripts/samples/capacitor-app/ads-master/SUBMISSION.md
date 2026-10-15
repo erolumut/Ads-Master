@@ -28,6 +28,8 @@
 - Backend live during review: yes
 - Server side feature flags for review: none
 - Region or hardware needs: none
+- Walk-through video attached: yes, walk-through.mp4, build 212, 2026-10-12
+- AI features: none
 
 ## 3. Accounts, privacy and support
 

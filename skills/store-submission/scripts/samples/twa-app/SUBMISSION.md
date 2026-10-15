@@ -19,6 +19,7 @@
 - Demo account never expires: n/a
 - Expired subscription demo account: n/a
 - Backend live during review: yes
+- AI features: none
 
 ## 3. Accounts, privacy and support
 

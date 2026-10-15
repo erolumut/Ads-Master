@@ -34,6 +34,8 @@
 - Backend live during review: <yes, or n/a when the app has no backend>
 - Server side feature flags for review: <none, or which flags and that they match production>
 - Region or hardware needs: <none, or what the reviewer needs and how it is provided>
+- Walk-through video attached: <yes: file name, build number and date recorded; Apple only>
+- AI features: <none, or what the AI does, which service, and where the app asks before sending personal data>
 
 ## 3. Accounts, privacy and support
 
@@ -116,6 +118,8 @@
 <How to test: 1. ... 2. ... 3. ...>
 <Purchases: where the paywall is, which products, where Restore is.>
 <Account deletion: the path in the app.>
+<AI: "The app has no AI features." or what the AI does and which service.>
+<Walk-through: "A walk-through video of this build is attached.">
 <Anything that is hard to find, regional differences, or hardware needs.>
 ```
 

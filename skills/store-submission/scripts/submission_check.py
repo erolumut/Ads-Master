@@ -183,6 +183,8 @@ K = {
     "social_media": "Social media question answered",
     "export": "Export compliance answered",
     "siwa": "Sign in with Apple",
+    "walkthrough": "Walk-through video attached",
+    "ai_features": "AI features",
 }
 NOTES_HEADING = "review notes"
 
@@ -673,6 +675,13 @@ def check_dossier(d: dict, stores: set[str], policy: dict | None, rep: Report) -
             rep.add("FAIL", "dossier", f"review notes are {size} bytes; App Store Connect takes up to {NOTES_LIMIT_BYTES}")
         elif len(notes) < 200:
             rep.add("WARN", "dossier", "review notes are under 200 characters: say what the app does, how to test it and where")
+
+    if apple and not yes(get("walkthrough")):
+        rep.add("WARN", "dossier", f"'{K['walkthrough']}' is not yes: a 1 to 3 minute recording of this build in the "
+                                   "App Review Attachment field answers most 2.1 questions before they are asked")
+    if blank(get("ai_features")):
+        rep.add("WARN", "dossier", f"'{K['ai_features']}' is empty: write 'none' or what the AI does and which service, "
+                                   "and say the same in the review notes")
 
     if answer("accounts", "decides account deletion duties"):
         if yes(get("accounts")):

@@ -102,6 +102,25 @@ class SampleTest(Base):
             self.assertIn(expected, out)
         self.assertIn("WARN [ios] NSLocationWhenInUseUsageDescription looks vague", out)
 
+    def test_walkthrough_and_ai_lines_warn_when_missing(self):
+        root = self.copy("capacitor-app")
+        path = os.path.join(root, "ads-master", "SUBMISSION.md")
+        with open(path, encoding="utf-8") as fh:
+            text = fh.read()
+        text = text.replace("- Walk-through video attached: yes, walk-through.mp4, build 212, 2026-10-12\n", "")
+        text = text.replace("- AI features: none\n", "")
+        with open(path, "w", encoding="utf-8") as fh:
+            fh.write(text)
+        code, out = run(root)
+        self.assertEqual(code, 0)
+        self.assertIn("'Walk-through video attached' is not yes", out)
+        self.assertIn("'AI features' is empty", out)
+
+    def test_sample_has_no_walkthrough_or_ai_warning(self):
+        _, out = run(os.path.join(SAMPLES, "capacitor-app"))
+        self.assertNotIn("Walk-through video attached", out)
+        self.assertNotIn("'AI features' is empty", out)
+
     def test_getusermedia_audio_false_needs_camera_only(self):
         _, out = run(os.path.join(SAMPLES, "capacitor-app-gaps"))
         self.assertNotIn("NSMicrophoneUsageDescription", out)
