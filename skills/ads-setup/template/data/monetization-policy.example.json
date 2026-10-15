@@ -1,5 +1,5 @@
 {
-  "contractVersion": "0.1",
+  "contractVersion": "0.2",
   "policyRevision": 1,
   "_note": "Example only. Copy to data/monetization-policy.json for a game product and replace every value; check it with monetization_check.py (game-monetization skill). Contract: skills/game-monetization/references/monetization-contract.md.",
   "product": {

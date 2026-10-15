@@ -169,7 +169,7 @@ Spec business models map as follows: liveops applies to games and to game like h
 | More events mean more retention | Events on the same clock compete; uplift needs a holdout |
 | High participation means the event worked | Participation is reach; uplift is effect |
 | The daily puzzle should be an in-app event | Apple calls repetitive daily tasks poor candidates [Official, 2026-10] |
-| Royal Match's King's Cup is a template | It is commonly described as ranking levels beaten in a cohort while boosters and continues are sold for those levels [Unverified mechanism]; under contract v0.1 a race of that shape is a purchasable ranked result |
+| Royal Match's King's Cup is a template | It is commonly described as ranking levels beaten in a cohort while boosters and continues are sold for those levels [Unverified mechanism]; under contract v0.2 a race of that shape is a purchasable ranked result |
 | A fail spike means a level is broken | Near miss fails are often designed; churn and quit spikes are the signal |
 | Casual puzzle soft launch gates fit every game | Daily social games behave like daily puzzles and habit apps |
 | A test can be read on day 3 | Full weeks, outcome window, novelty |

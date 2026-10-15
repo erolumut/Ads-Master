@@ -31,6 +31,8 @@
 | Payer conversion | Payers / users in the stated window (cohort or daily, say which) |  | cohort or day | ratio |  |
 | Impressions per DAU | Ad impressions / DAU, per placement |  | day | ratio |  |
 | Event participation | Event participants / DAU in the event window |  | event | ratio |  |
+| Refund rate | Refunded value / gross purchase value, by store, each refund assigned to its purchase month (also the count ratio) |  | purchase month | ratio | Latest two months are immature |
+| Complaint rate | Monetization complaints (tickets tagged billing, ads or fairness; 1 and 2 star reviews about payment or ads; chargebacks) / DAU x 1,000 |  | week | ratio | Compare with this game's own trailing 8 weeks |
 | Counted attempts per day | Constant per ranked board, from data/monetization-policy.json |  | board | constant | Never changed by purchases or rewards |
 
 ## Soft launch gates (game projects; derived from this game's own curve, not copied)

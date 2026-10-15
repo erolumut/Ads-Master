@@ -211,4 +211,4 @@ Fixed processing fees punish small prices: $0.30 is 30% of a $0.99 sale but 1.5%
 | 10 | Royal Match teardowns | fungies.io, FoxData, Naavik | 2024 to 2025 | Continue escalation, Royal Pass [Reported, 2026-10] |
 | 11 | Web shop business case and provider pricing | Unity, Xsolla, Stash | 2025 to 2026 | Web shop economics [Unverified, vendor claim] |
 | 12 | Games and virtual currencies rule pack | Ads Master `compliance` | 2026-10 | Bundle arithmetic, web sales checks, minors |
-| 13 | Game Monetization Contract v0.1 | Ads Master `game-monetization` | 2026-10 | Price fields, fairness rule |
+| 13 | Game Monetization Contract v0.2 | Ads Master `game-monetization` | 2026-10 | Price fields, fairness rule |

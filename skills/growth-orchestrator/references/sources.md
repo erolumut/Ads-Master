@@ -130,5 +130,20 @@ Annotated sources behind this skill. Status column: **S** = surfaced and read th
 | 90 | CCPA updates, risk assessments, ADMT regulations | CPPA | https://cppa.ca.gov/regulations/ccpa_updates.html | 2025-09 | California regulation dates | S |
 | 91 | The Multiplier Effect: what we know so far | WARC | https://www.warc.com/en/article/the-multiplier-effect-what-we-know-so-far-1172cd945dd143a3b1eb2bd418e8391b | 2025 | Brand and performance ROI multiplier | S |
 
+## Games (added 2026-10)
+
+Sources copied from the game reference modules in this skill, with dates and evidence labels as the modules give them. "URL not recorded" means the module named no link; search by title before relying on it.
+
+| # | Title | Publisher | URL | Date | Supports | Status |
+|---|-------|-----------|-----|------|----------|------|
+| 92 | Poki developer pages (sdk.poki.com, deals), via search | See title | URL not recorded | 2026 | 100% own traffic, 50/50 Poki traffic, web exclusivity, non-exclusive flat fee [Reported, 2026-10] | see Supports |
+| 93 | CrazyGames developer docs (docs.crazygames.com), via search; third party guides (cinevva) | See title | URL not recorded | 2026 | Basic and Full Launch; split and payout claims [Reported, 2026-10] and [Unverified] | see Supports |
+| 94 | Google YouTube Playables monetization page, via search; third party reports | See title | URL not recorded | 2026-09 | Ad formats, revenue share pilot, no IAP, markets [Reported, 2026-10] | see Supports |
+| 95 | Discord developer docs on IAP for Activities, via search; third party guides | See title | URL not recorded | 2024 to 2026 | SKUs, entitlements, regions; fee claim [Reported, 2026-10] and [Unverified] | see Supports |
+| 96 | r/Devvit community posts on Developer Funds | See title | URL not recorded | 2025 | 2025 program tiers and cap [Reported, 2026-10] | see Supports |
+| 97 | Research note 02 (ad tech and portals), 03 (soft launch markets), 07 (teardowns), 08 (web first distribution) | See title | URL not recorded | 2026-10-12 | Portals, markets, prototype context. Label: As labeled inline | see Supports |
+| 98 | `measurement` `game-kpis` module, section 9 | See title | URL not recorded | 2026-10 | Gate procedure, decision rule, minimum cohort. Label: Internal module | see Supports |
+| 99 | Game Monetization Contract v0.2 | See title | URL not recorded | 2026-10 | Fairness rule that deals may not override. Label: Internal contract | see Supports |
+
 ## Internal cross-references (channel dossiers built in parallel, October 2026)
 Facts marked "per research/<slug>.md" in this skill were cross-checked against these dossiers, which carry their own dated primary sources: `research/meta-ads.md` (attribution window changes January and March 2026, Threads and WhatsApp inventory), `research/google-ads.md` (AI Max auto upgrade, AI Mode formats, official Google Ads MCP server), `research/chatgpt-ads.md` (ChatGPT ads timeline, $25 per day minimum, formats), `research/tiktok-ads.md` (joint venture, GMV Max, TikTok Ad Network, official MCP server), `research/measurement.md` (Conversion Lift minimums, Data Manager API, GA4 AI Assistant channel, KVKK transfer regime), `research/microsoft-ads.md`, `research/linkedin-ads.md`, `research/seo.md`, `research/ai-search-optimization.md`, `research/commerce-feeds.md`, `research/cro.md`, `research/creative-strategy.md`.

@@ -1,6 +1,6 @@
 # Game Tracking: Event Taxonomy, Revenue Truth, Consent and Attribution
 
-> Knowledge as of 2026-10 (research pass 2026-10-12). Apple's AdAttributionKit session and Android's billing notification reference were read at the source [Official, 2026-10]; analytics vendor facts come from search summaries [Reported, 2026-10] or a single vendor [Unverified]. The event names and properties follow the Game Monetization Contract v0.1 ([contract](../../game-monetization/references/monetization-contract.md) section 6) and are checked by `monetization_conformance.py`. The KPI definitions these events feed live in [Game KPIs](game-kpis.md).
+> Knowledge as of 2026-10 (research pass 2026-10-12). Apple's AdAttributionKit session and Android's billing notification reference were read at the source [Official, 2026-10]; analytics vendor facts come from search summaries [Reported, 2026-10] or a single vendor [Unverified]. The event names and properties follow the Game Monetization Contract v0.2 ([contract](../../game-monetization/references/monetization-contract.md) section 6) and are checked by `monetization_conformance.py`. The KPI definitions these events feed live in [Game KPIs](game-kpis.md).
 
 ## 1. Principles
 
@@ -214,4 +214,4 @@ A failure blocks the release through `site-engineer` (web) or `store-submission`
 | 8 | CNIL decision on a game publisher | CNIL, via usercentrics summary | 2023 | Identifier without consent fine [Reported, 2026-10] |
 | 9 | Google Play Families policy, self certified ads SDKs | Play Console Help | ongoing | Family ad SDK rule [Reported, 2026-10] |
 | 10 | App Review Guidelines 1.3, 5.1.2 | Apple | 2026-06-08 version, read in the research pass | Kids Category, ATT and IDFA [Official, 2026-10] |
-| 11 | Game Monetization Contract v0.1 | Ads Master | 2026-10 | Event names, properties, grant log, runbook |
+| 11 | Game Monetization Contract v0.2 | Ads Master | 2026-10 | Event names, properties, grant log, runbook |

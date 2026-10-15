@@ -17,7 +17,7 @@ Rules: underscore separates tokens; tokens never contain underscores or spaces; 
 | angle | short code | hcause | From the angle code list below |
 | persona | short code | runner | From `AUDIENCE.md` segments |
 | aware | unaw, prob, sol, prod, most | prob | Schwartz level |
-| fmt | ugc, cre, fdr, demo, test, uvt, list, ps, stat, car, meme, pod, str, gs, ai, cat | ugc | Format code list below |
+| fmt | ugc, cre, fdr, demo, test, uvt, list, ps, stat, car, meme, pod, str, gs, ai, cat, gp, play, trl | ugc | Format code list below |
 | hook | H + 2 digits | H03 | Hook ID within the concept |
 | creator | cr + 2 digits or na | cr07 | From the creator registry |
 | len | seconds + s, or na for statics | 30s | Video length |
@@ -29,7 +29,7 @@ Example: `20261008_C021_hcause_runner_prob_ugc_H03_cr07_30s_916_v2_wl`
 
 **Angle codes (extend per account):** pain (problem agitation), hcause (hidden cause), failsol (failed solutions), ident (identity), enemy, uvt (us vs them), transf (transformation), ditl (day in the life), origin (founder origin), auth (authority), proof (social proof), tmon (testimonial outcome), objf (objection first), myth, coi (cost of inaction), price (price reframe), risk (risk reversal), ease, new, time (scarcity or timeliness), gift, sens (ritual or sensory), edu, expalt (expensive alternative), comm (community).
 
-**Format codes:** ugc (UGC), cre (creator led), fdr (founder), demo, test (testimonial), uvt (us vs them), list (listicle), ps (problem solution), stat (static), car (carousel), meme, pod (podcast style), str (street interview), gs (green screen), ai (AI avatar), cat (catalog or DPA).
+**Format codes:** ugc (UGC), cre (creator led), fdr (founder), demo, test (testimonial), uvt (us vs them), list (listicle), ps (problem solution), stat (static), car (carousel), meme, pod (podcast style), str (street interview), gs (green screen), ai (AI avatar), cat (catalog or DPA), gp (game: real gameplay capture of the core game), play (game: playable ad build), trl (game: trailer or cinematic). For gp and play, record the level id and seed in the registry row so the footage can be traced to the shipped game.
 
 **Campaign and ad set names** belong to channel agents, but ask them to include a test lane marker (`TEST` or `SCALE`) so creative analysis can split lanes.
 
@@ -40,7 +40,7 @@ Example: `20261008_C021_hcause_runner_prob_ugc_H03_cr07_30s_916_v2_wl`
 ```python
 import re
 PAT = re.compile(r"^(\d{8})_(C\d{3})_([a-z]+)_([a-z0-9]+)_(unaw|prob|sol|prod|most)_"
-                 r"(ugc|cre|fdr|demo|test|uvt|list|ps|stat|car|meme|pod|str|gs|ai|cat)_"
+                 r"(ugc|cre|fdr|demo|test|uvt|list|ps|stat|car|meme|pod|str|gs|ai|cat|gp|play|trl)_"
                  r"(H\d{2}|na)_(cr\d{2}|na)_(\d+s|na)_(916|45|11|169|na)_(v\d+)(_[a-zA-Z0-9-]+)?$")
 def check(name): return bool(PAT.match(name))
 ```

@@ -148,6 +148,42 @@ Annotated source list for the measurement skill. Dates are publication dates whe
 | Industry coalition on the digital omnibus | FEDMA | https://www.fedma.org/2026/06/24/ahead-of-the-coreper-meeting-industry-coalition-calls-for-meaningful-simplification-in-the-digital-omnibus/ | 2026-06-24 | Industry position |
 | Performance Max updates and other product news for January 2026 | Microsoft Advertising | https://about.ads.microsoft.com/en/blog/post/january-2026/performance-max-updates-and-other-product-news-for-january-2026 | 2026-01 | PMax new customer acquisition goal (via microsoft-ads builder notes) |
 
+## Games (added 2026-10)
+
+Sources copied from the game reference modules in this skill, with dates and evidence labels as the modules give them. "URL not recorded" means the module named no link; search by title before relying on it.
+
+| Title | Publisher | URL | Date | Supports |
+|-------|-----------|-----|------|----------|
+| GameAnalytics mobile gaming benchmarks 2025 (via gamedevreports summary and investgame PDF) | GameAnalytics | URL not recorded | 2025, data to end 2024 | Retention medians and top quartile and decile, session length; classic retention [Reported, 2026-10] |
+| Adjust gaming app insights 2026 | Adjust | URL not recorded | 2026 | D1 27% across genres in 2025; CPI trend via FoxData [Reported, 2026-10] |
+| Soft launch guide | gamegrowthadvisor.com | URL not recorded | 2025-12-16 | Gates, markets, volumes [Reported, 2026-10] |
+| Soft launch gate article | getbruin | URL not recorded | 2025 to 2026 | Gate rules of thumb [Reported, 2026-10] |
+| D7 ROAS article | playio | URL not recorded | 2026 | D7 ROAS ranges by monetization [Reported, 2026-10] |
+| Liftoff blog (post ?p=35616) and casual gaming report 2025 | Liftoff | URL not recorded | 2025 to 2026-04 | Curve derived D7 targets, stale multipliers, casual CPI and ROAS [Reported, 2026-10] |
+| Retention documentation | Amplitude, Mixpanel | URL not recorded | ongoing | 24 hour window defaults [Reported, 2026-10] |
+| Event types documentation | docs.gameanalytics.com | URL not recorded | ongoing | Classic retention, event taxonomy [Reported, 2026-10] |
+| Payer segmentation | devtodev | URL not recorded | ongoing | Percentile payer tiers [Reported, 2026-10] |
+| Unity IAP guide, LevelPlay documentation | Unity | URL not recorded | ongoing | Payer share 2% to 5%, impressions per DAU reading [Reported, 2026-10] |
+| Appodeal Q4 2024 eCPM report (PDF) | Appodeal | URL not recorded | 2025 | eCPM anchors [Reported, 2026-10] |
+| Tenjin ad revenue report; Tenjin k-factor guide | Tenjin | URL not recorded | 2026-08; undated | Android and iOS split; k range [Reported, 2026-10]; [Unverified] |
+| State of Mobile Gaming 2026 | Sensor Tower | URL not recorded | 2026 | Revenue totals [Reported, 2026-10] |
+| Android vitals | developer.android.com/topic/performance/vitals | URL not recorded | page read 2026-10-12 | Crash and ANR thresholds [Official, 2026-10] |
+| NYT 10-Q Q2 2026 | sec.gov | URL not recorded | 2026 | Subscriber count [Reported, 2026-10] |
+| LinkedIn games help | LinkedIn | URL not recorded | 2026 | Streaks, boards, reset time [Reported, 2026-10] |
+| AppLovin and Unity payment terms | support.applovin.com, docs.unity.com | URL not recorded | ongoing | Payout minimums and terms [Reported, 2026-10] |
+| Game Monetization Contract v0.2 | Ads Master, [contract](../../game-monetization/references/monetization-contract.md) | URL not recorded | 2026-10 | Event names, payer tier field, modes and counted attempts |
+| What's new in AdAttributionKit (WWDC25 session 221) | Apple | developer.apple.com/videos/play/wwdc2025/221 | 2025-06, read 2026-10-12 | Configurable windows, cooldown, country code, overlapping re-engagement and conversion tags, development postbacks [Official, 2026-10] |
+| Real-time developer notifications reference | Android Developers | developer.android.com/google/play/billing/rtdn-reference | read 2026-10-12 | Notification types, voided purchases, chargeback review within 24 hours, must call the Developer API, `messageId` dedup [Official, 2026-10] |
+| Event types | docs.gameanalytics.com | URL not recorded | ongoing | Seven event families, progression hierarchy, business event fields [Reported, 2026-10] |
+| Firebase limits and A/B testing concepts | Firebase documentation | URL not recorded | ongoing | 500 event names, 25 parameters, silent drops [Reported, 2026-10] |
+| Game analytics tool comparisons | devtodev, PostHog and vendor pages | URL not recorded | 2025 to 2026 | Free tiers and fit [Reported, 2026-10]; [Contested] where they disagree |
+| MMP pricing comparison | Airbridge | URL not recorded | 2026 | Free tier claims [Contested] |
+| Google H5 Games Ads (Ad Placement API) beta documentation | Google | URL not recorded | 2026 | adBreak, opt in rewarded, grant on view [Reported, 2026-10] |
+| CNIL decision on a game publisher | CNIL, via usercentrics summary | URL not recorded | 2023 | Identifier without consent fine [Reported, 2026-10] |
+| Google Play Families policy, self certified ads SDKs | Play Console Help | URL not recorded | ongoing | Family ad SDK rule [Reported, 2026-10] |
+| App Review Guidelines 1.3, 5.1.2 | Apple | URL not recorded | 2026-06-08 version, read in the research pass | Kids Category, ATT and IDFA [Official, 2026-10] |
+| Game Monetization Contract v0.2 | Ads Master | URL not recorded | 2026-10 | Event names, properties, grant log, runbook |
+
 ## How to weigh these sources
 
 1. Official help pages, developer docs and release notes decide current settings and deadlines. Re-check them before acting; this list records what they said when checked.

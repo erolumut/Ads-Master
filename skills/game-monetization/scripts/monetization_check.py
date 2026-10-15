@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check a product's monetization-policy.json against the Game Monetization Contract 0.1.
+"""Check a product's monetization-policy.json against the Game Monetization Contract 0.2.
 
 The policy is per product (a store listing or a web app), which may contain
 many games; mode ids may be namespaced ("kilim:daily"). The checker derives
@@ -49,7 +49,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-SUPPORTED_VERSIONS = {"0.1"}
+SUPPORTED_VERSIONS = {"0.1", "0.2"}
 CANNOT_COVER = ("This check cannot cover: whether the code follows the file (each product's conformance test "
                 "does), derived boards the file does not declare, live prices in the store consoles, the wording "
                 "on screen, tax and merchant of record duties, and laws that changed after the file was written.")

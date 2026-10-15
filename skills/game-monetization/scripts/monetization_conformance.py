@@ -3,11 +3,11 @@
 
 monetization_check.py checks the policy on its own. This script checks that the
 other artefacts agree with it, which is where store rejections, broken revenue
-reports and consumer fines come from (Game Monetization Contract 0.1, sections 6,
+reports and consumer fines come from (Game Monetization Contract 0.2, sections 6,
 7 and 9).
 
 Inputs:
-  --policy           monetization-policy.json (contract 0.1)
+  --policy           monetization-policy.json (contract 0.2 or 0.1)
   --tracking-plan    the tracking plan in the measurement format
                      ({"events": {name: {"props": {prop: {"type": ...}}}}}, see
                      skills/measurement/references/tracking-plan-as-code.md)
@@ -57,7 +57,7 @@ import re
 import sys
 from pathlib import Path
 
-SUPPORTED_VERSIONS = {"0.1"}
+SUPPORTED_VERSIONS = {"0.1", "0.2"}
 CANNOT_COVER = ("This check cannot cover: whether the code emits the events the plan declares (run the measurement "
                 "skill's tracking_plan_check.py with --code and a payload sample), whether the store consoles still "
                 "hold the answers in the declarations files, live prices and product ids in each store, the wording "
@@ -216,7 +216,9 @@ def check_plan(policy: dict, plan: dict) -> tuple[list[str], list[str]]:
         # Identity properties: each item must be reachable by value.
         kinds = sorted({k for k, _, _ in users})
         for kind in kinds:
-            idents = list(IDENTITY[kind]) + (["offer_id"] if kind == "offer" and "offer_id" in props else [])
+            # offer_id is required from contract 0.2; under 0.1 it is used when the plan declares it.
+            needs_offer_id = kind == "offer" and ("offer_id" in props or version != "0.1")
+            idents = list(IDENTITY[kind]) + (["offer_id"] if needs_offer_id else [])
             for prop in idents:
                 if prop not in props:
                     fails.append(f"{event}: no '{prop}' property, so {kind} coverage cannot be shown "

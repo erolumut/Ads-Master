@@ -130,6 +130,20 @@ Evidence key: O = official vendor or regulator; L = law firm or legal publisher;
 | 100 | Average time to second purchase by vertical 2026 | eightx | https://eightx.co/blog/average-ecommerce-time-to-second-purchase-by-vertical-2026 | 2026 | Vertical medians | V |
 | 101 | PyMC-Marketing CLV models | PyMC Labs | https://www.pymc-marketing.io/ | ongoing | BG/NBD and Gamma-Gamma | O |
 
+## Games (added 2026-10)
+
+Sources copied from the game reference modules in this skill, with dates and evidence labels as the modules give them. "URL not recorded" means the module named no link; search by title before relying on it.
+
+| # | Title | Publisher | URL | Date | Supports | Type |
+|---|-------|-----------|-----|------|----------|----|
+| 102 | WebKit blog 13878 (web push for web apps on iOS and iPadOS), via search; existing [SMS, WhatsApp and push](sms-whatsapp-and-push.md) row | See title | URL not recorded | 2023-03, rechecked 2026-10 | iOS web push for Home Screen web apps from 16.4, user gesture [Reported, 2026-10] | see Supports |
+| 103 | Play Console promotional content (LiveOps) notes, via search | See title | URL not recorded | 2025 to 2026 | Lapsed and churned targeting since 2025-03 [Reported, 2026-10] | see Supports |
+| 104 | Research note 07 (teardowns: VZBV objection to Monopoly Go) | See title | URL not recorded | 2026-10-12 | Absence penalties, pop up offers, opaque currencies [Reported, 2026-10] | see Supports |
+| 105 | Research note 03 (organic channels: TikTok, Reddit, YouTube, Discord) | See title | URL not recorded | 2026-10-12 | Community roles [Reported, 2026-10] | see Supports |
+| 106 | Research note 08 (daily games: Wordle share grid, LinkedIn games streaks) | See title | URL not recorded | 2026-10-12 | Share formats that hide answers, streak patterns [Reported, 2026-10] | see Supports |
+| 107 | Game Monetization Contract v0.2 | See title | URL not recorded | 2026-10 | `streak_protection`, offers only from the policy, countdown rule for minors. Label: Internal contract | see Supports |
+| 108 | [Games and virtual currencies](../../compliance/references/games-and-virtual-currencies.md) | See title | URL not recorded | 2026-10 | Rule IDs for minors, urgency and pressure. Label: Rule pack | see Supports |
+
 ## Reliability notes
 
 - Strongest: regulator and official vendor documentation (1, 2, 9, 11, 14, 15, 19, 20, 23, 25, 36 to 39, 42, 44, 54, 55, 67 to 71, 74, 79).

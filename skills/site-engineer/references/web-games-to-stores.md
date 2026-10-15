@@ -8,7 +8,7 @@ Boundary: Ads Master owns how a game earns, is found, keeps players, is measured
 
 | This module (site-engineer) | Others |
 |-----------------------------|--------|
-| PWA build, service worker, install flow, TWA and Capacitor wrappers, release QA, score integrity server checks and their tests | Review dossier and submission (`store-submission`), listing text and screenshots (`app-store-optimization`), prices and what is sold (`game-monetization`, Game Monetization Contract v0.1), push logic and copy (`lifecycle-crm`), event taxonomy (`measurement`), policy and consumer law (`compliance`) |
+| PWA build, service worker, install flow, TWA and Capacitor wrappers, release QA, score integrity server checks and their tests | Review dossier and submission (`store-submission`), listing text and screenshots (`app-store-optimization`), prices and what is sold (`game-monetization`, Game Monetization Contract v0.2), push logic and copy (`lifecycle-crm`), event taxonomy (`measurement`), policy and consumer law (`compliance`) |
 
 ## 1. The ladder
 
@@ -108,7 +108,7 @@ Practitioner reports say push notifications, location or sharing alone are not e
 | Web or PWA | Stripe Checkout or Payment Element, or a merchant of record | Stripe webhooks (or the merchant of record's) | Stripe is not a merchant of record: VAT per buyer country in the EU and Turkey is a decision for `compliance` and the human before the first sale; EU withdrawal consent at checkout |
 | Google Play (TWA or native) | Play Billing (Library 8 or later) | Real-time developer notifications plus server validation | Region programs for alternative billing exist; `game-monetization` decides |
 | iOS app | In-App Purchase | App Store Server Notifications plus server validation | US storefront: buttons and links to web purchase allowed without an entitlement; the commission on US link outs is under litigation (Epic v Apple: the Supreme Court agreed on 2026-06-30 to review) and Apple's current practice after 2026-06 is [Unverified]; plan for a fee |
-| Every surface | One entitlement log | The server grants, idempotent on (store id, transaction key); refunds revoke; admin compensations are grants in the same log | Game Monetization Contract v0.1, section 5 and runbook |
+| Every surface | One entitlement log | The server grants, idempotent on (store id, transaction key); refunds revoke; admin compensations are grants in the same log | Game Monetization Contract v0.2, section 5 and runbook |
 
 Never let a client grant value. The client asks whether to show an offer; the server grants after validation.
 
@@ -223,4 +223,4 @@ Privacy: input logs are gameplay data without personal data; keep them only as l
 | Research note 09 (Apple first pass review: privacy manifests, SDK list, SDK versions) | 2026-10-12 | Section 4.3 | [Official, 2026-10] |
 | Research note 05 (Game Center features, Games app) | 2026-10-12 | Section 4.2 | [Official, 2026-10] |
 | Research note 08 (web first distribution: 4.2 reports, haptics, widgets, web push, anti cheat) | 2026-10-12 | Sections 4.2, 6, 7 | [Reported, 2026-10] or [Unverified] as labeled |
-| Game Monetization Contract v0.1 (`skills/game-monetization/references/monetization-contract.md`) | 2026-10 | Attempts from the policy, boards and scopes, group rounds, entitlement log, admin grants | Internal contract |
+| Game Monetization Contract v0.2 (`skills/game-monetization/references/monetization-contract.md`) | 2026-10 | Attempts from the policy, boards and scopes, group rounds, entitlement log, admin grants | Internal contract |

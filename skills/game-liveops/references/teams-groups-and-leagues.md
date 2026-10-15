@@ -1,6 +1,6 @@
 # Teams, Groups and Leagues
 
-> Knowledge as of 2026-10. Game Center facts were read at Apple's developer pages on 2026-10-12 [Official, 2026-10]; Play Games Services leaderboard facts at developer.android.com the same day [Official, 2026-10]. Teardown facts are [Reported, 2026-10] from search summaries. Ranked fairness follows the Game Monetization Contract v0.1 ([contract](../../game-monetization/references/monetization-contract.md)). Chat, moderation and safety rules are owned by `compliance` and the game repo; this module covers the retention layer.
+> Knowledge as of 2026-10. Game Center facts were read at Apple's developer pages on 2026-10-12 [Official, 2026-10]; Play Games Services leaderboard facts at developer.android.com the same day [Official, 2026-10]. Teardown facts are [Reported, 2026-10] from search summaries. Ranked fairness follows the Game Monetization Contract v0.2 ([contract](../../game-monetization/references/monetization-contract.md)). Chat, moderation and safety rules are owned by `compliance` and the game repo; this module covers the retention layer.
 
 Gate: social structure specs are G1. Changing team size limits, league rules, matching rules or group features that players see is G3. Moderation policy changes go through `compliance`.
 
@@ -57,7 +57,7 @@ Tools:
 | Team vs team | Teams matched for a window, highest total wins | Ranked board; match by team activity; nothing sold changes totals | Share of matches decided by one player |
 | Help requests and gifts | Members send each other help or gifts | Apple allows gifting of IAP eligible items; gifts refund only to the original purchaser and may not be exchanged [Official, 2026-06]; gifts that change play follow the contract's typed grants | Gift reciprocity, no pay to get help pressure |
 
-Royal Match runs a team chest and an in team top 3 together [Reported, 2026-10]; under contract v0.1 the in team top 3 is only fair when its inputs cannot be bought (events module section 4).
+Royal Match runs a team chest and an in team top 3 together [Reported, 2026-10]; under contract v0.2 the in team top 3 is only fair when its inputs cannot be bought (events module section 4).
 
 ## 5. Leagues
 

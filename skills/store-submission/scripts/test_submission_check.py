@@ -185,6 +185,16 @@ class DossierTest(Base):
         code, out = run(root)
         self.assertIn("restore marked n/a", out)
 
+    def test_placeholder_store_gives_one_store_fail_and_scope_from_project(self):
+        root = self.copy("twa-app")
+        self.edit(os.path.join(root, "SUBMISSION.md"), "- Store: google", "- Store: <apple, google or both>")
+        code, out = run(root)
+        self.assertEqual(code, 1)
+        self.assertEqual(out.count("'Store' is missing or a placeholder"), 1, out)
+        self.assertEqual(sum(1 for ln in out.splitlines() if ln.startswith("FAIL")), 1, out)
+        self.assertNotIn("'Export compliance answered'", out)
+        self.assertNotIn("'Social media question answered'", out)
+
     def test_store_flag_overrides_dossier(self):
         root = self.copy("twa-app")
         code, out = run(root, "--store", "both")
@@ -256,6 +266,61 @@ class IOSTest(Base):
         code, out = run(root)
         self.assertEqual(code, 0, out)
         self.assertIn("No Info.plist file", out)
+
+    def test_capture_device_audio_needs_microphone_string_not_camera(self):
+        swift = "import AVFoundation\nlet mic = AVCaptureDevice.default(for: .audio)\n"
+        mic = {"NSMicrophoneUsageDescription": "<string>The app records your voice so you can read a word aloud and hear it back.</string>"}
+        code, out = run(self.native_ios(swift, mic))
+        self.assertEqual(code, 0, out)
+        self.assertNotIn("NSCameraUsageDescription", out)
+        shutil.rmtree(os.path.join(self.d, "native"))
+        cam = {"NSCameraUsageDescription": "<string>The app uses the camera so you can scan the code on a board game box.</string>"}
+        code, out = run(self.native_ios(swift, cam))
+        self.assertEqual(code, 1)
+        self.assertIn("missing purpose string NSMicrophoneUsageDescription", out)
+        self.assertNotIn("missing purpose string NSCameraUsageDescription", out)
+
+    def test_capture_device_video_still_needs_camera_string(self):
+        swift = "import AVFoundation\nlet cam = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)\n"
+        mic = {"NSMicrophoneUsageDescription": "<string>The app records your voice so you can read a word aloud and hear it back.</string>"}
+        code, out = run(self.native_ios(swift, mic))
+        self.assertEqual(code, 1)
+        self.assertIn("missing purpose string NSCameraUsageDescription", out)
+        self.assertNotIn("missing purpose string NSMicrophoneUsageDescription", out)
+
+    def test_purpose_string_only_in_another_target_does_not_satisfy_the_app(self):
+        swift = "import AVFoundation\nAVCaptureDevice.requestAccess(for: .video) { _ in }\n"
+        root = self.native_ios(swift, {})
+        cam = {"NSCameraUsageDescription": "<string>The widget uses the camera so you can scan the code on a board game box.</string>"}
+        self.write(root, "GameWidget/Info.plist", plist(cam))
+        code, out = run(root)
+        self.assertEqual(code, 1)
+        self.assertIn("missing purpose string NSCameraUsageDescription", out)
+
+    def test_purpose_string_only_in_test_target_does_not_satisfy_the_app(self):
+        swift = "import AVFoundation\nAVCaptureDevice.requestAccess(for: .video) { _ in }\n"
+        root = self.native_ios(swift, {})
+        cam = {"NSCameraUsageDescription": "<string>The tests use the camera so you can scan the code on a board game box.</string>"}
+        self.write(root, "GameUITests/Info.plist", plist(cam))
+        self.write(root, "Tests/Info.plist", plist(cam))
+        code, out = run(root)
+        self.assertEqual(code, 1)
+        self.assertIn("missing purpose string NSCameraUsageDescription", out)
+
+    def test_unidentified_main_plist_merges_and_warns_with_source_of_each_key(self):
+        swift = "import AVFoundation\nAVCaptureDevice.requestAccess(for: .video) { _ in }\n"
+        root = self.native_ios(swift, {})
+        os.remove(os.path.join(root, "Game", "Info.plist"))
+        entries = {"ITSAppUsesNonExemptEncryption": "<false/>",
+                   "NSCameraUsageDescription": "<string>The app uses the camera so you can scan the code on a board game box.</string>"}
+        self.write(root, "Sources/Info.plist", plist(entries))
+        self.write(root, "Other/Info.plist", plist({"CFBundleDisplayName": "<string>Other</string>"}))
+        code, out = run(root)
+        self.assertEqual(code, 0, out)
+        warn = [ln for ln in out.splitlines() if ln.startswith("WARN") and "could not be identified" in ln]
+        self.assertEqual(len(warn), 1, out)
+        self.assertIn(os.path.join("Sources", "Info.plist"), warn[0])
+        self.assertIn("NSCameraUsageDescription from", warn[0])
 
     def test_siwa_exception_in_dossier_turns_fail_into_warn(self):
         root = self.native_ios("import GoogleSignIn\nfunc go() { GIDSignIn.sharedInstance.signIn(withPresenting: vc) }\n", {})

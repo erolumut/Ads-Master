@@ -160,3 +160,18 @@
 | 117 | HeyGen MCP server | HeyGen | https://docs.heygen.com/docs/heygen-mcp-server | 2026 | Avatar video MCP |
 | 118 | Cloudflare Form 10-Q (Q1 2026) | SEC | https://www.sec.gov/Archives/edgar/data/0001477333/000147733326000038/cloud-20260331.htm | 2026 | Replicate acquisition closed 2025-12-01 |
 | 119 | Creative strategy research dossier (this repo) | Ads Master | research/creative-strategy.md | 2026-10-08 | Platform AI labels, Advantage+ creative, Symphony, Asset Studio facts reused |
+
+## Games (added 2026-10)
+
+Sources copied from the game reference modules in this skill, with dates and evidence labels as the modules give them. "URL not recorded" means the module named no link; search by title before relying on it.
+
+| # | Title | Publisher | URL | Date | Supports |
+|---|-------|-----------|-----|------|----------|
+| 120 | Apple App Review Guidelines 2.3.4 (previews are screen captures of the app) | See title | URL not recorded | 2026-06-08, read 2026-10-12 | Store preview rule [Official, 2026-06] |
+| 121 | AppLovin creative best practices and guidelines (support.applovin.com, axon.ai), via search | See title | URL not recorded | 2026 | 5 MB single HTML, inline assets, orientation, timer after first interaction [Reported, 2026-10] |
+| 122 | Unity Ads creative specifications and Unity Ads 3.5 creative asset specs, via search | See title | URL not recorded | 2026 and older | Under 5 MB single index.html, MRAID version conflict, `mraid.open` [Contested] |
+| 123 | Google Ads Help "About HTML5/Playable ads for App campaigns" and "About HTML5 for App campaigns", via search | See title | URL not recorded | Undated pages | 5 MB and 512 files vs 1 MB and 40 files, ExitApi, sound after interaction [Contested] |
+| 124 | Segwise "Playable ad specs: every major network compared"; Luna Labs Meta notes; other vendor guides | See title | URL not recorded | 2026-09 | Meta 2 MB single HTML and 5 MB ZIP, `FbPlayableAd.onCTAClick` [Unverified, vendor] |
+| 125 | FoxData winning game creatives | See title | URL not recorded | 2026 | Tutorial prompts in top playables, video to playable hybrids [Unverified, vendor] |
+| 126 | Research note 03 (game UA) | See title | URL not recorded | 2026-10-12 | Playable fatigue 7 to 10 days, several end cards [Unverified, vendor] |
+| 127 | Research note 08 (web distribution): Skyhold not found | See title | URL not recorded | 2026-10-12 | The frame by frame trailer example [Unverified] |

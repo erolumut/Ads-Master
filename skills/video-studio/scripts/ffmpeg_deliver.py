@@ -48,7 +48,7 @@ TARGETS = {
 # Ad name grammar from creative-strategy (file stem = ad name without the launch date).
 STEM_RE = re.compile(
     r"^(C\d{3})_([a-z]+)_([a-z0-9]+)_(unaw|prob|sol|prod|most)_"
-    r"(ugc|cre|fdr|demo|test|uvt|list|ps|stat|car|meme|pod|str|gs|ai|cat)_"
+    r"(ugc|cre|fdr|demo|test|uvt|list|ps|stat|car|meme|pod|str|gs|ai|cat|gp|play|trl)_"
     r"(H\d{2}|na)_(cr\d{2}|na)_(\d+s|na)_(916|45|11|169|na)_(v\d+)(_[a-zA-Z0-9-]+)?$"
 )
 

@@ -159,3 +159,23 @@
 | 111 | Mobile gaming IAP dipped 2% as ad spend climbed in H1 2026 | Pocketgamer.biz | https://www.pocketgamer.biz/mobile-gaming-iap-dipped-2-as-ad-spend-climbed-in-h1-2026/ | 2026 | Gaming ad spend +8% to $7B [Study] |
 | 112 | App user retention guide | Adjust | https://www.adjust.com/resources/guides/user-retention/ | older | D1, D7, D30 medians [Study, dated] |
 | 113 | Incrementality testing for mobile apps | Admiral Media | https://admiral.media/incrementality-testing-mobile-apps/ | 2026 | Geo holdout design [Practitioner] |
+
+## Games (added 2026-10)
+
+Sources copied from the game reference modules in this skill, with dates and evidence labels as the modules give them. "URL not recorded" means the module named no link; search by title before relying on it.
+
+| # | Title | Publisher | URL | Date | Supports |
+|---|-------|-----------|-----|------|----------|
+| 114 | Measure ad performance with SKAdNetwork (WWDC22 session 10038) | Apple | URL not recorded | 2022, read in the research pass | SKAN 4 postbacks [Official] |
+| 115 | DMA and apps in the EU | Apple Developer support | URL not recorded | Terms effective 2026-10-01, read 2026-10-12 | EU commission rates, 7 day link out window [Official, 2026-10] |
+| 116 | UA cost report 2026; winning creatives | FoxData | URL not recorded | 2026 | CPI by genre, creative format shares [Unverified, vendor] |
+| 117 | Soft launch guide (2025-12-16) and CPI article (2026-03-17) | gamegrowthadvisor.com | URL not recorded | 2025 to 2026 | Markets, gates, volumes [Reported, 2026-10] |
+| 118 | Soft launch gate | getbruin | URL not recorded | 2025 to 2026 | Gate rules of thumb [Reported, 2026-10] |
+| 119 | D7 ROAS article | playio | URL not recorded | 2026 | ROAS ranges [Reported, 2026-10] |
+| 120 | Liftoff blog (?p=35616) and casual report | Liftoff | URL not recorded | 2025 to 2026-04 | Curve derived targets, casual CPI and ROAS [Reported, 2026-10] |
+| 121 | What is ROAS; web shop business case | Unity | URL not recorded | ongoing | ROAS basics, web shop economics [Unverified, vendor] |
+| 122 | Ad platforms 2026; creative testing | Segwise | URL not recorded | 2026 | Network shares, testing volume [Unverified, vendor] |
+| 123 | MMP pricing comparison | Airbridge | URL not recorded | 2026 | Free tier claims [Contested] |
+| 124 | Meta Advantage+ app guide | Admiral | URL not recorded | 2025 to 2026 | Learning event volume [Reported, 2026-10] |
+| 125 | Playrix ads banned; Evony ruling | pocketgamer.biz; mishcon.com | URL not recorded | 2020-09-30; 2024 | Representative gameplay rule [Reported, 2026-10] |
+| 126 | Hybrid casual UA | AppSamurai | URL not recorded | 2025 | Hybrid casual retention and UA [Reported, 2026-10] |

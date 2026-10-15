@@ -218,4 +218,4 @@ Next read date: <date>
 | r/Devvit community posts on Developer Funds | 2025 | 2025 program tiers and cap | [Reported, 2026-10] |
 | Research note 02 (ad tech and portals), 03 (soft launch markets), 07 (teardowns), 08 (web first distribution) | 2026-10-12 | Portals, markets, prototype context | As labeled inline |
 | `measurement` `game-kpis` module, section 9 | 2026-10 | Gate procedure, decision rule, minimum cohort | Internal module |
-| Game Monetization Contract v0.1 | 2026-10 | Fairness rule that deals may not override | Internal contract |
+| Game Monetization Contract v0.2 | 2026-10 | Fairness rule that deals may not override | Internal contract |

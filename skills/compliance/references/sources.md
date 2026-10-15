@@ -173,3 +173,25 @@
 | 140 | Policy announcement: April 15, 2026 | Play Console Help | https://support.google.com/googleplay/android-developer/answer/16926792?hl=en | 2026-04-15 | Play health data | S |
 | 141 | Google to Restrict Crypto Ads in EU to MiCA-Licensed Firms | CoinDesk | https://www.coindesk.com/policy/2025/04/14/google-to-restrict-crypto-ads-in-eu-to-mica-licensed-firms | 2025-04-14 | Google crypto EU | S |
 | 142 | What Data Reveals About Meta and Google's Political Ad Ban in the EU | Tech Policy Press | https://www.techpolicy.press/what-data-reveals-about-meta-and-googles-political-ad-ban-in-the-eu/ | 2026 | TTPA effects | S |
+
+## Games (added 2026-10)
+
+Sources copied from the game reference modules in this skill, with dates and evidence labels as the modules give them. "URL not recorded" means the module named no link; search by title before relying on it.
+
+| # | Title | Publisher | URL | Date | Supports | Status |
+|---|-------|-----------|-----|------|----------|------|
+| 143 | Apple age ratings values and Kids Category pages (read in research note 05 and 09) | See title | URL not recorded | 2026-10 | GAME-APPLE-03, GAME-APPLE-04 [Official, 2026-10] | see Supports |
+| 144 | Google Play policy hub, Families (read in research note 10) | See title | URL not recorded | 2026-10 | GAME-GP-02 [Official, 2026-10] | see Supports |
+| 145 | Mondaq, Baker McKenzie, Reed Smith on the CPC key principles; PocketGamer.biz, Gaming.net, LexisNexis on the 2026-09-30 action | See title | URL not recorded | 2025-03 to 2026-10 | GAME-EU-01, GAME-EU-02 [Reported, 2026-10] | see Supports |
+| 146 | Osborne Clarke on the DSA minors guidelines; digitalfairnessact.com; Lewis Silkin DFA consultation 2026-01-14 | See title | URL not recorded | 2025-07 to 2026-10 | GAME-EU-04, GAME-EU-05 [Reported, 2026-10] | see Supports |
+| 147 | Lewis Silkin on PEGI changes | See title | URL not recorded | 2026-03-18 | GAME-EU-08 [Reported, 2026-10] | see Supports |
+| 148 | Usercentrics on CNIL and Voodoo; AGCM on Apple ATT | See title | URL not recorded | 2023, 2025-12 | GAME-EU-07 [Reported, 2026-10] | see Supports |
+| 149 | SBC News on EA and KSA; Raad van State ruling 202005769 | See title | URL not recorded | 2022 | GAME-NL-01 [Reported, 2026-10] | see Supports |
+| 150 | Lewis Silkin, Mondaq and the ASA notice PDF on loot box disclosure in app stores | See title | URL not recorded | 2026-02-26 to 2026-02-27 | GAME-UK-01 [Reported, 2026-10] | see Supports |
+| 151 | CMS on the loot box principles; Mishcon on Evony; PocketGamer.biz on Playrix | See title | URL not recorded | 2020 to 2024 | GAME-UK-02, GAME-UK-03 [Reported, 2026-10] | see Supports |
+| 152 | Hunton on FTC v Epic; FTC blog on Genshin Impact (2025-01) | See title | URL not recorded | 2022-12, 2025-01 | GAME-US-01, GAME-US-02 [Reported, 2026-10] | see Supports |
+| 153 | White and Case on COPPA; Pearl Cohen on Texas; FKKS on Utah; FPF on app store acts | See title | URL not recorded | 2025 to 2026 | GAME-US-03, GAME-US-04 [Reported, 2026-10] | see Supports |
+| 154 | Demarest on ECA Digital (Law 15.211) | See title | URL not recorded | 2025 to 2026 | GAME-BR-01 [Reported, 2026-10] | see Supports |
+| 155 | infrastructure.gov.au classification guidelines | See title | URL not recorded | 2024-09 | GAME-AU-01 [Reported, 2026-10] | see Supports |
+| 156 | Mondaq, Gün + Partners, PILC on Law 7578 and Law 5651 amendments | See title | URL not recorded | 2026-05 to 2026-09 | GAME-TR-01 [Reported, 2026-10] | see Supports |
+| 157 | Research note 06 (regulation), note 07 (teardowns: VZBV and Monopoly Go) | See title | URL not recorded | 2026-10-12 | Never and must lists, N12 [Reported, 2026-10] | see Supports |

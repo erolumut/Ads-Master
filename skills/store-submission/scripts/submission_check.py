@@ -63,10 +63,11 @@ MAX_BYTES = 1_500_000
 # Protected resources. Keys from Apple's "Protected resources" list (read 2026-10-12).
 # Each rule: (resource, regex, acceptable keys: any one satisfies).
 NATIVE_PERMISSIONS = [
-    ("camera", r"AVCaptureDevice\.(requestAccess|authorizationStatus)\(for:\s*\.video|AVCaptureDevice\.default\(|"
-               r"AVCapturePhotoOutput|AVCaptureVideoDataOutput|sourceType\s*=\s*\.camera|SourceType\.camera",
+    ("camera", r"AVCaptureDevice\.(requestAccess|authorizationStatus)\(for:\s*\.video|"
+               r"AVCaptureDevice\.default\((?![^)]*for:\s*(?:AVMediaType)?\.audio\b)|AVCapturePhotoOutput|AVCaptureVideoDataOutput|sourceType\s*=\s*\.camera|SourceType\.camera",
      ["NSCameraUsageDescription"]),
-    ("microphone", r"requestRecordPermission|AVAudioRecorder\b|AVCaptureDevice\.(requestAccess|authorizationStatus)\(for:\s*\.audio",
+    ("microphone", r"requestRecordPermission|AVAudioRecorder\b|AVCaptureDevice\.(requestAccess|authorizationStatus)\(for:\s*\.audio|"
+                   r"AVCaptureDevice\.default\([^)]*for:\s*(?:AVMediaType)?\.audio\b",
      ["NSMicrophoneUsageDescription"]),
     ("location when in use", r"requestWhenInUseAuthorization", ["NSLocationWhenInUseUsageDescription"]),
     ("location always", r"requestAlwaysAuthorization", ["NSLocationAlwaysAndWhenInUseUsageDescription"]),
@@ -278,12 +279,28 @@ def ios_inventory(root: str) -> dict:
     return inv
 
 
-def plist_keys(inv: dict) -> dict[str, object]:
+def main_plists(inv: dict) -> list[str]:
+    """Info.plist files of the app target: the one in the folder named like an .xcodeproj, next to it
+    (ios/App/App.xcodeproj -> ios/App/App/Info.plist, Game.xcodeproj -> Game/Info.plist). Empty when unsure."""
+    plists = {os.path.normpath(p): p for p in inv["plists"]}
+    found: list[str] = []
+    for proj in inv["xcodeproj"]:
+        stem = os.path.basename(proj)[: -len(".xcodeproj")]
+        cand = os.path.normpath(os.path.join(os.path.dirname(proj), stem, "Info.plist"))
+        if cand in plists and plists[cand] not in found:
+            found.append(plists[cand])
+    return found
+
+
+def plist_keys(inv: dict, plist_paths: list[str] | None = None,
+               sources: dict[str, str] | None = None) -> dict[str, object]:
     keys: dict[str, object] = {}
-    for path in inv["plists"]:
+    for path in inv["plists"] if plist_paths is None else plist_paths:
         data = load_plist(path)
         if data is not None:
             for k, v in data.items():
+                if k not in keys and sources is not None:
+                    sources[k] = path
                 keys.setdefault(k, v)
     for path in inv["pbx"]:
         for k, v in re.findall(r"INFOPLIST_KEY_([A-Za-z0-9_]+)\s*=\s*\"?([^\";\n]*)\"?;", read(path)):
@@ -307,7 +324,14 @@ def check_ios(root: str, deps: set[str], dossier: dict | None, rep: Report) -> d
     if not info["present"]:
         rep.unseen.append("No iOS project found (no .xcodeproj or Info.plist): iOS checks skipped")
         return info
-    keys = plist_keys(inv)
+    mains = main_plists(inv)
+    sources: dict[str, str] = {}
+    keys = plist_keys(inv, mains or None, sources)
+    if len(inv["plists"]) > 1 and not mains:
+        named = ", ".join(f"{k} from {os.path.relpath(sources[k], root)}" for k in sorted(sources)
+                          if k.endswith("UsageDescription") or k.startswith("ITS"))
+        rep.add("WARN", "ios", "several Info.plist files and the app target's could not be identified, so their keys are "
+                               "merged (other targets may supply keys the app lacks): " + (named or "no purpose or export keys"))
     if not inv["plists"]:
         rep.unseen.append("No Info.plist file: keys were read from INFOPLIST_KEY_ build settings only")
     capacitor = inv["capacitor"] or "@capacitor/ios" in deps or "@capacitor/core" in deps
@@ -597,6 +621,8 @@ def stores_in_scope(store_flag: str | None, fields: dict[str, str], ios: bool, a
     if store_flag:
         return {"apple", "google"} if store_flag == "both" else {store_flag}
     value = fields.get(K["store"].lower(), "").lower()
+    if blank(value):  # unfilled (placeholder): 'need' reports it once, the scope comes from the project
+        value = ""
     found = {s for s, words in (("apple", ("apple", "app store", "ios")), ("google", ("google", "play", "android")))
              if any(w in value for w in words)}
     if "both" in value:

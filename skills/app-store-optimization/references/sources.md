@@ -119,6 +119,26 @@ How to read the "Supports" column: it names the claims a source backs and the la
 - Ask Play inputs and markets; Gemini app discovery rollout.
 - Cross-localization mapping for the 11 languages added in 2026-03.
 
+## Games (added 2026-10)
+
+Sources copied from the game reference modules in this skill, with dates and evidence labels as the modules give them. "URL not recorded" means the module named no link; search by title before relying on it.
+
+| # | Title | Publisher | URL | Date | Supports |
+|---|-------|-----------|-----|------|----------|
+| 69 | Games app | Apple Developer | developer.apple.com/games-app | read 2026-10-12 | Section 1, Game Center recommendations, Top Played [Official, 2026-10] |
+| 70 | Game Center | Apple Developer | developer.apple.com/game-center | read 2026-10-12 | Section 2 [Official, 2026-10] |
+| 71 | Games | Apple Developer | developer.apple.com/games | read 2026-10-12 | Automatic Games app presence [Official, 2026-10] |
+| 72 | In-App Events | Apple Developer | developer.apple.com/app-store/in-app-events | read 2026-10-12 | Section 3 limits, badges, candidates [Official, 2026-10] |
+| 73 | Product page | Apple Developer | developer.apple.com/app-store/product-page | read 2026-10-12 | Previews, screenshots, promotional text, in-app purchases on the page [Official, 2026-10] |
+| 74 | Age ratings values and definitions | App Store Connect Help | URL not recorded | read 2026-10-12 | Section 11 [Official, 2026-10] |
+| 75 | Play Games Services overview; achievements | Android Developers | developer.android.com/games/pgs | read 2026-10-12 (updated 2026-10-06) | Section 5 [Official, 2026-10] |
+| 76 | Get started with Google Play Games on PC | Android Developers | developer.android.com/games/playgames/start | read 2026-10-12 (updated 2026-07-14) | Section 6 [Official, 2026-10] |
+| 77 | Play Points overview | Android Developers | developer.android.com/guide/playpoints | read 2026-10-12 (updated 2026-10-06) | Section 7 [Official, 2026-10] |
+| 78 | Google Play Points program page; promotional content program page | Play Console (play.google.com/console/about/programs) | URL not recorded | seen as search summaries 2026-10-12 | Uplift claims, content types, featuring request [Reported, 2026-10] |
+| 79 | PEGI 2026 criteria coverage | RPC, Reed Smith, Lewis Silkin (2026-03-18), Pocketgamer.biz, VGC | URL not recorded | 2026 | PEGI 16 for paid random items and other criteria [Reported, 2026-10]; reclassification [Contested] |
+| 80 | CAP enforcement notice on loot boxes in app store listings | ASA and CAP via Lewis Silkin (2026-02-27) | URL not recorded | 2026-02-26 | UK label [Reported, 2026-10] |
+| 81 | Games and virtual currencies rule pack | Ads Master `compliance` | URL not recorded | 2026-10 | Jurisdiction rows (BR, BE, UK, PEGI) |
+
 ## Source hygiene for this package
 
 1. Before a G3 change rests on a claim marked [Reported] or [Unverified], read the official page in full or check the live console, and record the result with the `ads-verify` skill in `ads-master/VERIFIED.md`.

@@ -130,7 +130,7 @@ How to read the "Supports" column: it names the claims a source backs and the la
 
 | Source | Supports |
 |--------|----------|
-| [Monetization contract](monetization-contract.md) v0.1 | Modes, boards, typed grants, the six types, events, policy keys, runbook, conformance test |
+| [Monetization contract](monetization-contract.md) v0.2 | Modes, boards, typed grants, the six types, events, policy keys, runbook, conformance test |
 | `scripts/monetization-policy.schema.json`, `scripts/monetization_check.py`, `scripts/monetization_conformance.py` and their samples | Structure, mechanical fairness and consumer checks, cross artefact checks |
 | The compliance skill (pricing, promotions and consumer law; country notes) | EU withdrawal function SUB-EU-01 from 2026-06-19; EU 30 day and Turkey 10 day price reduction rules; the CPC action of 2026-09-30 on virtual currencies |
 | The measurement skill (tracking plan as code; game KPIs) | Tracking plan format and types; metric definitions |

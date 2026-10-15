@@ -13,7 +13,7 @@
         "point": {"type": "enum", "values": ["on_attempts_exhausted", "on_season_start", "custom_practice_done"]},
         "offer_id": {"type": "enum", "values": ["encore_at_game_over", "season_pass_at_season_start", "plus_after_practice"]},
         "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore"]},
-        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "contract_version": {"type": "enum", "values": ["0.2"]},
         "policy_revision": {"type": "num", "min": 1, "max": 10000}
       }
     },
@@ -27,7 +27,7 @@
         "point": {"type": "enum", "values": ["on_attempts_exhausted", "on_season_start", "custom_practice_done"]},
         "offer_id": {"type": "enum", "values": ["encore_at_game_over", "season_pass_at_season_start", "plus_after_practice"]},
         "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore"]},
-        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "contract_version": {"type": "enum", "values": ["0.2"]},
         "policy_revision": {"type": "num", "min": 1, "max": 10000}
       }
     },
@@ -41,7 +41,7 @@
         "point": {"type": "enum", "values": ["on_attempts_exhausted", "on_season_start", "custom_practice_done"]},
         "offer_id": {"type": "enum", "values": ["encore_at_game_over", "season_pass_at_season_start", "plus_after_practice"]},
         "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore"]},
-        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "contract_version": {"type": "enum", "values": ["0.2"]},
         "policy_revision": {"type": "num", "min": 1, "max": 10000}
       }
     },
@@ -52,7 +52,7 @@
         "product": {"type": "enum", "values": ["aloo"]},
         "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore"]},
         "store": {"type": "enum", "values": ["web", "apple", "google"]},
-        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "contract_version": {"type": "enum", "values": ["0.2"]},
         "policy_revision": {"type": "num", "min": 1, "max": 10000}
       }
     },
@@ -68,7 +68,7 @@
         "transaction_key": {"type": "id"},
         "value": {"type": "num", "min": 0, "max": 1000},
         "currency": {"type": "enum", "values": ["EUR", "USD", "GBP", "TRY"]},
-        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "contract_version": {"type": "enum", "values": ["0.2"]},
         "policy_revision": {"type": "num", "min": 1, "max": 10000}
       }
     },
@@ -80,7 +80,7 @@
         "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore"]},
         "store": {"type": "enum", "values": ["web", "apple", "google"]},
         "reason": {"type": "enum", "values": ["cancelled", "declined", "pending_timeout", "error"]},
-        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "contract_version": {"type": "enum", "values": ["0.2"]},
         "policy_revision": {"type": "num", "min": 1, "max": 10000}
       }
     },
@@ -96,7 +96,7 @@
         "reason": {"type": "enum", "values": ["refund", "chargeback", "store_revocation"]},
         "value": {"type": "num", "min": 0, "max": 1000},
         "currency": {"type": "enum", "values": ["EUR", "USD", "GBP", "TRY"]},
-        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "contract_version": {"type": "enum", "values": ["0.2"]},
         "policy_revision": {"type": "num", "min": 1, "max": 10000}
       }
     },
@@ -107,7 +107,7 @@
         "product": {"type": "enum", "values": ["aloo"]},
         "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore", "admin"]},
         "owner_type": {"type": "enum", "values": ["user", "group"]},
-        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "contract_version": {"type": "enum", "values": ["0.2"]},
         "policy_revision": {"type": "num", "min": 1, "max": 10000}
       }
     },
@@ -119,7 +119,7 @@
         "sku": {"type": "enum", "values": ["season_pass", "aloo_plus_monthly", "encore", "admin"]},
         "owner_type": {"type": "enum", "values": ["user", "group"]},
         "reason": {"type": "enum", "values": ["refund", "chargeback", "store_revocation", "expired"]},
-        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "contract_version": {"type": "enum", "values": ["0.2"]},
         "policy_revision": {"type": "num", "min": 1, "max": 10000}
       }
     },
@@ -132,7 +132,7 @@
         "point": {"type": "enum", "values": ["on_attempts_exhausted"]},
         "placement_id": {"type": "enum", "values": ["rewarded_replay"]},
         "ad_format": {"type": "enum", "values": ["rewarded"]},
-        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "contract_version": {"type": "enum", "values": ["0.2"]},
         "policy_revision": {"type": "num", "min": 1, "max": 10000}
       }
     },
@@ -145,7 +145,7 @@
         "point": {"type": "enum", "values": ["on_attempts_exhausted"]},
         "placement_id": {"type": "enum", "values": ["rewarded_replay"]},
         "ad_format": {"type": "enum", "values": ["rewarded"]},
-        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "contract_version": {"type": "enum", "values": ["0.2"]},
         "policy_revision": {"type": "num", "min": 1, "max": 10000}
       }
     },
@@ -157,7 +157,7 @@
         "mode_id": {"type": "enum", "values": ["practice"]},
         "point": {"type": "enum", "values": ["on_attempts_exhausted"]},
         "placement_id": {"type": "enum", "values": ["rewarded_replay"]},
-        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "contract_version": {"type": "enum", "values": ["0.2"]},
         "policy_revision": {"type": "num", "min": 1, "max": 10000}
       }
     },
@@ -170,7 +170,7 @@
         "point": {"type": "enum", "values": ["on_attempts_exhausted"]},
         "placement_id": {"type": "enum", "values": ["rewarded_replay"]},
         "error": {"type": "enum", "values": ["no_fill", "timeout", "consent_missing", "blocked", "other"]},
-        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "contract_version": {"type": "enum", "values": ["0.2"]},
         "policy_revision": {"type": "num", "min": 1, "max": 10000}
       }
     },
@@ -184,7 +184,7 @@
         "value": {"type": "num", "min": 0, "max": 10},
         "currency": {"type": "enum", "values": ["USD", "EUR"]},
         "precision": {"type": "enum", "values": ["exact", "publisher_defined", "estimated"]},
-        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "contract_version": {"type": "enum", "values": ["0.2"]},
         "policy_revision": {"type": "num", "min": 1, "max": 10000}
       }
     },
@@ -196,7 +196,7 @@
         "ads": {"type": "bool"},
         "personalized_ads": {"type": "bool"},
         "att": {"type": "enum", "values": ["authorized", "denied", "not_determined", "n_a"]},
-        "contract_version": {"type": "enum", "values": ["0.1"]},
+        "contract_version": {"type": "enum", "values": ["0.2"]},
         "policy_revision": {"type": "num", "min": 1, "max": 10000}
       }
     }

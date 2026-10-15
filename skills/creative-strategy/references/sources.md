@@ -144,6 +144,21 @@
 | Meta Ads MCP (community, Pipeboard) | https://github.com/pipeboard-co/meta-ads-mcp | Meta Marketing API access for LLM agents | Community; verify security and permissions |
 | Meta Marketing API Insights | https://developers.facebook.com/docs/marketing-api/insights/ | Ad level metrics including video plays | Not re-fetched |
 
+## Games (added 2026-10)
+
+Sources copied from the game reference modules in this skill, with dates and evidence labels as the modules give them. "URL not recorded" means the module named no link; search by title before relying on it.
+
+| Title | Publisher | URL | Date | Supports |
+|-------|-----------|-----|------|----------|
+| PocketGamer.biz, "Why Playrix's misleading ads finally got banned"; FKKS advertising law blog | See title | URL not recorded | 2020-09 to 2020-10 | Playrix ruling 2020-09-30, disclaimer, mini games rare and late [Reported, 2026-10] |
+| Mishcon de Reya, "ASA rules mobile game ad was misleading: gameplay depicted did not reflect the core game playing experience"; DWF ASA round up 2024-04-10 | See title | URL not recorded | 2024-04 | Evony ruling 2024-04-03, real footage still misleading, retention argument rejected [Reported, 2026-10] |
+| Lewis Silkin and Mondaq on the CAP enforcement notice on loot boxes in app stores; ASA notice PDF (search result) | See title | URL not recorded | 2026-02 | Listing label wording, monitoring from 2026-05-26 [Reported, 2026-10] |
+| VGC, mobilegamer.biz, Hitmarker on the BBC loot box ad investigation | See title | URL not recorded | 2024-11 | 2 of 26 disclosed; Monopoly Go; ASA monitoring [Reported, 2026-10] |
+| Segwise, Color Block Jam creative analysis | See title | URL not recorded | 2025-04 | Unsolved level, ASMR sound, "No Ads" messaging [Unverified, vendor] |
+| FoxData, winning game creatives | See title | URL not recorded | 2026 | Video share of game creative, playable tutorial prompts [Unverified, vendor] |
+| Liftoff blog, deriving D7 ROAS targets | See title | URL not recorded | 2026-04 | D7 target from own D180 multiple [Reported, 2026-10] |
+| Research notes 03 (game UA), 06 (regulation), 07 (teardowns: Royal Match, Color Block Jam, Block Blast, Monopoly Go) | See title | URL not recorded | 2026-10-12 | Stage metrics, volume reports, celebrity and fail ads. Label: Mixed, as labeled inline |
+
 ## Re-verification queue (highest priority first)
 
 Verified on 2026-10-08 (see research dossier sources 68 to 100): Creative diversity rating definition, Advantage+ enhancement default date (2026-02), TikTok Symphony and AIGC ad rule, Google AI labeling update and Asset Studio, ChatGPT ad formats, EU Article 50 status after the omnibus, New York and California laws, ABCD figures and method. Still open:

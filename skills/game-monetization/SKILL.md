@@ -260,7 +260,7 @@ Known items to re-verify first: H5 Games Ads beta status and rules; Apple US lin
 
 ## Reference index
 
-- [Monetization contract](references/monetization-contract.md): the reusable contract (v0.1): modes and boards, the ranked and progression rules, typed grants, the six types, events, policy keys, runbook and the product repo conformance test.
+- [Monetization contract](references/monetization-contract.md): the reusable contract (v0.2): modes and boards, the ranked and progression rules, typed grants, the six types, events, policy keys, runbook and the product repo conformance test.
 - [Policy file and conformance](references/policy-file-and-conformance.md): writing the policy, the tracking plan events it needs, the store declarations file, running and reading both scripts, CI wiring.
 - [Economy and catalog](references/economy-and-catalog.md): primitives, currency rules, the sources and sinks sheet, SKUs and store ids, ladder shape, random items, default stacks, change protocol.
 - [Offers and fail moments](references/offers-and-fail-moments.md): the fairness rule, the offer point map, fail moment, attempts exhausted, the Encore pattern, boosters, season pass, subscriptions, starter packs, piggy bank, ad removal, caps, copy rules.

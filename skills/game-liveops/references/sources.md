@@ -87,7 +87,7 @@ How to read the "Supports" column: it names the claims a source backs and the la
 
 | # | Title | Publisher | Path | Date | Supports |
 |---|-------|-----------|------|------|----------|
-| 45 | Game Monetization Contract v0.1 | Ads Master | `skills/game-monetization/references/monetization-contract.md` | 2026-10 | Modes, boards with scope, typed grants, `streak_protection`, offer points, admin grants, minors runbook |
+| 45 | Game Monetization Contract v0.2 | Ads Master | `skills/game-monetization/references/monetization-contract.md` | 2026-10 | Modes, boards with scope, typed grants, `streak_protection`, offer points, admin grants, minors runbook |
 | 46 | Sample size and design effect arithmetic | This package | `references/experiments-and-remote-config.md` section 3 | 2026-10-15 | Two proportion sample sizes; unequal holdout totals; design effect examples (computed, not benchmarks) |
 
 ## Where the evidence is thin (feeds the verification queue)

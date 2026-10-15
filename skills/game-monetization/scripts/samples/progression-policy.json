@@ -1,5 +1,5 @@
 {
-  "contractVersion": "0.1",
+  "contractVersion": "0.2",
   "policyRevision": 1,
   "_note": "Example policy for a level based puzzle game (Royal Match style progression): boosters before a level, extra moves after a fail, coins with real money prices shown, interstitials held back early, rewarded double coins, and a weekly race whose board nothing can buy into. Placeholder prices.",
   "product": {

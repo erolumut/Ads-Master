@@ -1,5 +1,5 @@
 {
-  "contractVersion": "0.1",
+  "contractVersion": "0.2",
   "policyRevision": 1,
   "_note": "Example policy for a daily social mini game product (many mini games inside): two counted tries a day decide group points and the global board; practice and replays never count; the Encore is a bonus round every group member receives, written only to group boards. Prices are placeholders, not pricing decisions.",
   "product": {

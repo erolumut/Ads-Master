@@ -229,5 +229,5 @@ Approval: <G3 line>
 | Research note 07 (teardowns: VZBV objection to Monopoly Go) | 2026-10-12 | Absence penalties, pop up offers, opaque currencies | [Reported, 2026-10] |
 | Research note 03 (organic channels: TikTok, Reddit, YouTube, Discord) | 2026-10-12 | Community roles | [Reported, 2026-10] |
 | Research note 08 (daily games: Wordle share grid, LinkedIn games streaks) | 2026-10-12 | Share formats that hide answers, streak patterns | [Reported, 2026-10] |
-| Game Monetization Contract v0.1 | 2026-10 | `streak_protection`, offers only from the policy, countdown rule for minors | Internal contract |
+| Game Monetization Contract v0.2 | 2026-10 | `streak_protection`, offers only from the policy, countdown rule for minors | Internal contract |
 | [Games and virtual currencies](../../compliance/references/games-and-virtual-currencies.md) | 2026-10 | Rule IDs for minors, urgency and pressure | Rule pack |

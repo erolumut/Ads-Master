@@ -127,6 +127,26 @@ Research date: 2026-10-09. Direct page fetching was blocked in the research envi
 - Wadhwa and Zhang (2015), round vs non-round prices, Journal of Consumer Research.
 - Directive 98/6/EC (price indication), Directive 2019/2161 (Omnibus), Regulation 2022/720 (VBER).
 
+## Games (added 2026-10)
+
+Sources copied from the game reference modules in this skill, with dates and evidence labels as the modules give them. "URL not recorded" means the module named no link; search by title before relying on it.
+
+| # | Title | Publisher | URL | Date | Supports |
+|---|-------|-----------|-----|------|----------|
+| 80 | Set a price for an In-App Purchase | App Store Connect Help | developer.apple.com/help/app-store-connect | read 2026-10-12 | Base storefront, 174 storefronts, 43 currencies, 800 + 100 price points, automatic updates [Official, 2026-10] |
+| 81 | DMA and apps in the EU | Apple Developer support | URL not recorded | terms effective 2026-10-01, read 2026-10-12 | EU commission rates, 7 day window, CTC, removed fees [Official, 2026-10] |
+| 82 | App Review Guidelines 3.1.1, 3.1.1(a), 3.1.3(b) | Apple | URL not recorded | 2026-06-08 version | Odds, US link outs, multiplatform items [Official, 2026-10] |
+| 83 | Play Console Help on default prices and one-time products | Google | URL not recorded | seen as search summaries 2026-10-12 | Conversion, pricing patterns, per region prices [Reported, 2026-10] |
+| 84 | Play billing and fee changes (Android Developers Blog 2026-06; Pocketgamer.biz; Android Headlines) | Google and press | URL not recorded | 2026-06 | US, UK and EEA fees from 2026-06-30, Level Up rate [Reported, 2026-10] |
+| 85 | Epic v Apple coverage | Fenwick, The Next Web, Courthouse News | URL not recorded | 2025-12 to 2026-08 | US link out status [Reported, 2026-10] |
+| 86 | CPC key principles on in-game virtual currencies | European Commission CPC network via law firm summaries | URL not recorded | 2025-03-21 | Real money display, leftovers, withdrawal [Reported, 2026-10] |
+| 87 | Piggy banks in top games | maf.ad (Sensor Tower data) | URL not recorded | 2025 | Hexa Sort piggy bank [Reported, 2026-10] |
+| 88 | Color Block Jam teardown | Segwise | URL not recorded | 2025-04 | No Ads bundle price [Reported, 2026-10] |
+| 89 | Royal Match teardowns | fungies.io, FoxData, Naavik | URL not recorded | 2024 to 2025 | Continue escalation, Royal Pass [Reported, 2026-10] |
+| 90 | Web shop business case and provider pricing | Unity, Xsolla, Stash | URL not recorded | 2025 to 2026 | Web shop economics [Unverified, vendor claim] |
+| 91 | Games and virtual currencies rule pack | Ads Master `compliance` | URL not recorded | 2026-10 | Bundle arithmetic, web sales checks, minors |
+| 92 | Game Monetization Contract v0.2 | Ads Master `game-monetization` | URL not recorded | 2026-10 | Price fields, fairness rule |
+
 ## Verification queue (clear with the `ads-verify` skill before decisions depend on them)
 
 Pass of 2026-10-09: every row was re-checked from search result summaries; no page was opened in full, so the best level reached is L3. `[Reported, 2026-10]` means two or more independent dated sources agreed (the month is the check month); it is enough for planning, not for a price, spend or live change (that needs L1, L2 or L4). Rows 65 to 79 above are the new sources.

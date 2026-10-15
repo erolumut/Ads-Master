@@ -115,9 +115,9 @@ Never punish a dispute beyond the refunded item (for example by locking the acco
 
 | Metric | Definition source | Healthy logic |
 |--------|-------------------|---------------|
-| Refund rate | measurement's `game-kpis` (if it does not define it yet, propose "refunded value / gross purchase value by purchase cohort and store" through a handoff and do not report it until `METRICS.md` has it) | At or below the game's own trailing 8 weeks; any SKU above 2x its own median is a finding (house heuristic) |
+| Refund rate | measurement's `game-kpis` section 2 (value and count, by store and purchase month); report it once `METRICS.md` carries the project's definition | At or below the game's own trailing 8 weeks; any SKU above 2x its own median is a finding (house heuristic) |
 | Chargeback rate | Same | Same |
-| Complaint rate | Complaints about purchases or ads (support tickets, store reviews tagged by `review_themes.py`, social) per 1,000 DAU; definition agreed with measurement | Flat or falling after every monetization change |
+| Complaint rate | measurement's `game-kpis` section 2: monetization complaints (tagged tickets, 1 and 2 star payment or ads reviews, chargebacks) per 1,000 DAU per week | Flat or falling after every monetization change |
 | Grant reconciliation gap | Store and Stripe completed transactions without a ledger grant, and the reverse | Zero; any gap is an incident |
 
 ## 13. Operations runbook

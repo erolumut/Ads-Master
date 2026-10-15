@@ -128,6 +128,21 @@
 | 90 | shadcn/ui registry drawer and app dependencies | shadcn (repo) | https://github.com/shadcn-ui/ui | 2026-10 | Drawer imports vaul 1.1.2 |
 | 91 | Radix Primitives | WorkOS (repo) | https://github.com/radix-ui/primitives | 2026-10 | Active repository |
 
+## Games (added 2026-10)
+
+Sources copied from the game reference modules in this skill, with dates and evidence labels as the modules give them. "URL not recorded" means the module named no link; search by title before relying on it.
+
+| # | Title | Publisher | URL | Date | Supports |
+|---|-------|-----------|-----|------|----------|
+| 92 | Apple App Review Guidelines 2.5.2, 3.1.1, 3.1.1(a), 3.1.3(b), 4.2, 4.2.2, 4.2.3, 4.7, 4.8, 5.1.1(v) (developer.apple.com/app-store/review/guidelines) | See title | URL not recorded | 2026-06-08, read 2026-10-12 | Section 4.1, payments [Official, 2026-06] |
+| 93 | Android Developers, Trusted Web Activities guide version 2 (developer.android.com) | See title | URL not recorded | Updated 2026-02-26, read 2026-10-12 | Digital Asset Links, wrong signature warning, Custom Tab fallback [Official, 2026-02] |
+| 94 | Android Developers, Play Billing Library deprecation FAQ | See title | URL not recorded | Updated 2026-09-09, read 2026-10-12 | Billing Library 8 by 2026-08-31, extension to 2026-11-01 [Official, 2026-09] |
+| 95 | Research note 10 (Play first launch: target API, vitals, AAB, Data safety, closed test) | See title | URL not recorded | 2026-10-12 | Section 3 Opened pages [Official, 2026-10]; support pages [Reported, 2026-10] |
+| 96 | Research note 09 (Apple first pass review: privacy manifests, SDK list, SDK versions) | See title | URL not recorded | 2026-10-12 | Section 4.3 [Official, 2026-10] |
+| 97 | Research note 05 (Game Center features, Games app) | See title | URL not recorded | 2026-10-12 | Section 4.2 [Official, 2026-10] |
+| 98 | Research note 08 (web first distribution: 4.2 reports, haptics, widgets, web push, anti cheat) | See title | URL not recorded | 2026-10-12 | Sections 4.2, 6, 7 [Reported, 2026-10] or [Unverified] as labeled |
+| 99 | Game Monetization Contract v0.2 (`skills/game-monetization/references/monetization-contract.md`) | See title | URL not recorded | 2026-10 | Attempts from the policy, boards and scopes, group rounds, entitlement log, admin grants. Label: Internal contract |
+
 ## Gaps and conflicts to recheck
 
 - Liquid July '26 developer preview details (tags and Theme Check rule names) come from one secondary source.

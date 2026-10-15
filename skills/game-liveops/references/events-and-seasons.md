@@ -1,6 +1,6 @@
 # Events and Seasons
 
-> Knowledge as of 2026-10. Teardown facts (Royal Match, Monopoly Go) come from search summaries of trade press and analyst teardowns [Reported, 2026-10] or a single source [Unverified]; they describe what a hit did, not what works for every game. Apple event badge definitions were read at the official page on 2026-10-12 [Official, 2026-10]. Fairness rules come from the Game Monetization Contract v0.1 ([contract](../../game-monetization/references/monetization-contract.md)).
+> Knowledge as of 2026-10. Teardown facts (Royal Match, Monopoly Go) come from search summaries of trade press and analyst teardowns [Reported, 2026-10] or a single source [Unverified]; they describe what a hit did, not what works for every game. Apple event badge definitions were read at the official page on 2026-10-12 [Official, 2026-10]. Fairness rules come from the Game Monetization Contract v0.2 ([contract](../../game-monetization/references/monetization-contract.md)).
 
 Gate: event specs, reward ladders and season plans are G1. Scheduling an event live, changing an event that players can see, ending one early or changing season dates is G3. Prices and offers inside events belong to `game-monetization`.
 
@@ -74,12 +74,12 @@ The contract defines a ranked mode as anything that ranks people against each ot
 | Milestone track, team chest, community goal, collection | No: progress toward a goal, not a rank | Any play, including progression play where boosters and continues are sold | Per progression rules (fixed prices, `maxPerAttempt`, no escalation) |
 | Race, cohort leaderboard, in team top 3, league, tournament, streak board | Yes: a ranked board with scope `group` (cohort, team, league division) or `everyone` | Only play that no purchase, ad or reward changes: a dedicated ranked mode with constant `countedAttemptsPerDay` (the contract's progression sample has a weekly race nobody can buy into) | Only `cosmetic`, `access` and `pass` grants; a `round` only from a social purchase to boards no wider than its recipients |
 
-Consequence: a race in a level game that ranks players by levels beaten, while boosters and extra moves are sold for those levels, is a ranked board fed by purchasable play. Cohort races such as Royal Match's King's Cup are commonly described this way [Unverified mechanism: the notes give its length and cohort size, not its scoring], and Ads Master does not propose that shape under contract v0.1. Equivalent goals that keep fairness:
+Consequence: a race in a level game that ranks players by levels beaten, while boosters and extra moves are sold for those levels, is a ranked board fed by purchasable play. Cohort races such as Royal Match's King's Cup are commonly described this way [Unverified mechanism: the notes give its length and cohort size, not its scoring], and Ads Master does not propose that shape under contract v0.2. Equivalent goals that keep fairness:
 1. A milestone version (beat N levels in 2 days for a reward), with no rank among players.
 2. A race on a dedicated event level set played without boosters or continues, with constant counted attempts.
 3. A team chest (collective goal).
 
-A product owner who wants a purchasable ranked race takes it to `game-monetization` as a contract change; liveops does not ship it under v0.1.
+A product owner who wants a purchasable ranked race takes it to `game-monetization` as a contract change; liveops does not ship it under the current contract.
 
 ## 5. Cohorts for competitive formats
 

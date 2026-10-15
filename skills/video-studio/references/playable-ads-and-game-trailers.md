@@ -187,7 +187,7 @@ Then:
 1. Rebuild audio from `soundEvents()`: mix the game's own sound files at each event time with FFmpeg (`adelay` per event into `amix`; `amix` lowers each input's level by default, so check the normalize option in your FFmpeg version) or render the game's audio graph in an `OfflineAudioContext`. Add licensed music per [Avatars, voice and music](avatars-voice-and-music.md).
 2. Compose the ad in HyperFrames: the rendered gameplay MP4 becomes a `<video class="clip">` layer under the hook text, captions and end card, using the composition skeleton and determinism checklist in [Code-driven motion](code-driven-motion.md) sections 3 and 5. Variants (hooks, languages, end cards) come from the template build in section 6 of that module.
 3. Deliver platform files and QA overlays with [ffmpeg_deliver.py](../scripts/ffmpeg_deliver.py) and the presets in [Platform specs and safe zones](platform-specs-and-safe-zones.md).
-4. Name files with the creative-strategy grammar. The grammar has no gameplay or playable format code yet; use `demo` for gameplay cuts and record the level id and seed in the registry row until `creative-strategy` extends the format codes.
+4. Name files with the creative-strategy grammar. Use the game format codes: `gp` for gameplay cuts, `play` for playable builds, `trl` for trailers. Record the level id and seed in the registry row.
 
 Speed: one screenshot per frame is slow on long shots. Split a shot into frame ranges and render ranges in parallel browser instances; each instance calls `init` with the same seed and fast forwards the simulation without drawing to its first frame (this needs simulation and drawing to be separable in the game code). Concatenate the parts with FFmpeg's concat demuxer.
 

@@ -1,6 +1,6 @@
-# Game Monetization Contract (v0.1)
+# Game Monetization Contract (v0.2)
 
-> The reusable way every game product earns money without breaking fairness, store rules or consumer law. Ads Master owns this contract; each product's own repo implements it once and carries a conformance test. Contract version `0.1`, 2026-10. Drafted from a real integration (a daily social mini game product with two counted tries a day, group points, 21 day seasons and a practice level) and read against a second architecture (a board game platform whose games are pure reducer modules), then reviewed twice by a second model; both reviews are folded in.
+> The reusable way every game product earns money without breaking fairness, store rules or consumer law. Ads Master owns this contract; each product's own repo implements it once and carries a conformance test. Contract version `0.2`, 2026-10 (0.2 adds a required `offer_id` on offer events; the checkers still accept 0.1 policies). Drafted from a real integration (a daily social mini game product with two counted tries a day, group points, 21 day seasons and a practice level) and read against a second architecture (a board game platform whose games are pure reducer modules), then reviewed twice by a second model; both reviews are folded in.
 
 ## 1. Why a contract
 
@@ -132,7 +132,7 @@ Tax note: selling digital goods on the web in the EU and Turkey creates VAT duti
 
 ## 6. Events (one taxonomy for every product)
 
-Every offer and ad emits these events. Names and property values are snake_case so strict event catalogs accept them. Properties: `product`, `game` (the mini game or module when there is one), `mode_id`, `point`, `placement_id` or `sku`, `contract_version`, `policy_revision`. `monetization_conformance.py` fails when a placement or SKU has no event coverage in the tracking plan.
+Every offer and ad emits these events. Names and property values are snake_case so strict event catalogs accept them. Properties: `product`, `game` (the mini game or module when there is one), `mode_id`, `point`, `placement_id` or `sku`, `offer_id` on the three offer events (required from 0.2, so two offers with the same SKU, mode and point stay apart in the data), `contract_version`, `policy_revision`. `monetization_conformance.py` fails when a placement or SKU has no event coverage in the tracking plan.
 
 | Event | When |
 |-------|------|
@@ -151,7 +151,7 @@ Schema: `scripts/monetization-policy.schema.json`. Examples: `scripts/samples/al
 
 | Key | Holds |
 |-----|-------|
-| `contractVersion`, `policyRevision` | `"0.1"`; an integer that goes up with every change |
+| `contractVersion`, `policyRevision` | `"0.2"` (`"0.1"` still accepted); an integer that goes up with every change |
 | `product` | id, platforms, audience (minimum age, kids mode), regions where it sells |
 | `stores` | Each store id with its provider and platforms (`web`: stripe, `apple`, `google`) |
 | `currencies` | Virtual currencies with `purchasable` and `showRealMoneyPrice` |

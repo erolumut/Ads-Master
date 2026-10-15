@@ -7,6 +7,7 @@
       "owner": "game-monetization",
       "destinations": ["analytics"],
       "props": {
+        "offer_id": {"type": "enum", "values": ["moves_on_fail", "boosters_before_level", "coins_in_shop", "frame_in_race"]},
         "product": {"type": "enum", "values": ["example-puzzle"]},
         "mode_id": {"type": "enum", "values": ["levels", "weekly_race"]},
         "point": {"type": "enum", "values": ["on_fail", "on_level_start", "on_level_end", "on_menu"]},
@@ -20,6 +21,7 @@
       "owner": "game-monetization",
       "destinations": ["analytics"],
       "props": {
+        "offer_id": {"type": "enum", "values": ["moves_on_fail", "boosters_before_level", "coins_in_shop", "frame_in_race"]},
         "product": {"type": "enum", "values": ["example-puzzle"]},
         "mode_id": {"type": "enum", "values": ["levels", "weekly_race"]},
         "point": {"type": "enum", "values": ["on_fail", "on_level_start", "on_level_end", "on_menu"]},
@@ -34,6 +36,7 @@
       "owner": "game-monetization",
       "destinations": ["analytics"],
       "props": {
+        "offer_id": {"type": "enum", "values": ["moves_on_fail", "boosters_before_level", "coins_in_shop", "frame_in_race"]},
         "product": {"type": "enum", "values": ["example-puzzle"]},
         "mode_id": {"type": "enum", "values": ["levels", "weekly_race"]},
         "point": {"type": "enum", "values": ["on_fail", "on_level_start", "on_level_end", "on_menu"]},

@@ -173,7 +173,7 @@ Compliance verdict: <reference>
 - [ ] No direct exhortation to children; no countdown or scarcity line in an ad that may reach minors.
 - [ ] Every number traces to a claim ID with source and date.
 - [ ] Sound is the game's own SFX plus licensed music.
-- [ ] Naming follows [Briefs and naming conventions](briefs-and-naming-conventions.md), with the level id in the concept notes.
+- [ ] Naming follows [Briefs and naming conventions](briefs-and-naming-conventions.md) with a game format code (`gp`, `play` or `trl`), and the level id and seed are in the registry row.
 - [ ] Registry row appended in `creative-library/registry.csv`.
 
 ## 10. Diagnostics for game creative

@@ -56,7 +56,7 @@ Use the contract's `ageBracket` (`under13`, `13to15`, `16to17`, `adult`, `unknow
 
 ## 4. Fairness rules liveops enforces
 
-From the Game Monetization Contract v0.1 ([contract](../../game-monetization/references/monetization-contract.md)):
+From the Game Monetization Contract v0.2 ([contract](../../game-monetization/references/monetization-contract.md)):
 
 1. Every ranked board keeps a constant number of counted attempts per player per day; no event, reward, purchase, ad or admin action changes it.
 2. In ranked modes, only `cosmetic`, `access` and `pass` grants; a `round` only from a social purchase and only to boards no wider than who receives it (a group round never writes to an `everyone` board).

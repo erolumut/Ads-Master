@@ -116,11 +116,24 @@ class OfferCoverageTest(unittest.TestCase):
         self.assertIn("offer plus_after_practice: offer_accepted.point cannot carry 'custom_practice_done'", f)
         self.assertIn("offer season_pass_at_season_start: offer_declined.mode_id cannot carry 'daily'", f)
 
-    def test_offer_id_checked_only_when_declared(self):
+    def test_offer_id_values_are_checked(self):
         policy, plan, _ = aloo()
         plan["events"]["offer_shown"]["props"]["offer_id"]["values"].remove("plus_after_practice")
         self.assertIn("offer plus_after_practice: offer_shown.offer_id cannot carry", plan_fails(policy, plan))
+
+    def test_offer_id_required_from_contract_0_2(self):
         policy, plan, _ = aloo()
+        for e in mc.OFFER_EVENTS:
+            del plan["events"][e]["props"]["offer_id"]
+        f = plan_fails(policy, plan)
+        for e in mc.OFFER_EVENTS:
+            self.assertIn(f"{e}: no 'offer_id' property", f)
+
+    def test_offer_id_optional_under_contract_0_1(self):
+        policy, plan, _ = aloo()
+        policy["contractVersion"] = "0.1"
+        for e in plan["events"].values():
+            e["props"]["contract_version"] = {"type": "enum", "values": ["0.1"]}
         for e in mc.OFFER_EVENTS:
             del plan["events"][e]["props"]["offer_id"]
         self.assertNotIn("offer_id", plan_fails(policy, plan))
@@ -137,6 +150,9 @@ class OfferCoverageTest(unittest.TestCase):
         twin = copy.deepcopy(policy["offers"][2])
         twin["id"] = "coins_in_shop_b"
         policy["offers"].append(twin)
+        policy["contractVersion"] = "0.1"
+        for e in mc.OFFER_EVENTS:
+            del plan["events"][e]["props"]["offer_id"]
         self.assertIn("share sku, mode and point", plan_warns(policy, plan))
 
 
@@ -224,7 +240,7 @@ class VersionPropertiesTest(unittest.TestCase):
     def test_contract_version_enum_must_include_the_policy_version(self):
         policy, plan, _ = aloo()
         plan["events"]["ad_shown"]["props"]["contract_version"] = {"type": "enum", "values": ["0.0"]}
-        self.assertIn("ad_shown: contract_version cannot carry '0.1'", plan_fails(policy, plan))
+        self.assertIn("ad_shown: contract_version cannot carry '0.2'", plan_fails(policy, plan))
 
     def test_policy_revision_outside_the_declared_range(self):
         policy, plan, _ = aloo()

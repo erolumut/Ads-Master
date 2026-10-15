@@ -68,7 +68,8 @@ Additivity follows the reporting rules in the `METRICS.md` template: counts and 
 | Payer conversion (cohort) | Players of an install cohort with net IAP above zero by day N / cohort size | Install cohort | Mature only after day N |
 | ARPPU | Net IAP revenue of payers / payers, same period | Day or window | Period mismatch: monthly ARPPU against daily payer share |
 | First purchase timing | Median days from install to first purchase, payers only | Install cohort | Early cohorts have not had time to buy late |
-| Refund rate | Refunded transactions / purchase transactions, by store | Month | Refunds arrive weeks after the purchase |
+| Refund rate | Two numbers, both by store: refunded transactions / purchase transactions, and refunded value / gross purchase value. Each refund is assigned back to its purchase month (purchase cohort), not to the month it arrives | Purchase month; per SKU and country for diagnosis | Refunds arrive weeks after the purchase, so the latest one or two months read low until mature; chargebacks count as refunds here and are also tracked alone |
+| Complaint rate | Monetization complaints / DAU x 1,000, per week. A complaint is one of: a support ticket tagged billing, ads or fairness; a store review of 1 or 2 stars that mentions payment, ads or pay to win (tagged by `review_themes.py` or by hand); a chargeback | Week | Untagged tickets hide the signal; tag before counting. Store reviews lag and are sparse at low DAU, so read the trend against the game's own trailing 8 weeks, never a benchmark |
 | LTV (n) | Cumulative revenue per install by day N (IAP net + ad), cohort | Install cohort | Always say the horizon and gross or net |
 | pLTV (n) | Predicted LTV at day N from early days (section 5) | Cohort | A fixed multiplier goes stale |
 | ROAS Dn | Cumulative revenue by day N of the cohort / spend on that cohort | Campaign cohort | iOS revenue in SKAdNetwork and AdAttributionKit arrives late and coarse; label modeled numbers |
@@ -399,4 +400,4 @@ Export recipe: one row per contract event and gameplay event from the warehouse 
 | 15 | NYT 10-Q Q2 2026 | sec.gov | 2026 | Subscriber count [Reported, 2026-10] |
 | 16 | LinkedIn games help | LinkedIn | 2026 | Streaks, boards, reset time [Reported, 2026-10] |
 | 17 | AppLovin and Unity payment terms | support.applovin.com, docs.unity.com | ongoing | Payout minimums and terms [Reported, 2026-10] |
-| 18 | Game Monetization Contract v0.1 | Ads Master, [contract](../../game-monetization/references/monetization-contract.md) | 2026-10 | Event names, payer tier field, modes and counted attempts |
+| 18 | Game Monetization Contract v0.2 | Ads Master, [contract](../../game-monetization/references/monetization-contract.md) | 2026-10 | Event names, payer tier field, modes and counted attempts |
