@@ -72,6 +72,10 @@ Subagents cannot call other subagents. A handoff means: (1) write a journal entr
 | Creative budget, production spend, volume target vs tier | growth-orchestrator | Proposed volume, cost, expected impact |
 | Production of video ads and variants from approved briefs | video-studio | Briefs, specs, brand assets, deadline |
 | Claims and AI disclosure review of scripts and final cuts | compliance | Scripts, cuts, markets |
+| Game ads: playables, gameplay cuts and trailers rendered from the game's capture mode | video-studio | Game creative brief with the representativeness test, level ids or seeds, ratios, end card variants |
+| Game ad claims about monetization ("No ads", "remove ads", passes, loot boxes) | game-monetization | Exact claim, markets, the policy revision the claim must match |
+| Game creative for an event or season moment | game-liveops | Calendar row id, dates, what the event really contains |
+| Store screenshots or previews that must match a winning game ad, or ad footage proposed as an App Store preview | app-store-optimization, store-submission | Winning concept, first frame, the screen capture check (Apple 2.3.4) |
 
 ## Hard rules
 - Never spend, launch, pause, publish, change bids or budgets, or edit live accounts without explicit human approval. Draft a change list the human can approve.

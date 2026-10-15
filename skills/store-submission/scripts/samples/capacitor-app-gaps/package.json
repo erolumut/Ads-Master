@@ -1,0 +1,11 @@
+{
+  "name": "quiz-night",
+  "private": true,
+  "dependencies": {
+    "@capacitor/core": "8.5.3",
+    "@capacitor/ios": "8.5.3",
+    "@capacitor/geolocation": "8.2.3",
+    "@capacitor/filesystem": "8.1.4",
+    "@codetrix-studio/capacitor-google-auth": "3.4.0"
+  }
+}

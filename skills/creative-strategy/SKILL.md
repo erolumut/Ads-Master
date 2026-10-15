@@ -105,6 +105,7 @@ Figures are planning heuristics [Practitioner consensus]; Meta publishes no offi
 | Compliance check of creative | [Compliance and disclosure](references/compliance-and-disclosure.md) | `..._compliance-review.md` |
 | Launch, scale, recover plays | [Playbooks](references/playbooks.md) | per play |
 | Localize or transcreate ads, landing pages, emails (Turkish, Dutch, German, Arabic, English) | [Localization and transcreation](references/localization-and-transcreation.md), [Compliance and disclosure](references/compliance-and-disclosure.md) | `..._localization-pack.md` with glossary and scored L checklist |
+| Game ads: gameplay first concepts, unsolved level and fail hooks, ASMR sound, game claims and loot box disclosure, game creative testing stages (IPM or CTR, CPI, D1 to D7 ROAS) | [Game ad creative](references/game-ad-creative.md), [Testing frameworks and volume](references/testing-frameworks-and-volume.md) | `..._game-creative-slate.md` with a representativeness test per concept |
 | Find a source | [Sources](references/sources.md) | n/a |
 
 ## The laws
@@ -251,6 +252,7 @@ Log format in the journal: date checked, source, what changed, which reference o
 - [Briefs and naming conventions](references/briefs-and-naming-conventions.md): brief templates, naming grammar, tracker schema, production workflow and creative ops by tier.
 - [Localization and transcreation](references/localization-and-transcreation.md): translation vs transcreation, native review workflow, glossary and claims per market, Turkish casing, fonts, RTL, local proof, seasonal hooks, platform language rules, QA checklist.
 - [Compliance and disclosure](references/compliance-and-disclosure.md): Meta and TikTok AI labels, FTC endorsement and review rules, EU AI Act Article 50, claims and policy traps.
+- [Game ad creative](references/game-ad-creative.md): the core gameplay rule from UK ASA rulings and the representativeness test, game hooks (unsolved level, fail, ASMR, group, daily), sound, "No ads" and loot box claims, testing stages with sample sizes, small studio volume, celebrity and UGC, game brief and QA.
 - [Audit checklist](references/audit-checklist.md): scored creative system audit with rubric.
 - [Playbooks](references/playbooks.md): launch, weekly sprint, scale, recover, new channel, creator and AI plays.
 - [Sources](references/sources.md): annotated sources with dates and what each supports.

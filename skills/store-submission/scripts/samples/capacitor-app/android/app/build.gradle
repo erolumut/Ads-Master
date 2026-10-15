@@ -1,0 +1,17 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace "app.example.puzzle"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "app.example.puzzle"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 212
+        versionName "1.4.0"
+    }
+}
+
+dependencies {
+    implementation "com.android.billingclient:billing:8.0.0"
+}

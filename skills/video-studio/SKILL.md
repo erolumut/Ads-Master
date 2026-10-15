@@ -110,6 +110,7 @@ Volumes are planning heuristics [Practitioner consensus]. Final volume = what th
 | Iterate from performance | [Variants and testing handoff](references/variants-and-testing-handoff.md) section 8, Plays 2 to 4 in [Production pipeline and gates](references/production-pipeline-and-gates.md) | `..._iteration-brief.md` |
 | No tools installed | [Tools, APIs and MCP](references/tools-api-mcp.md) section 5 | `..._production-pack.md` + SRT + EDL |
 | Audit the production system | [Audit checklist](references/audit-checklist.md) | `..._production-audit.md` |
+| Playable ads, gameplay cuts and trailers rendered frame by frame from a deterministic game (capture mode, Playwright to FFmpeg) | [Playable ads and game trailers](references/playable-ads-and-game-trailers.md), [Code-driven motion](references/code-driven-motion.md) | Network builds with sizes, `shots.json`, renders, `..._batch.md` |
 | Find a source | [Sources](references/sources.md) | n/a |
 
 ## The laws
@@ -267,6 +268,7 @@ Before relying on a model, spec, overlay, label or law, check the source, write 
 - [Variants and testing handoff](references/variants-and-testing-handoff.md): variant families, matrix sizing, naming map, registry rows, upload manifest, handoff protocol, retention readback and iteration recipes.
 - [Truth, disclosure and rights](references/truth-disclosure-and-rights.md): clean or imaginary for software, products and people, testimonials, synthetic performers, EU Article 50, platform AI labels, rights checklist, disclosure wording, compliance packet.
 - [QA checklist](references/qa-checklist.md): blockers and warnings for files, safe zones, hooks, captions, claims, disclosure, audio, naming, accessibility and platforms.
+- [Playable ads and game trailers](references/playable-ads-and-game-trailers.md): truth rules for game footage, playable beats and variants, network specs (labeled), CTA adapter and playable QA, the capture mode contract with render(t), Playwright to FFmpeg rendering, WebGL and x264 traps, uses of one render.
 - [Tools, APIs and MCP](references/tools-api-mcp.md): environment detection, local tools, paid APIs and MCP servers, spend and data protocol, Stage A production pack.
 - [Audit checklist](references/audit-checklist.md): scored audit of a video production system with rubric and report template.
 - [Sources](references/sources.md): annotated sources with dates.

@@ -93,8 +93,10 @@ NATIVE_PERMISSIONS = [
 ]
 # Web code running inside a WKWebView wrapper triggers the same system prompts.
 WEB_PERMISSIONS = [
-    ("camera (web view getUserMedia)", r"getUserMedia\s*\(\s*\{[^}]*\bvideo\b", ["NSCameraUsageDescription"]),
-    ("microphone (web view getUserMedia)", r"getUserMedia\s*\(\s*\{[^}]*\baudio\b", ["NSMicrophoneUsageDescription"]),
+    ("camera (web view getUserMedia)", r"getUserMedia\s*\(\s*\{[^}]*\bvideo\b(?!\s*:\s*false)",
+     ["NSCameraUsageDescription"]),
+    ("microphone (web view getUserMedia)", r"getUserMedia\s*\(\s*\{[^}]*\baudio\b(?!\s*:\s*false)",
+     ["NSMicrophoneUsageDescription"]),
     ("location (web view geolocation)", r"navigator\.geolocation\.(getCurrentPosition|watchPosition)",
      ["NSLocationWhenInUseUsageDescription"]),
 ]
@@ -634,7 +636,10 @@ def check_dossier(d: dict, stores: set[str], policy: dict | None, rep: Report) -
         rep.add("FAIL", "dossier", f"'{K['backend']}' must be yes, or n/a when the app has no backend (Guideline 2.1(a))")
 
     notes = next((body for title, body in d["sections"].items() if NOTES_HEADING in title), None)
-    if notes is None or blank(re.sub(r"^\s*>.*$", "", notes, flags=re.M)) or PLACEHOLDER.search(notes):
+    if notes is not None:  # what gets pasted: guidance quote lines and fence lines are not part of it
+        notes = "\n".join(ln for ln in notes.splitlines()
+                          if not ln.lstrip().startswith((">", "```"))).strip()
+    if notes is None or blank(notes) or PLACEHOLDER.search(notes):
         rep.add("FAIL", "dossier", "review notes section missing, empty or still holding <placeholders>")
     else:
         size = len(notes.encode("utf-8"))

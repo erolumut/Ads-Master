@@ -1,0 +1,23 @@
+{
+  "contractVersion": "0.1",
+  "policyRevision": 1,
+  "_note": "Fixture for submission_check.py --policy tests, shaped like the Game Monetization Contract v0.1. Prices are placeholders.",
+  "product": { "id": "daily-puzzle", "platforms": ["ios", "android", "web"], "audience": { "minimumAge": 13, "kidsMode": false }, "regions": ["NL", "GB", "US"] },
+  "stores": [
+    { "id": "web", "provider": "stripe", "platforms": ["web"] },
+    { "id": "apple", "provider": "apple", "platforms": ["ios"] },
+    { "id": "google", "provider": "google", "platforms": ["android"] }
+  ],
+  "currencies": { "virtual": [] },
+  "modes": [ { "id": "daily", "kind": "ranked", "countedAttemptsPerDay": 1, "boards": [ { "id": "friends_day", "scope": "group" } ] } ],
+  "catalog": [
+    { "sku": "plus_monthly", "kind": "subscription", "period": "P1M", "grants": [ { "kind": "access", "id": "archive" } ],
+      "basePrice": { "currency": "EUR", "minor": 399 },
+      "storeProductIds": { "web": "price_plus_monthly", "apple": "puzzle.plus.monthly", "google": "plus_monthly" }, "random": false }
+  ],
+  "offers": [],
+  "placements": [],
+  "consent": { "requiredBeforeAds": true, "cmp": "IAB TCF 2.3", "att": true },
+  "storeDeclarations": { "containsAds": false, "inAppPurchases": true, "lootBoxes": false },
+  "killSwitch": "monetization_enabled"
+}

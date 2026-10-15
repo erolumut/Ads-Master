@@ -1,0 +1,8 @@
+// !$*UTF8*$!
+// Trimmed fixture: only the lines submission_check.py reads.
+{
+	objects = {
+		50379B222058CBB4000EE86E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 50379B212058CBB4000EE86E /* PrivacyInfo.xcprivacy */; };
+		50379B212058CBB4000EE86E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+	};
+}

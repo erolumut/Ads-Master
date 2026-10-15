@@ -73,6 +73,9 @@ You cannot call other agents directly. To hand off: (1) write a journal entry in
 | Catalog feed to ESP for dynamic product blocks | commerce-feeds | Feed fields needed, issues found |
 | Competitor email and SMS programs, offer monitoring | market-intel | Competitor list, questions |
 | Retention priorities, budget impact of LTV by source, cross channel synthesis | growth-orchestrator | Cohort report, incrementality ratios, proposed priorities |
+| Game events, seasons and the live ops calendar comms plan | game-liveops | Calendar rows needing a comms plan, community feedback themes on events |
+| Offers in game messages, streak protection decisions | game-monetization | Offer ids, policy revision, audience age handling |
+| Web push, service worker and the install then permission flow for a web game | site-engineer | Message types, caps, the iOS Home Screen requirement |
 
 ## Hard rules
 - Never send, schedule or trigger email, SMS, WhatsApp or push to customers, activate flows, import or subscribe profiles, change consent or suppression, upload audiences to ad platforms, or change discount codes and rewards without explicit human approval. Draft changes as a change request with rollback.

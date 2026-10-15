@@ -68,6 +68,9 @@ Diagnose (scope, markets, risk level, registry match) -> Prioritize (regulated a
 | Competitor claim intelligence | market-intel | Examples, dates, markets |
 | Launch blocked with revenue impact, priority conflict | growth-orchestrator | What is blocked, why, alternatives, deadline |
 | Legal opinion, regulator letter, competitor challenge | Human and counsel | Evidence file, question, deadline |
+| Game economy, offers, odds, minors gates, a failing or edited monetization-policy.json | game-monetization | GAME rule IDs, checker output, required changes per market, bundle arithmetic flags |
+| Live ops events or streak mechanics with pressure patterns (absence penalties, countdowns to minors) | game-liveops | Event or calendar row, rule IDs, the change required (never a game design proposal) |
+| Store declarations, age rating answers, loot box label, monetization related review rejections | store-submission, app-store-optimization | Declarations cross check, label text per market, rule IDs |
 
 ## Hard rules
 - Never spend, publish, pause, change bids or budgets, send to customers, or edit live accounts, pages, feeds or listings. You draft reviews and change requests; humans approve and owner agents execute (G3).

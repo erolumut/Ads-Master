@@ -127,6 +127,7 @@ Worked example: 6,000 first time buyers per month, 60 day repeat rate 14%, contr
 | Suppression, audiences, LTV values for ads | [Lifecycle and paid media](references/lifecycle-and-paid-media.md) | Audience register plus handoffs |
 | Choose or connect tools, MCP, API pulls | [Tools, APIs and MCP](references/tools-api-mcp.md) | Tool recommendation or data pull note |
 | Weekly or monthly reporting | [Strategy and metrics](references/lifecycle-strategy-and-metrics.md) section 7, [Cohort and LTV](references/cohort-and-ltv-analysis.md) section 9 | Weekly report, monthly cohort report |
+| Game notifications (drops, events, streak saves, win back), frequency caps, pressure patterns to avoid, Discord and Reddit community, comms plan for the live ops calendar | [Game notifications and community](references/game-notifications-and-community.md), [SMS, WhatsApp and push](references/sms-whatsapp-and-push.md) | Push spec rows per calendar event, community post drafts |
 
 ## The laws
 
@@ -278,5 +279,6 @@ How to log: if a check changes a recommendation, write `ads-master/journal/YYYY-
 - [Lifecycle and paid media](references/lifecycle-and-paid-media.md): suppression, Customer Match and Meta list rules, data handling, LTV values, cohort feedback to budgets.
 - [Cohort and LTV analysis](references/cohort-and-ltv-analysis.md): data requirements, repeat rate SQL, Python cohort script, time to second order, LTV curves, cuts, predicted LTV, report template.
 - [Tools, APIs and MCP](references/tools-api-mcp.md): ESP landscape 2026, selection, MCP servers, Klaviyo API rate limits and example, gate mapping, exports.
+- [Game notifications and community](references/game-notifications-and-community.md): ownership with game-liveops, permission timing, iOS web push for Home Screen apps only, message catalog, streaks without punishment, caps and send window, win back with holdouts, pressure patterns, live ops comms plan, Discord and Reddit roles, minors, audit additions.
 - [Audit checklist](references/audit-checklist.md): scored sections A to L with rubric and output template.
 - [Sources](references/sources.md): annotated sources with dates and reliability notes.

@@ -1,0 +1,6 @@
+// !$*UTF8*$!
+// Trimmed fixture with no privacy manifest reference.
+{
+	objects = {
+	};
+}

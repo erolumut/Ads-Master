@@ -121,6 +121,7 @@ Quality bar (every deliverable):
 | Choose or connect tools and MCP servers | [Tools, APIs and MCP](references/tools-api-mcp.md) | Tool recommendation with gates |
 | Full engineering audit | [Audit checklist](references/audit-checklist.md) | Scored audit report |
 | Incident: checkout or destination broken after a change | [Release process](references/release-process-and-rollback.md) Plays 3 and 6 | Incident journal entry, INCIDENTS.md row |
+| Web game to stores (PWA, TWA for Play, Capacitor for iOS with native value), web push limits, payments by surface, leaderboard score integrity | [Web games to stores](references/web-games-to-stores.md), [Release process](references/release-process-and-rollback.md) | Wrapper release checklist, score integrity test list, handoff to `store-submission` |
 
 ## The laws
 
@@ -263,6 +264,7 @@ How to log: when a check changes a recommendation, write `ads-master/journal/YYY
 - [Performance and third party scripts](references/performance-and-third-party-scripts.md): facts, budgets by page type, tag register, measuring script cost, loading patterns, images, fonts, field monitoring, release checklist.
 - [Security review](references/security-review.md): quick checklist, endpoints, PII, supply chain timeline and rules, CSP, PCI payment page scripts, advisories fast lane, prompt injection, forms and spam, secrets handling, report template.
 - [Tools, APIs and MCP](references/tools-api-mcp.md): tool inventory with gates, data access matrix, command cheat sheet, MCP hygiene, tool evaluation.
+- [Web games to stores](references/web-games-to-stores.md): the PWA, TWA, Capacitor ladder, Digital Asset Links and Play closed test, Apple 4.2, 4.7, 2.5.2 and payment rules quoted, native value for 4.2, payments by surface, web push limits, score integrity (server seed, one use run ids, re-simulation, bounds, rate limits, tests).
 - [Audit checklist](references/audit-checklist.md): scored audit sections A to I with rubric.
 - [Sources](references/sources.md): annotated sources with dates and open conflicts.
 - Scripts: [url_check.py](scripts/url_check.py) (launch QA destination checker) and [scan_injection.py](scripts/scan_injection.py) (hidden Unicode and instruction scan).

@@ -1,0 +1,8 @@
+{
+  "packageId": "app.example.daily",
+  "host": "daily.example.app",
+  "name": "Daily Words",
+  "startUrl": "/",
+  "appVersionCode": 3,
+  "appVersionName": "1.0.2"
+}

@@ -132,6 +132,7 @@ Maturity:
 | Law or policy start date approaching | [Playbooks](references/playbooks.md) Play 6 | `_rule-change-<topic>.md` |
 | Sale event (Black Friday, Ramadan, 11.11) | [Playbooks](references/playbooks.md) Play 9, pricing pack | Sale review with price evidence |
 | Monthly registry review | [Playbooks](references/playbooks.md) Play 12 | `_registry-review.md` |
+| Games: virtual currencies, loot boxes, minors, game ads, store declarations, review of a `monetization-policy.json` | [Games and virtual currencies](references/games-and-virtual-currencies.md), [Pricing, promotions and consumer law](references/pricing-promotions-and-consumer-law.md) | Policy revision review (games section 7.6) with GAME rule IDs |
 | Source lookup | [Sources](references/sources.md) | n/a |
 
 ## The laws
@@ -259,6 +260,7 @@ How to log: when a check changes a rule, write a journal entry `YYYY-MM-DD_HHMM_
 - [AI disclosure and synthetic media](references/ai-disclosure-and-synthetic-media.md): hard lines, AI Act Art 50, US state laws, UK, Turkey, platform labels, templates.
 - [Privacy in marketing and consent](references/privacy-in-marketing-and-consent.md): email and SMS consent by market, cookies copy, sensitive data, children, accessibility basics.
 - [Country notes](references/country-notes.md): EU, Germany, Netherlands, UK, US, Turkey, MENA, new market intake.
+- [Games and virtual currencies](references/games-and-virtual-currencies.md): GAME rule IDs by market with recheck dates (EU CPC principles and action, DSA minors, Belgium, Netherlands, UK loot box notice, FTC Epic and Genshin, COPPA, app store age laws, Brazil, Australia, Turkey Law 7578), Apple and Play rules, never do and must have lists, feature matrix, policy file review with monetization_check.py, bundle arithmetic, VAT and web sales.
 - [Playbooks](references/playbooks.md): onboarding, launch gate, fast lane, disapproval recovery, incident, rule change, market entry, product launch, sale event, creators, challenges, monthly review.
 - [Audit checklist](references/audit-checklist.md): scored audit sections A to J with rubric and template.
 - [Sources](references/sources.md): 142 annotated sources with dates and verification status.

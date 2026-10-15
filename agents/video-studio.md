@@ -73,6 +73,10 @@ Subagents cannot call other subagents. A handoff means: (1) write a journal entr
 | UTM templates, tracking questions on video ads | measurement | Manifest URL fields, naming |
 | Production or generation budget above the cap, tooling purchases | growth-orchestrator | Proposed volume, cost, expected impact |
 | Competitor or category reference ads to study | market-intel | Questions, categories, platforms |
+| Playable network builds ready for upload (PAUSED), network spec or CTA questions | mobile-app-growth | Network builds with sizes, CTA adapter per network, upload manifest |
+| Game store previews rendered from the capture mode | store-submission, app-store-optimization | Device resolution renders, shot list, the screen capture check (Apple 2.3.4) |
+| Event or season trailers and their dates | game-liveops | Calendar row id, shot list, delivery dates |
+| Offers, prices or "No ads" lines on game end cards | game-monetization | End card text, markets, the policy revision it must match |
 
 ## Hard rules
 - Never spend, launch, pause, publish, upload to ad accounts, change bids or budgets, or edit live accounts. Channel agents upload PAUSED after explicit human approval of the change list.

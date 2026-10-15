@@ -117,7 +117,7 @@ class DefinitionTrapsTest(unittest.TestCase):
         tmp = tempfile.mkdtemp()
         try:
             with open(SAMPLE, encoding="utf-8") as fh:
-                text = fh.read().replace("u03,2026-09-01T10:05:00Z,level_fail,,,1,,", "u03,2026-09-01T10:05:00Z,level_fail,,,w1-l1,,")
+                text = fh.read().replace("u03,2026-09-01T10:05:00Z,level_failed,,,1,,", "u03,2026-09-01T10:05:00Z,level_failed,,,w1-l1,,")
             path = write(tmp, "events.csv", text)
             code, _, data = run(path, "--as-of", "2026-10-10", "--min-cohort", "5")
             self.assertEqual(code, 0)
@@ -130,10 +130,10 @@ class DefinitionTrapsTest(unittest.TestCase):
         tmp = tempfile.mkdtemp()
         try:
             path = write(tmp, "multi.csv", "user_id,ts,event,game\n"
-                         "a1,2026-10-01T10:00:00Z,level_start,kilim\n"
-                         "a1,2026-10-02T10:00:00Z,level_start,kilim\n"
-                         "a1,2026-10-01T11:00:00Z,level_start,duchess\n"
-                         "b1,2026-10-02T10:00:00Z,level_start,duchess\n")
+                         "a1,2026-10-01T10:00:00Z,level_started,kilim\n"
+                         "a1,2026-10-02T10:00:00Z,level_started,kilim\n"
+                         "a1,2026-10-01T11:00:00Z,level_started,duchess\n"
+                         "b1,2026-10-02T10:00:00Z,level_started,duchess\n")
             code, _, data = run(path, "--as-of", "2026-10-02", "--min-cohort", "1", "--game", "kilim")
             self.assertEqual(code, 0)
             self.assertEqual(data["input"]["users"], 1)
@@ -208,10 +208,10 @@ class BadInputTest(unittest.TestCase):
         self.assertTrue(stdout.strip().splitlines()[-1].startswith("This check cannot cover:"))
 
     def test_missing_column(self):
-        self.assert_cannot_run("user_id,event\na,level_start\n")
+        self.assert_cannot_run("user_id,event\na,level_started\n")
 
     def test_bad_timestamp(self):
-        self.assert_cannot_run("user_id,ts,event\na,yesterday,level_start\n")
+        self.assert_cannot_run("user_id,ts,event\na,yesterday,level_started\n")
 
     def test_revenue_without_type(self):
         self.assert_cannot_run("user_id,ts,event,revenue\na,2026-10-01T10:00:00Z,purchase_completed,4.99\n")
@@ -222,14 +222,14 @@ class BadInputTest(unittest.TestCase):
                                "b,2026-10-01T11:00:00Z,purchase_completed,4.99,iap,USD\n")
 
     def test_unknown_timezone(self):
-        self.assert_cannot_run("user_id,ts,event\na,2026-10-01T10:00:00Z,level_start\n", "--timezone", "Mars/Olympus")
+        self.assert_cannot_run("user_id,ts,event\na,2026-10-01T10:00:00Z,level_started\n", "--timezone", "Mars/Olympus")
 
     def test_game_filter_without_column(self):
-        self.assert_cannot_run("user_id,ts,event\na,2026-10-01T10:00:00Z,level_start\n", "--game", "kilim")
+        self.assert_cannot_run("user_id,ts,event\na,2026-10-01T10:00:00Z,level_started\n", "--game", "kilim")
 
     def test_naive_timestamps_are_flagged(self):
-        path = write(self.tmp, "n.csv", "user_id,ts,event\na,2026-10-01T10:00:00,level_start\n"
-                                        "a,2026-10-02T10:00:00,level_start\n")
+        path = write(self.tmp, "n.csv", "user_id,ts,event\na,2026-10-01T10:00:00,level_started\n"
+                                        "a,2026-10-02T10:00:00,level_started\n")
         code, stdout, data = run(path, "--as-of", "2026-10-02", "--min-cohort", "1")
         self.assertEqual(code, 0)
         self.assertEqual(data["input"]["naive_timestamps"], 2)

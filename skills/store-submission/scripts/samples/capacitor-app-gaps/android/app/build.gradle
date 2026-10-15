@@ -1,0 +1,14 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    defaultConfig {
+        applicationId "app.example.quiz"
+        targetSdk 35
+    }
+}
+
+dependencies {
+    implementation "com.android.billingclient:billing-ktx:7.1.1"
+}

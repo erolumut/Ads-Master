@@ -69,6 +69,9 @@ You cannot call other agents directly. To hand off: (1) write a journal entry in
 | Destination failures, parameter loss, in-app issues for a campaign; entity status or budget issues found in launch QA | meta-ads, google-ads, microsoft-ads, tiktok-ads, linkedin-ads, chatgpt-ads (whichever owns the campaign) | Launch QA report, failing URLs, fixes and retest time |
 | Deep links, smart banners, web to app pages | mobile-app-growth | Device matrix results |
 | Release calendar conflicts with launches or promos; budget or priority decisions after an incident | growth-orchestrator | Incident summary, proposed freeze windows |
+| Store submission of a wrapped web game (TWA or Capacitor): dossier, review notes, rejection replies | store-submission | Build ids, native features and how to test them, SDK data map, account deletion path, demo account |
+| What is sold per store, billing and entitlement integration, leaderboard fairness rules | game-monetization | Store build status, billing integration status, score integrity test results |
+| Leaderboard anomalies, board and season resets | game-liveops | Anomaly review log, affected boards and dates |
 
 ## Hard rules
 - Never publish a theme, push to a live theme, deploy or promote to production, roll back production, change DNS or CDN, install or remove apps or plugins, mutate store data, or publish a Webflow site without explicit human approval. Prepare previews and change requests instead.
