@@ -555,5 +555,234 @@ class UiSourcesCheckTest(Base):
         self.assertNotIn("framer-motion", r.stdout)
 
 
+class GoalLoopTest(Base):
+    def gl(self, *args, cwd=None):
+        return subprocess.run([sys.executable, "-I", "-B", str(SCRIPTS / "goal_loop.py"), *args],
+                              cwd=cwd or self.root, capture_output=True, text=True)
+
+    def out(self, r):
+        return r.stdout + r.stderr
+
+    def init(self, *extra, direction="lower", target="50"):
+        r = self.gl("init", "--dir", "p", "--goal-name", "Speed", "--unit", "ms", "--direction", direction,
+                    "--target", target, *extra)
+        self.assertEqual(r.returncode, 0, self.out(r))
+        return r
+
+    def rec(self, label, values, *extra):
+        return self.gl("record", "--dir", "p", "--label", label, "--values", values, *extra)
+
+    def baseline(self, values="100,100,100,100,100"):
+        r = self.rec("base", values, "--baseline")
+        self.assertEqual(r.returncode, 0, self.out(r))
+        return r
+
+    def goal(self):
+        return json.loads((self.root / "p" / "goal.json").read_text(encoding="utf-8"))
+
+    def log_rows(self):
+        lines = (self.root / "p" / "log.csv").read_text(encoding="utf-8").splitlines()
+        return lines[0], lines[1:]
+
+    def test_init_writes_files_and_refuses_overwrite(self):
+        r = self.init("--min-gain-pct", "7", "--max-turns", "9", "--max-flat", "4")
+        g = self.goal()
+        self.assertEqual((g["goal_name"], g["unit"], g["direction"], g["target"]), ("Speed", "ms", "lower", 50))
+        self.assertEqual((g["min_gain_pct"], g["max_turns"], g["max_flat"]), (7, 9, 4))
+        head, rows = self.log_rows()
+        self.assertEqual(head, "ts,turn,label,run_values,median,best_so_far,kept,note")
+        self.assertEqual(rows, [])
+        self.assertTrue(r.stdout.splitlines()[-1].startswith("This check cannot cover:"))
+        again = self.gl("init", "--dir", "p", "--goal-name", "X", "--unit", "ms", "--direction", "lower",
+                        "--target", "1")
+        self.assertEqual(again.returncode, 2, self.out(again))
+        self.assertEqual(self.goal()["goal_name"], "Speed")
+        forced = self.gl("init", "--dir", "p", "--goal-name", "X", "--unit", "ms", "--direction", "lower",
+                         "--target", "1", "--force")
+        self.assertEqual(forced.returncode, 0, self.out(forced))
+        self.assertEqual(self.goal()["goal_name"], "X")
+
+    def test_baseline_needs_five_runs(self):
+        self.init()
+        r = self.rec("base", "100,100,100,100", "--baseline")
+        self.assertEqual(r.returncode, 2, self.out(r))
+        self.assertIsNone(self.goal()["baseline_median"])
+        m = self.gl("measure", "--dir", "p", "--cmd", 'python3 -c "print(1)"', "--runs", "3", "--baseline")
+        self.assertEqual(m.returncode, 2, self.out(m))
+        self.assertIn("5 runs", m.stderr)
+
+    def test_noise_is_computed(self):
+        self.init()
+        r = self.baseline("98,100,102,100,100")
+        g = self.goal()
+        self.assertEqual(g["baseline_median"], 100)
+        self.assertAlmostEqual(g["noise_pct"], 4.0)
+        self.assertIn("noise 4 percent", r.stdout)
+
+    def test_measure_before_baseline_could_not_run(self):
+        self.init()
+        r = self.rec("try", "90,90,90")
+        self.assertEqual(r.returncode, 2, self.out(r))
+        self.assertIn("baseline", r.stderr)
+
+    def test_keep_when_gain_above_threshold(self):
+        self.init()
+        self.baseline()
+        r = self.rec("faster", "90,90,90")
+        self.assertEqual(r.returncode, 0, self.out(r))
+        self.assertIn("KEEP", r.stdout)
+        self.assertIn("Commit after the project's gate passes", r.stdout)
+        r2 = self.rec("faster again", "80,80,80")  # best is now 90, so 80 gains 11 percent
+        self.assertEqual(r2.returncode, 0, self.out(r2))
+        self.assertIn("beats best 90", r2.stdout)
+
+    def test_revert_when_gain_below_noise_even_above_min_gain(self):
+        self.init()
+        self.baseline("90,100,110,100,100")  # noise 20 percent
+        r = self.rec("small win", "90,90,90")  # 10 percent gain: above 5, below 20
+        self.assertEqual(r.returncode, 1, self.out(r))
+        self.assertIn("REVERT", r.stdout)
+        self.assertIn("needed 20", r.stdout)
+
+    def test_revert_when_worse(self):
+        self.init()
+        self.baseline()
+        r = self.rec("slower", "120,120,120")
+        self.assertEqual(r.returncode, 1, self.out(r))
+        self.assertIn("REVERT", r.stdout)
+
+    def test_direction_higher(self):
+        self.init(direction="higher", target="200")
+        self.baseline("100,100,100,100,100")
+        up = self.rec("better", "110,110,110")
+        self.assertEqual(up.returncode, 0, self.out(up))
+        self.assertIn("KEEP", up.stdout)
+        down = self.rec("worse", "105,105,105")
+        self.assertEqual(down.returncode, 1, self.out(down))
+        self.assertIn("REVERT", down.stdout)
+
+    def test_goal_met(self):
+        self.init(target="50")
+        self.baseline()
+        r = self.rec("big win", "45,45,45")
+        self.assertEqual(r.returncode, 0, self.out(r))
+        self.assertIn("GOAL MET", r.stdout)
+        self.assertIn("met", self.log_rows()[1][-1])
+        self.assertIn("target reached", self.gl("status", "--dir", "p").stdout)
+
+    def test_turn_budget_stop_exits_3(self):
+        self.init("--max-turns", "2")
+        self.baseline()
+        first = self.rec("one", "90,90,90")
+        self.assertEqual(first.returncode, 0, self.out(first))
+        second = self.rec("two", "80,80,80")
+        self.assertEqual(second.returncode, 3, self.out(second))
+        self.assertIn("STOP: turn budget used", second.stdout)
+        self.assertIn("KEEP", second.stdout)
+        self.assertEqual(len(self.log_rows()[1]), 3)  # the stopping row is still logged
+
+    def test_flat_stop_exits_3(self):
+        self.init("--max-flat", "3")
+        self.baseline()
+        self.assertEqual(self.rec("a", "101,101,101").returncode, 1)
+        self.assertEqual(self.rec("b", "102,102,102").returncode, 1)
+        r = self.rec("c", "103,103,103")
+        self.assertEqual(r.returncode, 3, self.out(r))
+        self.assertIn("STOP: no gain in 3 tries", r.stdout)
+
+    def test_flat_counter_resets_after_keep(self):
+        self.init("--max-flat", "3")
+        self.baseline()
+        self.rec("a", "101,101,101")
+        self.rec("b", "90,90,90")
+        self.assertEqual(self.rec("c", "95,95,95").returncode, 1)
+        self.assertEqual(self.rec("d", "96,96,96").returncode, 1)
+
+    def test_non_numeric_output_exits_2(self):
+        self.init()
+        r = self.gl("measure", "--dir", "p", "--cmd", 'python3 -c "print(\'fast\')"', "--runs", "1")
+        self.assertEqual(r.returncode, 2, self.out(r))
+        self.assertIn("not a number", r.stderr)
+        self.assertEqual(self.log_rows()[1], [])
+        failing = self.gl("measure", "--dir", "p", "--cmd", "echo boom >&2; exit 4", "--runs", "1")
+        self.assertEqual(failing.returncode, 2, self.out(failing))
+        self.assertIn("boom", failing.stderr)
+        self.assertTrue(failing.stderr.splitlines()[-1].startswith("This check cannot cover:"))
+
+    def test_measure_real_command(self):
+        self.init(target="1")
+        base = self.gl("measure", "--dir", "p", "--cmd", 'python3 -c "print(\'warming up\'); print(2.0)"',
+                       "--runs", "5", "--baseline")
+        self.assertEqual(base.returncode, 0, self.out(base))
+        self.assertIn("Median: 2 ms", base.stdout)
+        self.assertEqual(self.goal()["noise_pct"], 0)
+        r = self.gl("measure", "--dir", "p", "--cmd", 'python3 -c "print(1.5)"', "--runs", "3", "--label", "tweak")
+        self.assertEqual(r.returncode, 0, self.out(r))
+        self.assertIn("Runs: 1.5, 1.5, 1.5 ms", r.stdout)
+        self.assertIn("KEEP", r.stdout)
+        self.assertTrue((self.root / "p" / "chart.html").is_file())
+
+    def test_chart_is_self_contained(self):
+        self.init()
+        self.baseline()
+        self.rec("win", "90,90,90")
+        self.rec("loss", "120,120,120")
+        page = (self.root / "p" / "chart.html").read_text(encoding="utf-8")
+        self.assertIn("<svg", page)
+        self.assertIn("prefers-color-scheme", page)
+        self.assertIn('name="viewport"', page)
+        for bad in ("http", "src=", "<link", "//cdn"):
+            self.assertNotIn(bad, page)
+        for want in ("Best so far", "Gap left", "Turns used", "Noise", "dot-revert", "dot-kept"):
+            self.assertIn(want, page)
+        r = self.gl("chart", "--dir", "p")
+        self.assertEqual(r.returncode, 0, self.out(r))
+
+    def test_status_output(self):
+        self.init("--max-turns", "20")
+        self.baseline("98,100,102,100,100")
+        self.rec("win", "90,90,90")
+        r = self.gl("status", "--dir", "p")
+        self.assertEqual(r.returncode, 0, self.out(r))
+        for want in ("Goal: Speed", "Baseline: 100 ms", "Best so far: 90 ms", "Gap left: 40 ms (44.44 percent of best)",
+                     "Turns used: 1 of 20", "Noise: 4 percent"):
+            self.assertIn(want, r.stdout)
+        self.assertTrue(r.stdout.splitlines()[-1].startswith("This check cannot cover:"))
+
+    def test_log_rows_count_and_turns(self):
+        self.init()
+        self.baseline()
+        self.rec("a", "90,90,90")
+        self.rec("b", "120,120,120")
+        self.rec("c", "80,80,80")
+        head, rows = self.log_rows()
+        self.assertEqual(len(rows), 4)
+        import csv as _csv
+        parsed = list(_csv.DictReader([head] + rows))
+        self.assertEqual([p["turn"] for p in parsed], ["0", "1", "2", "3"])
+        self.assertEqual([p["kept"] for p in parsed], ["baseline", "keep", "revert", "keep"])
+        self.assertEqual(parsed[1]["run_values"], "90;90;90")
+        self.assertEqual(parsed[2]["best_so_far"], "90")
+
+    def test_help_and_usage_error_end_with_cannot_cover(self):
+        h = self.gl("--help")
+        self.assertEqual(h.returncode, 0)
+        self.assertTrue(h.stdout.splitlines()[-1].startswith("This check cannot cover:"))
+        bad = self.gl("measure")
+        self.assertEqual(bad.returncode, 2)
+        self.assertTrue(bad.stderr.splitlines()[-1].startswith("This check cannot cover:"))
+
+    def test_script_text_has_no_banned_characters(self):
+        text = (SCRIPTS / "goal_loop.py").read_text(encoding="utf-8")
+        for ch in ("\u2014", "\u2013"):
+            self.assertNotIn(ch, text)
+        import ast
+        for node in ast.walk(ast.parse(text)):  # prose lives in string constants; arithmetic does not count
+            if isinstance(node, ast.Constant) and isinstance(node.value, str):
+                self.assertNotIn(" - ", node.value)
+        for word in ("excel", "robust", "honed", "spearheaded", "prospect", "resonate", "thrive"):
+            self.assertNotIn(word, text.lower())
+
+
 if __name__ == "__main__":
     unittest.main()

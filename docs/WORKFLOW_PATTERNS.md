@@ -85,6 +85,16 @@ Status: **Adopted** (shipped in this repo), **Kit** (shipped in `kits/workflow-k
 | Own the small charts | Sparklines, rings and admin charts as hand drawn SVG shared between apps; one library only for a real dashboard | social game PWA, family health PWA, practice management PWA | Kit | references/charts.md |
 | Shopify components: native blocks first | Alternate templates per ad angle, reviewed theme blocks, section packs, theme app extensions, page builders last with a before and after measurement and an uninstall diff | food brand store research | Adopted | storefront-ux platform-implementation-shopify.md section 7b |
 
+## 7. Long goal runs (from a widely shared /goal template, 2026-10)
+
+| Pattern | What it does | Seen in | Status | Where |
+|---------|--------------|---------|--------|-------|
+| Goal, measure, effort | A long run gets three written inputs and stop rules instead of a vague task | public post | Kit | `goal-loop` skill, `templates/GOAL.md` |
+| Noise floor before the ratchet | Five baseline runs set the noise; a change counts only when it beats max(5 percent, noise) | own synthesis (lab metrics swing between runs) | Kit | `goal_loop.py measure --baseline` |
+| Gate on every kept change | The project's own full check must pass before a commit, so the number cannot be bought with hidden damage | own synthesis | Kit | goal-loop skill, loop step 3 |
+| Spend and flat stops | Stop on the turn budget, the spend budget or N tries without a gain | own synthesis | Kit | `goal_loop.py` exit 3 |
+| Git rules of the project win | Branch where branches are allowed, a separate local clone of main where they are not; never push from the loop | own projects | Kit | goal-loop skill, before the loop step 2 |
+
 ## Maintenance
 
 Add a row when a pattern is adopted or rejected. Move Noted rows to Planned only with an owner. Review this file in the quarterly reset.
