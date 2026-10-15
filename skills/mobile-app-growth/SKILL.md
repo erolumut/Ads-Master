@@ -266,7 +266,7 @@ Known items to re-verify first (after the 2026-10-08 pass): US Apple link out fe
 
 - [Growth model and unit economics](references/app-growth-model-and-unit-economics.md): loops, metric dictionary, fee table by market, LTV curves, payback, target CPI, budget floors, benchmarks, virality and referral metrics (k-factor, blended CAC, invite link attribution, share cards).
 - ASO moved to the `app-store-optimization` skill (2026-10-12): App Store and Play metadata, keywords and rank tracking, store creative, PPO and store listing experiments, creating CPPs and CSLs, ratings, review replies and AI summaries, tags, featuring, in-app events, localization.
-- [Apple Ads](references/apple-ads.md): placements and billing, structure, keywords, bidding and Maximize Conversions, CPPs, measurement, loop, benchmarks, plays, API.
+- [Apple Ads](references/apple-ads.md): placements and billing, structure, keywords, bidding and Maximize Conversions, CPPs, measurement, loop, benchmarks, plays, API, automation rules with data floors and caps.
 - [Google App campaigns](references/google-app-campaigns.md): subtypes, measurement, bidding path, structure, assets, Web to App Connect, diagnostics.
 - [Meta, TikTok and network app campaigns](references/meta-tiktok-and-network-app-campaigns.md): Meta and TikTok app layer, networks and DSPs, test protocol, reconciliation.
 - [Mobile measurement: MMP, SKAN, AAK, ATT](references/mobile-measurement-skan-aak-mmp.md): stack, MMP choice, SKAN 4, AAK, schemas, ATT strategy, Android, probabilistic limits, QA, incrementality.

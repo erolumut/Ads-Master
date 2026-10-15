@@ -9,7 +9,7 @@
       "name": "ads-master",
       "source": ".",
       "description": "27 specialist growth agents and 30 skills: paid media, marketplaces, apps and app store optimization, game monetization, liveops and store submission, SEO, AI search and app visibility in AI assistants, storefront, conversion, pricing, offers, feeds, creative, video, lifecycle, measurement and compliance, with guardrail hooks, orchestrated per project.",
-      "version": "1.4.2",
+      "version": "1.4.3",
       "category": "marketing",
       "tags": [
         "ads",

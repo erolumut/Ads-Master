@@ -75,7 +75,7 @@ Directory metadata (stars, tool counts, dates) comes from MCP listings, not from
 | Paywalls and subscriptions | RevenueCat, Superwall, Adapty, Qonversion, Purchasely |
 | Web to app funnels | FunnelFox, RevenueCat Web Billing and Funnels, Superwall web checkout, Adapty web paywalls, Stripe, Paddle |
 | Deep links | Branch, AppsFlyer OneLink, Adjust links, Singular Links, Airbridge, Kochava SmartLinks, own domain universal links and App Links |
-| Apple Ads management | SplitMetrics Acquire, MobileAction SearchAds, AppTweak, Apple Ads UI |
+| Apple Ads management | SplitMetrics Acquire, MobileAction SearchAds, Adapty Apple Ads Manager (keyword discovery and bid rules joined to Adapty subscription revenue), AppTweak, Apple Ads UI; bid rules follow [Apple Ads](apple-ads.md) section 13 |
 | Crash and performance | Xcode Organizer, Firebase Crashlytics, Sentry, Android vitals |
 
 ## 5. Data pull recipes

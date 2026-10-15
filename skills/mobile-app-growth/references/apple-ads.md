@@ -109,7 +109,8 @@ When to use: CATEGORY campaigns with at least 5 installs per day at a stable CPA
 5. Downstream: rank keywords by cost per trial start and cost per payer, not CPI. Cut keywords that install cheaply but never convert.
 6. Impression share: top 20 keywords; flag where competitors outbid you.
 7. CPP performance: conversion by ad variation; swap losers.
-8. Write the change list (approval required) and a journal entry.
+8. Automation: read the rule log (section 13); retune rules that fired wrongly.
+9. Write the change list (approval required) and a journal entry.
 
 ## 10. Benchmarks (2025 data, directional)
 
@@ -160,3 +161,28 @@ Caveat: medians vs averages, US vs global and category mix explain most of the s
 - Campaign Management API v5 stops working on 2027-01-26 [Official, 2026-04]. Any script, connector or MCP server built on v5 must migrate; some vendors list 2026-12-26 as their own cutoff [Contested].
 - OAuth client credentials with the `searchadsorg` scope and an `X-AP-Context` header carrying the ad account ID are reported as unchanged [Unverified].
 - See [Tools, API and MCP](tools-api-mcp.md) for MCP servers and read-only setup.
+
+## 13. Automation rules (bid up winners, pause losers)
+
+Rule tools (Adapty Apple Ads Manager, SplitMetrics Acquire, MobileAction SearchAds, Apple's own automation where available, or a script on the Platform API) all run the same idea: raise bids where a keyword earns, pause where it does not. The idea is sound; the failure is in the thresholds. All numbers below are house heuristics [Practitioner consensus], to be tuned per app and written in `GUARDRAILS.md`.
+
+Before any rule runs:
+1. Revenue attribution works: Apple Ads keyword data joined to trials and payers (RevenueCat, Adapty or the MMP, section 8). A rule judged on installs chases cheap installs that never pay.
+2. Targets are written: target cost per trial and cost per payer from the unit economics ([App growth model](app-growth-model-and-unit-economics.md)), and the max CPT each implies (section 5.1).
+3. The rules themselves are a change request. A rule that edits live bids or pauses keywords is a live account change: it needs human approval when created, it runs unattended only at automation stage 5 within the money caps, and each rule is listed in `GUARDRAILS.md` under Auto actions.
+
+| Rule | Condition (all must hold) | Action | Guard |
+|------|---------------------------|--------|-------|
+| Judge only with data | At least 100 taps and 14 days live (deep funnel: at least 10 trials) | Otherwise do nothing | Below the floor every rule is silent |
+| Raise a winner | Cost per payer (or trial) at or below 80% of target over 14 days; impression share below 50% or budget capped | Bid up 10% | At most 15% per keyword per week; never above the formula max CPT |
+| Lower a drifter | Cost per payer 120% to 150% of target over 14 days | Bid down 10% | At most one cut per week, so the next read is clean |
+| Pause a loser | Cost per payer above 2x target with at least 10 trials, or zero trials after 200 taps (non subscription apps: zero installs after 50 taps, section 9) | Pause, log the reason | Brand keywords are never paused by a rule |
+| Budget stop | Daily spend reaches the campaign cap | Stop raises for the day | Caps come from `GUARDRAILS.md`, never from the tool's default |
+| Freeze | Tracking break (trials drop to zero while taps continue), a new app version, or a store page test running | Stop all rules | A human restarts them |
+
+Rules of use:
+- Apply raises and cuts on 14 day windows, never on yesterday. Trials convert to payers days later, so the latest week reads low.
+- One change per keyword per week; log every automated change with the rule that made it (journal and the tool's change history).
+- Competitor keywords use the same rules with a lower target bid (section 3) and are paused at once on a trademark complaint.
+- Review the rule log weekly in the loop (section 9). A rule that fired on a keyword later found profitable is retuned, not overridden by hand each week.
+- "Scale to $10K MRR with zero audience" claims are survivor stories [Practitioner consensus]: rules scale what already converts on the store page and retains; they do not fix a product page or a paywall.
