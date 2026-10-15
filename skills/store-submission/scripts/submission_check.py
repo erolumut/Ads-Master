@@ -50,7 +50,8 @@ CANNOT_COVER = (
     "Console (App Privacy, Data safety, age rating, export compliance, DSA trader status), privacy manifests and "
     "signatures inside compiled third party SDKs, localized purpose strings, permissions requested by closed "
     "source SDKs or plugin maps not built in (React Native, Flutter, Cordova), screenshots and metadata, which "
-    "Info.plist belongs to which target, and any policy change after 2026-10.")
+    "Info.plist belongs to which target, remote config values held on the server (read every key by hand before "
+    "each submission), and any policy change after 2026-10.")
 
 SKIP_DIRS = {"node_modules", "Pods", "Carthage", "DerivedData", ".build", ".git", ".gradle", "build",
              "__pycache__", ".idea", ".vscode", "vendor", "SourcePackages"}
@@ -185,6 +186,7 @@ K = {
     "siwa": "Sign in with Apple",
     "walkthrough": "Walk-through video attached",
     "ai_features": "AI features",
+    "remote_config": "Remote config keys read by hand",
 }
 NOTES_HEADING = "review notes"
 
@@ -455,6 +457,32 @@ def resolve_number(name: str, texts: list[str]) -> int | None:
     return None
 
 
+REVIEW_DETECTION = re.compile(
+    r"(?i)(reviewer[_-]?(bypass|code|mode|account|unlock)|review[_-]?(mode|bypass|environment|env)\b|"
+    r"is[_-]?(in[_-]?)?(app[_-]?)?review(er)?\b|(apple|google|store)[_-]?review(er)?[_-]?(mode|flag|bypass|check)|"
+    r"bypass[_-]?(paywall|review|purchase|subscription)|skip[_-]?paywall|unlock[_-]?for[_-]?review)")
+REVIEW_SCAN_EXT = (".swift", ".m", ".mm", ".kt", ".java", ".js", ".mjs", ".ts", ".tsx", ".jsx", ".dart", ".cs",
+                   ".gd", ".json", ".plist", ".xml", ".yaml", ".yml")
+
+
+def check_review_detection(root: str, rep: Report) -> None:
+    """Guideline 2.3.1(a): code or bundled config that detects App Review or bypasses the paywall for reviewers.
+    Names alone trigger automated flags, even in a key the platform never reads (one shared remote config)."""
+    hits: list[str] = []
+    for path in walk(root):
+        if not path.endswith(REVIEW_SCAN_EXT):
+            continue
+        for n, line in enumerate(read(path).splitlines(), 1):
+            m = REVIEW_DETECTION.search(line)
+            if m:
+                hits.append(f"{os.path.relpath(path, root)}:{n} '{m.group(0)}'")
+                break
+    if hits:
+        rep.add("FAIL", "review", "review detection or reviewer bypass names found (Guideline 2.3.1(a), hidden features; "
+                                  "the app must behave the same in review and production, give reviewers a real account "
+                                  "or a granted entitlement instead): " + "; ".join(hits[:5]))
+
+
 def check_android(root: str, rep: Report) -> dict:
     gradle, manifests, toml, props, twa_manifest, assetlinks = [], [], [], [], [], []
     for path in walk(root):
@@ -679,6 +707,9 @@ def check_dossier(d: dict, stores: set[str], policy: dict | None, rep: Report) -
     if apple and not yes(get("walkthrough")):
         rep.add("WARN", "dossier", f"'{K['walkthrough']}' is not yes: a 1 to 3 minute recording of this build in the "
                                    "App Review Attachment field answers most 2.1 questions before they are asked")
+    if apple and not yes(get("remote_config")):
+        rep.add("WARN", "dossier", f"'{K['remote_config']}' is not yes: export the live remote config and read every key "
+                                   "(Guideline 2.3.1(a); the script cannot see server side values)")
     if blank(get("ai_features")):
         rep.add("WARN", "dossier", f"'{K['ai_features']}' is empty: write 'none' or what the AI does and which service, "
                                    "and say the same in the review notes")
@@ -795,6 +826,7 @@ def main(argv: list[str] | None = None) -> int:
     deps = package_deps(root)
     ios = check_ios(root, deps, dossier, rep)
     android = check_android(root, rep)
+    check_review_detection(root, rep)
     if not ios["present"] and not android["present"] and dossier is None:
         print("ERROR nothing to check: no iOS project, no Android project and no dossier")
         print(CANNOT_COVER)

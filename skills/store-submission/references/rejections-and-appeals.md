@@ -65,6 +65,23 @@ To verify: 1. <step> 2. <step>.
 
 Rules: one reply per issue thread, facts and steps only, attach screenshots of the exact screens, no promises about future builds, no blame. `compliance` reads any reply that makes a claim about the product or the law.
 
+### 3.1 Reply to a 2.3.1(a) hidden features rejection
+
+```text
+Thank you for the review. The flagged item was <key name>, a remote configuration value used only by our Android build to <purpose>. The iOS app never read it. We have removed the key from the configuration the iOS app receives and removed <code, if any>; the app now behaves identically for every user. Reviewers can test the subscription with the sandbox and the demo account in App Review Information. The complete list of remote configuration keys the iOS app receives is: <list with one line each>. We are happy to share more detail.
+```
+
+Facts only, no argument. Resubmit only after the key is gone from what the iOS app actually fetches.
+
+### 3.2 Account safety
+
+Reports of terminated developer accounts and removed apps rise in waves [Reported, 2026-10, practitioner posts]. What keeps an account safe is the same discipline as a clean review:
+1. One honest app per account: no hidden features, no switching the app's purpose after approval, no review detection (section 3.1, checklist section 6.1).
+2. No ties to terminated accounts: shared payment details, devices, bank accounts or team members with a banned account are reported as a cause of linked terminations [Reported, 2026-10]; buying or borrowing accounts is out.
+3. No copycat or template apps across accounts, no fake reviews or rating manipulation, no misleading metadata (2.3, 4.3, 5.6).
+4. Answer Apple's messages in App Store Connect promptly, and keep the legal entity, contact details and agreements current.
+5. If a termination notice arrives: do not open a new account; read the notice, gather the facts, and appeal through the stated channel with the human and counsel deciding (G4).
+
 ## 4. Bug Fix Submissions (Apple)
 
 | Rule | Evidence |
@@ -127,6 +144,7 @@ Ads Master rule: an expedite request is G3 and is used for incidents (a crash or
 | 2.1 (completeness) | Crash on the reviewer's device, placeholder screens, broken support or privacy link, back end off | Test on current iOS on device; open every URL on the day | Release QA; dossier section 6 |
 | 2.1 (information) | Demo account expired or behind a code; no expired subscription account; paywall not found | Fix the account; add steps | Demo account checklist |
 | 2.1(b) | Product not attached to the version or not visible | Attach in App Store Connect; explain hidden products | Payments checklist |
+| 2.3.1(a) | Hidden features: review detection or a reviewer bypass, often a remote config key shared with Android | Remove the key and the code path, split config per platform, give reviewers a real account or a granted entitlement; reply with what was removed and offer the full key list | [Apple review checklist](apple-review-checklist.md) section 6.1 |
 | 2.3.3, 2.3.4 | Splash or marketing art as screenshots; rendered trailer as a preview | Real UI captures; screen recorded previews | ASO workflow |
 | 2.3.10 | "Get it on Google Play" badge or Android device in assets or in the web view | Remove from assets and the wrapped site | Wrapper checklist |
 | 3.1.1 | Web checkout or a "buy on our website" link outside the US storefront; license key unlock | In-app purchase; link out only where allowed | Payments checklist |

@@ -126,6 +126,30 @@ class SampleTest(Base):
         self.assertNotIn("NSMicrophoneUsageDescription", out)
 
 
+class ReviewDetectionTest(Base):
+    def test_reviewer_bypass_key_fails(self):
+        root = self.copy("capacitor-app")
+        self.write(root, "src/remote-config-defaults.json", '{"reviewer_bypass_code": "", "paywall_variant": "b"}')
+        code, out = run(root)
+        self.assertEqual(code, 1)
+        self.assertIn("review detection or reviewer bypass names found", out)
+        self.assertIn("reviewer_bypass", out)
+
+    def test_camel_case_review_flag_fails(self):
+        root = self.copy("capacitor-app")
+        self.write(root, "src/flags.ts", "export const isInReview = false;\n")
+        code, out = run(root)
+        self.assertEqual(code, 1)
+        self.assertIn("isInReview", out)
+
+    def test_rating_prompt_and_review_screens_do_not_trigger(self):
+        root = self.copy("capacitor-app")
+        self.write(root, "src/rating.ts", "import { requestReview } from 'rating';\nconst reviewsScreen = 1;\nconst review = {};\n")
+        code, out = run(root)
+        self.assertEqual(code, 0, out)
+        self.assertNotIn("review detection", out)
+
+
 class TemplateTest(Base):
     def test_template_contains_every_dossier_key(self):
         with open(TEMPLATE, encoding="utf-8") as fh:

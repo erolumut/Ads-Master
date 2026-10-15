@@ -30,6 +30,8 @@ Never tested: counted attempts per day, ranked scoring rules, anything that woul
 | Staged rollout for risky changes (small share first, then wider) | Limits damage while watching guardrails [Practitioner consensus] |
 | Ranked rules never change mid day | Fairness inside one day id; change at the tick only |
 | Config and calendar agree | The calendar row id appears in the key or its note; `liveops_calendar_check.py` covers dates, not config |
+| Same behavior for every player, reviewers included: no review detection keys, no reviewer bypass, no keys for one platform delivered to the other | Apple rejects review-environment detection under Guideline 2.3.1(a), even for an unused key; see `store-submission` [Apple review checklist](../../store-submission/references/apple-review-checklist.md) section 6.1 |
+| Remote config tunes approved features; it never unlocks a new product, paid feature, content category or payment route after approval | Switching an approved app is the pattern behind removals and account terminations |
 | Record `calendar revision` with event telemetry | Reads can be tied to the calendar version, the way `policy_revision` ties revenue to the monetization policy |
 
 Tools seen in game stacks (options, not endorsements): Firebase Remote Config with A/B Testing, Unity Gaming Services remote config and game overrides, GameAnalytics A/B testing, PostHog, GrowthBook or Statsig feature flags for web games, or the product's own feature flag table. Small studio default in the research notes: GameAnalytics or devtodev free tiers plus Firebase Remote Config, and PostHog for web games [Reported, 2026-10].

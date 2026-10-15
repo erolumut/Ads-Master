@@ -33,6 +33,7 @@
 - Demo mode instead of an account: <no, or yes with the date Apple approved it>
 - Backend live during review: <yes, or n/a when the app has no backend>
 - Server side feature flags for review: <none, or which flags and that they match production>
+- Remote config keys read by hand: <yes: date, and no review detection, bypass or other platform only keys>
 - Region or hardware needs: <none, or what the reviewer needs and how it is provided>
 - Walk-through video attached: <yes: file name, build number and date recorded; Apple only>
 - AI features: <none, or what the AI does, which service, and where the app asks before sending personal data>

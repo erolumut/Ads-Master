@@ -33,6 +33,7 @@ Each row: what the reviewer checks, how we verify before submission, and who fix
 |-----------|--------------------------|---------------|-------|
 | 2.1(a) Completeness | Final version, all metadata, fully functional URLs, no placeholder text or empty websites, tested on device, demo account info when there is a login, back end turned on; a demo mode only with Apple's prior approval; no crashes or obvious technical problems [Official, 2026-06] | Release QA on current iOS on device; script flags placeholder purpose strings; dossier sections 2 and 6; every URL opened on the submission day | App team, site-engineer for web backed apps |
 | 2.1(b) In-app purchases | Every configured in-app purchase is complete, up to date, visible to the reviewer and functional; if one cannot be found, the review notes explain why [Official, 2026-06] | Buy each product in the sandbox with the demo account; dossier "In-app purchases attached to this version" | App team |
+| 2.3.1(a) Hidden features | No hidden, dormant or undocumented features; the app behaves the same in review and in production. Rejections in 2026-10 cite "review-environment detection functionality delivered through remote configuration" for a key named like a reviewer bypass that the iOS code never read [Reported, 2026-10, developer posts with the rejection text]. The guideline also says egregious or repeated behavior is grounds for removal from the Apple Developer Program [Official, verify wording] | Script fails on review detection and reviewer bypass names in code and bundled config; read every remote config key by hand (dossier); per platform config (section 6.1) | App team |
 | 2.3.3 Screenshots | Show the app in use, not only title art, a login page or a splash screen [Official, 2026-06] | Check every device size set before upload | app-store-optimization drafts, store-submission checks |
 | 2.3.4 Previews | Only video screen captures of the app itself; narration and overlays allowed [Official, 2026-06] | No rendered trailer footage, no live action, no gameplay the build does not have | video-studio, store-submission checks |
 | 2.3.7 Metadata | No trademarked terms, popular app names, pricing information or irrelevant phrases to game the system; name up to 30 characters; subtitles make no unverifiable claims and reference no other apps [Official, 2026-06] | `aso_metadata_check.py` (app-store-optimization) plus a read | app-store-optimization |
@@ -129,6 +130,17 @@ The export compliance answer is a legal statement made by the account holder. `s
 | Copyright | "Year owner" format | [Official, 2026-10] (research pass) |
 
 Templates: [Review notes and demo accounts](review-notes-and-demo-accounts.md).
+
+### 6.1 Review parity and remote config (avoid 2.3.1(a) and account risk)
+
+1. Same app for everyone: no code path, flag or remote value that changes behavior because the user might be a reviewer (review accounts, review regions, sandbox receipts, TestFlight, device or IP checks).
+2. Reviewers get real access, never a bypass:
+   - Apple: purchases are tested in the sandbox; give a demo account and, for subscriptions, an expired subscription account (section 6, dossier section 2).
+   - Google Play: add the review account as a license tester, or grant it the entitlement on the server (entitlement log, a promotional grant in the subscription tool) and say so in App access.
+3. Per platform config: keys that only Android uses never reach the iOS app. Use separate apps or projects, or conditions that keep the parameter out of the other platform's fetch, and verify by inspecting what the iOS app actually receives [Practitioner consensus].
+4. Key names are read: names such as `reviewer_bypass_code`, `review_mode`, `isInReview`, `skip_paywall` trigger automated checks even when unused [Reported, 2026-10]. Name keys for what they do for every user (`paywall_variant`, `onboarding_steps`).
+5. Remote config may tune what the reviewer saw (copy, prices from the store, layout variants, difficulty values); it never unlocks a different product, new paid features, a new content category, external payments or gambling after approval. Switching an approved app into something else is the pattern associated with removals and account terminations [Practitioner consensus, 2026-10].
+6. Before each submission: export the live remote config, read every key, and record the check in the dossier.
 
 ## 7. TestFlight before the first App Store submission
 
