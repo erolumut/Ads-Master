@@ -182,6 +182,8 @@ The inputs (tags, category, metadata, downloads, usage, the user's installed app
 3. Shows mostly on English language devices; the EEA lags [Unverified].
 4. I/O 2026 also said apps and games would become discoverable in the Gemini app "in the coming weeks"; rollout not confirmed [Unverified].
 
+2026-10-15: Google announced app discovery "with Ask Play and Gemini" alongside other Play changes [Reported, 2026-10, announcement only]. Whether Ask Play's scope or inputs changed is not documented yet; section 6.3 still applies. Recheck by 2026-12.
+
 ### 6.2 What it reads, per tests
 
 Two vendor tests agree that Ask Play answers draw on the listing text plus other sources [Reported, 2026-10]. Each further input rests on one vendor only, so it stays [Unverified] in the table.

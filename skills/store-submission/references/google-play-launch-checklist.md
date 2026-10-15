@@ -99,6 +99,8 @@ Reported in 2026 search results [Reported, 2026-10]: Data safety mismatch with t
 | 11 | App access | Instructions and a demo account when features sit behind sign in |
 | 12 | Change request | The human approves and presses submit (G3) |
 
+Note (2026-10-15): Google announced that Play can install and run a person's own custom built apps privately on their own device [Reported, 2026-10, announcement only]. It may ease installing your own builds on your phone for testing, but it is not distribution: it reaches no users and replaces neither internal testing nor the closed test required for new personal accounts. Recheck the documented flow by 2026-12 before using it.
+
 ## 10. Timeline for a new personal account (first app)
 
 The closed test sets the critical path. Work backwards from the target date [Practitioner consensus, built from the reported 14 day and 48 hour figures]:

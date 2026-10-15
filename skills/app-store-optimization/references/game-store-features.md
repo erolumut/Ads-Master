@@ -103,6 +103,10 @@ Recommendation: integrate PGS v2 sign in and the baseline achievement set before
 
 For casual, puzzle and board games the playability level is often within reach; certification needs real engineering. ASO's part: once released on PC, add PC screenshots if the console offers a PC listing slot (verify in Play Console) and mention PC play only after it is live.
 
+### 6.1 Watch list: Game Finder and Gamer DNA (announced 2026-10-15)
+
+Google announced a Game Finder and "Gamer DNA" for game discovery in Play [Reported, 2026-10, announcement only; no developer documentation read]. Both names suggest matching games to each player's taste profile. Until Google publishes how they work, assume they read the same signals as the rest of Play discovery: category and tags, the listing text, screenshots and video, Play Games Services achievements and sign in, ratings and engagement. Do not promise placement, and do not rewrite a listing for them. Recheck by 2026-12: the Play Console help pages and the Android Developers blog; then replace this section with the documented inputs.
+
 ## 7. Play Points
 
 "Participation in Play Points is available to select developers" through an interest form; members exchange points for discounted coupons and in-app products offered as promotions; setup covers in-app and one-time products [Official, 2026-10] (page updated 2026-10-06). A 2026-10-12 search summary said Play Points opened to all games in October 2025 [Reported, 2026-10]; the developer page read the same day says select developers [Contested]. Google's program page cites revenue uplift as high as 30% for participants [Unverified, platform claim]. Apply through the form (G3, it commits the brand) and plan Play Points promotions in the live ops calendar like any other offer.
