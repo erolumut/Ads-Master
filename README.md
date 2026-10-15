@@ -1,12 +1,12 @@
 # Ads Master
 
-**Plug and play growth agents for Claude Code.** Twenty four specialist agents for paid media, SEO, AI search visibility, app store optimization, the storefront, conversion, offers, pricing, marketplaces, creative and video production, retention, apps, measurement and compliance. They are built on a deep market research sweep (October 2026) and designed to adapt to any project: ecommerce, lead gen, B2B SaaS, local services, apps and marketplaces, from a $500 test budget to enterprise scale.
+**Plug and play growth agents for Claude Code.** Twenty seven specialist agents for paid media, SEO, AI search visibility, app store optimization, mobile and web game monetization, liveops, store submission, the storefront, conversion, offers, pricing, marketplaces, creative and video production, retention, apps, measurement and compliance. They are built on a deep market research sweep (October 2026) and designed to adapt to any project: ecommerce, lead gen, B2B SaaS, local services, apps, games and marketplaces, from a $500 test budget to enterprise scale.
 
 Install once, drop into any project, and get a senior growth team that audits, plans, builds and reviews, while you keep the final say on every dollar spent and every word published. Safety is enforced twice: by the agents' rules and by deterministic hooks that block risky actions no matter what a model decides.
 
 | At a glance | |
 |---|---|
-| Agents | 24 specialists plus 3 utility skills (`ads-setup`, `ads-review`, `ads-verify`) |
+| Agents | 27 specialists plus 3 utility skills (`ads-setup`, `ads-review`, `ads-verify`) |
 | Workflow Kit | A separate plugin for any project: model routing (haiku, sonnet, opus, fable), parallel sessions, sprint prompts, plan first sessions, handover, decision log, review guardians, git hooks and gate scripts |
 | Playbook depth | 361 reference modules, about 76,000 lines of procedures, audits, settings, formulas, queries and scripts |
 | Research | 25 dossiers with dated timelines of platform changes (January 2025 to October 2026) and about 4,100 unique cited URLs |
@@ -44,6 +44,9 @@ Install once, drop into any project, and get a senior growth team that audits, p
 | Creative | `creative-strategy` | Customer research to angles, hooks, scripts and briefs; creative testing systems; creative analytics; localization. |
 | | `video-studio` | Briefs to finished video ad files: code driven motion (HyperFrames, Remotion), generative video under a spend cap, avatars with disclosure, FFmpeg editing, captions, safe zones, variant batches. |
 | Retention | `lifecycle-crm` | Email, SMS, WhatsApp and push flows, deliverability, consent, subscriptions, loyalty, cohort LTV, and retention data fed back to paid media. |
+| Games | `game-monetization` | Mobile and web game revenue: economy and catalog, offers at fail and game over moments, season pass and subscriptions, rewarded ads and mediation, a machine checked monetization policy that keeps ranked results unbuyable. |
+| | `game-liveops` | Daily loops and streaks, events and seasons, teams and leagues, the liveops calendar with store events, difficulty signals, experiments and retention diagnostics. |
+| | `store-submission` | Getting apps and games accepted on the first App Store and Google Play review: the submission dossier, privacy manifests and SDK data maps, payments review, wrapped web apps, review notes, rejections and appeals. |
 
 ---
 
@@ -101,7 +104,7 @@ Open the repo in Claude Code. The agents, skills and kits load from `.claude/` (
 
 ### Pick only what you need
 
-`install.sh <project> --pack ecommerce-dtc` (or `marketplace-seller`, `lead-gen-local`, `b2b-saas`, `mobile-app`, `ai-visibility`, `full`). Core (orchestrator, measurement, compliance and the utility skills) is always included. The full decision guide, the packs and the CLAUDE.md snippet are in [docs/HOW_TO_USE.md](docs/HOW_TO_USE.md), which regenerates itself from the repo.
+`install.sh <project> --pack ecommerce-dtc` (or `marketplace-seller`, `lead-gen-local`, `b2b-saas`, `mobile-app`, `game-studio`, `ai-visibility`, `full`). Core (orchestrator, measurement, compliance and the utility skills) is always included. The full decision guide, the packs and the CLAUDE.md snippet are in [docs/HOW_TO_USE.md](docs/HOW_TO_USE.md), which regenerates itself from the repo.
 
 ### Workflow Kit (for any project, ads or not)
 
@@ -161,7 +164,7 @@ Requirements: Claude Code, Python 3 for the guard and scripts, FFmpeg for video-
 
 ```
 .claude-plugin/          plugin.json and marketplace.json
-agents/                  24 subagent definitions
+agents/                  27 subagent definitions
 skills/<agent>/          SKILL.md + references/ (+ scripts/ where useful)
 skills/ads-setup/        workspace installer + template/ (the per project workspace)
 skills/ads-review/       heartbeat runner

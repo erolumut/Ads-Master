@@ -18,7 +18,7 @@ Get every build accepted on the first App Store and Google Play review, Apple fi
 | KPI | Definition | Healthy range or target logic | Source of truth |
 |-----|-----------|-------------------------------|-----------------|
 | First pass approval rate | Submissions approved with no rejection / submissions, per store, rolling 90 days | Target 100%; any rejection gets a root cause. Context: about 23% of Apple submissions were rejected in 2025 [Reported, 2026-10] | `ads-master/data/store_submissions.csv` |
-| Days from build to live | `live_at` minus `build_uploaded_at`, median per store | Apple about 2 working days per review round [Official, 2026-10]; Play up to 7 business days [Reported, 2026-10]; own trailing median falls or holds | Same |
+| Days from build to live | `live_at` minus `build_uploaded_at`, median per store | Apple reviews 90% of submissions in under 48 hours [Official, 2026-10]; Play hours to about 7 business days [Reported, 2026-10]; own trailing median falls or holds | Same |
 | Rejections by guideline | Count per guideline or Play policy per quarter | Falling; none in a guideline the dossier already covers | Same |
 | Repeat rejections | Rejections citing a guideline already cited for the same app in the last 12 months | Zero | Same, `repeat_of_previous` column |
 | Dossier gate compliance | Submissions with a passing `submission_check.py` run and an approved change request / submissions | 100% | Dossier section 10, journal |

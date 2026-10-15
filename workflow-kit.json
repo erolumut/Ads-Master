@@ -44,6 +44,22 @@
         "run": "python3 -m unittest discover -s skills/app-store-optimization/scripts -p \"test_*.py\""
       },
       {
+        "name": "game monetization tests",
+        "run": "python3 -m unittest discover -s skills/game-monetization/scripts -p \"test_*.py\""
+      },
+      {
+        "name": "game liveops tests",
+        "run": "python3 -m unittest discover -s skills/game-liveops/scripts -p \"test_*.py\""
+      },
+      {
+        "name": "store submission tests",
+        "run": "python3 -m unittest discover -s skills/store-submission/scripts -p \"test_*.py\""
+      },
+      {
+        "name": "measurement tests",
+        "run": "python3 -m unittest discover -s skills/measurement/scripts -p \"test_*.py\""
+      },
+      {
         "name": "secret scan",
         "run": "python3 kits/workflow-kit/scripts/secret_scan.py --history"
       }

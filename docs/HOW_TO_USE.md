@@ -27,7 +27,8 @@ Core (orchestrator, measurement, compliance and the three utility skills) is alw
 | Marketplace seller | Brands or resellers selling on Amazon, bol.com, Trendyol, Hepsiburada and similar | `marketplaces`, `pricing-strategy`, `commerce-feeds`, `creative-strategy`, `market-intel`, `offer-strategy` | `install.sh <project> --pack marketplace-seller` |
 | Lead gen and local services | Clinics, agencies, trades, real estate, education, local businesses | `google-ads`, `meta-ads`, `microsoft-ads`, `cro`, `site-engineer`, `seo`, `ai-search-optimization`, `creative-strategy`, `lifecycle-crm`, `market-intel` | `install.sh <project> --pack lead-gen-local` |
 | B2B and SaaS | Software, B2B services and high consideration sales | `google-ads`, `linkedin-ads`, `microsoft-ads`, `chatgpt-ads`, `seo`, `ai-search-optimization`, `cro`, `site-engineer`, `pricing-strategy`, `offer-strategy`, `lifecycle-crm`, `creative-strategy`, `market-intel` | `install.sh <project> --pack b2b-saas` |
-| Mobile app | iOS and Android apps, subscription and freemium | `mobile-app-growth`, `app-store-optimization`, `meta-ads`, `google-ads`, `tiktok-ads`, `creative-strategy`, `video-studio`, `lifecycle-crm`, `pricing-strategy`, `market-intel`, `ai-search-optimization`, `seo` | `install.sh <project> --pack mobile-app` |
+| Mobile app | iOS and Android apps, subscription and freemium | `mobile-app-growth`, `app-store-optimization`, `meta-ads`, `google-ads`, `tiktok-ads`, `creative-strategy`, `video-studio`, `lifecycle-crm`, `pricing-strategy`, `market-intel`, `ai-search-optimization`, `seo`, `store-submission` | `install.sh <project> --pack mobile-app` |
+| Game studio | Mobile, web and PWA games: monetization, live ops, store presence, first pass store review, game UA and creative | `game-monetization`, `game-liveops`, `store-submission`, `app-store-optimization`, `mobile-app-growth`, `creative-strategy`, `video-studio`, `lifecycle-crm`, `pricing-strategy`, `site-engineer`, `market-intel`, `ai-search-optimization` | `install.sh <project> --pack game-studio` |
 | Organic and AI visibility | Any business that wants search, AI assistant and app store visibility without paid media first (app-store-optimization only matters if there is an app) | `seo`, `ai-search-optimization`, `chatgpt-ads`, `site-engineer`, `market-intel`, `app-store-optimization` | `install.sh <project> --pack ai-visibility` |
 | Everything | Agencies and teams running many channels | all agents | `install.sh <project> --pack full` |
 <!-- AUTO:packs:end -->
@@ -128,30 +129,33 @@ Tips: if your CLAUDE.md is long, move area specific rules into path scoped files
 <!-- AUTO:agents:start -->
 | Agent | What it does | Packs | Model |
 |-------|--------------|-------|-------|
-| `ai-search-optimization` | AI search visibility (GEO, AEO, LLMO) specialist for ChatGPT, Google AI Overviews and AI Mode, Gemini, Perplexity, Copilot, Claude, Meta AI and Grok. | ecommerce-dtc, lead-gen-local, b2b-saas, mobile-app, ai-visibility | inherit |
-| `app-store-optimization` | App Store Optimization specialist for the Apple App Store and Google Play. | mobile-app, ai-visibility | inherit |
+| `ai-search-optimization` | AI search visibility (GEO, AEO, LLMO) specialist for ChatGPT, Google AI Overviews and AI Mode, Gemini, Perplexity, Copilot, Claude, Meta AI and Grok. | ecommerce-dtc, lead-gen-local, b2b-saas, mobile-app, game-studio, ai-visibility | inherit |
+| `app-store-optimization` | App Store Optimization specialist for the Apple App Store and Google Play. | mobile-app, game-studio, ai-visibility | inherit |
 | `chatgpt-ads` | ChatGPT Ads (OpenAI Ads Manager, ads.openai.com) and cross surface strategy for AI assistant ads (Google AI Overviews and AI Mode, Microsoft Copilot, Amazon Alexa for Shopping prompts,... | b2b-saas, ai-visibility | inherit |
 | `commerce-feeds` | Product feed and catalog specialist for Google Merchant Center, Meta and TikTok catalogs, Microsoft Merchant Center, Pinterest and Snapchat, plus AI shopping and agentic commerce (ChatGPT... | ecommerce-dtc, marketplace-seller | inherit |
 | `compliance` | Claims and policy gate for all customer facing material. | core | inherit |
-| `creative-strategy` | Cross channel creative strategist for Meta, TikTok, YouTube, Google assets, LinkedIn and ChatGPT ads. | ecommerce-dtc, marketplace-seller, lead-gen-local, b2b-saas, mobile-app | inherit |
+| `creative-strategy` | Cross channel creative strategist for Meta, TikTok, YouTube, Google assets, LinkedIn and ChatGPT ads. | ecommerce-dtc, marketplace-seller, lead-gen-local, b2b-saas, mobile-app, game-studio | inherit |
 | `cro` | Conversion rate optimization and landing page specialist for paid and organic traffic. | ecommerce-dtc, lead-gen-local, b2b-saas | inherit |
+| `game-liveops` | Game liveops specialist for why players come back. | game-studio | inherit |
+| `game-monetization` | Game monetization specialist for web, PWA, iOS and Android games. | game-studio | inherit |
 | `google-ads` | Google Ads operator for Search, AI Max, Performance Max, Demand Gen, YouTube, Shopping, Display, App, Local and ads in AI Overviews and AI Mode. | ecommerce-dtc, lead-gen-local, b2b-saas, mobile-app | inherit |
 | `growth-orchestrator` | Growth strategist for the Ads Master system. | core | inherit |
-| `lifecycle-crm` | Retention and lifecycle specialist for email, SMS, RCS, WhatsApp, push and in-app (Klaviyo, Braze, Customer.io, Iterable, Omnisend, Mailchimp, Attentive, Postscript, HubSpot). | ecommerce-dtc, lead-gen-local, b2b-saas, mobile-app | inherit |
+| `lifecycle-crm` | Retention and lifecycle specialist for email, SMS, RCS, WhatsApp, push and in-app (Klaviyo, Braze, Customer.io, Iterable, Omnisend, Mailchimp, Attentive, Postscript, HubSpot). | ecommerce-dtc, lead-gen-local, b2b-saas, mobile-app, game-studio | inherit |
 | `linkedin-ads` | LinkedIn Ads specialist for B2B paid social in Campaign Manager. | b2b-saas | inherit |
-| `market-intel` | Competitor and market intelligence for paid media, SEO and AI search. | ecommerce-dtc, marketplace-seller, lead-gen-local, b2b-saas, mobile-app, ai-visibility | inherit |
+| `market-intel` | Competitor and market intelligence for paid media, SEO and AI search. | ecommerce-dtc, marketplace-seller, lead-gen-local, b2b-saas, mobile-app, game-studio, ai-visibility | inherit |
 | `marketplaces` | Marketplace channel operator for Amazon (Seller Central, Vendor Central, Amazon Ads, DSP basics), bol.com, Trendyol, Hepsiburada, Allegro, Zalando, Etsy, eBay, Walmart, noon and Amazon in... | marketplace-seller | inherit |
 | `measurement` | Measurement and tracking engineer for paid media. | core | inherit |
 | `meta-ads` | Meta advertising specialist for Facebook, Instagram, Threads, WhatsApp, Messenger and Audience Network. | ecommerce-dtc, lead-gen-local, mobile-app | inherit |
 | `microsoft-ads` | Microsoft Advertising specialist for Bing, Yahoo, AOL, DuckDuckGo, Edge, Microsoft Copilot and the Microsoft Audience Network. | lead-gen-local, b2b-saas | inherit |
-| `mobile-app-growth` | Mobile app growth specialist for iOS and Android paid acquisition and monetization. | mobile-app | inherit |
+| `mobile-app-growth` | Mobile app growth specialist for iOS and Android paid acquisition and monetization. | mobile-app, game-studio | inherit |
 | `offer-strategy` | Offer, pricing and merchandising strategist. | ecommerce-dtc, marketplace-seller, b2b-saas | inherit |
-| `pricing-strategy` | Commercial pricing consultant. | ecommerce-dtc, marketplace-seller, b2b-saas, mobile-app | inherit |
+| `pricing-strategy` | Commercial pricing consultant. | ecommerce-dtc, marketplace-seller, b2b-saas, mobile-app, game-studio | inherit |
 | `seo` | SEO specialist for Google and Bing in the AI Overviews and AI Mode era. | ecommerce-dtc, lead-gen-local, b2b-saas, mobile-app, ai-visibility | inherit |
-| `site-engineer` | Website engineering and release QA for Shopify themes, WordPress and WooCommerce, Next.js and headless storefronts and Webflow. | ecommerce-dtc, lead-gen-local, b2b-saas, ai-visibility | inherit |
+| `site-engineer` | Website engineering and release QA for Shopify themes, WordPress and WooCommerce, Next.js and headless storefronts and Webflow. | ecommerce-dtc, lead-gen-local, b2b-saas, game-studio, ai-visibility | inherit |
+| `store-submission` | App Store and Google Play submission specialist for any app, game, subscription app or Capacitor and TWA wrapper. | mobile-app, game-studio | inherit |
 | `storefront-ux` | Ecommerce storefront UX and implementation specialist. | ecommerce-dtc | inherit |
 | `tiktok-ads` | TikTok advertising specialist for TikTok Ads Manager, Smart+, GMV Max and TikTok Shop ads, Spark Ads, TikTok One creators, Search Ads, lead gen and app campaigns. | ecommerce-dtc, mobile-app | inherit |
-| `video-studio` | Video ad production agent for Meta Reels, Stories and Feed, TikTok, YouTube Shorts, in-stream and Demand Gen, LinkedIn and CTV. | ecommerce-dtc, mobile-app | inherit |
+| `video-studio` | Video ad production agent for Meta Reels, Stories and Feed, TikTok, YouTube Shorts, in-stream and Demand Gen, LinkedIn and CTV. | ecommerce-dtc, mobile-app, game-studio | inherit |
 <!-- AUTO:agents:end -->
 
 ## 9. Skill catalog
@@ -169,6 +173,8 @@ Tips: if your CLAUDE.md is long, move area specific rules into path scoped files
 | `compliance` | Claims and policy gate for every customer facing word, image and offer (ads, landing and product pages, emails, SMS, feeds, videos, creator posts, app store listings). |
 | `creative-strategy` | Cross channel ad creative strategy, production and analysis for Meta (Facebook, Instagram, Reels), TikTok, YouTube and Shorts, Google RSA, Performance Max and Demand Gen assets, LinkedIn... |
 | `cro` | Conversion rate optimization (CRO) and landing pages for paid and organic traffic. |
+| `game-liveops` | Game live operations (liveops) playbook for why players come back. |
+| `game-monetization` | Playbook for how a game earns, fairly and lawfully, on web, PWA, iOS and Android. |
 | `google-ads` | Google Ads playbook for auditing, launching, optimizing, scaling and recovering accounts across Search, AI Max for Search, Performance Max, Demand Gen, YouTube, Shopping, Display, App,... |
 | `growth-orchestrator` | Conductor playbook and default entry point for the Ads Master growth system. |
 | `lifecycle-crm` | Retention and lifecycle marketing (CRM) for email, SMS, RCS, WhatsApp, push and in-app. |
@@ -183,6 +189,7 @@ Tips: if your CLAUDE.md is long, move area specific rules into path scoped files
 | `pricing-strategy` | Commercial pricing consultant playbook. |
 | `seo` | Search engine optimization playbook for Google and Bing in the AI Overviews and AI Mode era. |
 | `site-engineer` | Website engineering, release QA and rollback for the sites and storefronts growth work touches. |
+| `store-submission` | Store submission and app review playbook for the Apple App Store and Google Play, to get any app, game, subscription app or Capacitor and TWA wrapper accepted on the first review. |
 | `storefront-ux` | Ecommerce storefront UX and implementation playbook. |
 | `tiktok-ads` | TikTok advertising playbook for TikTok Ads Manager and TikTok Shop. |
 | `video-studio` | Video ad production studio that turns creative briefs into finished, platform ready ad files for Meta Reels, Stories and Feed, TikTok, YouTube Shorts, in-stream and Demand Gen, LinkedIn and... |
