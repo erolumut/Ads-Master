@@ -39,7 +39,7 @@ How to read the "Supports" column: it names the claims a source backs and the la
 | # | Title | Publisher | URL | Date | Supports |
 |---|-------|-----------|-----|------|----------|
 | 16 | Wordle | The New York Times Help Center | https://thenewyorktimeshelpcenter.helpjuice.com/24611727334932-Wordle | seen as summary 2026-10-12 | New puzzle at midnight in the player's time zone; statistics with Current Streak and Max Streak; finishing after local midnight breaks the streak [Reported, 2026-10] |
-| 17 | New York Times Company quarterly report (10-Q), Q2 2026 | SEC | URL not recorded (sec.gov) | 2026 | 13.35 million subscribers; The Mini paywall in Q3 2025 added single product subscribers [Reported, 2026-10] |
+| 17 | New York Times Company quarterly report (10-Q), Q2 2026 | SEC | URL not recorded (sec.gov) | 2026 | 13.35 million subscribers across all products (not games only); The Mini paywall in Q3 2025 added single product subscribers [Reported, 2026-10] |
 | 18 | LinkedIn Games guides | ConnectSafely and others | https://connectsafely.ai/articles/linkedin-games | 2026 | Daily reset at midnight Pacific; streaks; comparisons with connections [Reported, 2026-10]; company and school boards [Unverified, guides disagree] |
 | 19 | Puzzmo and Hearst coverage | MediaPost | URL not recorded | 2025 to 2026 | Puzzmo Plus about $40 a year (archives, leaderboards, no ads); Hearst acquisition [Reported, 2026-10] |
 | 20 | Discord Activities monetization | Discord Developer Docs | URL not recorded (docs.discord.com) | 2026-05 | Embedded App SDK 2.5.0; SKUs for IAP and subscriptions in some regions; group play fit [Reported, 2026-10] |
@@ -105,3 +105,16 @@ How to read the "Supports" column: it names the claims a source backs and the la
 2. Teardown facts describe one game's history; never present them as a forecast or a target.
 3. When an official page and a vendor disagree, the live console wins for that account, then the official page, then the vendor.
 4. Add new sources here with a number, date and the label they support; never renumber existing rows.
+
+## Which sources back which module
+
+| Module | Main sources |
+|--------|--------------|
+| [Daily loops and streaks](daily-loops-and-streaks.md) | 3, 6, 7, 8, 9, 10, 16, 17, 18, 19, 22, 23, 27, 28, 39, 40, 41, 45 |
+| [Events and seasons](events-and-seasons.md) | 1, 3, 24, 25, 26, 29, 31, 45 |
+| [Teams, groups and leagues](teams-groups-and-leagues.md) | 3, 4, 5, 6, 7, 10, 11, 18, 25, 29, 45 |
+| [Content cadence and difficulty signals](content-cadence-and-difficulty-signals.md) | 16, 24, 25, 31, 33, 36 |
+| [Liveops calendar and store events](liveops-calendar-and-store-events.md) | 1, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13, 14, 20, 21 |
+| [Experiments and remote config](experiments-and-remote-config.md) | 15, 25, 30, 46 |
+| [Retention diagnostics](retention-diagnostics.md) | 33, 34, 35, 37, 38 |
+| [Player trust and pressure patterns](player-trust-and-pressure-patterns.md) | 3, 22, 23, 27, 28, 29, 32, 39, 40, 41, 42, 43, 44, 45 |

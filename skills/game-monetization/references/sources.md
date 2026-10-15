@@ -111,7 +111,7 @@ How to read the "Supports" column: it names the claims a source backs and the la
 | 71 | CNIL fine on Voodoo | Usercentrics | URL not recorded | 2023 | EUR 3 million, identifier used for ads without consent [Reported, 2026-10] |
 | 72 | AGCM fine on Apple | Not recorded | URL not recorded | 2025-12 | EUR 98.6 million, double consent [Reported, 2026-10] |
 | 73 | Turkey Law 7578 | Evrensel, NTV | URL not recorded | 2026-04-22 | Under 15 social media bar; age rating and parental controls including purchase approval on game platforms; fines; local representative [Reported, 2026-10] |
-| 74 | PEGI and paid random items | Lewis Silkin | URL not recorded | 2026-03-18 | PEGI 16 default from 2026-06-01; reclassification from 2026-10-01 [Reported, 2026-10] |
+| 74 | PEGI and paid random items | Lewis Silkin | URL not recorded | 2026-03-18 | PEGI 16 default (some PEGI 18) from 2026-06-01 for new games with paid random items [Reported, 2026-10]; whether existing games are reclassified from 2026-10-01 [Contested] |
 | 75 | Odds rules; game mechanics under attack; Ninth Circuit | Fenwick | URL not recorded | 2017 to 2025 | Apple 2017 and Google 2019 odds rules; Epic v Apple [Reported, 2026-10] |
 | 76 | Monopoly Go objections and suits | VZBV (2025-06), New York Attorney General (2026-02), BBC | URL not recorded | 2025 to 2026 | Pop up offers, opaque currencies, absence penalties; paid loot box suit [Reported, 2026-10] |
 

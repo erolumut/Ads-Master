@@ -110,3 +110,23 @@ When an event type, a mode or a whole game is retired:
 4. List findings by severity: anything that reaches minors or contradicts the contract first.
 5. Draft fixes as change requests; copy to `compliance`, offers to `game-monetization`, reminders to `lifecycle-crm`.
 6. Re-audit after each season.
+
+## 9. Pressure audit sheet
+
+One row per surface; the audit output lists every row, not only the failures.
+
+| Surface | Point or moment | Audience (age bracket, market) | Pattern seen | Motivation or pressure | Rule or case | Severity | Fix | Owner |
+|---------|-----------------|--------------------------------|--------------|------------------------|--------------|----------|-----|-------|
+| Streak screen after a break | `custom_streak_broken` | All, incl. 13to15 | "Streak lost" in red, repair offer | Pressure | Section 1 streak row; contract `streak_protection` | High | Welcome back screen; free rest day; remove the offer | game-liveops, game repo |
+| Season end banner | on_menu, final week | Adults | "Ends in 02:59:41" timer next to the pass | Pressure | Contract `countdown: false`; consumer groups | High | End date as text; move the pass offer away from the timer | game-monetization |
+| Event card in the store | Apple in-app event | All | "Best puzzle event ever" | Claim | Apple In-App Events metadata rules | Medium | Event name only; route copy to `compliance` | app-store-optimization |
+
+Severity guide: Critical when it reaches minors with loss or urgency copy, or when a purchasable input feeds a ranked board; High for countdowns on offers, paid or ad gated streak rescue, rewards for notification opt in, pop up offers at session start beyond the policy; Medium for claims and wording; Low for presentation issues that inform rather than pressure.
+
+## 10. Escalation
+
+1. Critical findings are incidents: add a row to `ads-master/INCIDENTS.md`, tell the human, and draft the containment (kill switch or remote config) as a G3 change request the same day.
+2. Findings that need a market rule (minors, loot boxes, consumer law) go to `compliance` with the surface, the copy and the markets; liveops does not interpret the law.
+3. Findings in prices, offers or placements go to `game-monetization` with the offer point and the policy revision.
+4. Findings in reminders go to `lifecycle-crm` with the moment id and the send volume.
+5. Re-run the audit after the fixes ship and record the result in the journal.

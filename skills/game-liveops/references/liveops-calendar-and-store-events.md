@@ -46,7 +46,7 @@ Rules:
 | Roles | Account Holder, Admin, App Manager or Marketing | [Official, 2026-10] |
 | Guideline 2.3.13 | The event must fit an App Store Connect event type; metadata must be accurate and about the event, not the app; events happen at the dates and times set, across storefronts; monetization follows Section 3; the deep link goes to the right place | [Official, 2026-06] |
 
-Note for the main session: the `app-store-optimization` module on featuring and events still lists 10 approved and 5 published events; the official page read on 2026-10-12 says 15 approved and 10 published.
+Older guides and earlier Ads Master notes quote 10 approved and 5 published events; the official page read on 2026-10-12 says 15 approved and 10 published, and the `app-store-optimization` featuring module now matches it.
 
 ### 2.2 Good and poor candidates (Apple's own words, summarized)
 

@@ -141,7 +141,7 @@ File it at `ads-master/outputs/game-liveops/YYYY-MM-DD_game-liveops_difficulty-f
 
 ## 7. level_flags.py
 
-`<skill>/scripts/level_flags.py` reads a level (or day) funnel CSV exported by `measurement` and prints the flags in section 5.2. Standard library only; run with `python3 -I`.
+`<skill>/scripts/level_flags.py` reads a level (or day) funnel CSV exported by `measurement`, or the JSON output of `measurement`'s `game_kpis.py` (its churn by level rows: `level`, `reached`, `churned_here`), and prints the flags in section 5.2. With the JSON input only churn based flags can fire; the CSV with completions, attempts, quits and continues enables the rest. Standard library only; run with `python3 -I`.
 
 Input columns (header row, one row per level or day):
 
@@ -164,6 +164,7 @@ Example:
 ```
 python3 -I <skill>/scripts/level_flags.py ads-master/data/imports/level_funnel_2026-10-12.csv --frontier 10
 python3 -I <skill>/scripts/level_flags.py ads-master/data/imports/daily_funnel.csv --key day --frontier 0 --min-reached 500
+python3 -I <skill>/scripts/level_flags.py ads-master/data/imports/game_kpis_2026-10-12.json --frontier 10
 ```
 
 The script ranks anomalies; it does not explain them. A flag goes to the game repo only with the context in section 6.

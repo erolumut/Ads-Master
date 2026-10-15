@@ -31,7 +31,7 @@ One puzzle per day, the same for everyone who compares results, with a spoiler f
 | Wordle (NYT) | One puzzle a day released at midnight in the player's time zone; statistics show Played, Win %, Current Streak and Max Streak; a puzzle finished after local midnight breaks the current streak and starts a new one | [Reported, 2026-10] (NYT Help Center via search) |
 | Wordle share grid | Colored squares that show the path, never the letters | [Reported, 2026-10] |
 | LinkedIn games | Daily puzzles reset at midnight Pacific Time; streaks; comparisons with connections; company or school boards reported by some guides and not by others | Reset and streaks [Reported, 2026-10]; boards [Unverified] |
-| NYT Games | Puzzles as a subscription product; NYT reported 13.35 million subscribers in Q2 2026 and said paywalling The Mini in Q3 2025 added single product subscribers | [Reported, 2026-10] (10-Q via search) |
+| NYT Games | Puzzles as a subscription product; The New York Times Company reported 13.35 million subscribers across its products in Q2 2026 (not a games only figure) and said paywalling The Mini in Q3 2025 added single product subscribers | [Reported, 2026-10] (10-Q via search) |
 | Puzzmo | Daily puzzles with an optional subscription (archives, leaderboards, no ads, about $40 a year); acquired by Hearst | [Reported, 2026-10] |
 | Apple Game Center | Apple's own example of a challenge is a daily mini crossword: a recurring leaderboard that restarts daily, a game activity with a deep link to the crossword, and a challenge that is not repeatable | [Official, 2026-10] |
 

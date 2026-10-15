@@ -343,6 +343,39 @@ class TestLevelFlags(FlagsCase):
         code, out = self.run_flags("level,players_reached,churned\n1,abc,3\n")
         self.assertEqual(code, 2)
 
+    def run_flags_json(self, data, *extra: str) -> tuple[int, str]:
+        import json
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, "game_kpis.json")
+            with open(path, "w", encoding="utf-8") as fh:
+                fh.write(data if isinstance(data, str) else json.dumps(data))
+            out = io.StringIO()
+            with contextlib.redirect_stdout(out):
+                code = lvl.main([path, *extra])
+        return code, out.getvalue()
+
+    def test_game_kpis_json_input(self):
+        rows, reached = [], 10000.0
+        for level in range(1, 16):
+            c = 0.12 if level == 7 else 0.03
+            rows.append({"level": level, "reached": round(reached), "churned_here": round(reached * c * 0.9),
+                         "rate": None})
+            reached *= 1 - c
+        data = {"churn_by_level": {"computed": True, "inactive_days": 7, "rows": rows}}
+        code, out = self.run_flags_json(data, "--frontier", "0")
+        self.assertEqual(code, 1, out)
+        self.assertIn("level 7: churn_spike", out)
+
+    def test_game_kpis_json_not_computed_cannot_run(self):
+        data = {"churn_by_level": {"computed": False, "reason": "no level column or no level values"}}
+        code, out = self.run_flags_json(data)
+        self.assertEqual(code, 2)
+        self.assertIn("did not compute churn by level", out)
+
+    def test_invalid_json_cannot_run(self):
+        code, out = self.run_flags_json("{not json")
+        self.assertEqual(code, 2)
+
     def test_json_output(self):
         with tempfile.TemporaryDirectory() as tmp:
             src = os.path.join(tmp, "f.csv")

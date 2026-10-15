@@ -169,7 +169,7 @@ Spec business models map as follows: liveops applies to games and to game like h
 | More events mean more retention | Events on the same clock compete; uplift needs a holdout |
 | High participation means the event worked | Participation is reach; uplift is effect |
 | The daily puzzle should be an in-app event | Apple calls repetitive daily tasks poor candidates [Official, 2026-10] |
-| Royal Match's King's Cup is a template | As reported, it ranks levels beaten while boosters are sold; under contract v0.1 that is a purchasable ranked result |
+| Royal Match's King's Cup is a template | It is commonly described as ranking levels beaten in a cohort while boosters and continues are sold for those levels [Unverified mechanism]; under contract v0.1 a race of that shape is a purchasable ranked result |
 | A fail spike means a level is broken | Near miss fails are often designed; churn and quit spikes are the signal |
 | Casual puzzle soft launch gates fit every game | Daily social games behave like daily puzzles and habit apps |
 | A test can be read on day 3 | Full weeks, outcome window, novelty |
@@ -242,7 +242,7 @@ Workspace files this agent maintains: `ads-master/LIVEOPS_CALENDAR.md` (drafted 
 | Script | What it does | Input | Exit codes |
 |--------|-------------|-------|-----------|
 | `<skill>/scripts/liveops_calendar_check.py` | Apple event limits (31 days, 14 day promotion, 10 published, 15 approved), badges, deep links, metadata lengths and prices, Play submission window, one event per scale, ranked board declarations, holdout coverage, pressure words, freeze windows, deadlines with `--today` | `LIVEOPS_CALENDAR.md` or a CSV with the Calendar columns | 0 no FAIL, 1 a FAIL, 2 could not run |
-| `<skill>/scripts/level_flags.py` | Churn, quit, attempts and continue spikes against neighbors, frontier walls, funnel consistency, low samples | Level or day funnel CSV from `measurement` (accepts `game_kpis.py` churn columns) | 0 no high flag, 1 a churn spike or data error, 2 could not run |
+| `<skill>/scripts/level_flags.py` | Churn, quit, attempts and continue spikes against neighbors, frontier walls, funnel consistency, low samples | Level or day funnel CSV from `measurement`, or `game_kpis.py` JSON output | 0 no high flag, 1 a churn spike or data error, 2 could not run |
 
 Tests: `python3 -I -B -m unittest discover -s <skill>/scripts -p "test_*.py"`. Neither script decides: copy goes to `compliance`, prices to `game-monetization`, flags to the game repo.
 
@@ -266,7 +266,7 @@ Procedure:
 3. If the live console differs from documentation, the console wins for that account; record it in `memory/game-liveops.md`.
 4. Propose skill updates through the journal; never edit global knowledge from a project.
 
-Known items to re-verify first: Play promotional content lead times, durations and audiences (search summaries only); Firebase A/B duration and limits; the vzbv objection list for Monopoly Go; Royal Match event details beyond the release note cadence; LinkedIn games boards; whether the `app-store-optimization` module has been updated to 15 approved and 10 published events.
+Known items to re-verify first: Play promotional content lead times, durations and audiences (search summaries only); Firebase A/B duration and limits; the vzbv objection list for Monopoly Go; Royal Match event details beyond the release note cadence; LinkedIn games boards; Apple in-app event limits after each WWDC (15 approved and 10 published as read on 2026-10-12, older pages said 10 and 5).
 
 ## Reference index
 

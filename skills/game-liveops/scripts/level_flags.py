@@ -2,7 +2,8 @@
 """level_flags.py: flag difficulty and content signals in a level (or day) funnel.
 
 Standard library only. Reads a CSV with one row per level or day, exported by the
-measurement agent (its level dashboard or the churn by level table of game_kpis.py),
+measurement agent (its level dashboard), or the JSON output of measurement's game_kpis.py
+(its churn_by_level rows: level, reached, churned_here),
 compares each level with its neighbors and prints flags for the game repo. It never
 recommends level parameters: difficulty belongs to the game's own repo.
 
@@ -31,6 +32,7 @@ Flags (thresholds are practitioner defaults; record the values used)
 Usage
   python3 -I level_flags.py level_funnel.csv --frontier 10
   python3 -I level_flags.py daily_funnel.csv --key day --frontier 0 --min-reached 500 --json flags.json
+  python3 -I level_flags.py game_kpis_output.json --frontier 10
 
 Exit codes: 0 no churn_spike and no data error, 1 a churn_spike or a data error, 2 could not run.
 """
@@ -66,50 +68,80 @@ def to_number(value: str, col: str, line: int) -> float:
     return x
 
 
-def load(path: str, key: str) -> list[dict]:
+def read_source(path: str) -> tuple[list[str], list[tuple[int, dict]]]:
+    """Return (header, [(line or item number, row dict of strings)]) from a CSV or a JSON file.
+
+    JSON accepts the output of measurement's game_kpis.py (its churn_by_level rows) or a
+    plain list of row objects with the same column names as the CSV.
+    """
     try:
         fh = open(path, encoding="utf-8", newline="")
     except OSError as exc:
         raise CannotRun(f"cannot read {path}: {exc.strerror}")
     with fh:
+        if path.lower().endswith(".json"):
+            try:
+                data = json.load(fh)
+            except json.JSONDecodeError as exc:
+                raise CannotRun(f"invalid JSON: {exc.msg}")
+            if isinstance(data, dict) and "churn_by_level" in data:
+                churn = data["churn_by_level"] or {}
+                if not churn.get("computed"):
+                    raise CannotRun(f"game_kpis.py did not compute churn by level: {churn.get('reason', 'no reason given')}")
+                items = churn.get("rows") or []
+            elif isinstance(data, list):
+                items = data
+            else:
+                raise CannotRun("JSON must be game_kpis.py output (churn_by_level) or a list of row objects")
+            if not all(isinstance(it, dict) for it in items):
+                raise CannotRun("every JSON row must be an object")
+            header = sorted({k for it in items for k in it})
+            rows = [(n, {k: ("" if v is None else str(v)) for k, v in it.items()}) for n, it in enumerate(items, 1)]
+            return header, rows
         reader = csv.DictReader(fh)
         header = [h.strip() for h in (reader.fieldnames or [])]
-        if not header:
-            raise CannotRun("the CSV has no header row")
-        cols = {}
-        if key not in header:
-            raise CannotRun(f"missing key column '{key}'")
-        for name, options in ALIASES.items():
-            found = next((o for o in options if o in header), None)
-            if not found:
-                raise CannotRun(f"missing column {name} (or {options[1]})")
-            cols[name] = found
-        for name in OPTIONAL:
-            if name in header:
-                cols[name] = name
-        rows, seen = [], set()
-        for line, raw in enumerate(reader, 2):
-            raw = {k.strip(): (v or "").strip() for k, v in raw.items() if k}
-            if not any(raw.values()):
-                continue
-            try:
-                k = int(raw[key])
-            except ValueError:
-                raise CannotRun(f"line {line}: {key} must be an integer index ({raw[key]!r})")
-            if k in seen:
-                raise CannotRun(f"line {line}: duplicate {key} {k}")
-            seen.add(k)
-            row = {"key": k, "line": line}
-            for name, col in cols.items():
-                if raw.get(col, "") == "":
-                    row[name] = None
-                else:
-                    row[name] = to_number(raw[col], col, line)
-            if row["players_reached"] is None or row["churned"] is None:
-                raise CannotRun(f"line {line}: players_reached and churned are required on every row")
-            rows.append(row)
+        rows = [(line, {k.strip(): (v or "").strip() for k, v in raw.items() if k})
+                for line, raw in enumerate(reader, 2)]
+        return header, rows
+
+
+def load(path: str, key: str) -> list[dict]:
+    header, raw_rows = read_source(path)
+    if not header:
+        raise CannotRun("the file has no header row or no rows")
+    cols = {}
+    if key not in header:
+        raise CannotRun(f"missing key column '{key}'")
+    for name, options in ALIASES.items():
+        found = next((o for o in options if o in header), None)
+        if not found:
+            raise CannotRun(f"missing column {name} (or {options[1]})")
+        cols[name] = found
+    for name in OPTIONAL:
+        if name in header:
+            cols[name] = name
+    rows, seen = [], set()
+    for line, raw in raw_rows:
+        if not any(raw.values()):
+            continue
+        try:
+            k = int(raw.get(key, ""))
+        except ValueError:
+            raise CannotRun(f"line {line}: {key} must be an integer index ({raw.get(key)!r})")
+        if k in seen:
+            raise CannotRun(f"line {line}: duplicate {key} {k}")
+        seen.add(k)
+        row = {"key": k, "line": line}
+        for name, col in cols.items():
+            if raw.get(col, "") == "":
+                row[name] = None
+            else:
+                row[name] = to_number(raw[col], col, line)
+        if row["players_reached"] is None or row["churned"] is None:
+            raise CannotRun(f"line {line}: players_reached and churned are required on every row")
+        rows.append(row)
     if not rows:
-        raise CannotRun("the CSV has no data rows")
+        raise CannotRun("the file has no data rows")
     rows.sort(key=lambda r: r["key"])
     return rows
 
@@ -211,7 +243,7 @@ def compute(rows: list[dict], args) -> dict:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Flag difficulty and content signals in a level or day funnel.")
-    ap.add_argument("funnel", help="CSV export with one row per level or day")
+    ap.add_argument("funnel", help="CSV with one row per level or day, or game_kpis.py JSON output")
     ap.add_argument("--key", default="level", help="index column (default level; use day for daily games)")
     ap.add_argument("--window", type=int, default=5, help="neighbors on each side (default 5)")
     ap.add_argument("--min-reached", type=int, default=200, help="minimum players reached to judge (default 200)")

@@ -98,3 +98,46 @@ Reported in 2026 search results [Reported, 2026-10]: Data safety mismatch with t
 | 10 | Listing | ASO checker and compliance verdict recorded |
 | 11 | App access | Instructions and a demo account when features sit behind sign in |
 | 12 | Change request | The human approves and presses submit (G3) |
+
+## 10. Timeline for a new personal account (first app)
+
+The closed test sets the critical path. Work backwards from the target date [Practitioner consensus, built from the reported 14 day and 48 hour figures]:
+
+| Week | Action | Gate |
+|------|--------|------|
+| Minus 6 | Account created or verified; developer verification status read; organization accounts start D-U-N-S (up to 28 days) | G3 (human) |
+| Minus 5 | Internal track build: AAB, Play App Signing, targetSdk 36, Billing Library 8; `submission_check.py` passes | G3 upload by the human |
+| Minus 5 | Tester list of 15 to 20 real people with Google accounts; opt in link sent | G1 |
+| Minus 4 | Closed track live; day 1 of the 14 days once 12 or more are opted in | G3 |
+| Minus 3 | One test build update with fixes from tester feedback | G3 |
+| Minus 2 | Day 14 reached with 12 or more opted in every day; apply for production access with concrete answers | G3 |
+| Minus 2 to minus 1 | Production access decision (about 48 hours); app content forms final; listing final | G3 |
+| Minus 1 | Production release created with managed publishing or a staged rollout | G3 |
+| 0 | Publish; vitals watched daily for 14 days | G3 |
+
+If the opted in count dips below 12, the 14 days are at risk [Reported, 2026-10]; check the console count daily during the window and keep testers active with a reason to open the app.
+
+## 11. Facts to record per app (memory and dossier)
+
+| Fact | Where it is used |
+|------|------------------|
+| Package name and Play Console app id | assetlinks.json, deep links, every form |
+| Account type, creation date, verification status | Closed test rule, developer verification |
+| App signing key SHA-256 and upload key SHA-256 (fingerprints are public values, not secrets) | assetlinks.json, Google sign in configuration |
+| targetSdk and Billing Library version per release | The annual target API move (the requirement has moved every year around the end of August; plan the bump in the second quarter) [Practitioner consensus] |
+| Closed test dates and tester count | Production access answers, audit G3 |
+| Data safety comparison date | Audit G4 |
+| Vitals at each release (crash and ANR rate) | Audit G8, release decisions |
+| Policy status page notes and dates | Incident history, appeals |
+
+## 12. Updates: what triggers new forms or checks
+
+| Change in the update | Re-check |
+|----------------------|----------|
+| New or updated SDK | Data safety (Play 8 in [Playbooks](playbooks.md)), privacy policy, Apple App Privacy |
+| Ads turned on or a new ad network | "Contains ads", Data safety advertising purpose, IARC answers, consent order |
+| Accounts added | Account deletion in app and web link in the same release |
+| Chat or user generated content added | IARC user interaction answers, target audience, moderation tools |
+| New sensitive permission | Its declaration, or the narrower alternative |
+| New in-app products or subscriptions | Billing Library version, subscription disclosure, restore |
+| New country | Developer verification rules for that country, local rating authorities, compliance verdict |
