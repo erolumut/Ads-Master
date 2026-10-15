@@ -95,6 +95,15 @@ Status: **Adopted** (shipped in this repo), **Kit** (shipped in `kits/workflow-k
 | Spend and flat stops | Stop on the turn budget, the spend budget or N tries without a gain | own synthesis | Kit | `goal_loop.py` exit 3 |
 | Git rules of the project win | Branch where branches are allowed, a separate local clone of main where they are not; never push from the loop | own projects | Kit | goal-loop skill, before the loop step 2 |
 
+## 8. Speed audit (from a widely shared 20 item speed list, 2026-10)
+
+| Pattern | What it does | Seen in | Status | Where |
+|---------|--------------|---------|--------|-------|
+| Audit wide in parallel, read only | Four auditors (assets, frontend, database and APIs, servers and network) report file, page and evidence without editing | public post | Kit | `speed-audit` skill, references/checklist.md |
+| Fix narrow, measure every batch | Small batches with the gate and Lighthouse median after each, instead of one pass of twenty changes | own synthesis | Kit | `speed-audit` section 5, `goal-loop` for long runs |
+| RLS calls evaluated once | `(select auth.uid())` in policies, indexes on policy columns, tested per user | public post, Supabase docs | Kit | checklist items 11 and 12 |
+| Human decides region, dependencies and migrations | The audit marks them; nothing changes without approval | own projects | Kit | `speed-audit` section 4 |
+
 ## Maintenance
 
 Add a row when a pattern is adopted or rejected. Move Noted rows to Planned only with an owner. Review this file in the quarterly reset.

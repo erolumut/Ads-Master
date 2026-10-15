@@ -22,12 +22,12 @@ workflow-kit/
 │                    implementer, reviewer
 ├── skills/          model-routing, session-start, parallel-sessions, sprint-prompt, planner-session,
 │                    handover, decision-log, instructions-budget, review-gates, launch-readiness,
-│                    ui-sourcing, goal-loop
+│                    ui-sourcing, goal-loop, speed-audit
 ├── scripts/         doc_numbers.py, check_instructions.py, ledger.py, agent_models.py, invariants_check.py,
 │                    check_workflows.py, gate.py, secret_scan.py, launch_check.py, ui_sources_check.py, goal_loop.py,
 │                    precommit_dispatch.sh (+ tests/)
 └── templates/       workflow-kit.json, CLAUDE-snippet.md, settings-snippet.json, PARALLEL-SESSIONS.md,
-                     SPRINT-PROMPT.md, DELEGATION-PROMPT.md, IMPACT-MAP.md, UI-SOURCES.md, GOAL.md, HANDOVER.md, NEXT-SESSION-PROMPT.md,
+                     SPRINT-PROMPT.md, DELEGATION-PROMPT.md, IMPACT-MAP.md, UI-SOURCES.md, GOAL.md, SPEED-AUDIT.md, HANDOVER.md, NEXT-SESSION-PROMPT.md,
                      DECISIONS.md, REVIEW-CHECKLIST.md, GUARDIAN-TEMPLATE.md, STALE-GUARDS.md,
                      invariants.json, precommit.json, rules/AREA-RULE.md, githooks/{pre-commit,pre-push},
                      hooks/invariants-pretooluse.json
@@ -94,6 +94,7 @@ Read-only agents carry an explicit `tools` list without `Agent`; editing agents 
 | `review-gates` | Before "done": guardians, evidence, devil's advocate, regression library |
 | `launch-readiness` | Before a public launch or the first paid traffic: 20 items, each PASS with re-checkable evidence or NA with a reason; a human writes GO |
 | `ui-sourcing` | Adding a UI library, copying a registry or gallery component, buying a kit, picking charts, motion, icons, sheets or toasts, choosing a Shopify section or page builder, or reading a "best UI components" list: sourcing ladder, stack profiles, dated catalog, vetting checklist with commands, ledger in `docs/UI-SOURCES.md` |
+| `speed-audit` | A slow web app or a pre launch speed pass: production build baseline (Lighthouse mobile, 3 runs, median), four read only auditors over a 20 item checklist (assets, frontend code, database and APIs at high effort, servers and network), fixes in small batches with the gate and a measurement after each, before and after report |
 | `goal-loop` | A long unattended run toward one number (load time, bundle size, gate time, a score): goal, measure, effort and stop rules in `.progress/GOAL.md`, noise measured first, one change at a time, kept only when it beats the noise and passes the project's gate, log and progress chart |
 
 ### Scripts
@@ -130,6 +131,7 @@ Tests: `python3 -m unittest discover -s scripts/tests`.
 | `DECISIONS.md` | project root (or merge into your existing LEARNINGS or DECISIONS file) |
 | `SPRINT-PROMPT.md`, `DELEGATION-PROMPT.md` | your prompts folder, one per sprint or phase |
 | `UI-SOURCES.md` | `docs/UI-SOURCES.md`: the project's UI profile, banned list and ledger of outside sources (ui-sourcing skill) |
+| `SPEED-AUDIT.md` | `docs/perf/SPEED-AUDIT-<date>.md`: baseline, findings with file and page, batches with before and after, items waiting for the human |
 | `GOAL.md` | `.progress/GOAL.md` (with `.progress/` git ignored): goal, measure, gate, budgets and what may not change for a goal-loop run |
 | `IMPACT-MAP.md` | `docs/plans/` next to the plan, one per legacy change (planner-session phase 1b) |
 | `HANDOVER.md`, `NEXT-SESSION-PROMPT.md` | handover folder and project root |

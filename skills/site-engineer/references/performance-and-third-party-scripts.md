@@ -115,6 +115,8 @@ curl -s -X POST "https://chromeuxreport.googleapis.com/v1/records:queryRecord?ke
 - Single page apps: until Soft Navigations ship broadly, CrUX and most RUM attribute route changes to the first page load; measure route change performance with your own RUM marks.
 - Segment by device and, for paid traffic, by landing page and source (in-app browsers report as mobile Chrome or Safari variants).
 
+A whole app speed pass (frontend code, database and API, server region, static pages, low end phones) runs with the Workflow Kit `speed-audit` skill: four read only auditors, fixes in batches with a measurement after each. This reference stays the owner of budgets, the tag register, images, fonts and field monitoring.
+
 ## 9. Performance review checklist for a release
 
 | # | Check | Fail action |
