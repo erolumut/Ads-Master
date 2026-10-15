@@ -125,6 +125,7 @@ Worked example: 6,000 first time buyers per month, 60 day repeat rate 14%, contr
 | Cohorts, repeat rate, LTV | [Cohort and LTV analysis](references/cohort-and-ltv-analysis.md) | Cohort report template |
 | Holdout or incrementality test | [Strategy and metrics](references/lifecycle-strategy-and-metrics.md) section 3 | EXPERIMENTS.md row plus test plan |
 | Suppression, audiences, LTV values for ads | [Lifecycle and paid media](references/lifecycle-and-paid-media.md) | Audience register plus handoffs |
+| Turn a release (merged changes, release log) into What's New text, a changelog entry, an email or in-app note, push and a social post | [Release notes to marketing](references/release-notes-to-marketing.md) | Release drafts file, compliance handoff |
 | Choose or connect tools, MCP, API pulls | [Tools, APIs and MCP](references/tools-api-mcp.md) | Tool recommendation or data pull note |
 | Weekly or monthly reporting | [Strategy and metrics](references/lifecycle-strategy-and-metrics.md) section 7, [Cohort and LTV](references/cohort-and-ltv-analysis.md) section 9 | Weekly report, monthly cohort report |
 | Game notifications (drops, events, streak saves, win back), frequency caps, pressure patterns to avoid, Discord and Reddit community, comms plan for the live ops calendar | [Game notifications and community](references/game-notifications-and-community.md), [SMS, WhatsApp and push](references/sms-whatsapp-and-push.md) | Push spec rows per calendar event, community post drafts |
@@ -280,5 +281,6 @@ How to log: if a check changes a recommendation, write `ads-master/journal/YYYY-
 - [Cohort and LTV analysis](references/cohort-and-ltv-analysis.md): data requirements, repeat rate SQL, Python cohort script, time to second order, LTV curves, cuts, predicted LTV, report template.
 - [Tools, APIs and MCP](references/tools-api-mcp.md): ESP landscape 2026, selection, MCP servers, Klaviyo API rate limits and example, gate mapping, exports.
 - [Game notifications and community](references/game-notifications-and-community.md): ownership with game-liveops, permission timing, iOS web push for Home Screen apps only, message catalog, streaks without punishment, caps and send window, win back with holdouts, pressure patterns, live ops comms plan, Discord and Reddit roles, minors, audit additions.
+- [Release notes to marketing](references/release-notes-to-marketing.md): ship log to customer words; buckets for what users see, What's New, changelog, email, push and social drafts, writing rules, gates.
 - [Audit checklist](references/audit-checklist.md): scored sections A to L with rubric and output template.
 - [Sources](references/sources.md): annotated sources with dates and reliability notes.

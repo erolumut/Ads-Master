@@ -34,7 +34,7 @@ Working position: invest in the fields Apple documents (name, subtitle, keyword 
 | Keyword field | 100 (characters per Apple's search page; see section 3 on bytes) | Yes | Yes, with a new version | Remaining terms, comma separated, no spaces |
 | Promotional text | 170 characters | No | No, update any time | Timely offers, events, news [Official] |
 | Description | 4,000 characters | No | Yes | People and AI readers (section 5) |
-| What's New | 4,000 characters | No | Yes | Real changes; mention fixes users asked for in reviews |
+| What's New | 4,000 characters | No | Yes | Real changes; mention fixes users asked for in reviews; drafted from the release with `lifecycle-crm` [Release notes to marketing](../../lifecycle-crm/references/release-notes-to-marketing.md) |
 | Primary and secondary category | One each | Primary category feeds text relevance | Yes | The category your top terms live in |
 | Company name | Account level | Searchable [Reported, 2026-10] | Account change | Keep it the legal or brand name; never stuff it |
 | IAP display names | Short (check the counter in App Store Connect) | [Unverified] | Yes | Truthful names that use the words buyers use |
