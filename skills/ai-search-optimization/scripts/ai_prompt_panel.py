@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Score an AI answer panel: mention, recommendation, top 3 and citation rates with honest intervals.
+"""Score an AI answer panel: mention, recommendation, first pick, top 3 and citation rates with honest intervals.
 
 Input is answers you collected (pasted from the interface, exported from a
 tracking tool, or saved from an API run), one JSON object per line:
@@ -18,6 +18,9 @@ are 95 percent, bootstrapped over prompts (runs of one prompt are correlated).
 Prompts with fewer than 3 runs are excluded and listed: one answer is an
 anecdote, not a measurement. Recommendation detection is a heuristic (brand in
 a sentence with recommending language, or first named brand); spot check it.
+First pick: the brand is the first brand named and is recommended. The gap list
+shows non owned URLs cited in answers that name a competitor but not the brand:
+pages to check for a listing, a review or a correction.
 
 Usage:
   python3 -I ai_prompt_panel.py answers.jsonl --config panel.json [--min-runs 3] [--by prompt_class]
@@ -106,10 +109,14 @@ def score_run(rec, brand_rx, comp_rx, brand_domains):
                 recommended = True
                 break
     top3 = int("__brand__" in order[:3]) if order else None
+    first_pick = int(bool(order) and order[0] == "__brand__" and recommended) if order else None
     cites = rec.get("cited_urls") or []
     own = sum(1 for u in cites if owned(u, brand_domains))
     comp_mentions = {k: int(bool(rx.search(text))) for k, rx in comp_rx.items()}
-    return {"mentioned": int(mentioned), "recommended": int(recommended), "top3": top3,
+    return {"mentioned": int(mentioned), "recommended": int(recommended), "top3": top3, "first_pick": first_pick,
+            "gap_urls": [] if mentioned or not any(comp_mentions.values()) else
+            [u for u in cites if not owned(u, brand_domains)],
+            "gap_comps": [k for k, v in comp_mentions.items() if v],
             "cited": int(own > 0), "own_cites": own, "all_cites": len(cites), "comp": comp_mentions,
             "domains": [domain_of(u).split("/")[0] for u in cites]}
 
@@ -179,12 +186,12 @@ def main():
     groups = defaultdict(list)
     for r in rows:
         groups[(r.get("period", ""), r.get("engine", ""), r.get(a.by, "all"))].append(r)
-    print(f"| Period | Engine | {a.by} | Prompts | Runs | Mention | Recommend | Top 3 | Owned citation |")
-    print("|--------|--------|------|-------:|-----:|---------|-----------|-------|----------------|")
+    print(f"| Period | Engine | {a.by} | Prompts | Runs | Mention | Recommend | First pick | Top 3 | Owned citation |")
+    print("|--------|--------|------|-------:|-----:|---------|-----------|------------|-------|----------------|")
     for (p, e, g), rs in sorted(groups.items()):
         m = summarize(rs, "mentioned")
         print(f"| {p} | {e} | {g} | {m[3]} | {m[4]} | {fmt(m)} | {fmt(summarize(rs, 'recommended'))} | "
-              f"{fmt(summarize(rs, 'top3'))} | {fmt(summarize(rs, 'cited'))} |")
+              f"{fmt(summarize(rs, 'first_pick'))} | {fmt(summarize(rs, 'top3'))} | {fmt(summarize(rs, 'cited'))} |")
 
     print("\n## Share of voice (mentions) and citation share, by period\n")
     for p in periods:
@@ -202,6 +209,21 @@ def main():
     dom = Counter(d for r in rows for d in r["score"]["domains"] if d)
     for d, n in dom.most_common(15):
         print(f"- {d}: {n}")
+
+    print("\n## Gap pages: cited where a competitor is named and the brand is not (latest period)\n")
+    latest = [r for r in rows if r.get("period", "") == periods[-1]]
+    gap = Counter(u for r in latest for u in r["score"]["gap_urls"])
+    gap_comps = defaultdict(Counter)
+    for r in latest:
+        for u in r["score"]["gap_urls"]:
+            gap_comps[u].update(r["score"]["gap_comps"])
+    if not gap:
+        print("- none in the collected answers")
+    for u, n in gap.most_common(15):
+        names = ", ".join(k for k, _ in gap_comps[u].most_common(3))
+        print(f"- {u}: {n} answers (competitors named: {names})")
+    print("\nA gap URL is a lead, not a verdict: open the page and check whether the brand is listed, "
+          "missing or described wrongly before any outreach.")
 
     drop = False
     if len(periods) >= 2:

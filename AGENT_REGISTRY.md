@@ -107,6 +107,7 @@ Boundary: Ads Master owns how a game earns, is found, keeps players, is measured
 
 | Version | Date | Notes |
 |---------|------|-------|
+| 1.4.4 | 2026-10-15 | ai-search-optimization: ai_prompt_panel.py reports a first pick rate and gap pages (cited URLs where a competitor is named and the brand is not); the monthly report keeps the visibility funnel steps apart and adds sources and gaps, and a hand read of attributes and objections. |
 | 1.4.3 | 2026-10-15 | mobile-app-growth: Apple Ads automation rules (data floors, capped bid raises and cuts judged on cost per payer, pause and freeze rules, rules as approved auto actions), Adapty Apple Ads Manager in the tools list. |
 | 1.4.2 | 2026-10-15 | seo: serp_clusters.py (SERP overlap clustering at thresholds 3, 4 and 5, mixed intent flag, keep URL and draft merges and 301s from Search Console, works without Search Console for new sites). Paid data call rules in GUARDRAILS (no price no call, monthly data cap, cheapest first, data/paid_data_calls.csv ledger read in the monthly review). Compliance rule PRIV-B2B-01 for business contact enrichment. |
 | 1.4.1 | 2026-10-15 | Game monetization contract v0.2 (offer_id required on offer events; 0.1 policies still accepted), game ad format codes gp, play and trl in the naming grammar, refund rate and complaint rate defined in measurement and METRICS.md, three submission_check.py false positives fixed (placeholder store, audio capture, per target Info.plist), game sources added to ten skills' sources.md. |

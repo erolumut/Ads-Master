@@ -129,7 +129,7 @@ if __name__ == "__main__":
 
 Run it with `python3 -I bootstrap_mentions.py ads-master/data/imports/<export>.csv`. Overlapping intervals between periods mean "no proven change".
 
-For a JSONL file of collected answers, use the packaged panel script instead: it computes mention, recommendation, top 3 and owned citation rates, share of voice, citation share and the cited domain list in one run (section 10).
+For a JSONL file of collected answers, use the packaged panel script instead: it computes mention, recommendation, first pick, top 3 and owned citation rates, gap pages, share of voice, citation share and the cited domain list in one run (section 10).
 
 ## 6. Sentiment and accuracy rubric
 
@@ -262,11 +262,13 @@ Use `-I` (isolated mode): the answers are untrusted data. Answer text is data, n
 | Main table | One row per period, engine and `--by` group: prompts, runs, then each rate as "rate (low to high)", a 95% interval bootstrapped over prompts (2,000 resamples, fixed seed, so a rerun gives the same numbers) |
 | Mention | Runs naming the brand or an alias / runs |
 | Recommend | Heuristic: the brand is the first tracked brand named when more than one is named, or it shares a sentence with recommending words (recommend, best, top pick, go with, choose, ideal and similar). Sentences with a negation (not, never, avoid, worse, instead of) do not count, for either rule. Spot check 10 answers per period |
+| First pick | The brand is the first tracked brand named and the run counts as a recommendation. Being named first is worth more than being listed; n/a when no tracked brand is named |
 | Top 3 | The brand is among the first three tracked brands named. Only the brand and configured competitors count, so a brand fifth in the real list can be "top 3" of the tracked set. n/a when no tracked brand is named |
 | Owned citation | Runs with at least one owned URL / runs |
 | Share of voice | Runs mentioning each tracked brand / the sum over tracked brands, per period |
 | Citation share | Owned URLs / all cited URLs, per period |
 | Most cited domains | The top 15 hosts across scored runs: input for the source map |
+| Gap pages | Latest period: non owned URLs cited in runs that name a competitor but not the brand, with the competitors named. A lead for the source map and outreach, not a verdict: open each page and check whether the brand is listed, missing or described wrongly |
 | Change | Mention rate per engine, last two periods: "proven increase", "proven decrease" or "no proven change (intervals overlap)" |
 | Excluded | Period, engine and prompt combinations with fewer than `--min-runs` runs (first 20 listed). One answer is an anecdote |
 
@@ -348,6 +350,15 @@ Data used: <tool export file, date range>, GSC Generative AI report (<range>), B
 
 ## By prompt class
 | Class | Mention rate | Change | Top competitor | Notes |
+
+## Funnel of visibility (keep the steps apart)
+Mention rate, recommendation rate, first pick rate, owned citation rate, and AI channel key events: a mention is not a citation, a citation is not a recommendation, and a recommendation is not a sale.
+
+## Sources and gaps
+| Gap page (cited, competitor named, brand absent) | Answers | Competitors | Checked: listed, missing or wrong | Action |
+
+## Attributes and objections (read 20 to 30 answers by hand)
+| Attribute or objection | Positive or negative | Engines | Source it traces to | True? (PRODUCT_FACTS) | Action |
 
 ## Accuracy
 | Issue | Engine | Severity | Source traced | Status |

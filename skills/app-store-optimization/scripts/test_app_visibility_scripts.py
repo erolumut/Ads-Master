@@ -116,6 +116,35 @@ class PanelTest(Base):
         self.assertEqual(ai_prompt_panel.score_run({"text": "Acme is not the best. Rival is."}, b, c, [])["recommended"], 0)
         self.assertEqual(ai_prompt_panel.score_run({"text": "I recommend Acme over Rival."}, b, c, [])["recommended"], 1)
 
+    def test_first_pick_needs_first_and_recommended(self):
+        b = ai_prompt_panel.names_re({"name": "Acme"})
+        c = {"Rival": ai_prompt_panel.names_re({"name": "Rival"})}
+        score = ai_prompt_panel.score_run
+        self.assertEqual(score({"text": "I recommend Acme. Rival is also fine."}, b, c, [])["first_pick"], 1)
+        self.assertEqual(score({"text": "Rival is the top choice. Acme is another option."}, b, c, [])["first_pick"], 0)
+        self.assertIsNone(score({"text": "No brands here."}, b, c, [])["first_pick"])
+
+    def test_gap_urls_only_when_competitor_named_and_brand_absent(self):
+        b = ai_prompt_panel.names_re({"name": "Acme"})
+        c = {"Rival": ai_prompt_panel.names_re({"name": "Rival"})}
+        urls = ["https://lists.example/best-tools", "https://acme.com/pricing"]
+        gap = ai_prompt_panel.score_run({"text": "Rival is best.", "cited_urls": urls}, b, c, ["acme.com"])
+        self.assertEqual(gap["gap_urls"], ["https://lists.example/best-tools"])
+        self.assertEqual(gap["gap_comps"], ["Rival"])
+        both = ai_prompt_panel.score_run({"text": "Rival and Acme.", "cited_urls": urls}, b, c, ["acme.com"])
+        self.assertEqual(both["gap_urls"], [])
+
+    def test_report_has_first_pick_and_gap_section(self):
+        cfg = self.write("c.json", json.dumps({"brand": {"name": "Acme", "domains": ["acme.com"]},
+                                               "competitors": [{"name": "Rival"}]}))
+        lines = [json.dumps({"period": "p", "engine": "e", "prompt_id": "x", "run": i, "text": "Rival wins.",
+                             "cited_urls": ["https://lists.example/best"]}) for i in range(3)]
+        ans = self.write("a.jsonl", "\n".join(lines) + "\n")
+        code, out = run(self.S, ans, "--config", cfg)[:2]
+        self.assertEqual(code, 0)
+        self.assertIn("First pick", out)
+        self.assertIn("https://lists.example/best: 3 answers (competitors named: Rival)", out)
+
     def test_too_few_runs_could_not_run(self):
         cfg = self.write("c.json", json.dumps({"brand": {"name": "Acme"}}))
         ans = self.write("a.jsonl", json.dumps({"period": "p", "engine": "e", "prompt_id": "x", "text": "Acme"}) + "\n")
