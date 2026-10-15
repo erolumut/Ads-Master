@@ -169,9 +169,9 @@ Apple (read at the source, values for iOS 26 and later) [Official, 2026-10]:
 | Korea | Frequent or intense simulated gambling needs a Rating Classification Number |
 | Questionnaire | The social media capability question is required from 2026-09 [Official, 2026-10, research pass] |
 
-Google Play: the IARC questionnaire in Play Console produces regional ratings, including PEGI in Europe [Reported, 2026-10]. Answers must match the policy file's `storeDeclarations` and `ageRatingInputs` (`monetization_conformance.py` checks the declarations file).
+Google Play: the IARC questionnaire in Play Console produces regional ratings, including PEGI in Europe [Reported, 2026-10]. Answers must match the policy file's `storeDeclarations` and the per store declarations file at `ads-master/data/store-declarations/<store>.json`, which holds the age rating answers (`monetization_conformance.py` checks both).
 
-PEGI 2026 [Reported, 2026-10]: from June 2026 newly rated games with paid random items default to PEGI 16, some PEGI 18; time limited or quantity limited offers rate at least PEGI 12; reward for return mechanics such as daily quests at least PEGI 7; NFT or blockchain mechanics PEGI 18. Whether existing games are reclassified from 2026-10-01 or keep their current rating is [Contested] between sources (the compliance pack row GAME-EU-08 says reclassification). Check the PEGI criteria before answering.
+PEGI 2026 [Reported, 2026-10]: from June 2026 newly rated games with paid random items default to PEGI 16, some PEGI 18; time limited or quantity limited offers rate at least PEGI 12; reward for return mechanics such as daily quests at least PEGI 7; NFT or blockchain mechanics PEGI 18. Whether existing games are reclassified from 2026-10-01 or keep their current rating is [Contested] between sources (the compliance pack row GAME-EU-08 carries the same label). Check the PEGI criteria before answering.
 
 Turkey Law 7578 adds age rating and parental controls duties for game platforms, including purchase approval [Reported, 2026-10]; route to `compliance`.
 
