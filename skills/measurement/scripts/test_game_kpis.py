@@ -107,6 +107,16 @@ class DefinitionTrapsTest(unittest.TestCase):
         self.assertEqual(data["as_of"], "2026-10-10")
         self.assertTrue(data["as_of_source"].startswith("default"))
 
+    def test_short_history_does_not_dilute_average_dau(self):
+        # The file starts 2026-09-01; an as-of of 2026-09-05 observes 5 days, not 30.
+        # Activity: 09-01 u01 u02 u03 u04; 09-02 u01 u02 u04; 09-05 u05 u06 -> 9 player days / 5 days.
+        _, stdout, data = run(SAMPLE, "--as-of", "2026-09-05", "--min-cohort", "1")
+        self.assertEqual(data["activity"]["days_observed_30d"], 5)
+        self.assertEqual(data["activity"]["avg_dau_30d"], 1.8)
+        self.assertEqual(data["activity"]["mau"], 6)
+        self.assertEqual(data["activity"]["stickiness"], 0.3)
+        self.assertIn("Only 5 of the 30 days", stdout)
+
     def test_cohorts_from_drops_older_installs(self):
         _, _, data = run(*BASE, "--cohorts-from", "2026-09-30")
         pooled = data["retention"]["pooled"]

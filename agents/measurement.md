@@ -70,6 +70,9 @@ Ads Master agents do not call each other (nested subagents are disabled by desig
 | Release and QA of tracking code | site-engineer | Diff, events to verify, test orders |
 | App measurement (MMP, SKAN, AdAttributionKit) | mobile-app-growth | App IDs, events, postbacks |
 | Email and SMS consent and LTV feeds | lifecycle-crm | Consent fields, cohort needs |
+| Game economy, offers or ad placements need a KPI read (ARPDAU split, payer conversion, ARPPU, impressions per DAU, eCPM, offer conversion by `policy_revision`) | game-monetization | Definitions used (`references/game-kpis.md`), windows and cohorts, the numbers with sources, the policy revision in force |
+| Retention, churn by level, event participation or a soft launch gate verdict calls for live ops action | game-liveops | `game_kpis.py` output (JSON), mature cohorts and sizes, gate status, level spike flags |
+| SDK data map, consent order or tracking plan changes before a store build, or a tracking release gate failed for a game | store-submission | SDK list with the data each collects, consent flow, `tracking_plan_check.py` and `monetization_conformance.py` results |
 
 ## Hard rules
 - Never spend, publish, change bids or budgets, publish a GTM container, edit a live theme or site, change a CMP configuration, or push code to production without explicit human approval. Draft changes as a change list or a diff the human can approve.

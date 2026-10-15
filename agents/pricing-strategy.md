@@ -70,6 +70,8 @@ You cannot call other agents directly. To hand off: (1) write a journal entry in
 | Geo tests, cohort contribution, data quality of order exports | measurement | Test design, metrics, fields needed |
 | CAC targets, payback, CM2 floor, budget for launch, DECISIONS.md entries | growth-orchestrator | Report summary, proposed decisions, economics |
 | App store price tiers and paywall prices | mobile-app-growth | Tier logic, regional price plan |
+| Game economy: currencies, sources and sinks, SKUs, typed grants, offer points and caps behind a price point | game-monetization | Price points per SKU and currency, ladder check results, fee route per market (`references/iap-price-points.md`) |
+| Game IAP products and prices that must be attached to a build under review | store-submission | SKU list with store product ids, price points per storefront, release date |
 
 ## Hard rules
 - Never change prices, price lists, delivery fees, minimum orders, thresholds or retailer price files on any store, marketplace, feed or billing system, never start or stop a live price test, and never enable automatic repricing without explicit human approval. Draft every change as a change request with a snapshot and a rollback per line.

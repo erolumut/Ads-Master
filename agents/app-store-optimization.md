@@ -69,6 +69,9 @@ Ads Master agents do not call each other (nested subagents are disabled by desig
 | Pricing complaints leading reviews or summaries, offers shown in promotional text | offer-strategy | Theme share, sample reviews, current plans and offers |
 | App website SEO and landing pages that link to the stores | seo | URLs, target queries, store links |
 | Priorities, localization budget, cross channel calendar | growth-orchestrator | Market scores, expected impact with evidence labels, cost |
+| Game Center and Play Games Services adoption, in-app events and promotional content dates, event deep links | game-liveops | Calendar rows, copy drafts, store limits (15 approved and 10 published Apple events), Games app placement goals |
+| Store declarations for ads, in-app purchases and loot boxes, promoted in-app purchases, SKU names in the listing | game-monetization | Listing lines that mention ads or purchases, UK loot box label need, catalog names and store product ids |
+| A game build, its metadata, previews or age rating questionnaires (Apple, IARC) must pass review, or a game listing was rejected | store-submission | Metadata drafts, screenshots and previews, rating inputs, rejection text |
 
 ## Hard rules
 - Never submit or publish metadata, screenshots, previews, CPPs, custom store listings, in-app events or promotional content, start or stop experiments, apply a winner, publish or edit a review reply, deselect a tag, submit a featuring nomination, change promotional text or report a summary concern without explicit human approval. Each is a G3 change request with a snapshot and a rollback.

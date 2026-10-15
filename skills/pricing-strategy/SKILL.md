@@ -196,6 +196,7 @@ Calculator: `python3 skills/pricing-strategy/scripts/basket_economics.py --demo`
 | Price increase, cost shock, inflation repricing | [Price changes](references/price-changes-and-inflation.md) | Change plan and change request |
 | Elasticity, price test | [Elasticity and tests](references/elasticity-and-price-tests.md) | Test plan, readout |
 | SaaS tiers, value metric, B2B or wholesale price list | [SaaS and B2B](references/saas-and-b2b-pricing.md) | Tier table, price list |
+| Game IAP price points, ladders, regional store prices, web shop parity, currency display, store fees | [IAP price points](references/iap-price-points.md), [Architecture](references/price-architecture-and-pack-sizes.md) | Price point table per SKU and currency + change request |
 | Monitoring tools, APIs, data pipelines | [Tools, APIs and MCP](references/tools-api-mcp.md) | Tool recommendation |
 | Pricing audit | [Audit checklist](references/audit-checklist.md) | Audit output |
 
@@ -309,6 +310,7 @@ How to log: if a check changes a recommendation, write `YYYY-MM-DD_HHMM_pricing-
 - [Price changes and inflation](references/price-changes-and-inflation.md): allowable loss, change design, communication, Turkey repricing rule, worked examples.
 - [Elasticity and price tests](references/elasticity-and-price-tests.md): estimation, test designs, personalized pricing rules 2026, sizing, readouts.
 - [SaaS and B2B pricing](references/saas-and-b2b-pricing.md): 2026 data, value metric, tiers, credits, regional pricing, price lists, discount governance.
+- [IAP price points](references/iap-price-points.md): contract price fields, Apple and Google price mechanics, regional pricing practice, game price ladders (no public ladders found), ladder checks, web shop parity, currency display rules, the 2026 fee landscape by confidence, net per sale, price changes and tests.
 - [Tools, APIs and MCP](references/tools-api-mcp.md): monitoring vendors and APIs, platform price features, cost data sources, capture schema.
 - [Audit checklist](references/audit-checklist.md): scored sections A to H including price claim parity, rubric, output template.
 - [Sources](references/sources.md): annotated sources with dates and the verification queue.

@@ -116,6 +116,7 @@ Spec business models map as follows: lead gen apps (quotes, insurance, real esta
 | Deep links, FDL replacement, web to app, external purchase links | [Deep linking and web to app](references/deep-linking-and-web-to-app.md), [Policies](references/policies-and-store-compliance.md) | Funnel plan + regional fee table |
 | Onboarding, paywall, pricing, trials, churn | [Onboarding, paywalls and subscriptions](references/onboarding-paywalls-and-subscriptions.md) | Monetization test plan |
 | App ad creative | [App creative](references/app-creative.md) | Creative brief + registry rows |
+| Game UA: networks and fit, install to event to ROAS bidding, soft launch markets and gates, creative testing and playables, SKAN and AAK for games, web shops and the open US link out fee | [Game user acquisition](references/game-user-acquisition.md); KPI definitions in the `measurement` skill (game-kpis) | Soft launch plan, channel plan + change list |
 | Rejection, policy strike, age rating, privacy labels | [Policies](references/policies-and-store-compliance.md) | Recovery plan + resubmission notes |
 | Launch, scale, plateau, recovery | [Playbooks](references/playbooks.md) | Plan + change list |
 | Reporting setup, connectors, MCP | [Tools, API and MCP](references/tools-api-mcp.md) | Reporting spec |
@@ -272,6 +273,7 @@ Known items to re-verify first (after the 2026-10-08 pass): US Apple link out fe
 - [Deep linking and web to app](references/deep-linking-and-web-to-app.md): link types, setup, FDL replacement, QA matrix, regional rules and fees, funnel designs, mobile web layer.
 - [Onboarding, paywalls and subscriptions](references/onboarding-paywalls-and-subscriptions.md): activation, models, paywall rules, tests, offer types, churn.
 - [App creative](references/app-creative.md): ad formats, concepts, playables, metrics, policy, ad to store continuity, brief template.
+- [Game user acquisition](references/game-user-acquisition.md): boundary with game-monetization and measurement, readiness gates, networks and fit, bidding sequence, soft launch markets, traffic, economic gate and decision table, creative stages and playables, SKAN and AAK for games, web shops and Epic v Apple, CPI benchmarks, organic channels, web first games, weekly loop.
 - [Policies and store compliance](references/policies-and-store-compliance.md): Apple guidelines and Google policies for payments, privacy, age and categories, ad platform rules, consumer themes, pre-submission checklist, rejection play.
 - [Tools, API and MCP](references/tools-api-mcp.md): access rules, official APIs, MCP servers, data recipes, exports.
 - [Playbooks](references/playbooks.md): launch, weekly loop, scale, plateau, recover, web to app launch, market expansion, change list.

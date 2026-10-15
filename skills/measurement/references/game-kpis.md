@@ -370,6 +370,7 @@ Mobile app growth keeps app wide (non game) retention and fee benchmarks in [App
 | `--gates` | JSON such as `{"d1": 0.30, "d7": 0.10, "d30": 0.03}` (fractions) |
 | `--window`, `--churn-days`, `--cohorts-from`, `--game`, `--non-activity-events` | Monetization window (7), churn rule (7 days), left censoring cut, game filter, server events that never count as play |
 | `--json`, `--out` | Machine readable results; Markdown report to a file |
+| Short history | Days before the first event in the file are not counted in average DAU and stickiness; the report says how many of the 30 days it observed |
 
 Exit codes: 0 report (every gate PASS), 1 a gate FAIL, 2 could not run or a gate could not be judged. A FAIL outranks a CANNOT JUDGE. The last line says what the check cannot cover.
 

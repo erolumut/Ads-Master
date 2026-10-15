@@ -3,6 +3,7 @@
   "activity": {
     "avg_dau_30d": 0.666667,
     "dau": 4,
+    "days_observed_30d": 30,
     "mau": 10,
     "stickiness": 0.066667,
     "wau": 8

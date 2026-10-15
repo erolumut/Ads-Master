@@ -216,8 +216,12 @@ def compute(data: dict, as_of: dt.date | None, window: int, churn_days: int, min
     mau_users = set().union(*(by_date.get(d, set()) for d in days30))
     wau_users = set().union(*(by_date.get(d, set()) for d in days_back(7)))
     dau = len(by_date.get(as_of, set()))
-    avg_dau = sum(len(by_date.get(d, set())) for d in days30) / 30
+    # Days before the first event in the file are not observed: they must not dilute average DAU.
+    first_day = min(r["date"] for r in kept)
+    observed = [d for d in days30 if d >= first_day]
+    avg_dau = sum(len(by_date.get(d, set())) for d in observed) / len(observed)
     act = {"dau": dau, "wau": len(wau_users), "mau": len(mau_users), "avg_dau_30d": rnd(avg_dau),
+           "days_observed_30d": len(observed),
            "stickiness": rnd(avg_dau / len(mau_users)) if mau_users else None}
 
     # Retention (classic, calendar days in the chosen timezone)
@@ -416,6 +420,8 @@ def markdown(res: dict, tz_name: str, gates_out: list | None, verdict: str, path
     L += ["", "## Activity", "", "| DAU (as-of day) | WAU (7 days) | MAU (30 days) | Average DAU (30 days) | Stickiness |",
           "|---:|---:|---:|---:|---:|",
           f"| {a['dau']} | {a['wau']} | {a['mau']} | {a['avg_dau_30d']} | {pct(a['stickiness'])} |"]
+    if a["days_observed_30d"] < 30:
+        L.append(f"Only {a['days_observed_30d']} of the 30 days are in the file; WAU, MAU and averages cover those days.")
     L += ["", "## Retention by install cohort (classic; blank = not mature)", "", "| Install date | Size | D1 | D7 | D30 |",
           "|---|---:|---:|---:|---:|"]
     for c in res["retention"]["cohorts"]:

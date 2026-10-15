@@ -54,7 +54,7 @@ Choose by archetype (recommendation for the game repo; ASO does not implement):
 | Level based puzzle | Achievements across the level track; a weekly event leaderboard | Challenges on event levels |
 | Multiplayer or board game | Multiplayer activities with the game's own system and invites | Turn based notifications, achievements |
 
-Fairness rule from the Game Monetization Contract (section 3): a Game Center leaderboard is a ranked board with scope `everyone` or friends. Only results the policy lets write to such a board are submitted: never an encore round bought for a group, never a practice replay, never a score helped by a purchased booster in a ranked mode. Declare each Game Center leaderboard as a board in `monetization-policy.json` so the checker can see it.
+Fairness rule from the Game Monetization Contract (section 3): a Game Center leaderboard is a ranked board with scope `everyone` (Game Center shows it to all players and filtered to friends). Only results the policy lets write to such a board are submitted: never an encore round bought for a group, never a practice replay, never a score helped by a purchased booster in a ranked mode. Declare each Game Center leaderboard as a board (`{"id": ..., "scope": "everyone"}`) of its ranked mode in `monetization-policy.json` so the checker can see it.
 
 Game Center is also native value for a web game wrapped for iOS, which matters for Guideline 4.2 ("elevate beyond a repackaged website") [Official, 2026-10]; `store-submission` owns that argument.
 

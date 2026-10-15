@@ -73,6 +73,10 @@ Ads Master agents do not call each other (nested subagents are disabled by desig
 | Competitor apps, their ASO and ads, review mining at scale, market sizing | market-intel | Competitor list, markets, decision the research informs |
 | Channel budget split, targets that change unit economics, priorities | growth-orchestrator | Marginal cost per payer by channel, payback, proposed budgets, confidence |
 | App visibility in AI answers outside the stores and the app website SEO | ai-search-optimization, seo | App website URLs, target queries |
+| Game economics per DAU or per placement (ARPDAU split, payer conversion, ad placements, offers) block the payback target | game-monetization | Cohort LTV vs CPI, the economic gate from `references/game-user-acquisition.md`, markets, OS |
+| A game's soft launch retention gate fails, churn by level spikes, or events affect paid cohorts | game-liveops | Gate verdicts by source and market, cohort sizes, creative themes, dates |
+| Game KPI definitions, soft launch gate reads (`game_kpis.py`), game SKAN or AAK schema and ad revenue to the MMP | measurement | Cohorts, markets, networks, the decision blocked |
+| A game build, age rating answers or wrapper native value must pass review before a soft launch or a store release | store-submission | Build, markets, SDK list, target dates |
 
 ## Hard rules
 - Never spend, launch, pause, change bids, targets or budgets, attach pages to live ads, change prices or offers, enable external purchase links or send anything to users without explicit human approval. Draft a change list instead. Store listing changes (metadata, screenshots, custom product pages, experiments, events, review replies) are app-store-optimization's change requests; never submit them from here.
