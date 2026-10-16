@@ -165,6 +165,12 @@ class PolicyCheckTests(unittest.TestCase):
             self.assertEqual(messages(mutated(lambda d, g=good: d["experiment"].update(holdoutPercent=g))), [])
         self.assertFailsWith(mutated(lambda d: d["experiment"].update(primary=[])), "no primary metric")
 
+    def test_engine_parity_rules(self):
+        self.assertFailsWith(mutated(lambda d: d["experiment"].update(holdoutPercent=2.5)), "whole number")
+        self.assertFailsWith(mutated(lambda d: d["returnReasons"][0].update(quietHours=["9pm", "9am"])), "quietHours must be two")
+        self.assertFailsWith(mutated(lambda d: d.pop("difficulty")), "missing section 'difficulty'")
+        self.assertFailsWith(mutated(lambda d: d.pop("returnReasons")), "missing section 'returnReasons'")
+
     def test_holdout_salt_required(self):
         self.assertFailsWith(mutated(lambda d: d["experiment"].pop("holdoutSalt")), "holdoutSalt is missing")
         self.assertFailsWith(mutated(lambda d: d["experiment"].update(holdoutSalt="  ")), "holdoutSalt is missing")

@@ -57,7 +57,8 @@ FORBIDDEN_TOKENS = ("spend", "spent", "purchase", "payer", "paying", "revenue", 
                     "monetiz", "price", "device_model", "device_tier", "device_price", "country", "region", "geo",
                     "income", "age", "gender", "health", "mood", "vibration", "battery")
 FORBIDDEN_ACTIONS = ("force_loss", "death", "kill", "rig", "score_bonus", "modify_score", "bias_pieces", "harvest")
-REQUIRED_SECTIONS = ("policyRevision", "product", "audience", "modes", "player", "rules", "scores", "experiment")
+REQUIRED_SECTIONS = ("policyRevision", "product", "audience", "modes", "difficulty", "player", "rules", "returnReasons",
+                     "scores", "experiment")
 STRICT_BLOCKED_SOURCES = ("streak", "loss")
 MAX_OFFSET_STEPS = 2
 
@@ -276,6 +277,8 @@ def check_experiment(policy: dict, out: Findings) -> None:
     hold = exp.get("holdoutPercent")
     if not is_number(hold) or not (1 <= hold <= 20):
         out.fail("experiment", f"holdoutPercent {hold!r} must be a number from 1 to 20")
+    elif hold != int(hold):
+        out.fail("experiment", f"holdoutPercent {hold!r} must be a whole number (the engine hashes into 100 buckets)")
     salt = exp.get("holdoutSalt")
     if not isinstance(salt, str) or not salt.strip():
         out.fail("experiment", "holdoutSalt is missing; a stable salt keeps the same holdout across policy revisions")
@@ -326,6 +329,10 @@ def check_return_reasons(policy: dict, strict: bool, out: Findings) -> None:
         qh = rr.get("quietHours")
         if not isinstance(qh, list) or not qh:
             out.fail(scope, "no quietHours; a return reason needs a quiet window")
+        elif len(qh) != 2 or not all(isinstance(t, str) and re.fullmatch(r"([01][0-9]|2[0-3]):[0-5][0-9]", t) for t in qh):
+            out.fail(scope, f"quietHours must be two \"HH:MM\" times, got {qh!r}")
+        if is_number(mpd) and mpd != int(mpd):
+            out.fail(scope, f"maxPerDay must be a whole number, got {mpd!r}")
 
 
 def check(policy: dict) -> Findings:

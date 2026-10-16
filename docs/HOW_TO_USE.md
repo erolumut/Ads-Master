@@ -28,7 +28,7 @@ Core (orchestrator, measurement, compliance and the three utility skills) is alw
 | Lead gen and local services | Clinics, agencies, trades, real estate, education, local businesses | `google-ads`, `meta-ads`, `microsoft-ads`, `cro`, `site-engineer`, `seo`, `ai-search-optimization`, `creative-strategy`, `lifecycle-crm`, `market-intel` | `install.sh <project> --pack lead-gen-local` |
 | B2B and SaaS | Software, B2B services and high consideration sales | `google-ads`, `linkedin-ads`, `microsoft-ads`, `chatgpt-ads`, `seo`, `ai-search-optimization`, `cro`, `site-engineer`, `pricing-strategy`, `offer-strategy`, `lifecycle-crm`, `creative-strategy`, `market-intel` | `install.sh <project> --pack b2b-saas` |
 | Mobile app | iOS and Android apps, subscription and freemium | `mobile-app-growth`, `app-store-optimization`, `meta-ads`, `google-ads`, `tiktok-ads`, `creative-strategy`, `video-studio`, `lifecycle-crm`, `pricing-strategy`, `market-intel`, `ai-search-optimization`, `seo`, `store-submission` | `install.sh <project> --pack mobile-app` |
-| Game studio | Mobile, web and PWA games: monetization, live ops, store presence, first pass store review, game UA and creative | `game-monetization`, `game-liveops`, `store-submission`, `app-store-optimization`, `mobile-app-growth`, `creative-strategy`, `video-studio`, `lifecycle-crm`, `pricing-strategy`, `site-engineer`, `market-intel`, `ai-search-optimization` | `install.sh <project> --pack game-studio` |
+| Game studio | Mobile, web and PWA games: monetization, live ops, store presence, first pass store review, game UA and creative | `game-monetization`, `game-liveops`, `player-experience`, `store-submission`, `app-store-optimization`, `mobile-app-growth`, `creative-strategy`, `video-studio`, `lifecycle-crm`, `pricing-strategy`, `site-engineer`, `market-intel`, `ai-search-optimization` | `install.sh <project> --pack game-studio` |
 | Organic and AI visibility | Any business that wants search, AI assistant and app store visibility without paid media first (app-store-optimization only matters if there is an app) | `seo`, `ai-search-optimization`, `chatgpt-ads`, `site-engineer`, `market-intel`, `app-store-optimization` | `install.sh <project> --pack ai-visibility` |
 | Everything | Agencies and teams running many channels | all agents | `install.sh <project> --pack full` |
 <!-- AUTO:packs:end -->
@@ -149,6 +149,7 @@ Tips: if your CLAUDE.md is long, move area specific rules into path scoped files
 | `microsoft-ads` | Microsoft Advertising specialist for Bing, Yahoo, AOL, DuckDuckGo, Edge, Microsoft Copilot and the Microsoft Audience Network. | lead-gen-local, b2b-saas | inherit |
 | `mobile-app-growth` | Mobile app growth specialist for iOS and Android paid acquisition and monetization. | mobile-app, game-studio | inherit |
 | `offer-strategy` | Offer, pricing and merchandising strategist. | ecommerce-dtc, marketplace-seller, b2b-saas | inherit |
+| `player-experience` | Player experience engine specialist for games. | game-studio | inherit |
 | `pricing-strategy` | Commercial pricing consultant. | ecommerce-dtc, marketplace-seller, b2b-saas, mobile-app, game-studio | inherit |
 | `seo` | SEO specialist for Google and Bing in the AI Overviews and AI Mode era. | ecommerce-dtc, lead-gen-local, b2b-saas, mobile-app, ai-visibility | inherit |
 | `site-engineer` | Website engineering and release QA for Shopify themes, WordPress and WooCommerce, Next.js and headless storefronts and Webflow. | ecommerce-dtc, lead-gen-local, b2b-saas, game-studio, ai-visibility | inherit |
@@ -186,6 +187,7 @@ Tips: if your CLAUDE.md is long, move area specific rules into path scoped files
 | `microsoft-ads` | Microsoft Advertising (Bing Ads) playbook for Bing, Yahoo, AOL, DuckDuckGo, Edge, Microsoft Copilot ad placements and the Microsoft Audience Network. |
 | `mobile-app-growth` | Mobile app growth playbook for iOS and Android paid acquisition, measurement and monetization. |
 | `offer-strategy` | Offer strategy, pricing and merchandising economics. |
+| `player-experience` | Player experience engine playbook for games. |
 | `pricing-strategy` | Commercial pricing consultant playbook. |
 | `seo` | Search engine optimization playbook for Google and Bing in the AI Overviews and AI Mode era. |
 | `site-engineer` | Website engineering, release QA and rollback for the sites and storefronts growth work touches. |

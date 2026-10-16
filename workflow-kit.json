@@ -64,6 +64,14 @@
         "run": "python3 -m unittest discover -s skills/seo/scripts -p \"test_*.py\""
       },
       {
+        "name": "player experience tests",
+        "run": "python3 -m unittest discover -s skills/player-experience/scripts -p \"test_*.py\""
+      },
+      {
+        "name": "player experience engine tests",
+        "run": "cd skills/player-experience/engine && node --test"
+      },
+      {
         "name": "secret scan",
         "run": "python3 kits/workflow-kit/scripts/secret_scan.py --history"
       }

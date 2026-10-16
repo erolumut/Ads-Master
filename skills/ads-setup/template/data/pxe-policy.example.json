@@ -1,0 +1,47 @@
+{
+  "pxeVersion": "0.1",
+  "policyRevision": 3,
+  "product": "example-puzzle",
+  "audience": { "minimumAge": 13, "minorsTier": "strict" },
+  "modes": [
+    { "id": "daily", "shared": true },
+    { "id": "levels", "shared": false },
+    { "id": "practice", "shared": false }
+  ],
+  "difficulty": { "steps": [-2, -1, 0, 1, 2], "default": 0, "minOffset": -1, "maxOffset": 1 },
+  "player": { "settings": ["auto", "easy", "normal", "hard"], "explain": true, "log": true, "reset": true },
+  "rules": [
+    {
+      "id": "ease_after_fails",
+      "modes": ["levels", "practice"],
+      "when": [ { "input": "fail_streak", "op": ">=", "value": 3 } ],
+      "then": { "action": "difficulty_offset", "value": -1 },
+      "reason": "struggling",
+      "explainKey": "pxe.reason.struggling",
+      "maxPerSession": 1
+    },
+    {
+      "id": "offer_hint_when_stuck",
+      "modes": ["levels"],
+      "when": [ { "input": "attempts_on_level", "op": ">=", "value": 2 }, { "input": "hint_uses_level", "op": "==", "value": 0 } ],
+      "then": { "action": "offer_hint" },
+      "reason": "stuck",
+      "explainKey": "pxe.reason.stuck",
+      "maxPerSession": 3
+    },
+    {
+      "id": "raise_after_fast_solves",
+      "modes": ["levels", "practice"],
+      "when": [ { "input": "fast_solve_streak", "op": ">=", "value": 3 } ],
+      "then": { "action": "difficulty_offset", "value": 1 },
+      "reason": "cruising",
+      "explainKey": "pxe.reason.cruising",
+      "maxPerSession": 1
+    }
+  ],
+  "returnReasons": [
+    { "id": "daily_ready", "source": "content", "maxPerDay": 1, "quietHours": ["21:00", "09:00"] }
+  ],
+  "scores": { "modifyAfterFact": false, "assistedRunsLabeled": true, "assistedRunsOnSharedBoards": false },
+  "experiment": { "holdoutPercent": 5, "holdoutSalt": "pxe-holdout-2026", "readAfterDays": 56, "primary": ["d7_retention"], "guardrails": ["quit_after_fail_rate", "adaptation_opt_out_rate"] }
+}

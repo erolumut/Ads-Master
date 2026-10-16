@@ -76,3 +76,13 @@ test('ENGINE_VERSION is 0.1.0 and matches package.json', () => {
   assert.equal(pkg.type, 'module');
   assert.equal(pkg.dependencies, undefined, 'no dependencies');
 });
+
+test('the Python checker samples agree with the engine validator', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { validatePolicy } = await import('../policy.js');
+  const base = new URL('../../scripts/samples/', import.meta.url);
+  const good = JSON.parse(await readFile(new URL('policy-valid.json', base), 'utf8'));
+  const bad = JSON.parse(await readFile(new URL('policy-bad.json', base), 'utf8'));
+  assert.equal(validatePolicy(good).ok, true, JSON.stringify(validatePolicy(good).errors));
+  assert.equal(validatePolicy(bad).ok, false);
+});
