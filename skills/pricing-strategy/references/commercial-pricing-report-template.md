@@ -1,6 +1,6 @@
 # Commercial Pricing Report (template)
 
-> The deliverable of every full engagement. Save as `ads-master/outputs/pricing-strategy/YYYY-MM-DD_pricing-strategy_commercial-pricing-report-<scope>.md`. Never overwrite; a revision is a new dated file. The structure follows the style of a senior consultant's DTC brief (the Amara pattern: retail shelf price vs DTC bundles, full cost per unit, competitor packs per unit, positioning, entry, hero and stock up bundles, delivery thresholds, launch economics, channel conflict, risks, decisions).
+> The deliverable of every full engagement. Save as `ads-master/outputs/pricing-strategy/YYYY-MM-DD_pricing-strategy_commercial-pricing-report-<scope>.md`. Never overwrite; a revision is a new dated file. The structure follows the style of a senior consultant's DTC brief (the DTC next to retail pattern: retail shelf price vs DTC bundles, full cost per unit, competitor packs per unit, positioning, entry, hero and stock up bundles, delivery thresholds, launch economics, channel conflict, risks, decisions).
 
 Writing rules:
 - First page answers the question. A reader who stops after the summary knows the price, the ladder, the delivery policy, the margin and the top risk.
