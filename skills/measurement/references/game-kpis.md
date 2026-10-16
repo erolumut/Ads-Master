@@ -281,7 +281,7 @@ These come from soft launch guides and vendor blogs (sources 3 to 6). They are h
 
 Re-check by 2027-04.
 
-### 9.5 A daily social game (Aloo type)
+### 9.5 A daily social game (shared daily round, groups, seasons)
 
 A daily social game behaves like Wordle, LinkedIn's games or BeReal, not like Royal Match: one shared play per day, a reason to return tomorrow (the new puzzle, the group board), and a capped session supply. What the 2026-10-12 pass found:
 

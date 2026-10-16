@@ -8,12 +8,12 @@ AI made building a small game cheap. Players did not become cheaper: distributio
 
 | Fits | Does not fit |
 |------|--------------|
-| Short session, single player games: puzzle, casual, arcade, merge, physics, high score, light 3D racing or shooting | A daily social or group game whose home is its own URL, streaks and group graph (Aloo type): exclusivity and ads only conflict with it |
+| Short session, single player games: puzzle, casual, arcade, merge, physics, high score, light 3D racing or shooting | A daily social or group game whose home is its own URL, streaks and group graph: exclusivity and ads only conflict with it |
 | A mechanic you want to test with real players before a store build | A game that needs accounts, purchases or your own analytics from day one |
 | A studio that accepts ads as the only revenue on the portal | Multiplayer that needs your own servers and matchmaking (possible on some portals, rare) |
 | Games you can strip of outside links, own ads and purchases | A brand or IP you cannot license to a portal |
 
-A board game platform (Avlu type) fits mainly through a single player mode against bots, as its own build. The platform itself stays on its own URL.
+A board game platform (rated play between people, bots for solo play) fits mainly through a single player mode against bots, as its own build. The platform itself stays on its own URL.
 
 ## 2. The portal first path
 

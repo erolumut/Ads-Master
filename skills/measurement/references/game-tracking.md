@@ -31,7 +31,7 @@ Rules that make the numbers right:
 - `level` is an integer index in progression order, even when the game shows "World 2, level 3". Keep the display label in the game's own data, not in the event; `game_kpis.py` needs integers for churn by level.
 - `attempt` counts attempts at that level by that player (1, 2, 3); without it, players and attempts cannot be separated.
 - A fail (`level_failed`, the player lost) and a quit (`level_quit`, the player left) are different events.
-- `mode_id` may be namespaced per game (`kilim:daily`). Ranked results (counted attempts, board writes) are written by the server; the client event is a display event.
+- `mode_id` may be namespaced per game (`wordgame:daily`). Ranked results (counted attempts, board writes) are written by the server; the client event is a display event.
 - Every monetization event carries `policy_revision`, so a revenue change can be read against the policy change that caused it.
 - Mapping to other tools: GameAnalytics progression uses Start, Complete and Fail with up to three hierarchy levels and business events take the amount in minor units with an ISO 4217 currency [Reported, 2026-10]. GA4 for Firebase has recommended game events such as `level_start`, `level_end`, `earn_virtual_currency`, `spend_virtual_currency` and `ad_impression` [Unverified, names to confirm in the GA4 recommended events reference]. Map ours to theirs in the export layer, never by renaming our events per tool.
 
@@ -74,7 +74,7 @@ Rules that make the numbers right:
 }
 ```
 
-Two complete plans that pass the conformance check are in `skills/game-monetization/scripts/samples/` (`aloo-tracking-plan.json`, `progression-tracking-plan.json`). Run `tracking_plan_check.py --plan ... --code src/` for code parity and `monetization_conformance.py` for policy coverage before every release that touches events.
+Two complete plans that pass the conformance check are in `skills/game-monetization/scripts/samples/` (`daily-social-tracking-plan.json`, `progression-tracking-plan.json`). Run `tracking_plan_check.py --plan ... --code src/` for code parity and `monetization_conformance.py` for policy coverage before every release that touches events.
 
 ## 3. Ad revenue per impression into the analytics tool and the MMP
 

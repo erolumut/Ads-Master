@@ -61,7 +61,7 @@ Allowed, in order of fit:
 2. **Practice or archive**: earlier levels or a practice level (`practice` mode).
 3. **The Encore** for the group (section 5).
 4. **Season pass or subscription**, shown at most once a day at this point.
-5. **Rewarded ad for an uncounted replay** (the `rewarded_replay` placement in `aloo-policy.json`): never for a counted try. Rewarded access is not equal access: fill varies by country, ad blockers, ATT and consent, and web rewarded supply may not be available at all (Google's H5 Games Ads is a closed beta) [Reported, 2026-10].
+5. **Rewarded ad for an uncounted replay** (the `rewarded_replay` placement in `daily-social-policy.json`): never for a counted try. Rewarded access is not equal access: fill varies by country, ad blockers, ATT and consent, and web rewarded supply may not be available at all (Google's H5 Games Ads is a closed beta) [Reported, 2026-10].
 
 Never: a paid counted try, an earned counted try (ad, streak, referral), a try that counts "only for a personal best" on a shared board, or copy that implies the player can still win today by paying.
 
@@ -84,7 +84,7 @@ A group product sells one thing that is fair by construction: a bonus round that
 
 Refunds: a refunded encore that was already played stays in the log; the round is not removed from other members' history; repeated refund abuse blocks that buyer from buying again ([Segmentation and payment ops](segmentation-and-payment-ops.md) section 8).
 
-Policy encoding (from `aloo-policy.json`): mode `encore` of kind `social`; SKU `encore` with grant `{ "kind": "round", "id": "encore_round", "writesTo": ["group_day", "group_season"] }`; offer `encore_at_game_over` at `on_attempts_exhausted` with `grantsTo: group`, `maxPerDay: 1`.
+Policy encoding (from `daily-social-policy.json`): mode `encore` of kind `social`; SKU `encore` with grant `{ "kind": "round", "id": "encore_round", "writesTo": ["group_day", "group_season"] }`; offer `encore_at_game_over` at `on_attempts_exhausted` with `grantsTo: group`, `maxPerDay: 1`.
 
 ## 6. Level start boosters (progression)
 
@@ -102,7 +102,7 @@ Policy encoding (from `aloo-policy.json`): mode `encore` of kind `social`; SKU `
 |---------|--------------------------|---------------------|
 | Track rewards | Cosmetics, access, group themes, profile frames | Cosmetics, currency, boosters, access |
 | Price | Fixed per season, shown before purchase | Same |
-| Duration | Stated on the offer (the `aloo-policy.json` sample assumes 21 day seasons) | Monthly is common: Royal Pass reported at 30 steps per month from level 37 [Unverified] |
+| Duration | Stated on the offer (the `daily-social-policy.json` sample assumes 21 day seasons) | Monthly is common: Royal Pass reported at 30 steps per month from level 37 [Unverified] |
 | Late buyers | Get every reward already earned on the track | Same |
 | Expiry | No retroactive loss of earned rewards at season end | Same |
 | Evidence of effect | Naavik reported +31% revenue in the first 30 days after Royal Match added its pass (June 2021) [Unverified] | Same |

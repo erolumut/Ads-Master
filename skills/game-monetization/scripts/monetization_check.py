@@ -2,7 +2,7 @@
 """Check a product's monetization-policy.json against the Game Monetization Contract 0.2.
 
 The policy is per product (a store listing or a web app), which may contain
-many games; mode ids may be namespaced ("kilim:daily"). The checker derives
+many games; mode ids may be namespaced ("wordgame:daily"). The checker derives
 whether something can change a ranked result from typed grants and declared
 boards; nothing is self declared.
 

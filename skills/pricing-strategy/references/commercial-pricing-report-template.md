@@ -114,7 +114,7 @@ Assumptions register | Sources with dates | Script inputs JSON | Raw competitor 
 
 ---
 
-## Worked skeleton (illustrative, Amara pattern)
+## Worked skeleton (illustrative, DTC next to retail)
 
 All numbers below are ILLUSTRATIVE, taken from the script demo in [Cost to serve](cost-to-serve-and-margin-waterfall.md). Competitor figures are placeholders that `market-intel` must replace. This skeleton shows the shape and reasoning, not a real brand's data.
 

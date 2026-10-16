@@ -26,7 +26,7 @@ The output style is a senior commercial consultant's recommendation: "You sell a
 Write one sentence before any analysis: "Decide [price level / ladder / minimum order / threshold / channel corridor / increase] for [SKUs] in [markets and channels] by [date], within [constraints]."
 
 Typical decisions:
-- New DTC launch next to an existing retail listing (the Amara pattern).
+- New DTC launch next to an existing retail listing.
 - New market entry (price localization, VAT, carrier, competitors).
 - Cost shock (COGS, carrier, FX) requiring a price increase or a pack change.
 - Marketplace entry (price parity, fees, featured offer).
@@ -54,7 +54,7 @@ Ask only what is not in `ads-master/`. Minimum facts, in order of importance:
 | 11 | Markets, currencies, VAT classes | PROJECT_BRIEF.md | Normalization |
 | 12 | Price history (last 90 days per SKU and channel) | Backend, feed history | Legal reference prices |
 
-Intake conventions (from the owner's costing tool, see [Cost to serve](cost-to-serve-and-margin-waterfall.md) section 1b): record every cost with its "as of" date; resolve blanks by inheritance (product, then brand, then company default), never as zero; if a required cost is still missing, mark the analysis INCOMPLETE and list the missing inputs instead of estimating silently; label every percentage as margin_on_price or markup_on_cost.
+Intake conventions (see [Cost to serve](cost-to-serve-and-margin-waterfall.md) section 1b): record every cost with its "as of" date; resolve blanks by inheritance (product, then brand, then company default), never as zero; if a required cost is still missing, mark the analysis INCOMPLETE and list the missing inputs instead of estimating silently; label every percentage as margin_on_price or markup_on_cost.
 
 Cold start: when `ads-master/` is missing, ask for items 1, 2, 3, 5 (if retail exists), 8 and 10 only, then proceed with labeled assumptions for the rest.
 
@@ -131,14 +131,14 @@ Write the Commercial Pricing Report ([template](commercial-pricing-report-templa
 | Engagement | Effort | Notes |
 |-----------|--------|-------|
 | Quick price check (one SKU, one market) | 1 session | Phases 2, 3, 5, short report |
-| DTC launch next to retail (Amara pattern) | 2 to 4 sessions | All phases; waits on `market-intel` data and cost sheet |
+| DTC launch next to retail | 2 to 4 sessions | All phases; waits on `market-intel` data and cost sheet |
 | New market entry | 2 to 3 sessions | Phases 1 to 8 for the new market; VAT, carrier, competitors are new |
 | Price increase program | 1 to 2 sessions plus monitoring | Phases 2, 5, 9, 10 |
 | SaaS packaging review | 2 to 4 sessions | [SaaS and B2B](saas-and-b2b-pricing.md) replaces phases 6 and 7 |
 
 ## Plays (launch, optimize, scale, recover)
 
-### Play 1. DTC launch next to an existing retail listing (the Amara pattern)
+### Play 1. DTC launch next to an existing retail listing
 1. Intake items 1, 2, 3, 5, 8, 10; shelf checks in 3 stores per retailer (photo, date).
 2. Benchmark 3 to 8 competitors per unit and per 100 g; split performance, natural and own cluster.
 3. Script: MVB charged and free; retail block with sell-in and trade spend.

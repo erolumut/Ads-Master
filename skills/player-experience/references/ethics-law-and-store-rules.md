@@ -131,7 +131,7 @@ All [Official, 2026-06]. Google Play Families and Deceptive Behavior policies an
 | Next goal at session end | Real content |
 | Return reasons from real content and own state | Caps, quiet hours, no guilt, `lifecycle-crm` handles sends |
 | Streaks with free rest days and a permanent best | No paid repair by default |
-| Visible bot strength against a single player | Labeled; never secret in rated play (Avlu fit, dossier section 8) |
+| Visible bot strength against a single player | Labeled; never secret in rated play (dossier section 8) |
 | Labeled assisted runs | Never on shared boards |
 | Strict tier for minors | KIDS Act direction |
 | Persistent holdout | Every policy |

@@ -33,7 +33,7 @@ Rules:
 
 ## 1b. Costing conventions (follow these in every sheet and report)
 
-These conventions match the owner's costing tool, so numbers move between that tool and the pricing reports without translation.
+These conventions match how a well built costing tool stores costs, so numbers move between the client's cost sheet and the pricing reports without translation.
 
 | Convention | Rule | Why |
 |-----------|------|-----|

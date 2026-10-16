@@ -92,10 +92,10 @@ The spec tiers are paid media budgets; for liveops the binding constraint is how
 
 | Game type | Starter | Growth | Scale | Enterprise |
 |-----------|---------|--------|-------|------------|
-| Daily social mini game (Aloo like: groups, 21 day seasons, two counted tries a day) | Daily loop audit, day id rule, share grid, streak with free rest days, one season | Season tables per group, theme weeks, community goals, group health metrics, Game Center daily challenge in store builds | Group feature tests by group, season length tests, market calendars | Multi product calendars, program holdout |
+| Daily social mini game (groups, 21 day seasons, two counted tries a day) | Daily loop audit, day id rule, share grid, streak with free rest days, one season | Season tables per group, theme weeks, community goals, group health metrics, Game Center daily challenge in store builds | Group feature tests by group, season length tests, market calendars | Multi product calendars, program holdout |
 | Level based puzzle (Royal Match, Color Block Jam) | Fixed content cadence, runway report, weekly milestone event, `level_flags.py` | Team chest, season pass with `game-monetization`, short events on dedicated event levels | Nested stack (burst, short, week, season), cohort tuning, event holdouts | Per market events, many formats in rotation |
 | Hybrid casual | Daily challenge mode, cumulative login calendar | One weekly milestone, collection event | Format tests | Portfolio level calendar |
-| Board and multiplayer (Avlu like: rated play with seasons gated on player liquidity, a daily puzzle, tournaments, clubs) | Daily puzzle with streak, one featured mode, friend invites with party codes | Weekly tournaments at peak hours, clubs, achievements | Rated seasons, league seasons, per region schedules | Multi game platform calendar, new game premieres |
+| Board and multiplayer (rated play with seasons gated on player liquidity, a daily puzzle, tournaments, clubs) | Daily puzzle with streak, one featured mode, friend invites with party codes | Weekly tournaments at peak hours, clubs, achievements | Rated seasons, league seasons, per region schedules | Multi game platform calendar, new game premieres |
 
 Spec business models map as follows: liveops applies to games and to game like habit products; non game apps use `lifecycle-crm` and `mobile-app-growth`.
 

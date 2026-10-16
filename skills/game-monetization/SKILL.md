@@ -229,7 +229,7 @@ python3 -I <skill>/scripts/monetization_conformance.py --policy ads-master/data/
   --tracking-plan ads-master/tracking-plan.json --declarations ads-master/data/store-declarations/google.json
 ```
 
-Samples to start from: `<skill>/scripts/samples/aloo-policy.json` with `aloo-tracking-plan.json` and `aloo-store-declarations.json` (daily social product, enum identity properties), and `progression-policy.json` with `progression-tracking-plan.json` and `progression-store-declarations.json` (level based puzzle, id identity properties). Formats, failure tables and run order: [Policy file and conformance](references/policy-file-and-conformance.md). Tests: `python3 -m unittest discover -s <skill>/scripts -p "test_*.py"`.
+Samples to start from: `<skill>/scripts/samples/daily-social-policy.json` with `daily-social-tracking-plan.json` and `daily-social-store-declarations.json` (daily social product, enum identity properties), and `progression-policy.json` with `progression-tracking-plan.json` and `progression-store-declarations.json` (level based puzzle, id identity properties). Formats, failure tables and run order: [Policy file and conformance](references/policy-file-and-conformance.md). Tests: `python3 -m unittest discover -s <skill>/scripts -p "test_*.py"`.
 
 Neither script decides alone: copy still goes to `compliance`, the code's behavior is proven by the product repo's conformance test (contract section 9), and the store consoles are read by `store-submission`.
 

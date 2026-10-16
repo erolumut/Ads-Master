@@ -135,10 +135,10 @@ Verdicts (our reading, not legal advice):
 
 Minimal first version for a web puzzle game: the six events, Elo for player and level, four rules (offer a hint or break after K fails on one level; offer a harder level after a fast solve streak; clamp the offset to one step; never lower silently more than once per session), the transparency UI, one experiment tool with a holdout, a weekly level table.
 
-## 8. Fit with our products
+## 8. Fit by game type
 
-- Aloo (daily social game): the daily and group boards are shared, so no adaptation there; adaptation fits practice and replays only. The monetization contract already forbids paid counted tries; the engine extends the same rule to difficulty.
-- Avlu (board games): the clock never plays for a player (ADR-080) and engines are deterministic; bots against a single player can adapt strength openly (a visible bot level), never secretly in rated play.
+- Daily social games (one shared round a day, groups, seasons): the daily and group boards are shared, so no adaptation there; adaptation fits practice and replays only. The monetization contract already forbids paid counted tries; the engine extends the same rule to difficulty.
+- Board game platforms (rated play between people): the clock never plays for a player and engines stay deterministic; bots against a single player can adapt strength openly (a visible bot level), never secretly in rated play.
 - Future level games (Royal Match style): the full engine applies to the level path; ranked races stay fair (see game-liveops events and seasons).
 
 ## 9. Open items to verify at the source

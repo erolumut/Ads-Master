@@ -22,8 +22,8 @@ def load(name):
         return json.load(fh)
 
 
-def aloo():
-    return load("aloo-policy.json"), load("aloo-tracking-plan.json"), load("aloo-store-declarations.json")
+def daily_social():
+    return load("daily-social-policy.json"), load("daily-social-tracking-plan.json"), load("daily-social-store-declarations.json")
 
 
 def progression():
@@ -78,7 +78,7 @@ class Files:
 
 class SamplesTest(unittest.TestCase):
     def test_samples_pass_with_no_failures_or_warnings(self):
-        for policy, plan, decl in (aloo(), progression()):
+        for policy, plan, decl in (daily_social(), progression()):
             fails, warns = mc.check_plan(policy, plan)
             self.assertEqual(fails, [], policy["product"]["id"])
             self.assertEqual(warns, [], policy["product"]["id"])
@@ -87,7 +87,7 @@ class SamplesTest(unittest.TestCase):
             self.assertEqual(d_warns, [], policy["product"]["id"])
 
     def test_cli_passes_on_samples(self):
-        for stem in ("aloo", "progression"):
+        for stem in ("daily-social", "progression"):
             code, out = run_cli("--policy", os.path.join(HERE, "samples", f"{stem}-policy.json"),
                                 "--tracking-plan", os.path.join(HERE, "samples", f"{stem}-tracking-plan.json"),
                                 "--declarations", os.path.join(HERE, "samples", f"{stem}-store-declarations.json"))
@@ -99,7 +99,7 @@ class SamplesTest(unittest.TestCase):
 
 class OfferCoverageTest(unittest.TestCase):
     def test_missing_offer_event_names_every_offer(self):
-        policy, plan, _ = aloo()
+        policy, plan, _ = daily_social()
         del plan["events"]["offer_declined"]
         f = plan_fails(policy, plan)
         self.assertIn("event 'offer_declined' is not in the tracking plan", f)
@@ -107,7 +107,7 @@ class OfferCoverageTest(unittest.TestCase):
             self.assertIn(offer, f)
 
     def test_enum_must_carry_each_offer_value(self):
-        policy, plan, _ = aloo()
+        policy, plan, _ = daily_social()
         plan["events"]["offer_shown"]["props"]["sku"]["values"].remove("encore")
         plan["events"]["offer_accepted"]["props"]["point"]["values"].remove("custom_practice_done")
         plan["events"]["offer_declined"]["props"]["mode_id"]["values"].remove("daily")
@@ -117,12 +117,12 @@ class OfferCoverageTest(unittest.TestCase):
         self.assertIn("offer season_pass_at_season_start: offer_declined.mode_id cannot carry 'daily'", f)
 
     def test_offer_id_values_are_checked(self):
-        policy, plan, _ = aloo()
+        policy, plan, _ = daily_social()
         plan["events"]["offer_shown"]["props"]["offer_id"]["values"].remove("plus_after_practice")
         self.assertIn("offer plus_after_practice: offer_shown.offer_id cannot carry", plan_fails(policy, plan))
 
     def test_offer_id_required_from_contract_0_2(self):
-        policy, plan, _ = aloo()
+        policy, plan, _ = daily_social()
         for e in mc.OFFER_EVENTS:
             del plan["events"][e]["props"]["offer_id"]
         f = plan_fails(policy, plan)
@@ -130,7 +130,7 @@ class OfferCoverageTest(unittest.TestCase):
             self.assertIn(f"{e}: no 'offer_id' property", f)
 
     def test_offer_id_optional_under_contract_0_1(self):
-        policy, plan, _ = aloo()
+        policy, plan, _ = daily_social()
         policy["contractVersion"] = "0.1"
         for e in plan["events"].values():
             e["props"]["contract_version"] = {"type": "enum", "values": ["0.1"]}
@@ -139,7 +139,7 @@ class OfferCoverageTest(unittest.TestCase):
         self.assertNotIn("offer_id", plan_fails(policy, plan))
 
     def test_missing_identity_property_fails_once_per_event(self):
-        policy, plan, _ = aloo()
+        policy, plan, _ = daily_social()
         del plan["events"]["offer_shown"]["props"]["sku"]
         f = mc.check_plan(policy, plan)[0]
         hits = [x for x in f if x.startswith("offer_shown: no 'sku' property")]
@@ -159,7 +159,7 @@ class OfferCoverageTest(unittest.TestCase):
 class PlacementCoverageTest(unittest.TestCase):
     def test_rewarded_needs_requested_shown_and_rewarded(self):
         for event in mc.REWARDED_EVENTS:
-            policy, plan, _ = aloo()
+            policy, plan, _ = daily_social()
             del plan["events"][event]
             f = plan_fails(policy, plan)
             self.assertIn(f"event '{event}' is not in the tracking plan", f)
@@ -182,7 +182,7 @@ class PlacementCoverageTest(unittest.TestCase):
         plan["events"]["ad_shown"]["props"]["point"]["values"].remove("on_menu")
         f = plan_fails(policy, plan)
         self.assertIn("placement menu_banner: ad_shown.point cannot carry 'on_menu'", f)
-        policy, plan, _ = aloo()
+        policy, plan, _ = daily_social()
         plan["events"]["ad_rewarded"]["props"]["placement_id"] = {"type": "enum", "values": ["other"]}
         f = plan_fails(policy, plan)
         self.assertIn("placement rewarded_replay: ad_rewarded.placement_id cannot carry 'rewarded_replay'", f)
@@ -202,28 +202,28 @@ class PlacementCoverageTest(unittest.TestCase):
 class CatalogCoverageTest(unittest.TestCase):
     def test_catalog_needs_completed_and_refunded(self):
         for event in mc.PURCHASE_EVENTS:
-            policy, plan, _ = aloo()
+            policy, plan, _ = daily_social()
             del plan["events"][event]
             f = plan_fails(policy, plan)
             self.assertIn(f"event '{event}' is not in the tracking plan", f)
-            for sku in ("season_pass", "aloo_plus_monthly", "encore"):
+            for sku in ("season_pass", "plus_monthly", "encore"):
                 self.assertIn(sku, f)
 
     def test_sku_enum_must_list_every_sku(self):
-        policy, plan, _ = aloo()
-        plan["events"]["purchase_refunded"]["props"]["sku"]["values"].remove("aloo_plus_monthly")
-        self.assertIn("sku aloo_plus_monthly: purchase_refunded.sku cannot carry 'aloo_plus_monthly'",
+        policy, plan, _ = daily_social()
+        plan["events"]["purchase_refunded"]["props"]["sku"]["values"].remove("plus_monthly")
+        self.assertIn("sku plus_monthly: purchase_refunded.sku cannot carry 'plus_monthly'",
                       plan_fails(policy, plan))
 
     def test_stale_enum_value_warns(self):
-        policy, plan, _ = aloo()
+        policy, plan, _ = daily_social()
         plan["events"]["purchase_completed"]["props"]["sku"]["values"].append("old_pack")
         self.assertIn("purchase_completed.sku lists ['old_pack']", plan_warns(policy, plan))
 
 
 class VersionPropertiesTest(unittest.TestCase):
     def test_missing_version_properties_fail(self):
-        policy, plan, _ = aloo()
+        policy, plan, _ = daily_social()
         del plan["events"]["ad_shown"]["props"]["policy_revision"]
         del plan["events"]["offer_accepted"]["props"]["contract_version"]
         del plan["events"]["purchase_completed"]["props"]["policy_revision"]
@@ -233,17 +233,17 @@ class VersionPropertiesTest(unittest.TestCase):
         self.assertIn("purchase_completed: no 'policy_revision' property", f)
 
     def test_contract_version_typed_num_fails(self):
-        policy, plan, _ = aloo()
+        policy, plan, _ = daily_social()
         plan["events"]["offer_shown"]["props"]["contract_version"] = {"type": "num", "min": 0, "max": 1}
         self.assertIn("contract_version is typed num", plan_fails(policy, plan))
 
     def test_contract_version_enum_must_include_the_policy_version(self):
-        policy, plan, _ = aloo()
+        policy, plan, _ = daily_social()
         plan["events"]["ad_shown"]["props"]["contract_version"] = {"type": "enum", "values": ["0.0"]}
         self.assertIn("ad_shown: contract_version cannot carry '0.2'", plan_fails(policy, plan))
 
     def test_policy_revision_outside_the_declared_range(self):
-        policy, plan, _ = aloo()
+        policy, plan, _ = daily_social()
         policy["policyRevision"] = 12
         for e in plan["events"].values():
             if "policy_revision" in e["props"]:
@@ -251,16 +251,16 @@ class VersionPropertiesTest(unittest.TestCase):
         self.assertIn("policy_revision cannot carry 12 (num range 1 to 10)", plan_fails(policy, plan))
 
     def test_product_property(self):
-        policy, plan, _ = aloo()
+        policy, plan, _ = daily_social()
         plan["events"]["ad_shown"]["props"]["product"] = {"type": "enum", "values": ["other"]}
-        self.assertIn("ad_shown: product cannot carry 'aloo'", plan_fails(policy, plan))
-        policy, plan, _ = aloo()
+        self.assertIn("ad_shown: product cannot carry 'example-daily'", plan_fails(policy, plan))
+        policy, plan, _ = daily_social()
         del plan["events"]["ad_shown"]["props"]["product"]
         self.assertEqual(mc.check_plan(policy, plan)[0], [])
         self.assertIn("ad_shown: no 'product' property", plan_warns(policy, plan))
 
     def test_recommended_events_warn(self):
-        policy, plan, _ = aloo()
+        policy, plan, _ = daily_social()
         for e in ("purchase_failed", "ad_revenue", "consent_updated"):
             del plan["events"][e]
         self.assertEqual(mc.check_plan(policy, plan)[0], [])
@@ -271,7 +271,7 @@ class VersionPropertiesTest(unittest.TestCase):
 
 class DeclarationsTest(unittest.TestCase):
     def test_ads_present_but_contains_ads_false(self):
-        policy, _, decl = aloo()
+        policy, _, decl = daily_social()
         decl["containsAds"] = False
         f, _, _ = decl_result(policy, decl)
         self.assertIn("containsAds is false but the policy has ad placements", f)
@@ -285,12 +285,12 @@ class DeclarationsTest(unittest.TestCase):
         self.assertIn("ageRatingInputs.randomItems is False but the policy says True", f)
 
     def test_catalog_but_in_app_purchases_false(self):
-        policy, _, decl = aloo()
+        policy, _, decl = daily_social()
         decl["inAppPurchases"] = False
         self.assertIn("inAppPurchases is false but the policy has catalog items", decl_result(policy, decl)[0])
 
     def test_disagreement_with_policy_store_declarations(self):
-        policy, _, decl = aloo()
+        policy, _, decl = daily_social()
         policy["placements"] = []
         policy["storeDeclarations"]["containsAds"] = True
         decl["containsAds"] = False
@@ -300,7 +300,7 @@ class DeclarationsTest(unittest.TestCase):
         self.assertIn("the policy may be the file to fix", f)
 
     def test_over_declared_in_both_files_warns(self):
-        policy, _, decl = aloo()
+        policy, _, decl = daily_social()
         policy["placements"] = []
         decl["ageRatingInputs"]["advertising"] = False
         f, w, _ = decl_result(policy, decl)
@@ -308,7 +308,7 @@ class DeclarationsTest(unittest.TestCase):
         self.assertIn("containsAds is true but the policy has no ad placements", w)
 
     def test_missing_boolean_fails(self):
-        policy, _, decl = aloo()
+        policy, _, decl = daily_social()
         del decl["lootBoxes"]
         decl["inAppPurchases"] = "yes"
         f, _, _ = decl_result(policy, decl)
@@ -316,7 +316,7 @@ class DeclarationsTest(unittest.TestCase):
         self.assertIn("inAppPurchases must be true or false", f)
 
     def test_age_rating_answers(self):
-        policy, _, decl = aloo()
+        policy, _, decl = daily_social()
         decl["ageRatingInputs"].update({"advertising": False, "digitalPurchases": False, "madeForKids": True,
                                         "minimumTargetAge": 9})
         f, _, _ = decl_result(policy, decl)
@@ -325,14 +325,14 @@ class DeclarationsTest(unittest.TestCase):
             self.assertIn(s, f)
 
     def test_no_age_rating_answers_warns(self):
-        policy, _, decl = aloo()
+        policy, _, decl = daily_social()
         del decl["ageRatingInputs"]
         f, w, _ = decl_result(policy, decl)
         self.assertEqual(f, "")
         self.assertIn("no ageRatingInputs", w)
 
     def test_store_scoped_catalog(self):
-        policy, _, decl = aloo()
+        policy, _, decl = daily_social()
         for item in policy["catalog"]:
             item["stores"] = ["web"]
             item["storeProductIds"] = {"web": item["storeProductIds"]["web"]}
@@ -343,7 +343,7 @@ class DeclarationsTest(unittest.TestCase):
         self.assertIn("because store 'google' sells no catalog items", n)
 
     def test_unknown_store_fails(self):
-        policy, _, decl = aloo()
+        policy, _, decl = daily_social()
         decl["store"] = "steam"
         self.assertIn("store 'steam' is not declared in policy.stores", decl_result(policy, decl)[0])
 
@@ -353,7 +353,7 @@ class CliTest(unittest.TestCase):
         self.assertTrue(out.strip().splitlines()[-1].startswith("This check cannot cover:"), out)
 
     def test_failing_plan_exits_1(self):
-        policy, plan, decl = aloo()
+        policy, plan, decl = daily_social()
         del plan["events"]["ad_rewarded"]
         files = Files(policy, plan, decl)
         try:
@@ -365,7 +365,7 @@ class CliTest(unittest.TestCase):
         self.assertCannotCover(out)
 
     def test_policy_that_fails_monetization_check_fails_here(self):
-        policy, plan, _ = aloo()
+        policy, plan, _ = daily_social()
         policy["offers"][0]["priceEscalation"] = True
         files = Files(policy, plan)
         try:
@@ -376,7 +376,7 @@ class CliTest(unittest.TestCase):
         self.assertIn("the policy fails monetization_check.py", out)
 
     def test_could_not_run_cases_exit_2(self):
-        policy, plan, decl = aloo()
+        policy, plan, decl = daily_social()
         other = dict(decl, product="someone-else")
         cases = [
             Files("{not json", plan),
@@ -399,12 +399,12 @@ class CliTest(unittest.TestCase):
                 files.close()
 
     def test_missing_arguments_exit_2_with_cannot_cover(self):
-        code, out = run_cli("--policy", os.path.join(HERE, "samples", "aloo-policy.json"))
+        code, out = run_cli("--policy", os.path.join(HERE, "samples", "daily-social-policy.json"))
         self.assertEqual(code, 2)
         self.assertCannotCover(out)
 
     def test_repeated_declarations(self):
-        policy, plan, decl = aloo()
+        policy, plan, decl = daily_social()
         apple = dict(decl, store="apple")
         bad = dict(decl, store="web", containsAds=False)
         files = Files(policy, plan, apple, bad)

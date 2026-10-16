@@ -50,7 +50,7 @@ When a chart is produced, follow the `dataviz` skill.
 
 Template: "We are [category frame] for [target customer] who value [top attribute]. Against [reference set], we win on [proof 1, proof 2] and lose on [weakness]. Our defensible price position is [position] at index [range] vs [reference set], communicated per [unit]."
 
-Example structure (Amara pattern, illustrative): three clusters in the bar market: performance protein (high protein, gym), natural snack (simple ingredients, impulse), and a modern transparent nutrition position (organic, vegan, open about ingredients). The brand sits in the third. Hypothesis: "Organic vegan bar for health conscious adults who read labels. Wins on certification and transparency, loses on protein grams. Price at parity to +10% vs natural snack median per bar, below performance protein per bar; never compete on price per gram of protein."
+Example structure (illustrative): three clusters in the bar market: performance protein (high protein, gym), natural snack (simple ingredients, impulse), and a modern transparent nutrition position (organic, vegan, open about ingredients). The brand sits in the third. Hypothesis: "Organic vegan bar for health conscious adults who read labels. Wins on certification and transparency, loses on protein grams. Price at parity to +10% vs natural snack median per bar, below performance protein per bar; never compete on price per gram of protein."
 
 Validation tests:
 - Does WTP data support the index? ([Value based pricing](value-based-pricing-and-wtp.md))

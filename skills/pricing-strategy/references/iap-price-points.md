@@ -119,7 +119,7 @@ Check against items: a continue at 900 coins is covered by the small pack with 1
 
 ### 4.3 A daily social game
 
-A game like Aloo sells few things: a season pass, a group encore (a fixed price consumable with no randomness that every group member receives) and a Plus subscription. The ladder is short: one price per SKU per currency, the same everywhere a player can buy it, and the encore's buyer shown to the group. The fairness rule decides what may be sold at all (contract section 3); this module only prices what passes it.
+A daily social game sells few things: a season pass, a group encore (a fixed price consumable with no randomness that every group member receives) and a Plus subscription. The ladder is short: one price per SKU per currency, the same everywhere a player can buy it, and the encore's buyer shown to the group. The fairness rule decides what may be sold at all (contract section 3); this module only prices what passes it.
 
 ## 5. Web shop parity
 

@@ -16,7 +16,7 @@ Players who play with people they know come back for the people as much as for t
 | Comparisons with real connections | LinkedIn games show how connections did | [Reported, 2026-10] |
 | Friend notifications | Game Center notifies players when a friend passes their score, which can bring them back even when the game is not installed | [Official, 2026-10] |
 | Friend challenges | Game Center challenges built on leaderboards, invite friends and contacts, scores in real time, up to 16 players | [Official, 2026-10] |
-| Private groups | Daily social games where a friend group shares one daily board and season table (Aloo like) | Product pattern |
+| Private groups | Daily social games where a friend group shares one daily board and season table | Product pattern |
 
 ## 2. Structures
 
@@ -71,7 +71,7 @@ Principles:
 5. **Season reset.** Placement resets softly at season end; rating math belongs to the game repo.
 6. **Read.** Share of active players promoted, relegated and staying; churn after relegation vs after staying (relegation should not raise churn; if it does, demotion is punishment).
 
-## 6. Groups in daily social games (Aloo like)
+## 6. Groups in daily social games
 
 | Feature | Liveops role | Fairness |
 |---------|--------------|----------|
@@ -83,7 +83,7 @@ Principles:
 
 Group activity, not group count, is the retention signal: a product with many groups of one is a single player product with extra screens.
 
-## 7. Multiplayer and board platforms (Avlu like)
+## 7. Multiplayer and board platforms
 
 | Topic | Practice | Label |
 |-------|----------|-------|

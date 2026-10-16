@@ -135,10 +135,10 @@ Proposed event names (snake_case, matching the contract's event style): `daily_s
 
 | Game type | Daily unit | Comparison set | Streak form | Reminder moment | Watch |
 |-----------|-----------|----------------|-------------|-----------------|-------|
-| Daily social mini game (Aloo like: groups, 21 day seasons, two tries a day) | One shared seeded round per day, counted tries constant | Group day board, group season table, global day board | Consecutive with free rest days; group count view | Group activity ("3 of 5 played") and the daily tick, opted in | Daily completion rate, group active members, share rate, tries used |
+| Daily social mini game (groups, 21 day seasons, two tries a day) | One shared seeded round per day, counted tries constant | Group day board, group season table, global day board | Consecutive with free rest days; group count view | Group activity ("3 of 5 played") and the daily tick, opted in | Daily completion rate, group active members, share rate, tries used |
 | Level based puzzle (Royal Match, Color Block Jam) | Levels, plus a daily task or bonus | Self, team | Weekly or login calendar (cumulative) | Event start, lives refilled only if the game uses lives (never a pressure message) | Sessions per DAU, level progress per day, event participation |
 | Hybrid casual | Short runs, daily challenge mode | Self, global daily board | Login calendar (cumulative) | Rarely; the loop must stand alone | D1, session count; ad pressure early |
-| Board and multiplayer (Avlu like: rated play, a daily puzzle, tournaments, clubs) | A daily puzzle plus "your turn" in async games | Friends, club, rating ladder | Daily puzzle streak with rest days; never a streak on rated wins | Turn notifications are transactional; daily puzzle reminder is marketing | Match start time, daily puzzle completion, games per DAU |
+| Board and multiplayer (rated play, a daily puzzle, tournaments, clubs) | A daily puzzle plus "your turn" in async games | Friends, club, rating ladder | Daily puzzle streak with rest days; never a streak on rated wins | Turn notifications are transactional; daily puzzle reminder is marketing | Match start time, daily puzzle completion, games per DAU |
 | Web or PWA first | Same as the type above | Same | Same | Web push only after a user gesture; on iOS only for Home Screen web apps (section 5) | Share link to play conversion, Home Screen installs |
 | Store native | Same | Plus Game Center and Play Games boards | Same | Native push with platform rules | Permission rate, friend notifications |
 

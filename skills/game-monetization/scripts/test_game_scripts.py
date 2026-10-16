@@ -31,11 +31,11 @@ def run(script, *args):
 
 class MonetizationCheckTest(unittest.TestCase):
     def test_samples_pass(self):
-        for name in ("aloo-policy.json", "progression-policy.json"):
+        for name in ("daily-social-policy.json", "progression-policy.json"):
             self.assertEqual(monetization_check.check(load(name))[0], [], name)
 
     def test_paid_counted_try_in_ranked_mode_fails(self):
-        p = load("aloo-policy.json")
+        p = load("daily-social-policy.json")
         p["catalog"].append({"sku": "extra_try", "kind": "consumable", "grants": [{"kind": "attempt", "amount": 1, "writesTo": ["global_day"]}],
                              "basePrice": {"currency": "EUR", "minor": 99},
                              "storeProductIds": {"web": "a", "apple": "b", "google": "c"}, "random": False})
@@ -46,12 +46,12 @@ class MonetizationCheckTest(unittest.TestCase):
         self.assertIn("'attempt' writes to ranked board 'global_day'", f)
 
     def test_encore_cannot_reach_the_global_board(self):
-        p = load("aloo-policy.json")
+        p = load("daily-social-policy.json")
         p["catalog"][2]["grants"][0]["writesTo"].append("global_day")
         self.assertIn("may only write to boards no wider than who receives it", fails_of(p))
 
     def test_rewarded_practice_ad_cannot_grant_a_counted_try(self):
-        p = load("aloo-policy.json")
+        p = load("daily-social-policy.json")
         p["placements"][0]["grants"] = [{"kind": "attempt", "amount": 1, "writesTo": ["group_day"]}]
         self.assertIn("'attempt' writes to ranked board 'group_day'", fails_of(p))
 
@@ -61,7 +61,7 @@ class MonetizationCheckTest(unittest.TestCase):
         self.assertIn("ranked mode grants 'moves'", fails_of(p))
 
     def test_structure_rules(self):
-        p = load("aloo-policy.json")
+        p = load("daily-social-policy.json")
         p["offers"].append(copy.deepcopy(p["offers"][0]))
         p["modes"][0]["countedAttemptsPerDay"] = 0
         del p["catalog"][1]["period"]
@@ -112,7 +112,7 @@ class MonetizationCheckTest(unittest.TestCase):
             self.assertIn(s, f)
 
     def test_social_must_grant_group_and_unknown_refs(self):
-        p = load("aloo-policy.json")
+        p = load("daily-social-policy.json")
         p["offers"][0]["grantsTo"] = "buyer"
         p["placements"][0]["mode"] = "nope"
         p["catalog"][2]["grants"][0]["writesTo"] = ["missing_board"]
@@ -122,7 +122,7 @@ class MonetizationCheckTest(unittest.TestCase):
         self.assertIn("unknown board 'missing_board'", f)
 
     def test_cli_exit_codes(self):
-        self.assertEqual(run("monetization_check.py", os.path.join(HERE, "samples", "aloo-policy.json"))[0], 0)
+        self.assertEqual(run("monetization_check.py", os.path.join(HERE, "samples", "daily-social-policy.json"))[0], 0)
         with tempfile.TemporaryDirectory() as d:
             bad = os.path.join(d, "p.json")
             with open(bad, "w", encoding="utf-8") as fh:

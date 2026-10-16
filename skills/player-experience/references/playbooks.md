@@ -23,7 +23,7 @@ Outputs: `data/pxe-policy.json` revision 1, checker output, experiment row, copy
 
 ## Play 2. Practice mode adaptation for a daily game
 
-Trigger: a daily social game (Aloo type) wants adaptation.
+Trigger: a daily social game (shared daily round, groups, seasons) wants adaptation.
 
 1. Confirm the daily, group boards and season tables are shared. They never adapt; this is not negotiable.
 2. Identify private surfaces: practice levels, archive replays, uncounted "play again" runs.
@@ -126,7 +126,7 @@ Outputs: verdict note. Handoffs: `compliance` if the request persists.
 
 ## Play 10. Bot strength in a board game
 
-Trigger: a board game platform (Avlu type) wants adaptive bots.
+Trigger: a board game platform (rated play between people, bots for solo play) wants adaptive bots.
 
 1. Rated and ranked play: bots never adapt secretly; strength is fixed per labeled bot level.
 2. Casual play against a bot: strength may adapt openly ("bot level 3, adjusts to you"), with a fixed level option.

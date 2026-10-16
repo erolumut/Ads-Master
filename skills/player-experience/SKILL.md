@@ -60,9 +60,9 @@ The line this package holds, stated once: a viral 2026-10 decompile claimed a to
 | Game type | What adapts | What never adapts |
 |-----------|-------------|-------------------|
 | Level based puzzle (Royal Match style) | Level path difficulty offset within one step, hints, break offers, next goal | Race, league and team boards; event levels counted on boards |
-| Daily social game (Aloo type) | Practice and replays only | The daily round, group and global boards, counted attempts |
+| Daily social game (shared daily round, groups, seasons) | Practice and replays only | The daily round, group and global boards, counted attempts |
 | Endless or high score (Block Blast style) | Practice mode piece bag fairness, hints, next goal | Score, leaderboard runs, any piece stream tied to ads |
-| Board game against bots (Avlu type) | Bot strength, openly shown as a bot level the player can pick | Rated games between people, the clock, rules |
+| Board game against bots (rated play between people, bots for solo play) | Bot strength, openly shown as a bot level the player can pick | Rated games between people, the clock, rules |
 | Hybrid casual | Early level pacing, hints, next goal | Any ranked or shared mode |
 
 | Stage | Focus |

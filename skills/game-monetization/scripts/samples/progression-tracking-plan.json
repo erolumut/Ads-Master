@@ -1,7 +1,7 @@
 {
   "version": 1,
   "pii_policy": "no raw email, phone, name, address or free text in any parameter; user ids are hashed",
-  "_note": "Example tracking plan for samples/progression-policy.json, in the measurement tracking plan format. Unlike the aloo sample, sku and placement_id are opaque id types (any value matching the id pattern passes), so coverage is checked by type rather than by enum value; contract_version is an id so the string 0.1 stays a string.",
+  "_note": "Example tracking plan for samples/progression-policy.json, in the measurement tracking plan format. Unlike the daily social sample, sku and placement_id are opaque id types (any value matching the id pattern passes), so coverage is checked by type rather than by enum value; contract_version is an id so the string 0.1 stays a string.",
   "events": {
     "offer_shown": {
       "owner": "game-monetization",

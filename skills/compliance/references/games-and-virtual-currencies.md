@@ -109,7 +109,7 @@ Boundary: Ads Master owns how a game earns, is found, keeps players, is measured
 
 ## 7. Reviewing a monetization-policy.json
 
-The Game Monetization Contract v0.2 (`skills/game-monetization/references/monetization-contract.md`) defines one policy file per product (a store listing or a web app that may hold several games; mode ids may be namespaced such as `kilim:daily`). Offer points are snake_case (`on_fail`, `on_attempts_exhausted`, `custom_*`); grants are typed (`cosmetic`, `access`, `pass`, `round`, `attempt`, `moves`, `time`, `booster`, `currency`, `lives`, `streak_protection`, with `writesTo` boards); ranked modes declare boards with scope `group` or `everyone`; prices are integers in minor units; stores are declared in the file. Nothing about fairness is self declared: the checker derives it.
+The Game Monetization Contract v0.2 (`skills/game-monetization/references/monetization-contract.md`) defines one policy file per product (a store listing or a web app that may hold several games; mode ids may be namespaced such as `wordgame:daily`). Offer points are snake_case (`on_fail`, `on_attempts_exhausted`, `custom_*`); grants are typed (`cosmetic`, `access`, `pass`, `round`, `attempt`, `moves`, `time`, `booster`, `currency`, `lives`, `streak_protection`, with `writesTo` boards); ranked modes declare boards with scope `group` or `everyone`; prices are integers in minor units; stores are declared in the file. Nothing about fairness is self declared: the checker derives it.
 
 ### 7.1 Procedure
 

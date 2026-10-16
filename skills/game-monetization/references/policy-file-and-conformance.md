@@ -15,7 +15,7 @@
 
 ## 2. Writing the policy file
 
-Start from `<skill>/scripts/samples/aloo-policy.json` (daily social product) or `<skill>/scripts/samples/progression-policy.json` (level based puzzle), or from `ads-master/data/monetization-policy.example.json` in a workspace. Schema: `<skill>/scripts/monetization-policy.schema.json`.
+Start from `<skill>/scripts/samples/daily-social-policy.json` (daily social product) or `<skill>/scripts/samples/progression-policy.json` (level based puzzle), or from `ads-master/data/monetization-policy.example.json` in a workspace. Schema: `<skill>/scripts/monetization-policy.schema.json`.
 
 Order that avoids rework:
 1. `product`: id, platforms, audience (`minimumAge`, `kidsMode`), regions. The audience decides the minors rules, so get it from PROJECT_BRIEF section 11 before anything else.
@@ -86,7 +86,7 @@ One file per store, recorded from the live console by `store-submission` (or the
 
 ```json
 {
-  "product": "aloo",
+  "product": "example-daily",
   "store": "google",
   "recordedAt": "2026-10-12",
   "containsAds": true,

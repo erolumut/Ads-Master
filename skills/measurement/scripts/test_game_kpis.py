@@ -140,15 +140,15 @@ class DefinitionTrapsTest(unittest.TestCase):
         tmp = tempfile.mkdtemp()
         try:
             path = write(tmp, "multi.csv", "user_id,ts,event,game\n"
-                         "a1,2026-10-01T10:00:00Z,level_started,kilim\n"
-                         "a1,2026-10-02T10:00:00Z,level_started,kilim\n"
-                         "a1,2026-10-01T11:00:00Z,level_started,duchess\n"
-                         "b1,2026-10-02T10:00:00Z,level_started,duchess\n")
-            code, _, data = run(path, "--as-of", "2026-10-02", "--min-cohort", "1", "--game", "kilim")
+                         "a1,2026-10-01T10:00:00Z,level_started,game_a\n"
+                         "a1,2026-10-02T10:00:00Z,level_started,game_a\n"
+                         "a1,2026-10-01T11:00:00Z,level_started,game_b\n"
+                         "b1,2026-10-02T10:00:00Z,level_started,game_b\n")
+            code, _, data = run(path, "--as-of", "2026-10-02", "--min-cohort", "1", "--game", "game_a")
             self.assertEqual(code, 0)
             self.assertEqual(data["input"]["users"], 1)
             self.assertEqual(data["retention"]["pooled"]["d1"]["rate"], 1.0)
-            code, _, data = run(path, "--as-of", "2026-10-02", "--min-cohort", "1", "--game", "duchess")
+            code, _, data = run(path, "--as-of", "2026-10-02", "--min-cohort", "1", "--game", "game_b")
             self.assertEqual(data["retention"]["pooled"]["d1"]["rate"], 0.0)
         finally:
             shutil.rmtree(tmp)
@@ -235,7 +235,7 @@ class BadInputTest(unittest.TestCase):
         self.assert_cannot_run("user_id,ts,event\na,2026-10-01T10:00:00Z,level_started\n", "--timezone", "Mars/Olympus")
 
     def test_game_filter_without_column(self):
-        self.assert_cannot_run("user_id,ts,event\na,2026-10-01T10:00:00Z,level_started\n", "--game", "kilim")
+        self.assert_cannot_run("user_id,ts,event\na,2026-10-01T10:00:00Z,level_started\n", "--game", "game_a")
 
     def test_naive_timestamps_are_flagged(self):
         path = write(self.tmp, "n.csv", "user_id,ts,event\na,2026-10-01T10:00:00,level_started\n"

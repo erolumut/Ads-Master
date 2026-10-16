@@ -18,7 +18,7 @@ The policy file is the only executable part, and it must be imported by the prod
 
 ## 3. Modes, boards and what each may sell
 
-Every placement and offer declares the mode it runs in; mode ids may be namespaced per game (`kilim:daily`, `memory:practice`). Ranked modes declare the **boards** they write to, each with a scope: `group` (a friend group, a team, a league division) or `everyone` (a global board). The checker derives fairness from the boards and the typed grants; nothing is self declared.
+Every placement and offer declares the mode it runs in; mode ids may be namespaced per game (`wordgame:daily`, `memory:practice`). Ranked modes declare the **boards** they write to, each with a scope: `group` (a friend group, a team, a league division) or `everyone` (a global board). The checker derives fairness from the boards and the typed grants; nothing is self declared.
 
 | Mode | Meaning | May grant | Never |
 |------|---------|-----------|-------|
@@ -65,7 +65,7 @@ type OfferPoint =
 
 // 2. What the product knows at that moment. The policy decides with this; nothing else.
 interface OfferContext {
-  modeId: string;                         // may be namespaced, e.g. "kilim:daily"
+  modeId: string;                         // may be namespaced, e.g. "wordgame:daily"
   point: OfferPoint;
   attemptsLeft: number | "unlimited" | null;
   payerTier: "none" | "low" | "mid" | "high";
@@ -147,7 +147,7 @@ Every offer and ad emits these events. Names and property values are snake_case 
 
 ## 7. The policy file
 
-Schema: `scripts/monetization-policy.schema.json`. Examples: `scripts/samples/aloo-policy.json` (daily social product: ranked days, practice, a group encore that writes only to group boards) and `scripts/samples/progression-policy.json` (level based puzzle: boosters and extra moves in progression, a weekly race nobody can buy into).
+Schema: `scripts/monetization-policy.schema.json`. Examples: `scripts/samples/daily-social-policy.json` (daily social product: ranked days, practice, a group encore that writes only to group boards) and `scripts/samples/progression-policy.json` (level based puzzle: boosters and extra moves in progression, a weekly race nobody can buy into).
 
 | Key | Holds |
 |-----|-------|

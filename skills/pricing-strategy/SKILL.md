@@ -107,7 +107,7 @@ Quality bar (every deliverable):
 | Model | Primary pricing question | Starter (under $3k/mo) | Growth ($3k to $30k) | Scale ($30k to $300k) | Enterprise (over $300k) |
 |-------|-------------------------|------------------------|----------------------|-----------------------|-------------------------|
 | Ecommerce DTC | Ladder, minimum basket, threshold, price level vs competitors | Manual benchmark of 3 to 5 competitors; script waterfall; 2 to 3 rung ladder; one threshold | Monthly benchmark; pack tests; switchback threshold tests; quarterly report | Monitoring tool with API; geo or market tests; elasticity models per category | Price management system, pricing team, MMM informed price and promo decisions |
-| DTC with retail partners (Amara pattern) | Corridor vs shelf price, DTC exclusive assortment, retail vs DTC CM per unit | Shelf checks monthly; DTC bundles only; no single units | Corridor policy; exclusive boxes; retailer talking points (compliance reviewed) | Retail panel data for sell-out; channel P&L | Multi retailer, multi country corridors; counsel reviewed channel policy |
+| DTC with retail partners | Corridor vs shelf price, DTC exclusive assortment, retail vs DTC CM per unit | Shelf checks monthly; DTC bundles only; no single units | Corridor policy; exclusive boxes; retailer talking points (compliance reviewed) | Retail panel data for sell-out; channel P&L | Multi retailer, multi country corridors; counsel reviewed channel policy |
 | Marketplace seller | Marketplace pack pricing after fees; buy box vs DTC parity | Fee model per SKU; one marketplace pack | Keepa or tool monitoring; pack differentiation | Repricing rules (approved bounds only) | Vendor and seller hybrid strategy |
 | Local services | Price list vs local competitors, minimum job size, call-out fees | Competitor quotes from 3 to 5 providers; minimum job value from cost per visit | Good better best packages; seasonal price review | Area based price lists | Multi location price governance |
 | Lead gen and B2B services | Rate cards, retainers, value based fees | Day rate and package benchmarks | Value based packages with EVE | Price waterfall and discount governance | Contract indexation, procurement playbooks |
@@ -299,7 +299,7 @@ How to log: if a check changes a recommendation, write `YYYY-MM-DD_HHMM_pricing-
 ## Reference index
 
 - [Commercial pricing method](references/commercial-pricing-method.md): phases from frame to report, intake, quality bar, seven plays.
-- [Commercial Pricing Report template](references/commercial-pricing-report-template.md): the deliverable, Amara pattern skeleton, review checklist.
+- [Commercial Pricing Report template](references/commercial-pricing-report-template.md): the deliverable, DTC next to retail skeleton, review checklist.
 - [Competitive price benchmarking](references/competitive-price-benchmarking.md): comparison set, normalization, shelf vs online, promo depth and frequency, price index, data sources, cross channel price divergence monitor.
 - [Cost to serve and margin waterfall](references/cost-to-serve-and-margin-waterfall.md): waterfall, costing conventions, formulas, NL and TR carrier, payment, marketplace and VAT references, worked example, retail waterfall, script usage.
 - [Price architecture and pack sizes](references/price-architecture-and-pack-sizes.md): rungs, pack sizing, ladder methods, good better best, endings evidence, unit price and surcharges, shrinkflation rules.
