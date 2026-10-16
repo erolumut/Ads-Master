@@ -43,5 +43,5 @@
     { "id": "daily_ready", "source": "content", "maxPerDay": 1, "quietHours": ["21:00", "09:00"] }
   ],
   "scores": { "modifyAfterFact": false, "assistedRunsLabeled": true, "assistedRunsOnSharedBoards": false },
-  "experiment": { "holdoutPercent": 5, "readAfterDays": 56, "primary": ["d7_retention"], "guardrails": ["quit_after_fail_rate", "adaptation_opt_out_rate"] }
+  "experiment": { "holdoutPercent": 5, "holdoutSalt": "pxe-holdout-2026", "readAfterDays": 56, "primary": ["d7_retention"], "guardrails": ["quit_after_fail_rate", "adaptation_opt_out_rate"] }
 }

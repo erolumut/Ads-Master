@@ -60,7 +60,7 @@ const SESSION_MEMORY = 32;
  * @property {Rule[]} rules
  * @property {{ id: string, source: string, maxPerDay: number, quietHours: string[] }[]} returnReasons
  * @property {{ modifyAfterFact: boolean, assistedRunsLabeled?: boolean, assistedRunsOnSharedBoards: boolean }} scores
- * @property {{ holdoutPercent: number, readAfterDays?: number, primary: string[], guardrails?: string[] }} experiment
+ * @property {{ holdoutPercent: number, holdoutSalt: string, readAfterDays?: number, primary: string[], guardrails?: string[] }} experiment
  *
  * @typedef {{ ok: boolean, errors: string[], warnings: string[] }} Validation
  *
@@ -100,6 +100,10 @@ const isFiniteNumber = (x) => typeof x === 'number' && Number.isFinite(x);
 const isNonEmptyString = (x) => typeof x === 'string' && x.trim().length > 0;
 /** @param {unknown} x @returns {x is Record<string, unknown>} */
 const isObject = (x) => typeof x === 'object' && x !== null && !Array.isArray(x);
+// forEach and every skip the holes of a sparse array, which JSON never has but a
+// policy built in code can; Array.from turns each hole into undefined so it is checked.
+/** @param {unknown[]} a @returns {unknown[]} */
+const dense = (a) => Array.from(a);
 /** @param {string} s */
 const normalizeName = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
 const NORMALIZED_FRAGMENTS = FORBIDDEN_NAME_FRAGMENTS.map((f) => ({ fragment: f, key: normalizeName(f) }));
@@ -119,14 +123,18 @@ export function forbiddenFragment(name) {
 
 /**
  * Holdout bucket in [0, 100): FNV-1a 32 of the UTF-8 string
- * `${installId}:${policyRevision}`, modulo 100. Stable for one install and one
- * policy revision; a new revision draws a new holdout.
+ * `${installId}:${holdoutSalt}`, modulo 100. The salt stays the same across
+ * policy revisions, so a player stays in (or out of) the holdout for as long as
+ * the experiment runs. Change the salt only to start a new holdout on purpose.
  * @param {string} installId
- * @param {number} policyRevision
+ * @param {string} holdoutSalt
  * @returns {number}
  */
-export function holdoutBucket(installId, policyRevision) {
-  return fnv1a32(`${installId}:${policyRevision}`) % 100;
+export function holdoutBucket(installId, holdoutSalt) {
+  if (typeof installId !== 'string' || typeof holdoutSalt !== 'string') {
+    throw new TypeError('holdoutBucket needs an install id and a holdout salt, both strings');
+  }
+  return fnv1a32(`${installId}:${holdoutSalt}`) % 100;
 }
 
 /**
@@ -194,7 +202,7 @@ function checkModes(modes, errors) {
     errors.push('modes must be a non empty array');
     return byId;
   }
-  modes.forEach((mode, i) => {
+  dense(modes).forEach((mode, i) => {
     if (!isObject(mode) || !isNonEmptyString(mode.id)) {
       errors.push(`modes[${i}] needs a non empty id`);
       return;
@@ -220,7 +228,7 @@ function checkDifficulty(difficulty, errors) {
   const { steps, minOffset, maxOffset } = difficulty;
   const def = difficulty.default;
   let ok = true;
-  if (!Array.isArray(steps) || steps.length === 0 || !steps.every(Number.isInteger)) {
+  if (!Array.isArray(steps) || steps.length === 0 || !dense(steps).every(Number.isInteger)) {
     errors.push('difficulty.steps must be a non empty array of integers');
     ok = false;
   }
@@ -306,7 +314,7 @@ function checkRules(rules, modes, range, errors, warnings) {
   const ids = new Set();
   let uncappedEasings = 0;
   let raises = 0;
-  rules.forEach((rule, i) => {
+  dense(rules).forEach((rule, i) => {
     if (!isObject(rule)) {
       errors.push(`rules[${i}] must be an object`);
       return;
@@ -328,7 +336,7 @@ function checkRules(rules, modes, range, errors, warnings) {
     if (!Array.isArray(rule.when)) {
       errors.push(`${where}: when must be an array of conditions`);
     } else {
-      rule.when.forEach((cond, j) => {
+      dense(rule.when).forEach((cond, j) => {
         const at = `${where} when[${j}]`;
         if (!isObject(cond)) {
           errors.push(`${at}: must be an object`);
@@ -394,7 +402,7 @@ function checkReturnReasons(reasons, audience, errors) {
     return;
   }
   const strict = isObject(audience) && audience.minorsTier === 'strict';
-  reasons.forEach((reason, i) => {
+  dense(reasons).forEach((reason, i) => {
     if (!isObject(reason)) {
       errors.push(`returnReasons[${i}] must be an object`);
       return;
@@ -409,7 +417,7 @@ function checkReturnReasons(reasons, audience, errors) {
       errors.push(`${where}: maxPerDay must be an integer, zero or more`);
     }
     const qh = reason.quietHours;
-    if (!Array.isArray(qh) || qh.length !== 2 || !qh.every((t) => typeof t === 'string' && HHMM.test(t))) {
+    if (!Array.isArray(qh) || qh.length !== 2 || !dense(qh).every((t) => typeof t === 'string' && HHMM.test(t))) {
       errors.push(`${where}: quietHours must be two "HH:MM" times`);
     }
   });
@@ -436,8 +444,11 @@ function checkExperiment(experiment, errors, warnings) {
   if (!Number.isInteger(pct) || /** @type {number} */ (pct) < 1 || /** @type {number} */ (pct) > 20) {
     errors.push('experiment.holdoutPercent must be a whole number from 1 to 20');
   }
+  if (!isNonEmptyString(experiment.holdoutSalt)) {
+    errors.push('experiment.holdoutSalt must be a non empty string, kept the same across policy revisions');
+  }
   const primary = experiment.primary;
-  if (!Array.isArray(primary) || primary.length === 0 || !primary.every(isNonEmptyString)) {
+  if (!Array.isArray(primary) || primary.length === 0 || !dense(primary).every(isNonEmptyString)) {
     errors.push('experiment.primary must name at least one metric');
   }
   if (!isFiniteNumber(experiment.readAfterDays) || experiment.readAfterDays < MIN_READ_DAYS) {
@@ -519,7 +530,7 @@ export function createEngine(policy, options) {
   const { minOffset, maxOffset } = p.difficulty;
   /** @param {number} x */
   const clamp = (x) => Math.min(maxOffset, Math.max(minOffset, x));
-  const holdout = holdoutBucket(options.installId, p.policyRevision) < p.experiment.holdoutPercent;
+  const holdout = holdoutBucket(options.installId, p.experiment.holdoutSalt) < p.experiment.holdoutPercent;
 
   let offset = p.difficulty.default;
   /** @type {Map<string, SessionCounters>} */
@@ -566,7 +577,7 @@ export function createEngine(policy, options) {
   return Object.freeze({
     engineVersion: ENGINE_VERSION,
     policyRevision: p.policyRevision,
-    /** True when this install is in the persistent holdout for this policy revision. */
+    /** True when this install is in the persistent holdout (stable across policy revisions). */
     holdout,
 
     /**
