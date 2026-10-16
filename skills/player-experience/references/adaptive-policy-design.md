@@ -1,6 +1,6 @@
 # Adaptive Policy Design
 
-> Knowledge as of 2026-10 (research pass 2026-10-16, dossier `research/player-experience-engine.md`). The file format is defined in [policy format](policy-format.md) (pxe 0.1) and checked by `pxe_policy_check.py` in [../scripts](../scripts/). Thresholds in this module are placeholders to tune per game, never benchmarks. Studies carry their dossier labels.
+> Knowledge as of 2026-10 (research pass 2026-10-16, dossier `research/player-experience.md`). The file format is defined in [policy format](policy-format.md) (pxe 0.1) and checked by `pxe_policy_check.py` in [../scripts](../scripts/). Thresholds in this module are placeholders to tune per game, never benchmarks. Studies carry their dossier labels.
 
 Gate: drafting or revising a policy file and running the checker are G1. Shipping a policy revision to players is a live change and is G3: a change request with the checker output, the rollback plan and the experiment row. Player facing copy passes `compliance` before it ships.
 
@@ -176,7 +176,7 @@ The log contains play signals only; it never carries an ad id, a device id, a lo
 | 8 | On approval, publish through remote config; the engine logs the new revision with every action | G3 |
 | 9 | Watch guardrails daily for the first week; roll back on a breach | G2 read, G3 rollback |
 
-Holdout caution: the format assigns holdout players by a stable hash of the install id and the policy revision, so a revision bump draws a new holdout. During an 8 to 12 week read, ship only revisions that fix a safety or fairness problem, and record the break in the read ([experiments](experiments-and-measurement.md)).
+Holdout persistence: the format assigns holdout players by a stable hash of the install id and `experiment.holdoutSalt`, so policy revisions keep the same holdout. Change the salt only to start a new holdout on purpose, log it as a decision, and restart the read ([experiments](experiments-and-measurement.md)).
 
 ## 9. How the checker gates it
 

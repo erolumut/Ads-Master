@@ -1,6 +1,6 @@
 # Fair Randomness and Solvability
 
-> Knowledge as of 2026-10 (research pass 2026-10-16, dossier `research/player-experience-engine.md`). Algorithms (mulberry32, FNV-1a, bag randomizers) are standard public methods described here as engineering, not as findings. Claims about named games carry their dossier labels. The Block Blast decompile claims are unverified.
+> Knowledge as of 2026-10 (research pass 2026-10-16, dossier `research/player-experience.md`). Algorithms (mulberry32, FNV-1a, bag randomizers) are standard public methods described here as engineering, not as findings. Claims about named games carry their dossier labels. The Block Blast decompile claims are unverified.
 
 Gate: generator specs, solver specs and seed rules are G1 drafts for the game repo. Changing a live generator, a bag rule or the engine version that produces shared content is G3 and needs a new `engineVersion`.
 
@@ -17,7 +17,18 @@ Randomness in a game is a promise: the pieces, cards or boards a player gets are
 
 ### 2.1 Generator
 
-The reference engine uses mulberry32: a 32 bit state, integer only arithmetic, small and fast, identical output in JavaScript, Swift and Kotlin when written with explicit 32 bit unsigned math. The reference is `rng.js` in [../engine](../engine/) (`ENGINE_VERSION` 0.1.0).
+The reference engine uses mulberry32: a 32 bit state, integer only arithmetic, small and fast, identical output in JavaScript, Swift and Kotlin when written with explicit 32 bit unsigned math. The reference is `rng.js` in [../engine](../engine/) (`ENGINE_VERSION` 0.1.0). Its exports:
+
+| Export | What it does |
+|--------|--------------|
+| `fnv1a32(str)`, `seedFromString(str)` | FNV-1a 32 bit hash of the UTF-8 bytes of a string, used as a seed |
+| `mulberry32Step(state)` | One step: returns the next state and the output word, keeping the state at 32 bits on every step |
+| `createRng(seed)` | A generator from an integer or a string seed, with `nextUint32()`, `next()` (a float in [0, 1), exact as uint32 / 2^32) and `int(n)` (unbiased integer in [0, n) by rejection sampling) |
+| `createBag(items, rng)` | Bag randomizer (section 3) |
+
+The file's own note: the popular mulberry32 snippet lets the state grow as a double and drifts after about 4.9 million draws; the engine keeps it at 32 bits. Game logic that must match across platforms uses `int(n)` or `nextUint32()`, not `next()`.
+
+The sketch below shows the arithmetic; use the engine, not a copy of the sketch.
 
 ```js
 // mulberry32: integer only, 32 bit unsigned state
@@ -86,6 +97,7 @@ A pure independent draw can starve a player of the one piece they need for a lon
 |-----------|-------------|------------------|------|
 | Independent draw | Each piece drawn uniformly | Unbounded droughts possible | Feels unfair at the tail |
 | 7 bag (falling block games) | Shuffle all piece types, deal them out, reshuffle | Bounded by bag size | Widely used; sources are fan wikis only [Unverified] |
+| Engine `createBag(items, rng)` | Fisher Yates shuffle of a copy, deal each item once, reshuffle lazily when empty | An item never waits more than 2n minus 2 draws between appearances (n items per bag) | Repeat an item to weight it; the rng is consumed at the same points on every port |
 | History aware | Reroll a draw if it repeats one of the last k pieces | Shortens droughts, softer than a bag | Tune k |
 | Weighted bag | A bag with some types repeated | Bounded; changes the mix | The weights are a published difficulty parameter |
 

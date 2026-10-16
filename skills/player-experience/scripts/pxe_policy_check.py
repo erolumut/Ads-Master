@@ -19,7 +19,7 @@ Fails (exit 1) when:
   - a rule lacks a reason or an explainKey
   - player.settings lacks auto or a fixed level, or explain, log or reset is not true
   - scores.modifyAfterFact is true, or assisted runs are allowed on shared boards
-  - experiment.holdoutPercent is outside 1 to 20, or there is no primary metric
+  - experiment.holdoutPercent is outside 1 to 20, there is no primary metric, or holdoutSalt is missing
   - the audience includes minors (minimumAge under 18) and minorsTier is not strict
   - the strict tier applies and a return reason has source streak or loss
   - a return reason lacks maxPerDay or quietHours
@@ -276,6 +276,9 @@ def check_experiment(policy: dict, out: Findings) -> None:
     hold = exp.get("holdoutPercent")
     if not is_number(hold) or not (1 <= hold <= 20):
         out.fail("experiment", f"holdoutPercent {hold!r} must be a number from 1 to 20")
+    salt = exp.get("holdoutSalt")
+    if not isinstance(salt, str) or not salt.strip():
+        out.fail("experiment", "holdoutSalt is missing; a stable salt keeps the same holdout across policy revisions")
     primary = exp.get("primary")
     if not isinstance(primary, list) or not [p for p in primary if isinstance(p, str) and p.strip()]:
         out.fail("experiment", "no primary metric")

@@ -1,6 +1,6 @@
 # Difficulty Measurement and Calibration
 
-> Knowledge as of 2026-10 (research pass 2026-10-16, dossier `research/player-experience-engine.md`). Only developer.apple.com could be opened during the pass; every study below comes from search summaries of the named source and is labeled [Reported, YYYY-MM] or weaker until someone reads the paper. Formulas are standard methods, not findings. Thresholds marked "placeholder" are starting values to tune per game, never benchmarks.
+> Knowledge as of 2026-10 (research pass 2026-10-16, dossier `research/player-experience.md`). Only developer.apple.com could be opened during the pass; every study below comes from search summaries of the named source and is labeled [Reported, YYYY-MM] or weaker until someone reads the paper. Formulas are standard methods, not findings. Thresholds marked "placeholder" are starting values to tune per game, never benchmarks.
 
 Gate: reading exports, building a level table and writing a calibration report are G1. Publishing a new level difficulty table to remote config changes what players get and is G3 (change request with rollback). Level design itself belongs to the game repo.
 
@@ -55,10 +55,10 @@ Raw pass rate depends on who played the level. Ratings separate player skill fro
 Each player has a skill rating and each level a difficulty rating on one scale. After each unassisted attempt:
 
 ```
-expected = 1 / (1 + 10 ^ ((level_rating - skill_rating) / 400))
+expected = 1 / (1 + 10 ^ ((level_rating-skill_rating) / 400))
 outcome  = 1 if passed else 0
-skill_rating += K_player * (outcome - expected)
-level_rating -= K_level  * (outcome - expected)
+skill_rating += K_player * (outcome-expected)
+level_rating -= K_level  * (outcome-expected)
 ```
 
 | Choice | Guidance | Label |
@@ -76,7 +76,7 @@ The engine's `rating.js` (in [../engine](../engine/)) is the reference implement
 The Rasch model fits the same idea in one batch over all attempts:
 
 ```
-P(pass | player p, level l) = 1 / (1 + exp(-(theta_p - b_l)))
+P(pass | player p, level l) = 1 / (1 + exp(-(theta_p-b_l)))
 ```
 
 `theta_p` is player ability, `b_l` is level difficulty. Fit weekly on the server over unassisted, non holdout and holdout attempts in private modes. Rasch is better for the weekly level table; Elo is better for the live player estimate on the device.
@@ -150,7 +150,7 @@ Export one mode and one engine version at a time, unassisted attempts only (sect
 | first try pass | Wins on a player's first attempt / first attempts (`attempts_before == 0` when filled, otherwise the first event in time order) |
 | median attempts | Median, over players who passed, of attempts up to and including their first win |
 | quit at level rate | Players whose last event overall is on this level and is a fail or quit / players who reached it |
-| elo | Level rating from replaying every attempt in time order: players and levels start at 1500, expected win chance `1 / (1 + 10 ** ((level - player) / 400))`, the player moves by K 24 times (score minus expected), the level by K 8 times (expected minus score) |
+| elo | Level rating from replaying every attempt in time order: players and levels start at 1500, expected win chance `1 / (1 + 10 ** ((level-player) / 400))`, the player moves by K 24 times (score minus expected), the level by K 8 times (expected minus score) |
 
 Only differences between level ratings carry meaning, and levels with few attempts stay near 1500. "Quit at level rate" is the script's stand in for per level churn: it uses last event overall, not a mature inactivity window, so a recent export overstates it at the frontier. Read it with the cohort dates.
 

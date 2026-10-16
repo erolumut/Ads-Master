@@ -1,6 +1,6 @@
 # Difficulty Curves and Level Design Signals
 
-> Knowledge as of 2026-10 (research pass 2026-10-16, dossier `research/player-experience-engine.md`). Facts about named games come from search summaries and secondary trackers ([Reported, 2026-10] at best, often [Unverified]); they describe what exists, not a template. Thresholds marked "placeholder" are starting values, not benchmarks.
+> Knowledge as of 2026-10 (research pass 2026-10-16, dossier `research/player-experience.md`). Facts about named games come from search summaries and secondary trackers ([Reported, 2026-10] at best, often [Unverified]); they describe what exists, not a template. Thresholds marked "placeholder" are starting values, not benchmarks.
 
 Gate: curve reviews, flags and proposals to the game repo are G1. A live change to the curve, a level's parameters or the policy that adapts it is G3 and belongs to the game repo's release process, with site or app release QA.
 
@@ -114,7 +114,30 @@ Details: [experiments and measurement](experiments-and-measurement.md). The live
 
 Use the `game-liveops` difficulty flag format ([difficulty signals](../../game-liveops/references/content-cadence-and-difficulty-signals.md) section 6). The flag is evidence and a question, not a fix.
 
-## 8. Things the engine never does to the curve
+## 8. Curve review procedure (monthly, or per content drop)
+
+1. Export unassisted attempts for the level path, one engine version, with cohort dates.
+2. Run `difficulty_table.py` ([calibration](difficulty-measurement-and-calibration.md) section 6) and plot pass rate and elo by level.
+3. Overlay the designer's intended peaks and rest levels and the mechanic introduction list.
+4. Mark mismatches: unintended `hard` labels, peaks without rest levels, intro levels with low first try pass, `wall` flags outside the frontier.
+5. Overlay the policy action rate per level from the audit log sample: levels where easing fires for a large share of players are design questions.
+6. Write the curve memo: findings, evidence, questions for the designer. No parameter recommendations.
+7. File flags in the `game-liveops` format; log the memo in `ads-master/outputs/player-experience/`.
+
+Curve memo template:
+
+```
+# Curve review: <product>, levels <a> to <b>, <date>
+Data: <export>, engine <ENGINE_VERSION>, cohort <dates>, thresholds <min-attempts, hard, super-hard>
+Sawtooth summary: hard share <x>, spacing <y> (script output)
+Intended peaks: <list>; unintended hard labels: <list>
+Rest level check: <peaks without rest>
+Mechanic intros: <level: mechanic, first try pass>
+Policy load: <levels eased for most players>
+Questions for the designer: <one line each>
+```
+
+## 9. Things the engine never does to the curve
 
 - Never makes a level harder because a player is likely to pay, watch an ad or has an ad ready. Spend and ad signals are forbidden inputs ([policy format](policy-format.md) section 4).
 - Never inserts an unlabeled peak or removes a rest level.

@@ -59,7 +59,7 @@
     { "id": "daily_ready", "source": "content", "maxPerDay": 1, "quietHours": ["21:00", "09:00"] }
   ],
   "scores": { "modifyAfterFact": false, "assistedRunsLabeled": true, "assistedRunsOnSharedBoards": false },
-  "experiment": { "holdoutPercent": 5, "readAfterDays": 56, "primary": ["d7_retention"], "guardrails": ["quit_after_fail_rate", "adaptation_opt_out_rate"] }
+  "experiment": { "holdoutPercent": 5, "holdoutSalt": "pxe-holdout-2026", "readAfterDays": 56, "primary": ["d7_retention"], "guardrails": ["quit_after_fail_rate", "adaptation_opt_out_rate"] }
 }
 ```
 
@@ -102,7 +102,7 @@ Allowed actions: `difficulty_offset` (with `value` inside `minOffset` to `maxOff
 | Rule without `reason` or `explainKey` | FAIL |
 | `player.settings` missing `auto` or any fixed level, or `explain`, `log`, `reset` false | FAIL |
 | `scores.modifyAfterFact` true, or assisted runs allowed on shared boards | FAIL |
-| `experiment.holdoutPercent` outside 1 to 20, or no primary metric | FAIL |
+| `experiment.holdoutPercent` outside 1 to 20, no primary metric, or no `holdoutSalt` | FAIL |
 | `audience.minimumAge` under 18 and `minorsTier` not `strict` | FAIL |
 | Strict tier with a return reason whose `source` is `streak` or `loss` | FAIL |
 | Return reason without `maxPerDay` or `quietHours` | FAIL |
@@ -113,7 +113,7 @@ Allowed actions: `difficulty_offset` (with `value` inside `minOffset` to `maxOff
 
 1. `evaluate(state, mode)` returns no action in a shared mode, whatever the rules say.
 2. A player setting other than `auto` disables difficulty actions; hint, break and next goal offers still respect their caps.
-3. Holdout players (stable hash of the install id and the policy revision) get no actions; their events are still counted.
+3. Holdout players (stable FNV-1a hash of the install id and `experiment.holdoutSalt`, modulo 100, below `holdoutPercent`) get no actions; their events are still counted. The salt stays the same across policy revisions so the holdout persists through a long read; change it only to start a new holdout on purpose, and log that as a decision.
 4. Every returned action carries the rule id, reason code and explain key, and is appended to the audit log.
 5. Offsets are clamped to `minOffset` and `maxOffset`; silent easing happens at most once per session.
 6. Randomness comes from a seeded generator; the same seed and engine version give the same sequence on every platform.

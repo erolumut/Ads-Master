@@ -165,6 +165,10 @@ class PolicyCheckTests(unittest.TestCase):
             self.assertEqual(messages(mutated(lambda d, g=good: d["experiment"].update(holdoutPercent=g))), [])
         self.assertFailsWith(mutated(lambda d: d["experiment"].update(primary=[])), "no primary metric")
 
+    def test_holdout_salt_required(self):
+        self.assertFailsWith(mutated(lambda d: d["experiment"].pop("holdoutSalt")), "holdoutSalt is missing")
+        self.assertFailsWith(mutated(lambda d: d["experiment"].update(holdoutSalt="  ")), "holdoutSalt is missing")
+
     def test_minors_need_the_strict_tier(self) -> None:
         self.assertFailsWith(mutated(lambda d: d["audience"].update(minimumAge=13, minorsTier="lenient")),
                              "minimumAge 13 includes minors and minorsTier is 'lenient'")

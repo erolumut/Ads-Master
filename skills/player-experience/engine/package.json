@@ -1,0 +1,11 @@
+{
+  "name": "pxe-engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reference player experience engine for pxe 0.1 policies. No dependencies, no build step.",
+  "type": "module",
+  "main": "index.js",
+  "exports": "./index.js",
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test test/" }
+}
