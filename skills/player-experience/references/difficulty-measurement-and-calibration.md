@@ -39,7 +39,7 @@ Split every measure by whether the attempt was assisted (a hint, a booster, a co
 | Pattern | Reading | First check |
 |---------|---------|-------------|
 | Spike | One level far harder than its neighbors (pass rate well below, attempts well above) | Is it a designed peak? Is it flagged hard in the game? |
-| Wall | A spike plus a churn rise at the same level | Mechanic introduced here, unclear goal, bug, or too hard |
+| Wall | Players stop at this level far more often than elsewhere (quit or churn rise), with or without a pass rate dip | Mechanic introduced here, unclear goal, bug, or too hard |
 | Sawtooth | Regular peaks with easier levels after them | Usually the design working; see [curves](difficulty-curves-and-level-design-signals.md) |
 | Flat high | Many hard levels in a row, no rest | Fatigue risk; designer review |
 | Frontier churn | Churn at the last available levels | A content runway problem, not difficulty |
@@ -69,7 +69,7 @@ level_rating -= K_level  * (outcome - expected)
 | Sample floor | Do not trust a level rating until it has many attempts; puzzles need many attempts for stable ratings | [Reported, 2026-10] (Pelánek 2016, Lichess) |
 | Outcome | Pass or fail only; time and moves left can enter later as a graded outcome, documented | Method |
 
-The engine's `rating.js` (in [../engine](../engine/)) is the reference implementation of the player side. `skill_rating`, `level_rating` and `rating_gap` are allowed policy inputs ([policy format](policy-format.md) section 3).
+The engine's `rating.js` (in [../engine](../engine/)) is the reference implementation of the player side; `difficulty_table.py` replays the same update offline with K 24 for players and K 8 for levels (section 6). `skill_rating`, `level_rating` and `rating_gap` are allowed policy inputs ([policy format](policy-format.md) section 3).
 
 ### 3.2 Rasch (batch, more stable)
 
@@ -123,40 +123,73 @@ Placeholder: no difficulty action before a player's tenth attempt in a game, tun
 
 ## 6. Reading `difficulty_table.py`
 
-The script lives in [../scripts](../scripts/). It reads a per level export and prints a level table with labels and flags. Standard library only; run with `python3 -I`. Read the script's docstring and `--help` for the exact input columns and the defaults; this section explains how to read the output.
+The script lives in [../scripts](../scripts/) (`difficulty_table.py`). Standard library only; run with `python3 -I`. It reads facts and prints a table plus flags; it never recommends level parameters. A sample input is in `../scripts/samples/events.csv`.
 
-Options named in the package:
+### 6.1 Input
 
-| Option | What it sets |
-|--------|--------------|
-| `--min-attempts` | Below this many attempts, the level is labeled `insufficient data` and gets no other label or flag |
-| `--hard` | The threshold for the `hard` label |
-| `--super-hard` | The threshold for the `super hard` label |
+One row per attempt, with a header row.
 
-Labels per level:
+| Column | Required | Meaning |
+|--------|----------|---------|
+| `player_id` | Yes | Pseudonymous id (never a name, email or ad id) |
+| `level` | Yes | Integer level index |
+| `result` | Yes | `win`, `fail` or `quit` (a quit counts as an attempt that did not pass) |
+| `attempts_before` | No | Attempts this player made on the level before this one |
+| `duration_ms` | No | Read and checked, not used in this version |
+| `ts` | No | Epoch seconds or ISO 8601; without it the file order is the time order |
+
+Export one mode and one engine version at a time, unassisted attempts only (section 2.1).
+
+### 6.2 What it computes per level
+
+| Column | Definition in the script |
+|--------|--------------------------|
+| attempts | Every event on the level |
+| players | Distinct players with at least one event on the level |
+| pass rate | Wins / attempts |
+| first try pass | Wins on a player's first attempt / first attempts (`attempts_before == 0` when filled, otherwise the first event in time order) |
+| median attempts | Median, over players who passed, of attempts up to and including their first win |
+| quit at level rate | Players whose last event overall is on this level and is a fail or quit / players who reached it |
+| elo | Level rating from replaying every attempt in time order: players and levels start at 1500, expected win chance `1 / (1 + 10 ** ((level - player) / 400))`, the player moves by K 24 times (score minus expected), the level by K 8 times (expected minus score) |
+
+Only differences between level ratings carry meaning, and levels with few attempts stay near 1500. "Quit at level rate" is the script's stand in for per level churn: it uses last event overall, not a mature inactivity window, so a recent export overstates it at the frontier. Read it with the cohort dates.
+
+### 6.3 Options, labels and flags
+
+| Option | Default in the script | What it sets |
+|--------|-----------------------|--------------|
+| `--min-attempts` | 30 | Below this, the level is `insufficient data` and is not judged |
+| `--hard` | 0.45 | Pass rate below this is `hard` |
+| `--super-hard` | 0.25 | Pass rate below this is `super hard` |
+| `--json` | off | Print one JSON document; the "cannot cover" sentence is under `cannotCover` and also on stderr |
+| `--out` | none | Also write the printed output to a file |
+
+The defaults are practitioner starting points written into the script, not benchmarks. Record the values used with every table.
 
 | Label | Meaning | What to do |
 |-------|---------|------------|
-| `hard` | Harder than the `--hard` threshold | Fine if the designer marked it as a peak; check rest levels follow |
-| `super hard` | Harder than the `--super-hard` threshold | Must be a deliberate, flagged peak; check churn and quit |
-| `insufficient data` | Under `--min-attempts` | Do not act; no flag is a finding here |
-| (none) | Normal | Nothing |
+| `ok` | Pass rate at or above `--hard` | Nothing |
+| `hard` | Pass rate below `--hard` | Fine if the designer marked it as a peak; check a rest level follows |
+| `super hard` | Pass rate below `--super-hard` | Must be a deliberate, labeled peak; check quit at level |
+| `insufficient data` | Attempts below `--min-attempts` | Do not act; the absence of a flag is not a finding |
 
-Flags and summary:
+| Flag | Rule in the script | Who acts |
+|------|--------------------|----------|
+| `spike` | Pass rate at least 0.15 below both neighboring levels (both with enough attempts) | Designer review; often intended |
+| `wall` | Quit at level rate at least 2 times the median of all judged levels, and at least 0.05 | Designer review first; the policy may offer a hint, never a hidden change |
+| `sawtooth` (summary, not a flag) | Share of hard levels and the spacing between them | Compare with the intended curve ([curves](difficulty-curves-and-level-design-signals.md)) |
 
-| Output | Meaning | Who acts |
-|--------|---------|----------|
-| `spike` | Much harder than its neighbors | Designer review; often intended |
-| `wall` | Spike with a churn rise | Designer review first, policy second (hint offer, never a hidden change) |
-| `sawtooth` summary | Whether hard levels recur with easier levels between them, and how often | Compare with the intended curve ([curves](difficulty-curves-and-level-design-signals.md)) |
+Exit codes: 0 the table was written (flags are not failures); 2 could not run.
 
-Procedure:
-1. Export the level funnel for one mode and one engine version, unassisted attempts, mature cohort.
-2. Run `difficulty_table.py` with the thresholds recorded in the game's calibration notes (`ads-master/memory/player-experience.md` holds what was used last time).
+### 6.4 Procedure
+
+1. Export the attempt log for one mode and one engine version, unassisted attempts, with the cohort dates written down.
+2. Run, for example `python3 -I ../scripts/difficulty_table.py events.csv --min-attempts 50 --json --out table.json`, with the thresholds recorded in `ads-master/memory/player-experience.md` from the last run.
 3. Read `insufficient data` rows first: they are where nothing can be claimed.
-4. Read `wall` flags next; write a difficulty flag for the game repo in the `game-liveops` format.
+4. Read `wall` flags next. A wall at the last levels may be the content frontier, not difficulty; check before filing. File real walls as a difficulty flag for the game repo in the `game-liveops` format.
 5. Compare `hard` and `super hard` labels with the designer's own hard markers. A label the designer did not intend is a finding.
-6. Save the output under `ads-master/outputs/player-experience/` with the export name and date range.
+6. Read the `sawtooth` summary against the intended curve.
+7. Save the output under `ads-master/outputs/player-experience/` with the export name and date range, and quote the script's `cannotCover` sentence in the report.
 
 Never change a threshold to make a flag disappear. A threshold change is a recorded decision with the reason and the date.
 
