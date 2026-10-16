@@ -74,6 +74,11 @@ Plays:
 5. Optimize the homepage as a landing page: ChatGPT sends a growing share of referrals to homepages since 2026-05-07 [Study, 2026-05].
 6. Track memory-free runs as baseline; note that real users have memory and history.
 
+Watch (2026-10-15): Cloudflare and OpenAI published first findings from a joint research pilot on using real-time network signals to make ChatGPT search fresher without overloading sites [Reported, 2026-10, announcement only; blog not read]. It is a pilot, not a documented feature or setting. Until it ships with documentation:
+1. Sites already on Cloudflare: the work is the opposite of "add Cloudflare": check that OAI-SearchBot and ChatGPT-User are allowed in AI Crawl Control and the WAF (audit A7, A8), because Cloudflare's defaults can block AI agents.
+2. Sites on Vercel or another CDN: do not move or double proxy for this; visibility today rests on crawler access, clear facts and third party citations.
+3. Recheck by 2026-12 on the Cloudflare blog and OpenAI's publisher documentation; replace this note with documented behavior.
+
 ## 5. ChatGPT shopping
 
 | Item | Detail |
