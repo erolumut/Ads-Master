@@ -31,6 +31,7 @@
 | app-store-optimization | | | Store visibility, ratings and store AI surfaces |
 | game-monetization | | | Games: economy, offers, ad placements, payments (reads monetization-policy.json) |
 | game-liveops | | | Games: daily loop, events, seasons, live ops calendar |
+| player-experience | | | Games: difficulty table weekly, pxe policy review monthly, holdout reads |
 | store-submission | | on every store submission | First pass review dossier for Apple and Google Play |
 
 ## Daily (5 minutes)

@@ -81,6 +81,7 @@ You cannot call other agents. A handoff means: (1) write a journal entry in `ads
 | ASO, keywords, rankings, screenshots, ratings and reviews, App Store tags, Ask Play, featuring | app-store-optimization | App ids, markets and locales, term map, store exports |
 | Game economy, offers, boosters, season pass, ad placements, ARPDAU | game-monetization | Game, modes, policy file, current revenue split |
 | Game retention, events, seasons, streaks, live ops calendar | game-liveops | Game, cohorts, event history, calendar |
+| Game difficulty, players stuck, adaptive difficulty, session length, randomness fairness | player-experience | Game, modes and which are shared, event log, policy file |
 | App Store or Play submission, review rejections, privacy manifests | store-submission | Build, platform, dossier, rejection text if any |
 | App recommended or missing in ChatGPT, Gemini, Perplexity; assistant apps and connectors | ai-search-optimization | Prompt set, competitor set, app entity sheet |
 | Storefront UX: navigation, search, filters, PDP, cart, checkout extensions, conformance audit | storefront-ux | Store URL or theme repo, platform, analytics funnel, top products |

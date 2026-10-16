@@ -4,7 +4,7 @@ Master list of every agent and utility skill in Ads Master. Knowledge as of 2026
 
 ## Agents
 
-27 agents in eight groups. Each group answers one question about the business.
+28 agents in eight groups. Each group answers one question about the business.
 
 ### Strategy and control: where do we grow, and what is true?
 | Agent | Mission | Headline KPIs | Default cadence | Activate when |
@@ -59,12 +59,13 @@ Master list of every agent and utility skill in Ads Master. Knowledge as of 2026
 | `lifecycle-crm` | Raise repeat purchase and 12 month contribution LTV through consented, deliverable, measured lifecycle messaging, and feed retention truth back to acquisition | Repeat rate at 30, 45, 60, 90 days, incremental lifecycle contribution, deliverability, net list growth | Weekly | Customers or subscribers with consent |
 
 ### Games: earn, keep players, pass review
-Boundary: Ads Master owns how a game earns, is found, keeps players, is measured and passes store review. Each game's own repo owns how it plays (game design, level design, difficulty). Game numbers have one owner, `measurement` (`game-kpis`).
+Boundary: Ads Master owns how a game earns, is found, keeps players, is measured and passes store review. Each game's own repo owns how it plays (game design and level content); `player-experience` measures difficulty, writes the adaptive policy and ships a reference engine the game repo integrates. Game numbers have one owner, `measurement` (`game-kpis`).
 
 | Agent | Mission | Headline KPIs | Default cadence | Activate when |
 |-------|---------|---------------|-----------------|---------------|
 | `game-monetization` | Make each game earn through a fair, lawful economy, offers and ad placements defined once in `monetization-policy.json` and checked before release | ARPDAU split (IAP, ads), payer conversion, ARPPU, impressions per DAU, eCPM by placement, refund and complaint rate, with D1 and D7 as guard rails | Weekly, monthly economy review | A game on web, PWA or stores |
 | `game-liveops` | Bring players back every day and every season through loops, events, groups and a calendar shared with the stores, without pressure patterns | D1, D7, D30, stickiness, event participation, season completion, churn by level | Weekly, monthly calendar | A game with returning players |
+| `player-experience` | Make each game feel right for every player: difficulty measured from outcomes, fair seeded randomness, bounded adaptation in private modes, next goals and honest return reasons, all in a checked policy file with a persistent holdout | Treatment vs holdout D1, D7, D28, sessions per week, level walls, quit after fail rate, adaptation opt out rate | Weekly difficulty table, monthly policy review | A game with levels, practice modes or bots |
 | `store-submission` | Get every build accepted on the first App Store and Google Play review, with a dossier that blocks on gaps before submission | First pass approval rate, days from build to live, rejections by guideline, repeat rejections (target zero) | On every submission | An app or game heading to a store |
 
 ## Utility skills
@@ -96,6 +97,7 @@ Boundary: Ads Master owns how a game earns, is found, keeps players, is measured
 | app-store-optimization | ai-search-optimization | App prompt panel, source map, assistant apps and connectors |
 | growth-orchestrator, measurement, game-liveops | game-monetization | Economy, catalog, offers, boosters and continues, ad placements, the policy file |
 | game-monetization, lifecycle-crm, app-store-optimization | game-liveops | Daily loop, events, seasons, live ops calendar, difficulty flags for the game repo |
+| game-liveops, game-monetization, measurement, growth-orchestrator | player-experience | Difficulty table, level flags, the pxe policy file, adaptation experiments, return reasons |
 | app-store-optimization, mobile-app-growth, site-engineer | store-submission | Submission dossier, review notes, privacy manifests and Data safety, rejection replies |
 | offer-strategy, growth-orchestrator, market-intel | pricing-strategy | Price level, price architecture, basket and delivery thresholds, price changes |
 | pricing-strategy | offer-strategy | Incentive mechanics and promo calendar on top of the base price |

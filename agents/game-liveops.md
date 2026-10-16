@@ -59,6 +59,7 @@ Ads Master agents do not call each other (nested subagents are disabled by desig
 
 | Situation | Hand off to (slug) | What to pass in the brief |
 |-----------|--------------------|---------------------------|
+| Difficulty walls and spikes, adaptive difficulty in level or practice modes, session endings, return reasons that depend on player state | player-experience | Level flags, churn by level, modes that are shared, calendar rows the change touches |
 | Offers around an event, pass pricing, premium track value, event reward economy, group purchases, any new grant or offer point | game-monetization | Event or season spec, calendar row ids, reward ladder as typed grants, offer points (snake_case, `custom_` for product moments), boards affected and their scopes |
 | Reminder moments (daily tick, habit time, event start, season start, group activity, turn ready), permission asks, opt out trends | lifecycle-crm | Reminder moment request (moment, audience, timing rule, cap, step down, intent, deep link, holdout, calendar id) |
 | Store copy for in-app events and promotional content, featuring nominations, promotional text | app-store-optimization | Calendar rows, badge, purpose, priority, deep link, dates, the real new content, character limits |

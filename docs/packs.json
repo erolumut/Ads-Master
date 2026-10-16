@@ -107,6 +107,7 @@
     "agents": [
       "game-monetization",
       "game-liveops",
+      "player-experience",
       "store-submission",
       "app-store-optimization",
       "mobile-app-growth",
